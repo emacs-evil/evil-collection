@@ -44,6 +44,9 @@
   (with-eval-after-load 'edebug
     (require 'evil-edebug)
     (evil-edebug-set-keys))
+  (with-eval-after-load 'help-mode
+    (require 'evil-help)
+    (evil-help-set-keys))
   (with-eval-after-load 'ibuffer
     (require 'evil-ibuffer)
     (evil-ibuffer-set-keys))
