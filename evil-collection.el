@@ -69,7 +69,10 @@
     (evil-ggtags-set-keys))
   (with-eval-after-load 'ivy
     (require 'evil-ivy)
-    (evil-ivy-set-keys)))
+    (evil-ivy-set-keys))
+  (with-eval-after-load 'macrostep
+    (require 'evil-macrostep)
+    (evil-collection-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
