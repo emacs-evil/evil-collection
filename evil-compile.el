@@ -1,4 +1,4 @@
-;;; evil-collection.el --- A set of keybindings for evil-mode. -*- lexical-binding: t -*-
+;;; evil-compile.el --- Evil integration for `compile'. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, emacs
+;; Keywords: emacs, compile, evil
 ;; HomePage: https://github.com/jojojames/evil-collection
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,38 +24,24 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; A set of keybindings for evil-mode.
+;; Evil integration for `compile'
 
 ;;; Code:
+(require 'evil-collection-util)
+(require 'compile)
 
-;;;###autoload
-(defun evil-collection-builtin-modes-init ()
-  ""
-  (interactive)
-  (with-eval-after-load 'bookmark
-    (require 'evil-bookmark)
-    (evil-bookmark-set-keys))
-  (with-eval-after-load 'compile
-    (require 'evil-compile)
-    (evil-compile-set-keys)))
+(defun evil-compile-set-keys ()
+  (+evilify-map
+   compilation-mode-map
+   :mode compilation-mode
+   :bindings
+   "gr" 'recompile
+   "gj" 'compilation-next-error
+   "gk" 'compilation-previous-error
+   "\C-j" 'compilation-next-error
+   "\C-k" 'compilation-previous-error
+   "\M-j" 'compilation-next-file
+   "\M-k" 'compilation-previous-file))
 
-;;;###autoload
-(defun evil-collection-extra-modes-init ()
-  ""
-  (interactive)
-  (with-eval-after-load 'ag
-    (require 'evil-ag)
-    (evil-ag-set-keys))
-  (with-eval-after-load 'cider
-    (require 'evil-cider)
-    (evil-cider-set-keys)))
-
-;;;###autoload
-(defun evil-collection-all-modes-init ()
-  "Register Evil bindings for all supported modes."
-  (interactive)
-  (evil-collection-builtin-modes-init)
-  (evil-collection-extra-modes-init))
-
-(provide 'evil-collection)
-;;; evil-collection.el ends here
+(provide 'evil-compile)
+;;; evil-compile.el ends here
