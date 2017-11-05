@@ -55,7 +55,10 @@
     (with-eval-after-load 'replace
       (require 'evil-occur)
       (evil-occur-set-keys)))
-  )
+
+  (with-eval-after-load 'xref
+    (require 'evil-xref)
+    (evil-xref-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-extra-modes-init ()
