@@ -42,7 +42,10 @@
   (interactive)
   (with-eval-after-load 'ag
     (require 'evil-ag)
-    (evil-ag-set-keys)))
+    (evil-ag-set-keys))
+  (with-eval-after-load 'cider
+    (require 'evil-cider)
+    (evil-cider-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
