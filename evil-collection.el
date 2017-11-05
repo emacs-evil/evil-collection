@@ -46,7 +46,16 @@
     (evil-edebug-set-keys))
   (with-eval-after-load 'ibuffer
     (require 'evil-ibuffer)
-    (evil-ibuffer-set-keys)))
+    (evil-ibuffer-set-keys))
+
+  (if (<= emacs-major-version 25)
+      (progn
+        (require 'evil-occur)
+        (evil-occur-set-keys))
+    (with-eval-after-load 'replace
+      (require 'evil-occur)
+      (evil-occur-set-keys)))
+  )
 
 ;;;###autoload
 (defun evil-collection-extra-modes-init ()
