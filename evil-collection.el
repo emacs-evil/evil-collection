@@ -81,7 +81,10 @@
     (evil-ivy-set-keys))
   (with-eval-after-load 'macrostep
     (require 'evil-macrostep)
-    (evil-collection-set-keys)))
+    (evil-collection-set-keys))
+  (with-eval-after-load 'p4
+    (require 'evil-p4)
+    (evil-p4-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
