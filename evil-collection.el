@@ -87,7 +87,10 @@
     (evil-p4-set-keys))
   (with-eval-after-load 'pass
     (require 'evil-pass)
-    (evil-pass-set-keys)))
+    (evil-pass-set-keys))
+  (with-eval-after-load 'prodigy
+    (require 'evil-prodigy)
+    (evil-prodigy-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
