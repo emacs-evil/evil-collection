@@ -54,7 +54,10 @@
     (evil-ag-set-keys))
   (with-eval-after-load 'cider
     (require 'evil-cider)
-    (evil-cider-set-keys)))
+    (evil-cider-set-keys))
+  (with-eval-after-load 'elisp-refs
+    (require 'evil-elisp-refs)
+    (evil-elisp-refs-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
