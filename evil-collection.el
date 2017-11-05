@@ -37,7 +37,10 @@
     (evil-bookmark-set-keys))
   (with-eval-after-load 'compile
     (require 'evil-compile)
-    (evil-compile-set-keys)))
+    (evil-compile-set-keys))
+  (with-eval-after-load 'dired
+    (require 'evil-dired)
+    (evil-dired-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-extra-modes-init ()
