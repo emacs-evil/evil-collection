@@ -51,6 +51,10 @@
     (require 'evil-ibuffer)
     (evil-ibuffer-set-keys))
 
+  (with-eval-after-load 'package
+    (require 'evil-package-menu)
+    (evil-package-menu-set-keys))
+
   (if (<= emacs-major-version 25)
       (progn
         (require 'evil-occur)
