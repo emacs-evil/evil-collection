@@ -43,7 +43,10 @@
     (evil-dired-set-keys))
   (with-eval-after-load 'edebug
     (require 'evil-edebug)
-    (evil-edebug-set-keys)))
+    (evil-edebug-set-keys))
+  (with-eval-after-load 'ibuffer
+    (require 'evil-ibuffer)
+    (evil-ibuffer-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-extra-modes-init ()
