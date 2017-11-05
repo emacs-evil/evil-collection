@@ -90,7 +90,13 @@
     (evil-pass-set-keys))
   (with-eval-after-load 'prodigy
     (require 'evil-prodigy)
-    (evil-prodigy-set-keys)))
+    (evil-prodigy-set-keys))
+  (with-eval-after-load 'slime
+    (require 'evil-slime)
+    (evil-collection-set-keys))
+  (with-eval-after-load 'vlf
+    (require 'evil-vlf)
+    (evil-vlf-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
