@@ -1,4 +1,4 @@
-;;; evil-collection.el --- A set of keybindings for evil-mode. -*- lexical-binding: t -*-
+;;; evil-bookmarks.el --- Evil bindings for bookmarks. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -24,32 +24,16 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; A set of keybindings for evil-mode.
+;;; Evil bindings for bookmarks.
 
 ;;; Code:
+(require 'bookmark)
+(require 'evil-collection-util)
 
-;;;###autoload
-(defun evil-collection-builtin-modes-init ()
-  ""
-  (interactive)
-  (with-eval-after-load 'bookmark
-    (require 'evil-bookmark)
-    (evil-bookmark-set-keys)))
+(defun evil-bookmark-set-keys ()
+  (+evilify-map
+   bookmark-bmenu-mode-map
+   :mode bookmark-bmenu-mode))
 
-;;;###autoload
-(defun evil-collection-extra-modes-init ()
-  ""
-  (interactive)
-  (with-eval-after-load 'ag
-    (require 'evil-ag)
-    (evil-ag-set-keys)))
-
-;;;###autoload
-(defun evil-collection-all-modes-init ()
-  "Register Evil bindings for all supported modes."
-  (interactive)
-  (evil-collection-builtin-modes-init)
-  (evil-collection-extra-modes-init))
-
-(provide 'evil-collection)
-;;; evil-collection.el ends here
+(provide 'evil-bookmark)
+;;; evil-bookmarks.el ends here
