@@ -55,6 +55,9 @@
     (require 'evil-package-menu)
     (evil-package-menu-set-keys))
 
+  (with-eval-after-load 'profiler
+    (require 'evil-profiler))
+
   (if (<= emacs-major-version 25)
       (progn
         (require 'evil-occur)
