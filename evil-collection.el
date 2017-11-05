@@ -66,7 +66,10 @@
     (evil-flycheck-set-keys))
   (with-eval-after-load 'ggtags
     (require 'evil-ggtags)
-    (evil-ggtags-set-keys)))
+    (evil-ggtags-set-keys))
+  (with-eval-after-load 'ivy
+    (require 'evil-ivy)
+    (evil-ivy-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
