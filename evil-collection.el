@@ -57,7 +57,10 @@
     (evil-cider-set-keys))
   (with-eval-after-load 'elisp-refs
     (require 'evil-elisp-refs)
-    (evil-elisp-refs-set-keys)))
+    (evil-elisp-refs-set-keys))
+  (with-eval-after-load 'flycheck
+    (require 'evil-flycheck)
+    (evil-flycheck-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
