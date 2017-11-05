@@ -40,7 +40,10 @@
     (evil-compile-set-keys))
   (with-eval-after-load 'dired
     (require 'evil-dired)
-    (evil-dired-set-keys)))
+    (evil-dired-set-keys))
+  (with-eval-after-load 'edebug
+    (require 'evil-edebug)
+    (evil-edebug-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-extra-modes-init ()
