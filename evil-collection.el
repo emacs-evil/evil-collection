@@ -63,7 +63,10 @@
     (evil-elisp-refs-set-keys))
   (with-eval-after-load 'flycheck
     (require 'evil-flycheck)
-    (evil-flycheck-set-keys)))
+    (evil-flycheck-set-keys))
+  (with-eval-after-load 'ggtags
+    (require 'evil-ggtags)
+    (evil-ggtags-set-keys)))
 
 ;;;###autoload
 (defun evil-collection-all-modes-init ()
