@@ -56,6 +56,10 @@
       (require 'evil-occur)
       (evil-occur-set-keys)))
 
+  (with-eval-after-load 'term
+    (require 'evil-ansi-term)
+    (evil-ansi-term-set-keys))
+
   (with-eval-after-load 'xref
     (require 'evil-xref)
     (evil-xref-set-keys)))
