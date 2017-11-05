@@ -42,9 +42,7 @@
     "0" #'evil-digit-argument-or-evil-beginning-of-line
     "n" #'evil-search-next
     "N" #'evil-search-previous)
-
-  (setq evil-motion-state-modes
-        (delete 'ag-mode evil-motion-state-modes)))
+  (evil-set-initial-state 'ag-mode 'normal))
 
 (provide 'evil-ag)
 ;;; evil-ag.el ends here
