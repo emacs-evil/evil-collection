@@ -53,6 +53,7 @@
     flycheck
     ggtags
     help
+    helm
     ibuffer
     image
     info
