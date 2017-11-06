@@ -66,6 +66,7 @@
     p4
     (package-menu package)
     pass
+    (pdf pdf-view)
     proced
     prodigy
     profiler
