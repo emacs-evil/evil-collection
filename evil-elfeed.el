@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'elfeed)
 
-(defun evil-diff-mode-set-keys ()
+(defun evil-elfeed-set-keys ()
   (evil-set-initial-state 'elfeed-search-mode 'motion)
 
   (evil-define-key 'motion elfeed-search-mode-map
