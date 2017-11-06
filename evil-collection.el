@@ -56,6 +56,7 @@
     helm
     ibuffer
     image
+    image+
     info
     ivy
     macrostep
