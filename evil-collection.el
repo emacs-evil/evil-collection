@@ -48,6 +48,7 @@
     edebug
     elfeed
     elisps-refs
+    emms
     eshell
     flycheck
     ggtags
