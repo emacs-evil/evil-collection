@@ -27,24 +27,34 @@
 ;; Evil integration for `help-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+
 (require 'help-mode)
+(require 'evil)
 
 (defun evil-help-set-keys ()
-  (+evilify-map
-   help-mode-map
-   :mode help-mode
-   :bindings
-   "Y" 'evil-yank-line
-   "y" 'evil-yank
-   "e" 'evil-forward-word-end
-   "E" 'evil-forward-WORD-end
-   ">" 'help-go-forward
-   "<" 'help-go-back
-   "gj" 'help-go-forward
-   "gk" 'help-go-back
-   "\C-j" 'help-go-forward
-   "\C-k" 'help-go-back))
+  (evil-define-key 'motion help-mode-map
+    ;; motion
+    (kbd "SPC") 'scroll-up-command
+    (kbd "S-SPC") 'scroll-down-command
+    (kbd "C-f") 'scroll-up-command
+    (kbd "C-b") 'scroll-down-command
+    (kbd "<tab>") 'forward-button
+    (kbd "<backtab>") 'backward-button
+
+    (kbd "C-o") 'help-go-back
+    (kbd "C-i") 'help-go-forward
+    ;; TODO: Enable more help-go-* bindings?
+    ;; ">" 'help-go-forward
+    ;; "<" 'help-go-back
+    ;; "gj" 'help-go-forward
+    ;; "gk" 'help-go-back
+    ;; "\C-j" 'help-go-forward
+    ;; "\C-k" 'help-go-back
+
+    ;; quit
+    "q" 'quit-window
+    "ZQ" 'evil-quit
+    "ZZ" 'quit-window))
 
 (provide 'evil-help)
 ;;; evil-help.el ends here
