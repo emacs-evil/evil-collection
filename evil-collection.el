@@ -72,6 +72,7 @@
     profiler
     slime
     (term term ansi-term multi-term)
+    transmission
     vlf
     woman
     xref)
