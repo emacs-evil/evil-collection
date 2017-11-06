@@ -46,6 +46,7 @@
     diff-mode
     dired
     edebug
+    elfeed
     elisps-refs
     eshell
     flycheck
