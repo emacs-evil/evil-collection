@@ -1,9 +1,9 @@
-;;; evil-collection.el --- A set of keybindings for evil-mode. -*- lexical-binding: t -*-
+;;; evil-collection.el --- A set of keybindings for Evil mode. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
-;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>
+;; Author: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
@@ -24,103 +24,79 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; A set of keybindings for evil-mode.
+;; A set of keybindings for Evil mode.
+;;
+;; If you want to use Evil in the minibuffer, you'll have to enable it manually.
+;; This is so because many users find it confusing.
+;;
+;;      (require 'evil-minibuffer)
+;;      (evil-minibuffer-init)
 
 ;;; Code:
 
-;;;###autoload
-(defun evil-collection-builtin-modes-init ()
-  ""
-  (interactive)
-  (with-eval-after-load 'bookmark
-    (require 'evil-bookmark)
-    (evil-bookmark-set-keys))
-  (with-eval-after-load 'compile
-    (require 'evil-compile)
-    (evil-compile-set-keys))
-  (with-eval-after-load 'dired
-    (require 'evil-dired)
-    (evil-dired-set-keys))
-  (with-eval-after-load 'edebug
-    (require 'evil-edebug)
-    (evil-edebug-set-keys))
-  (with-eval-after-load 'help-mode
-    (require 'evil-help)
-    (evil-help-set-keys))
-  (with-eval-after-load 'ibuffer
-    (require 'evil-ibuffer)
-    (evil-ibuffer-set-keys))
+(defvar evil-collection-mode-list
+  '(ag
+    bookmark
+    calendar
+    cider
+    compile
+    custom
+    debugger
+    diff-mode
+    dired
+    edebug
+    elisps-refs
+    eshell
+    flycheck
+    ggtags
+    help
+    ibuffer
+    image
+    info
+    ivy
+    macrostep
+    man
+    occur
+    outline
+    p4
+    (package-menu package)
+    pass
+    proced
+    prodigy
+    profiler
+    slime
+    (term term ansi-term multi-term)
+    vlf
+    woman
+    xref)
+  "The list of modes which will be evilified by `evil-collection-init'.
+Elements are either target mode symbols or lists which `car' is the
+mode symbol and `cdr' the packages to register.
 
-  (with-eval-after-load 'package
-    (require 'evil-package-menu)
-    (evil-package-menu-set-keys))
-
-  (with-eval-after-load 'profiler
-    (require 'evil-profiler))
-
-  (if (<= emacs-major-version 25)
-      (progn
-        (require 'evil-occur)
-        (evil-occur-set-keys))
-    (with-eval-after-load 'replace
-      (require 'evil-occur)
-      (evil-occur-set-keys)))
-
-  (with-eval-after-load 'term
-    (require 'evil-ansi-term)
-    (evil-ansi-term-set-keys))
-
-  (with-eval-after-load 'xref
-    (require 'evil-xref)
-    (evil-xref-set-keys)))
+By default, `minibuffer' is not included because many users find
+this confusing.")
 
 ;;;###autoload
-(defun evil-collection-extra-modes-init ()
-  ""
-  (interactive)
-  (with-eval-after-load 'ag
-    (require 'evil-ag)
-    (evil-ag-set-keys))
-  (with-eval-after-load 'cider
-    (require 'evil-cider)
-    (evil-cider-set-keys))
-  (with-eval-after-load 'elisp-refs
-    (require 'evil-elisp-refs)
-    (evil-elisp-refs-set-keys))
-  (with-eval-after-load 'flycheck
-    (require 'evil-flycheck)
-    (evil-flycheck-set-keys))
-  (with-eval-after-load 'ggtags
-    (require 'evil-ggtags)
-    (evil-ggtags-set-keys))
-  (with-eval-after-load 'ivy
-    (require 'evil-ivy)
-    (evil-ivy-set-keys))
-  (with-eval-after-load 'macrostep
-    (require 'evil-macrostep)
-    (evil-macrostep-set-keys))
-  (with-eval-after-load 'p4
-    (require 'evil-p4)
-    (evil-p4-set-keys))
-  (with-eval-after-load 'pass
-    (require 'evil-pass)
-    (evil-pass-set-keys))
-  (with-eval-after-load 'prodigy
-    (require 'evil-prodigy)
-    (evil-prodigy-set-keys))
-  (with-eval-after-load 'slime
-    (require 'evil-slime)
-    (evil-collection-set-keys))
-  (with-eval-after-load 'vlf
-    (require 'evil-vlf)
-    (evil-vlf-set-keys)))
+(defun evil-collection-init ()
+  "Register the Evil bindings for all modes in `evil-collection-mode-list'.
 
-;;;###autoload
-(defun evil-collection-all-modes-init ()
-  "Register Evil bindings for all supported modes."
+Alternatively, you may register select bindings manually, for
+instance:
+
+  (with-eval-after-load 'calendar
+    (require 'evil-calendar)
+    (evil-calendar-set-keys))"
   (interactive)
-  (evil-collection-builtin-modes-init)
-  (evil-collection-extra-modes-init))
+  (dolist (mode evil-collection-mode-list)
+    (let ((m mode)
+          (reqs (list mode)))
+      (when (listp mode)
+        (setq m (car mode)
+              reqs (cdr mode)))
+      (dolist (req reqs)
+        (with-eval-after-load req
+          (require (intern (concat "evil-" (symbol-name m))))
+          (funcall (intern (concat "evil-" (symbol-name m) "-set-keys"))))))))
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here
