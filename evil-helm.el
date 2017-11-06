@@ -38,35 +38,28 @@
 ;; down the file system hierarchy since we need them to use it to edit the
 ;; minibuffer content.
 
-;; TODO: This does not seem to do anything.  Calling the `evil-define-key's manually works though.
 (defun evil-helm-set-keys ()
-
-  (evil-define-key '(insert normal) helm-map
-    (kbd "C-f") 'helm-next-page
-    (kbd "C-b") 'helm-previous-page
-    (kbd "M-h") 'helm-next-source
-    (kbd "M-j") 'helm-next-line
-    (kbd "M-k") 'helm-previous-line
-    (kbd "M-l") 'helm-execute-persistent-action)
-
-  ;; (kbd "<escape>") 'helm-keyboard-quit)
+  ;; TODO: We should not modify helm-map in Emacs state but somehow it does not
+  ;; work otherwise.
+  (define-key helm-map (kbd "M-h") 'helm-next-source)
+  (define-key helm-map (kbd "M-l") 'helm-execute-persistent-action)
+  (dolist (map (list helm-find-files-map helm-read-file-map))
+    (define-key map (kbd "M-h") 'helm-find-files-up-one-level)
+    (define-key map (kbd "M-l") 'helm-execute-persistent-action) ; TODO: Inheritance does not seem to work for that binding.
+    (define-key map (kbd "C-l") nil)) ; So the header displays the above binding.
 
   (evil-define-key 'normal helm-map
-    (kbd "<tab>") 'helm-select-action
     "j" 'helm-next-line
     "k" 'helm-previous-line
     "g" 'helm-beginning-of-buffer
     "G" 'helm-end-of-buffer
-    (kbd "SPC") 'helm-toggle-visible-mark
-    ;; (kbd "S-SPC") 'evil-helm-toggle-visible-mark-backwards ; TODO: Not needed?
-    (kbd "C-f") 'helm-next-page
-    (kbd "C-b") 'helm-previous-page)
+    (kbd "SPC") 'helm-toggle-visible-mark)
 
-  (dolist (map (list helm-find-files-map helm-read-file-map))
-    (evil-define-key 'insert map
-      (kbd "M-h") 'helm-find-files-up-one-level
-      (kbd "M-l") 'helm-execute-persistent-action
-      (kbd "C-l") nil))) ; So the header displays the new `helm-execute-persistent-action' binding.
+  (evil-define-key '(normal insert) helm-map
+    (kbd "M-j") 'helm-next-line
+    (kbd "M-k") 'helm-previous-line
+    (kbd "C-f") 'helm-next-page
+    (kbd "C-b") 'helm-previous-page))
 
 (provide 'evil-helm)
 ;;; evil-helm.el ends here
