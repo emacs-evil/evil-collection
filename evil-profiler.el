@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2017 James Nguyen
 
-;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>
+;; Author: Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
@@ -25,21 +25,44 @@
 
 ;;; Commentary:
 ;; Evil integration for `profiler'.
-(require 'evil-collection-util)
+
+(require 'evil)
 (require 'profiler)
 
-;;; Code:
 (defun evil-profiler-set-keys ()
-  (+evilify-map
-   profiler-report-mode-map
-   :mode profiler-report-mode
-   :bindings
-   "H" 'describe-mode
-   "gr" 'revert-buffer
-   "gj" 'profiler-report-next-entry
-   "gk" 'profiler-report-previous-entry
-   "\C-j" 'profiler-report-next-entry
-   "\C-k" 'profiler-report-previous-entry))
+  (evil-set-initial-state 'profiler-report-mode 'motion)
+
+  (evil-define-key 'motion profiler-report-mode-map
+    ;; motion
+    (kbd "SPC") 'scroll-up-command
+    (kbd "S-SPC") 'scroll-down-command
+    (kbd "<delete>") 'scroll-down-command
+    "j" 'profiler-report-next-entry
+    "k" 'profiler-report-previous-entry
+
+    (kbd "<tab>") 'profiler-report-toggle-entry
+    (kbd "<return>") 'profiler-report-toggle-entry
+    "i" 'profiler-report-toggle-entry
+
+    ;; sort
+    "o" 'profiler-report-ascending-sort
+    "O" 'profiler-report-descending-sort
+
+    "c" 'profiler-report-render-calltree
+    "C" 'profiler-report-render-reversed-calltree
+    "i" 'profiler-report-describe-entry
+    "=" 'profiler-report-compare-profile
+
+    ;; goto
+    "gd" 'profiler-report-find-entry
+
+    ;; update
+    "gr" 'revert-buffer
+
+    ;; quit
+    "q" 'quit-window
+    "ZQ" 'evil-quit
+    "ZZ" 'quit-windw))
 
 (provide 'evil-profiler)
 ;;; evil-profiler.el ends here
