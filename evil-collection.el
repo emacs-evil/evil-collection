@@ -75,7 +75,8 @@
     transmission
     vlf
     woman
-    xref)
+    xref
+    (ztree ztree-diff))
   "The list of modes which will be evilified by `evil-collection-init'.
 Elements are either target mode symbols or lists which `car' is the
 mode symbol and `cdr' the packages to register.
