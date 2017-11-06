@@ -41,6 +41,7 @@
     cider
     compile
     custom
+    debbugs
     debugger
     diff-mode
     dired
