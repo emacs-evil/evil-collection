@@ -3,7 +3,7 @@
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>
+;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
@@ -27,14 +27,28 @@
 ;; Evil integration for `package-menu-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+
+(require 'evil)
 (require 'package)
 
+;;;###autoload
 (defun evil-package-menu-set-keys ()
-  (+evilify-map
-   package-menu-mode-map
-   :mode package-menu-mode
-   "\C-h" #'help-command))
+  (evil-set-initial-state 'package-menu-mode 'motion)
+
+  (evil-define-key 'motion package-menu-mode-map
+    "i" 'package-menu-mark-install
+    "U" 'package-menu-mark-upgrades
+    "d" 'package-menu-mark-delete
+
+    ;; undo
+    "u" 'package-menu-mark-unmark
+
+    ;; execute
+    "x" 'package-menu-execute
+
+    ;; "q" 'quit-window ; macros can make sense here.
+    "ZQ" 'evil-quit
+    "ZZ" 'quit-window))
 
 (provide 'evil-package-menu)
 ;;; evil-package-menu.el ends here
