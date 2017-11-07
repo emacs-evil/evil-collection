@@ -1,14 +1,14 @@
-;;; evil-help.el --- Evil integration for `help-mode'. -*- lexical-binding: t -*-
+;;; evil-help.el --- Evil bindings for help-mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, help
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, help, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,12 +24,11 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil integration for `help-mode'.
+;; Evil bindings for `help-mode'.
 
 ;;; Code:
-
-(require 'help-mode)
 (require 'evil)
+(require 'help-mode)
 
 (defun evil-help-setup ()
   (evil-define-key 'motion help-mode-map

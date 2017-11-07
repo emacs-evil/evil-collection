@@ -1,4 +1,4 @@
-;;; evil-ztree.el --- Evil bindings for ztree  -*- lexical-binding: t -*-
+;;; evil-ztree.el --- Evil bindings for ztree -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
@@ -7,8 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: compile, evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, ztree, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published

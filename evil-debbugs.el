@@ -1,14 +1,14 @@
-;;; evil-debbugs.el --- Evil bindings for debbugs  -*- lexical-binding: t -*-
+;;; evil-debbugs.el --- Evil bindings for debbugs -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: compile, evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, debbugs, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -24,11 +24,11 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for debbugs.
 
 ;;; Code:
-
-(require 'evil)
 (require 'debbugs)
+(require 'evil)
 
 (defun evil-diff-mode-setup ()
   (evil-set-initial-state 'debbugs-gnu-mode 'motion)

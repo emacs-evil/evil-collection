@@ -1,14 +1,15 @@
-;;; evil-collection.el --- A set of keybindings for Evil mode. -*- lexical-binding: t -*-
+;;; evil-collection.el --- A set of keybindings for Evil mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
-;; Author: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Author: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -33,7 +34,6 @@
 ;;      (evil-minibuffer-init)
 
 ;;; Code:
-
 (defvar evil-collection-mode-list
   '(ag
     bookmark

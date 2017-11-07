@@ -1,12 +1,14 @@
-;;; evil-diff-mode.el --- Add Evil bindings to diff-mode
+;;; evil-diff-mode.el --- Add Evil bindings to diff-mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Package-Requires: ((evil "1.2.3"))
-;; Package-Version: 20170724.1223
-;; Homepage: https://github.com/jojojames/evil-collection
-;; Version: 0
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
+;; URL: https://github.com/jojojames/evil-collection
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "25.1"))
+;; Keywords: evil, diff, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -22,21 +24,14 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;;
-;;; Evil-Diff re-uses the read-only particularity of `diff-mode':
-;;; When the buffer is read-only, enter motion state
-;;; and manipulate the diffs with simple bindings.
-;;; When the buffer is writage, use normal/insert states with some Evil-specific
-;;; keys to ease navigation.
-;;;
-;;; Enable Evil-Diff with
-;;;
-;;;     (require 'evil-diff)
-;;;
-;;; See also:
-;;;
-;;; - `evil-diff-auto-switch-state'
-;;; - `evil-diff-toggle-read-only'
+;;
+;; Evil-Diff re-uses the read-only particularity of `diff-mode':
+;; When the buffer is read-only, enter motion state
+;; and manipulate the diffs with simple bindings.
+;; When the buffer is writage, use normal/insert states with some Evil-specific
+;; keys to ease navigation.
+;;
+;; See also `evil-diff-toggle-setup'.
 
 ;;; Code:
 

@@ -1,14 +1,14 @@
-;;; evil-elfeed.el --- Evil bindings for elfeed  -*- lexical-binding: t -*-
+;;; evil-elfeed.el --- Evil bindings for elfeed -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: compile, evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, elfeed, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -24,11 +24,11 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for elfeed.
 
 ;;; Code:
-
-(require 'evil)
 (require 'elfeed)
+(require 'evil)
 
 (defun evil-elfeed-setup ()
   (evil-set-initial-state 'elfeed-search-mode 'motion)

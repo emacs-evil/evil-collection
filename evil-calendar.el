@@ -1,12 +1,14 @@
-;;; evil-calendar.el --- Add Evil bindings to calendar
+;;; evil-calendar.el --- Evil bindings for calendar -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
+;; URL: https://github.com/jojojames/evil-collection
+;; Version: 0.0.1
 ;; Package-Requires: ((evil "1.2.3"))
-;; Package-Version: 20170724.1223
-;; Homepage: https://github.com/jojojames/evil-collection
-;; Version: 0
+;; Keywords: evil, calendar, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -22,11 +24,11 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for the calendar.
 
 ;;; Code:
-
-(require 'evil)
 (require 'calendar)
+(require 'evil)
 
 (defun evil-calendar-setup ()
   (evil-define-key 'motion calendar-mode-map

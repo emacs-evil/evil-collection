@@ -3,12 +3,12 @@
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: compile, evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, pdf, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -24,17 +24,17 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for pdf-tools.
 
 ;;; Code:
+(require 'evil)
+(require 'pdf-view)
 
 ;; TODO: `image-mode-map' is the parent of `pdf-view-mode-map'.  A bug(?) in
 ;; image-mode-map and pdf-mode-map seem to conflict with Evil.
 ;; See https://github.com/emacs-evil/evil/issues/938
 ;; and https://github.com/politza/pdf-tools/issues/324.
 ;; Changing load order only changes which mode overrides the other.
-
-(require 'evil)
-(require 'pdf-view)
 
 (defun evil-pdf-view-goto-page (&optional page)
   (interactive "P")

@@ -3,12 +3,12 @@
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, term
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, term, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -31,7 +31,6 @@
 ;; Conversely, switching to insert state will automatically switch to char mode.
 
 ;;; Code:
-
 (require 'evil)
 (require 'term)
 

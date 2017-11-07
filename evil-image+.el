@@ -1,14 +1,14 @@
-;;; evil-image+.el --- Evil bindings for image-mode with image+  -*- lexical-binding: t -*-
+;;; evil-image+.el --- Evil bindings for image-mode with image+ -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: compile, evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, image, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -24,9 +24,9 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for image-mode with image+.
 
 ;;; Code:
-
 (require 'evil)
 (require 'image+)
 

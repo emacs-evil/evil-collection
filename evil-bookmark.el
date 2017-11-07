@@ -1,14 +1,14 @@
-;;; evil-bookmarks.el --- Evil bindings for bookmarks. -*- lexical-binding: t -*-
+;;; evil-bookmark.el --- Evil bindings for bookmarks -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, bookmark, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Evil bindings for bookmarks.
+;; Evil bindings for bookmarks.
 
 ;;; Code:
 (require 'bookmark)
@@ -36,4 +36,4 @@
    :mode bookmark-bmenu-mode))
 
 (provide 'evil-bookmark)
-;;; evil-bookmarks.el ends here
+;;; evil-bookmark.el ends here

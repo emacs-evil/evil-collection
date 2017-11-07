@@ -1,14 +1,14 @@
-;;; evil-package-menu.el --- Evil integration for package-menu. -*- lexical-binding: t -*-
+;;; evil-package-menu.el --- Evil bindings for package-menu -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>, Pierre Neidhardt <ambrevar@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, package-menu
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, package-menu, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -27,7 +27,6 @@
 ;; Evil integration for `package-menu-mode'.
 
 ;;; Code:
-
 (require 'evil)
 (require 'package)
 

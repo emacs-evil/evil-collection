@@ -1,14 +1,14 @@
-;;; evil-compile.el --- Evil integration for `compile'. -*- lexical-binding: t -*-
+;;; evil-compile.el --- Evil bindings for `compile' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: compile, evil
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, compile, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil integration for `compile'
+;; Evil bindings for `compile'.
 
 ;;; Code:
 (require 'evil-collection-util)

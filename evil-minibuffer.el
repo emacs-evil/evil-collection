@@ -1,12 +1,14 @@
-;;; evil-calendar.el --- Add Evil bindings to the minibuffer
+;;; evil-minibuffer.el --- Evil bindings for the minibuffer -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Package-Requires: ((evil "1.2.3"))
-;; Package-Version: 20170724.1223
-;; Homepage: https://github.com/jojojames/evil-collection
-;; Version: 0
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
+;; URL: https://github.com/jojojames/evil-collection
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "25.1"))
+;; Keywords: evil, minibuffer, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -22,9 +24,9 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for the minibuffer.
 
 ;;; Code:
-
 (require 'evil)
 
 (defun evil-minibuffer-insert ()

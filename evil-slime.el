@@ -1,14 +1,14 @@
-;;; evil-slime.el --- Evil integration for `slime'. -*- lexical-binding: t -*-
+;;; evil-slime.el --- Evil bindings for `slime' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, slime
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, slime, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil integration for `slime-mode'.
+;; Evil bindings for `slime-mode'.
 
 ;;; Code:
 (require 'evil-collection-util)

@@ -1,12 +1,14 @@
-;;; evil-custom.el --- Add Evil bindings to Customize
+;;; evil-custom.el --- Evil bindings for Customize -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
-;; Package-Requires: ((evil "1.2.3"))
-;; Package-Version: 20170724.1223
-;; Homepage: https://github.com/jojojames/evil-collection
-;; Version: 0
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
+;; URL: https://github.com/jojojames/evil-collection
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "25.1"))
+;; Keywords: evil, custom, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -22,11 +24,11 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; Evil bindings for the Customize interface.
 
 ;;; Code:
-
-(require 'evil)
 (require 'cus-edit)
+(require 'evil)
 
 (defun evil-custom-setup ()
   (evil-set-initial-state 'Custom-mode 'normal)

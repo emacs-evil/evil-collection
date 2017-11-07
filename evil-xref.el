@@ -1,14 +1,14 @@
-;;; evil-xref.el --- Evil integration for xref. -*- lexical-binding: t -*-
+;;; evil-xref.el --- Evil bindings for xref -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, xref
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, xref, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,10 +24,9 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil integration for `xref'.
+;; Evil bindings for `xref'.
 
 ;;; Code:
-
 (require 'evil-collection-util)
 (require 'xref)
 

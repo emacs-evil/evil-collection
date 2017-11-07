@@ -1,14 +1,14 @@
-;;; evil-ivy.el --- Evil integration for ivy. -*- lexical-binding: t -*-
+;;; evil-ivy.el --- Evil bindings for ivy -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, ivy
-;; HomePage: https://github.com/jojojames/evil-collection
+;; Keywords: evil, ivy, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil integration for `ivy-mode'.
+;; Evil bindings for `ivy-mode'.
 
 ;;; Code:
 (require 'evil)
