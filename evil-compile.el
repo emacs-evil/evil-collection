@@ -30,7 +30,7 @@
 (require 'evil-collection-util)
 (require 'compile)
 
-(defun evil-compile-set-keys ()
+(defun evil-compile-setup ()
   (+evilify-map
    compilation-mode-map
    :mode compilation-mode

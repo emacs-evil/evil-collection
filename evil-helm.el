@@ -38,7 +38,7 @@
 ;; down the file system hierarchy since we need them to use it to edit the
 ;; minibuffer content.
 
-(defun evil-helm-set-keys ()
+(defun evil-helm-setup ()
   ;; TODO: We should not modify helm-map in Emacs state but somehow it does not
   ;; work otherwise.
   (define-key helm-map (kbd "M-h") 'helm-next-source)

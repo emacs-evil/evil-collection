@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'image+)
 
-(defun evil-image+-set-keys ()
+(defun evil-image+-setup ()
   (evil-define-key 'motion image-mode-map
     "+" 'imagex-sticky-zoom-in
     "-" 'imagex-sticky-zoom-out

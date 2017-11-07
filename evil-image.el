@@ -29,7 +29,7 @@
 (require 'image-mode)
 
 ;;;###autoload
-(defun evil-image-set-keys ()
+(defun evil-image-setup ()
   (evil-set-initial-state 'image-mode 'motion)
 
   (evil-define-key 'motion image-mode-map

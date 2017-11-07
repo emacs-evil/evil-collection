@@ -32,7 +32,7 @@
 (require 'package)
 
 ;;;###autoload
-(defun evil-package-menu-set-keys ()
+(defun evil-package-menu-setup ()
   (evil-set-initial-state 'package-menu-mode 'motion)
 
   (evil-define-key 'motion package-menu-mode-map

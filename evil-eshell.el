@@ -47,7 +47,7 @@
 
 ;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
-(defun evil-eshell-set-keys-function ()
+(defun evil-eshell-setup-function ()
   (evil-define-key 'normal eshell-mode-map
     ;; motion
     "[" 'eshell-previous-prompt
@@ -77,8 +77,8 @@
 
 ;; TODO: Compare this setup procedure with evil-ediff.
 ;;;###autoload
-(defun evil-eshell-set-keys ()
-  (add-hook 'eshell-first-time-mode-hook 'evil-eshell-set-keys-function))
+(defun evil-eshell-setup ()
+  (add-hook 'eshell-first-time-mode-hook 'evil-eshell-setup-function))
 
 (provide 'evil-eshell)
 ;;; evil-eshell.el ends here

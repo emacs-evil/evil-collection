@@ -89,7 +89,7 @@ current file instead."
     (diff-restrict-view arg)))
 
 ;;;###autoload
-(defun evil-diff-mode-set-keys ()
+(defun evil-diff-mode-setup ()
   (evil-define-key 'normal diff-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command

@@ -30,7 +30,7 @@
 (require 'evil-collection-util)
 (require 'flycheck)
 
-(defun evil-flycheck-set-keys ()
+(defun evil-flycheck-setup ()
   (+evilify-map
    flycheck-error-list-mode-map
    :mode flycheck-error-list-mode

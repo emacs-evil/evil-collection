@@ -30,7 +30,7 @@
 (require 'evil-collection-util)
 (require 'ggtags)
 
-(defun evil-ggtags-set-keys ()
+(defun evil-ggtags-setup ()
   (+evilify-map
    ggtags-global-mode-map
    :mode ggtags-global-mode)

@@ -29,7 +29,7 @@
 (require 'proced)
 
 ;;;###autoload
-(defun evil-proced-set-keys ()
+(defun evil-proced-setup ()
   (evil-set-initial-state 'proced-mode 'motion)
 
   (evil-define-key 'motion proced-mode-map

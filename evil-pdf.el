@@ -48,7 +48,7 @@
       (pdf-view-goto-page page)
     (pdf-view-first-page)))
 
-(defun evil-pdf-set-keys ()
+(defun evil-pdf-setup ()
   (evil-set-initial-state 'pdf-view-mode 'motion)
   (evil-define-key 'motion pdf-view-mode-map
     ;; motion

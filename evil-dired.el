@@ -31,7 +31,7 @@
 (require 'dired)
 (require 'evil-collection-util)
 
-(defun evil-dired-set-keys ()
+(defun evil-dired-setup ()
   (evil-define-key 'normal dired-mode-map
     "j" 'evil-next-line
     "k" 'evil-previous-line

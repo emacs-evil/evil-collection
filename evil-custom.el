@@ -29,7 +29,7 @@
 (require 'cus-edit)
 
 ;;;###autoload
-(defun evil-custom-set-keys ()
+(defun evil-custom-setup ()
   (evil-set-initial-state 'Custom-mode 'normal)
 
   (evil-define-key 'normal custom-mode-map

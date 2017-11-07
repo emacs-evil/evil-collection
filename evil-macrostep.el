@@ -29,7 +29,7 @@
 (require 'evil-collection-util)
 (require 'macrostep)
 
-(defun evil-macrostep-set-keys ()
+(defun evil-macrostep-setup ()
   ;; Keymaps don't seem to be populated on first try.
   ;; Force `evil' to normalize keymaps.
   (add-hook 'macrostep-mode-hook #'evil-normalize-keymaps)

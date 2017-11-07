@@ -31,7 +31,7 @@
 (require 'help-mode)
 (require 'evil)
 
-(defun evil-help-set-keys ()
+(defun evil-help-setup ()
   (evil-define-key 'motion help-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command

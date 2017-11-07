@@ -31,7 +31,7 @@
 (require 'evil-collection-util)
 (require 'xref)
 
-(defun evil-xref-set-keys ()
+(defun evil-xref-setup ()
   (+evilify-map
    xref--xref-buffer-mode-map
    :mode xref--xref-buffer-mode

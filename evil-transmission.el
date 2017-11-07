@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'transmission)
 
-(defun evil-transmission-set-keys ()
+(defun evil-transmission-setup ()
   (evil-set-initial-state 'transmission-mode 'motion)
   (evil-define-key 'motion transmission-mode-map
     ;; motion

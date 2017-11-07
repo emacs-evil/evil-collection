@@ -31,7 +31,7 @@
 (require 'cider)
 (require 'evil-collection-util)
 
-(defun evil-cider-set-keys ()
+(defun evil-cider-setup ()
   (+evil-bind-key (normal visual)
                   (cider-mode-map)
                   (kbd "gz") 'cider-switch-to-repl-buffer

@@ -66,7 +66,7 @@ it is not appropriate in some cases like terminals."
   (add-hook 'evil-insert-state-entry-hook 'evil-term-char-mode-entry-function)
   (add-hook 'evil-insert-state-exit-hook 'term-line-mode))
 
-(defun evil-term-set-keys ()
+(defun evil-term-setup ()
   (evil-set-initial-state 'term-mode 'insert)
   (add-hook 'term-mode-hook 'evil-term-sync-state-and-mode)
   (add-hook 'term-mode-hook 'evil-term-escape-stay)

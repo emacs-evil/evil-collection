@@ -29,7 +29,7 @@
 (require 'vlf)
 
 ;;; Code:
-(defun evil-vlf-set-keys ()
+(defun evil-vlf-setup ()
   (+evilify-map
    vlf-mode-map
    :mode vlf-mode

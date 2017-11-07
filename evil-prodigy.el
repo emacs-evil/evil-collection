@@ -30,7 +30,7 @@
 (require 'evil-collection-util)
 (require 'prodigy)
 
-(defun evil-prodigy-set-keys ()
+(defun evil-prodigy-setup ()
   (+evilify-map
    prodigy-mode-map
    :mode prodigy-mode

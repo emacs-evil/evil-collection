@@ -29,7 +29,7 @@
 (require 'debug)
 
 ;;;###autoload
-(defun evil-debugger-set-keys ()
+(defun evil-debugger-setup ()
   (evil-set-initial-state 'debugger-mode 'motion)
 
   (evil-define-key 'motion debugger-mode-map

@@ -29,7 +29,7 @@
 (require 'evil)
 (require 'profiler)
 
-(defun evil-profiler-set-keys ()
+(defun evil-profiler-setup ()
   (evil-set-initial-state 'profiler-report-mode 'motion)
 
   (evil-define-key 'motion profiler-report-mode-map

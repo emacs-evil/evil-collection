@@ -31,7 +31,7 @@
 (require 'evil-collection-util)
 (require 'ibuffer)
 
-(defun evil-ibuffer-set-keys ()
+(defun evil-ibuffer-setup ()
   (+evilify-map
    ibuffer-mode-map
    :mode ibuffer-mode

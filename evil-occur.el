@@ -32,7 +32,7 @@
 (when (> emacs-major-version 25)
   (require 'replace))
 
-(defun evil-occur-set-keys ()
+(defun evil-occur-setup ()
   (setq evil-emacs-state-modes
         (remove 'occur-mode evil-emacs-state-modes))
 

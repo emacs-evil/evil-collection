@@ -30,7 +30,7 @@
 (require 'evil-collection-util)
 (require 'pass)
 
-(defun evil-pass-set-keys ()
+(defun evil-pass-setup ()
   (+evilify-map
    pass-mode-map
    :mode pass-mode

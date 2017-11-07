@@ -74,7 +74,7 @@ The return value is the yanked text."
   (evil-next-line)
   (evil-emms-playlist-mode-paste-before))
 
-(defun evil-emms-set-keys ()
+(defun evil-emms-setup ()
   (advice-add 'emms-browser :after 'evil-emms-browser)
   (evil-set-initial-state 'emms-playlist-mode 'motion)
 

@@ -30,7 +30,7 @@
 (require 'bookmark)
 (require 'evil-collection-util)
 
-(defun evil-bookmark-set-keys ()
+(defun evil-bookmark-setup ()
   (+evilify-map
    bookmark-bmenu-mode-map
    :mode bookmark-bmenu-mode))

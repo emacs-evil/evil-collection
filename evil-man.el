@@ -29,7 +29,7 @@
 (require 'man)
 
 ;;;###autoload
-(defun evil-man-set-keys ()
+(defun evil-man-setup ()
   (evil-define-key 'motion Man-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command

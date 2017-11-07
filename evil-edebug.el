@@ -31,7 +31,7 @@
 (require 'edebug)
 (require 'evil-collection-util)
 
-(defun evil-edebug-set-keys ()
+(defun evil-edebug-setup ()
   (+evil-set-default-state-for-mode edebug-mode motion)
 
   (evil-define-key 'motion 'edebug-mode-map

@@ -29,7 +29,7 @@
 (require 'evil-collection-util)
 (require 'p4)
 
-(defun evil-p4-set-keys ()
+(defun evil-p4-setup ()
   (+evilify-map
    p4-basic-mode-map
    :mode p4-basic-mode

@@ -29,7 +29,7 @@
 (require 'evil-collection-util)
 (require 'elisp-refs)
 
-(defun evil-elisp-refs-set-keys ()
+(defun evil-elisp-refs-setup ()
   (evil-define-key 'normal elisp-refs-mode-map
     (kbd "<tab>") #'elisp-refs-next-match
     (kbd "<backtab>") #'elisp-refs-prev-match

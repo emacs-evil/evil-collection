@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'ivy)
 
-(defun evil-ivy-set-keys ()
+(defun evil-ivy-setup ()
   (evil-define-key 'normal ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
     (kbd "RET") 'ivy-occur-press-and-switch
