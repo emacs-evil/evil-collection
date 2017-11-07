@@ -45,6 +45,7 @@
     debugger
     diff-mode
     dired
+    doc-view
     edebug
     elfeed
     elisps-refs
