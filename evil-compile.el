@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: emacs, compile, evil
+;; Keywords: compile, evil
 ;; HomePage: https://github.com/jojojames/evil-collection
 
 ;; This program is free software; you can redistribute it and/or modify
