@@ -1,11 +1,11 @@
 #+TITLE: Evil Collection
 
-This is a collection of [[https://github.com/emacs-evil/evil][Evil]] bindings for
-/the rest of Emacs/ that Evil does not cover by default, such as ~help-mode~,
-~M-x calendar~, Eshell and more.
+This is a collection of [[https://github.com/emacs-evil/evil][Evil]] bindings for /the parts of Emacs/ that Evil does
+not cover properly by default, such as ~help-mode~, ~M-x calendar~, Eshell and
+more.
 
 *Warning:* This project is still in an early development phase, expect
-the default bindings to change in the future.
+some default bindings to change in the future.
 
 
 
