@@ -42,6 +42,9 @@
     "0" #'evil-digit-argument-or-evil-beginning-of-line
     "n" #'evil-search-next
     "N" #'evil-search-previous)
+
+  ;; `ag' is best set in 'normal state because its buffer can be edited.
+  ;; https://github.com/mhayashi1120/Emacs-wgrep
   (evil-set-initial-state 'ag-mode 'normal))
 
 (provide 'evil-ag)
