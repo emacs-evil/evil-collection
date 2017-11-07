@@ -1,4 +1,4 @@
-;;; evil-minibuffer.el --- Evil bindings for the minibuffer -*- lexical-binding: t -*-
+;;; evil-minibuffer.el --- Evil bindings for the minibuffer
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
@@ -37,8 +37,7 @@ This function is meant to be hooked in the minibuffer:
   (add-hook 'minibuffer-setup-hook 'evil-minibuffer-insert)
 
 `evil-set-initial-state' can not be used for the minibuffer since
-it does not have a mode.
-"
+it does not have a mode."
   (set (make-local-variable 'evil-echo-state) nil)
   ;; (evil-set-initial-state 'mode 'insert) is the evil-proper
   ;; way to do this, but the minibuffer doesn't have a mode.
@@ -47,17 +46,16 @@ it does not have a mode.
   (evil-insert 1))
 
 (defun evil-minibuffer-init ()
-  (dolist
-      (keymap
-       ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/
-       ;; Text-from-Minibuffer.html#Definition of minibuffer-local-map
-       '(minibuffer-local-map
-         minibuffer-local-ns-map
-         minibuffer-local-completion-map
-         minibuffer-local-must-match-map
-         minibuffer-local-isearch-map))
-    (evil-define-key 'normal (eval keymap) (kbd "<escape>") 'abort-recursive-edit)
-    (evil-define-key 'normal (eval keymap) (kbd "<return>") 'exit-minibuffer))
+  ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-from-Minibuffer.html
+  ;; TODO: Setting the minibuffer-local-map does not seem to work when lexical
+  ;; binding is on.
+  (dolist (map (list minibuffer-local-map
+                     minibuffer-local-ns-map
+                     minibuffer-local-completion-map
+                     minibuffer-local-must-match-map
+                     minibuffer-local-isearch-map))
+    (evil-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
+    (evil-define-key 'normal map (kbd "<return>") 'exit-minibuffer))
   (add-hook 'minibuffer-setup-hook 'evil-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.
   (evil-define-key 'normal evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
