@@ -29,7 +29,6 @@
 (require 'evil)
 (require 'info)
 
-;;;###autoload
 (defun evil-info-setup ()
   (evil-define-key 'motion Info-mode-map
     ;; motion: Restore some Evil keys that got overriden.

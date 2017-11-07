@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'debug)
 
-;;;###autoload
 (defun evil-debugger-setup ()
   (evil-set-initial-state 'debugger-mode 'motion)
 

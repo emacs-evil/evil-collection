@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'calendar)
 
-;;;###autoload
 (defun evil-calendar-setup ()
   (evil-define-key 'motion calendar-mode-map
     ;; motion

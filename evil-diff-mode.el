@@ -52,7 +52,6 @@
     (evil-normal-state)
     (message "Evil Diff: enter normal state")))
 
-;;;###autoload
 (defun evil-diff-toggle-setup ()
   "Toggle visiting diff buffers in motion state."
   (interactive)
@@ -88,7 +87,6 @@ current file instead."
       (widen)
     (diff-restrict-view arg)))
 
-;;;###autoload
 (defun evil-diff-mode-setup ()
   (evil-define-key 'normal diff-mode-map
     ;; motion

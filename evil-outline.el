@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'outline)
 
-;;;###autoload
 (defun evil-outline-setup ()
   (evil-define-key 'normal outline-mode-map
     ;; folding

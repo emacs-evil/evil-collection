@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'cus-edit)
 
-;;;###autoload
 (defun evil-custom-setup ()
   (evil-set-initial-state 'Custom-mode 'normal)
 

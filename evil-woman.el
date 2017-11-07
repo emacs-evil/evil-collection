@@ -29,7 +29,6 @@
 (require 'evil)
 (require 'evil-man) ; WoMan's keymap inherits from Man.
 
-;;;###autoload
 (defun evil-woman-setup ()
   (evil-define-key 'motion woman-mode-map
     (kbd "]") 'WoMan-next-manpage

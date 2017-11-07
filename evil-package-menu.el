@@ -31,7 +31,6 @@
 (require 'evil)
 (require 'package)
 
-;;;###autoload
 (defun evil-package-menu-setup ()
   (evil-set-initial-state 'package-menu-mode 'motion)
 

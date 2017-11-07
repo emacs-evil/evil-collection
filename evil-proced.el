@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'proced)
 
-;;;###autoload
 (defun evil-proced-setup ()
   (evil-set-initial-state 'proced-mode 'motion)
 

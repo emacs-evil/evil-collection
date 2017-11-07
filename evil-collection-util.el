@@ -31,7 +31,6 @@
 (require 'evil)
 (require 'evil-evilified-state)
 
-;;;###autoload
 (defmacro +evil-bind-key (modes keymaps &rest bindings)
   "Macro to allow keymaps to be bound."
   `(progn

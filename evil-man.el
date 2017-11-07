@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'man)
 
-;;;###autoload
 (defun evil-man-setup ()
   (evil-define-key 'motion Man-mode-map
     ;; motion

@@ -76,7 +76,6 @@
     "^" 'eshell-bol))
 
 ;; TODO: Compare this setup procedure with evil-ediff.
-;;;###autoload
 (defun evil-eshell-setup ()
   (add-hook 'eshell-first-time-mode-hook 'evil-eshell-setup-function))
 

@@ -28,7 +28,6 @@
 (require 'evil)
 (require 'image-mode)
 
-;;;###autoload
 (defun evil-image-setup ()
   (evil-set-initial-state 'image-mode 'motion)
 
