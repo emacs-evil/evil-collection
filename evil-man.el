@@ -5,7 +5,7 @@
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
 ;; Package-Requires: ((evil "1.2.3"))
 ;; Package-Version: 20170724.1223
-;; Homepage: https://github.com/Ambrevar/evil-special-modes
+;; Homepage: https://github.com/jojojames/evil-collection
 ;; Version: 0
 
 ;; This file is free software; you can redistribute it and/or modify

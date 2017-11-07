@@ -32,12 +32,12 @@ the default bindings to change in the future.
 
 - Modify your ~load-path~:
 
-: (add-to-list 'load-path (expand-file-name "/path/to/evil-special-modes/" user-emacs-directory))
+: (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
 
 - Register the bindings, either all at once:
 
-: (when (require 'evil-special-modes nil t)
-:   (evil-special-modes-init))
+: (when (require 'evil-collection nil t)
+:   (evil-collection-init))
 
 or mode-by-mode, for instance:
 
