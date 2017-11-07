@@ -37,7 +37,6 @@
     (kbd "C-j") 'doc-view-next-page
     (kbd "C-k") 'doc-view-previous-page
     (kbd "C-d") 'forward-page
-    (kbd "C-u") 'backward-page
     (kbd "j") 'doc-view-next-line-or-next-page
     (kbd "k") 'doc-view-previous-line-or-previous-page
     (kbd "gg") 'doc-view-first-page
@@ -63,7 +62,12 @@
     (kbd "C-c C-c") 'doc-view-toggle-display
     (kbd "C-c C-t") 'doc-view-open-text
 
-    (kbd "gr") 'doc-view-revert-buffer))
+    (kbd "gr") 'doc-view-revert-buffer)
+
+  ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
+  (when evil-want-C-u-scroll
+    (evil-define-key 'motion doc-view-mode-map
+      (kbd "C-u") 'backward-page)))
 
 (provide 'evil-doc-view)
 ;;; evil-doc-view.el ends here
