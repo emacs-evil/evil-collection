@@ -41,7 +41,8 @@
 (defun evil-helm-setup ()
   ;; TODO: We should not modify helm-map in Emacs state but somehow it does not
   ;; work otherwise.
-  (define-key helm-map (kbd "M-h") 'helm-next-source)
+  (define-key helm-map (kbd "M-[") 'helm-previous-source)
+  (define-key helm-map (kbd "M-]") 'helm-next-source)
   (define-key helm-map (kbd "M-l") 'helm-execute-persistent-action)
   (dolist (map (list helm-find-files-map helm-read-file-map))
     (define-key map (kbd "M-h") 'helm-find-files-up-one-level)
@@ -49,6 +50,8 @@
     (define-key map (kbd "C-l") nil)) ; So the header displays the above binding.
 
   (evil-define-key 'normal helm-map
+    (kbd "[") 'helm-previous-source
+    (kbd "]") 'helm-next-source
     "j" 'helm-next-line
     "k" 'helm-previous-line
     "g" 'helm-beginning-of-buffer
