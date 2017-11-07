@@ -101,7 +101,7 @@ The rules are more-or-less sorted by priority.
 	- ~C-w~-prefixed bindings.
 	- Some ~z~-prefixed bindings (see below).
 
-6. The following keys are free when insert-mode does not make sense in the
+6. The following keys are free when insert state does not make sense in the
    current mode:
 
 	- ~a~, ~A~, ~i~, ~I~

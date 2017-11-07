@@ -27,8 +27,8 @@
 ;; Evil integration for `term' and `ansi-term'.
 ;; This should also work for other terminal emulators such as `multi-term'.
 ;;
-;; Switching to normal mode will automatically switch to line mode.
-;; Conversely, switching to insert mode will automatically switch to char mode.
+;; Switching to normal state will automatically switch to line mode.
+;; Conversely, switching to insert state will automatically switch to char mode.
 
 ;;; Code:
 
@@ -36,7 +36,7 @@
 (require 'term)
 
 ;;; TODO: Rebinding ESC has the drawback that programs like vi cannot use it anymore.
-;;; Workaround: switch to Emacs mode and double-press ESC.
+;;; Workaround: switch to Emacs state and double-press ESC.
 ;;; Otherwise leave ESC to "C-c C-j".
 ;;; Or bind char-mode ESC to "C-c C-x"?
 
