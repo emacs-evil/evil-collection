@@ -34,11 +34,9 @@
     (beginning-of-line)
     (eshell-next-prompt 1)))
 
-(defun evil-eshell-setup ()
+(defun evil-eshell-next-prompt-on-insert ()
   (dolist (hook '(evil-replace-state-entry-hook evil-insert-state-entry-hook))
     (add-hook hook 'evil-eshell-next-prompt nil t)))
-
-(add-hook 'eshell-mode-hook 'evil-eshell-setup)
 
 (defun evil-eshell-interrupt-process ()
   (interactive)
@@ -47,7 +45,7 @@
 
 ;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
-(defun evil-eshell-setup-function ()
+(defun evil-eshell-setup-keys ()
   (evil-define-key 'normal eshell-mode-map
     ;; motion
     "[" 'eshell-previous-prompt
@@ -77,7 +75,8 @@
 
 ;; TODO: Compare this setup procedure with evil-ediff.
 (defun evil-eshell-setup ()
-  (add-hook 'eshell-first-time-mode-hook 'evil-eshell-setup-function))
+  (add-hook 'eshell-mode-hook 'evil-eshell-next-prompt-on-insert)
+  (add-hook 'eshell-first-time-mode-hook 'evil-eshell-setup-keys))
 
 (provide 'evil-eshell)
 ;;; evil-eshell.el ends here
