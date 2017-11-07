@@ -1,4 +1,4 @@
-;;; evil-debugger.el --- Evil bindings for the debugger -*- lexical-binding: t -*-
+;;; evil-debug.el --- Evil bindings for the debugger -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
@@ -8,7 +8,7 @@
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, debugger, tools
+;; Keywords: evil, debug, tools
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published
@@ -31,7 +31,7 @@
 (require 'evil)
 (require 'debug)
 
-(defun evil-debugger-setup ()
+(defun evil-debug-setup ()
   (evil-set-initial-state 'debugger-mode 'motion)
 
   (evil-define-key 'motion debugger-mode-map
@@ -58,5 +58,5 @@
     "ZQ" 'evil-quit
     "ZZ" 'top-level))
 
-(provide 'evil-debugger)
-;;; evil-debugger.el ends here
+(provide 'evil-debug)
+;;; evil-debug.el ends here

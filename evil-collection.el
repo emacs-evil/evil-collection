@@ -42,7 +42,7 @@
     compile
     custom
     debbugs
-    debugger
+    debug
     diff-mode
     dired
     edebug
