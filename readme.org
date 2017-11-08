@@ -111,7 +111,7 @@ The rules are more-or-less sorted by priority.
 	- ~p~, ~P~
 	- ~=~, ~<~, ~>~
 	- ~J~
-	- ~~~
+	- =~=
 
 	Any of those keys can be set to be a prefix key.
 
@@ -203,7 +203,7 @@ Suggested mark bindings:
 
 - ~m~: Mark or toggle mark, depending on what the mode offers.
 
-- ~~~: Toggle all mark.  This mirrors the "invert-char" Vim command bound to ~~~
+- =~=: Toggle all mark.  This mirrors the "invert-char" Vim command bound to =~=
 by default.
 
 - ~M~: Remove all marks.
