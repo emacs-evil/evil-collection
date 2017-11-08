@@ -9,7 +9,6 @@
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
 ;; Keywords: evil, bindings
-;; HomePage: https://github.com/jojojames/evil-collection
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
