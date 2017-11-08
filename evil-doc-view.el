@@ -45,7 +45,7 @@
     (kbd "J") 'doc-view-goto-page
     (kbd "RET") 'image-next-line
     (kbd "+") 'doc-view-enlarge
-    (kdb "=") 'doc-view-enlarge
+    (kbd "=") 'doc-view-enlarge
     (kbd "0") 'doc-view-scale-reset
     (kbd "-") 'doc-view-shrink
     (kbd "W") 'doc-view-fit-width-to-window
