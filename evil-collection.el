@@ -36,6 +36,7 @@
 ;;; Code:
 (defvar evil-collection-mode-list
   '(ag
+    arc-mode
     bookmark
     calendar
     cider
