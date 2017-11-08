@@ -33,8 +33,7 @@
   (require 'replace))
 
 (defun evil-occur-setup ()
-  (setq evil-emacs-state-modes
-        (remove 'occur-mode evil-emacs-state-modes))
+  (evil-set-initial-state 'occur-mode 'normal)
 
   (evil-define-key 'normal occur-mode-map
     ;; Like `wdired-mode'.
