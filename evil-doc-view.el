@@ -36,6 +36,8 @@
   (evil-define-key 'motion doc-view-mode-map
     (kbd "C-j") 'doc-view-next-page
     (kbd "C-k") 'doc-view-previous-page
+    (kbd "gj") 'doc-view-next-page
+    (kbd "gk") 'doc-view-previous-page
     (kbd "C-d") 'forward-page
     (kbd "j") 'doc-view-next-line-or-next-page
     (kbd "k") 'doc-view-previous-line-or-previous-page
@@ -44,6 +46,7 @@
     (kbd "J") 'doc-view-goto-page
     (kbd "RET") 'image-next-line
     (kbd "+") 'doc-view-enlarge
+    (kdb "=") 'doc-view-enlarge
     (kbd "0") 'doc-view-scale-reset
     (kbd "-") 'doc-view-shrink
     (kbd "W") 'doc-view-fit-width-to-window
