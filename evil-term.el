@@ -65,10 +65,33 @@ it is not appropriate in some cases like terminals."
   (add-hook 'evil-insert-state-entry-hook 'evil-term-char-mode-entry-function)
   (add-hook 'evil-insert-state-exit-hook 'term-line-mode))
 
+(defun evil-term-send-tab ()
+  "Send tab in term mode."
+  (interactive)
+  (term-send-raw-string "\t"))
+
 (defun evil-term-setup ()
   (evil-set-initial-state 'term-mode 'insert)
   (add-hook 'term-mode-hook 'evil-term-sync-state-and-mode)
   (add-hook 'term-mode-hook 'evil-term-escape-stay)
+
+  ;; Mirror how a normal terminal would behave in insert mode.
+  (evil-define-key 'insert term-raw-map
+    (kbd "C-a") 'term-send-raw
+    (kbd "C-b") 'term-send-raw
+    (kbd "C-d") 'term-send-raw
+    (kbd "C-f") 'term-send-raw
+    (kbd "C-e") 'term-send-raw
+    (kbd "C-h") 'help-command
+    (kbd "C-k") 'term-send-raw
+    (kbd "C-l") 'term-send-raw
+    (kbd "C-r") 'term-send-raw
+    (kbd "C-u") 'term-send-raw
+    (kbd "C-w") 'term-send-raw
+    (kbd "C-y") 'term-send-raw
+    (kbd "C-c C-d") 'term-send-eof
+    (kbd "C-c C-z") 'term-stop-subjob
+    (kbd "<tab>") 'evil-term-send-tab)
 
   (evil-define-key 'normal term-mode-map
     (kbd "C-c C-k") 'evil-term-char-mode-insert
