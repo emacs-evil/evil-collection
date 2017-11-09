@@ -49,7 +49,7 @@
     doc-view
     edebug
     elfeed
-    elisps-refs
+    elisp-refs
     emms
     eshell
     flycheck
