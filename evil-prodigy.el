@@ -32,6 +32,7 @@
 
 (defun evil-prodigy-setup ()
   (evil-define-key 'normal prodigy-mode-map
+    "q" 'quit-window
     "j" 'prodigy-next
     "k" 'prodigy-prev
     "gg" 'prodigy-first
