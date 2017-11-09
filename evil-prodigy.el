@@ -27,27 +27,43 @@
 ;; Evil bindings for `prodigy'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'prodigy)
 
 (defun evil-prodigy-setup ()
-  (+evilify-map
-   prodigy-mode-map
-   :mode prodigy-mode
-   :bindings
-   "j" 'prodigy-next
-   "n" 'prodigy-prev
-   "gr" 'prodigy-restart
-   "`" 'prodigy-display-process
-   "o" 'prodigy-browse
-   "f t" 'prodigy-add-tag-filter
-   "f n" 'prodigy-add-name-filter
-   "F" 'prodigy-clear-filters
-   "J m" 'prodigy-jump-magit
-   "J d" 'prodigy-jump-dired
-   "\C-j" 'prodigy-next-with-status
-   "\C-k" 'prodigy-prev-with-status
-   "y" 'prodigy-copy-cmd))
+  (evil-define-key 'normal prodigy-mode-map
+    "j" 'prodigy-next
+    "k" 'prodigy-prev
+    "gg" 'prodigy-first
+    "G" 'prodigy-last
+
+    ;; TODO: Marking subject to change.
+    "m" 'prodigy-mark
+    "*t" 'prodigy-mark-tag
+    "M" 'prodigy-mark-all
+    "u" 'prodigy-unmark
+    "*T" 'prodigy-unmark-tag
+    "U" 'prodigy-unmark-all
+
+    "s" 'prodigy-start
+    "S" 'prodigy-stop
+    "gr" 'prodigy-restart
+    "`" 'prodigy-display-process
+    (kbd "RET") 'prodigy-browse
+    "it" 'prodigy-add-tag-filter
+    "in" 'prodigy-add-name-filter
+    "I" 'prodigy-clear-filters
+    "Jm" 'prodigy-jump-magit
+    "Jd" 'prodigy-jump-dired
+
+    "gj" 'prodigy-next-with-status
+    "gk" 'prodigy-prev-with-status
+    (kbd "C-j") 'prodigy-next-with-status
+    (kbd "C-k") 'prodigy-prev-with-status
+    (kbd "Y") 'prodigy-copy-cmd)
+
+  (evil-define-key 'normal prodigy-view-mode-map
+    "x" 'prodigy-view-clear-buffer))
 
 (provide 'evil-prodigy)
 ;;; evil-prodigy.el ends here
