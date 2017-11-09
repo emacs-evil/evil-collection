@@ -31,14 +31,16 @@
 (require 'xref)
 
 (defun evil-xref-setup ()
-  (+evilify-map
-   xref--xref-buffer-mode-map
-   :mode xref--xref-buffer-mode
-   :bindings
-   "\C-j" #'xref-next-line
-   "\C-k" #'xref-prev-line
-   "gj" #'xref-next-line
-   "gk" #'xref-prev-line))
+  (evil-define-key 'normal xref--xref-buffer-mode-map
+    "j" #'xref-next-line
+    "k" #'xref-prev-line
+    "gj" #'xref-next-line
+    "gk" #'xref-prev-line
+    (kbd "C-j") #'xref-next-line
+    (kbd "C-k") #'xref-prev-line
+    "r" #'xref-query-replace-in-results
+    (kbd "RET") #'xref-goto-xref
+    "o" #'xref-show-location-at-point))
 
 (provide 'evil-xref)
 ;;; evil-xref.el ends here
