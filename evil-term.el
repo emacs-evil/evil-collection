@@ -75,23 +75,32 @@ it is not appropriate in some cases like terminals."
   (add-hook 'term-mode-hook 'evil-term-sync-state-and-mode)
   (add-hook 'term-mode-hook 'evil-term-escape-stay)
 
-  ;; Mirror how a normal terminal would behave in insert mode.
+  ;; Evil has some "C-" bindings in insert state that shadow regular terminal bindings.
+  ;; Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
   (evil-define-key 'insert term-raw-map
     (kbd "C-a") 'term-send-raw
-    (kbd "C-b") 'term-send-raw
+    (kbd "C-b") 'term-send-raw ; Should not be necessary.
     (kbd "C-d") 'term-send-raw
-    (kbd "C-f") 'term-send-raw
     (kbd "C-e") 'term-send-raw
+    (kbd "C-f") 'term-send-raw ; Should not be necessary.
     (kbd "C-h") 'help-command
     (kbd "C-k") 'term-send-raw
-    (kbd "C-l") 'term-send-raw
+    (kbd "C-l") 'term-send-raw ; Should not be necessary.
+    (kbd "C-n") 'term-send-raw
+    (kbd "C-o") 'term-send-raw
+    (kbd "C-p") 'term-send-raw
+    (kbd "C-q") 'term-send-raw ; Should not be necessary.
     (kbd "C-r") 'term-send-raw
-    (kbd "C-u") 'term-send-raw
+    (kbd "C-s") 'term-send-raw ; Should not be necessary.
+    (kbd "C-t") 'term-send-raw
+    (kbd "C-u") 'term-send-raw ; Should not be necessary.
+    (kbd "C-v") 'term-send-raw ; Should not be necessary.
     (kbd "C-w") 'term-send-raw
     (kbd "C-y") 'term-send-raw
+    (kbd "C-z") 'term-send-raw
+    (kbd "<tab>") 'evil-term-send-tab ; Should not be necessary.
     (kbd "C-c C-d") 'term-send-eof
-    (kbd "C-c C-z") 'term-stop-subjob
-    (kbd "<tab>") 'evil-term-send-tab)
+    (kbd "C-c C-z") 'term-stop-subjob)
 
   (evil-define-key 'normal term-mode-map
     (kbd "C-c C-k") 'evil-term-char-mode-insert
