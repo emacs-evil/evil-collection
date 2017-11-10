@@ -132,12 +132,17 @@ The rules are more-or-less sorted by priority.
 Many special modes share the same set of similar actions.  Those actions should
 share the same bindings across all modes whenever feasible.
 
-*** Motion (~[~, ~]~, ~{~, ~}~, ~(~, ~)~, ~C-j~, ~C-k~)
+*** Motion (~[~, ~]~, ~{~, ~}~, ~(~, ~)~, ~gj~, ~gk~, ~C-j~, ~C-k~)
 
 - ~[~ and ~]~: Use ~[-~ and ~]-~ prefixed keys for navigation between sections.
 
   If the mode makes no difference between the end of a section and the beginning
   of the next, use ~[~ and ~]~.
+
+- ~gj~ and ~gk~: synonym for ~[~ and ~]~.  That's what [[evil-magit][evil-magit]] does.
+
+*Question:* Should ~gj~/~gk~ rather be synonyms for ~C-j~/~C-k~?  They cannot
+emulate the behaviour of ~[]~ or ~][~.
 
 - ~C-j~, ~C-k~: If there is granularity, i.e. subsections, use ~C-j~ and ~C-k~
   to browse them.  This reflects [[evil-magit][evil-magit]] and [[evil-mu4e][evil-mu4e]] default
