@@ -35,7 +35,7 @@
 
 ;;; Code:
 (defvar evil-collection-mode-list
-  '(ag
+  `(ag
     arc-mode
     bookmark
     calendar
@@ -63,7 +63,8 @@
     ivy
     macrostep
     man
-    occur
+    ;; occur is in replace.el which was built-in before Emacs 26.
+    (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
     outline
     p4
     (package-menu package)
@@ -96,15 +97,6 @@ instance:
     (require 'evil-calendar)
     (evil-calendar-setup))"
   (interactive)
-  ;; We need to special case `occur' since it exists in `replace'.
-  (when (memq 'occur evil-collection-mode-list)
-    (if (<= emacs-major-version 25)
-        (progn
-          (require 'evil-occur)
-          (evil-occur-setup))
-      (with-eval-after-load 'replace
-        (require 'evil-occur)
-        (evil-occur-setup))))
   (dolist (mode evil-collection-mode-list)
     (let ((m mode)
           (reqs (list mode)))
