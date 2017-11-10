@@ -68,7 +68,7 @@ The rules are more-or-less sorted by priority.
 
 	- ~h~, ~j~, ~k~, ~l~
 	- ~w~, ~W~, ~b~, ~B~, ~e~, ~E~, ~ge~, ~gE~
-	- ~f~, ~F~, ~t~, ~T~, ~;~, ~,~
+	- ~f~, ~F~, ~t~, ~T~, ~;~, =,=
 	- ~gg~, ~G~
 	- ~|~
 	- ~(~, ~)~
@@ -80,7 +80,7 @@ The rules are more-or-less sorted by priority.
 2. Keep the yanking and register keys when possible and sensible.
 
 	- ~y~, ~Y~
-	- ~"~
+	- ="=
 
 3. Keep the search keys when possible and sensible.
 
@@ -90,7 +90,7 @@ The rules are more-or-less sorted by priority.
 4. Keep the mark keys when possible and sensible.
 
 	- ~m~
-	- ~'~, ~\~~
+	- ='=, =~=
 
 5. Keep the windowing keys when possible and sensible.
 
@@ -203,7 +203,7 @@ Suggested mark bindings:
 
 - ~m~: Mark or toggle mark, depending on what the mode offers.
 
-- =~=: Toggle all mark.  This mirrors the "invert-char" Vim command bound to =~=
+- =~=: Toggle all marks.  This mirrors the "invert-char" Vim command bound to =~=
 by default.
 
 - ~M~: Remove all marks.
@@ -299,7 +299,7 @@ file an issue.
 
 Other references:
 
-- [[http://spacemacs.org][Spacemacs]]
+- [[https://github.com/syl20bnr/spacemacs/blob/master/doc/CONVENTIONS.org#key-bindings-conventions][Spacemacs]]
 - [[https://github.com/hlissner/doom-emacs/blob/master/modules/private/hlissner/%2Bbindings.el][Doom Emacs]]
 
 #+LINK: EMMS https://www.gnu.org/software/emms/
