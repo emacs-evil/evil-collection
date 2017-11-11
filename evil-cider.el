@@ -49,7 +49,7 @@
       (kbd "C-c C-t") 'cider-test-commands-map
       (kbd "M-p") #'cider-test-previous-result
       (kbd "M-n") #'cider-test-next-result
-      (kbd "M-.") #'cider-test-jump
+      "gd" #'cider-test-jump
       (kbd "<backtab>") #'cider-test-previous-result
       (kbd "TAB") #'cider-test-next-result
       (kbd "RET") #'cider-test-jump
