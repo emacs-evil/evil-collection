@@ -36,8 +36,8 @@
     "gr" #'recompile
     "gj" #'compilation-next-error
     "gk" #'compilation-previous-error
-    "\C-j" #'compilation-next-error
-    "\C-k" #'compilation-previous-error
+    (kbd "C-j") #'compilation-next-error
+    (kbd "C-k") #'compilation-previous-error
     "0" #'evil-digit-argument-or-evil-beginning-of-line
     "n" #'evil-search-next
     "N" #'evil-search-previous)
