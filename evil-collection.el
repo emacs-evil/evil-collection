@@ -40,6 +40,7 @@
     bookmark
     calendar
     cider
+    company
     compile
     custom
     debbugs
