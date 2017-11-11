@@ -76,6 +76,7 @@
     profiler
     slime
     (term term ansi-term multi-term)
+    tide
     transmission
     vlf
     woman
