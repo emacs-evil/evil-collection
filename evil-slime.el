@@ -30,7 +30,7 @@
 (require 'evil-collection-util)
 (require 'slime)
 
-(defun evil-collection-setup ()
+(defun evil-slime-setup ()
   (+evilify-map
    sldb-mode-map
    :mode sldb-mode
