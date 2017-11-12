@@ -36,6 +36,7 @@
 ;;; Code:
 (defvar evil-collection-mode-list
   `(ag
+    anaconda-mode
     arc-mode
     bookmark
     calendar
