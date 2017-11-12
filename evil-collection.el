@@ -43,6 +43,7 @@
     company
     compile
     custom
+    cus-theme
     debbugs
     debug
     diff-mode
