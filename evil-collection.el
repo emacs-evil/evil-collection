@@ -41,6 +41,7 @@
     bookmark
     calendar
     cider
+    comint
     company
     compile
     custom
