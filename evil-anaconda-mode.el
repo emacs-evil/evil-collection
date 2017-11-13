@@ -47,7 +47,7 @@
     ;; 'anaconda-mode-find-assignments
     ;; 'anaconda-mode-find-references
     "gd" 'anaconda-mode-find-definitions
-    "C-t" 'anaconda-mode-go-back
+    (kbd "C-t") 'anaconda-mode-go-back
     "K" 'anaconda-mode-show-doc
     "gf" 'anaconda-mode-find-file))
 
