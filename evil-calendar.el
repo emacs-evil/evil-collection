@@ -62,7 +62,7 @@
     "v" 'calendar-set-mark
 
     ;; goto
-    "." 'calendar-gototoday
+    "." 'calendar-goto-today
     "gd" 'calendar-goto-date ; "gd" in evil-org-agenda, "gd" in Emacs.
     ;; "gd" 'calendar-other-month ; Not very useful if we have `calendar-goto-date'.
 
