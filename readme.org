@@ -269,7 +269,7 @@ The point of having two binding pairs is that they might not always be available
 - ~.~: go to current entity (day for calendar, playing track for [[EMMS][EMMS]]).
   Bind only if more relevant than ~evil-repeat~.
 
-Existing binginds:
+Existing bindings:
 
 - mu4e has ~j~ in Emacs, ~J~ in Evil.
 - ~C-o~ is possibly used for "display other window".
