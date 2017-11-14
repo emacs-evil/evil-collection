@@ -53,6 +53,7 @@
     doc-view
     edebug
     elfeed
+    elisp-mode
     elisp-refs
     emms
     eshell
