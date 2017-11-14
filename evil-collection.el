@@ -92,6 +92,7 @@ mode symbol and `cdr' the packages to register.
 By default, `minibuffer' is not included because many users find
 this confusing.")
 
+;;;###autoload
 (defun evil-collection-init ()
   "Register the Evil bindings for all modes in `evil-collection-mode-list'.
 
