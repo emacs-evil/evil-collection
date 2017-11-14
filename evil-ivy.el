@@ -47,6 +47,11 @@
     (kbd "gc") 'ivy-occur-toggle-calling
     (kbd "q") 'quit-window)
 
+  (when evil-want-C-d-scroll
+    (evil-define-key 'normal ivy-occur-grep-mode-map
+      "D" 'ivy-occur-delete-candidate
+      (kbd "C-d") 'evil-scroll-down))
+
   (evil-define-key 'normal ivy-occur-grep-mode-map
     (kbd "C-x C-q") 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
