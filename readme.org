@@ -258,6 +258,7 @@ region, making this binding useless.
 *** Jumping / go to definition / view, display other window (~gd~, ~.~, ~o~, ~O~, ~RET~, ~S-RET~, ~M-RET~)
 
 - ~gd~: [g]o to [d]efinition.  Unless ~RET~ has an obvious meaning, it should be a synonym of ~gd~.
+  If there's a corresponding 'pop' action, use ~C-t~.
 
 - ~o~, ~O~: go to definition in other window and display in other window respectively.
   The latter is like the former with the focus remaining on the current window.
