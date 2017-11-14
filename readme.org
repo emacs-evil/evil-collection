@@ -308,6 +308,7 @@ Third-party packages are provided by several parties:
 - [[evil-ediff][evil-ediff]]
 - [[evil-magit][evil-magit]]
 - [[evil-mu4e][evil-mu4e]]
+- [[evil-mu4e:][evil-mu4e]]
 - [[lispyville][lispyville]]
 - Org-mode: https://github.com/GuiltyDolphin/org-evil or https://github.com/Somelauw/evil-org-mode
 
