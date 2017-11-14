@@ -48,7 +48,7 @@
     (kbd "q") 'quit-window)
 
   (evil-define-key 'normal ivy-occur-grep-mode-map
-    "\C-x\C-q" 'ivy-wgrep-change-to-wgrep-mode
+    (kbd "C-x C-q") 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
     [mouse-1] 'ivy-occur-click
     (kbd "RET") 'ivy-occur-press-and-switch
