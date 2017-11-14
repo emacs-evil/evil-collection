@@ -31,17 +31,15 @@
 (require 'evil-collection-util)
 
 (defun evil-cider-setup ()
-  (+evil-bind-key (normal visual)
-                  (cider-mode-map)
-                  (kbd "gz") 'cider-switch-to-repl-buffer
-                  (kbd "gf") 'cider-find-resource
-                  (kbd "K")  'cider-doc)
+  (evil-define-key '(normal visual) cider-mode-map
+    (kbd "gz") 'cider-switch-to-repl-buffer
+    (kbd "gf") 'cider-find-resource
+    (kbd "K") 'cider-doc)
 
   (with-eval-after-load 'cider-repl
-    (+evil-bind-key (normal visual)
-                    (cider-repl-mode-map)
-                    (kbd "gf") 'cider-find-resource
-                    (kbd "K")  'cider-doc))
+    (evil-define-key '(normal visual) cider-repl-mode-map
+      (kbd "gf") 'cider-find-resource
+      (kbd "K") 'cider-doc))
 
   (with-eval-after-load 'cider-test
     (evil-define-key 'normal cider-test-report-mode-map

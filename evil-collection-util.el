@@ -31,22 +31,6 @@
 (require 'evil)
 (require 'evil-evilified-state)
 
-(defmacro +evil-bind-key (modes keymaps &rest bindings)
-  "Macro to allow keymaps to be bound."
-  `(progn
-     ,@(cl-loop
-        for keymap in keymaps
-        appending
-        (cl-loop
-         for mode in modes
-         appending
-         (cl-loop
-          for i from 0 to (- (cl-list-length bindings) 1) when (cl-evenp i)
-          collect
-          (let ((key (nth i bindings))
-                (cmd (nth (+ 1 i) bindings)))
-            `(evil-define-key ',mode ,keymap ,key ,cmd)))))))
-
 (defmacro +evil-set-default-state-for-mode (mode state)
   "Set the default STATE for MODE."
   (let* ((mode-str (symbol-name mode))
