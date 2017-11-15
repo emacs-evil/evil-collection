@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'vlf)
+(require 'vlf nil t)
 
 ;;; Code:
 (defun evil-vlf-setup ()

@@ -26,7 +26,7 @@
 ;;; Bindings for `anaconda-mode'.
 
 ;;; Code:
-(require 'anaconda-mode)
+(require 'anaconda-mode nil t)
 (require 'evil)
 
 (defun evil-anaconda-mode-setup ()

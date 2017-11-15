@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'ggtags)
+(require 'ggtags nil t)
 
 (defun evil-ggtags-setup ()
   (+evilify-map

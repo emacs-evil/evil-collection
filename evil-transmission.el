@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'transmission)
+(require 'transmission nil t)
 
 (defun evil-transmission-setup ()
   (evil-set-initial-state 'transmission-mode 'motion)

@@ -27,7 +27,7 @@
 ;; Evil bindings for debbugs.
 
 ;;; Code:
-(require 'debbugs)
+(require 'debbugs nil t)
 (require 'evil)
 
 (defun evil-diff-mode-setup ()

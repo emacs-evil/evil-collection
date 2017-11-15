@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'macrostep)
+(require 'macrostep nil t)
 
 (defun evil-macrostep-setup ()
   ;; Keymaps don't seem to be populated on first try.

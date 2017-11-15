@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'prodigy)
+(require 'prodigy nil t)
 
 (defun evil-prodigy-setup ()
   (evil-define-key 'normal prodigy-mode-map

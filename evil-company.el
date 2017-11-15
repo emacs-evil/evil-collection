@@ -27,7 +27,7 @@
 ;;; Bindings for `company-mode'.
 
 ;;; Code:
-(require 'company)
+(require 'company nil t)
 (require 'evil)
 
 (defun evil-company-setup ()

@@ -27,7 +27,7 @@
 ;; Evil bindings for `ag-mode' from the `wgrep-ag' package.
 
 ;;; Code:
-(require 'ag)
+(require 'ag nil t)
 (require 'evil)
 
 (defun evil-ag-setup ()

@@ -27,7 +27,7 @@
 ;; Evil bindings for Cider.
 
 ;;; Code:
-(require 'cider)
+(require 'cider nil t)
 (require 'evil-collection-util)
 
 (defun evil-cider-setup ()

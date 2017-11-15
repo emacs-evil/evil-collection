@@ -27,7 +27,7 @@
 ;; Evil bindings for elfeed.
 
 ;;; Code:
-(require 'elfeed)
+(require 'elfeed nil t)
 (require 'evil)
 
 (defun evil-elfeed-setup ()

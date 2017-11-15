@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'pdf-view)
+(require 'pdf-view nil t)
 
 ;; TODO: `image-mode-map' is the parent of `pdf-view-mode-map'.  A bug(?) in
 ;; image-mode-map and pdf-mode-map seem to conflict with Evil.

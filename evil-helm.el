@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'helm-files) ; TODO: Check if this is the ideal requirement and if we are not loading too much.
+(require 'helm-files nil t) ; TODO: Check if this is the ideal requirement and if we are not loading too much.
 
 ;; To navigate Helm entries with <hjkl> in insert state, we need a modifier.
 ;; Using the C- modifier would conflict with the help prefix "C-h".  So we use

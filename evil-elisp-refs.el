@@ -29,7 +29,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'elisp-refs)
+(require 'elisp-refs nil t)
 
 (defun evil-elisp-refs-setup ()
   (evil-define-key 'normal elisp-refs-mode-map

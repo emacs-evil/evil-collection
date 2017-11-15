@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'ivy)
+(require 'ivy nil t)
 
 (defun evil-ivy-setup ()
   (evil-define-key 'normal ivy-occur-mode-map

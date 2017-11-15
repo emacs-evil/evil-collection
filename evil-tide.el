@@ -27,7 +27,7 @@
 ;;; Bindings for `tide-mode'.
 
 ;;; Code:
-(require 'tide)
+(require 'tide nil t)
 (require 'evil)
 
 (defun evil-tide-setup ()
