@@ -27,7 +27,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'ztree)
+(require 'ztree nil t)
 
 (defun evil-ztree-setup ()
   (evil-set-initial-state 'ztree-mode 'motion)

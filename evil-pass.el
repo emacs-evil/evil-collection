@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'pass)
+(require 'pass nil t)
 
 (defun evil-pass-setup ()
   (+evilify-map

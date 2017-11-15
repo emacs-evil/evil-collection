@@ -27,7 +27,7 @@
 ;; Evil bindings for EMMS.
 
 ;;; Code:
-(require 'emms)
+(require 'emms nil t)
 (require 'evil)
 
 ;;; TODO: Make all playback bindings consistent across modes:

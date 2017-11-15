@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'p4)
+(require 'p4 nil t)
 
 (defun evil-p4-setup ()
   (+evilify-map

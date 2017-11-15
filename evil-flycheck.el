@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'flycheck)
+(require 'flycheck nil t)
 
 (defun evil-flycheck-setup ()
   (+evilify-map

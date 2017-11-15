@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection-util)
-(require 'slime)
+(require 'slime nil t)
 
 (defun evil-slime-setup ()
   (+evilify-map

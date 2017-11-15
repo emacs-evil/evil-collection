@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'image+)
+(require 'image+ nil t)
 
 (defun evil-image+-setup ()
   (evil-define-key 'motion image-mode-map
