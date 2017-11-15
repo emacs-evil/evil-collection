@@ -8,7 +8,7 @@
 ;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "25.1"))
+;; Package-Requires: ((emacs "25.1") (evil "1.2.13"))
 ;; Keywords: evil, tools
 
 ;; This program is free software; you can redistribute it and/or modify
