@@ -30,6 +30,11 @@
 (require 'evil-collection-util)
 (require 'ggtags nil t)
 
+(defvar ggtags-global-mode-map)
+(defvar ggtags-view-search-history-mode-map)
+(defvar ggtags-view-tag-history-mode-map)
+(defvar ggtags-navigation-map)
+
 (defun evil-ggtags-setup ()
   (+evilify-map
    ggtags-global-mode-map

@@ -30,6 +30,9 @@
 (require 'company nil t)
 (require 'evil)
 
+(defvar company-active-map)
+(defvar company-search-map)
+
 (defun evil-company-setup ()
   (define-key company-active-map (kbd "C-n") #'company-select-next-or-abort)
   (define-key company-active-map (kbd "C-p") #'company-select-previous-or-abort)

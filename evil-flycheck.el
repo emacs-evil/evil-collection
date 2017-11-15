@@ -30,6 +30,8 @@
 (require 'evil-collection-util)
 (require 'flycheck nil t)
 
+(defvar flycheck-error-list-mode-map)
+
 (defun evil-flycheck-setup ()
   (+evilify-map
    flycheck-error-list-mode-map
