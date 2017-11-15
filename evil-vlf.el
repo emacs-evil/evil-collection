@@ -30,6 +30,8 @@
 (require 'evil-collection-util)
 (require 'vlf nil t)
 
+(defvar vlf-mode-map)
+
 ;;; Code:
 (defun evil-vlf-setup ()
   (+evilify-map

@@ -30,6 +30,9 @@
 (require 'evil-collection-util)
 (require 'slime nil t)
 
+(defvar sldb-mode-map)
+(defvar slime-inspector-mode-map)
+
 (defun evil-slime-setup ()
   (+evilify-map
    sldb-mode-map

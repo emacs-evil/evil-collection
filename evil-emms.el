@@ -30,6 +30,9 @@
 (require 'emms nil t)
 (require 'evil)
 
+(defvar emms-browser-mode-map)
+(defvar emms-playlist-mode-map)
+
 ;;; TODO: Make all playback bindings consistent across modes:
 ;;; - stop
 ;;; - pause

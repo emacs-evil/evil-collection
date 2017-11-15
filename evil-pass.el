@@ -30,6 +30,8 @@
 (require 'evil-collection-util)
 (require 'pass nil t)
 
+(defvar pass-mode-map)
+
 (defun evil-pass-setup ()
   (+evilify-map
    pass-mode-map
