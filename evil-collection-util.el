@@ -67,4 +67,4 @@ This assumes the :bindings key is at the end."
        "W" 'evil-forward-WORD-begin)))
 
 (provide 'evil-collection-util)
-;;; evil-integration-base.el ends here
+;;; evil-collection-util.el ends here
