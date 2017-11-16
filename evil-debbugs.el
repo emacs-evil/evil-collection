@@ -30,7 +30,7 @@
 (require 'debbugs nil t)
 (require 'evil)
 
-(defun evil-diff-mode-setup ()
+(defun evil-debbugs-mode-setup ()
   (evil-set-initial-state 'debbugs-gnu-mode 'motion)
 
   (evil-define-key 'motion debbugs-gnu-mode-map
