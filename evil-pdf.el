@@ -36,17 +36,18 @@
 ;; and https://github.com/politza/pdf-tools/issues/324.
 ;; Changing load order only changes which mode overrides the other.
 
-(defun evil-pdf-view-goto-page (&optional page)
-  (interactive "P")
-  (if page
-      (pdf-view-goto-page page)
-    (pdf-view-last-page)))
+(with-no-warnings
+  (defun evil-pdf-view-goto-page (&optional page)
+    (interactive "P")
+    (if page
+        (pdf-view-goto-page page)
+      (pdf-view-last-page)))
 
-(defun evil-pdf-view-goto-first-page (&optional page)
-  (interactive "P")
-  (if page
-      (pdf-view-goto-page page)
-    (pdf-view-first-page)))
+  (defun evil-pdf-view-goto-first-page (&optional page)
+    (interactive "P")
+    (if page
+        (pdf-view-goto-page page)
+      (pdf-view-first-page))))
 
 (defun evil-pdf-setup ()
   (evil-set-initial-state 'pdf-view-mode 'motion)

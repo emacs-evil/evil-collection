@@ -47,42 +47,43 @@
 (defun evil-emms-browser ()
   (evil-motion-state))
 
-(defun evil-emms-playlist-mode-insert-newline-above ()
-  "Insert a newline above point."
-  (interactive)
-  (emms-with-inhibit-read-only-t
-   (evil-insert-newline-above)))
+(with-no-warnings
+  (defun evil-emms-playlist-mode-insert-newline-above ()
+    "Insert a newline above point."
+    (interactive)
+    (emms-with-inhibit-read-only-t
+     (evil-insert-newline-above)))
 
-(defun evil-emms-playlist-mode-insert-newline-below ()
-  "Insert a newline below point."
-  (interactive)
-  (emms-with-inhibit-read-only-t
-   (evil-insert-newline-below)))
+  (defun evil-emms-playlist-mode-insert-newline-below ()
+    "Insert a newline below point."
+    (interactive)
+    (emms-with-inhibit-read-only-t
+     (evil-insert-newline-below)))
 
-(defun evil-emms-playlist-mode-paste-before ()
-  "Pastes the latest yanked playlist items before the cursor position.
-The return value is the yanked text."
-  (interactive)
-  (emms-with-inhibit-read-only-t
-   (goto-char (point-at-bol))
-   (yank)
-   (emms-playlist-mode-correct-previous-yank)
-   (evil-previous-line)
-   (evil-beginning-of-line)))
+  (defun evil-emms-playlist-mode-paste-before ()
+    "Pastes the latest yanked playlist items before the cursor position.
+    The return value is the yanked text."
+    (interactive)
+    (emms-with-inhibit-read-only-t
+     (goto-char (point-at-bol))
+     (yank)
+     (emms-playlist-mode-correct-previous-yank)
+     (evil-previous-line)
+     (evil-beginning-of-line)))
 
-(defun evil-emms-playlist-mode-paste-after ()
-  "Pastes the latest yanked playlist items behind point.
-The return value is the yanked text."
-  (interactive)
-  (evil-next-line)
-  (evil-emms-playlist-mode-paste-before))
+  (defun evil-emms-playlist-mode-paste-after ()
+    "Pastes the latest yanked playlist items behind point.
+    The return value is the yanked text."
+    (interactive)
+    (evil-next-line)
+    (evil-emms-playlist-mode-paste-before)))
 
 (defun evil-emms-setup ()
   (advice-add 'emms-browser :after 'evil-emms-browser)
   (evil-set-initial-state 'emms-playlist-mode 'motion)
 
   (dolist (map (list emms-browser-mode-map emms-playlist-mode-map))
-    (evil-define-key 'motion map
+    (evil-define-key* 'motion map
       "+" 'emms-volume-raise
       "=" 'emms-volume-raise
       "-" 'emms-volume-lower

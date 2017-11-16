@@ -110,7 +110,8 @@ Needed to bypass keymaps set as text properties."
     ;; without this set-mark-command activates visual-state which is just
     ;; annoying ;; and introduces possible bugs
     (remove-hook 'activate-mark-hook 'evil-visual-activate-hook t))
-  (when (bound-and-true-p evil-surround-mode)
+  (when (and (bound-and-true-p evil-surround-mode)
+             (fboundp 'evil-surround-mode))
     (make-local-variable 'evil-surround-mode)
     (evil-surround-mode -1))
   (evilified-state--setup-normal-state-keymap)
