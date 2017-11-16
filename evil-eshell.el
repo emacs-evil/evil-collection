@@ -27,6 +27,7 @@
 ;; Evil bindings for EMMS
 
 ;;; Code:
+(require 'em-prompt)
 (require 'eshell)
 (require 'evil)
 
