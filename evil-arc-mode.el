@@ -1,4 +1,4 @@
-;;; evil-arc.el --- Evil bindings for arc-mode. -*- lexical-binding: t -*-
+;;; evil-arc-mode.el --- Evil bindings for arc-mode. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
@@ -59,4 +59,4 @@
     (kbd "C") 'archive-chown-entry))
 
 (provide 'evil-arc-mode)
-;;; evil-arc.el ends here
+;;; evil-arc-mode.el ends here
