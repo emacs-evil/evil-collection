@@ -106,7 +106,7 @@
     (kbd "<down-mouse-1>")  'pdf-view-mouse-set-region
 
     (kbd "C-c C-c") 'docview-mode
-    (kbd "C-c <tab>") 'pdf-view-extract-region-image
+    [?\C-c tab] 'pdf-view-extract-region-image ; workaround package-lint bug
 
     "sb" 'pdf-view-set-slice-from-bounding-box
     "sm" 'pdf-view-set-slice-using-mouse
