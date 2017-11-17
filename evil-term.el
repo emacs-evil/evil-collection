@@ -83,7 +83,6 @@ it is not appropriate in some cases like terminals."
     (kbd "C-d") 'term-send-raw
     (kbd "C-e") 'term-send-raw
     (kbd "C-f") 'term-send-raw ; Should not be necessary.
-    (kbd "C-h") 'help-command
     (kbd "C-k") 'term-send-raw
     (kbd "C-l") 'term-send-raw ; Should not be necessary.
     (kbd "C-n") 'term-send-raw
