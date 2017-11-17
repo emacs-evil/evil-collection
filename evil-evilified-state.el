@@ -6,7 +6,7 @@
 ;; Keywords: convenience editing evil spacemacs
 ;; Created: 22 Mar 2015
 ;; Version: 1.0
-;; Package-Requires: ((evil "1.0.9"))
+;; Package-Requires: ((emacs "25.1") (evil "1.2.13"))
 
 ;; This file is not part of GNU Emacs.
 
