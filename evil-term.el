@@ -46,11 +46,13 @@ it is not appropriate in some cases like terminals."
   (setq-local evil-move-cursor-back nil))
 
 (defun evil-term-char-mode-insert ()
+  "Switch to `term-char-mode' and enter insert state."
   (interactive)
   (term-char-mode)
   (evil-insert-state))
 
 (defun evil-term-char-mode-entry-function ()
+  "Maybe switch to `term-char-mode' on insert state."
   (when (get-buffer-process (current-buffer))
     (let (last-prompt)
       (save-excursion
@@ -62,6 +64,7 @@ it is not appropriate in some cases like terminals."
         (term-char-mode)))))
 
 (defun evil-term-sync-state-and-mode ()
+  "Sync `term-char-mode' and `term-line-mode' with insert and normal state."
   (add-hook 'evil-insert-state-entry-hook 'evil-term-char-mode-entry-function)
   (add-hook 'evil-insert-state-exit-hook 'term-line-mode))
 
@@ -71,6 +74,7 @@ it is not appropriate in some cases like terminals."
   (term-send-raw-string "\t"))
 
 (defun evil-term-setup ()
+  "Set up `evil' bindings for `term'."
   (evil-set-initial-state 'term-mode 'insert)
   (add-hook 'term-mode-hook 'evil-term-sync-state-and-mode)
   (add-hook 'term-mode-hook 'evil-term-escape-stay)

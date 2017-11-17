@@ -31,6 +31,7 @@
 (require 'prodigy nil t)
 
 (defun evil-prodigy-setup ()
+  "Set up `evil' bindings for `prodigy'."
   (evil-define-key 'normal prodigy-mode-map
     "q" 'quit-window
     "j" 'prodigy-next

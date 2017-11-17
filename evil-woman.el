@@ -32,6 +32,7 @@
 (require 'woman)
 
 (defun evil-woman-setup ()
+  "Set up `evil' bindings for `woman'."
   (evil-define-key 'motion woman-mode-map
     (kbd "]") 'WoMan-next-manpage
     (kbd "[") 'WoMan-previous-manpage

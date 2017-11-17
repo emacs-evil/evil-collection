@@ -36,6 +36,7 @@
 (defvar ggtags-navigation-map)
 
 (defun evil-ggtags-setup ()
+  "Set up `evil' bindings for `ggtags'."
   (evil-collection-util-evilify-map
    ggtags-global-mode-map
    :mode ggtags-global-mode)

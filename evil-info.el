@@ -32,6 +32,7 @@
 (require 'info)
 
 (defun evil-info-setup ()
+  "Set up `evil' bindings for `info-mode'."
   (evil-define-key 'motion Info-mode-map
     ;; motion: Restore some Evil keys that got overriden.
     "w" 'evil-forward-word-begin

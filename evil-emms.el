@@ -45,6 +45,7 @@
 ;;; emms-browser does not run any mode hook.  As such the default state is 'normal.
 ;;; TODO: Report upstream.
 (defun evil-emms-browser ()
+  "Default `emms-browser' to motion state."
   (evil-motion-state))
 
 (with-no-warnings
@@ -79,6 +80,7 @@
     (evil-emms-playlist-mode-paste-before)))
 
 (defun evil-emms-setup ()
+  "Set up `evil' bindings for `emms'."
   (advice-add 'emms-browser :after 'evil-emms-browser)
   (evil-set-initial-state 'emms-playlist-mode 'motion)
 

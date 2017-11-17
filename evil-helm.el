@@ -43,6 +43,7 @@
 (defvar helm-read-file-map)
 
 (defun evil-helm-setup ()
+  "Set up `evil' bindings for `helm'."
   ;; TODO: We should not modify helm-map in Emacs state but somehow it does not
   ;; work otherwise.
   (define-key helm-map (kbd "M-[") 'helm-previous-source)

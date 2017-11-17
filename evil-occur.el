@@ -33,6 +33,7 @@
   (require 'replace))
 
 (defun evil-occur-setup ()
+  "Set up `evil' bindings for `occur'."
   (evil-set-initial-state 'occur-mode 'normal)
 
   (evil-define-key 'normal occur-mode-map

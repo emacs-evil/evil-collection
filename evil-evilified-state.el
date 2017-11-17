@@ -133,7 +133,7 @@ Needed to bypass keymaps set as text properties."
     (evil-evilified-state--clear-normal-state-keymap)))
 
 (defun evil-evilified-state--visual-state-on-exit ()
-  "Clean visual state"
+  "Clean visual state."
   (evil-evilified-state--restore-normal-state-keymap))
 
 (add-hook 'evil-evilified-state-entry-hook
@@ -186,7 +186,7 @@ BODY is a list of additional key bindings to apply for the given MAP in
 Avaiblabe PROPS:
 
 `:mode SYMBOL'
-A mode SYMBOL associated with MAP. Used to add SYMBOL to the list of modes
+A mode SYMBOL associated with MAP.  Used to add SYMBOL to the list of modes
 defaulting to `evilified-state'.
 
 `:evilified-map SYMBOL'
@@ -195,7 +195,7 @@ A map SYMBOL of an alternate evilified map, if nil then
 
 `:eval-after-load SYMBOL'
 If specified the evilification of MAP is deferred to the loading of the feature
-bound to SYMBOL. May be required for some lazy-loaded maps.
+bound to SYMBOL.  May be required for some lazy-loaded maps.
 
 `:pre-bindings EXPRESSIONS'
 One or several EXPRESSIONS with the form `KEY FUNCTION':
@@ -207,7 +207,7 @@ These bindings are set in MAP before the evilification happens.
 One or several EXPRESSIONS with the form `KEY FUNCTION':
    KEY1 FUNCTION1
    KEY2 FUNCTION2
-These bindings are set directly in evil-evilified-state-map submap.
+These bindings are set directly in ‘evil-evilified-state-map’ submap.
    ...
 Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
   (declare (indent 1))
@@ -251,12 +251,14 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
       (eval `(define-key ,map key ,func)))))
 
 (defun evil-evilified-state--configure-default-state (mode)
-  "Configure default state for the passed mode."
+  "Configure default state for the passed MODE."
   (evil-set-initial-state mode 'evilified))
 
 (defun evil-evilified-state--evilify-event (map map-symbol evil-map event evil-value
                                            &optional processed pending-funcs)
-  "Evilify EVENT in MAP and return a list of PROCESSED events."
+  "Evilify EVENT in MAP and return a list of PROCESSED events.
+Argument MAP-SYMBOL Symbol of MAP.
+Argument EVIL-MAP `evil' map."
   (if (and event (or evil-value pending-funcs))
       (let* ((kbd-event (kbd (single-key-description event)))
              (map-value (lookup-key map kbd-event))
@@ -297,7 +299,7 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
      ((and (numberp event) (<= 1 event) (<= event 26)) (+ (expt 2 25) event)))))
 
 (defun evil-evilified-state--sort-keymap (map)
-  "Sort MAP following the order: `s' > `S' > `C-s' > `C-S-s'"
+  "Sort MAP following the order: `s' > `S' > `C-s' > `C-S-s'."
   (let (list)
     (map-keymap (lambda (a b) (push (cons a b) list)) map)
     (sort list

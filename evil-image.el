@@ -31,6 +31,7 @@
 (require 'image-mode)
 
 (defun evil-image-setup ()
+  "Set up `evil' bindings for `image-mode'."
   (evil-set-initial-state 'image-mode 'motion)
 
   (evil-define-key 'motion image-mode-map

@@ -34,6 +34,7 @@
 (defvar company-search-map)
 
 (defun evil-company-setup ()
+  "Set up `evil' bindings for `company'."
   (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
   (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
   (define-key company-active-map (kbd "C-j") 'company-select-next-or-abort)

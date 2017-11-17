@@ -31,6 +31,7 @@
 (require 'compile)
 
 (defun evil-compile-setup ()
+  "Set up `evil' bindings for `compile'."
   (evil-collection-util-evilify-map
    compilation-mode-map
    :mode compilation-mode

@@ -30,6 +30,7 @@
 (require 'evil)
 
 (defun evil-anaconda-mode-setup ()
+  "Set up `evil' bindings for `anaconda-mode'."
   ;; Bindings don't seem to be set the first time.
   (add-hook 'anaconda-mode-hook #'evil-normalize-keymaps)
 

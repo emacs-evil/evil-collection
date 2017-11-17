@@ -33,6 +33,7 @@
 (defvar pass-mode-map)
 
 (defun evil-pass-setup ()
+  "Set up `evil' bindings for `pass-mode'."
   (evil-collection-util-evilify-map
    pass-mode-map
    :mode pass-mode

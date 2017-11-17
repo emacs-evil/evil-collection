@@ -50,6 +50,7 @@ alternative printed representations that can be displayed."
                      rear-nonsticky (mouse-face keymap help-echo
                                                 printed-value)))))
 (defun evil-elisp-mode-setup ()
+  "Set up `evil' bindings for `elisp-mode'."
   (advice-add 'last-sexp-setup-props
               :override #'evil-elisp-mode-last-sexp-setup-props))
 

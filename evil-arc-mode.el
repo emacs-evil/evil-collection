@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-arc-mode-setup ()
+  "Set up `evil' bindings for `arc-mode'."
   (evil-set-initial-state 'arc-mode 'motion)
   (evil-set-initial-state 'archive-mode 'motion)
   (evil-define-key 'motion archive-mode-map

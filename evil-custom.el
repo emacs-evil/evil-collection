@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-custom-setup ()
+  "Set up `evil' bindings for `Custom-mode'."
   (evil-set-initial-state 'Custom-mode 'normal)
 
   (evil-define-key 'normal custom-mode-map

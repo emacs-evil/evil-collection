@@ -31,6 +31,7 @@
 (require 'profiler)
 
 (defun evil-profiler-setup ()
+  "Set up `evil' bindings for `profiler'."
   (evil-set-initial-state 'profiler-report-mode 'motion)
 
   (evil-define-key 'motion profiler-report-mode-map

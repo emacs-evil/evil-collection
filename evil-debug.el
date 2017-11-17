@@ -32,6 +32,7 @@
 (require 'debug)
 
 (defun evil-debug-setup ()
+  "Set up `evil' bindings for `debug'."
   (evil-set-initial-state 'debugger-mode 'motion)
 
   (evil-define-key 'motion debugger-mode-map

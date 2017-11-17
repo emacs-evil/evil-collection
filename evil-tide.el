@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-tide-setup ()
+  "Set up `evil' bindings for `tide'."
   (evil-define-key 'normal tide-mode-map
     (kbd "gd") #'tide-jump-to-definition
     (kbd "C-t") #'tide-jump-back

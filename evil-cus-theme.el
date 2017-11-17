@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-cus-theme-setup ()
+  "Set up `evil' bindings for `cus-theme'."
   (evil-set-initial-state 'custom-new-theme-mode 'normal)
   (evil-set-initial-state 'custom-theme-choose-mode 'normal)
 

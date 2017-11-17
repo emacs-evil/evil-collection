@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-calendar-setup ()
+  "Set up `evil' bindings for `calendar'."
   (evil-define-key 'motion calendar-mode-map
     ;; motion
     "h" 'calendar-backward-day

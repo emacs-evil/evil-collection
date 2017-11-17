@@ -31,6 +31,7 @@
 (require 'evil-collection-util)
 
 (defun evil-dired-setup ()
+  "Set up `evil' bindings for `dired'."
   (evil-define-key 'normal dired-mode-map
     "j" 'evil-next-line
     "k" 'evil-previous-line

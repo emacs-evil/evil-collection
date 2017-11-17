@@ -31,6 +31,7 @@
 (require 'evil-collection-util)
 
 (defun evil-cider-setup ()
+  "Set up `evil' bindings for `cider'."
   (evil-define-key '(normal visual) cider-mode-map
     (kbd "gz") 'cider-switch-to-repl-buffer
     (kbd "gf") 'cider-find-resource

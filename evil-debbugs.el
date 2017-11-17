@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-debbugs-mode-setup ()
+  "Set up `evil' bindings for `debbugs-gnu-mode'."
   (evil-set-initial-state 'debbugs-gnu-mode 'motion)
 
   (evil-define-key 'motion debbugs-gnu-mode-map

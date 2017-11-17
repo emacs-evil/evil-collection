@@ -31,6 +31,7 @@
 (require 'xref)
 
 (defun evil-xref-setup ()
+  "Set up `evil' bindings for `xref'."
   (evil-define-key 'normal xref--xref-buffer-mode-map
     "j" #'xref-next-line
     "k" #'xref-prev-line

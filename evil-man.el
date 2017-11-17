@@ -31,6 +31,7 @@
 (require 'man)
 
 (defun evil-man-setup ()
+  "Set up `evil' bindings for `man'."
   (evil-define-key 'motion Man-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command

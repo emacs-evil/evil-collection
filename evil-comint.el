@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-comint-setup ()
+  "Set up `evil' bindings for `comint'."
   (when evil-want-C-d-scroll
     (evil-define-key 'normal comint-mode-map
       (kbd "C-d") #'evil-scroll-down))

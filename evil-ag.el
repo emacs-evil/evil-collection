@@ -31,6 +31,7 @@
 (require 'evil)
 
 (defun evil-ag-setup ()
+  "Set up `evil' bindings for `ag'."
   (evil-add-hjkl-bindings ag-mode-map 'normal
     "gg" #'evil-goto-first-line
     "gr" #'recompile

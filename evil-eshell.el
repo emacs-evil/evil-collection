@@ -32,16 +32,19 @@
 (require 'evil)
 
 (defun evil-eshell-next-prompt ()
+  "`evil' wrapper around `eshell-next-prompt'."
   (when (get-text-property (point) 'read-only)
     ;; If at end of prompt, `eshell-next-prompt' will not move, so go backward.
     (beginning-of-line)
     (eshell-next-prompt 1)))
 
 (defun evil-eshell-next-prompt-on-insert ()
+  "Go to next prompt on `evil' replace/insert enter."
   (dolist (hook '(evil-replace-state-entry-hook evil-insert-state-entry-hook))
     (add-hook hook 'evil-eshell-next-prompt nil t)))
 
 (defun evil-eshell-interrupt-process ()
+  "Interupt `eshell' process and enter insert state."
   (interactive)
   (eshell-interrupt-process)
   (evil-insert 1))
@@ -49,6 +52,7 @@
 ;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
 (defun evil-eshell-setup-keys ()
+  "Set up `evil' bindings for `eshell'."
   (evil-define-key 'normal eshell-mode-map
     ;; motion
     "[" 'eshell-previous-prompt
@@ -78,6 +82,7 @@
 
 ;; TODO: Compare this setup procedure with evil-ediff.
 (defun evil-eshell-setup ()
+  "Set up `evil' bindings for `eshell'."
   (add-hook 'eshell-mode-hook 'evil-eshell-next-prompt-on-insert)
   (add-hook 'eshell-first-time-mode-hook 'evil-eshell-setup-keys))
 

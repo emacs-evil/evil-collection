@@ -23,6 +23,7 @@
 ;; For a full copy of the GNU General Public License
 ;; see <http://www.gnu.org/licenses/>.
 
+
 ;;; Commentary:
 ;; Evil bindings for `transmission'.
 
@@ -31,6 +32,7 @@
 (require 'transmission nil t)
 
 (defun evil-transmission-setup ()
+  "Set up `evil' bindings for `transmission'."
   (evil-set-initial-state 'transmission-mode 'motion)
   (evil-define-key 'motion transmission-mode-map
     ;; motion

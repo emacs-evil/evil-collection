@@ -31,6 +31,7 @@
 (require 'package)
 
 (defun evil-package-menu-setup ()
+  "Set up `evil' bindings for `package-menu'."
   (evil-set-initial-state 'package-menu-mode 'motion)
 
   (evil-define-key 'motion package-menu-mode-map

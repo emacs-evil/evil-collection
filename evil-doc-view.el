@@ -31,6 +31,7 @@
 (require 'doc-view)
 
 (defun evil-doc-view-setup ()
+  "Set up `evil' bindings for `doc-view'."
   (evil-set-initial-state 'doc-view-mode 'motion)
   (evil-define-key 'motion doc-view-mode-map
     (kbd "C-j") 'doc-view-next-page

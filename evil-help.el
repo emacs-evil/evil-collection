@@ -31,6 +31,7 @@
 (require 'help-mode)
 
 (defun evil-help-setup ()
+  "Set up `evil' bindings for `help'."
   (evil-define-key 'motion help-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command

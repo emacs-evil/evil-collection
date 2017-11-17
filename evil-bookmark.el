@@ -31,6 +31,7 @@
 (require 'evil-collection-util)
 
 (defun evil-bookmark-setup ()
+  "Set up `evil' bindings for `bookmark'."
   (evil-collection-util-evilify-map
    bookmark-bmenu-mode-map
    :mode bookmark-bmenu-mode))

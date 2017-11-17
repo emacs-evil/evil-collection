@@ -38,18 +38,21 @@
 
 (with-no-warnings
   (defun evil-pdf-view-goto-page (&optional page)
+    "`evil' wrapper around `pdf-view-last-page'."
     (interactive "P")
     (if page
         (pdf-view-goto-page page)
       (pdf-view-last-page)))
 
   (defun evil-pdf-view-goto-first-page (&optional page)
+    "`evil' wrapper around `pdf-view-first-page'."
     (interactive "P")
     (if page
         (pdf-view-goto-page page)
       (pdf-view-first-page))))
 
 (defun evil-pdf-setup ()
+  "Set up `evil' bindings for `pdf-view'."
   (evil-set-initial-state 'pdf-view-mode 'motion)
   (evil-define-key 'motion pdf-view-mode-map
     ;; motion

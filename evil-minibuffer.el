@@ -46,6 +46,7 @@ it does not have a mode."
   (evil-insert 1))
 
 (defun evil-minibuffer-init ()
+  "Initialize minibuffer for `evil'."
   ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-from-Minibuffer.html
   ;; WARNING: With lexical binding, lambdas from `mapc' and `dolist' become
   ;; closures in which we must use `evil-define-key*' instead of

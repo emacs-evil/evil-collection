@@ -34,6 +34,7 @@
 (defvar slime-inspector-mode-map)
 
 (defun evil-slime-setup ()
+  "Set up `evil' bindings for `slime'."
   (evil-collection-util-evilify-map
    sldb-mode-map
    :mode sldb-mode

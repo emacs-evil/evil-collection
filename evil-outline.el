@@ -31,6 +31,7 @@
 (require 'outline)
 
 (defun evil-outline-setup ()
+  "Set up `evil' bindings for `outline'."
   (evil-define-key 'normal outline-mode-map
     ;; folding
     ;; Evil default keys:
