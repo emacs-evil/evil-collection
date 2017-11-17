@@ -47,10 +47,10 @@
        (advice-add #',mode :after #',defun-name))))
 
 (defmacro evil-collection-util-evilify-map (map &rest props)
-  "`evilified-state-evilify-map' with additional bindings.
+  "`evil-evilified-state-evilify-map' with additional bindings.
 This assumes the :bindings key is at the end."
   (let ((contains-bindings (plist-get props :bindings)))
-    `(evilified-state-evilify-map
+    `(evil-evilified-state-evilify-map
        ,map
        ,@props
        ,@(unless contains-bindings

@@ -7,6 +7,7 @@
 ;; Created: 22 Mar 2015
 ;; Version: 1.0
 ;; Package-Requires: ((emacs "25.1") (evil "1.2.13"))
+;; URL: https://github.com/syl20bnr/spacemacs
 
 ;; This file is not part of GNU Emacs.
 
@@ -24,6 +25,8 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+
+;; This file is heavily modified from the Spacemacs version.
 
 ;; Define a `evilified' evil state inheriting from `emacs' state and
 ;; setting a minimalist list of Vim key bindings (like navigation, search, ...)
@@ -44,13 +47,13 @@
 
 (require 'evil)
 
-(defvar evilified-state--evil-surround nil
+(defvar evil-evilified-state--evil-surround nil
   "Evil surround mode variable backup.")
-(make-variable-buffer-local 'evilified-state--evil-surround)
+(make-variable-buffer-local 'evil-evilified-state--evil-surround)
 
-(defvar evilified-state--normal-state-map nil
+(defvar evil-evilified-state--normal-state-map nil
   "Local backup of normal state keymap.")
-(make-variable-buffer-local 'evilified-state--normal-state-map)
+(make-variable-buffer-local 'evil-evilified-state--normal-state-map)
 
 (evil-define-state evilified
   "Evilified state.
@@ -67,7 +70,7 @@
   :suppress-operator t
   (evil-evilified-state))
 
-(defun evilified-state--pre-command-hook ()
+(defun evil-evilified-state--pre-command-hook ()
   "Redirect key bindings to `evilified-state'.
 Needed to bypass keymaps set as text properties."
   (unless (bound-and-true-p isearch-mode)
@@ -79,31 +82,31 @@ Needed to bypass keymaps set as text properties."
                         (lookup-key evilified-map (this-command-keys)))))
         (when command (setq this-command command))))))
 
-(defun evilified-state--setup-normal-state-keymap ()
+(defun evil-evilified-state--setup-normal-state-keymap ()
   "Setup the normal state keymap."
-  (unless evilified-state--normal-state-map
-    (setq-local evilified-state--normal-state-map
+  (unless evil-evilified-state--normal-state-map
+    (setq-local evil-evilified-state--normal-state-map
                 (copy-keymap evil-normal-state-map)))
   (setq-local evil-normal-state-map
-              (copy-keymap evilified-state--normal-state-map))
+              (copy-keymap evil-evilified-state--normal-state-map))
   (define-key evil-normal-state-map [escape] 'evil-evilified-state))
 
-(defun evilified-state--restore-normal-state-keymap ()
+(defun evil-evilified-state--restore-normal-state-keymap ()
   "Restore the normal state keymap."
-  (setq-local evil-normal-state-map evilified-state--normal-state-map))
+  (setq-local evil-normal-state-map evil-evilified-state--normal-state-map))
 
-(defun evilified-state--clear-normal-state-keymap ()
+(defun evil-evilified-state--clear-normal-state-keymap ()
   "Clear the normal state keymap."
   (setq-local evil-normal-state-map (cons 'keymap nil))
   (evil-normalize-keymaps))
 
-(defun evilified-state--setup-visual-state-keymap ()
+(defun evil-evilified-state--setup-visual-state-keymap ()
   "Setup the normal state keymap."
   (setq-local evil-visual-state-map
               (cons 'keymap (list (cons ?y 'evil-yank)
                                   (cons 'escape 'evil-exit-visual-state)))))
 
-(defun evilified-state--evilified-state-on-entry ()
+(defun evil-evilified-state--evilified-state-on-entry ()
   "Setup evilified state."
   (when (derived-mode-p 'magit-mode)
     ;; Courtesy of evil-magit package
@@ -114,27 +117,27 @@ Needed to bypass keymaps set as text properties."
              (fboundp 'evil-surround-mode))
     (make-local-variable 'evil-surround-mode)
     (evil-surround-mode -1))
-  (evilified-state--setup-normal-state-keymap)
-  (evilified-state--setup-visual-state-keymap)
-  (add-hook 'pre-command-hook 'evilified-state--pre-command-hook nil 'local)
+  (evil-evilified-state--setup-normal-state-keymap)
+  (evil-evilified-state--setup-visual-state-keymap)
+  (add-hook 'pre-command-hook 'evil-evilified-state--pre-command-hook nil 'local)
   (add-hook 'evil-visual-state-entry-hook
-            'evilified-state--visual-state-on-entry nil 'local)
+            'evil-evilified-state--visual-state-on-entry nil 'local)
   (add-hook 'evil-visual-state-exit-hook
-            'evilified-state--visual-state-on-exit nil 'local))
+            'evil-evilified-state--visual-state-on-exit nil 'local))
 
-(defun evilified-state--visual-state-on-entry ()
+(defun evil-evilified-state--visual-state-on-entry ()
   "Setup visual state."
   ;; we need to clear temporarily the normal state keymap in order to reach
   ;; the mode keymap
   (when (eq 'evilified evil-previous-state)
-    (evilified-state--clear-normal-state-keymap)))
+    (evil-evilified-state--clear-normal-state-keymap)))
 
-(defun evilified-state--visual-state-on-exit ()
+(defun evil-evilified-state--visual-state-on-exit ()
   "Clean visual state"
-  (evilified-state--restore-normal-state-keymap))
+  (evil-evilified-state--restore-normal-state-keymap))
 
 (add-hook 'evil-evilified-state-entry-hook
-          'evilified-state--evilified-state-on-entry)
+          'evil-evilified-state--evilified-state-on-entry)
 
 ;; default key bindings for all evilified buffers
 (define-key evil-evilified-state-map "/" 'evil-search-forward)
@@ -162,7 +165,7 @@ Needed to bypass keymaps set as text properties."
 
 ;; old macro
 ;;;###autoload
-(defmacro evilified-state-evilify (mode map &rest body)
+(defmacro evil-evilified-state-evilify (mode map &rest body)
   "Set `evilified state' as default for MODE.
 
 BODY is a list of additional key bindings to apply for the given MAP in
@@ -173,11 +176,11 @@ BODY is a list of additional key bindings to apply for the given MAP in
                           (eq 'evilified (evil-initial-state ',mode)))
                 (evil-set-initial-state ',mode 'evilified)))
             (unless ,(null defkey) (,@defkey)))))
-(put 'evilified-state-evilify 'lisp-indent-function 'defun)
+(put 'evil-evilified-state-evilify 'lisp-indent-function 'defun)
 
 ;; new macro
 ;;;###autoload
-(defmacro evilified-state-evilify-map (map &rest props)
+(defmacro evil-evilified-state-evilify-map (map &rest props)
   "Evilify MAP.
 
 Avaiblabe PROPS:
@@ -212,46 +215,46 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
          (evilified-map (or (plist-get props :evilified-map)
                             'evil-evilified-state-map-original))
          (eval-after-load (plist-get props :eval-after-load))
-         (pre-bindings (evilified-state--mplist-get props :pre-bindings))
-         (bindings (evilified-state--mplist-get props :bindings))
+         (pre-bindings (evil-evilified-state--mplist-get props :pre-bindings))
+         (bindings (evil-evilified-state--mplist-get props :bindings))
          (defkey (when bindings `(evil-define-key 'evilified ,map ,@bindings)))
          (body
           (progn
-            (evilified-state--define-pre-bindings map pre-bindings)
+            (evil-evilified-state--define-pre-bindings map pre-bindings)
             `(
               ;; we need to work on a local copy of the evilified keymap to
               ;; prevent the original keymap from being mutated.
               (setq evil-evilified-state-map (copy-keymap ,evilified-map))
-              (let* ((sorted-map (evilified-state--sort-keymap
+              (let* ((sorted-map (evil-evilified-state--sort-keymap
                                   evil-evilified-state-map))
                      processed)
                 (mapc (lambda (map-entry)
                         (unless (member (car map-entry) processed)
-                          (setq processed (evilified-state--evilify-event
+                          (setq processed (evil-evilified-state--evilify-event
                                            ,map ',map evil-evilified-state-map
                                            (car map-entry) (cdr map-entry)))))
                       sorted-map)
                 (unless ,(null defkey)
                   (,@defkey)))
               (unless ,(null mode)
-                (evilified-state--configure-default-state ',mode))))))
+                (evil-evilified-state--configure-default-state ',mode))))))
     (if (null eval-after-load)
         `(progn ,@body)
       `(with-eval-after-load ',eval-after-load (progn ,@body)))))
-(put 'evilified-state-evilify-map 'lisp-indent-function 'defun)
+(put 'evil-evilified-state-evilify-map 'lisp-indent-function 'defun)
 
-(defun evilified-state--define-pre-bindings (map pre-bindings)
+(defun evil-evilified-state--define-pre-bindings (map pre-bindings)
   "Define PRE-BINDINGS in MAP."
   (while pre-bindings
     (let ((key (pop pre-bindings))
           (func (pop pre-bindings)))
       (eval `(define-key ,map key ,func)))))
 
-(defun evilified-state--configure-default-state (mode)
+(defun evil-evilified-state--configure-default-state (mode)
   "Configure default state for the passed mode."
   (evil-set-initial-state mode 'evilified))
 
-(defun evilified-state--evilify-event (map map-symbol evil-map event evil-value
+(defun evil-evilified-state--evilify-event (map map-symbol evil-map event evil-value
                                            &optional processed pending-funcs)
   "Evilify EVENT in MAP and return a list of PROCESSED events."
   (if (and event (or evil-value pending-funcs))
@@ -265,9 +268,9 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
         (when map-value
           (add-to-list 'pending-funcs (cons map-value event) 'append))
         (push event processed)
-        (setq processed (evilified-state--evilify-event
+        (setq processed (evil-evilified-state--evilify-event
                          map map-symbol evil-map
-                         (evilified-state--find-new-event event) nil
+                         (evil-evilified-state--find-new-event event) nil
                          processed pending-funcs)))
     (when pending-funcs
       (message
@@ -280,7 +283,7 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
                           pending-funcs "\n")))))
   processed)
 
-(defun evilified-state--find-new-event (event)
+(defun evil-evilified-state--find-new-event (event)
   "Return a new event for the evilified EVENT."
   (when event
     (cond
@@ -293,7 +296,7 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
      ((and (numberp event) (<= ?A event) (<= event ?Z)) (- event 64))
      ((and (numberp event) (<= 1 event) (<= event 26)) (+ (expt 2 25) event)))))
 
-(defun evilified-state--sort-keymap (map)
+(defun evil-evilified-state--sort-keymap (map)
   "Sort MAP following the order: `s' > `S' > `C-s' > `C-S-s'"
   (let (list)
     (map-keymap (lambda (a b) (push (cons a b) list)) map)
@@ -309,7 +312,7 @@ Each pair KEYn FUNCTIONn is defined in MAP after the evilification of it."
               (if (integerp b) nil
                 (string< a b)))))))
 
-(defun evilified-state--mplist-get (plist prop)
+(defun evil-evilified-state--mplist-get (plist prop)
   "Get the values associated to PROP in PLIST, a modified plist.
 
 A modified plist is one where keys are keywords and values are
