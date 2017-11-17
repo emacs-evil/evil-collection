@@ -34,7 +34,7 @@
 (defvar slime-inspector-mode-map)
 
 (defun evil-slime-setup ()
-  (+evilify-map
+  (evil-collection-util-evilify-map
    sldb-mode-map
    :mode sldb-mode
    :bindings
@@ -46,7 +46,7 @@
    "gb" 'sldb-break-on-return
    "gB" 'sldb-break-with-default-debugger)
 
-  (+evilify-map
+  (evil-collection-util-evilify-map
    slime-inspector-mode-map
    :mode slime-inspector-mode
    :bindings

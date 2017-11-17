@@ -36,11 +36,11 @@
 (defvar ggtags-navigation-map)
 
 (defun evil-ggtags-setup ()
-  (+evilify-map
+  (evil-collection-util-evilify-map
    ggtags-global-mode-map
    :mode ggtags-global-mode)
 
-  (+evilify-map
+  (evil-collection-util-evilify-map
    ggtags-view-search-history-mode-map
    :bindings
    "j" 'ggtags-view-search-history-prev
@@ -53,7 +53,7 @@
    "e" 'evil-forward-word-end
    "E" 'evil-forward-WORD-end)
 
-  (+evilify-map
+  (evil-collection-util-evilify-map
    ggtags-view-tag-history-mode-map
    :bindings
    "\C-j" 'next-error-no-select
@@ -61,7 +61,7 @@
    "e" 'evil-forward-word-end
    "E" 'evil-forward-WORD-end)
 
-  (+evilify-map
+  (evil-collection-util-evilify-map
    ggtags-view-tag-history-mode-map
    :bindings
    "\C-j" 'next-error-no-select
@@ -69,7 +69,7 @@
    "e" 'evil-forward-word-end
    "E" 'evil-forward-WORD-end)
 
-  (+evilify-map
+  (evil-collection-util-evilify-map
    ggtags-navigation-map
    :bindings
    "\C-j" 'next-error

@@ -34,7 +34,7 @@
 
 ;;; Code:
 (defun evil-vlf-setup ()
-  (+evilify-map
+  (evil-collection-util-evilify-map
    vlf-mode-map
    :mode vlf-mode
    :bindings

@@ -33,7 +33,7 @@
 (defvar p4-basic-mode-map)
 
 (defun evil-p4-setup ()
-  (+evilify-map
+  (evil-collection-util-evilify-map
    p4-basic-mode-map
    :mode p4-basic-mode
    :bindings

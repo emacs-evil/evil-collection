@@ -30,7 +30,7 @@
 (require 'edebug)
 (require 'evil-collection-util)
 
-(+evil-set-default-state-for-mode edebug-mode motion)
+(evil-collection-util-set-initial-state edebug-mode motion)
 
 (defun evil-edebug-setup ()
 
