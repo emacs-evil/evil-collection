@@ -22,6 +22,7 @@ install:
 script:
   - make compile
   - make lint
+  - make test
 notifications:
   email:
     # Default is change, but that includes a new branch's 1st success.

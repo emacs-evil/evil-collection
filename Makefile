@@ -14,3 +14,8 @@ lint:
 	--eval "(package-refresh-contents)"						\
 	-l package-lint.el								\
 	-f package-lint-batch-and-exit *.el
+
+test:
+	cask exec ert-runner
+
+.PHONY: test
