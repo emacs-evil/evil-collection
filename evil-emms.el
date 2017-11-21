@@ -84,14 +84,14 @@
   (advice-add 'emms-browser :after 'evil-emms-browser)
   (evil-set-initial-state 'emms-playlist-mode 'motion)
 
-  (dolist (map (list emms-browser-mode-map emms-playlist-mode-map))
-    (evil-define-key* 'motion map
-      "+" 'emms-volume-raise
-      "=" 'emms-volume-raise
-      "-" 'emms-volume-lower
-      "u" 'emms-playlist-mode-undo))
-
   (with-eval-after-load 'emms-browser
+    (dolist (map (list emms-browser-mode-map emms-playlist-mode-map))
+      (evil-define-key* 'motion map
+                        "+" 'emms-volume-raise
+                        "=" 'emms-volume-raise
+                        "-" 'emms-volume-lower
+                        "u" 'emms-playlist-mode-undo))
+
     ;; TODO: Why do we need to define emms-browser-mode-map after load and not emms-playlist-mode-map?
     (evil-define-key 'motion emms-browser-mode-map
       ;; playback controls
