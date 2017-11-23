@@ -39,9 +39,9 @@
    :mode p4-basic-mode
    :bindings
    [mouse-1] 'p4-buffer-mouse-clicked
-   "\C-j" 'p4-forward-active-link
-   "\C-k" 'p4-backward-active-link
-   "\C-m" 'p4-buffer-commands
+   (kbd "C-j") 'p4-forward-active-link
+   (kbd "C-k") 'p4-backward-active-link
+   (kbd "C-m") 'p4-buffer-commands
    "gr" 'revert-buffer
    "gj" 'p4-forward-active-link
    "gk" 'p4-backward-active-link
