@@ -36,23 +36,23 @@
   (evil-define-key 'motion doc-view-mode-map
     (kbd "C-j") 'doc-view-next-page
     (kbd "C-k") 'doc-view-previous-page
-    (kbd "gj") 'doc-view-next-page
-    (kbd "gk") 'doc-view-previous-page
+    "gj" 'doc-view-next-page
+    "gk" 'doc-view-previous-page
     (kbd "C-d") 'forward-page
-    (kbd "j") 'doc-view-next-line-or-next-page
-    (kbd "k") 'doc-view-previous-line-or-previous-page
-    (kbd "gg") 'doc-view-first-page
-    (kbd "G") 'doc-view-last-page
-    (kbd "J") 'doc-view-goto-page
-    (kbd "RET") 'image-next-line
-    (kbd "+") 'doc-view-enlarge
-    (kbd "=") 'doc-view-enlarge
-    (kbd "0") 'doc-view-scale-reset
-    (kbd "-") 'doc-view-shrink
-    (kbd "W") 'doc-view-fit-width-to-window
-    (kbd "H") 'doc-view-fit-height-to-window
-    (kbd "P") 'doc-view-fit-page-to-window
-    (kbd "X") 'doc-view-kill-proc
+    "j" 'doc-view-next-line-or-next-page
+    "k" 'doc-view-previous-line-or-previous-page
+    "gg" 'doc-view-first-page
+    "G" 'doc-view-last-page
+    "J" 'doc-view-goto-page
+    (kbd "<return>") 'image-next-line
+    "+" 'doc-view-enlarge
+    "=" 'doc-view-enlarge
+    "0" 'doc-view-scale-reset
+    "-" 'doc-view-shrink
+    "W" 'doc-view-fit-width-to-window
+    "H" 'doc-view-fit-height-to-window
+    "P" 'doc-view-fit-page-to-window
+    "X" 'doc-view-kill-proc
 
     (kbd "s s") 'doc-view-set-slice
     (kbd "s m") 'doc-view-set-slice-using-mouse
@@ -65,6 +65,7 @@
     (kbd "C-c C-c") 'doc-view-toggle-display
     (kbd "C-c C-t") 'doc-view-open-text
 
+    ;; update
     (kbd "gr") 'doc-view-revert-buffer)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
