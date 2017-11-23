@@ -42,8 +42,8 @@
     "u" 'macrostep-collapse
     "gj" 'macrostep-next-macro
     "gk" 'macrostep-prev-macro
-    "C-j" 'macrostep-next-macro
-    "C-k" 'macrostep-prev-macro))
+    (kbd "C-j") 'macrostep-next-macro
+    (kbd "C-k") 'macrostep-prev-macro))
 
 (provide 'evil-macrostep)
 ;;; evil-macrostep.el ends here
