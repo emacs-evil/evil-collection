@@ -67,7 +67,7 @@
     ;; evaluation
     "r" 'edebug-previous-result
     "EE" 'edebug-eval-expression
-    "\C-x\C-e" 'edebug-eval-last-sexp
+    (kbd "C-x C-e") 'edebug-eval-last-sexp
     "EL" 'edebug-visit-eval-list
 
     ;; views
@@ -86,26 +86,26 @@
     "=" 'edebug-temp-display-freq-count
 
     ;; GUD bindings
-    "\C-c\C-s" 'edebug-step-mode
-    "\C-c\C-n" 'edebug-next-mode
-    "\C-c\C-c" 'edebug-go-mode
+    (kbd "C-c C-s") 'edebug-step-mode
+    (kbd "C-c C-n") 'edebug-next-mode
+    (kbd "C-c C-c") 'edebug-go-mode
 
-    "\C-x " 'edebug-set-breakpoint
-    "\C-c\C-d" 'edebug-unset-breakpoint
-    "\C-c\C-t" (lambda () (interactive) (edebug-set-breakpoint t))
-    "\C-c\C-l" 'edebug-where)
+    (kbd "C-x SPC") 'edebug-set-breakpoint
+    (kbd "C-c C-d") 'edebug-unset-breakpoint
+    (kbd "C-c C-t") (lambda () (interactive) (edebug-set-breakpoint t))
+    (kbd "C-c C-l") 'edebug-where)
 
   (with-eval-after-load 'edebug-x
     (evil-define-key 'motion edebug-x-instrumented-function-list-mode-map
-      (kbd "E") 'edebug-x-evaluate-function
-      (kbd "Q") 'edebug-x-clear-data
-      (kbd "RET") 'edebug-x-find-function
-      (kbd "q") 'kill-current-buffer-and-its-windows)
+      "E" 'edebug-x-evaluate-function
+      "Q" 'edebug-x-clear-data
+      (kbd "<return>") 'edebug-x-find-function
+      "q" 'kill-current-buffer-and-its-windows)
     (evil-define-key 'motion edebug-x-breakpoint-list-mode-map
-      (kbd "RET") 'edebug-x-visit-breakpoint
-      (kbd "x") 'edebug-x-kill-breakpoint
-      (kbd "Q") 'edebug-x-clear-data
-      (kbd "q") 'kill-current-buffer-and-its-windows)))
+      (kbd "<return>") 'edebug-x-visit-breakpoint
+      "x" 'edebug-x-kill-breakpoint
+      "Q" 'edebug-x-clear-data
+      "q" 'kill-current-buffer-and-its-windows)))
 
 (provide 'evil-edebug)
 ;;; evil-edebug.el ends here
