@@ -33,7 +33,9 @@
 (defun evil-prodigy-setup ()
   "Set up `evil' bindings for `prodigy'."
   (evil-define-key 'normal prodigy-mode-map
+    ;; quit
     "q" 'quit-window
+
     "j" 'prodigy-next
     "k" 'prodigy-prev
     "gg" 'prodigy-first
@@ -49,9 +51,12 @@
 
     "s" 'prodigy-start
     "S" 'prodigy-stop
+
+    ;; update
     "gr" 'prodigy-restart
+
     "`" 'prodigy-display-process
-    (kbd "RET") 'prodigy-browse
+    (kbd "<return>") 'prodigy-browse
     "it" 'prodigy-add-tag-filter
     "in" 'prodigy-add-name-filter
     "I" 'prodigy-clear-filters
