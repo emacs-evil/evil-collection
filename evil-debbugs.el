@@ -44,13 +44,13 @@
     "c" 'debbugs-gnu-send-control-message
     "d" 'debbugs-gnu-display-status
 
-    ;; filtering
+    ;; filter
     (kbd "s") 'debbugs-gnu-narrow-to-status
     ;; "S" 'debbugs-gnu-widen ; Useless if we can just press "s RET" (empty filter).
     "S" 'debbugs-gnu-toggle-suppress
     "r" 'debbugs-gnu-show-all-blocking-reports
 
-    ;; sorting
+    ;; sort
     "o" 'debbugs-gnu-toggle-sort
     "O" 'tabulated-list-sort
 
@@ -58,7 +58,7 @@
     "gB" 'debbugs-gnu-show-blocking-reports
     "gb" 'debbugs-gnu-show-blocked-by-reports
 
-    ;; marking
+    ;; mark
     "m" 'debbugs-gnu-toggle-tag
 
     ;; update
