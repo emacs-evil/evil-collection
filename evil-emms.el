@@ -147,6 +147,8 @@
     ">" 'emms-seek-forward
     (kbd "C-j") 'emms-next
     (kbd "C-k") 'emms-previous
+    "gj" 'emms-next
+    "gk" 'emms-previous
     (kbd "<return>") 'emms-playlist-mode-play-smart
 
     ;; motion

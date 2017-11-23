@@ -48,6 +48,8 @@
     ;; TODO: Should the following be added?
     (kbd "C-j") 'widget-forward
     (kbd "C-k") 'widget-backward
+    "gj" 'widget-forward
+    "gk" 'widget-backward
 
     "^" 'Custom-goto-parent
     (kbd "C-o") 'Custom-goto-parent

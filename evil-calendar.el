@@ -58,6 +58,8 @@
     "}" 'calendar-forward-month
     (kbd "C-k") 'calendar-backward-month
     (kbd "C-j") 'calendar-forward-month
+    "gk" 'calendar-backward-month
+    "gj" 'calendar-forward-month
 
     ;; visual
     "v" 'calendar-set-mark

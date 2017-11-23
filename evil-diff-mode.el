@@ -92,6 +92,8 @@ current file instead."
     (kbd "]") 'diff-file-next
     (kbd "C-j") 'diff-hunk-next
     (kbd "C-k") 'diff-hunk-prev
+    "gj" 'diff-hunk-next
+    "gk" 'diff-hunk-prev
 
     "\\" 'read-only-mode) ; magit has "\"
 
@@ -103,6 +105,8 @@ current file instead."
     (kbd "]") 'diff-file-next
     (kbd "C-j") 'diff-hunk-next
     (kbd "C-k") 'diff-hunk-prev
+    "gj" 'diff-hunk-next
+    "gk" 'diff-hunk-prev
 
     (kbd "<return>") 'diff-goto-source
     "A" 'diff-add-change-log-entries-other-window

@@ -67,6 +67,8 @@
     "]" 'outline-next-visible-heading
     (kbd "C-k") 'outline-backward-same-level
     (kbd "C-j") 'outline-forward-same-level
+    "gk" 'outline-backward-same-level
+    "gj" 'outline-forward-same-level
     "^" 'outline-up-heading
 
     (kbd "M-h") 'outline-move-demote ; Org-mode has "M-<left>", Evil-org has "M-h"

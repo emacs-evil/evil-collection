@@ -62,6 +62,8 @@
     "[" 'pdf-view-previous-page-command
     (kbd "C-j") 'pdf-view-next-page-command
     (kbd "C-k") 'pdf-view-previous-page-command
+    "gj" 'pdf-view-next-page-command
+    "gk" 'pdf-view-previous-page-command
     (kbd "<next>") 'forward-page
     (kbd "<prior>") 'backward-page
     (kbd "<down>") 'pdf-view-next-line-or-next-page
