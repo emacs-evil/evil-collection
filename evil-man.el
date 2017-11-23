@@ -41,6 +41,8 @@
 
     (kbd "]") 'Man-next-manpage
     (kbd "[") 'Man-previous-manpage
+    (kbd "gj") 'Man-next-manpage
+    (kbd "gk") 'Man-previous-manpage
     (kbd "C-j") 'Man-next-section
     (kbd "C-k") 'Man-previous-section
 
