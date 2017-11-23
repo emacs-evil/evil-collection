@@ -45,9 +45,9 @@
    ggtags-view-search-history-mode-map
    :bindings
    "j" 'ggtags-view-search-history-prev
-   "\C-j" 'ggtags-view-search-history-prev
    "k" 'ggtags-view-search-history-next
-   "\C-k" 'ggtags-view-search-history-next
+   (kbd "C-j") 'ggtags-view-search-history-prev
+   (kbd "C-k") 'ggtags-view-search-history-next
    "x" 'ggtags-view-search-history-kill
    "r" 'ggtags-save-to-register
    "\r" 'ggtags-view-search-history-action
@@ -57,29 +57,29 @@
   (evil-collection-util-evilify-map
    ggtags-view-tag-history-mode-map
    :bindings
-   "\C-j" 'next-error-no-select
-   "\C-k" 'previous-error-no-select
+   (kbd "C-j") 'next-error-no-select
+   (kbd "C-k") 'previous-error-no-select
    "e" 'evil-forward-word-end
    "E" 'evil-forward-WORD-end)
 
   (evil-collection-util-evilify-map
    ggtags-view-tag-history-mode-map
    :bindings
-   "\C-j" 'next-error-no-select
-   "\C-k" 'previous-error-no-select
+   (kbd "C-j") 'next-error-no-select
+   (kbd "C-k") 'previous-error-no-select
    "e" 'evil-forward-word-end
    "E" 'evil-forward-WORD-end)
 
   (evil-collection-util-evilify-map
    ggtags-navigation-map
    :bindings
-   "\C-j" 'next-error
-   "\C-k" 'previous-error
-   "\M-j" 'ggtags-navigation-next-file
-   "\M-k" 'ggtags-navigation-previous-file
-   "\M-=" 'ggtags-navigation-start-file
-   "\M->" 'ggtags-navigation-last-error
-   "\M-<" 'first-error
+   (kbd "C-j") 'next-error
+   (kbd "C-k") 'previous-error
+   (kbd "M-j") 'ggtags-navigation-next-file
+   (kbd "M-k") 'ggtags-navigation-previous-file
+   (kbd "M-=") 'ggtags-navigation-start-file
+   (kbd "M->") 'ggtags-navigation-last-error
+   (kbd "M-<") 'first-error
    "e" 'evil-forward-word-end
    "E" 'evil-forward-WORD-end))
 
