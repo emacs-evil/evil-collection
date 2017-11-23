@@ -38,27 +38,32 @@
 
   (evil-define-key 'normal occur-mode-map
     ;; Like `wdired-mode'.
-    "\C-x\C-q" 'occur-edit-mode
+    (kbd "C-x C-q") 'occur-edit-mode
 
     [mouse-2] 'occur-mode-mouse-goto
-    "\C-c\C-c" 'occur-mode-goto-occurrence
-    "\C-m" 'occur-mode-goto-occurrence
+    (kbd "C-c C-c") 'occur-mode-goto-occurrence
+
+    ;; goto
+    (kbd "C-m") 'occur-mode-goto-occurrence
     "o" 'occur-mode-goto-occurrence-other-window
-    "\C-o" 'occur-mode-display-occurrence
-    "\C-j" 'occur-next
-    "\C-k" 'occur-prev
+    (kbd "C-o") 'occur-mode-display-occurrence
+
+    "gj" 'occur-next
+    "gk" 'occur-prev
+    (kbd "C-j") 'occur-next
+    (kbd "C-k") 'occur-prev
     "r" 'occur-rename-buffer
     "c" 'clone-buffer
-    "\C-c\C-f" 'next-error-follow-minor-mode)
+    (kbd "C-c C-f") 'next-error-follow-minor-mode)
 
   (evil-define-key 'normal occur-edit-mode-map
     ;; Like `wdired-mode'.
-    "\C-x\C-q" 'occur-cease-edit
+    (kbd "C-x C-q") 'occur-cease-edit
 
     [mouse-2] 'occur-mode-mouse-goto
-    "\C-c\C-c" 'occur-cease-edit
-    "\C-o" 'occur-mode-display-occurrence
-    "\C-c\C-f" 'next-error-follow-minor-mode))
+    (kbd "C-c C-c") 'occur-cease-edit
+    (kbd "C-o") 'occur-mode-display-occurrence
+    (kbd "C-c C-f") 'next-error-follow-minor-mode))
 
 (provide 'evil-occur)
 ;;; evil-occur.el ends here
