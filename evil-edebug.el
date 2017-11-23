@@ -34,7 +34,7 @@
 
 (defun evil-edebug-setup ()
   "Set up `evil' bindings for `edebug'."
-  (evil-define-key 'motion 'edebug-mode-map
+  (evil-define-key 'motion edebug-mode-map
     ;; control
     " " nil
     "s" 'edebug-step-mode
