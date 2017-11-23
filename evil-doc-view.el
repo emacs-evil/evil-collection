@@ -45,12 +45,15 @@
     "G" 'doc-view-last-page
     "J" 'doc-view-goto-page
     (kbd "<return>") 'image-next-line
+
+    ;; zoom
     "+" 'doc-view-enlarge
     "=" 'doc-view-enlarge
     "0" 'doc-view-scale-reset
     "-" 'doc-view-shrink
-    "W" 'doc-view-fit-width-to-window
-    "H" 'doc-view-fit-height-to-window
+
+    "W" 'doc-view-fit-width-to-window ; Like evil-image.
+    "H" 'doc-view-fit-height-to-window ; Like evil-image.
     "P" 'doc-view-fit-page-to-window
     "X" 'doc-view-kill-proc
 

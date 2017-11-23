@@ -73,6 +73,7 @@
     "'" 'pdf-view-jump-to-register
     "m" 'pdf-view-position-to-register
 
+    ;; zoom
     "+" 'pdf-view-enlarge
     "-" 'pdf-view-shrink
     "0" 'pdf-view-scale-reset

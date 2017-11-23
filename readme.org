@@ -294,7 +294,13 @@ If not, it can be used to display help.
 
 ?
 
+*** Zooming (~+~, ~-~, ~=~, ~0~)
 
+- ~+~ and ~-~ have obvious meanings.
+
+- ~0~ has a somewhat intuitive meaning, plus it is next to ~+~ and ~-~ on QWERTY.
+
+- ~=~ is useful as a synonym for ~+~ because it is the unshifted key of ~+~ on QWERTY.
 
 ** Modes left behind
 
