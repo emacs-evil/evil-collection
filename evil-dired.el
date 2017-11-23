@@ -122,8 +122,6 @@
     "r" 'dired-do-redisplay
     "m" 'dired-mark
     "n" 'dired-next-line
-    "o" 'dired-find-file-other-window
-    (kbd "C-o") 'dired-display-file
     "p" 'dired-previous-line
     "t" 'dired-toggle-marks
     "u" 'dired-unmark ; also "*u"
@@ -133,6 +131,9 @@
     "x" 'dired-do-flagged-delete
     "y" 'dired-show-file-type
     "+" 'dired-create-directory
+    ;; goto
+    "o" 'dired-find-file-other-window
+    (kbd "C-o") 'dired-display-file
     ;; sort
     "s" 'dired-sort-toggle-or-edit
     ;; moving
