@@ -51,7 +51,7 @@
    slime-inspector-mode-map
    :mode slime-inspector-mode
    :bindings
-   ;; update
+   ;; refresh
    "gr" 'slime-inspector-reinspect)
 
   (evil-define-key 'normal slime-mode-map

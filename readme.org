@@ -192,10 +192,11 @@ A good rule of thumb would be:
 
 *** Refreshing / Reverting (~gr~)
 
-~gr~ is used for reverting in [[evil-magit][evil-magit]], [[evil-mu4e][evil-mu4e]], and some Spacemacs
-configurations (org-agenda and neotree among others).
+- ~gr~ is used for refreshing in [[evil-magit][evil-magit]], [[evil-mu4e][evil-mu4e]], and some Spacemacs
+  configurations (org-agenda and neotree among others).
 
-~C-l~ is traditionally used to refresh the terminal screen.
+~C-l~ is traditionally used to refresh the terminal screen.  Since there does
+not seem to be any existing use of it, we leave the binding free for other uses.
 
 *** Marking
 

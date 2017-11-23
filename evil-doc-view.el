@@ -68,7 +68,7 @@
     (kbd "C-c C-c") 'doc-view-toggle-display
     (kbd "C-c C-t") 'doc-view-open-text
 
-    ;; update
+    ;; refresh
     (kbd "gr") 'doc-view-revert-buffer)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?

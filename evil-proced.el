@@ -76,7 +76,7 @@
 
     "r" 'proced-renice
 
-    ;; update
+    ;; refresh
     "gr" 'revert-buffer
 
     ;; quit

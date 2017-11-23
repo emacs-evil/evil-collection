@@ -61,7 +61,7 @@
     ;; mark
     "m" 'debbugs-gnu-toggle-tag
 
-    ;; update
+    ;; refresh
     "gr" 'debbugs-gnu-rescan
 
     ;; quit

@@ -52,7 +52,7 @@
     "s" 'prodigy-start
     "S" 'prodigy-stop
 
-    ;; update
+    ;; refresh
     "gr" 'prodigy-restart
 
     "`" 'prodigy-display-process

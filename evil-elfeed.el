@@ -43,7 +43,7 @@
     "s" 'elfeed-search-live-filter
     "S" 'elfeed-search-set-filter
 
-    ;; update
+    ;; refresh
     "R" 'elfeed-search-fetch ; TODO: Which update function is more useful?
     "r" 'elfeed-search-update--force
 
@@ -81,7 +81,7 @@
     (kbd "C-j") 'elfeed-show-next
     (kbd "C-k") 'elfeed-show-prev
 
-    ;; update
+    ;; refresh
     "r" 'elfeed-show-refresh
 
     ;; quit

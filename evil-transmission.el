@@ -64,7 +64,7 @@
     "M" 'transmission-unmark-all
     "~" 'transmission-invert-marks
 
-    ;; update
+    ;; refresh
     "gr" 'revert-buffer
 
     ;; quit

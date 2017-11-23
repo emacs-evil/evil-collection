@@ -58,7 +58,7 @@
     "P" 'archive-chgrp-entry
     "C" 'archive-chown-entry
 
-    ;; update
+    ;; refresh
     "gr" 'revert-buffer
 
     ;; mark

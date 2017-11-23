@@ -58,7 +58,7 @@
     ;; goto
     "gd" 'profiler-report-find-entry
 
-    ;; update
+    ;; refresh
     "gr" 'revert-buffer
 
     ;; quit

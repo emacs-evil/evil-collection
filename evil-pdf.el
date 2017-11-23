@@ -96,7 +96,7 @@
     "P" 'pdf-view-fit-page-to-window
     "W" 'pdf-view-fit-width-to-window ; evil-image has "W"
 
-    ;; update
+    ;; refresh
     "gr" 'revert-buffer
 
     (kbd "<C-down-mouse-1>") 'pdf-view-mouse-extend-region
@@ -161,7 +161,7 @@
     ;; sort
     "S" 'tabulated-list-sort
 
-    ;; update
+    ;; refresh
     "G" 'tablist-revert
 
     "K" 'pdf-occur-abort-search

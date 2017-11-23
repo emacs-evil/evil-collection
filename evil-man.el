@@ -52,7 +52,7 @@
     "gR" 'Man-follow-manual-reference
     "gs" 'Man-goto-see-also-section
 
-    ;; update
+    ;; refresh
     "gr" 'Man-update-manpage
 
     ;; quit

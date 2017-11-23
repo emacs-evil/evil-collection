@@ -41,7 +41,7 @@
    "gw" 'ibuffer-copy-filename-as-kill
    "gW" 'ibuffer-do-view-and-eval
 
-   ;; update
+   ;; refresh
    "gr" 'ibuffer-update
 
    "gx" 'ibuffer-kill-line

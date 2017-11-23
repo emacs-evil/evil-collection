@@ -40,7 +40,7 @@
 
     "x" 'ztree-toggle-expand-subtree
 
-    ;; update
+    ;; refresh
     "gr" 'ztree-refresh-buffer
 
     ;; quit
@@ -56,7 +56,7 @@
     "zh" 'ztree-diff-toggle-show-equal-files
     "gf" 'ztree-diff-view-file
 
-    ;; update
+    ;; refresh
     "gr" 'ztree-diff-partial-rescan
     "gR" 'ztree-diff-full-rescan))
 

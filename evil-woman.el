@@ -40,7 +40,7 @@
     ;; goto
     ;; "gm" 'woman
 
-    ;; update
+    ;; refresh
     "gr" 'woman-reformat-last-file))
 
 (provide 'evil-woman)

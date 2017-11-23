@@ -43,8 +43,10 @@
    "C-k" 'vlf-prev-batch
    "f" 'evil-find-char
    "F" 'vlf-toggle-follow
-   "gr" vlf-revert
-   "e" vlf-ediff-buffers))
+   "e" vlf-ediff-buffers
+
+   ;; refresh
+   "gr" vlf-revert))
 
 (provide 'evil-vlf)
 ;;; evil-vlf.el ends here

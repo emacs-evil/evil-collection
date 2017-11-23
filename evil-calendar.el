@@ -83,7 +83,7 @@
     "gc" 'org-calendar-goto-agenda ; "gc" in evil-org-agenda. TODO: Shadows calendar-iso.
     "r" 'calendar-cursor-holidays
 
-    ;; update
+    ;; refresh
     "gr" 'calendar-redraw
 
     "?" 'calendar-goto-info-node ; Search is not very useful.
