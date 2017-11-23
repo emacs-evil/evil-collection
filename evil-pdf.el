@@ -103,7 +103,7 @@
     (kbd "<down-mouse-1>")  'pdf-view-mouse-set-region
 
     (kbd "C-c C-c") 'docview-mode
-    [?\C-c tab] 'pdf-view-extract-region-image ; workaround package-lint bug
+    [?\C-c tab] 'pdf-view-extract-region-image ; TODO: Use "kbd" when package-lint is fixed (https://github.com/purcell/package-lint/issues/96).
 
     "sb" 'pdf-view-set-slice-from-bounding-box
     "sm" 'pdf-view-set-slice-using-mouse
@@ -148,6 +148,7 @@
     "ZZ" 'pdf-outline-quit-and-kill)
 
   (evil-define-key 'motion pdf-occur-buffer-mode-map
+    ;; goto
     (kbd "<return>") 'pdf-occur-goto-occurrence
     (kbd "o") 'pdf-occur-view-occurrence
     (kbd "C-o") 'pdf-occur-view-occurrence ; TODO: "o" is probably a better binding.
