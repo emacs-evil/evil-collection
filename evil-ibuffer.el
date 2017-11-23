@@ -40,10 +40,13 @@
    "gB" 'ibuffer-copy-buffername-as-kill
    "gw" 'ibuffer-copy-filename-as-kill
    "gW" 'ibuffer-do-view-and-eval
+
+   ;; update
    "gr" 'ibuffer-update
+
    "gx" 'ibuffer-kill-line
-   "\C-j" 'ibuffer-forward-filter-group
-   "\C-k" 'ibuffer-backward-filter-group ; Originally `ibuffer-kill-line'.
+   (kbd "C-j") 'ibuffer-forward-filter-group
+   (kbd "C-k") 'ibuffer-backward-filter-group ; Originally `ibuffer-kill-line'.
    "gj" 'ibuffer-forward-filter-group
    "gk" 'ibuffer-backward-filter-group))
 
