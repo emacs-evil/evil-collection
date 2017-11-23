@@ -52,6 +52,7 @@
     (kbd "C-j") 'widget-forward
     (kbd "C-k") 'widget-backward
 
+    ;; quit
     "q" 'Custom-buffer-done
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done))
