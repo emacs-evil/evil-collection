@@ -51,7 +51,7 @@
     "i" 'edebug-step-in
     "o" 'edebug-step-out
 
-    ;; quitting and stopping
+    ;; quit
     "q" 'top-level
     "Q" 'edebug-top-level-nonstop
     "a" 'abort-recursive-edit
