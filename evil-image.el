@@ -30,6 +30,9 @@
 (require 'evil)
 (require 'image-mode)
 
+;; TODO: pdf and doc-view conflict with image.
+;; See https://github.com/jojojames/evil-collection/issues/23.
+
 (defun evil-image-setup ()
   "Set up `evil' bindings for `image-mode'."
   (evil-set-initial-state 'image-mode 'motion)

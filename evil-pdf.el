@@ -30,12 +30,6 @@
 (require 'evil)
 (require 'pdf-view nil t)
 
-;; TODO: `image-mode-map' is the parent of `pdf-view-mode-map'.  A bug(?) in
-;; image-mode-map and pdf-mode-map seem to conflict with Evil.
-;; See https://github.com/emacs-evil/evil/issues/938
-;; and https://github.com/politza/pdf-tools/issues/324.
-;; Changing load order only changes which mode overrides the other.
-
 (with-no-warnings
   (defun evil-pdf-view-goto-page (&optional page)
     "`evil' wrapper around `pdf-view-last-page'."
