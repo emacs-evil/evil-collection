@@ -40,10 +40,10 @@
    :mode sldb-mode
    :bindings
    "H" 'describe-mode
-   "\C-j" 'sldb-down
-   "\C-k" 'sldb-up
-   "\M-j" 'sldb-details-down
-   "\M-k" 'sldb-details-up
+   (kbd "C-j") 'sldb-down
+   (kbd "C-k") 'sldb-up
+   (kbd "M-j") 'sldb-details-down
+   (kbd "M-k") 'sldb-details-up
    "gb" 'sldb-break-on-return
    "gB" 'sldb-break-with-default-debugger)
 
@@ -51,15 +51,21 @@
    slime-inspector-mode-map
    :mode slime-inspector-mode
    :bindings
+   ;; update
    "gr" 'slime-inspector-reinspect)
 
   (evil-define-key 'normal slime-mode-map
     (kbd "C-t") #'slime-pop-find-definition-stack
+    ;; goto
     "gd" #'slime-edit-definition)
 
   (evil-define-key 'normal slime-popup-buffer-mode-map
+    ;; quit
     "q" 'quit-window
+
     (kbd "C-t") #'slime-pop-find-definition-stack
+
+    ;; goto
     "gd" #'slime-edit-definition)
 
   (add-hook 'slime-popup-buffer-mode-hook #'evil-normalize-keymaps))
