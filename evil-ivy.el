@@ -34,7 +34,7 @@
   "Set up `evil' bindings for `ivy-mode'."
   (evil-define-key 'normal ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
-    (kbd "RET") 'ivy-occur-press-and-switch
+    (kbd "<return>") 'ivy-occur-press-and-switch
     (kbd "j") 'ivy-occur-next-line
     (kbd "k") 'ivy-occur-previous-line
     (kbd "h") 'evil-backward-char
@@ -46,6 +46,8 @@
     (kbd "ga") 'ivy-occur-read-action
     (kbd "go") 'ivy-occur-dispatch
     (kbd "gc") 'ivy-occur-toggle-calling
+
+    ;; quit
     (kbd "q") 'quit-window)
 
   (when evil-want-C-d-scroll
@@ -57,18 +59,20 @@
     (kbd "C-x C-q") 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
     [mouse-1] 'ivy-occur-click
-    (kbd "RET") 'ivy-occur-press-and-switch
-    (kbd "j") 'ivy-occur-next-line
-    (kbd "k") 'ivy-occur-previous-line
-    (kbd "h") 'evil-backward-char
-    (kbd "l") 'evil-forward-char
-    (kbd "g") nil
-    (kbd "gg") 'evil-goto-first-line
-    (kbd "gf") 'ivy-occur-press
-    (kbd "gr") 'ivy-occur-revert-buffer
-    (kbd "ga") 'ivy-occur-read-action
-    (kbd "go") 'ivy-occur-dispatch
-    (kbd "gc") 'ivy-occur-toggle-calling
+    (kbd "<return>") 'ivy-occur-press-and-switch
+    "j" 'ivy-occur-next-line
+    "k" 'ivy-occur-previous-line
+    "h" 'evil-backward-char
+    "l" 'evil-forward-char
+    "g" nil
+    "gg" 'evil-goto-first-line
+    "gf" 'ivy-occur-press
+    "gr" 'ivy-occur-revert-buffer
+    "ga" 'ivy-occur-read-action
+    "go" 'ivy-occur-dispatch
+    "gc" 'ivy-occur-toggle-calling
+
+    ;; quit
     (kbd "q") 'quit-window))
 
 (provide 'evil-ivy)
