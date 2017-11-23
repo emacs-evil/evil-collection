@@ -38,10 +38,12 @@
     (kbd "<backtab>") #'elisp-refs-prev-match
     (kbd "C-j") #'elisp-refs-next-match
     (kbd "C-k") #'elisp-refs-prev-match
-    (kbd "gj") #'elisp-refs-next-match
-    (kbd "gk") #'elisp-refs-prev-match
-    (kbd "q") #'kill-this-buffer
-    (kbd "RET") #'elisp-refs-visit-match))
+    "gj" #'elisp-refs-next-match
+    "gk" #'elisp-refs-prev-match
+    (kbd "<return>") #'elisp-refs-visit-match
+
+    ;; quit
+    "q" #'kill-this-buffer))
 
 (provide 'evil-elisp-refs)
 ;;; evil-elisp-refs.el ends here
