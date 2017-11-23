@@ -156,7 +156,7 @@
     [remap read-only-mode] 'dired-toggle-read-only
     ;; `toggle-read-only' is an obsolete alias for `read-only-mode'
     [remap toggle-read-only] 'dired-toggle-read-only
-    "?" 'dired-summary
+    "g?" 'dired-summary
     (kbd "<delete>") 'dired-unmark-backward
     [remap undo] 'dired-undo
     [remap advertised-undo] 'dired-undo
