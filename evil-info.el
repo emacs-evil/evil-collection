@@ -62,6 +62,8 @@
     ;; We usually use "C-j"/"C-k" for that.
     (kbd "C-j") 'Info-next
     (kbd "C-k") 'Info-prev
+    "gj" 'Info-next
+    "gk" 'Info-prev
 
     (kbd "M-w") 'Info-copy-current-node-name ; TODO: Use yn?
     "p" nil
