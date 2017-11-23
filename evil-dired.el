@@ -67,14 +67,14 @@
     ;; Comparison commands
     "=" 'dired-diff
     ;; Tree Dired commands
-    "\M-\C-?" 'dired-unmark-all-files
-    "\M-\C-d" 'dired-tree-down
-    "\M-\C-u" 'dired-tree-up
-    "\M-\C-n" 'dired-next-subdir
-    "\M-\C-p" 'dired-prev-subdir
+    (kbd "M-C-?") 'dired-unmark-all-files
+    (kbd "M-C-d") 'dired-tree-down
+    (kbd "M-C-u") 'dired-tree-up
+    (kbd "M-C-n") 'dired-next-subdir
+    (kbd "M-C-p") 'dired-prev-subdir
     ;; move to marked files
-    "\M-{" 'dired-prev-marked-file
-    "\M-}" 'dired-next-marked-file
+    (kbd "M-{") 'dired-prev-marked-file
+    (kbd "M-}") 'dired-next-marked-file
     ;; Make all regexp commands share a `%' prefix:
     ;; We used to get to the submap via a symbol dired-regexp-prefix,
     ;; but that seems to serve little purpose, and copy-keymap
@@ -91,7 +91,7 @@
     "%R" 'dired-do-rename-regexp
     "%S" 'dired-do-symlink-regexp
     "%&" 'dired-flag-garbage-files
-    ;; Commands for marking and unmarking.
+    ;; mark
     "*" nil
     "**" 'dired-mark-executables
     "*/" 'dired-mark-directories
@@ -104,16 +104,16 @@
     "*?" 'dired-unmark-all-files
     "*!" 'dired-unmark-all-marks
     "U" 'dired-unmark-all-marks
-    "*\177" 'dired-unmark-backward
-    "*\C-n" 'dired-next-marked-file
-    "*\C-p" 'dired-prev-marked-file
+    (kbd "* <delete>") 'dired-unmark-backward
+    (kbd "* C-n") 'dired-next-marked-file
+    (kbd "* C-p") 'dired-prev-marked-file
     "*t" 'dired-toggle-marks
     ;; Lower keys for commands not operating on all the marked files
     "a" 'dired-find-alternate-file
     "d" 'dired-flag-file-deletion
     "e" 'dired-find-file
     "f" 'dired-find-file
-    "\C-m" 'dired-find-file
+    (kbd "C-m") 'dired-find-file
     "g" nil
     "gr" 'revert-buffer
     "i" 'dired-maybe-insert-subdir
@@ -123,17 +123,18 @@
     "m" 'dired-mark
     "n" 'dired-next-line
     "o" 'dired-find-file-other-window
-    "\C-o" 'dired-display-file
+    (kbd "C-o") 'dired-display-file
     "p" 'dired-previous-line
-    "s" 'dired-sort-toggle-or-edit
     "t" 'dired-toggle-marks
-    "u" 'dired-unmark
+    "u" 'dired-unmark ; also "*u"
     "v" 'dired-view-file
     "w" 'dired-copy-filename-as-kill
     "W" 'browse-url-of-dired-file
     "x" 'dired-do-flagged-delete
     "y" 'dired-show-file-type
     "+" 'dired-create-directory
+    ;; sort
+    "s" 'dired-sort-toggle-or-edit
     ;; moving
     "<" 'dired-prev-dirline
     ">" 'dired-next-dirline
@@ -144,7 +145,7 @@
     [remap previous-line] 'dired-previous-line
     ;; hiding
     "$" 'dired-hide-subdir
-    "\M-$" 'dired-hide-all
+    (kbd "M-$") 'dired-hide-all
     "(" 'dired-hide-details-mode
     ;; isearch
     (kbd "M-s a C-s")   'dired-do-isearch
@@ -156,22 +157,22 @@
     ;; `toggle-read-only' is an obsolete alias for `read-only-mode'
     [remap toggle-read-only] 'dired-toggle-read-only
     "?" 'dired-summary
-    "\177" 'dired-unmark-backward
+    (kbd "<delete>") 'dired-unmark-backward
     [remap undo] 'dired-undo
     [remap advertised-undo] 'dired-undo
     ;; thumbnail manipulation (image-dired)
-    "\C-td" 'image-dired-display-thumbs
-    "\C-tt" 'image-dired-tag-files
-    "\C-tr" 'image-dired-delete-tag
-    "\C-tj" 'image-dired-jump-thumbnail-buffer
-    "\C-ti" 'image-dired-dired-display-image
-    "\C-tx" 'image-dired-dired-display-external
-    "\C-ta" 'image-dired-display-thumbs-append
-    "\C-t." 'image-dired-display-thumb
-    "\C-tc" 'image-dired-dired-comment-files
-    "\C-tf" 'image-dired-mark-tagged-files
-    "\C-t\C-t" 'image-dired-dired-toggle-marked-thumbs
-    "\C-te" 'image-dired-dired-edit-comment-and-tags
+    (kbd "C-t d") 'image-dired-display-thumbs
+    (kbd "C-t t") 'image-dired-tag-files
+    (kbd "C-t r") 'image-dired-delete-tag
+    (kbd "C-t j") 'image-dired-jump-thumbnail-buffer
+    (kbd "C-t i") 'image-dired-dired-display-image
+    (kbd "C-t x") 'image-dired-dired-display-external
+    (kbd "C-t a") 'image-dired-display-thumbs-append
+    (kbd "C-t .") 'image-dired-display-thumb
+    (kbd "C-t c") 'image-dired-dired-comment-files
+    (kbd "C-t f") 'image-dired-mark-tagged-files
+    (kbd "C-t C-t") 'image-dired-dired-toggle-marked-thumbs
+    (kbd "C-t e") 'image-dired-dired-edit-comment-and-tags
     ;; encryption and decryption (epa-dired)
     ";d" 'epa-dired-do-decrypt
     ";v" 'epa-dired-do-verify
