@@ -33,11 +33,14 @@
 (defun evil-image+-setup ()
   "Set up `evil' bindings for `image+'."
   (evil-define-key 'motion image-mode-map
+    ;; zoom
     "+" 'imagex-sticky-zoom-in
+    "=" 'imagex-sticky-zoom-in
     "-" 'imagex-sticky-zoom-out
+    "O" 'imagex-sticky-restore-original
+
     "M" 'imagex-sticky-maximize
     "m" 'imagex-auto-adjust-mode
-    "O" 'imagex-sticky-restore-original
     "S" 'imagex-sticky-save-image
     "r" 'imagex-sticky-rotate-right
     "l" 'imagex-sticky-rotate-left))
