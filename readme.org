@@ -143,7 +143,7 @@ share the same bindings across all modes whenever feasible.
 
 - ~gj~ and ~gk~: synonym for ~[~ and ~]~.  That's what [[evil-magit][evil-magit]] does.
 
-*Question:* Should ~gj~/~gk~ rather be synonyms for ~C-j~/~C-k~?  They cannot
+*Question:* Should ~gj~ / ~gk~ rather be synonyms for ~C-j~ / ~C-k~?  They cannot
 emulate the behaviour of ~[]~ or ~][~.
 
 - ~C-j~, ~C-k~: If there is granularity, i.e. subsections, use ~C-j~ and ~C-k~
@@ -169,7 +169,7 @@ emulate the behaviour of ~[]~ or ~][~.
   - Most importantly, ~C-h~ is too widespread and ubiquitous to be replaced.
       So we don't.
 
-- As a consequence of the former point, ~C-l~ is available.
+- ~C-l~: As a consequence of the former point, ~C-l~ is available.
 
 - ~M-<hjkl>~: Those keys are usually free in Evil but still bound to their Emacs
   default (e.g. ~M-l~ is ~downcase-word~).  Besides, if ~C-j~ and ~C-k~ are
@@ -231,15 +231,15 @@ Optionally:
 marked and unmarked entries.  But ~M~ could also be made to remove all marks on
 region, making this binding useless.
 
-*** Filtering / Narrowing / Searching.
+*** Selecting / Filtering / Narrowing / Searching
 
-~s~ and ~S~ seem to be used in some places like [[mu4e][mu4e]].
+- ~s~ and ~S~ seem to be used in some places like [[mu4e][mu4e]].
 
-- ~s~: [s]elect/[s]earch/filter candidates according to a pattern.
+  - ~s~: [s]elect/[s]earch/filter candidates according to a pattern.
 
-- ~S~: Remove filter and select all.
+  - ~S~: Remove filter and select all.
 
-- ~=~ is also free and its significance is obvious.
+- ~=~ is usually free and its significance is obvious.  It's taken for zooming though.
 
 - ~|~ is not free but the pipe symbolic is very tantalizing.
 
@@ -256,7 +256,7 @@ region, making this binding useless.
 
 [[mu4e][mu4e]] uses ~O~.
 
-[[http://www.nongnu.org/ranger/][ranger]] uses ~o~.
+[[http://www.nongnu.org/ranger/][ranger]] uses ~o~, inspired from [[http://mutt.org][Mutt]].
 
 *** Jumping / go to definition / view, display other window (~gd~, ~.~, ~o~, ~O~, ~RET~, ~S-RET~, ~M-RET~)
 
