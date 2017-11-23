@@ -51,7 +51,7 @@
     (kbd "C-d") 'image-scroll-down
     (kbd "SPC") 'image-scroll-up
     (kbd "S-SPC") 'image-scroll-down
-    (kbd "DEL") 'image-scroll-down
+    (kbd "<delete>") 'image-scroll-down
 
     ;; animation
     (kbd "<return>") 'image-toggle-animation
@@ -69,6 +69,8 @@
 
     "[" 'image-previous-file
     "]" 'image-next-file
+    "gj" 'image-previous-file
+    "gk" 'image-next-file
     (kbd "C-k") 'image-previous-file
     (kbd "C-j") 'image-next-file
 
