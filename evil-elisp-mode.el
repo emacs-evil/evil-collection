@@ -36,11 +36,11 @@ BEG and END are the start and end of the output in current-buffer.
 VALUE is the Lisp value printed, ALT1 and ALT2 are strings for the
 alternative printed representations that can be displayed."
   (let ((map (make-sparse-keymap)))
-    (define-key map "\C-m" 'elisp-last-sexp-toggle-display)
+    (define-key map (kbd "C-m") 'elisp-last-sexp-toggle-display)
     (define-key map [down-mouse-2] 'mouse-set-point)
     (define-key map [mouse-2] 'elisp-last-sexp-toggle-display)
-    (evil-define-key 'insert map "\C-m"
-      (lookup-key (current-global-map) (kbd "RET")))
+    (evil-define-key 'insert map (kbd "C-m")
+      (lookup-key (current-global-map) (kbd "<return>")))
     (add-text-properties
      beg end
      `(printed-value (,value ,alt1 ,alt2)
