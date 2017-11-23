@@ -41,8 +41,8 @@
    "y" #'pass-copy
    "j" #'pass-next-entry
    "k" #'pass-prev-entry
-   "\C-j" #'pass-next-directory
-   "\C-k" #'pass-prev-directory
+   (kbd "C-j") #'pass-next-directory
+   (kbd "C-k") #'pass-prev-directory
    "x" #'pass-kill
    "s" #'isearch-forward
    "?" #'describe-mode
