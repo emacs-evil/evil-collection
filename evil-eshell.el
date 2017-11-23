@@ -59,6 +59,8 @@
     "]" 'eshell-next-prompt
     (kbd "C-k") 'eshell-previous-prompt
     (kbd "C-j") 'eshell-next-prompt
+    "gk" 'eshell-previous-prompt
+    "gj" 'eshell-next-prompt
     "0" 'eshell-bol
     "^" 'eshell-bol
     (kbd "M-h") 'eshell-backward-argument
@@ -77,6 +79,8 @@
     "]" 'eshell-next-prompt
     (kbd "C-k") 'eshell-previous-prompt
     (kbd "C-j") 'eshell-next-prompt
+    "gk" 'eshell-previous-prompt
+    "gj" 'eshell-next-prompt
     "0" 'eshell-bol
     "^" 'eshell-bol))
 
