@@ -41,7 +41,7 @@
     (kbd "<delete>") 'scroll-down-command
 
     ;; sort
-    "s" 'tabulated-list-sort
+    "o" 'tabulated-list-sort
 
     (kbd "<return>") 'transmission-files
     "p" 'transmission-peers
@@ -79,7 +79,7 @@
     (kbd "<delete>") 'scroll-down-command
 
     ;; sort
-    "s" 'tabulated-list-sort
+    "o" 'tabulated-list-sort
 
     "p" 'transmission-peers
     "i" 'transmission-info
@@ -89,11 +89,14 @@
     "U" 'transmission-files-want
     "P" 'transmission-files-priority
 
-    ;; goto
+    ;; open
     (kbd "<return>") 'transmission-find-file
-    (kbd "S-<return>") 'transmission-display-file
-    "o" 'transmission-find-file-other-window
-    "O" 'transmission-view-file
+    (kbd "S-<return>") 'transmission-find-file-other-window
+    (kbd "M-<return>") 'transmission-display-file
+    "gd" 'transmission-find-file
+    "gD" 'transmission-find-file-other-window
+
+    "v" 'transmission-view-file
 
     "!" 'transmission-files-command
     ;; "X" 'transmission-files-command
@@ -129,7 +132,7 @@
   (evil-set-initial-state 'transmission-peers-mode 'motion)
   (evil-define-key 'motion transmission-peers-mode-map
     ;; sort
-    "s" 'tabulated-list-sort
+    "o" 'tabulated-list-sort
 
     "i" 'transmission-info
 

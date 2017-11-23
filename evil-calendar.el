@@ -67,7 +67,7 @@
     ;; goto
     "." 'calendar-goto-today
     "gd" 'calendar-goto-date ; "gd" in evil-org-agenda, "gd" in Emacs.
-    ;; "gd" 'calendar-other-month ; Not very useful if we have `calendar-goto-date'.
+    ;; "gD" 'calendar-other-month ; Not very useful if we have `calendar-goto-date'.
 
     ;; diary
     "D" 'diary-view-other-diary-entries

@@ -258,25 +258,33 @@ region, making this binding useless.
 
 [[http://www.nongnu.org/ranger/][ranger]] uses ~o~, inspired from [[http://mutt.org][Mutt]].
 
-*** Jumping / go to definition / view, display other window (~gd~, ~.~, ~o~, ~O~, ~RET~, ~S-RET~, ~M-RET~)
+*** Go to definition (~gd~, ~gD~)
 
-- ~gd~: [g]o to [d]efinition.  Unless ~RET~ has an obvious meaning, it should be a synonym of ~gd~.
+- ~gd~: [g]o to [d]efinition.  This is mostly for programming modes.
   If there's a corresponding 'pop' action, use ~C-t~.
 
-- ~o~, ~O~: go to definition in other window and display in other window respectively.
-  The latter is like the former with the focus remaining on the current window.
-
-- ~S-RET~, ~M-RET~: Same as ~o~ and ~O~ when available.
-
-The point of having two binding pairs is that they might not always be available.
+*** Go to current entity
 
 - ~.~: go to current entity (day for calendar, playing track for [[EMMS][EMMS]]).
   Bind only if more relevant than ~evil-repeat~.
 
-Existing bindings:
+*** Open thing at point (~RET~, ~S-RET~, ~M-RET~, ~gd~, ~gD~)
 
-- mu4e has ~j~ in Emacs, ~J~ in Evil.
-- ~C-o~ is possibly used for "display other window".
+- ~RET~, ~S-RET~, ~M-RET~: Open thing at point in current window, open in other window and display in other window respectively.
+  The latter is like the former with the focus remaining on the current window.
+
+- ~gd~, ~gD~: When available, same as ~RET~ and ~S-RET~ respectively.  This is
+  useful in terminals where ~S-RET~ might not work.
+
+*** Emacs-style jumping (~J~)
+
+- ~J~: [[mu4e][mu4e]] has ~j~ and [[evil-mu4e][evil-mu4e]] uses ~J~, so we use ~J~ too.
+
+Some special modes like [[mu4e][mu4e]] and ibuffer offer to to "jump" to a different
+buffer.  This sometimes depends on the thing at point.
+
+This is not related to Evil jumps like ~C-i~ and ~C-o~, nor to "go to
+definition".
 
 *** Browse URL (~gx~)
 

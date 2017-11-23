@@ -45,10 +45,12 @@
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
 
-    ;; goto
-    (kbd "<return>") 'archive-view
-    "o" 'archive-extract
-    "O" 'archive-extract-other-window
+    ;; open
+    (kbd "<return>") 'archive-extract
+    (kbd "S-<return>") 'archive-extract-other-window
+    (kbd "M-<return>") 'archive-view
+    "gd" 'archive-extract
+    "gD" 'archive-extract-other-window
 
     "a" 'archive-alternate-display
     "d" 'archive-flag-deleted

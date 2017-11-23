@@ -43,7 +43,6 @@
     "k" 'profiler-report-previous-entry
 
     (kbd "<tab>") 'profiler-report-toggle-entry
-    (kbd "<return>") 'profiler-report-toggle-entry
     "i" 'profiler-report-toggle-entry
 
     ;; sort
@@ -55,7 +54,8 @@
     "i" 'profiler-report-describe-entry
     "=" 'profiler-report-compare-profile
 
-    ;; goto
+    ;; open
+    (kbd "<return>") 'profiler-report-find-entry
     "gd" 'profiler-report-find-entry
 
     ;; refresh

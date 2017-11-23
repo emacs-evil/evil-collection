@@ -43,10 +43,12 @@
     [mouse-2] 'occur-mode-mouse-goto
     (kbd "C-c C-c") 'occur-mode-goto-occurrence
 
-    ;; goto
-    (kbd "C-m") 'occur-mode-goto-occurrence
-    "o" 'occur-mode-goto-occurrence-other-window
-    (kbd "C-o") 'occur-mode-display-occurrence
+    ;; open
+    (kbd "<return>") 'occur-mode-goto-occurrence
+    (kbd "S-<return>") 'occur-mode-goto-occurrence-other-window
+    (kbd "M-<return>") 'occur-mode-display-occurrence
+    "gd" 'occur-mode-goto-occurrence
+    "gD" 'occur-mode-goto-occurrence-other-window
 
     "gj" 'occur-next
     "gk" 'occur-prev

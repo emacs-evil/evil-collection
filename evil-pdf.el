@@ -132,11 +132,14 @@
 
   (evil-set-initial-state 'pdf-outline-buffer-mode 'motion)
   (evil-define-key 'motion pdf-outline-buffer-mode-map
-    (kbd "<return>") 'pdf-outline-follow-link
-    (kbd "M-<return>") 'pdf-outline-follow-link-and-quit
-    (kbd "SPC") 'pdf-outline-display-link
+    ;; open
+    (kbd "<return>") 'pdf-outline-follow-link-and-quit
+    (kbd "S-<return>") 'pdf-outline-follow-link
+    (kbd "M-<return>") 'pdf-outline-display-link
+    "gd" 'pdf-outline-follow-link-and-quit
+    "gD" 'pdf-outline-follow-link
     "." 'pdf-outline-move-to-current-page
-    "o" 'pdf-outline-select-pdf-window
+    (kbd "SPC") 'pdf-outline-select-pdf-window
 
     "G" 'pdf-outline-end-of-buffer
     "^" 'pdf-outline-up-heading
@@ -151,17 +154,19 @@
     "ZZ" 'pdf-outline-quit-and-kill)
 
   (evil-define-key 'motion pdf-occur-buffer-mode-map
-    ;; goto
+    ;; open
     (kbd "<return>") 'pdf-occur-goto-occurrence
-    (kbd "o") 'pdf-occur-view-occurrence
-    (kbd "C-o") 'pdf-occur-view-occurrence ; TODO: "o" is probably a better binding.
+    (kbd "S-<return>") 'pdf-occur-view-occurrence
     (kbd "SPC") 'pdf-occur-view-occurrence
+    "gd" 'pdf-occur-goto-occurrence
+    "gD" 'pdf-occur-view-occurrence
 
     "A" 'pdf-occur-tablist-gather-documents
     "D" 'pdf-occur-tablist-do-delete
 
     ;; sort
-    "S" 'tabulated-list-sort
+    "o" 'tabulated-list-sort
+    "O" 'tablist-sort ; TODO: Do we need this?
 
     ;; refresh
     "G" 'tablist-revert
@@ -185,7 +190,6 @@
     ;; "f" 'tablist-find-entry ; TODO: Equivalent to 'pdf-occur-goto-occurrence?
     "r" 'pdf-occur-revert-buffer-with-args
     "d" 'tablist-do-kill-lines
-    "s" 'tablist-sort
     "x" 'pdf-occur-tablist-do-flagged-delete
     (kbd "<delete>") 'tablist-unmark-backward
     (kbd "S-SPC") 'scroll-down-command

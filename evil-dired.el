@@ -129,11 +129,12 @@
     "x" 'dired-do-flagged-delete
     "y" 'dired-show-file-type
     "+" 'dired-create-directory
-    ;; goto
-    "o" 'dired-find-file-other-window
-    (kbd "C-o") 'dired-display-file
+    ;; open
+    (kbd "S-<return>") 'dired-find-file-other-window
+    (kbd "M-<return>") 'dired-display-file
+    "gD" 'dired-find-file-other-window
     ;; sort
-    "s" 'dired-sort-toggle-or-edit
+    "o" 'dired-sort-toggle-or-edit
     ;; moving
     "<" 'dired-prev-dirline
     ">" 'dired-next-dirline

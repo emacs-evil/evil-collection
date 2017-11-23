@@ -48,8 +48,8 @@
 
     ;; goto
     "gm" 'man
-    "gd" 'Man-goto-section
-    "gR" 'Man-follow-manual-reference
+    "gd" 'Man-goto-section ; TODO: "gd" does not match the rationale of "go to definition". Change?
+    "gR" 'Man-follow-manual-reference ; TODO: Make this match Info-follow-reference?
     "gs" 'Man-goto-see-also-section
 
     ;; refresh

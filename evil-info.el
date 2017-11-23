@@ -52,7 +52,7 @@
     ;; TODO: Should search with "n"/"N" cover the full manual like "C-s"/"C-r" does?
 
     ;; goto
-    "gd" 'Info-goto-node
+    "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
     "gt" 'Info-top-node
     "gT" 'Info-toc
     "gf" 'Info-follow-reference
