@@ -35,29 +35,39 @@
   (evil-set-initial-state 'arc-mode 'motion)
   (evil-set-initial-state 'archive-mode 'motion)
   (evil-define-key 'motion archive-mode-map
-    (kbd "q") 'quit-window
-    (kbd "gg") 'beginning-of-buffer
-    (kbd "G") 'end-of-buffer
-    (kbd "gr") 'revert-buffer
-    (kbd "j") 'archive-next-line
-    (kbd "a") 'archive-alternate-display
-    (kbd "d") 'archive-flag-deleted
-    (kbd "m") 'archive-mark
+    "j" 'archive-next-line
+    "k" 'archive-previous-line
     (kbd "C-j") 'archive-next-line
-    (kbd "gj") 'archive-next-line
-    (kbd "o") 'archive-extract
-    (kbd "O") 'archive-extract-other-window
-    (kbd "k") 'archive-previous-line
     (kbd "C-k") 'archive-previous-line
-    (kbd "gk") 'archive-previous-line
-    (kbd "r") 'archive-rename-entry
-    (kbd "u") 'archive-unflag
-    (kbd "U") 'archive-unmark-all-files
-    (kbd "RET") 'archive-view
-    (kbd "x") 'archive-expunge
-    (kbd "M") 'archive-chmod-entry
-    (kbd "P") 'archive-chgrp-entry
-    (kbd "C") 'archive-chown-entry))
+    "gj" 'archive-next-line
+    "gk" 'archive-previous-line
+
+    "gg" 'beginning-of-buffer
+    "G" 'end-of-buffer
+
+    ;; goto
+    (kbd "<return>") 'archive-view
+    "o" 'archive-extract
+    "O" 'archive-extract-other-window
+
+    "a" 'archive-alternate-display
+    "d" 'archive-flag-deleted
+    "r" 'archive-rename-entry
+    "x" 'archive-expunge
+    "M" 'archive-chmod-entry
+    "P" 'archive-chgrp-entry
+    "C" 'archive-chown-entry
+
+    ;; update
+    "gr" 'revert-buffer
+
+    ;; mark
+    "m" 'archive-mark
+    "u" 'archive-unflag
+    "U" 'archive-unmark-all-files
+
+    ;; quit
+    "q" 'quit-window))
 
 (provide 'evil-arc-mode)
 ;;; evil-arc-mode.el ends here
