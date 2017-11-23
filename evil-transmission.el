@@ -88,10 +88,13 @@
     "u" 'transmission-files-unwant
     "U" 'transmission-files-want
     "P" 'transmission-files-priority
+
+    ;; goto
     (kbd "<return>") 'transmission-find-file
     (kbd "S-<return>") 'transmission-display-file
     "o" 'transmission-find-file-other-window
     "O" 'transmission-view-file
+
     "!" 'transmission-files-command
     ;; "X" 'transmission-files-command
     "t" 'transmission-trackers-add
