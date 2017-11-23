@@ -33,14 +33,14 @@
 (defun evil-cider-setup ()
   "Set up `evil' bindings for `cider'."
   (evil-define-key '(normal visual) cider-mode-map
-    (kbd "gz") 'cider-switch-to-repl-buffer
-    (kbd "gf") 'cider-find-resource
-    (kbd "K") 'cider-doc)
+    "gz" 'cider-switch-to-repl-buffer
+    "gf" 'cider-find-resource
+    "K" 'cider-doc)
 
   (with-eval-after-load 'cider-repl
     (evil-define-key '(normal visual) cider-repl-mode-map
-      (kbd "gf") 'cider-find-resource
-      (kbd "K") 'cider-doc))
+      "gf" 'cider-find-resource
+      "K" 'cider-doc))
 
   (with-eval-after-load 'cider-test
     (evil-define-key 'normal cider-test-report-mode-map
@@ -48,13 +48,16 @@
       (kbd "C-c C-t") 'cider-test-commands-map
       (kbd "M-p") #'cider-test-previous-result
       (kbd "M-n") #'cider-test-next-result
+
+      ;; goto
       "gd" #'cider-test-jump
+
       (kbd "<backtab>") #'cider-test-previous-result
-      (kbd "TAB") #'cider-test-next-result
-      (kbd "RET") #'cider-test-jump
-      (kbd "t") #'cider-test-jump
-      (kbd "d") #'cider-test-ediff
-      (kbd "e") #'cider-test-stacktrace
+      (kbd "<tab>") #'cider-test-next-result
+      (kbd "<return>") #'cider-test-jump
+      "t" #'cider-test-jump
+      "d" #'cider-test-ediff
+      "e" #'cider-test-stacktrace
       "f" #'cider-test-rerun-failed-tests
       "n" #'cider-test-run-ns-tests
       "L" #'cider-test-run-loaded-tests
@@ -64,14 +67,16 @@
 
   (with-eval-after-load 'cider-macroexpansion
     (evil-define-key 'normal cider-macroexpansion-mode-map
-      (kbd "r") #'cider-macroexpand-again
-      (kbd "q") #'cider-popup-buffer-quit-function
-      (kbd "K") #'cider-doc
-      (kbd "J") #'cider-javadoc
-      (kbd ".") #'cider-find-var
-      (kbd "m") #'cider-macroexpand-1-inplace
-      (kbd "a") #'cider-macroexpand-all-inplace
-      (kbd "u") #'cider-macroexpand-undo
+      ;; quit
+      "q" #'cider-popup-buffer-quit-function
+
+      "r" #'cider-macroexpand-again
+      "K" #'cider-doc ; Evil has `evil-lookup'.
+      "J" #'cider-javadoc
+      "." #'cider-find-var
+      "m" #'cider-macroexpand-1-inplace
+      "a" #'cider-macroexpand-all-inplace
+      "u" #'cider-macroexpand-undo
       [remap undo] #'cider-macroexpand-undo))
 
   (with-eval-after-load 'cider-client
@@ -79,7 +84,7 @@
       "d" #'cider-connections-make-default
       "g" #'cider-connection-browser
       "x" #'cider-connections-close-connection
-      (kbd "RET") #'cider-connections-goto-connection
+      (kbd "<return>") #'cider-connections-goto-connection
       "?" #'describe-mode
       "H" #'describe-mode)))
 
