@@ -106,6 +106,8 @@
       ;; motion
       "[" 'emms-browser-prev-non-track
       "]" 'emms-browser-next-non-track
+      "gj" 'emms-browser-prev-non-track
+      "gk" 'emms-browser-next-non-track
 
       (kbd "<tab>") 'emms-browser-toggle-subitems
       (kbd "SPC") 'emms-browser-toggle-subitems
@@ -152,6 +154,8 @@
     "G" 'emms-playlist-mode-last
     "]" 'emms-playlist-mode-next
     "[" 'emms-playlist-mode-previous
+    "gj" 'emms-playlist-mode-next
+    "gk" 'emms-playlist-mode-previous
 
     "D" 'emms-playlist-mode-kill-track ; emms-browser uses "D"
     "C" 'emms-playlist-mode-clear
