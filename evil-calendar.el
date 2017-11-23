@@ -67,7 +67,6 @@
     "gd" 'calendar-goto-date ; "gd" in evil-org-agenda, "gd" in Emacs.
     ;; "gd" 'calendar-other-month ; Not very useful if we have `calendar-goto-date'.
 
-
     ;; diary
     "D" 'diary-view-other-diary-entries
     "d" 'diary-view-entries
@@ -82,7 +81,7 @@
     "gs" 'calendar-sunrise-sunset ; "gs" in evil-org-agenda
     "gh" 'calendar-list-holidays ; "gh" in evil-org-agenda. TODO: Shadows calendar-hebrew.
     "gc" 'org-calendar-goto-agenda ; "gc" in evil-org-agenda. TODO: Shadows calendar-iso.
-    (kbd "r") 'calendar-cursor-holidays
+    "r" 'calendar-cursor-holidays
 
     ;; update
     "gr" 'calendar-redraw
