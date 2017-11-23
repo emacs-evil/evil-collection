@@ -76,6 +76,8 @@
 
     "]" 'elfeed-show-next
     "[" 'elfeed-show-prev
+    "gj" 'elfeed-show-next
+    "gk" 'elfeed-show-prev
     (kbd "C-j") 'elfeed-show-next
     (kbd "C-k") 'elfeed-show-prev
 
