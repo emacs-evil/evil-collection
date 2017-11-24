@@ -32,7 +32,7 @@
 
 (defun evil-outline-setup ()
   "Set up `evil' bindings for `outline'."
-  (evil-define-key 'normal outline-mode-map
+  (evil-define-key 'motion outline-mode-map
     ;; folding
     ;; Evil default keys:
     ;; zO: Show recursively for current branch only.
