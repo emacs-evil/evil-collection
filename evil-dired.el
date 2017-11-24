@@ -33,8 +33,8 @@
 (defun evil-dired-setup ()
   "Set up `evil' bindings for `dired'."
   (evil-define-key 'normal dired-mode-map
-    "j" 'evil-next-line
-    "k" 'evil-previous-line
+    "j" 'dired-next-line
+    "k" 'dired-previous-line
     "l" 'evil-forward-char
     "h" 'evil-backward-char
     ":" 'evil-ex
@@ -121,8 +121,6 @@
     "K" 'dired-do-kill-lines
     "r" 'dired-do-redisplay
     "m" 'dired-mark
-    "n" 'dired-next-line
-    "p" 'dired-previous-line
     "t" 'dired-toggle-marks
     "u" 'dired-unmark ; also "*u"
     "v" 'dired-view-file
