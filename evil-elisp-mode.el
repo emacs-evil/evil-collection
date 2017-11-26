@@ -36,11 +36,10 @@ BEG and END are the start and end of the output in current-buffer.
 VALUE is the Lisp value printed, ALT1 and ALT2 are strings for the
 alternative printed representations that can be displayed."
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-m") 'elisp-last-sexp-toggle-display)
+    (define-key map (kbd "C-m")
+      'evil-elisp-mode-return-or-last-sexp-toggle-display)
     (define-key map [down-mouse-2] 'mouse-set-point)
     (define-key map [mouse-2] 'elisp-last-sexp-toggle-display)
-    (evil-define-key 'insert map (kbd "C-m")
-      (lookup-key (current-global-map) (kbd "<return>")))
     (add-text-properties
      beg end
      `(printed-value (,value ,alt1 ,alt2)
@@ -49,6 +48,15 @@ alternative printed representations that can be displayed."
                      help-echo "RET, mouse-2: toggle abbreviated display"
                      rear-nonsticky (mouse-face keymap help-echo
                                                 printed-value)))))
+
+(defun evil-elisp-mode-return-or-last-sexp-toggle-display ()
+  "Trigger RET or call `elisp-last-sexp-toggle-display'."
+  (interactive)
+  (if (eq evil-state 'insert)
+      (call-interactively
+       (lookup-key (current-global-map) (kbd "C-m")))
+    (call-interactively 'elisp-last-sexp-toggle-display)))
+
 (defun evil-elisp-mode-setup ()
   "Set up `evil' bindings for `elisp-mode'."
   (advice-add 'last-sexp-setup-props
