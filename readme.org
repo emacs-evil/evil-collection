@@ -284,8 +284,8 @@ Existing bindings:
 
 *** Help (~?~)
 
-If searching makes sense, keep ~?~ for backward search.
-If not, it can be used to display help.
+- ~g?~ : is the standard key for help related commands.
+- ~?~ in places where backward search is not very useful.
 
 *** History browsing (~C-n~, ~C-p~)
 

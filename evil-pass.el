@@ -45,7 +45,7 @@
    (kbd "C-k") 'pass-prev-directory
    "x" 'pass-kill
    "s" 'isearch-forward
-   "?" 'describe-mode
+   "g?" 'describe-mode
    "gr" 'pass-update-buffer))
 
 (provide 'evil-pass)

@@ -77,7 +77,7 @@
     "WS" 'edebug-toggle-save-windows
 
     ;; misc
-    "?" 'edebug-help
+    "g?" 'edebug-help
     "d" 'edebug-backtrace
 
     "-" 'negative-argument
