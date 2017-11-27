@@ -89,6 +89,7 @@
     "gr" 'calendar-redraw
 
     "g?" 'calendar-goto-info-node
+    "?" 'calendar-goto-info-node ; Search is not very useful.
     (kbd "M-=") 'calendar-count-days-region
 
     ;; quit
