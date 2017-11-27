@@ -36,6 +36,7 @@
 ;;; Code:
 (defvar evil-collection-mode-list
   `(ag
+    alchemist
     anaconda-mode
     arc-mode
     bookmark
