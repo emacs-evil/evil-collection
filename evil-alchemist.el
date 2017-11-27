@@ -8,7 +8,7 @@
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: evil, alchemist
+;; Keywords: evil, alchemist, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
