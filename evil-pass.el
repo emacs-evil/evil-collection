@@ -34,19 +34,24 @@
 
 (defun evil-pass-setup ()
   "Set up `evil' bindings for `pass-mode'."
-  (evil-collection-util-evilify-map
-   pass-mode-map
-   :mode pass-mode
-   :bindings
-   "y" 'pass-copy
-   "j" 'pass-next-entry
-   "k" 'pass-prev-entry
-   (kbd "C-j") 'pass-next-directory
-   (kbd "C-k") 'pass-prev-directory
-   "x" 'pass-kill
-   "s" 'isearch-forward
-   "g?" 'describe-mode
-   "gr" 'pass-update-buffer))
+  (evil-define-key 'normal pass-mode-map
+    "gj" 'pass-next-entry
+    "gk" 'pass-prev-entry
+    (kbd "C-j") 'pass-next-entry
+    (kbd "C-k") 'pass-prev-entry
+    (kbd "]") 'pass-next-directory
+    (kbd "[") 'pass-prev-directory
+    "x" 'pass-kill
+    "s" 'isearch-forward
+    "g?" 'describe-mode
+    "gr" 'pass-update-buffer
+    "i" 'pass-insert
+    "I" 'pass-insert-generated
+    "Y" 'pass-copy
+    "r" 'pass-rename
+    "o" 'pass-otp-options
+    (kbd "RET") 'pass-view
+    "q" 'pass-quit))
 
 (provide 'evil-pass)
 ;;; evil-pass.el ends here
