@@ -60,7 +60,7 @@ alternative printed representations that can be displayed."
 (defun evil-elisp-mode-setup ()
   "Set up `evil' bindings for `elisp-mode'."
   (advice-add 'last-sexp-setup-props
-              :override #'evil-elisp-mode-last-sexp-setup-props))
+              :override 'evil-elisp-mode-last-sexp-setup-props))
 
 (provide 'evil-elisp-mode)
 ;;; evil-elisp-mode.el ends here

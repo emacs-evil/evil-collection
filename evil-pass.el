@@ -38,15 +38,15 @@
    pass-mode-map
    :mode pass-mode
    :bindings
-   "y" #'pass-copy
-   "j" #'pass-next-entry
-   "k" #'pass-prev-entry
-   (kbd "C-j") #'pass-next-directory
-   (kbd "C-k") #'pass-prev-directory
-   "x" #'pass-kill
-   "s" #'isearch-forward
-   "?" #'describe-mode
-   "gr" #'pass-update-buffer))
+   "y" 'pass-copy
+   "j" 'pass-next-entry
+   "k" 'pass-prev-entry
+   (kbd "C-j") 'pass-next-directory
+   (kbd "C-k") 'pass-prev-directory
+   "x" 'pass-kill
+   "s" 'isearch-forward
+   "?" 'describe-mode
+   "gr" 'pass-update-buffer))
 
 (provide 'evil-pass)
 ;;; evil-pass.el ends here

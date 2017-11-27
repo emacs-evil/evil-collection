@@ -34,16 +34,16 @@
 (defun evil-elisp-refs-setup ()
   "Set up `evil' bindings for `elisp-refs'."
   (evil-define-key 'normal elisp-refs-mode-map
-    (kbd "<tab>") #'elisp-refs-next-match
-    (kbd "<backtab>") #'elisp-refs-prev-match
-    (kbd "C-j") #'elisp-refs-next-match
-    (kbd "C-k") #'elisp-refs-prev-match
-    "gj" #'elisp-refs-next-match
-    "gk" #'elisp-refs-prev-match
-    (kbd "<return>") #'elisp-refs-visit-match
+    (kbd "<tab>") 'elisp-refs-next-match
+    (kbd "<backtab>") 'elisp-refs-prev-match
+    (kbd "C-j") 'elisp-refs-next-match
+    (kbd "C-k") 'elisp-refs-prev-match
+    "gj" 'elisp-refs-next-match
+    "gk" 'elisp-refs-prev-match
+    (kbd "<return>") 'elisp-refs-visit-match
 
     ;; quit
-    "q" #'kill-this-buffer))
+    "q" 'kill-this-buffer))
 
 (provide 'evil-elisp-refs)
 ;;; evil-elisp-refs.el ends here

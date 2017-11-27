@@ -38,7 +38,7 @@
    flycheck-error-list-mode-map
    :mode flycheck-error-list-mode
    :bindings
-   "gr" #'flycheck-error-list-check-source
+   "gr" 'flycheck-error-list-check-source
    "j" 'flycheck-error-list-next-error
    "k" 'flycheck-error-list-previous-error))
 

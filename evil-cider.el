@@ -51,46 +51,46 @@
     (evil-define-key 'normal cider-test-report-mode-map
       (kbd "C-c ,") 'cider-test-commands-map
       (kbd "C-c C-t") 'cider-test-commands-map
-      (kbd "M-p") #'cider-test-previous-result
-      (kbd "M-n") #'cider-test-next-result
+      (kbd "M-p") 'cider-test-previous-result
+      (kbd "M-n") 'cider-test-next-result
 
       ;; goto
-      "gd" #'cider-test-jump
+      "gd" 'cider-test-jump
 
-      (kbd "<backtab>") #'cider-test-previous-result
-      (kbd "<tab>") #'cider-test-next-result
-      (kbd "<return>") #'cider-test-jump
-      "t" #'cider-test-jump
-      "d" #'cider-test-ediff
-      "e" #'cider-test-stacktrace
-      "f" #'cider-test-rerun-failed-tests
-      "n" #'cider-test-run-ns-tests
-      "L" #'cider-test-run-loaded-tests
-      "p" #'cider-test-run-project-tests
-      "gr" #'cider-test-run-test
-      "q" #'cider-popup-buffer-quit-function))
+      (kbd "<backtab>") 'cider-test-previous-result
+      (kbd "<tab>") 'cider-test-next-result
+      (kbd "<return>") 'cider-test-jump
+      "t" 'cider-test-jump
+      "d" 'cider-test-ediff
+      "e" 'cider-test-stacktrace
+      "f" 'cider-test-rerun-failed-tests
+      "n" 'cider-test-run-ns-tests
+      "L" 'cider-test-run-loaded-tests
+      "p" 'cider-test-run-project-tests
+      "gr" 'cider-test-run-test
+      "q" 'cider-popup-buffer-quit-function))
 
   (with-eval-after-load 'cider-macroexpansion
     (evil-define-key 'normal cider-macroexpansion-mode-map
       ;; quit
-      "q" #'cider-popup-buffer-quit-function
+      "q" 'cider-popup-buffer-quit-function
 
-      "r" #'cider-macroexpand-again
-      "K" #'cider-doc ; Evil has `evil-lookup'.
-      "J" #'cider-javadoc
-      "." #'cider-find-var
-      "m" #'cider-macroexpand-1-inplace
-      "a" #'cider-macroexpand-all-inplace
-      "u" #'cider-macroexpand-undo
-      [remap undo] #'cider-macroexpand-undo))
+      "r" 'cider-macroexpand-again
+      "K" 'cider-doc ; Evil has `evil-lookup'.
+      "J" 'cider-javadoc
+      "." 'cider-find-var
+      "m" 'cider-macroexpand-1-inplace
+      "a" 'cider-macroexpand-all-inplace
+      "u" 'cider-macroexpand-undo
+      [remap undo] 'cider-macroexpand-undo))
 
   (with-eval-after-load 'cider-client
     (evil-define-key 'normal cider-connections-buffer-mode-map
-      "d" #'cider-connections-make-default
-      "c" #'cider-connection-browser
-      "x" #'cider-connections-close-connection
-      (kbd "<return>") #'cider-connections-goto-connection
-      "g?" #'describe-mode)))
+      "d" 'cider-connections-make-default
+      "c" 'cider-connection-browser
+      "x" 'cider-connections-close-connection
+      (kbd "<return>") 'cider-connections-goto-connection
+      "g?" 'describe-mode)))
 
 (provide 'evil-cider)
 ;;; evil-cider.el ends here

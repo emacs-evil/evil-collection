@@ -33,29 +33,29 @@
 (defun evil-tide-setup ()
   "Set up `evil' bindings for `tide'."
   (evil-define-key 'normal tide-mode-map
-    "gd" #'tide-jump-to-definition
-    (kbd "C-t") #'tide-jump-back
-    "K" #'tide-documentation-at-point)
+    "gd" 'tide-jump-to-definition
+    (kbd "C-t") 'tide-jump-back
+    "K" 'tide-documentation-at-point)
 
   (evil-define-key 'normal tide-references-mode-map
-    "gj" #'tide-find-next-reference
-    "gk" #'tide-find-previous-reference
-    (kbd "C-j") #'tide-find-next-reference
-    (kbd "C-k") #'tide-find-previous-reference
-    (kbd "C-m") #'tide-goto-reference
-    (kbd "<return>") #'tide-goto-reference
+    "gj" 'tide-find-next-reference
+    "gk" 'tide-find-previous-reference
+    (kbd "C-j") 'tide-find-next-reference
+    (kbd "C-k") 'tide-find-previous-reference
+    (kbd "C-m") 'tide-goto-reference
+    (kbd "<return>") 'tide-goto-reference
     ;; quit
-    "q" #'quit-window)
+    "q" 'quit-window)
 
   (evil-define-key 'normal tide-project-errors-mode-map
-    "gj" #'tide-find-next-error
-    "gk" #'tide-find-previous-error
-    (kbd "C-j") #'tide-find-next-error
-    (kbd "C-k") #'tide-find-previous-error
-    (kbd "C-m") #'tide-goto-error
-    (kbd "<return>") #'tide-goto-error
+    "gj" 'tide-find-next-error
+    "gk" 'tide-find-previous-error
+    (kbd "C-j") 'tide-find-next-error
+    (kbd "C-k") 'tide-find-previous-error
+    (kbd "C-m") 'tide-goto-error
+    (kbd "<return>") 'tide-goto-error
     ;; quit
-    (kbd "q") #'quit-window))
+    (kbd "q") 'quit-window))
 
 (provide 'evil-tide)
 ;;; evil-tide.el ends here
