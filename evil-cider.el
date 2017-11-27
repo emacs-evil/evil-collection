@@ -33,12 +33,17 @@
 (defun evil-cider-setup ()
   "Set up `evil' bindings for `cider'."
   (evil-define-key '(normal visual) cider-mode-map
+    "gd" 'cider-find-var
+    (kbd "C-t") 'cider-pop-back
     "gz" 'cider-switch-to-repl-buffer
     "gf" 'cider-find-resource
     "K" 'cider-doc)
 
   (with-eval-after-load 'cider-repl
     (evil-define-key '(normal visual) cider-repl-mode-map
+      "gd" 'cider-find-var
+      (kbd "C-t") 'cider-pop-back
+      "gr" 'cider-refresh
       "gf" 'cider-find-resource
       "K" 'cider-doc))
 
@@ -82,11 +87,10 @@
   (with-eval-after-load 'cider-client
     (evil-define-key 'normal cider-connections-buffer-mode-map
       "d" #'cider-connections-make-default
-      "g" #'cider-connection-browser
+      "c" #'cider-connection-browser
       "x" #'cider-connections-close-connection
       (kbd "<return>") #'cider-connections-goto-connection
-      "?" #'describe-mode
-      "H" #'describe-mode)))
+      "g?" #'describe-mode)))
 
 (provide 'evil-cider)
 ;;; evil-cider.el ends here
