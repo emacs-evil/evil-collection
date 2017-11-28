@@ -59,6 +59,7 @@
     emms
     eshell
     flycheck
+    geiser
     ggtags
     help
     helm
