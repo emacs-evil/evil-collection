@@ -34,6 +34,7 @@
   "Set up `evil' bindings for `dired'."
   (evil-define-key 'normal dired-mode-map
     "g" nil
+    "q" 'quit-window
     "j" 'dired-next-line
     "k" 'dired-previous-line
     "l" 'evil-forward-char
