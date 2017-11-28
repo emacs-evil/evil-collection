@@ -80,6 +80,7 @@
     proced
     prodigy
     profiler
+    rtags
     slime
     (term term ansi-term multi-term)
     tide
