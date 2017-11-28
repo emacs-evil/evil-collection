@@ -42,11 +42,12 @@
     (kbd "C-k") 'flycheck-error-list-previous-error
     "]" 'flycheck-error-list-next-error
     "[" 'flycheck-error-list-previous-error
-    "gr" #'flycheck-error-list-check-source
-    "s" #'flycheck-error-list-set-filter
-    "S" #'flycheck-error-list-reset-filter
-    "x" #'flycheck-error-list-explain-error
-    (kbd "<return>") #'flycheck-error-list-goto-error))
+    "gr" 'flycheck-error-list-check-source
+    "s" 'flycheck-error-list-set-filter
+    "S" 'flycheck-error-list-reset-filter
+    "x" 'flycheck-error-list-explain-error
+    (kbd "<return>") 'flycheck-error-list-goto-error
+    "q" 'quit-window))
 
 (provide 'evil-flycheck)
 ;;; evil-flycheck.el ends here
