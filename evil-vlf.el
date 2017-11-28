@@ -32,21 +32,44 @@
 
 (defvar vlf-mode-map)
 
+(defun evil-vlf-decrease-batch-size ()
+  "Decrease vlf batch size by factor of 2."
+  (interactive)
+  (when (fboundp 'vlf-change-batch-size)
+    (vlf-change-batch-size t)))
+
 ;;; Code:
 (defun evil-vlf-setup ()
   "Set up `evil' bindings for `vlf'."
-  (evil-collection-util-evilify-map
-   vlf-mode-map
-   :mode vlf-mode
-   :bindings
-   "C-j" 'vlf-next-batch
-   "C-k" 'vlf-prev-batch
-   "f" 'evil-find-char
-   "F" 'vlf-toggle-follow
-   "e" 'vlf-ediff-buffers
+  (evil-set-initial-state 'vlf-mode 'normal)
 
-   ;; refresh
-   "gr" 'vlf-revert))
+  (evil-define-key 'normal vlf-mode-map
+    "gj" 'vlf-next-batch
+    "gk" 'vlf-prev-batch
+    (kbd "C-j") 'vlf-next-batch
+    (kbd "C-k") 'vlf-prev-batch
+    "]" 'vlf-next-batch
+    "[" 'vlf-prev-batch
+
+    "+" 'vlf-change-batch-size
+    "-" 'evil-vlf-decrease-batch-size
+    "=" 'vlf-next-batch-from-point
+
+    ;; refresh
+    "gr" 'vlf-revert
+
+    "s" 'vlf-re-search-forward
+    "S" 'vlf-re-search-backward
+
+    "gg" 'vlf-beginning-of-file
+    "G" 'vlf-end-of-file
+    "J" 'vlf-jump-to-chunk
+    "E" 'vlf-ediff-buffers
+
+    "g%" 'vlf-query-replace
+    "go" 'vlf-occur
+    "L" 'vlf-goto-line
+    "F" 'vlf-toggle-follow))
 
 (provide 'evil-vlf)
 ;;; evil-vlf.el ends here
