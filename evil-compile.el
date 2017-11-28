@@ -32,17 +32,25 @@
 
 (defun evil-compile-setup ()
   "Set up `evil' bindings for `compile'."
-  (evil-collection-util-evilify-map
-   compilation-mode-map
-   :mode compilation-mode
-   :bindings
-   "gr" 'recompile
-   "gj" 'compilation-next-error
-   "gk" 'compilation-previous-error
-   "\C-j" 'compilation-next-error
-   "\C-k" 'compilation-previous-error
-   "\M-j" 'compilation-next-file
-   "\M-k" 'compilation-previous-file))
+  (evil-set-initial-state 'compilation-mode 'normal)
+
+  (evil-define-key 'normal compilation-mode-map
+    "g?" 'describe-mode
+    "?" 'evil-search-backward
+    [mouse-2] 'compile-goto-error
+    [follow-link] 'mouse-face
+    (kbd "<return>") 'compile-goto-error
+
+    "go" 'compilation-display-error
+    (kbd "S-<return>") 'compilation-display-error
+
+    "gj" 'compilation-next-error
+    "gk" 'compilation-previous-error
+    (kbd "C-j") 'compilation-next-error
+    (kbd "C-k") 'compilation-previous-error
+    "[" 'compilation-previous-file
+    "]" 'compilation-next-file
+    "gr" 'recompile))
 
 (provide 'evil-compile)
 ;;; evil-compile.el ends here
