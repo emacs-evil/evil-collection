@@ -84,6 +84,9 @@ current file instead."
 
 (defun evil-diff-mode-setup ()
   "Set up `evil' bindings for `diff-mode'."
+
+  (evil-set-initial-state 'diff-mode 'motion)
+
   (evil-define-key 'normal diff-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
