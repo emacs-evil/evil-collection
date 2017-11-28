@@ -100,12 +100,12 @@
       "E" 'edebug-x-evaluate-function
       "Q" 'edebug-x-clear-data
       (kbd "<return>") 'edebug-x-find-function
-      "q" 'kill-current-buffer-and-its-windows)
+      "q" 'quit-window)
     (evil-define-key 'motion edebug-x-breakpoint-list-mode-map
       (kbd "<return>") 'edebug-x-visit-breakpoint
       "x" 'edebug-x-kill-breakpoint
       "Q" 'edebug-x-clear-data
-      "q" 'kill-current-buffer-and-its-windows)))
+      "q" 'quit-window)))
 
 (provide 'evil-edebug)
 ;;; evil-edebug.el ends here
