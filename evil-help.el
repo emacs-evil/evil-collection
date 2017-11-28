@@ -32,7 +32,8 @@
 
 (defun evil-help-setup ()
   "Set up `evil' bindings for `help'."
-  (evil-define-key 'motion help-mode-map
+  (evil-set-initial-state 'help-mode 'normal)
+  (evil-define-key 'normal help-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
@@ -43,13 +44,18 @@
 
     (kbd "C-o") 'help-go-back
     (kbd "C-i") 'help-go-forward
+
     ;; TODO: Enable more help-go-* bindings?
-    ;; ">" 'help-go-forward
-    ;; "<" 'help-go-back
     ;; "gj" 'help-go-forward
     ;; "gk" 'help-go-back
     ;; "\C-j" 'help-go-forward
     ;; "\C-k" 'help-go-back
+
+    "g?" 'describe-mode
+    "gr" 'revert-buffer
+    "<" 'help-go-back
+    ">" 'help-go-forward
+    "r" 'help-follow
 
     ;; quit
     "q" 'quit-window
