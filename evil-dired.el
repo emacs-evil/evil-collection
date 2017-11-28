@@ -33,11 +33,19 @@
 (defun evil-dired-setup ()
   "Set up `evil' bindings for `dired'."
   (evil-define-key 'normal dired-mode-map
+    "g" nil
     "j" 'dired-next-line
     "k" 'dired-previous-line
     "l" 'evil-forward-char
     "h" 'evil-backward-char
     ":" 'evil-ex
+    "w" 'evil-forward-word-begin
+    "e" 'evil-forward-word-end
+    "y" 'evil-yank
+    "f" 'evil-find-char
+    "v" 'evil-visual-char
+    "G" 'evil-goto-line
+    "$" 'evil-end-of-line
     [mouse-2] 'dired-mouse-find-file-other-window
     [follow-link] 'mouse-face
     ;; Commands to mark or flag certain categories of files
@@ -49,7 +57,7 @@
     "C" 'dired-do-copy
     "B" 'dired-do-byte-compile
     "D" 'dired-do-delete
-    "G" 'dired-do-chgrp
+    "gG" 'dired-do-chgrp ;; FIXME: This can probably live on a better binding.
     "H" 'dired-do-hardlink
     "L" 'dired-do-load
     "M" 'dired-do-chmod
@@ -111,10 +119,8 @@
     ;; Lower keys for commands not operating on all the marked files
     "a" 'dired-find-alternate-file
     "d" 'dired-flag-file-deletion
-    "e" 'dired-find-file
-    "f" 'dired-find-file
+    "gf" 'dired-find-file
     (kbd "C-m") 'dired-find-file
-    "g" nil
     "gr" 'revert-buffer
     "i" 'dired-maybe-insert-subdir
     "J" 'dired-goto-file
@@ -123,13 +129,14 @@
     "m" 'dired-mark
     "t" 'dired-toggle-marks
     "u" 'dired-unmark ; also "*u"
-    "v" 'dired-view-file
-    "w" 'dired-copy-filename-as-kill
+    "go" 'dired-view-file ;; FIXME: Consolidate the find/view commands together.
     "W" 'browse-url-of-dired-file
     "x" 'dired-do-flagged-delete
-    "y" 'dired-show-file-type
+    "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
+    "Y" 'dired-copy-filename-as-kill
     "+" 'dired-create-directory
     ;; open
+    (kbd "<return>") 'dired-find-file
     (kbd "S-<return>") 'dired-find-file-other-window
     (kbd "M-<return>") 'dired-display-file
     "gD" 'dired-find-file-other-window
@@ -144,7 +151,7 @@
     [remap next-line] 'dired-next-line
     [remap previous-line] 'dired-previous-line
     ;; hiding
-    "$" 'dired-hide-subdir
+    "g$" 'dired-hide-subdir ;; FIXME: This can probably live on a better binding.
     (kbd "M-$") 'dired-hide-all
     "(" 'dired-hide-details-mode
     ;; isearch
