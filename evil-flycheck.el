@@ -34,13 +34,19 @@
 
 (defun evil-flycheck-setup ()
   "Set up `evil' bindings for `flycheck'."
-  (evil-collection-util-evilify-map
-   flycheck-error-list-mode-map
-   :mode flycheck-error-list-mode
-   :bindings
-   "gr" 'flycheck-error-list-check-source
-   "j" 'flycheck-error-list-next-error
-   "k" 'flycheck-error-list-previous-error))
+  (evil-set-initial-state 'flycheck-error-list-mode 'normal)
+  (evil-define-key 'normal flycheck-error-list-mode-map
+    "gj" 'flycheck-error-list-next-error
+    "gk" 'flycheck-error-list-previous-error
+    (kbd "C-j") 'flycheck-error-list-next-error
+    (kbd "C-k") 'flycheck-error-list-previous-error
+    "]" 'flycheck-error-list-next-error
+    "[" 'flycheck-error-list-previous-error
+    "gr" #'flycheck-error-list-check-source
+    "s" #'flycheck-error-list-set-filter
+    "S" #'flycheck-error-list-reset-filter
+    "x" #'flycheck-error-list-explain-error
+    (kbd "<return>") #'flycheck-error-list-goto-error))
 
 (provide 'evil-flycheck)
 ;;; evil-flycheck.el ends here
