@@ -28,13 +28,44 @@
 
 ;;; Code:
 (require 'bookmark)
-(require 'evil-collection-util)
 
 (defun evil-bookmark-setup ()
   "Set up `evil' bindings for `bookmark'."
-  (evil-collection-util-evilify-map
-   bookmark-bmenu-mode-map
-   :mode bookmark-bmenu-mode))
+  (evil-set-initial-state 'bookmark-bmenu-mode 'normal)
+
+  (evil-define-key 'normal bookmark-bmenu-mode-map
+    "q" 'quit-window
+    "gr" 'revert-buffer
+    "g?" 'describe-mode
+
+    "j" 'next-line
+    "p" 'previous-line
+    "J" 'bookmark-bmenu-this-window
+    "2" 'bookmark-bmenu-2-window
+    "1" 'bookmark-bmenu-1-window
+    "x" 'bookmark-bmenu-execute-deletions
+    "d" 'bookmark-bmenu-delete
+    "u" 'bookmark-bmenu-unmark
+    "m" 'bookmark-bmenu-mark
+    "/" 'bookmark-bmenu-search
+    "r" 'bookmark-bmenu-rename
+    "R" 'bookmark-bmenu-relocate
+    "L" 'bookmark-bmenu-load
+    "t" 'bookmark-bmenu-toggle-filenames
+    "a" 'bookmark-bmenu-show-annotation
+    "A" 'bookmark-bmenu-show-all-annotations
+    "s" 'bookmark-bmenu-save
+    "W" 'bookmark-bmenu-locate
+    "E" 'bookmark-bmenu-edit-annotation
+    "D" 'bookmark-bmenu-delete-backwards
+    "o" 'bookmark-bmenu-select
+    "O" 'bookmark-bmenu-other-window
+    "go" 'bookmark-bmenu-other-window
+    "gO" 'bookmark-bmenu-switch-other-window
+    (kbd "<return>") 'bookmark-bmenu-this-window
+    (kbd "S-<return>") 'bookmark-bmenu-other-window
+    (kbd "M-<return>") 'bookmark-bmenu-switch-other-window))
+
 
 (provide 'evil-bookmark)
 ;;; evil-bookmark.el ends here
