@@ -27,27 +27,28 @@
 ;; Evil bindings for P4.
 
 ;;; Code:
-(require 'evil-collection-util)
 (require 'p4 nil t)
 
 (defvar p4-basic-mode-map)
 
 (defun evil-p4-setup ()
   "Set up `evil' bindings for `p4'."
-  (evil-collection-util-evilify-map
-   p4-basic-mode-map
-   :mode p4-basic-mode
-   :bindings
-   [mouse-1] 'p4-buffer-mouse-clicked
-   (kbd "C-j") 'p4-forward-active-link
-   (kbd "C-k") 'p4-backward-active-link
-   (kbd "C-m") 'p4-buffer-commands
-   "gr" 'revert-buffer
-   "gj" 'p4-forward-active-link
-   "gk" 'p4-backward-active-link
-   "q" 'quit-window
-   "k" 'p4-scroll-down-1-line
-   "j" 'p4-scroll-up-1-line))
+  (evil-set-initial-state 'p4-basic-mode 'normal)
+
+  (evil-define-key 'normal p4-basic-mode-map
+    [mouse-1] 'p4-buffer-mouse-clicked
+    "k" 'p4-scroll-down-1-line
+    "j" 'p4-scroll-up-1-line
+    (kbd "C-j") 'p4-forward-active-link
+    (kbd "C-k") 'p4-backward-active-link
+    (kbd "<return>") 'p4-buffer-commands
+    "q" 'quit-window
+    "gr" 'revert-buffer
+    "]" 'p4-scroll-down-1-window
+    "[" 'p4-scroll-up-1-window
+    "gg" 'p4-top-of-buffer
+    "G" 'p4-bottom-of-buffer
+    "=" 'delete-other-windows))
 
 ;;; Code:
 (provide 'evil-p4)
