@@ -41,11 +41,12 @@
 
 (defun evil-cider-setup ()
   "Set up `evil' bindings for `cider'."
-  (advice-add 'cider-eval-last-sexp :around 'evil-cider-last-sexp)
-  (advice-add 'cider-eval-last-sexp-and-replace :around 'evil-cider-last-sexp)
-  (advice-add 'cider-eval-last-sexp-to-repl :around 'evil-cider-last-sexp)
-  (with-eval-after-load 'cider-eval-sexp-fu
-    (advice-add 'cider-esf--bounds-of-last-sexp :around 'evil-cider-last-sexp))
+  (unless evil-move-beyond-eol
+    (advice-add 'cider-eval-last-sexp :around 'evil-cider-last-sexp)
+    (advice-add 'cider-eval-last-sexp-and-replace :around 'evil-cider-last-sexp)
+    (advice-add 'cider-eval-last-sexp-to-repl :around 'evil-cider-last-sexp)
+    (with-eval-after-load 'cider-eval-sexp-fu
+      (advice-add 'cider-esf--bounds-of-last-sexp :around 'evil-cider-last-sexp)))
 
   (evil-define-key '(normal visual) cider-mode-map
     "gd" 'cider-find-var
