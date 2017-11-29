@@ -58,6 +58,7 @@
     elisp-refs
     emms
     eshell
+    eval-sexp-fu
     flycheck
     geiser
     ggtags
