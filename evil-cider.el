@@ -30,8 +30,23 @@
 (require 'cider nil t)
 (require 'evil-collection-util)
 
+(defun evil-cider-last-sexp (command &rest args)
+  "In normal-state or motion-state, last sexp ends at point."
+  (if (and (not evil-move-beyond-eol)
+           (or (evil-normal-state-p) (evil-motion-state-p)))
+      (save-excursion
+        (unless (or (eobp) (eolp)) (forward-char))
+        (apply command args))
+    (apply command args)))
+
 (defun evil-cider-setup ()
   "Set up `evil' bindings for `cider'."
+  (advice-add 'cider-eval-last-sexp :around 'evil-cider-last-sexp)
+  (advice-add 'cider-eval-last-sexp-and-replace :around 'evil-cider-last-sexp)
+  (advice-add 'cider-eval-last-sexp-to-repl :around 'evil-cider-last-sexp)
+  (with-eval-after-load 'cider-eval-sexp-fu
+    (advice-add 'cider-esf--bounds-of-last-sexp :around 'evil-cider-last-sexp))
+
   (evil-define-key '(normal visual) cider-mode-map
     "gd" 'cider-find-var
     (kbd "C-t") 'cider-pop-back
