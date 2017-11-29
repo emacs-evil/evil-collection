@@ -25,15 +25,29 @@
 
 ;;; Commentary:
 ;;; Bindings for `geiser'.
+
+;;; Code:
 (require 'evil)
 (require 'geiser nil t)
 
 (defvar geiser-debug-mode-map)
 (defvar geiser-doc-mode-map)
 
-;;; Code:
+(defun evil-geiser-last-sexp (command &rest args)
+  "In normal-state or motion-state, last sexp ends at point."
+  (if (and (not evil-move-beyond-eol)
+           (or (evil-normal-state-p) (evil-motion-state-p)))
+      (save-excursion
+        (unless (or (eobp) (eolp)) (forward-char))
+        (apply command args))
+    (apply command args)))
+
 (defun evil-geiser-setup ()
   "Set up bindings for `geiser'."
+  (unless evil-move-beyond-eol
+    (advice-add 'geiser-eval-last-sexp :around 'evil-geiser-last-sexp)
+    (advice-add 'geiser-eval-last-sexp-and-print :around 'evil-geiser-last-sexp))
+
   (evil-set-initial-state 'geiser-debug-mode 'normal)
   (evil-set-initial-state 'geiser-doc-mode 'normal)
 
