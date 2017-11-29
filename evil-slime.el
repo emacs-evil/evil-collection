@@ -84,6 +84,21 @@
     ;; goto
     "gd" 'slime-edit-definition)
 
+  (evil-set-initial-state 'slime-xref-mode 'normal)
+  (evil-define-key 'normal slime-xref-mode-map
+    (kbd "RET") 'slime-goto-xref
+    (kbd "S-<return>") 'slime-goto-xref
+    "go" 'slime-show-xref
+    "gj" 'slime-xref-next-line
+    "gk" 'slime-xref-prev-line
+    (kbd "C-j") 'slime-xref-next-line
+    (kbd "C-k") 'slime-xref-prev-line
+    "]" 'slime-xref-next-line
+    "[" 'slime-xref-prev-line
+    "gr" 'slime-recompile-xref
+    "gR" 'slime-recompile-all-xrefs
+    "r" 'slime-xref-retract)
+
   (add-hook 'slime-popup-buffer-mode-hook #'evil-normalize-keymaps))
 
 (provide 'evil-slime)
