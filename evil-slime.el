@@ -33,8 +33,24 @@
 (defvar sldb-mode-map)
 (defvar slime-inspector-mode-map)
 
+(defun evil-slime-last-sexp (command &rest args)
+  "In normal-state or motion-state, last sexp ends at point."
+  (if (and (not evil-move-beyond-eol)
+           (or (evil-normal-state-p) (evil-motion-state-p)))
+      (save-excursion
+        (unless (or (eobp) (eolp)) (forward-char))
+        (apply command args))
+    (apply command args)))
+
 (defun evil-slime-setup ()
   "Set up `evil' bindings for `slime'."
+  (unless evil-move-beyond-eol
+    (advice-add 'slime-eval-last-expression :around 'evil-slime-last-sexp)
+    (advice-add 'slime-pprint-eval-last-expression :around 'evil-slime-last-sexp)
+    (advice-add 'slime-eval-print-last-expression :around 'evil-slime-last-sexp)
+    (advice-add 'slime-eval-last-expression-in-repl
+                :around 'evil-slime-last-sexp))
+
   (evil-collection-util-evilify-map
    sldb-mode-map
    :mode sldb-mode
