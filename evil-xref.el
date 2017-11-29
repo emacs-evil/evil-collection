@@ -33,15 +33,17 @@
 (defun evil-xref-setup ()
   "Set up `evil' bindings for `xref'."
   (evil-define-key 'normal xref--xref-buffer-mode-map
-    "j" 'xref-next-line
-    "k" 'xref-prev-line
     "gj" 'xref-next-line
     "gk" 'xref-prev-line
     (kbd "C-j") 'xref-next-line
     (kbd "C-k") 'xref-prev-line
+    "]" 'xref-next-line
+    "[" 'xref-prev-line
     "r" 'xref-query-replace-in-results
     (kbd "RET") 'xref-goto-xref
-    "o" 'xref-show-location-at-point))
+    (kbd "S-<return>") 'xref-show-location-at-point
+    "o" 'xref-show-location-at-point
+    "go" 'xref-show-location-at-point))
 
 (provide 'evil-xref)
 ;;; evil-xref.el ends here
