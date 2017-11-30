@@ -60,7 +60,7 @@
     "K" 'alchemist-help-search-at-point
     "m" 'alchemist-help-module
     "s" 'alchemist-help
-    "h" 'alchemist-help-history
+    "gh" 'alchemist-help-history
     "gd" 'alchemist-goto-definition-at-point
     "g?" 'alchemist-help-minor-mode-key-binding-summary)
 
