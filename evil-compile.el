@@ -37,6 +37,8 @@
   (evil-define-key 'normal compilation-mode-map
     "g?" 'describe-mode
     "?" 'evil-search-backward
+    "gg" 'evil-goto-first-line
+    "0" 'evil-digit-argument-or-evil-beginning-of-line
     [mouse-2] 'compile-goto-error
     [follow-link] 'mouse-face
     (kbd "<return>") 'compile-goto-error
