@@ -57,10 +57,19 @@
   (evil-define-key 'normal helm-map
     (kbd "[") 'helm-previous-source
     (kbd "]") 'helm-next-source
+    (kbd "(") 'helm-prev-visible-mark
+    (kbd ")") 'helm-next-visible-mark
     "j" 'helm-next-line
     "k" 'helm-previous-line
-    "g" 'helm-beginning-of-buffer
+    "gg" 'helm-beginning-of-buffer
     "G" 'helm-end-of-buffer
+
+    ;; refresh
+    "gr" 'helm-refresh
+
+    "p" 'helm-yank-selection
+    "P" 'helm-copy-to-buffer
+    "y" 'helm-kill-selection-and-quit
     (kbd "SPC") 'helm-toggle-visible-mark)
 
   (evil-define-key '(normal insert) helm-map
