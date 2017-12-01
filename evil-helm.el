@@ -42,18 +42,6 @@
 (defvar helm-find-files-map)
 (defvar helm-read-file-map)
 
-(defun evil-helm-toggle-visible-mark-backwards (&optional args)
-  (interactive "p")
-  (evil-helm-toggle-visible-mark args t))
-
-(defun evil-helm-toggle-visible-mark (&optional args backwards)
-  (interactive "p")
-  (unless (numberp args) (setq args 1))
-  (dotimes (_ (abs args))
-    (if (or (and (< args 0) (not backwards)) (and (> args 0) backwards))
-        (helm-toggle-visible-mark-backwards)
-      (helm-toggle-visible-mark))))
-
 (defun evil-helm-setup ()
   "Set up `evil' bindings for `helm'."
   ;; TODO: We should not modify helm-map in Emacs state but somehow it does not
@@ -73,8 +61,7 @@
     "k" 'helm-previous-line
     "g" 'helm-beginning-of-buffer
     "G" 'helm-end-of-buffer
-    (kbd "SPC") 'evil-helm-toggle-visible-mark
-    (kbd "S-SPC") 'evil-helm-toggle-visible-mark-backwards)
+    (kbd "SPC") 'helm-toggle-visible-mark)
 
   (evil-define-key '(normal insert) helm-map
     (kbd "M-j") 'helm-next-line
