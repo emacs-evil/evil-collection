@@ -51,8 +51,10 @@
   (unless (numberp args) (setq args 1))
   (dotimes (_ (abs args))
     (if (or (and (< args 0) (not backwards)) (and (> args 0) backwards))
-        (helm-toggle-visible-mark-backwards)
-      (helm-toggle-visible-mark))))
+        (when (fboundp 'helm-toggle-visible-mark-backwards)
+          (helm-toggle-visible-mark-backwards))
+      (when (fboundp 'helm-toggle-visible-mark)
+        (helm-toggle-visible-mark)))))
 
 (defun evil-helm-setup ()
   "Set up `evil' bindings for `helm'."
