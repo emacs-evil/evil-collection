@@ -35,8 +35,11 @@
   (evil-set-initial-state 'elfeed-search-mode 'motion)
 
   (evil-define-key 'motion elfeed-search-mode-map
+    ;; open
     (kbd "<return>") 'elfeed-search-show-entry
-    "o" 'elfeed-search-browse-url
+    (kbd "S-<return>") 'elfeed-search-browse-url
+    "gd" 'elfeed-search-browse-url
+
     "y" 'elfeed-search-yank
 
     ;; filter
@@ -44,8 +47,8 @@
     "S" 'elfeed-search-set-filter
 
     ;; refresh
-    "R" 'elfeed-search-fetch ; TODO: Which update function is more useful?
-    "r" 'elfeed-search-update--force
+    "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
+    "gr" 'elfeed-search-update--force
 
     ;; quit
     "q" 'quit-window
@@ -60,7 +63,8 @@
 
   (evil-set-initial-state 'elfeed-show-mode 'motion)
   (evil-define-key 'motion elfeed-show-mode-map
-    "o" 'elfeed-show-visit
+    (kbd "S-<return>") 'elfeed-show-visit
+    "gd" 'elfeed-show-visit
 
     ;; filter
     "s" 'elfeed-show-new-live-search
@@ -82,7 +86,7 @@
     (kbd "C-k") 'elfeed-show-prev
 
     ;; refresh
-    "r" 'elfeed-show-refresh
+    "gr" 'elfeed-show-refresh
 
     ;; quit
     "q" 'elfeed-kill-buffer
