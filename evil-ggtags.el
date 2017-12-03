@@ -44,7 +44,8 @@
 
   ;; `ggtags-navigation-mode' is global and will conflict with other bindings.
   ;; https://github.com/leoliu/ggtags/issues/124
-  (setq ggtags-enable-navigation-keys nil)
+  (when (boundp 'ggtags-enable-navigation-keys)
+    (setq ggtags-enable-navigation-keys nil))
 
   (evil-define-key 'normal ggtags-mode-map
     "gd" 'ggtags-find-tag-dwim
