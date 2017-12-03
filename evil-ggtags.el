@@ -31,57 +31,59 @@
 (require 'ggtags nil t)
 
 (defvar ggtags-global-mode-map)
+(defvar ggtags-mode-map)
 (defvar ggtags-view-search-history-mode-map)
 (defvar ggtags-view-tag-history-mode-map)
 (defvar ggtags-navigation-map)
 
 (defun evil-ggtags-setup ()
   "Set up `evil' bindings for `ggtags'."
-  (evil-collection-util-evilify-map
-   ggtags-global-mode-map
-   :mode ggtags-global-mode)
+  (evil-set-initial-state 'ggtags-global-mode 'normal)
+  (evil-set-initial-state 'ggtags-view-search-history-mode 'normal)
+  (evil-set-initial-state 'ggtags-view-tag-history-mode 'normal)
 
-  (evil-collection-util-evilify-map
-   ggtags-view-search-history-mode-map
-   :bindings
-   "j" 'ggtags-view-search-history-prev
-   "k" 'ggtags-view-search-history-next
-   (kbd "C-j") 'ggtags-view-search-history-prev
-   (kbd "C-k") 'ggtags-view-search-history-next
-   "x" 'ggtags-view-search-history-kill
-   "r" 'ggtags-save-to-register
-   "\r" 'ggtags-view-search-history-action
-   "e" 'evil-forward-word-end
-   "E" 'evil-forward-WORD-end)
+  (evil-define-key 'normal ggtags-mode-map
+    "gd" 'ggtags-find-tag-dwim
+    (kbd "C-t") 'ggtags-prev-mark
+    "gf" 'ggtags-find-file)
 
-  (evil-collection-util-evilify-map
-   ggtags-view-tag-history-mode-map
-   :bindings
-   (kbd "C-j") 'next-error-no-select
-   (kbd "C-k") 'previous-error-no-select
-   "e" 'evil-forward-word-end
-   "E" 'evil-forward-WORD-end)
+  (evil-define-key 'normal ggtags-view-search-history-mode-map
+    "gj" 'ggtags-view-search-history-next
+    "gk" 'ggtags-view-search-history-prev
+    (kbd "C-j") 'ggtags-view-search-history-next
+    (kbd "C-k") 'ggtags-view-search-history-prev
+    "]" 'ggtags-view-search-history-next
+    "[" 'ggtags-view-search-history-prev
+    "x" 'ggtags-view-search-history-kill
+    "gr" 'ggtags-view-search-history-update
+    "r" 'ggtags-save-to-register
+    "R" 'ggtags-view-search-history-action
+    "q" 'ggtags-kill-window)
 
-  (evil-collection-util-evilify-map
-   ggtags-view-tag-history-mode-map
-   :bindings
-   (kbd "C-j") 'next-error-no-select
-   (kbd "C-k") 'previous-error-no-select
-   "e" 'evil-forward-word-end
-   "E" 'evil-forward-WORD-end)
+  (evil-define-key 'normal ggtags-view-tag-history-mode-map
+    "gj" 'next-error-no-select
+    (kbd "C-j") 'next-error-no-select
+    "]" 'next-error-no-select
+    "gk" 'previous-error-no-select
+    (kbd "C-k") 'previous-error-no-select
+    (kbd "[") 'previous-error-no-select
+    "q" 'ggtags-kill-window)
 
-  (evil-collection-util-evilify-map
-   ggtags-navigation-map
-   :bindings
-   (kbd "C-j") 'next-error
-   (kbd "C-k") 'previous-error
-   (kbd "M-j") 'ggtags-navigation-next-file
-   (kbd "M-k") 'ggtags-navigation-previous-file
-   (kbd "M-=") 'ggtags-navigation-start-file
-   (kbd "M->") 'ggtags-navigation-last-error
-   (kbd "M-<") 'first-error
-   "e" 'evil-forward-word-end
-   "E" 'evil-forward-WORD-end))
+  (evil-define-key 'normal ggtags-navigation-map
+    ;; navigation
+    "gj" 'next-error
+    "gk" 'next-error
+    (kbd "C-j") 'previous-error
+    (kbd "C-k") 'previous-error
+    "]" 'ggtags-navigation-next-file
+    "[" 'ggtags-navigation-previous-file
+
+    ;; search
+    "s" 'ggtags-navigation-isearch-forward
+    "S" 'ggtags-navigation-isearch-forward
+
+    "go" 'ggtags-navigation-visible-mode ;; FIXME: This can be anything.
+    (kbd "<return>") 'ggtags-navigation-mode-done))
 
 (provide 'evil-ggtags)
 ;;; evil-ggtags.el ends here
