@@ -268,13 +268,14 @@ region, making this binding useless.
 - ~.~: go to current entity (day for calendar, playing track for [[EMMS][EMMS]]).
   Bind only if more relevant than ~evil-repeat~.
 
-*** Open thing at point (~RET~, ~S-RET~, ~M-RET~, ~gd~, ~gD~)
+*** Open thing at point (~RET~, ~S-RET~, ~M-RET~, ~go~, ~gO~)
 
-- ~RET~, ~S-RET~, ~M-RET~: Open thing at point in current window, open in other window and display in other window respectively.
-  The latter is like the former with the focus remaining on the current window.
+- ~RET~, ~S-RET~, ~M-RET~: Open thing at point in current window, open in other
+  window and display in other window respectively.  The latter is like the
+  former with the focus remaining on the current window.
 
-- ~gd~, ~gD~: When available, same as ~RET~ and ~S-RET~ respectively.  This is
-  useful in terminals where ~S-RET~ might not work.
+- ~go~, ~gO~: When available, same as ~S-RET~ and ~M-RET~ respectively.  This is
+  useful in terminals where ~S-RET~ and ~M-RET~ might not work.
 
 *** Emacs-style jumping (~J~)
 

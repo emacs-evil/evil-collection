@@ -49,8 +49,7 @@
     (kbd "<return>") 'archive-extract
     (kbd "S-<return>") 'archive-extract-other-window
     (kbd "M-<return>") 'archive-view
-    "gd" 'archive-extract
-    "gD" 'archive-extract-other-window
+    "go" 'archive-extract-other-window
 
     "a" 'archive-alternate-display
     "d" 'archive-flag-deleted

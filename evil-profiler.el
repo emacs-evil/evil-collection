@@ -56,7 +56,6 @@
 
     ;; open
     (kbd "<return>") 'profiler-report-find-entry
-    "gd" 'profiler-report-find-entry
 
     ;; refresh
     "gr" 'revert-buffer

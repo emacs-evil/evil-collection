@@ -58,6 +58,8 @@
     "W" 'bookmark-bmenu-locate
     "E" 'bookmark-bmenu-edit-annotation
     "D" 'bookmark-bmenu-delete-backwards
+
+    ;; open
     "o" 'bookmark-bmenu-select
     "O" 'bookmark-bmenu-other-window
     "go" 'bookmark-bmenu-other-window

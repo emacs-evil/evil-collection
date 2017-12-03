@@ -93,8 +93,7 @@
     (kbd "<return>") 'transmission-find-file
     (kbd "S-<return>") 'transmission-find-file-other-window
     (kbd "M-<return>") 'transmission-display-file
-    "gd" 'transmission-find-file
-    "gD" 'transmission-find-file-other-window
+    "go" 'transmission-find-file-other-window
 
     "v" 'transmission-view-file
 

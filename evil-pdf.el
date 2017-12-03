@@ -136,8 +136,7 @@
     (kbd "<return>") 'pdf-outline-follow-link-and-quit
     (kbd "S-<return>") 'pdf-outline-follow-link
     (kbd "M-<return>") 'pdf-outline-display-link
-    "gd" 'pdf-outline-follow-link-and-quit
-    "gD" 'pdf-outline-follow-link
+    "go" 'pdf-outline-follow-link
     "." 'pdf-outline-move-to-current-page
     (kbd "SPC") 'pdf-outline-select-pdf-window
 

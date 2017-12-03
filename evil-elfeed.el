@@ -38,7 +38,7 @@
     ;; open
     (kbd "<return>") 'elfeed-search-show-entry
     (kbd "S-<return>") 'elfeed-search-browse-url
-    "gd" 'elfeed-search-browse-url
+    "go" 'elfeed-search-browse-url
 
     "y" 'elfeed-search-yank
 
@@ -64,7 +64,7 @@
   (evil-set-initial-state 'elfeed-show-mode 'motion)
   (evil-define-key 'motion elfeed-show-mode-map
     (kbd "S-<return>") 'elfeed-show-visit
-    "gd" 'elfeed-show-visit
+    "go" 'elfeed-show-visit
 
     ;; filter
     "s" 'elfeed-show-new-live-search

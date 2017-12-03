@@ -131,7 +131,6 @@
     "m" 'dired-mark
     "t" 'dired-toggle-marks
     "u" 'dired-unmark ; also "*u"
-    "go" 'dired-view-file ;; FIXME: Consolidate the find/view commands together.
     "W" 'browse-url-of-dired-file
     "x" 'dired-do-flagged-delete
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
@@ -141,7 +140,8 @@
     (kbd "<return>") 'dired-find-file
     (kbd "S-<return>") 'dired-find-file-other-window
     (kbd "M-<return>") 'dired-display-file
-    "gD" 'dired-find-file-other-window
+    "go" 'dired-find-file-other-window
+    "gO" 'dired-view-file
     ;; sort
     "o" 'dired-sort-toggle-or-edit
     ;; moving

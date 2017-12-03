@@ -43,6 +43,7 @@
   (evil-set-initial-state 'rtags-location-stack-visualize-mode 'normal)
 
   (evil-define-key 'normal rtags-mode-map
+    ;; open
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
@@ -50,7 +51,8 @@
     (kbd "gO") 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
-    "s" 'rtags-show-in-other-window
+    "s" 'rtags-show-in-other-window ; TODO: Remove this binding?
+
     "c" 'rtags-select-caller
     "C" 'rtags-select-caller-other-window
     "x" 'rtags-select-and-remove-rtags-buffer
@@ -73,6 +75,7 @@
     "]" 'rtags-dependency-tree-next-level
     "[" 'rtags-dependency-tree-previous-level
 
+    ;; open
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
@@ -81,6 +84,7 @@
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
+
     "x" 'rtags-select-and-remove-rtags-buffer
     "q" 'rtags-call-bury-or-delete)
 
@@ -101,6 +105,7 @@
     "]" 'rtags-references-tree-next-level
     "[" 'rtags-references-tree-previous-level
 
+    ;; open
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
@@ -114,6 +119,7 @@
     "q" 'rtags-call-bury-or-delete)
 
   (evil-define-key 'normal rtags-location-stack-visualize-mode-map
+    ;; open
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
@@ -122,6 +128,7 @@
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
+
     "x" 'rtags-select-and-remove-rtags-buffer
     "q" 'rtags-call-bury-or-delete))
 

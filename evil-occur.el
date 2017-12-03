@@ -47,8 +47,7 @@
     (kbd "<return>") 'occur-mode-goto-occurrence
     (kbd "S-<return>") 'occur-mode-goto-occurrence-other-window
     (kbd "M-<return>") 'occur-mode-display-occurrence
-    "gd" 'occur-mode-goto-occurrence
-    "gD" 'occur-mode-goto-occurrence-other-window
+    "go" 'occur-mode-goto-occurrence-other-window
 
     "gj" 'occur-next
     "gk" 'occur-prev

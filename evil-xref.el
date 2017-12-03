@@ -41,9 +41,11 @@
     "]" 'xref-next-line
     "[" 'xref-prev-line
     "r" 'xref-query-replace-in-results
-    (kbd "RET") 'xref-goto-xref
+
+    ;; open
+    (kbd "<return>") 'xref-goto-xref
     (kbd "S-<return>") 'xref-show-location-at-point
-    "o" 'xref-show-location-at-point
+    "o" 'xref-show-location-at-point ; TODO: Remove binding?
     "go" 'xref-show-location-at-point))
 
 (provide 'evil-xref)
