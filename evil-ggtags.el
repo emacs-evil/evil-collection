@@ -42,6 +42,10 @@
   (evil-set-initial-state 'ggtags-view-search-history-mode 'normal)
   (evil-set-initial-state 'ggtags-view-tag-history-mode 'normal)
 
+  ;; `ggtags-navigation-mode' is global and will conflict with other bindings.
+  ;; https://github.com/leoliu/ggtags/issues/124
+  (setq ggtags-enable-navigation-keys nil)
+
   (evil-define-key 'normal ggtags-mode-map
     "gd" 'ggtags-find-tag-dwim
     (kbd "C-t") 'ggtags-prev-mark
