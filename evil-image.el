@@ -69,8 +69,8 @@
 
     "[" 'image-previous-file
     "]" 'image-next-file
-    "gj" 'image-previous-file
-    "gk" 'image-next-file
+    "gk" 'image-previous-file
+    "gj" 'image-next-file
     (kbd "C-k") 'image-previous-file
     (kbd "C-j") 'image-next-file
 
