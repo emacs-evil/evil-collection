@@ -47,6 +47,7 @@
     "v" 'evil-visual-char
     "G" 'evil-goto-line
     "$" 'evil-end-of-line
+    "n" 'evil-search-next
     [mouse-2] 'dired-mouse-find-file-other-window
     [follow-link] 'mouse-face
     ;; Commands to mark or flag certain categories of files
