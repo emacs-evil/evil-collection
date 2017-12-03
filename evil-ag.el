@@ -32,17 +32,23 @@
 
 (defun evil-ag-setup ()
   "Set up `evil' bindings for `ag'."
-  (evil-add-hjkl-bindings ag-mode-map 'normal
-    "gg" 'evil-goto-first-line
+  (evil-define-key 'normal ag-mode-map
+    "k" 'evil-previous-line
+
+    ;; refresh
     "gr" 'recompile
+
+    ;; navigation
     "gj" 'compilation-next-error
     "gk" 'compilation-previous-error
     (kbd "C-j") 'compilation-next-error
     (kbd "C-k") 'compilation-previous-error
-    "0" 'evil-digit-argument-or-evil-beginning-of-line
+    "]" 'compilation-next-error
+    "[" 'compilation-previous-error
+
+    ;; search
     "n" 'evil-search-next
     "N" 'evil-search-previous)
-
   ;; `ag' is best set in 'normal state because its buffer can be edited.
   ;; https://github.com/mhayashi1120/Emacs-wgrep
   (evil-set-initial-state 'ag-mode 'normal))
