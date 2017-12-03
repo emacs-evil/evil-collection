@@ -44,14 +44,13 @@
 
 (defun evil-helm-setup ()
   "Set up `evil' bindings for `helm'."
-  (evil-define-key 'insert helm-map
+  (evil-define-key '(insert normal) helm-map
     (kbd "M-[") 'helm-previous-source
     (kbd "M-]") 'helm-next-source
     (kbd "M-l") 'helm-execute-persistent-action)
   (dolist (map (list helm-find-files-map helm-read-file-map))
-    (evil-define-key 'insert map
-      (kbd "M-h") 'helm-find-files-up-one-level
-      (kbd "M-l") 'helm-execute-persistent-action)
+    ;; TODO: We should use evil-define-key but it does not seem to work.
+    (define-key map (kbd "M-h") 'helm-find-files-up-one-level)
     (define-key map (kbd "C-l") nil)) ; So the Helm header displays the "M-l" binding.
 
   (evil-define-key 'normal helm-map
