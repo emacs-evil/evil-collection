@@ -34,6 +34,7 @@
   "Set up `evil' bindings for `ag'."
   (evil-define-key 'normal ag-mode-map
     "k" 'evil-previous-line
+    "h" 'evil-backward-char
 
     ;; refresh
     "gr" 'recompile
