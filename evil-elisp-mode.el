@@ -57,8 +57,19 @@ alternative printed representations that can be displayed."
        (lookup-key (current-global-map) (kbd "C-m")))
     (call-interactively 'elisp-last-sexp-toggle-display)))
 
+(defun evil-elisp-mode-last-sexp (command &rest args)
+  "In normal-state or motion-state, last sexp ends at point."
+  (if (and (not evil-move-beyond-eol)
+           (or (evil-normal-state-p) (evil-motion-state-p)))
+      (save-excursion
+        (unless (or (eobp) (eolp)) (forward-char))
+        (apply command args))
+    (apply command args)))
+
 (defun evil-elisp-mode-setup ()
   "Set up `evil' bindings for `elisp-mode'."
+  (unless evil-move-beyond-eol
+    (advice-add 'eval-print-last-sexp :around 'evil-elisp-mode-last-sexp))
   (advice-add 'last-sexp-setup-props
               :override 'evil-elisp-mode-last-sexp-setup-props))
 
