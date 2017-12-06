@@ -30,6 +30,21 @@
 (require 'company nil t)
 (require 'evil)
 
+(defgroup evil-company nil
+  "Evil bindings for `company-mode'."
+  :group 'evil-collection)
+
+(defcustom evil-company-use-tng t
+  "Enable company-tng through `company-tng-configure-default'.
+
+This mirrors ycmd's behavior for a completion experience more
+similar to YouCompleteMe.
+
+Note that for changes to take effect, this variable may have to
+be set through custom or before evil-collection loads."
+  :group 'evil-company
+  :type 'boolean)
+
 (defvar company-active-map)
 (defvar company-search-map)
 
@@ -54,7 +69,8 @@
   (define-key company-search-map (kbd "M-k") 'company-select-previous)
 
   ;; Sets up YCMD like behavior.
-  (with-no-warnings (company-tng-configure-default)))
+  (when evil-company-use-tng
+    (with-no-warnings (company-tng-configure-default))))
 
 (provide 'evil-company)
 ;;; evil-company.el ends here
