@@ -34,7 +34,11 @@
 ;;      (evil-minibuffer-init)
 
 ;;; Code:
-(defvar evil-collection-mode-list
+(defgroup evil-collection nil
+  "A set of keybindings for Evil mode"
+  :group 'evil)
+
+(defcustom evil-collection-mode-list
   `(ag
     alchemist
     anaconda-mode
@@ -95,7 +99,9 @@ Elements are either target mode symbols or lists which `car' is the
 mode symbol and `cdr' the packages to register.
 
 By default, `minibuffer' is not included because many users find
-this confusing.")
+this confusing."
+  :type '(repeat (choice symbol sexp))
+  :group 'evil-collection)
 
 ;;;###autoload
 (defun evil-collection-init ()
