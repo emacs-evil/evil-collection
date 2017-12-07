@@ -31,12 +31,12 @@
 (require 'vlf nil t)
 
 (defvar vlf-mode-map)
+(declare-function vlf-change-batch-size "vlf")
 
 (defun evil-collection-vlf-decrease-batch-size ()
   "Decrease vlf batch size by factor of 2."
   (interactive)
-  (when (fboundp 'vlf-change-batch-size)
-    (vlf-change-batch-size t)))
+  (vlf-change-batch-size t))
 
 ;;; Code:
 (defun evil-collection-vlf-setup ()
