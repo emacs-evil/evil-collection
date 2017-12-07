@@ -37,7 +37,7 @@
   :group 'evil)
 
 (defcustom evil-collection-setup-minibuffer nil
-  "Whether to setup evil bindings in the minibuffer."
+  "Whether to setup Evil bindings in the minibuffer."
   :type 'boolean
   :group 'evil-collection)
 
