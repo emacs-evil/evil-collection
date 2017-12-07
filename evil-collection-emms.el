@@ -77,11 +77,11 @@
     The return value is the yanked text."
     (interactive)
     (evil-next-line)
-    (evil-emms-playlist-mode-paste-before)))
+    (evil-collection-emms-playlist-mode-paste-before)))
 
 (defun evil-collection-emms-setup ()
   "Set up `evil' bindings for `emms'."
-  (advice-add 'emms-browser :after 'evil-emms-browser)
+  (advice-add 'emms-browser :after 'evil-collection-emms-browser)
   (evil-set-initial-state 'emms-playlist-mode 'motion)
 
   (with-eval-after-load 'emms-browser
@@ -161,7 +161,7 @@
 
     "D" 'emms-playlist-mode-kill-track ; emms-browser uses "D"
     "C" 'emms-playlist-mode-clear
-    "O" 'evil-collection-evil-emms-playlist-mode-insert-newline-above
+    "O" 'evil-collection-emms-playlist-mode-insert-newline-above
     "o" 'evil-collection-emms-playlist-mode-insert-newline-below
     "P" 'evil-collection-emms-playlist-mode-paste-before
     "p" 'evil-collection-emms-playlist-mode-paste-after
