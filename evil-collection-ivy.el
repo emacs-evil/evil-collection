@@ -35,20 +35,22 @@
   (evil-define-key 'normal ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
     (kbd "<return>") 'ivy-occur-press-and-switch
-    (kbd "j") 'ivy-occur-next-line
-    (kbd "k") 'ivy-occur-previous-line
-    (kbd "h") 'evil-backward-char
-    (kbd "l") 'evil-forward-char
-    (kbd "g") nil
-    (kbd "gg") 'evil-goto-first-line
-    (kbd "gf") 'ivy-occur-press
-    (kbd "gr") 'ivy-occur-revert-buffer
-    (kbd "ga") 'ivy-occur-read-action
-    (kbd "go") 'ivy-occur-dispatch
-    (kbd "gc") 'ivy-occur-toggle-calling
+    "j" 'ivy-occur-next-line
+    "k" 'ivy-occur-previous-line
+    "h" 'evil-backward-char
+    "l" 'evil-forward-char
+    "g" nil
+    "gg" 'evil-goto-first-line
+    "gf" 'ivy-occur-press
+    "ga" 'ivy-occur-read-action
+    "go" 'ivy-occur-dispatch
+    "gc" 'ivy-occur-toggle-calling
+
+    ;; refresh
+    "gr" 'ivy-occur-revert-buffer
 
     ;; quit
-    (kbd "q") 'quit-window)
+    "q" 'quit-window)
 
   (when evil-want-C-d-scroll
     (evil-define-key 'normal ivy-occur-grep-mode-map
@@ -73,7 +75,7 @@
     "gc" 'ivy-occur-toggle-calling
 
     ;; quit
-    (kbd "q") 'quit-window))
+    "q" 'quit-window))
 
 (provide 'evil-collection-ivy)
 ;;; evil-collection-ivy.el ends here
