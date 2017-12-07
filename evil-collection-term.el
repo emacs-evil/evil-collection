@@ -66,7 +66,7 @@ it is not appropriate in some cases like terminals."
 (defun evil-collection-term-sync-state-and-mode ()
   "Sync `term-char-mode' and `term-line-mode' with insert and normal state."
   (add-hook 'evil-insert-state-entry-hook
-            'evil-term-char-mode-entry-function nil t)
+            'evil-collection-term-char-mode-entry-function nil t)
   (add-hook 'evil-insert-state-exit-hook 'term-line-mode nil t))
 
 (defun evil-collection-term-send-tab ()
