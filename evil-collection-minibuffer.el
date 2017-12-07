@@ -58,7 +58,7 @@ it does not have a mode."
                      minibuffer-local-isearch-map))
     (evil-define-key* 'normal map (kbd "<escape>") 'abort-recursive-edit)
     (evil-define-key* 'normal map (kbd "<return>") 'exit-minibuffer))
-  (add-hook 'minibuffer-setup-hook 'evil-minibuffer-insert)
+  (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.
   (evil-define-key 'normal evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
   (evil-define-key 'insert evil-ex-completion-map (kbd "C-p") 'previous-complete-history-element)
