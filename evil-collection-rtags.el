@@ -59,11 +59,11 @@
     "q" 'rtags-call-bury-or-delete)
 
   (evil-define-key 'normal rtags-dependency-tree-mode-map
-    (kbd "TAB") 'rtags-dependency-tree-toggle-current-expanded
-    (kbd "E") 'rtags-dependency-tree-expand-all
-    (kbd "c") 'rtags-dependency-tree-collapse-all
-    (kbd "-") 'rtags-dependency-tree-collapse-current
-    (kbd "+") 'rtags-dependency-tree-expand-current
+    (kbd "<tab>") 'rtags-dependency-tree-toggle-current-expanded
+    "E" 'rtags-dependency-tree-expand-all
+    "c" 'rtags-dependency-tree-collapse-all
+    "-" 'rtags-dependency-tree-collapse-current
+    "+" 'rtags-dependency-tree-expand-current
     "P" 'rtags-dependency-tree-find-path
     "gf" 'rtags-dependency-tree-find-path
 
@@ -79,8 +79,8 @@
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
-    (kbd "go") 'rtags-select-other-window
-    (kbd "gO") 'rtags-show-in-other-window
+    "go" 'rtags-select-other-window
+    "gO" 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
@@ -89,12 +89,12 @@
     "q" 'rtags-call-bury-or-delete)
 
   (evil-define-key 'normal rtags-references-tree-mode-map
-    (kbd "TAB") 'rtags-references-tree-toggle-current-expanded
+    (kbd "<tab>") 'rtags-references-tree-toggle-current-expanded
 
-    (kbd "E") 'rtags-references-tree-expand-all
-    (kbd "c") 'rtags-references-tree-collapse-all
-    (kbd "-") 'rtags-references-tree-collapse-current
-    (kbd "+") 'rtags-references-tree-expand-current
+    "E" 'rtags-references-tree-expand-all
+    "c" 'rtags-references-tree-collapse-all
+    "-" 'rtags-references-tree-collapse-current
+    "+" 'rtags-references-tree-expand-current
 
     "gj" 'rtags-references-tree-next-level
     "gk" 'rtags-references-tree-previous-level
@@ -109,8 +109,8 @@
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
-    (kbd "go") 'rtags-select-other-window
-    (kbd "gO") 'rtags-show-in-other-window
+    "go" 'rtags-select-other-window
+    "gO" 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
