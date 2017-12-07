@@ -28,8 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(with-no-warnings
-  (require 'eval-sexp-fu nil t))
+(require 'eval-sexp-fu nil t)
 
 (defun evil-collection-eval-sexp-fu-bounds-of-thing-at-point-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."

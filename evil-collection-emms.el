@@ -48,36 +48,35 @@
   "Default `emms-browser' to motion state."
   (evil-motion-state))
 
-(with-no-warnings
-  (defun evil-collection-emms-playlist-mode-insert-newline-above ()
-    "Insert a newline above point."
-    (interactive)
-    (emms-with-inhibit-read-only-t
-     (evil-insert-newline-above)))
+(defun evil-collection-emms-playlist-mode-insert-newline-above ()
+  "Insert a newline above point."
+  (interactive)
+  (emms-with-inhibit-read-only-t
+   (evil-insert-newline-above)))
 
-  (defun evil-collection-emms-playlist-mode-insert-newline-below ()
-    "Insert a newline below point."
-    (interactive)
-    (emms-with-inhibit-read-only-t
-     (evil-insert-newline-below)))
+(defun evil-collection-emms-playlist-mode-insert-newline-below ()
+  "Insert a newline below point."
+  (interactive)
+  (emms-with-inhibit-read-only-t
+   (evil-insert-newline-below)))
 
-  (defun evil-collection-emms-playlist-mode-paste-before ()
-    "Pastes the latest yanked playlist items before the cursor position.
-    The return value is the yanked text."
-    (interactive)
-    (emms-with-inhibit-read-only-t
-     (goto-char (point-at-bol))
-     (yank)
-     (emms-playlist-mode-correct-previous-yank)
-     (evil-previous-line)
-     (evil-beginning-of-line)))
+(defun evil-collection-emms-playlist-mode-paste-before ()
+  "Pastes the latest yanked playlist items before the cursor position.
+The return value is the yanked text."
+  (interactive)
+  (emms-with-inhibit-read-only-t
+   (goto-char (point-at-bol))
+   (yank)
+   (emms-playlist-mode-correct-previous-yank)
+   (evil-previous-line)
+   (evil-beginning-of-line)))
 
-  (defun evil-collection-emms-playlist-mode-paste-after ()
-    "Pastes the latest yanked playlist items behind point.
-    The return value is the yanked text."
-    (interactive)
-    (evil-next-line)
-    (evil-collection-emms-playlist-mode-paste-before)))
+(defun evil-collection-emms-playlist-mode-paste-after ()
+  "Pastes the latest yanked playlist items behind point.
+The return value is the yanked text."
+  (interactive)
+  (evil-next-line)
+  (evil-collection-emms-playlist-mode-paste-before))
 
 (defun evil-collection-emms-setup ()
   "Set up `evil' bindings for `emms'."

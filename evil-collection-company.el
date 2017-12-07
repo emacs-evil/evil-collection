@@ -69,8 +69,7 @@ be set through custom or before evil-collection loads."
   (define-key company-search-map (kbd "M-k") 'company-select-previous)
 
   ;; Sets up YCMD like behavior.
-  (when evil-collection-company-use-tng
-    (with-no-warnings (company-tng-configure-default))))
+  (when evil-collection-company-use-tng (company-tng-configure-default)))
 
 (provide 'evil-collection-company)
 ;;; evil-collection-company.el ends here

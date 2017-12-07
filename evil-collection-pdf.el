@@ -30,20 +30,19 @@
 (require 'evil)
 (require 'pdf-view nil t)
 
-(with-no-warnings
-  (defun evil-collection-pdf-view-goto-page (&optional page)
-    "`evil' wrapper around `pdf-view-last-page'."
-    (interactive "P")
-    (if page
-        (pdf-view-goto-page page)
-      (pdf-view-last-page)))
+(defun evil-collection-pdf-view-goto-page (&optional page)
+  "`evil' wrapper around `pdf-view-last-page'."
+  (interactive "P")
+  (if page
+      (pdf-view-goto-page page)
+    (pdf-view-last-page)))
 
-  (defun evil-collection-pdf-view-goto-first-page (&optional page)
-    "`evil' wrapper around `pdf-view-first-page'."
-    (interactive "P")
-    (if page
-        (pdf-view-goto-page page)
-      (pdf-view-first-page))))
+(defun evil-collection-pdf-view-goto-first-page (&optional page)
+  "`evil' wrapper around `pdf-view-first-page'."
+  (interactive "P")
+  (if page
+      (pdf-view-goto-page page)
+    (pdf-view-first-page)))
 
 (defun evil-collection-pdf-setup ()
   "Set up `evil' bindings for `pdf-view'."
