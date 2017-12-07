@@ -30,6 +30,10 @@
 (require 'evil)
 (require 'pdf-view nil t)
 
+(declare-function pdf-view-last-page "pdf-view")
+(declare-function pdf-view-first-page "pdf-view")
+(declare-function pdf-view-goto-page "pdf-view")
+
 (defun evil-collection-pdf-view-goto-page (&optional page)
   "`evil' wrapper around `pdf-view-last-page'."
   (interactive "P")

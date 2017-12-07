@@ -30,6 +30,8 @@
 (require 'company nil t)
 (require 'evil)
 
+(declare-function company-tng-configure-default "company-tng")
+
 (defgroup evil-collection-company nil
   "Evil bindings for `company-mode'."
   :group 'evil-collection)
