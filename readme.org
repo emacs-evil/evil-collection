@@ -48,11 +48,14 @@ or mode-by-mode, for instance:
 The list of supported modes is simply the list of files.
 
 If you want to enable Evil in the minibuffer, you'll have to turn it on
-explicitly.  This is so because many users find it confusing.
+explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~. This is so
+because many users find it confusing.
 
-: (require 'evil-collection-minibuffer)
-: (evil-collection-minibuffer-init)
+~use-package~ example:
 
+: (use-package evil-collection
+:   :custom (evil-collection-setup-minibuffer t)
+:   :init (evil-collection-init))
 
 
 ** Guidelines
