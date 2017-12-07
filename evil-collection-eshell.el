@@ -41,7 +41,7 @@
 (defun evil-collection-eshell-next-prompt-on-insert ()
   "Go to next prompt on `evil' replace/insert enter."
   (dolist (hook '(evil-replace-state-entry-hook evil-insert-state-entry-hook))
-    (add-hook hook 'evil-eshell-next-prompt nil t)))
+    (add-hook hook 'evil-collection-eshell-next-prompt nil t)))
 
 (defun evil-collection-eshell-interrupt-process ()
   "Interupt `eshell' process and enter insert state."
