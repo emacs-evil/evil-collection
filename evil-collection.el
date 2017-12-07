@@ -27,16 +27,19 @@
 ;;; Commentary:
 ;; A set of keybindings for Evil mode.
 ;;
-;; If you want to use Evil in the minibuffer, you'll have to enable it manually.
+;; If you want to use Evil in the minibuffer, you'll have to enable it by
+;; setting `evil-collection-setup-minibuffer' to t before loading this package.
 ;; This is so because many users find it confusing.
-;;
-;;      (require 'evil-minibuffer)
-;;      (evil-minibuffer-init)
 
 ;;; Code:
 (defgroup evil-collection nil
   "A set of keybindings for Evil mode"
   :group 'evil)
+
+(defcustom evil-collection-setup-minibuffer nil
+  "Whether to setup evil bindings in the minibuffer."
+  :type 'boolean
+  :group 'evil-collection)
 
 (defcustom evil-collection-mode-list
   `(ag
@@ -75,6 +78,7 @@
     ivy
     macrostep
     man
+    ,@(when evil-collection-setup-minibuffer '(minibuffer))
     ;; occur is in replace.el which was built-in before Emacs 26.
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
     outline
@@ -99,7 +103,8 @@ Elements are either target mode symbols or lists which `car' is the
 mode symbol and `cdr' the packages to register.
 
 By default, `minibuffer' is not included because many users find
-this confusing."
+this confusing. It will be included if
+`evil-collection-setup-minibuffer' is set to t."
   :type '(repeat (choice symbol sexp))
   :group 'evil-collection)
 
