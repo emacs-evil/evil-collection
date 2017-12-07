@@ -51,9 +51,9 @@
   "Toggle visiting diff buffers in motion state."
   (interactive)
   (when (eq major-mode 'diff-mode)
-    (if (memq 'evil-diff-read-only-state-switch read-only-mode-hook)
-        (remove-hook 'read-only-mode-hook 'evil-diff-read-only-state-switch t)
-      (add-hook 'read-only-mode-hook 'evil-diff-read-only-state-switch nil t)
+    (if (memq 'evil-collection-diff-read-only-state-switch read-only-mode-hook)
+        (remove-hook 'read-only-mode-hook 'evil-collection-diff-read-only-state-switch t)
+      (add-hook 'read-only-mode-hook 'evil-collection-diff-read-only-state-switch nil t)
       (read-only-mode))))
 
 ;;; TODO: Report toggle function upstream?
@@ -121,7 +121,7 @@ current file instead."
 
     "ge" 'diff-ediff-patch
     "i" 'next-error-follow-minor-mode
-    "o" 'evil-diff-toggle-restrict-view
+    "o" 'evil-collection-diff-toggle-restrict-view
     "~" 'diff-reverse-direction
     "s" 'diff-split-hunk
     "c" 'diff-test-hunk
