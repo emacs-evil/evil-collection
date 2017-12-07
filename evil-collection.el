@@ -78,7 +78,7 @@
     ivy
     macrostep
     man
-    ,@(when evil-collection-setup-minibuffer '(minibuffer))
+    (minibuffer . (lambda () (when evil-collection-setup-minibuffer '(minibuffer))))
     ;; occur is in replace.el which was built-in before Emacs 26.
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
     outline
@@ -103,7 +103,7 @@ Elements are either target mode symbols or lists which `car' is the
 mode symbol and `cdr' the packages to register.
 
 By default, `minibuffer' is not included because many users find
-this confusing. It will be included if
+this confusing.  It will be included if
 `evil-collection-setup-minibuffer' is set to t."
   :type '(repeat (choice symbol sexp))
   :group 'evil-collection)
@@ -124,7 +124,7 @@ instance:
           (reqs (list mode)))
       (when (listp mode)
         (setq m (car mode)
-              reqs (cdr mode)))
+              reqs (if (functionp (cdr mode)) (funcall (cdr mode)) (cdr mode))))
       (dolist (req reqs)
         (with-eval-after-load req
           (require (intern (concat "evil-collection-" (symbol-name m))))
