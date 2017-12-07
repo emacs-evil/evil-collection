@@ -43,15 +43,15 @@ some default bindings to change in the future.
 
 or mode-by-mode, for instance:
 
-: (with-eval-after-load 'calendar (require 'evil-calendar) (evil-calendar-setup))
+: (with-eval-after-load 'calendar (require 'evil-collection-calendar) (evil-collection-calendar-setup))
 
 The list of supported modes is simply the list of files.
 
 If you want to enable Evil in the minibuffer, you'll have to turn it on
 explicitly.  This is so because many users find it confusing.
 
-: (require 'evil-minibuffer)
-: (evil-minibuffer-init)
+: (require 'evil-collection-minibuffer)
+: (evil-collection-minibuffer-init)
 
 
 

@@ -111,8 +111,8 @@ Alternatively, you may register select bindings manually, for
 instance:
 
   (with-eval-after-load 'calendar
-    (require 'evil-calendar)
-    (evil-calendar-setup))"
+    (require 'evil-collection-calendar)
+    (evil-collection-calendar-setup))"
   (interactive)
   (dolist (mode evil-collection-mode-list)
     (let ((m mode)
@@ -122,8 +122,8 @@ instance:
               reqs (cdr mode)))
       (dolist (req reqs)
         (with-eval-after-load req
-          (require (intern (concat "evil-" (symbol-name m))))
-          (funcall (intern (concat "evil-" (symbol-name m) "-setup"))))))))
+          (require (intern (concat "evil-collection-" (symbol-name m))))
+          (funcall (intern (concat "evil-collection-" (symbol-name m) "-setup"))))))))
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here

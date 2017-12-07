@@ -35,7 +35,7 @@
   "Set the default STATE for MODE."
   (let* ((mode-str (symbol-name mode))
          (state-str (symbol-name state))
-         (defun-name (intern (format "evil-integration-%s-set-%s-default"
+         (defun-name (intern (format "evil-collection-%s-set-%s-default"
                                      mode-str
                                      state-str))))
     `(progn
@@ -47,10 +47,10 @@
        (advice-add #',mode :after #',defun-name))))
 
 (defmacro evil-collection-util-evilify-map (map &rest props)
-  "`evil-evilified-state-evilify-map' with additional bindings.
+  "`evil-collection-evilified-state-evilify-map' with additional bindings.
 This assumes the :bindings key is at the end."
   (let ((contains-bindings (plist-get props :bindings)))
-    `(evil-evilified-state-evilify-map
+    `(evil-evilified-state-evilify
        ,map
        ,@props
        ,@(unless contains-bindings
