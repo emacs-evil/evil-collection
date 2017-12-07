@@ -312,6 +312,7 @@ definition".
 
 - ~=~ is useful as a synonym for ~+~ because it is the unshifted key of ~+~ on QWERTY.
 
+
 ** Modes left behind
 
 Some modes might still remain unsupported by this package.  Should you be
