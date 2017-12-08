@@ -36,76 +36,72 @@
   "A set of keybindings for Evil mode"
   :group 'evil)
 
-(defcustom evil-collection-setup-minibuffer nil
-  "Whether to setup Evil bindings in the minibuffer."
-  :type 'boolean
-  :group 'evil-collection)
-
 (defcustom evil-collection-mode-list
-  `(ag
-    alchemist
-    anaconda-mode
-    arc-mode
-    bookmark
-    calendar
-    cider
-    comint
-    company
-    compile
-    custom
-    cus-theme
-    debbugs
-    debug
-    diff-mode
-    dired
-    doc-view
-    edebug
-    elfeed
-    elisp-mode
-    elisp-refs
-    emms
-    eshell
-    eval-sexp-fu
-    flycheck
-    geiser
-    ggtags
-    help
-    helm
-    ibuffer
-    image
-    image+
-    info
-    ivy
-    macrostep
-    man
-    ,@(when evil-collection-setup-minibuffer '(minibuffer))
+  `((ag t)
+    (alchemist t)
+    (anaconda-mode t)
+    (arc-mode t)
+    (bookmark t)
+    (calendar t)
+    (cider t)
+    (comint t)
+    (company t)
+    (compile t)
+    (custom t)
+    (cus-theme t)
+    (debbugs t)
+    (debug t)
+    (diff-mode t)
+    (dired t)
+    (doc-view t)
+    (edebug t)
+    (elfeed t)
+    (elisp-mode t)
+    (elisp-refs t)
+    (emms t)
+    (eshell t)
+    (eval-sexp-fu t)
+    (flycheck t)
+    (geiser t)
+    (ggtags t)
+    (help t)
+    (helm t)
+    (ibuffer t)
+    (image t)
+    (image+ t)
+    (info t)
+    (ivy t)
+    (macrostep t)
+    (man t)
+    (minibuffer nil)
     ;; occur is in replace.el which was built-in before Emacs 26.
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
-    outline
-    p4
+    (outline t)
+    (p4 t)
     (package-menu package)
-    pass
+    (pass t)
     (pdf pdf-view)
-    proced
-    prodigy
-    profiler
-    rtags
-    slime
-    (term term ansi-term multi-term)
-    tide
-    transmission
-    vlf
-    woman
-    xref
+    (proced t)
+    (prodigy t)
+    (profiler t)
+    (rtags t)
+    (slime t)
+    (term t ansi-term multi-term)
+    (tide t)
+    (transmission t)
+    (vlf t)
+    (woman t)
+    (xref t)
     (ztree ztree-diff))
-  "The list of modes which will be evilified by `evil-collection-init'.
-Elements are either target mode symbols or lists which `car' is the
-mode symbol and `cdr' the packages to register.
+  "The alist of modes which will be evilified by `evil-collection-init'.
+ The values are list of target modes.  If t, then the target
+name is the same as the key.
 
-By default, `minibuffer' is not included because many users find
-this confusing. It will be included if
-`evil-collection-setup-minibuffer' is set to t."
-  :type '(repeat (choice symbol sexp))
+By default, `minibuffer' is not activated by default because many
+users find this confusing.  It can be activated with
+
+  (setcar (alist-get 'minibuffer evil-collection-mode-list) t)"
+  :type '(alist)
   :group 'evil-collection)
 
 ;;;###autoload
@@ -120,15 +116,14 @@ instance:
     (evil-collection-calendar-setup))"
   (interactive)
   (dolist (mode evil-collection-mode-list)
-    (let ((m mode)
-          (reqs (list mode)))
-      (when (listp mode)
-        (setq m (car mode)
-              reqs (cdr mode)))
+    (let ((name (car mode))
+          (reqs (cdr mode)))
       (dolist (req reqs)
+        (when (eq req t)
+          (setq req name))
         (with-eval-after-load req
-          (require (intern (concat "evil-collection-" (symbol-name m))))
-          (funcall (intern (concat "evil-collection-" (symbol-name m) "-setup"))))))))
+          (require (intern (concat "evil-collection-" (symbol-name name))))
+          (funcall (intern (concat "evil-collection-" (symbol-name name) "-setup"))))))))
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here
