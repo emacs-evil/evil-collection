@@ -27,11 +27,15 @@
 ;; Evil bindings for `slime-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'slime nil t)
 
+(defvar slime-parent-map)
 (defvar sldb-mode-map)
 (defvar slime-inspector-mode-map)
+(defvar slime-mode-map)
+(defvar slime-popup-buffer-mode-map)
+(defvar slime-xref-mode-map)
 
 (defun evil-collection-slime-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
@@ -51,24 +55,80 @@
     (advice-add 'slime-eval-last-expression-in-repl
                 :around 'evil-collection-slime-last-sexp))
 
-  (evil-collection-util-evilify-map
-   sldb-mode-map
-   :mode sldb-mode
-   :bindings
-   "H" 'describe-mode
-   (kbd "C-j") 'sldb-down
-   (kbd "C-k") 'sldb-up
-   (kbd "M-j") 'sldb-details-down
-   (kbd "M-k") 'sldb-details-up
-   "gb" 'sldb-break-on-return
-   "gB" 'sldb-break-with-default-debugger)
+  (evil-set-initial-state 'sldb-mode 'normal)
+  (evil-set-initial-state 'slime-inspector-mode 'normal)
+  (evil-set-initial-state 'slime-popup-buffer-mode 'normal)
+  (evil-set-initial-state 'slime-xref-mode 'normal)
 
-  (evil-collection-util-evilify-map
-   slime-inspector-mode-map
-   :mode slime-inspector-mode
-   :bindings
-   ;; refresh
-   "gr" 'slime-inspector-reinspect)
+  (evil-define-key 'normal slime-parent-map
+    "gd" 'slime-edit-definition
+    (kbd "C-t") 'slime-pop-find-definition-stack)
+
+  (evil-define-key 'normal sldb-mode-map
+    (kbd "RET") 'sldb-default-action
+    (kbd "C-m") 'sldb-default-action
+    [return] 'sldb-default-action
+    [mouse-2]  'sldb-default-action/mouse
+    [follow-link] 'mouse-face
+    "\C-i" 'sldb-cycle
+    "g?" 'describe-mode
+    "S" 'sldb-show-source
+    "e" 'sldb-eval-in-frame
+    "d" 'sldb-pprint-eval-in-frame
+    "D" 'sldb-disassemble
+    "i" 'sldb-inspect-in-frame
+    "gj" 'sldb-down
+    "gk" 'sldb-up
+    (kbd "C-j") 'sldb-down
+    (kbd "C-k") 'sldb-up
+    "]" 'sldb-details-down
+    "[" 'sldb-details-up
+    (kbd "M-j") 'sldb-details-down
+    (kbd "M-k") 'sldb-details-up
+    "gg" 'sldb-beginning-of-backtrace
+    "G" 'sldb-end-of-backtrace
+    "t" 'sldb-toggle-details
+    "gr" 'sldb-restart-frame
+    "I" 'sldb-invoke-restart-by-name
+    "R" 'sldb-return-from-frame
+    "c" 'sldb-continue
+    "s" 'sldb-step
+    "n" 'sldb-next
+    "o" 'sldb-out
+    "b" 'sldb-break-on-return
+    "a" 'sldb-abort
+    "q" 'sldb-quit
+    "A" 'sldb-break-with-system-debugger
+    "B" 'sldb-break-with-default-debugger
+    "P" 'sldb-print-condition
+    "C" 'sldb-inspect-condition
+    "g:" 'slime-interactive-eval)
+
+  (evil-define-key 'normal slime-inspector-mode-map
+    [return] 'slime-inspector-operate-on-point
+    (kbd "C-m") 'slime-inspector-operate-on-point
+    [mouse-1] 'slime-inspector-operate-on-click
+    [mouse-2] 'slime-inspector-operate-on-click
+    [mouse-6] 'slime-inspector-pop
+    [mouse-7] 'slime-inspector-next
+    "gk" 'slime-inspector-pop
+    (kbd "C-k") 'slime-inspector-pop
+    "gj" 'slime-inspector-next
+    (kbd "j") 'slime-inspector-next
+    'slime-inspector-previous-inspectable-object
+    "K" 'slime-inspector-describe
+    "p" 'slime-inspector-pprint
+    "e" 'slime-inspector-eval
+    "h" 'slime-inspector-history
+    "gr" 'slime-inspector-reinspect
+    "gv" 'slime-inspector-toggle-verbose
+    "\C-i" 'slime-inspector-next-inspectable-object
+    [(shift tab)]
+    'slime-inspector-previous-inspectable-object ; Emacs translates S-TAB
+    [backtab] 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
+    "." 'slime-inspector-show-source
+    "gR" 'slime-inspector-fetch-all
+    "q" 'slime-inspector-quit)
 
   (evil-define-key 'normal slime-mode-map
     (kbd "K") 'slime-describe-symbol
@@ -85,7 +145,6 @@
     ;; goto
     "gd" 'slime-edit-definition)
 
-  (evil-set-initial-state 'slime-xref-mode 'normal)
   (evil-define-key 'normal slime-xref-mode-map
     (kbd "RET") 'slime-goto-xref
     (kbd "S-<return>") 'slime-goto-xref
