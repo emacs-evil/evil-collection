@@ -71,6 +71,7 @@
    "gr" 'slime-inspector-reinspect)
 
   (evil-define-key 'normal slime-mode-map
+    (kbd "K") 'slime-describe-symbol
     (kbd "C-t") 'slime-pop-find-definition-stack
     ;; goto
     "gd" 'slime-edit-definition)
