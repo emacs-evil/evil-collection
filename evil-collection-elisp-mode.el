@@ -69,7 +69,7 @@ alternative printed representations that can be displayed."
 (defun evil-collection-elisp-mode-setup ()
   "Set up `evil' bindings for `elisp-mode'."
   (unless evil-move-beyond-eol
-    (advice-add 'eval-print-last-sexp :around 'evil-elisp-mode-last-sexp))
+    (advice-add 'eval-print-last-sexp :around 'evil-collection-elisp-mode-last-sexp))
   (advice-add 'last-sexp-setup-props
               :override 'evil-collection-elisp-mode-last-sexp-setup-props))
 
