@@ -29,7 +29,6 @@
 
 ;;; Code:
 (require 'evil)
-(require 'evil-evilified-state)
 
 (defmacro evil-collection-util-set-initial-state (mode state)
   "Set the default STATE for MODE."
@@ -45,25 +44,6 @@
              (,(intern (format "evil-%s-state" state)))
            (evil-normal-state)))
        (advice-add #',mode :after #',defun-name))))
-
-(defmacro evil-collection-util-evilify-map (map &rest props)
-  "`evil-collection-evilified-state-evilify-map' with additional bindings.
-This assumes the :bindings key is at the end."
-  (let ((contains-bindings (plist-get props :bindings)))
-    `(evil-evilified-state-evilify
-       ,map
-       ,@props
-       ,@(unless contains-bindings
-           '(:bindings))
-       "#" 'evil-search-word-backward
-       "*" 'evil-search-forward
-       "$" 'evil-end-of-line
-       "^" 'evil-first-non-blank
-       "0" 'evil-digit-argument-or-evil-beginning-of-line
-       "b" 'evil-backward-word-begin
-       "B" 'evil-backward-WORD-begin
-       "w" 'evil-forward-word-begin
-       "W" 'evil-forward-WORD-begin)))
 
 (provide 'evil-collection-util)
 ;;; evil-collection-util.el ends here
