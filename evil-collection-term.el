@@ -34,10 +34,23 @@
 (require 'evil)
 (require 'term)
 
-;;; TODO: Rebinding ESC has the drawback that programs like vi cannot use it anymore.
-;;; Workaround: switch to Emacs state and double-press ESC.
-;;; Otherwise leave ESC to "C-c C-j".
-;;; Or bind char-mode ESC to "C-c C-x"?
+(defcustom evil-collection-term-sync-state-and-mode-p nil
+  "Synchronize insert/normal state with char/line-mode respectively.
+
+When non-nil, going to normal state will automatically switch to
+line-mode.  Conversely, going to insert state on the last
+commandline will automatically switch to char-mode.
+
+Warning: This feature is experimental."
+  :group 'evil-collection-term
+  :type 'boolean)
+
+;; TODO: Rebinding ESC has the drawback that programs like vi cannot use it anymore.
+;; Workaround: switch to Emacs state and double-press ESC.
+;; Otherwise leave ESC to "C-c C-j".
+;; Or bind char-mode ESC to "C-c C-x"?
+
+;; TODO: Add support for normal-state editing.
 
 (defun evil-collection-term-escape-stay ()
   "Go back to normal state but don't move cursor backwards.
@@ -77,7 +90,10 @@ it is not appropriate in some cases like terminals."
 (defun evil-collection-term-setup ()
   "Set up `evil' bindings for `term'."
   (evil-set-initial-state 'term-mode 'insert)
-  (add-hook 'term-mode-hook 'evil-collection-term-sync-state-and-mode)
+  (if evil-collection-term-sync-state-and-mode-p
+      (add-hook 'term-mode-hook 'evil-collection-term-sync-state-and-mode)
+    (remove-hook 'term-mode-hook 'evil-collection-term-sync-state-and-mode))
+
   (add-hook 'term-mode-hook 'evil-collection-term-escape-stay)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal bindings.
