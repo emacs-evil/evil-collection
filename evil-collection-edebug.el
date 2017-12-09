@@ -28,25 +28,32 @@
 
 ;;; Code:
 (require 'edebug)
-(require 'evil-collection-util)
-
-(evil-collection-util-set-initial-state edebug-mode motion)
+(require 'evil)
 
 (defun evil-collection-edebug-setup ()
   "Set up `evil' bindings for `edebug'."
-  (evil-define-key 'motion edebug-mode-map
+  (evil-set-initial-state 'edebug-mode 'normal)
+
+  (add-hook 'edebug-mode-hook #'evil-normalize-keymaps)
+
+  (define-key edebug-mode-map "g" nil)
+  (define-key edebug-mode-map "G" nil)
+
+  ;; FIXME: Seems like other minor modes will readily clash with `edebug'.
+  ;; `lispyville' and `edebug' 's' key?
+  (evil-define-key 'normal edebug-mode-map
     ;; control
-    " " nil
     "s" 'edebug-step-mode
     "n" 'edebug-next-mode
     "go" 'edebug-go-mode
-    "gn" 'edebug-Go-nonstop-mode
+    "gO" 'edebug-Go-nonstop-mode
     "t" 'edebug-trace-mode
     "T" 'edebug-Trace-fast-mode
     "c" 'edebug-continue-mode
     "C" 'edebug-Continue-fast-mode
+
     "f" 'edebug-forward-sexp
-    "H" 'edebug-goto-here
+    "gh" 'edebug-goto-here
     "I" 'edebug-instrument-callee
     "i" 'edebug-step-in
     "o" 'edebug-step-out
@@ -96,12 +103,12 @@
     (kbd "C-c C-l") 'edebug-where)
 
   (with-eval-after-load 'edebug-x
-    (evil-define-key 'motion edebug-x-instrumented-function-list-mode-map
+    (evil-define-key 'normal edebug-x-instrumented-function-list-mode-map
       "E" 'edebug-x-evaluate-function
       "Q" 'edebug-x-clear-data
       (kbd "<return>") 'edebug-x-find-function
       "q" 'quit-window)
-    (evil-define-key 'motion edebug-x-breakpoint-list-mode-map
+    (evil-define-key 'normal edebug-x-breakpoint-list-mode-map
       (kbd "<return>") 'edebug-x-visit-breakpoint
       "x" 'edebug-x-kill-breakpoint
       "Q" 'edebug-x-clear-data
