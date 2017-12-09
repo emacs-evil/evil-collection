@@ -27,7 +27,7 @@
 ;; Evil bindings for `pass-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'pass nil t)
 
 (defvar pass-mode-map)

@@ -27,7 +27,7 @@
 ;; Evil bindings for `flycheck-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'flycheck nil t)
 
 (defvar flycheck-error-list-mode-map)

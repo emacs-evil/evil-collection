@@ -28,7 +28,7 @@
 ;; `evil-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'elisp-refs nil t)
 
 (defun evil-collection-elisp-refs-setup ()

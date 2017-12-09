@@ -27,7 +27,7 @@
 ;; Evil bindings for `occur'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 
 (when (> emacs-major-version 25)
   (require 'replace))

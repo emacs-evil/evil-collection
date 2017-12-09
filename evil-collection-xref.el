@@ -27,7 +27,7 @@
 ;; Evil bindings for `xref'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'xref)
 
 (defun evil-collection-xref-setup ()

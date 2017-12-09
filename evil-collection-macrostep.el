@@ -27,7 +27,7 @@
 ;; Evil bindings for `macrostep-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'macrostep nil t)
 
 (defun evil-collection-macrostep-setup ()

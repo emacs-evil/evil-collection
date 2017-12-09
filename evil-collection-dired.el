@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'dired)
-(require 'evil-collection-util)
+(require 'evil)
 
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."

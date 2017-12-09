@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'cider nil t)
-(require 'evil-collection-util)
+(require 'evil)
 
 (defun evil-collection-cider-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."

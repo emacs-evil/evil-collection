@@ -27,7 +27,7 @@
 ;; Evil bindings for `vlf'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'vlf nil t)
 
 (defvar vlf-mode-map)

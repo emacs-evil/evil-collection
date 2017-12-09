@@ -27,7 +27,7 @@
 ;; Evil bindings for `compile'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil)
 (require 'compile)
 
 (defun evil-collection-compile-setup ()
