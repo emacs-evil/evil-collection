@@ -59,11 +59,6 @@ it does not have a mode."
     (evil-define-key* 'normal map (kbd "<escape>") 'abort-recursive-edit)
     (evil-define-key* 'normal map (kbd "<return>") 'exit-minibuffer))
 
-  (with-eval-after-load 'ivy
-    (defvar ivy-minibuffer-map)
-    (evil-define-key* 'normal ivy-minibuffer-map (kbd "<escape>") 'abort-recursive-edit)
-    (evil-define-key* 'normal ivy-minibuffer-map (kbd "<return>") 'exit-minibuffer))
-
   (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.
   (evil-define-key 'normal evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)

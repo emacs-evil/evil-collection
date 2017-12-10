@@ -75,7 +75,23 @@
     "gc" 'ivy-occur-toggle-calling
 
     ;; quit
-    "q" 'quit-window))
+    "q" 'quit-window)
+
+  (defvar evil-collection-setup-minibuffer)
+  (when evil-collection-setup-minibuffer
+    (evil-define-key 'normal ivy-minibuffer-map
+      (kbd "<escape>") 'abort-recursive-edit
+      (kbd "<return>") 'exit-minibuffer
+      (kbd "C-m") 'ivy-done
+      "j" 'ivy-next-line
+      "k" 'ivy-previous-line)
+
+    (evil-define-key 'insert ivy-minibuffer-map
+      [backspace] 'ivy-backward-delete-char
+      (kbd "C-r") 'ivy-reverse-i-search
+      (kbd "C-n") 'ivy-next-line
+      (kbd "C-p") 'ivy-previous-line)))
+
 
 (provide 'evil-collection-ivy)
 ;;; evil-collection-ivy.el ends here
