@@ -56,9 +56,9 @@
     "gr" 'Man-update-manpage
 
     ;; quit
-    "q" 'Man-quit
-    "ZQ" 'evil-quit
-    "ZZ" 'Man-quit))
+    "q" 'quit-window
+    "ZQ" 'quit-window
+    "ZZ" 'quit-window))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here
