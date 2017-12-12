@@ -30,8 +30,22 @@
 (require 'evil)
 (require 'outline)
 
+(defcustom evil-collection-outline-bind-tab-p t
+  "Enable <tab>-based bindings in Outline mode.
+
+Unless you have Evil bindings set up for Org mode, Org will
+inherit the <tab>-based bindings from Outline.  Set this option
+to nil if you want to preserve the Emacs-state <tab> keys in Org
+mode."
+  :group 'evil-collection-outline
+  :type 'boolean)
+
 (defun evil-collection-outline-setup ()
   "Set up `evil' bindings for `outline'."
+  (when evil-collection-outline-bind-tab-p
+    (evil-define-key 'motion outline-mode-map
+      (kbd "S-<tab>") 'outline-show-all ; Also "z r" by default
+      (kbd "<tab>") 'outline-toggle-children)) ; Also "z a" by default
   (evil-define-key 'motion outline-mode-map
     ;; folding
     ;; Evil default keys:
@@ -41,8 +55,6 @@
     ;; zm: Show only root notes.
     ;; zo: Show current node like "za".
     ;; zr: Show everything.
-    (kbd "S-<tab>") 'outline-show-all ; Also "z r" by default
-    (kbd "<tab>") 'outline-toggle-children ; Also "z a" by default
     ;; "ze" 'outline-hide-entry
     ;; "zE" 'outline-show-entry
     ;; "zl" 'outline-hide-leaves
