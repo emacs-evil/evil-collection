@@ -32,6 +32,7 @@
 
 (defun evil-collection-ibuffer-setup ()
   "Set up `evil' bindings for `ibuffer'."
+  (evil-set-initial-state 'ibuffer-mode 'normal)
   (evil-define-key 'normal ibuffer-mode-map
     (kbd "m") 'ibuffer-mark-forward
     (kbd "t") 'ibuffer-toggle-marks
