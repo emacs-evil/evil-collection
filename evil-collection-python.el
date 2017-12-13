@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'python nil t)
+(require 'python)
 
 (defun evil-collection-python-setup ()
   "Set up `evil' bindings for `python'."
