@@ -30,9 +30,13 @@
 (require 'evil)
 (require 'python)
 
+(defun evil-collection-python-set-evil-shift-width ()
+  "Set `evil-shift-width' according to `python-indent-offset'."
+  (setq evil-shift-width python-indent-offset))
+
 (defun evil-collection-python-setup ()
   "Set up `evil' bindings for `python'."
-  (setq evil-shift-width python-indent-offset)
+  (add-hook 'python-mode-hook #'evil-collection-python-set-evil-shift-width)
 
   (evil-define-key 'normal python-mode-map
     "gz" 'python-shell-switch-to-shell))
