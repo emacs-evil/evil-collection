@@ -57,6 +57,7 @@
 
   (with-eval-after-load 'cider-repl
     (evil-define-key '(normal visual) cider-repl-mode-map
+      "gz" 'cider-switch-to-last-clojure-buffer
       "gd" 'cider-find-var
       (kbd "C-t") 'cider-pop-back
       "gr" 'cider-refresh

@@ -307,6 +307,8 @@ definition".
 
 ?
 
+*** REPL (~gz~)
+    If the mode has a Go To REPL-type command, set it to ~gz~.
 *** Zooming (~+~, ~-~, ~=~, ~0~)
 
 - ~+~ and ~-~ have obvious meanings.
