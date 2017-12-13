@@ -90,6 +90,7 @@
     prodigy
     profiler
     python
+    robe
     ruby-mode
     rtags
     slime
