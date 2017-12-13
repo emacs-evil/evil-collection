@@ -66,6 +66,7 @@
     emms
     eshell
     eval-sexp-fu
+    eww
     flycheck
     geiser
     ggtags
