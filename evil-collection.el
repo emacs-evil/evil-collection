@@ -90,6 +90,7 @@
     prodigy
     profiler
     python
+    ruby-mode
     rtags
     slime
     (term term ansi-term multi-term)
