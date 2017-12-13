@@ -89,6 +89,7 @@
     proced
     prodigy
     profiler
+    python
     rtags
     slime
     (term term ansi-term multi-term)
