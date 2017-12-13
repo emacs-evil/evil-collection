@@ -77,14 +77,14 @@
   (evil-define-key 'normal geiser-repl-mode-map
     "gd" 'geiser-edit-symbol-at-point
     (kbd "C-t") 'geiser-pop-symbol-stack
-    (kbd "K") 'geiser-doc-symbol-at-point)
+    "K" 'geiser-doc-symbol-at-point)
 
   (evil-define-key 'normal geiser-mode-map
     "gd" 'geiser-edit-symbol-at-point
     (kbd "C-t") 'geiser-pop-symbol-stack
-    (kbd "gZ") 'geiser-mode-switch-to-repl-and-enter
-    (kbd "gz") 'geiser-mode-switch-to-repl
-    (kbd "K") 'geiser-doc-symbol-at-point))
+    "gZ" 'geiser-mode-switch-to-repl-and-enter
+    "gz" 'geiser-mode-switch-to-repl
+    "K" 'geiser-doc-symbol-at-point))
 
 (provide 'evil-collection-geiser)
 ;;; evil-collection-geiser.el ends here
