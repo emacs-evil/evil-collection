@@ -43,7 +43,9 @@
     "m" 'imagex-auto-adjust-mode
     "S" 'imagex-sticky-save-image
     "r" 'imagex-sticky-rotate-right
-    "l" 'imagex-sticky-rotate-left))
+    "R" 'imagex-sticky-rotate-left
+    "<" 'imagex-sticky-rotate-left ; like sxiv
+    ">" 'imagex-sticky-rotate-right)) ; like sxiv
 
 (provide 'evil-collection-image+)
 ;;; evil-collection-image+.el ends here
