@@ -90,7 +90,7 @@
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
 
   (evil-define-key 'normal alchemist-mode-map
-    (kbd "gz") 'alchemist-iex-run
+    "gz" 'alchemist-iex-run
     "K" 'alchemist-help-search-at-point
     "gd" 'alchemist-goto-definition-at-point
     (kbd "C-t") 'alchemist-goto-jump-back
