@@ -34,6 +34,7 @@
   "Set up `evil' bindings for `ibuffer'."
   (evil-set-initial-state 'ibuffer-mode 'normal)
   (evil-define-key 'normal ibuffer-mode-map
+    "gg" 'evil-goto-first-line
     (kbd "m") 'ibuffer-mark-forward
     (kbd "t") 'ibuffer-toggle-marks
     (kbd "u") 'ibuffer-unmark-forward
