@@ -31,6 +31,8 @@
 (require 'eshell)
 (require 'evil)
 
+(defconst evil-collection-eshell-maps '(eshell-mode-map))
+
 (defun evil-collection-eshell-next-prompt ()
   "`evil' wrapper around `eshell-next-prompt'."
   (when (get-text-property (point) 'read-only)

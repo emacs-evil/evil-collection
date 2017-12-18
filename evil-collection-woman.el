@@ -31,6 +31,8 @@
 (require 'evil-collection-man) ; WoMan's keymap inherits from Man.
 (require 'woman)
 
+(defconst evil-collection-woman-maps '(woman-mode-map))
+
 (defun evil-collection-woman-setup ()
   "Set up `evil' bindings for `woman'."
   (evil-set-initial-state 'woman-mode 'normal)

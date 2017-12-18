@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'eval-sexp-fu nil t)
 
+(defconst evil-collection-eval-sexp-fu-maps nil)
+
 (defun evil-collection-eval-sexp-fu-bounds-of-thing-at-point-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
   (if (and (eq (nth 0 args) 'sexp)

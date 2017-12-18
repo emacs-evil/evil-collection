@@ -30,6 +30,9 @@
 (require 'evil)
 (require 'prodigy nil t)
 
+(defconst evil-collection-prodigy-maps '(prodigy-mode-map
+                                         prodigy-view-mode-map))
+
 (defun evil-collection-prodigy-setup ()
   "Set up `evil' bindings for `prodigy'."
   (evil-define-key 'normal prodigy-mode-map

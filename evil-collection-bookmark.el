@@ -29,6 +29,8 @@
 ;;; Code:
 (require 'bookmark)
 
+(defconst evil-collection-bookmark-maps '(bookmark-bmenu-mode-map))
+
 (defun evil-collection-bookmark-setup ()
   "Set up `evil' bindings for `bookmark'."
   (evil-set-initial-state 'bookmark-bmenu-mode 'normal)

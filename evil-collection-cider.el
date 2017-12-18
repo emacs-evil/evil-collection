@@ -34,6 +34,12 @@
 
 (declare-function cider-debug-mode-send-reply "cider-debug")
 
+(defconst evil-collection-cider-maps '(cider-mode-map
+                                       cider-repl-mode-map
+                                       cider-test-report-mode-map
+                                       cider-macroexpansion-mode-map
+                                       cider-connections-buffer-mode-map))
+
 (defun evil-collection-cider-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
   (if (and (not evil-move-beyond-eol)

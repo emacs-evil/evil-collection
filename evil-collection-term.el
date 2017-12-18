@@ -60,6 +60,9 @@ This is only used if `evil-collection-term-sync-state-and-mode-p' is true."
 
 ;; TODO: Add support for normal-state editing.
 
+(defconst evil-collection-term-maps '(term-raw-map
+                                      term-mode-map))
+
 (defun evil-collection-term-escape-stay ()
   "Go back to normal state but don't move cursor backwards.
 Moving cursor backwards is the default Vim behavior but

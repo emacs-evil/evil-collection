@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'help-mode)
 
+(defconst evil-collection-help-maps '(help-mode-map))
+
 (defun evil-collection-help-setup ()
   "Set up `evil' bindings for `help'."
   (evil-set-initial-state 'help-mode 'normal)

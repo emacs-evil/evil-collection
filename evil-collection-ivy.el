@@ -30,6 +30,10 @@
 (require 'evil)
 (require 'ivy nil t)
 
+(defconst evil-collection-ivy-maps '(ivy-occur-mode-map
+                                     ivy-occur-grep-mode-map
+                                     ivy-minibuffer-map))
+
 (defun evil-collection-ivy-setup ()
   "Set up `evil' bindings for `ivy-mode'."
   (evil-define-key 'normal ivy-occur-mode-map

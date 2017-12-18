@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'ibuffer)
 
+(defconst evil-collection-ibuffer-maps '(ibuffer-mode-map))
+
 (defun evil-collection-ibuffer-setup ()
   "Set up `evil' bindings for `ibuffer'."
   (evil-set-initial-state 'ibuffer-mode 'normal)

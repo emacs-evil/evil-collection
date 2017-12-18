@@ -8,7 +8,7 @@
 ;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "25.1") (evil "1.2.13"))
+;; Package-Requires: ((emacs "25.1") (cl-lib "0.5") (evil "1.2.13"))
 ;; Keywords: evil, tools
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 ;; This is so because many users find it confusing.
 
 ;;; Code:
-
+(require 'cl-lib)
 (require 'evil)
 
 (defvar evil-want-integration)
@@ -158,6 +158,98 @@ this confusing. It will be included if
   :type '(repeat (choice symbol sexp))
   :group 'evil-collection)
 
+(defvar evil-collection-setup-hook nil
+  "Hook run by `evil-collection-init' for each mode that is evilified.
+This hook runs after all setup (including keybindings) for a mode has already
+taken place. The arguments passed to functions for this hook are the name of the
+mode and a list of keymap names (i.e. symbols, not actual keymaps) customized by
+Evil Collection for that mode. More arguments may be added in the future, so
+functions added to this hook should include a \"&rest _rest\" for forward
+compatibility.")
+
+(defun evil-collection--translate-key (state keymap-symbol
+                                             translations
+                                             destructive)
+  "Helper function for `evil-collection-translate-key'.
+In the keymap corresponding to STATE and KEYMAP-SYMBOL, make the key
+TRANSLATIONS. When DESTRUCTIVE is non-nil, make the TRANSLATIONS destructively
+without creating/referencing a backup keymap."
+  (let* ((backup-keymap-symbol (intern (format "evil-collection-%s%s-backup-map"
+                                               keymap-symbol
+                                               (if state
+                                                   (format "-%s-state" state)
+                                                 ""))))
+         (keymap (symbol-value keymap-symbol))
+         (lookup-keymap (if (and (not destructive)
+                                 (boundp backup-keymap-symbol))
+                            (symbol-value backup-keymap-symbol)
+                          (copy-keymap
+                           (if state
+                               (evil-get-auxiliary-keymap keymap state t t)
+                             keymap))))
+         (maps (cl-loop for (key replacement) on translations by 'cddr
+                        ;; :destructive can be in TRANSLATIONS
+                        unless (keywordp key)
+                        collect key
+                        and collect (when replacement
+                                      (lookup-key lookup-keymap replacement)))))
+    (unless (or destructive
+                (boundp backup-keymap-symbol))
+      (set backup-keymap-symbol lookup-keymap))
+    (apply #'evil-define-key* state keymap maps)))
+
+;;;###autoload
+(cl-defun evil-collection-translate-key (states keymaps
+                                                &rest translations
+                                                &key destructive
+                                                &allow-other-keys)
+  "Translate keys in the keymap(s) corresponding to STATES and KEYMAPS.
+STATES should be the name of an evil state, a list of states, or nil. KEYMAPS
+should be a symbol corresponding to the keymap to make the translations in or a
+list of keymap symbols. Like `evil-define-key', when a keymap does not exist,
+the keybindings will be deferred until the keymap is defined, so
+`with-eval-after-load' is not neccessary. TRANSLATIONS corresponds to a list of
+key replacement pairs. For example, specifying \"a\" \"b\" will bind \"a\" to
+\"b\"'s definition in the keymap. Specifying nil as a replacement will unbind a
+key. If DESTRUCTIVE is nil, a backup of the keymap will be stored on the initial
+invocation, and future invocations will always look up keys in the backup
+keymap. When no TRANSLATIONS are given, this function will only create the
+backup keymap without making any translations. On the other hand, if DESTRUCTIVE
+is non-nil, the keymap will be destructively altered without creating a backup.
+For example, calling this function multiple times with \"a\" \"b\" \"b\" \"a\"
+would continue to swap and unswap the definitions of these keys. This means that
+when DESTRUCTIVE is non-nil, all related swaps/cycles should be done in the same
+invocation."
+  (declare (indent defun))
+  (unless (listp keymaps)
+    (setq keymaps (list keymaps)))
+  (unless (and (listp states)
+               (not (null states)))
+    (setq states (list states)))
+  (dolist (keymap-symbol keymaps)
+    (dolist (state states)
+      (evil-delay `(and (boundp ',keymap-symbol)
+                        (keymapp ,keymap-symbol))
+          `(evil-collection--translate-key ',state ',keymap-symbol
+                                           ',translations ,destructive)
+        'after-load-functions t nil
+        (symbol-name (cl-gensym (format "evil-collection-translate-key-in-%s"
+                                        keymap-symbol)))))))
+
+;;;###autoload
+(defmacro evil-collection-swap-key (states keymaps &rest args)
+  "Wrapper around `evil-collection-translate-key' for swapping keys.
+STATES, KEYMAPS, and ARGS are passed to `evil-collection-translate-key'. ARGS
+should consist of key swaps (e.g. \"a\" \"b\" is equivalent to \"a\" \"b\" \"b\"
+\"a\" with `evil-collection-translate-key') and optionally keyword arguments for
+`evil-collection-translate-key'."
+  (declare (indent defun))
+  (setq args (cl-loop for (key replacement) on args by 'cddr
+                      collect key and collect replacement
+                      and unless (keywordp key)
+                      collect replacement and collect key))
+  `(evil-collection-translate-key ,states ,keymaps ,@args))
+
 ;;;###autoload
 (defun evil-collection-init ()
   "Register the Evil bindings for all modes in `evil-collection-mode-list'.
@@ -178,7 +270,14 @@ instance:
       (dolist (req reqs)
         (with-eval-after-load req
           (require (intern (concat "evil-collection-" (symbol-name m))))
-          (funcall (intern (concat "evil-collection-" (symbol-name m) "-setup"))))))))
+          (funcall (intern (concat "evil-collection-" (symbol-name m)
+                                   "-setup")))
+          (let ((mode-keymaps
+                 (ignore-errors
+                   (symbol-value
+                    (intern (format "evil-collection-%s-maps" m))))))
+            (run-hook-with-args 'evil-collection-setup-hook
+                                m mode-keymaps)))))))
 
 (defvar evil-collection-delete-operators '(evil-delete
                                            evil-cp-delete

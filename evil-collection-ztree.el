@@ -32,6 +32,8 @@
 (defvar ztree-mode-map)
 (defvar ztreediff-mode-map)
 
+(defconst evil-collection-ztree-maps '(ztree-mode-map ztreediff-mode-map))
+
 (defun evil-collection-ztree-setup ()
   "Set up `evil' bindings for `ztree'."
 

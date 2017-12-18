@@ -32,6 +32,9 @@
 (when (> emacs-major-version 25)
   (require 'replace))
 
+(defconst evil-collection-occur-maps '(occur-mode-map
+                                       occur-edit-mode-map))
+
 (defun evil-collection-occur-setup ()
   "Set up `evil' bindings for `occur'."
   (evil-set-initial-state 'occur-mode 'normal)

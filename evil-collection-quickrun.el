@@ -24,11 +24,14 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `quickrun'.
+;; Bindings for `quickrun'.
+
+;;; Code:
 (require 'evil)
 (require 'quickrun nil t)
 
-;;; Code:
+(defconst evil-collection-quickrun-maps '(quickrun--mode-map))
+
 (defun evil-collection-quickrun-setup ()
   "Set up `evil' bindings for `quickrun'.."
   (evil-define-key 'normal quickrun--mode-map

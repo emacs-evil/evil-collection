@@ -24,11 +24,15 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `go-mode'.
+;; Bindings for `go-mode'.
+
+;;; Code:
 (require 'evil)
 (require 'go-mode nil t)
 
-;;; Code:
+(defconst evil-collection-go-mode-maps '(go-mode-map
+                                         godoc-mode-map))
+
 (defun evil-collection-go-mode-setup ()
   "Set up `evil' bindings for `go-mode'."
   (evil-define-key 'normal go-mode-map

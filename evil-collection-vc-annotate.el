@@ -24,11 +24,14 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `vc-annotate'
+;; Bindings for `vc-annotate'
+
+;;; Code:
 (require 'evil)
 (require 'vc-annotate)
 
-;;; Code:
+(defconst evil-collection-vc-annotate-maps '(vc-annotate-mode-map))
+
 (defun evil-collection-vc-annotate-setup ()
   "Set up `evil' bindings for `vc-annotate'."
   (evil-set-initial-state 'vc-annotate-mode 'normal)

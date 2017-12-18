@@ -24,11 +24,14 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `realgud'.
+;; Bindings for `realgud'.
+
+;;; Code:
 (require 'evil)
 (require 'realgud nil t)
 
-;;; Code:
+(defconst evil-collection-realgud-maps '(realgud:shortkey-mode-map))
+
 (defun evil-collection-realgud-setup ()
   "Set up `evil' bindings for `realgud'."
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.

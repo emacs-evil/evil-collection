@@ -31,6 +31,8 @@
 (require 'evil)
 (require 'evil-collection-evil-search)
 
+(defconst evil-collection-ag-maps '(ag-mode-map))
+
 (defun evil-collection-ag-setup ()
   "Set up `evil' bindings for `ag'."
   (evil-define-key '(normal visual) ag-mode-map

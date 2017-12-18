@@ -37,6 +37,13 @@
 (defvar slime-popup-buffer-mode-map)
 (defvar slime-xref-mode-map)
 
+(defconst evil-collection-slime-maps '(slime-parent-map
+                                       sldb-mode-map
+                                       slime-inspector-mode-map
+                                       slime-mode-map
+                                       slime-popup-buffer-mode-map
+                                       slime-xref-mode-map ))
+
 (defun evil-collection-slime-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
   (if (and (not evil-move-beyond-eol)

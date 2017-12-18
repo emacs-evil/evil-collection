@@ -31,6 +31,10 @@
 (require 'evil)
 (require 'epa nil t)
 
+(defconst evil-collection-epa-maps '(epa-key-list-mode-map
+                                     epa-key-mode-map
+                                     epa-info-mode-map))
+
 (defun evil-collection-epa-setup ()
   (evil-define-key 'normal epa-key-list-mode-map
     (kbd "<tab>") 'widget-forward

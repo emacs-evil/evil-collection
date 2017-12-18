@@ -33,6 +33,8 @@
 (defvar vlf-mode-map)
 (declare-function vlf-change-batch-size "vlf")
 
+(defconst evil-collection-vlf-maps '(vlf-mode-map))
+
 (defun evil-collection-vlf-decrease-batch-size ()
   "Decrease vlf batch size by factor of 2."
   (interactive)

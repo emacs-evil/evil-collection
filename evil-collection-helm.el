@@ -48,6 +48,14 @@
 
 (declare-function helm-window "helm-lib")
 
+(defconst evil-collection-helm-maps '(help-map
+                                      help-find-files-map
+                                      helm-read-file-map
+                                      helm-generic-files-map
+                                      helm-buffer-map
+                                      helm-moccur-map
+                                      helm-grep-map))
+
 ;; From https://github.com/emacs-helm/helm/issues/362.
 ;; Also see https://emacs.stackexchange.com/questions/17058/change-cursor-type-in-helm-header-line#17097.
 ;; TODO: With Evil, the cursor type is not right in the header line and the evil
@@ -112,6 +120,7 @@
                    :background (face-background 'default)))
            header-line-format)
           (when update (force-mode-line-update)))))))
+
 
 (defun evil-collection-helm-setup ()
   "Set up `evil' bindings for `helm'."

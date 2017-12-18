@@ -31,6 +31,10 @@
 (require 'pdf-tools nil t)
 (require 'pdf-view nil t)
 
+(defconst evil-collection-pdf-maps '(pdf-view-mode-map
+                                     pdf-outline-buffer-mode-map
+                                     pdf-occur-buffer-mode-map))
+
 (declare-function pdf-view-last-page "pdf-view")
 (declare-function pdf-view-first-page "pdf-view")
 (declare-function pdf-view-goto-page "pdf-view")

@@ -30,6 +30,9 @@
 (require 'daemons nil t)
 (require 'evil)
 
+(defconst evil-collection-daemons-maps '(daemons-mode-map
+                                         daemons-output-mode-map))
+
 (defun evil-collection-daemons-setup ()
   "Set up `evil' bindings for `daemons'."
   (evil-define-key '(normal visual) daemons-mode-map

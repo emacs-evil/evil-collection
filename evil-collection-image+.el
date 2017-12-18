@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'image+ nil t)
 
+(defconst evil-collection-image+-maps '(image-mode-map))
+
 (defun evil-collection-image+-setup ()
   "Set up `evil' bindings for `image+'."
   (evil-define-key 'normal image-mode-map

@@ -24,11 +24,14 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `popup'.
+;; Bindings for `popup'.
+
+;;; Code:
 (require 'evil)
 (require 'popup nil t)
 
-;;; Code:
+(defconst evil-collection-popup-maps '(popup-menu-keymap))
+
 (defun evil-collection-popup-setup ()
   "Set up `evil' bindings for `popup'."
   (defvar popup-menu-keymap)

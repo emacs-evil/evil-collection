@@ -30,6 +30,8 @@
 (require 'comint)
 (require 'evil)
 
+(defconst evil-collection-comint-maps '(comint-mode-map))
+
 (defun evil-collection-comint-setup ()
   "Set up `evil' bindings for `comint'."
   (when evil-want-C-d-scroll

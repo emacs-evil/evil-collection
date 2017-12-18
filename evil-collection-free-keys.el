@@ -31,6 +31,8 @@
 ;;; Code:
 (defvar free-keys-mode-map)
 
+(defconst evil-collection-free-keys-maps '(free-keys-mode-map))
+
 (defun evil-collection-free-keys-set-header-line-format ()
   "Tweak `header-line-format' locally for `free-keys'."
   (setq-local header-line-format

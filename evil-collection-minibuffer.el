@@ -29,6 +29,13 @@
 ;;; Code:
 (require 'evil)
 
+(defconst evil-collection-minibuffer-maps '(minibuffer-local-map
+                                            minibuffer-local-ns-map
+                                            minibuffer-local-completion-map
+                                            minibuffer-local-must-match-map
+                                            minibuffer-local-isearch-map
+                                            evil-ex-completion-map))
+
 (defun evil-collection-minibuffer-insert ()
   "Switch to insert state.
 

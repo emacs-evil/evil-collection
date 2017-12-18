@@ -24,11 +24,13 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Evil bindings for View.
+;; Evil bindings for View.
 
 ;;; Code:
 (require 'evil)
 (require 'view)
+
+(defconst evil-collection-view-maps '(view-mode-map))
 
 (defun evil-collection-view-setup ()
   "Set up `evil' bindings for `view'."

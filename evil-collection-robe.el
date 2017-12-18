@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'robe nil t)
 
+(defconst evil-collection-robe-maps '(robe-mode-map))
+
 (defun evil-collection-robe-setup ()
   "Set up `evil' bindings for `robe'."
   (evil-define-key 'normal robe-mode-map

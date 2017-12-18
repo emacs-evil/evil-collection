@@ -31,6 +31,8 @@
 (require 'compile)
 (require 'evil-collection-evil-search)
 
+(defconst evil-collection-compile-maps '(compilation-mode-map))
+
 (defun evil-collection-compile-setup ()
   "Set up `evil' bindings for `compile'."
   (evil-set-initial-state 'compilation-mode 'normal)

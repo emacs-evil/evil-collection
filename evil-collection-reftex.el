@@ -32,6 +32,9 @@
 (require 'reftex-ref nil t)
 (require 'reftex-cite nil t)
 
+(defconst evil-collection-reftex-maps '(reftex-select-shared-map
+                                        reftex-toc-mode-map))
+
 ;; original code can be found in reftex-ref.el
 (setq reftex-select-label-prompt
   "Select: [RET]select [j]next [k]previous [gr]escan [go]context [q]uit [g?]help")

@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'package)
 
+(defconst evil-collection-package-menu-maps '(package-menu-mode-map))
+
 (defun evil-collection-package-menu-setup ()
   "Set up `evil' bindings for `package-menu'."
   (evil-set-initial-state 'package-menu-mode 'normal)

@@ -24,11 +24,14 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `log-view'
+;; Bindings for `log-view'.
+
+;;; Code:
 (require 'evil)
 (require 'log-view)
 
-;;; Code:
+(defconst evil-collection-log-view-maps '(log-view-mode-map))
+
 (defun evil-collection-log-view-setup ()
   "Set up `evil' bindings for `log-view'."
   (evil-define-key 'normal log-view-mode-map

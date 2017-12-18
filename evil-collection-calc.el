@@ -29,6 +29,8 @@
 (require 'evil-collection-util)
 (require 'calc)
 
+(defconst evil-collection-calc-maps '(calc-mode-map))
+
 (defun evil-collection-calc-ext-setup ()
   "Set up `evil' bindings for `calc'.
 Since calc bindings are set on-demand when calc-ext is load, we

@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'man)
 
+(defconst evil-collection-man-maps '(Man-mode-map))
+
 (defun evil-collection-man-setup ()
   "Set up `evil' bindings for `man'."
   (evil-set-initial-state 'Man-mode 'normal)
