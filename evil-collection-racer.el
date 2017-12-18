@@ -24,11 +24,14 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `racer'.
+;; Bindings for `racer'.
 
 ;;; Code:
 (require 'evil)
 (require 'racer nil t)
+
+(defconst evil-collection-racer-maps '(racer-mode-map
+                                       racer-help-mode-map))
 
 (defun evil-collection-racer-setup ()
   "Set up `evil' bindings for `racer'."

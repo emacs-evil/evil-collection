@@ -31,6 +31,8 @@
 (require 'evil)
 (require 'debug)
 
+(defconst evil-collection-debug-maps '(debugger-mode-map))
+
 (defun evil-collection-debug-setup ()
   "Set up `evil' bindings for `debug'."
   (evil-set-initial-state 'debugger-mode 'normal)

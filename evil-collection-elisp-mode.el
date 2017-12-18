@@ -30,6 +30,8 @@
 (require 'elisp-mode)
 (require 'evil)
 
+(defconst evil-collection-elisp-mode-maps nil)
+
 (defun evil-collection-elisp-mode-last-sexp-setup-props (beg end value alt1 alt2)
   "Set up text properties for the output of `elisp--eval-last-sexp'.
 BEG and END are the start and end of the output in current-buffer.

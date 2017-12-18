@@ -384,6 +384,122 @@ definition".
     - ~f11~ Step Into
     - ~S-f11~ Step Out
 
+** Key Translation
+~evil-collection-translate-key~ allows binding a key to the definition of
+another key in the same keymap (comparable to how vim's keybindings work). Its
+arguments are the ~states~ and ~keymaps~ to bind/look up the key(s) in followed
+optionally by keyword arguments (currently only ~:destructive~) and
+key/replacement pairs. ~states~ should be nil for non-evil keymaps, and both
+~states~ and ~keymaps~ can be a single symbol or a list of symbols.
+
+This function can be useful for making key swaps/cycles en masse. For example,
+someone who uses an alternate keyboard layout may want to retain the ~hjkl~
+positions for directional movement in dired, the calendar, etc.
+
+Here's an example for Colemak of making swaps in a single keymap:
+#+begin_src emacs-lisp
+(evil-collection-translate-key nil 'evil-motion-state-map
+  ;; colemak hnei is qwerty hjkl
+  "n" "j"
+  "e" "k"
+  "i" "l"
+  ;; add back nei
+  "j" "e"
+  "k" "n"
+  "l" "i")
+#+end_src
+
+Here's an example of using ~evil-collection-setup-hook~ to cycle the keys for
+all modes in ~evil-collection-mode-list~:
+#+begin_src emacs-lisp
+(defun my-hjkl-rotation (_mode mode-keymaps &rest _rest)
+  (evil-collection-translate-key 'normal mode-keymaps
+    "n" "j"
+    "e" "k"
+    "i" "l"
+    "j" "e"
+    "k" "n"
+    "l" "i"))
+
+;; called after evil-collection makes its keybindings
+(add-hook 'evil-collection-setup-hook #'my-hjkl-rotation)
+
+(evil-collection-init)
+#+end_src
+
+A more common use case of ~evil-collection-translate-key~ would be for keeping
+the functionality of some keys that users may bind globally. For example, ~SPC~,
+~[~, and ~]~ are bound in some modes. If you use these keys as global prefix
+keys that you never want to be overriden, you'll want to give them higher
+priority than other evil keybindings (e.g. those made by ~(evil-define-key
+'normal some-map ...)~). To do this, you can create an "intercept" map and bind
+your prefix keys in it instead of in ~evil-normal-state-map~:
+#+begin_src emacs-lisp
+(defvar my-intercept-mode-map (make-sparse-keymap)
+  "High precedence keymap.")
+
+(define-minor-mode my-intercept-mode
+  "Global minor mode for higher precedence evil keybindings."
+  :global t)
+
+(my-intercept-mode)
+
+(dolist (state '(normal visual insert))
+  (evil-make-intercept-map
+   ;; NOTE: This requires an evil version from 2018-03-20 or later
+   (evil-get-auxiliary-keymap my-intercept-mode-map state t t)
+   state))
+
+(evil-define-key 'normal my-intercept-mode-map
+  (kbd "SPC f") 'find-file)
+;; ...
+#+end_src
+
+You can then define replacement keys:
+#+begin_src emacs-lisp
+(defun my-prefix-translations (_mode mode-keymaps &rest _rest)
+  (evil-collection-translate-key 'normal mode-keymaps
+    "C-SPC" "SPC"
+    ;; these need to be unbound first; this needs to be in same statement
+    "[" nil
+    "]" nil
+    "[[" "["
+    "]]" "]"))
+
+(add-hook 'evil-collection-setup-hook #'my-prefix-translation)
+
+(evil-collection-init)
+#+end_src
+
+By default, the first invocation of ~evil-collection-translate-key~ will make a
+backup of the keymap. Each subsequent invocation will look up keys in the backup
+instead of the original. This means that a call to
+~evil-collection-translate-key~ will always have the same behavior even if
+evaluated multiple times. When ~:destructive t~ is specified, keys are looked up
+in the keymap as it is currently. This means that a call to
+~evil-collection-translate-key~ that swapped two keys would continue to
+swap/unswap them with each call. Therefore when ~:destructive t~ is used, all
+cycles/swaps must be done within a single call to
+~evil-collection-translate-key~. To make a comparison to Vim keybindings,
+~:destructive t~ is comparable to Vim's ~map~, and ~:destructive nil~ is
+comparable to vim's ~noremap~ (where the "original" keybindings are those that
+existed in the keymap when ~evil-collection-translate-key~ was first called).
+You'll almost always want to use the default behavior (especially in your init
+file). The limitation of ~:destructive nil~ is that you can't translate a key to
+another key that was defined after the first ~evil-collection-translate-key~, so
+~:destructive t~ may be useful for interactive experimentation.
+
+~evil-collection-swap-key~ is also provided as a wrapper around
+~evil-colletion-translate-key~ that allows swapping keys:
+#+begin_src emacs-lisp
+(evil-collection-swap-key nil 'evil-motion-state-map
+  ";" ":")
+;; is equivalent to
+(evil-collection-translate-key nil 'evil-motion-state-map
+  ";" ":"
+  ":" ";")
+#+end_src
+
 ** Modes left behind
 
 Some modes might still remain unsupported by this package.  Should you be

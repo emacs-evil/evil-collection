@@ -30,6 +30,10 @@
 (require 'tide nil t)
 (require 'evil)
 
+(defconst evil-collection-tide-maps '(tide-mode-map
+                                      tide-references-mode-map
+                                      tide-project-errors-mode-map))
+
 (defun evil-collection-tide-setup ()
   "Set up `evil' bindings for `tide'."
   (evil-define-key 'normal tide-mode-map

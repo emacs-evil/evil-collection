@@ -24,14 +24,16 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `simple'
+;; Bindings for `simple'
 
+;;; Code:
 (require 'evil)
 (require 'simple)
 
 (defvar special-mode-map)
 
-;;; Code:
+(defconst evil-collection-simple-maps '(special-mode-map))
+
 (defun evil-collection-simple-setup ()
   "Set up `evil' bindings for `simple'."
   (evil-define-key '(normal visual) special-mode-map

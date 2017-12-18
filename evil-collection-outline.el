@@ -40,6 +40,8 @@ mode."
   :group 'evil-collection-outline
   :type 'boolean)
 
+(defconst evil-collection-outline-maps '(outline-mode-map))
+
 (defun evil-collection-outline-setup ()
   "Set up `evil' bindings for `outline'."
   (evil-set-initial-state 'outline-mode 'normal)

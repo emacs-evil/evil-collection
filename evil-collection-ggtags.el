@@ -36,6 +36,11 @@
 (defvar ggtags-view-tag-history-mode-map)
 (defvar ggtags-navigation-map)
 
+(defconst evil-collection-ggtags-maps '(ggtags-mode-map
+                                        ggtags-view-search-history-mode-map
+                                        ggtags-view-tag-history-mode-map
+                                        ggtags-navigation-map))
+
 (defun evil-collection-ggtags-setup ()
   "Set up `evil' bindings for `ggtags'."
   (evil-set-initial-state 'ggtags-global-mode 'normal)

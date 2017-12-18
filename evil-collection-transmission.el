@@ -36,6 +36,11 @@
 (defvar transmission-info-mode-map)
 (defvar transmission-peers-mode-map)
 
+(defconst evil-collection-transmission-maps '(transmission-mode-map
+                                              transmission-files-mode-map
+                                              transmission-info-mode-map
+                                              transmission-peers-mode-map))
+
 (defun evil-collection-transmission-setup ()
   "Set up `evil' bindings for `transmission'."
 

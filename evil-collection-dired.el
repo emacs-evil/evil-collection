@@ -30,6 +30,8 @@
 (require 'dired)
 (require 'evil)
 
+(defconst evil-collection-dired-maps '(dired-mode-map))
+
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
   (evil-define-key 'normal dired-mode-map

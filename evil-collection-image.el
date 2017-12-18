@@ -33,6 +33,8 @@
 ;; TODO: pdf and doc-view conflict with image.
 ;; See https://github.com/emacs-evil/evil-collection/issues/23.
 
+(defconst evil-collection-image-maps '(image-mode-map))
+
 (defun evil-collection-image-setup ()
   "Set up `evil' bindings for `image-mode'."
   (evil-set-initial-state 'image-mode 'normal)

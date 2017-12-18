@@ -31,6 +31,8 @@
 (require 'evil)
 (require 'neotree nil t)
 
+(defconst evil-collection-neotree-maps '(neotree-mode-map))
+
 (defun evil-collection-neotree-setup ()
   "Set up `evil' bindings for `neotree'."
 

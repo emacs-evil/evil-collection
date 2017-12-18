@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'ruby-mode)
 
+(defconst evil-collection-ruby-mode-maps nil)
+
 (defun evil-collection-ruby-mode-set-evil-shift-width ()
   "Set `evil-shift-width' according to `ruby-indent-level'."
   (setq evil-shift-width ruby-indent-level))

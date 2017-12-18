@@ -38,6 +38,8 @@
 (require 'evil)
 (require 'diff-mode)
 
+(defconst evil-collection-diff-mode-maps '(diff-mode-map))
+
 (defun evil-collection-diff-read-only-state-switch ()
   "Make read-only in motion state, writable in normal state."
   (if buffer-read-only

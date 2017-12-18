@@ -32,6 +32,8 @@
 
 (defvar flycheck-error-list-mode-map)
 
+(defconst evil-collection-flycheck-maps '(flycheck-error-list-mode-map))
+
 (defun evil-collection-flycheck-setup ()
   "Set up `evil' bindings for `flycheck'."
   (evil-set-initial-state 'flycheck-error-list-mode 'normal)

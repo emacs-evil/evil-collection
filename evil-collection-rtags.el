@@ -35,6 +35,11 @@
 (defvar rtags-references-tree-mode-map)
 (defvar rtags-location-stack-visualize-mode-map)
 
+(defconst evil-collection-rtags-maps '(rtags-mode-map
+                                       rtags-dependency-tree-mode-map
+                                       rtags-references-tree-mode-map
+                                       rtags-location-stack-visualize-mode-map))
+
 (defun evil-collection-rtags-setup ()
   "Set up `evil' bindings for `rtags'."
   (evil-set-initial-state 'rtags-mode 'normal)

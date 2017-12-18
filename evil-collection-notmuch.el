@@ -36,6 +36,13 @@
 (declare-function notmuch-search-tag "notmuch")
 (declare-function notmuch-tree-tag "notmuch-tree")
 
+(defconst evil-collection-notmuch-maps '(notmuch-common-keymap
+                                         notmuch-hello-mode-map
+                                         notmuch-show-mode-map
+                                         notmuch-tree-mode-map
+                                         notmuch-search-mode-map
+                                         notmuch-search-stash-map))
+
 (defun evil-collection-notmuch-show-toggle-delete ()
   "Toggle deleted tag for message."
   (interactive)

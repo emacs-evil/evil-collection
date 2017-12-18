@@ -30,6 +30,17 @@
 (require 'evil)
 (require 'alchemist nil t)
 
+(defconst evil-collection-alchemist-maps '(alchemist-compile-mode-map
+                                           alchemist-eval-mode-map
+                                           alchemist-execute-mode-map
+                                           alchemist-message-mode-map
+                                           alchemist-help-minor-mode-map
+                                           alchemist-macroexpand-mode-map
+                                           alchemist-mix-mode-map
+                                           alchemist-test-report-mode-map
+                                           alchemist-mode-map))
+
+
 (defun evil-collection-alchemist-setup ()
   "Set up `evil' bindings for `alchemist'."
   (evil-set-initial-state 'alchemist-compile-mode 'normal)

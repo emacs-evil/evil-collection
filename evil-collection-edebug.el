@@ -30,6 +30,11 @@
 (require 'edebug)
 (require 'evil)
 
+(defconst evil-collection-edebug-maps
+  '(edebug-mode-map
+    edebug-x-instrumented-function-list-mode-map
+    edebug-x-breakpoint-list-mode-map))
+
 (defun evil-collection-edebug-setup ()
   "Set up `evil' bindings for `edebug'."
   (evil-set-initial-state 'edebug-mode 'normal)

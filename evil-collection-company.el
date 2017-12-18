@@ -50,6 +50,8 @@ be set through custom or before evil-collection loads."
 (defvar company-active-map)
 (defvar company-search-map)
 
+(defconst evil-collection-company-maps '(company-active-map company-search-map))
+
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
   (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)

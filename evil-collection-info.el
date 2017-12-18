@@ -32,6 +32,8 @@
 (require 'evil-collection-evil-search)
 (require 'info)
 
+(defconst evil-collection-info-maps '(Info-mode-map))
+
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
   (evil-collection-util-inhibit-insert-state Info-mode-map)

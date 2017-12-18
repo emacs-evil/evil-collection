@@ -31,6 +31,8 @@
 (require 'evil)
 (require 'elisp-refs nil t)
 
+(defconst evil-collection-elisp-refs-maps '(elisp-refs-mode-map))
+
 (defun evil-collection-elisp-refs-setup ()
   "Set up `evil' bindings for `elisp-refs'."
   (evil-define-key 'normal elisp-refs-mode-map

@@ -34,6 +34,8 @@
 (require 'evil)
 (require 'tabulated-list)
 
+(defconst evil-collection-buff-menu-maps '(Buffer-menu-mode-map))
+
 ;; This is for `evil-collection-Buffer-menu-unmark-all-buffers.'
 (defsubst evil-collection-buff-menu-tabulated-list-header-overlay-p (&optional pos)
   "Return non-nil if there is a fake header.

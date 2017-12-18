@@ -29,6 +29,9 @@
 (require 'anaconda-mode nil t)
 (require 'evil)
 
+(defconst evil-collection-anaconda-mode-maps '(anaconda-mode-view-mode-map
+                                               anaconda-mode-map))
+
 (defun evil-collection-anaconda-mode-setup ()
   "Set up `evil' bindings for `anaconda-mode'."
   ;; Bindings don't seem to be set the first time.

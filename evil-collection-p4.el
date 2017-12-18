@@ -31,6 +31,8 @@
 
 (defvar p4-basic-mode-map)
 
+(defconst evil-collection-p4-maps '(p4-basic-mode-map))
+
 (defun evil-collection-p4-setup ()
   "Set up `evil' bindings for `p4'."
   (evil-set-initial-state 'p4-basic-mode 'normal)

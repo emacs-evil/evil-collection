@@ -33,6 +33,11 @@
 (defvar geiser-debug-mode-map)
 (defvar geiser-doc-mode-map)
 
+(defconst evil-collection-geiser-maps '(geiser-debug-mode-map
+                                        geiser-doc-mode-map
+                                        geiser-repl-mode-map
+                                        geiser-mode-map))
+
 (defun evil-collection-geiser-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
   (if (and (not evil-move-beyond-eol)

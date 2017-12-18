@@ -31,6 +31,9 @@
 (require 'nov nil t)
 
 (defvar nov-mode-map)
+
+(defconst evil-collection-nov-maps '(nov-mode-map))
+
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
   (evil-define-key 'normal nov-mode-map

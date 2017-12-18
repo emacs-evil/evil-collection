@@ -30,6 +30,8 @@
 (require 'cus-edit)
 (require 'evil)
 
+(defconst evil-collection-custom-maps '(custom-mode-map))
+
 (defun evil-collection-custom-setup ()
   "Set up `evil' bindings for `Custom-mode'."
   (evil-set-initial-state 'Custom-mode 'normal)

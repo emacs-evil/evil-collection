@@ -24,11 +24,18 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `indium'.
+;; Bindings for `indium'.
 
 ;;; Code:
 (require 'evil-collection-settings)
 (require 'indium nil t)
+
+(defconst evil-collection-indium-maps '(indium-debugger-mode-map
+                                        indium-inspector-mode-map
+                                        indium-debugger-locals-mode-map
+                                        indium-debugger-frames-mode-map
+                                        indium-interaction-mode-map
+                                        indium-repl-mode-map))
 
 (defun evil-collection-indium-setup ()
   "Set up `evil' bindings for `indium'."

@@ -30,6 +30,11 @@
 (require 'eww)
 (require 'evil-collection-util)
 
+(defvar evil-collection-eww-maps '(eww-mode-map
+                                   eww-history-mode-map
+                                   eww-buffers-mode-map
+                                   eww-bookmark-mode-map))
+
 (defun evil-collection-eww-setup ()
   "Set up `evil' bindings for `eww'."
 

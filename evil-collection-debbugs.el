@@ -30,6 +30,8 @@
 (require 'debbugs nil t)
 (require 'evil)
 
+(defconst evil-collection-debbugs-maps '(debbugs-gnu-mode-map))
+
 (defun evil-collection-debbugs-setup ()
   "Set up `evil' bindings for `debbugs-gnu-mode'."
   (evil-set-initial-state 'debbugs-gnu-mode 'normal)
