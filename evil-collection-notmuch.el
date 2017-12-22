@@ -81,6 +81,7 @@
     "g?" 'notmuch-hello-versions
     (kbd "TAB") 'widget-forward
     (kbd "RET") 'widget-button-press
+    (kbd "S-TAB") 'widget-backward
     (kbd "<C-tab>") 'widget-backward)
 
   (evil-define-key 'normal notmuch-show-mode-map
@@ -96,12 +97,12 @@
     "H" 'notmuch-show-toggle-visibility-headers
     "gj" 'notmuch-show-next-open-message
     "gk" 'notmuch-show-previous-open-message
+    "]" 'notmuch-show-next-message
+    "[" 'notmuch-show-previous-message
+    (kbd "M-j") 'notmuch-show-next-thread-show
+    (kbd "M-k") 'notmuch-show-previous-thread-show
     "r" 'notmuch-show-reply-sender
     (kbd "x") 'notmuch-show-archive-message-then-next-or-exit
-    (kbd "C-j") 'notmuch-show-next-thread-show
-    (kbd "C-k") 'notmuch-show-previous-thread-show
-    (kbd "C-n") 'notmuch-show-next-message
-    (kbd "C-p") 'notmuch-show-previous-message
     "|" 'notmuch-show-pipe-message
     "*" 'notmuch-show-tag-all
     "-" 'notmuch-show-remove-tag
