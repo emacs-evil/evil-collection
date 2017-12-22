@@ -114,8 +114,8 @@
     "gk" 'slime-inspector-pop
     (kbd "C-k") 'slime-inspector-pop
     "gj" 'slime-inspector-next
-    (kbd "j") 'slime-inspector-next
-    'slime-inspector-previous-inspectable-object
+    "j" 'slime-inspector-next
+    "k" 'slime-inspector-previous-inspectable-object
     "K" 'slime-inspector-describe
     "p" 'slime-inspector-pprint
     "e" 'slime-inspector-eval
