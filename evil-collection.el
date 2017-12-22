@@ -80,6 +80,7 @@
     macrostep
     man
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
+    notmuch
     ;; occur is in replace.el which was built-in before Emacs 26.
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
     outline
