@@ -31,9 +31,11 @@ some default bindings to change in the future.
 
 ** Installation
 
-- Clone or download this repository.
+- Get the package, either from MELPA:
 
-- Modify your ~load-path~:
+: M-x package-install RET evil-collection RET
+
+Or clone / download this repository and modify your ~load-path~:
 
 : (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
 
