@@ -1,6 +1,7 @@
 #+TITLE: Evil Collection
 
 [[https://travis-ci.org/jojojames/evil-collection][file:https://travis-ci.org/jojojames/evil-collection.svg?branch=master]]
+[[https://melpa.org/#/evil-collection][file:https://melpa.org/packages/evil-collection-badge.svg]]
 
 This is a collection of [[https://github.com/emacs-evil/evil][Evil]] bindings for /the parts of Emacs/ that Evil does
 not cover properly by default, such as ~help-mode~, ~M-x calendar~, Eshell and
