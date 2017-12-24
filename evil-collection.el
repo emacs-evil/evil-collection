@@ -94,6 +94,7 @@
     prodigy
     profiler
     python
+    rjsx-mode
     robe
     ruby-mode
     rtags
