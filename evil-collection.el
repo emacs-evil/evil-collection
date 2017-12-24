@@ -77,6 +77,7 @@
     image+
     info
     ivy
+    kotlin-mode
     macrostep
     man
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
