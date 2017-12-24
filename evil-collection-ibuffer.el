@@ -79,7 +79,7 @@
     "`" 'ibuffer-switch-format
     "-" 'ibuffer-add-to-tmp-hide
     "+" 'ibuffer-add-to-tmp-show
-    "q" 'ibuffer-bury-buffer
+    "b" 'ibuffer-bury-buffer
     (kbd ",") 'ibuffer-toggle-sorting-mode
     (kbd "o i") 'ibuffer-invert-sorting
     (kbd "o a") 'ibuffer-do-sort-by-alphabetic
@@ -178,7 +178,12 @@
     (kbd "C-o") 'ibuffer-visit-buffer-other-window-noselect
     (kbd "M-o") 'ibuffer-visit-buffer-1-window
     (kbd "gv") 'ibuffer-do-view
-    (kbd "gV") 'ibuffer-do-view-horizontally))
+    (kbd "gV") 'ibuffer-do-view-horizontally
+
+    ;; Quit
+    "q" 'quit-window
+    "ZZ" 'quit-window
+    "ZQ" 'quit-window))
 
 (provide 'evil-collection-ibuffer)
 ;;; evil-collection-ibuffer.el ends here
