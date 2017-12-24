@@ -34,7 +34,11 @@
   "Set up `evil' bindings for `racer'."
   (evil-define-key 'normal racer-mode-map
     "gd" 'racer-find-definition
-    (kbd "C-t") 'pop-tag-mark))
+    (kbd "C-t") 'pop-tag-mark
+    "K" 'racer-describe)
+
+  (evil-define-key 'normal racer-help-mode-map
+    "q" 'quit-window))
 
 (provide 'evil-collection-racer)
 ;;; evil-collection-racer.el ends here
