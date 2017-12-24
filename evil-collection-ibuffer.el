@@ -79,7 +79,7 @@
     "`" 'ibuffer-switch-format
     "-" 'ibuffer-add-to-tmp-hide
     "+" 'ibuffer-add-to-tmp-show
-    "b" 'ibuffer-bury-buffer
+    "X" 'ibuffer-bury-buffer
     (kbd ",") 'ibuffer-toggle-sorting-mode
     (kbd "o i") 'ibuffer-invert-sorting
     (kbd "o a") 'ibuffer-do-sort-by-alphabetic
@@ -167,7 +167,6 @@
     (kbd "r") 'ibuffer-do-replace-regexp
     (kbd "V") 'ibuffer-do-revert
     (kbd "W") 'ibuffer-do-view-and-eval
-    (kbd "X") 'ibuffer-do-shell-command-pipe
 
     (kbd "K") 'ibuffer-do-kill-lines
     (kbd "yf") 'ibuffer-copy-filename-as-kill
