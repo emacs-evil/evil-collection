@@ -94,6 +94,7 @@
     prodigy
     profiler
     python
+    racer
     rjsx-mode
     robe
     ruby-mode
