@@ -101,6 +101,7 @@
     (term term ansi-term multi-term)
     tide
     transmission
+    typescript-mode
     vlf
     woman
     xref
