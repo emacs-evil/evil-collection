@@ -56,7 +56,9 @@
     "K" 'cider-doc)
 
   (evil-define-key '(normal visual) cider-repl-mode-map
+    ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
     "gz" 'cider-switch-to-last-clojure-buffer
+
     "gd" 'cider-find-var
     (kbd "C-t") 'cider-pop-back
     "gr" 'cider-refresh
