@@ -75,6 +75,7 @@
     ibuffer
     image
     image+
+    indium
     info
     ivy
     kotlin-mode
