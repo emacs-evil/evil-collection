@@ -34,7 +34,10 @@
   ;; Bindings don't seem to be set the first time.
   (add-hook 'anaconda-mode-hook #'evil-normalize-keymaps)
 
-  (evil-define-key 'normal anaconda-view-mode-map
+  ;; latest anaconda uses `anaconda-view-mode-map'; anaconda stable
+  ;; uses `anaconda-mode-view-mode-map'
+  (evil-define-key 'normal (or anaconda-view-mode-map
+			       anaconda-mode-view-mode-map)
     "gj" 'next-error-no-select
     "gk" 'previous-error-no-select
     (kbd "C-j") 'next-error-no-select
