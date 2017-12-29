@@ -103,9 +103,9 @@
     ;; refresh
     "gr" 'helm-refresh
 
-    "p" 'helm-yank-selection
-    "P" 'helm-copy-to-buffer
-    "y" 'helm-kill-selection-and-quit
+    "yp" 'helm-yank-selection
+    "yP" 'helm-copy-to-buffer
+    "yy" 'helm-kill-selection-and-quit
     (kbd "SPC") 'helm-toggle-visible-mark))
 
 (provide 'evil-collection-helm)
