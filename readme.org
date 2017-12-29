@@ -72,6 +72,22 @@ because many users find it confusing.
 :   :custom (evil-collection-setup-minibuffer t)
 :   :init (evil-collection-init))
 
+Here's another full TLDR ~use-package~ example.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package evil
+  :ensure t
+  :custom
+  (evil-want-integration nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+#+end_src
 
 ** Guidelines
 
