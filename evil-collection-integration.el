@@ -247,9 +247,9 @@ activated."
 ;;; Auto-complete
 (eval-after-load 'auto-complete
   '(progn
-     (evil-add-command-properties 'auto-complete :repeat 'evil-ac-repeat)
-     (evil-add-command-properties 'ac-complete :repeat 'evil-ac-repeat)
-     (evil-add-command-properties 'ac-expand :repeat 'evil-ac-repeat)
+     (evil-add-command-properties 'auto-complete :repeat 'evil-collection-integration-ac-repeat)
+     (evil-add-command-properties 'ac-complete :repeat 'evil-collection-integration-ac-repeat)
+     (evil-add-command-properties 'ac-expand :repeat 'evil-collection-integration-ac-repeat)
      (evil-add-command-properties 'ac-next :repeat 'ignore)
      (evil-add-command-properties 'ac-previous :repeat 'ignore)
 
@@ -257,7 +257,7 @@ activated."
        "The length of the prefix of the current item to be completed.")
 
      (defvar ac-prefix)
-     (defun evil-ac-repeat (flag)
+     (defun evil-collection-integration-ac-repeat (flag)
        "Record the changes for auto-completion."
        (cond
         ((eq flag 'pre)
