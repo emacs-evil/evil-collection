@@ -32,6 +32,16 @@
 ;; This is so because many users find it confusing.
 
 ;;; Code:
+
+;; FIXME: Is this the best way to do this?
+(when (or
+       (not (boundp 'evil-want-integration))
+       (bound-and-true-p evil-want-integration))
+  (message "evil-want-integration should be disabled before `evil' is required."))
+
+(require 'evil)
+(require 'evil-collection-integration)
+
 (defgroup evil-collection nil
   "A set of keybindings for Evil mode"
   :group 'evil)

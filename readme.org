@@ -41,6 +41,18 @@ Or clone / download this repository and modify your ~load-path~:
 
 - Register the bindings, either all at once:
 
+: evil-collection assumes ~evil-integration~ is disabled when it loads.
+: Make sure to set ~evil-want-integration~ to nil before loading evil-collection.
+
+For example:
+
+#+begin_src emacs-lisp :tangle yes
+(use-package evil
+  :ensure t
+  :custom
+  (evil-want-integration nil))
+#+end_src
+
 : (when (require 'evil-collection nil t)
 :   (evil-collection-init))
 
