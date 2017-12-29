@@ -193,16 +193,6 @@
   "o" 'speedbar-toggle-line-expansion
   (kbd "RET") 'speedbar-edit-line)
 
-;; Ibuffer
-(eval-after-load 'ibuffer
-  '(progn
-     (defvar ibuffer-mode-map)
-     (evil-make-overriding-map ibuffer-mode-map 'normal)
-     (evil-define-key 'normal ibuffer-mode-map
-       "j" 'evil-next-line
-       "k" 'evil-previous-line
-       "RET" 'ibuffer-visit-buffer)))
-
 ;;; Undo tree
 (when (and (require 'undo-tree nil t)
            (fboundp 'global-undo-tree-mode))
