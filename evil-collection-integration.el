@@ -116,18 +116,6 @@
 
 ;;; Dired
 
-(eval-after-load 'dired
-  '(progn
-     ;; use the standard Dired bindings as a base
-     (defvar dired-mode-map)
-     (evil-make-overriding-map dired-mode-map 'normal)
-     (evil-add-hjkl-bindings dired-mode-map 'normal
-       "J" 'dired-goto-file                   ; "j"
-       "K" 'dired-do-kill-lines               ; "k"
-       "r" 'dired-do-redisplay                ; "l"
-       ;; ":d", ":v", ":s", ":e"
-       ";" (lookup-key dired-mode-map ":"))))
-
 (eval-after-load 'wdired
   '(progn
      (add-hook 'wdired-mode-hook #'evil-change-to-initial-state)
