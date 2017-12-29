@@ -366,15 +366,15 @@ the mark and entering `recursive-edit'."
      (unwind-protect
          (let ((evil-collection-integration-ace-jump-active 'prepare))
            (add-hook 'ace-jump-mode-end-hook
-                     #'evil-ace-jump-exit-recursive-edit)
+                     #'evil-collection-integration-ace-jump-exit-recursive-edit)
            ,@body
            (when evil-collection-integration-ace-jump-active
              (setq evil-collection-integration-ace-jump-active t)
              (recursive-edit)))
        (remove-hook 'post-command-hook
-                    #'evil-ace-jump-exit-recursive-edit)
+                    #'evil-collection-integration-ace-jump-exit-recursive-edit)
        (remove-hook 'ace-jump-mode-end-hook
-                    #'evil-ace-jump-exit-recursive-edit)
+                    #'evil-collection-integration-ace-jump-exit-recursive-edit)
        (if (evil-visual-state-p)
            (progn
              (add-hook 'pre-command-hook #'evil-visual-pre-command nil t)
@@ -385,15 +385,15 @@ the mark and entering `recursive-edit'."
 (eval-after-load 'ace-jump-mode
   `(defadvice ace-jump-done (after evil activate)
      (when evil-collection-integration-ace-jump-active
-       (add-hook 'post-command-hook #'evil-ace-jump-exit-recursive-edit))))
+       (add-hook 'post-command-hook #'evil-collection-integration-ace-jump-exit-recursive-edit))))
 
-(defun evil-ace-jump-exit-recursive-edit ()
+(defun evil-collection-integration-ace-jump-exit-recursive-edit ()
   "Exit a recursive edit caused by an evil jump."
   (cond
    ((eq evil-collection-integration-ace-jump-active 'prepare)
     (setq evil-collection-integration-ace-jump-active nil))
    (evil-collection-integration-ace-jump-active
-    (remove-hook 'post-command-hook #'evil-ace-jump-exit-recursive-edit)
+    (remove-hook 'post-command-hook #'evil-collection-integration-ace-jump-exit-recursive-edit)
     (exit-recursive-edit))))
 
 (evil-define-motion evil-ace-jump-char-mode (count)
