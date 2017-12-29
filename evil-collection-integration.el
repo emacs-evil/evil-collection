@@ -542,13 +542,6 @@ Based on `evil-enclose-ace-jump-for-motion'."
   '(with-no-warnings
      (push 'evil-mode-cmhh mumamo-change-major-mode-no-nos)))
 
-;;; ag.el
-(eval-after-load 'ag
-  '(progn
-     (defvar ag-mode-map)
-     (add-to-list 'evil-motion-state-modes 'ag-mode)
-     (evil-add-hjkl-bindings ag-mode-map 'motion)))
-
 ;; visual-line-mode integration
 (when evil-respect-visual-line-mode
   (let ((swaps '((evil-next-line . evil-next-visual-line)
