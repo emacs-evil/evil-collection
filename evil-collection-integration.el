@@ -253,7 +253,7 @@ activated."
      (evil-add-command-properties 'ac-next :repeat 'ignore)
      (evil-add-command-properties 'ac-previous :repeat 'ignore)
 
-     (defvar evil-ac-prefix-len nil
+     (defvar evil-collection-integration-ac-prefix-len nil
        "The length of the prefix of the current item to be completed.")
 
      (defvar ac-prefix)
@@ -261,18 +261,18 @@ activated."
        "Record the changes for auto-completion."
        (cond
         ((eq flag 'pre)
-         (setq evil-ac-prefix-len (length ac-prefix))
+         (setq evil-collection-integration-ac-prefix-len (length ac-prefix))
          (evil-repeat-start-record-changes))
         ((eq flag 'post)
          ;; Add change to remove the prefix
-         (evil-repeat-record-change (- evil-ac-prefix-len)
+         (evil-repeat-record-change (- evil-collection-integration-ac-prefix-len)
                                     ""
-                                    evil-ac-prefix-len)
+                                    evil-collection-integration-ac-prefix-len)
          ;; Add change to insert the full completed text
          (evil-repeat-record-change
-          (- evil-ac-prefix-len)
+          (- evil-collection-integration-ac-prefix-len)
           (buffer-substring-no-properties (- evil-repeat-pos
-                                             evil-ac-prefix-len)
+                                             evil-collection-integration-ac-prefix-len)
                                           (point))
           0)
          ;; Finish repeation
