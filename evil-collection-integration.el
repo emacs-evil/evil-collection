@@ -346,7 +346,7 @@ activated."
 (declare-function 'ace-jump-word-mode "ace-jump-mode")
 (declare-function 'ace-jump-line-mode "ace-jump-mode")
 
-(defvar evil-ace-jump-active nil)
+(defvar evil-collection-integration-ace-jump-active nil)
 
 (defmacro evil-enclose-ace-jump-for-motion (&rest body)
   "Enclose ace-jump to make it suitable for motions.
@@ -364,12 +364,12 @@ the mark and entering `recursive-edit'."
      (remove-hook 'pre-command-hook #'evil-visual-pre-command t)
      (remove-hook 'post-command-hook #'evil-visual-post-command t)
      (unwind-protect
-         (let ((evil-ace-jump-active 'prepare))
+         (let ((evil-collection-integration-ace-jump-active 'prepare))
            (add-hook 'ace-jump-mode-end-hook
                      #'evil-ace-jump-exit-recursive-edit)
            ,@body
-           (when evil-ace-jump-active
-             (setq evil-ace-jump-active t)
+           (when evil-collection-integration-ace-jump-active
+             (setq evil-collection-integration-ace-jump-active t)
              (recursive-edit)))
        (remove-hook 'post-command-hook
                     #'evil-ace-jump-exit-recursive-edit)
@@ -384,15 +384,15 @@ the mark and entering `recursive-edit'."
 
 (eval-after-load 'ace-jump-mode
   `(defadvice ace-jump-done (after evil activate)
-     (when evil-ace-jump-active
+     (when evil-collection-integration-ace-jump-active
        (add-hook 'post-command-hook #'evil-ace-jump-exit-recursive-edit))))
 
 (defun evil-ace-jump-exit-recursive-edit ()
   "Exit a recursive edit caused by an evil jump."
   (cond
-   ((eq evil-ace-jump-active 'prepare)
-    (setq evil-ace-jump-active nil))
-   (evil-ace-jump-active
+   ((eq evil-collection-integration-ace-jump-active 'prepare)
+    (setq evil-collection-integration-ace-jump-active nil))
+   (evil-collection-integration-ace-jump-active
     (remove-hook 'post-command-hook #'evil-ace-jump-exit-recursive-edit)
     (exit-recursive-edit))))
 
