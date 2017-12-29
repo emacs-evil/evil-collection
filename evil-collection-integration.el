@@ -320,7 +320,7 @@ activated."
           ad-do-it)
       ad-do-it)))
  (t
-  (defun evil--preceding-sexp (command &rest args)
+  (defun evil-collection-integration--preceding-sexp (command &rest args)
     "In normal-state or motion-state, last sexp ends at point."
     (if (and (not evil-move-beyond-eol)
              (or (evil-normal-state-p) (evil-motion-state-p)))
@@ -329,8 +329,8 @@ activated."
           (apply command args))
       (apply command args)))
 
-  (advice-add 'elisp--preceding-sexp :around 'evil--preceding-sexp '((name . evil)))
-  (advice-add 'pp-last-sexp          :around 'evil--preceding-sexp '((name . evil)))))
+  (advice-add 'elisp--preceding-sexp :around 'evil-collection-integration--preceding-sexp '((name . evil)))
+  (advice-add 'pp-last-sexp          :around 'evil-collection-integration--preceding-sexp '((name . evil)))))
 
 ;; Show key
 (defadvice quail-show-key (around evil activate)
