@@ -467,7 +467,7 @@ the mark and entering `recursive-edit'."
 (declare-function 'avy-goto-subword-1 "avy")
 (declare-function 'avy-goto-char-timer "avy")
 
-(defmacro evil-enclose-avy-for-motion (&rest body)
+(defmacro evil-collection-integration-enclose-avy-for-motion (&rest body)
   "Enclose avy to make it suitable for motions.
 Based on `evil-collection-integration-enclose-ace-jump-for-motion'."
   (declare (indent defun)
@@ -489,7 +489,7 @@ Based on `evil-collection-integration-enclose-ace-jump-for-motion'."
        :jump t
        :repeat abort
        (evil-without-repeat
-         (evil-enclose-avy-for-motion
+         (evil-collection-integration-enclose-avy-for-motion
            (call-interactively ',command))))))
 
 ;; define evil-avy-* motion commands for avy-* commands
