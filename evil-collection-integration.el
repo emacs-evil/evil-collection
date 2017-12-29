@@ -348,7 +348,7 @@ activated."
 
 (defvar evil-collection-integration-ace-jump-active nil)
 
-(defmacro evil-enclose-ace-jump-for-motion (&rest body)
+(defmacro evil-collection-integration-enclose-ace-jump-for-motion (&rest body)
   "Enclose ace-jump to make it suitable for motions.
 This includes restricting `ace-jump-mode' to the current window
 in visual and operator state, deactivating visual updates, saving
@@ -402,7 +402,7 @@ the mark and entering `recursive-edit'."
   (evil-without-repeat
     (let ((pnt (point))
           (buf (current-buffer)))
-      (evil-enclose-ace-jump-for-motion
+      (evil-collection-integration-enclose-ace-jump-for-motion
         (call-interactively 'ace-jump-char-mode))
       ;; if we jump backwards, motion type is exclusive, analogously
       ;; to `evil-find-char-backward'
@@ -419,7 +419,7 @@ the mark and entering `recursive-edit'."
   (evil-without-repeat
     (let ((pnt (point))
           (buf (current-buffer)))
-      (evil-enclose-ace-jump-for-motion
+      (evil-collection-integration-enclose-ace-jump-for-motion
         (call-interactively 'ace-jump-char-mode))
       (if (and (equal buf (current-buffer))
                (< (point) pnt))
@@ -436,7 +436,7 @@ the mark and entering `recursive-edit'."
   :type line
   :repeat abort
   (evil-without-repeat
-    (evil-enclose-ace-jump-for-motion
+    (evil-collection-integration-enclose-ace-jump-for-motion
       (call-interactively 'ace-jump-line-mode))))
 
 (evil-define-motion evil-ace-jump-word-mode (count)
@@ -444,7 +444,7 @@ the mark and entering `recursive-edit'."
   :type exclusive
   :repeat abort
   (evil-without-repeat
-    (evil-enclose-ace-jump-for-motion
+    (evil-collection-integration-enclose-ace-jump-for-motion
       (call-interactively 'ace-jump-word-mode))))
 
 (define-key evil-motion-state-map [remap ace-jump-char-mode] #'evil-ace-jump-char-mode)
@@ -469,7 +469,7 @@ the mark and entering `recursive-edit'."
 
 (defmacro evil-enclose-avy-for-motion (&rest body)
   "Enclose avy to make it suitable for motions.
-Based on `evil-enclose-ace-jump-for-motion'."
+Based on `evil-collection-integration-enclose-ace-jump-for-motion'."
   (declare (indent defun)
            (debug t))
   `(let ((avy-all-windows
