@@ -28,7 +28,7 @@
 ;; https://github.com/Fuco1/free-keys
 
 ;;; Code:
-(require 'free-keys)
+(require 'free-keys nil t)
 (require 'evil)
 
 (defun evil-collection-free-keys-setup ()
