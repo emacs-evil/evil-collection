@@ -36,8 +36,9 @@
 (require 'evil)
 
 (if (featurep 'evil-integration)
-    (message
-     "Make sure to set ~evil-want-integration~ to nil before loading evil or evil-collection.")
+    (if evil-want-integration
+        (message "Make sure to set `evil-want-integration' to nil before loading evil or evil-collection.")
+      (message "`evil-want-integration' was set to nil but not before loading evil."))
   (require 'evil-collection-integration))
 
 (defgroup evil-collection nil
