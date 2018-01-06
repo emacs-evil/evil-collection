@@ -78,6 +78,7 @@
     indium
     info
     ivy
+    lua-mode
     kotlin-mode
     macrostep
     man
