@@ -361,6 +361,7 @@ the mark and entering `recursive-edit'."
                    (boundp 'ace-jump-mode-scope))
               ace-jump-mode-scope
             'window)))
+     (ignore ace-jump-mode-scope) ;; Make byte compiler happy.
      (remove-hook 'pre-command-hook #'evil-visual-pre-command t)
      (remove-hook 'post-command-hook #'evil-visual-post-command t)
      (unwind-protect
@@ -477,6 +478,7 @@ Based on `evil-collection-integration-enclose-ace-jump-for-motion'."
                    (boundp 'avy-all-windows))
               avy-all-windows
             nil)))
+     (ignore avy-all-windows) ;; Make byte compiler happy.
      ,@body))
 
 (defmacro evil-collection-integration-define-avy-motion (command type)
