@@ -34,10 +34,9 @@
 ;;; Code:
 
 ;; FIXME: Is this the best way to do this?
-(when (or
-       (not (boundp 'evil-want-integration))
-       (bound-and-true-p evil-want-integration))
-  (message "evil-want-integration should be disabled before `evil' is required."))
+(when (bound-and-true-p evil-want-integration)
+  (message
+   "Make sure to set ~evil-want-integration~ before loading evil or evil-collection."))
 
 (require 'evil)
 (require 'evil-collection-integration)
