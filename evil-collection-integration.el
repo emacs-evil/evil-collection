@@ -396,7 +396,7 @@ the mark and entering `recursive-edit'."
     (remove-hook 'post-command-hook #'evil-collection-integration-ace-jump-exit-recursive-edit)
     (exit-recursive-edit))))
 
-(evil-define-motion evil-ace-jump-char-mode (count)
+(evil-define-motion evil-ace-jump-char-mode (_)
   "Jump visually directly to a char using ace-jump."
   :type inclusive
   (evil-without-repeat
@@ -413,7 +413,7 @@ the mark and entering `recursive-edit'."
                ((eq evil-this-type 'exclusive) 'inclusive)
                ((eq evil-this-type 'inclusive) 'exclusive)))))))
 
-(evil-define-motion evil-ace-jump-char-to-mode (count)
+(evil-define-motion evil-ace-jump-char-to-mode (_)
   "Jump visually to the char in front of a char using ace-jump."
   :type inclusive
   (evil-without-repeat
@@ -431,7 +431,7 @@ the mark and entering `recursive-edit'."
                    ((eq evil-this-type 'inclusive) 'exclusive))))
         (backward-char)))))
 
-(evil-define-motion evil-ace-jump-line-mode (count)
+(evil-define-motion evil-ace-jump-line-mode (_)
   "Jump visually to the beginning of a line using ace-jump."
   :type line
   :repeat abort
@@ -439,7 +439,7 @@ the mark and entering `recursive-edit'."
     (evil-collection-integration-enclose-ace-jump-for-motion
       (call-interactively 'ace-jump-line-mode))))
 
-(evil-define-motion evil-ace-jump-word-mode (count)
+(evil-define-motion evil-ace-jump-word-mode (_)
   "Jump visually to the beginning of a word using ace-jump."
   :type exclusive
   :repeat abort
