@@ -33,13 +33,12 @@
 
 ;;; Code:
 
-;; FIXME: Is this the best way to do this?
-(when (bound-and-true-p evil-want-integration)
-  (message
-   "Make sure to set ~evil-want-integration~ before loading evil or evil-collection."))
-
 (require 'evil)
-(require 'evil-collection-integration)
+
+(if (featurep 'evil-integration)
+    (message
+     "Make sure to set ~evil-want-integration~ to nil before loading evil or evil-collection.")
+  (require 'evil-collection-integration))
 
 (defgroup evil-collection nil
   "A set of keybindings for Evil mode"
