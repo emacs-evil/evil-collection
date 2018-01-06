@@ -4,6 +4,7 @@
 
 ;; Author: Tal Wrii <talwrii@gmail.com>
 ;; Maintainer: James Nguyen <talwrii@gmail.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
