@@ -40,4 +40,4 @@
     "q" 'quit-window))
 
 (provide 'evil-collection-free-keys)
-;;; evil-collection-free-keys ends here
+;;; evil-collection-free-keys.el ends here
