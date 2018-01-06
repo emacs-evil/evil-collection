@@ -3,7 +3,7 @@
 ;; Copyright (C) 2017 Tal Wrii
 
 ;; Author: Tal Wrii <talwrii@gmail.com>
-;; Maintainer: James Nguyen <talwrii@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/jojojames/evil-collection
 ;; Version: 0.0.1
