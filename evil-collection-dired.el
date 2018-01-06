@@ -141,8 +141,8 @@
     (kbd "<return>") 'dired-find-file
     (kbd "S-<return>") 'dired-find-file-other-window
     (kbd "M-<return>") 'dired-display-file
-    "go" 'dired-find-file-other-window
-    "gO" 'dired-view-file
+    "gO" 'dired-find-file-other-window
+    "go" 'dired-view-file
     ;; sort
     "o" 'dired-sort-toggle-or-edit
     ;; moving
