@@ -34,7 +34,7 @@
 (require 'evil)
 (require 'term)
 
-(defcustom evil-collection-term-sync-state-and-mode-p nil
+(defcustom evil-collection-term-sync-state-and-mode-p t
   "Synchronize insert/normal state with char/line-mode respectively.
 
 When non-nil, going to normal state will automatically switch to
