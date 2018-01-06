@@ -68,6 +68,7 @@
     eval-sexp-fu
     eww
     flycheck
+    free-keys
     geiser
     ggtags
     help
