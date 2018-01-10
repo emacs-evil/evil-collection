@@ -33,22 +33,9 @@
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
   (evil-define-key 'normal dired-mode-map
-    "g" nil
-    "gg" 'evil-goto-first-line
     "q" 'quit-window
     "j" 'dired-next-line
     "k" 'dired-previous-line
-    "l" 'evil-forward-char
-    "h" 'evil-backward-char
-    ":" 'evil-ex
-    "w" 'evil-forward-word-begin
-    "e" 'evil-forward-word-end
-    "y" 'evil-yank
-    "f" 'evil-find-char
-    "v" 'evil-visual-char
-    "G" 'evil-goto-line
-    "$" 'evil-end-of-line
-    "n" 'evil-search-next
     [mouse-2] 'dired-mouse-find-file-other-window
     [follow-link] 'mouse-face
     ;; Commands to mark or flag certain categories of files
