@@ -35,6 +35,7 @@
 
 (require 'evil)
 
+(defvar evil-want-integration)
 (if (featurep 'evil-integration)
     (if evil-want-integration
         (display-warning
