@@ -32,9 +32,9 @@
 
 (defun evil-collection-profiler-setup ()
   "Set up `evil' bindings for `profiler'."
-  (evil-set-initial-state 'profiler-report-mode 'motion)
+  (evil-set-initial-state 'profiler-report-mode 'normal)
 
-  (evil-define-key 'motion profiler-report-mode-map
+  (evil-define-key 'normal profiler-report-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
