@@ -43,7 +43,6 @@
     "k" 'profiler-report-previous-entry
 
     (kbd "<tab>") 'profiler-report-toggle-entry
-    "i" 'profiler-report-toggle-entry
 
     ;; sort
     "o" 'profiler-report-ascending-sort
