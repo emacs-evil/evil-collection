@@ -32,9 +32,9 @@
 
 (defun evil-collection-arc-mode-setup ()
   "Set up `evil' bindings for `arc-mode'."
-  (evil-set-initial-state 'arc-mode 'motion)
-  (evil-set-initial-state 'archive-mode 'motion)
-  (evil-define-key 'motion archive-mode-map
+  (evil-set-initial-state 'arc-mode 'normal)
+  (evil-set-initial-state 'archive-mode 'normal)
+  (evil-define-key 'normal archive-mode-map
     "j" 'archive-next-line
     "k" 'archive-previous-line
     (kbd "C-j") 'archive-next-line
