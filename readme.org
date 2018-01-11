@@ -89,6 +89,18 @@ Here's another full TLDR ~use-package~ example.
   (evil-collection-init))
 #+end_src
 
+
+** Configuration
+
+   Modify ~evil-collection-mode-list~ to disable or add any modes that should be evilified by ~evil-collection~.
+
+   | Variable                                   | Default | Description                                                       |
+   |--------------------------------------------+---------+-------------------------------------------------------------------|
+   | evil-collection-company-use-tng            | t       | Set up autocompletion to be similar to Vim's YouCompleteMe.       |
+   | evil-collection-outline-bind-tab-p         | t       | Enable <tab>-based bindings in Outline mode.                      |
+   | evil-collection-term-sync-state-and-mode-p | t       | Synchronize insert/normal state with char/line-mode in term-mode. |
+   | evil-collection-setup-minibuffer           | nil     | Set up Vim style bindings in the minibuffer.                      |
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard
