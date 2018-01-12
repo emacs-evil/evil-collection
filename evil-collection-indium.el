@@ -32,7 +32,7 @@
 
 (defun evil-collection-indium-setup ()
   "Set up `evil' bindings for `indium'."
-  (when evil-collection-setup-debugger-keys
+  (when evil-collection-settings-setup-debugger-keys
     (evil-define-key 'normal indium-debugger-mode-map
       "n" 'indium-debugger-step-over
       "i" 'indium-debugger-step-into

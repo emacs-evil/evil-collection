@@ -28,7 +28,7 @@
 (require 'evil)
 
 ;;; Code:
-(defcustom evil-collection-setup-debugger-keys t
+(defcustom evil-collection-settings-setup-debugger-keys t
   "Whether to bind debugger keys when debugger is active.
 
 Debugger in this case is dependent on mode.
