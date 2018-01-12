@@ -44,8 +44,12 @@
     "t" 'evil-find-char-to
     "T" 'evil-find-char-to-backward
     "f" 'evil-find-char
-    "n" 'evil-search-next
-    "?" 'evil-search-backward
+
+    "?" evil-collection-evil-search-backward
+    "/" evil-collection-evil-search-forward
+    "n" evil-collection-evil-search-next
+    "N" evil-collection-evil-search-previous
+
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
 

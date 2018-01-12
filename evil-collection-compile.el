@@ -29,6 +29,7 @@
 ;;; Code:
 (require 'evil)
 (require 'compile)
+(require 'evil-collection-evil-search)
 
 (defun evil-collection-compile-setup ()
   "Set up `evil' bindings for `compile'."
@@ -36,7 +37,7 @@
 
   (evil-define-key 'normal compilation-mode-map
     "g?" 'describe-mode
-    "?" 'evil-search-backward
+    "?" evil-collection-evil-search-backward
     "gg" 'evil-goto-first-line
     "0" 'evil-digit-argument-or-evil-beginning-of-line
     [mouse-2] 'compile-goto-error
