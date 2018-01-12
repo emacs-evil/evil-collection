@@ -53,7 +53,7 @@
     "C" 'edebug-Continue-fast-mode
 
     "f" 'edebug-forward-sexp
-    "gh" 'edebug-goto-here
+    "H" 'edebug-goto-here
     "I" 'edebug-instrument-callee
     "i" 'edebug-step-in
     "o" 'edebug-step-out
@@ -73,7 +73,7 @@
 
     ;; evaluation
     "r" 'edebug-previous-result
-    "EE" 'edebug-eval-expression
+    "e" 'edebug-eval-expression
     (kbd "C-x C-e") 'edebug-eval-last-sexp
     "EL" 'edebug-visit-eval-list
 

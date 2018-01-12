@@ -111,6 +111,7 @@ or evil-collection.")
     profiler
     python
     racer
+    realgud
     rjsx-mode
     robe
     ruby-mode

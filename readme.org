@@ -354,7 +354,27 @@ definition".
 - ~0~ has a somewhat intuitive meaning, plus it is next to ~+~ and ~-~ on QWERTY.
 
 - ~=~ is useful as a synonym for ~+~ because it is the unshifted key of ~+~ on QWERTY.
+*** Debugging
+    When debugging is on, debugger keys takes the most precedence.
 
+    These keys will be set when there's an available command for them.
+
+    - ~n~ : Step Over
+    - ~i~ : Step Into
+    - ~o~ : Step Out
+    - ~c~ : Continue/Resume Execution
+    - ~L~ : Locals
+    - ~t~ : Tracing
+    - ~q~ : Quit Debugging
+    - ~H~ : Continue until Point
+    - ~e~ : Evaluate Expression
+    - ~b~ : Set Breakpoint
+    - ~u~ : Unset Breakpoint
+    - ~>~ : Navigate to Next Frame
+    - ~<~ : Navigate to Previous Frame
+    - ~g?~ : Help
+    - ~J~ : Jump to debugger location
+    - ~R~ : Restart
 
 ** Modes left behind
 
