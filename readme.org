@@ -407,3 +407,12 @@ Other references:
 #+LINK: evil-mu4e https://github.com/JorisE/evil-mu4e
 #+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
 #+LINK: lispyville https://github.com/noctuid/lispyville
+** Contributing
+   Please do!
+
+   We welcome any additional modes that are not already supported.
+
+   All bindings in ~evil-collection~ are still open to change so if there's
+   a better or more consistent binding, please open an issue or submit a PR.
+
+   Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
