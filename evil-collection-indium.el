@@ -27,7 +27,7 @@
 ;;; Bindings for `indium'.
 
 ;;; Code:
-(require 'evil-collection)
+(require 'evil-collection-settings)
 (require 'indium nil t)
 
 (defun evil-collection-indium-setup ()
