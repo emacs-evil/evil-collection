@@ -27,25 +27,26 @@
 ;;; Bindings for `indium'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'indium nil t)
 
 (defun evil-collection-indium-setup ()
   "Set up `evil' bindings for `indium'."
-  (evil-define-key 'normal indium-debugger-mode-map
-    "n" 'indium-debugger-step-over
-    "i" 'indium-debugger-step-into
-    "o" 'indium-debugger-step-out
-    "c" 'indium-debugger-resume
-    "L" 'indium-debugger-locals
-    "s" 'indium-debugger-stack-frames
-    "q" 'indium-debugger-resume
-    "H" 'indium-debugger-here
-    "e" 'indium-debugger-evaluate
-    ">" 'indium-debugger-next-frame
-    "<" 'indium-debugger-previous-frame)
+  (when evil-collection-setup-debugger-keys
+    (evil-define-key 'normal indium-debugger-mode-map
+      "n" 'indium-debugger-step-over
+      "i" 'indium-debugger-step-into
+      "o" 'indium-debugger-step-out
+      "c" 'indium-debugger-resume
+      "L" 'indium-debugger-locals
+      "s" 'indium-debugger-stack-frames
+      "q" 'indium-debugger-resume
+      "H" 'indium-debugger-here
+      "e" 'indium-debugger-evaluate
+      ">" 'indium-debugger-next-frame
+      "<" 'indium-debugger-previous-frame)
 
-  (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps)
+    (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps))
 
   (evil-define-key 'normal indium-inspector-mode-map
     (kbd "RET") 'indium-follow-link
