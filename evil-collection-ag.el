@@ -29,6 +29,7 @@
 ;;; Code:
 (require 'ag nil t)
 (require 'evil)
+(require 'evil-collection-evil-search)
 
 (defun evil-collection-ag-setup ()
   "Set up `evil' bindings for `ag'."
@@ -48,8 +49,10 @@
     "[" 'compilation-previous-error
 
     ;; search
-    "n" 'evil-search-next
-    "N" 'evil-search-previous)
+    "?" evil-collection-evil-search-backward
+    "/" evil-collection-evil-search-forward
+    "n" evil-collection-evil-search-next
+    "N" evil-collection-evil-search-previous)
   ;; `ag' is best set in 'normal state because its buffer can be edited.
   ;; https://github.com/mhayashi1120/Emacs-wgrep
   (evil-set-initial-state 'ag-mode 'normal))
