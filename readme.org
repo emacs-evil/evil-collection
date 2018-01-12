@@ -41,21 +41,6 @@ Or clone / download this repository and modify your ~load-path~:
 
 - Register the bindings, either all at once:
 
-: evil-collection assumes ~evil-integration~ is disabled by the time it loads.
-: Make sure to set ~evil-want-integration~ to nil before loading evil and evil-collection.
-
-For example:
-
-#+begin_src emacs-lisp :tangle yes
-(use-package evil
-  :ensure t
-  :init
-  (evil-want-integration nil))
-#+end_src
-
-: (when (require 'evil-collection nil t)
-:   (evil-collection-init))
-
 or mode-by-mode, for instance:
 
 : (with-eval-after-load 'calendar (require 'evil-collection-calendar) (evil-collection-calendar-setup))
@@ -71,6 +56,17 @@ because many users find it confusing.
 : (use-package evil-collection
 :   :custom (evil-collection-setup-minibuffer t)
 :   :init (evil-collection-init))
+
+~evil-collection~ also assumes ~evil-want-integration~ is set to nil before loading ~evil~ and ~evil-collection.~
+
+For example:
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-want-integration nil)
+(require evil)
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
+#+end_src
 
 Here's another full TLDR ~use-package~ example.
 
@@ -88,7 +84,6 @@ Here's another full TLDR ~use-package~ example.
   :config
   (evil-collection-init))
 #+end_src
-
 
 ** Configuration
 
