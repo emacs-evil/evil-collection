@@ -81,6 +81,7 @@ or evil-collection.")
     emms
     eshell
     eval-sexp-fu
+    etags-select
     eww
     flycheck
     geiser
