@@ -74,7 +74,7 @@ Here's another full TLDR ~use-package~ example.
 (use-package evil
   :ensure t
   :init
-  (evil-want-integration nil)
+  (setq evil-want-integration nil)
   :config
   (evil-mode 1))
 
