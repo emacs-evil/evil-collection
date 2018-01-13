@@ -81,11 +81,42 @@
     "gr" 'indium-update-script-source
     "gz" 'indium-switch-to-repl-buffer)
 
+  (when evil-collection-settings-setup-debugger-keys
+    (evil-define-key 'normal indium-interaction-mode-map
+      [left-fringe mouse-1] 'evil-collection-indium-debugger-mouse-toggle-breakpoint
+      [left-margin mouse-1] 'evil-collection-indium-debugger-mouse-toggle-breakpoint
+      [f5] 'indium-debugger-resume
+      [S-f5] 'indium-debugger-resume
+      [f9] 'evil-collection-indium-debugger-toggle-breakpoint
+      [f10] 'indium-debugger-step-over
+      [f11] 'indium-debugger-step-into
+      [S-f11] 'indium-debugger-step-out))
+
   (evil-define-key 'normal indium-repl-mode-map
     (kbd "gj") 'indium-repl-next-input
     (kbd "gk") 'indium-repl-previous-input
     (kbd "C-j") 'indium-repl-next-input
     (kbd "C-k") 'indium-repl-previous-input))
+
+;; FIXME: It would be better for these to go upstream.
+(defun evil-collection-indium-debugger-toggle-breakpoint ()
+  "Toggle breakpoint at point."
+  (interactive)
+  (if (and (fboundp 'indium-breakpoint-on-current-line-p)
+           (indium-breakpoint-on-current-line-p))
+      (call-interactively #'indium-remove-breakpoint)
+    (call-interactively #'indium-add-breakpoint)))
+
+(defun evil-collection-indium-debugger-mouse-toggle-breakpoint (event)
+  "Toggle breakpoint at mouse EVENT click point."
+  (interactive "e")
+  (let* ((posn (event-end event))
+         (pos (posn-point posn)))
+    (when (numberp pos)
+      (with-current-buffer (window-buffer (posn-window posn))
+        (save-excursion
+          (goto-char pos)
+          (call-interactively #'evil-collection-indium-debugger-toggle-breakpoint))))))
 
 (provide 'evil-collection-indium)
 ;;; evil-collection-indium.el ends here

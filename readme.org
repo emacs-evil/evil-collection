@@ -377,6 +377,17 @@ definition".
     - ~J~ : Jump to debugger location
     - ~R~ : Restart
 
+    For debugging outside of debugger being on (e.g. setting initial breakpoints),
+    we use similar keys to [[https://github.com/realgud/realgud][realgud]].
+
+    - ~f5~ Start/Continue/Resume Execution
+    - ~S-f5~ Continue Execution
+    - ~Mouse-1~ Toggle Breakpoint
+    - ~f9~ Toggle Breakpoint
+    - ~f10~ Step Over
+    - ~f11~ Step Into
+    - ~S-f11~ Step Out
+
 ** Modes left behind
 
 Some modes might still remain unsupported by this package.  Should you be
