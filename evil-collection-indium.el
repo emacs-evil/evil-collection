@@ -49,6 +49,7 @@
     (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps))
 
   (evil-define-key 'normal indium-inspector-mode-map
+    "q" 'quit-window
     (kbd "RET") 'indium-follow-link
     [mouse-1] 'indium-follow-link
     "L" 'indium-inspector-pop
@@ -61,10 +62,12 @@
     [backtab] 'indium-inspector-previous-reference)
 
   (evil-define-key 'normal indium-debugger-locals-mode-map
+    "q" 'quit-window
     "L" nil
     "gr" nil)
 
   (evil-define-key 'normal indium-debugger-frames-mode-map
+    "q" 'quit-window
     [return] 'indium-follow-link
     (kbd "RET") 'indium-follow-link
     (kbd "gj") 'indium-debugger-frames-next-frame
