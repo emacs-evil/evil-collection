@@ -39,31 +39,21 @@ Or clone / download this repository and modify your ~load-path~:
 
 : (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
 
-- Register the bindings, either all at once:
+- Register the bindings, either all at once with ~evil-collection-init~:
 
 or mode-by-mode, for instance:
 
 : (with-eval-after-load 'calendar (require 'evil-collection-calendar) (evil-collection-calendar-setup))
 
-The list of supported modes is simply the list of files.
+The list of supported modes is configured by ~~evil-collection-mode-list~~.
 
-If you want to enable Evil in the minibuffer, you'll have to turn it on
-explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~. This is so
-because many users find it confusing.
-
-~use-package~ example:
-
-: (use-package evil-collection
-:   :custom (evil-collection-setup-minibuffer t)
-:   :init (evil-collection-init))
-
-~evil-collection~ also assumes ~evil-want-integration~ is set to nil before loading ~evil~ and ~evil-collection.~
+~evil-collection~ assumes ~evil-want-integration~ is set to nil before loading ~evil~ and ~evil-collection.~
 
 For example:
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-want-integration nil)
-(require evil)
+(require 'evil)
 (when (require 'evil-collection nil t)
   (evil-collection-init))
 #+end_src
@@ -85,6 +75,9 @@ Here's another full TLDR ~use-package~ example.
   (evil-collection-init))
 #+end_src
 
+NOTE: If you don't like surprises but still want to use ~evil-collection-init~, setting ~evil-collection-mode-list~ to nil
+and adding each mode manually might be a better option.
+
 ** Configuration
 
    Modify ~evil-collection-mode-list~ to disable or add any modes that should be evilified by ~evil-collection~.
@@ -96,6 +89,17 @@ Here's another full TLDR ~use-package~ example.
    | evil-collection-term-sync-state-and-mode-p | t       | Synchronize insert/normal state with char/line-mode in term-mode. |
    | evil-collection-setup-minibuffer           | nil     | Set up Vim style bindings in the minibuffer.                      |
    | evil-collection-setup-debugger-keys        | t       | Set up debugger keys for certain modes.                           |
+
+   For example, if you want to enable Evil in the minibuffer, you'll have to turn it on
+   explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.
+
+   ~use-package~ example:
+
+   #+begin_src emacs-lisp :tangle yes
+ (use-package evil-collection
+   :custom (evil-collection-setup-minibuffer t)
+   :init (evil-collection-init))
+   #+end_src
 
 ** Guidelines
 
