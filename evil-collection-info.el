@@ -29,6 +29,7 @@
 
 ;;; Code:
 (require 'evil)
+(require 'evil-collection-evil-search)
 (require 'info)
 
 (defun evil-collection-info-setup ()
