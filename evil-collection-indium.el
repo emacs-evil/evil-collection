@@ -99,11 +99,14 @@
     (kbd "C-k") 'indium-repl-previous-input))
 
 ;; FIXME: It would be better for these to go upstream.
+(declare-function indium-breakpoint-on-current-line-p "indium-breakpoint")
+(declare-function indium-remove-breakpoint "indium-interaction")
+(declare-function indium-add-breakpoint "indium-interaction")
+
 (defun evil-collection-indium-debugger-toggle-breakpoint ()
   "Toggle breakpoint at point."
   (interactive)
-  (if (and (fboundp 'indium-breakpoint-on-current-line-p)
-           (indium-breakpoint-on-current-line-p))
+  (if (indium-breakpoint-on-current-line-p)
       (call-interactively #'indium-remove-breakpoint)
     (call-interactively #'indium-add-breakpoint)))
 
