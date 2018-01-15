@@ -40,7 +40,7 @@
     (if evil-want-integration
         (display-warning
          '(evil-collection)
-         "Make sure to set `evil-want-integration' to nil before loading evil\
+         "Make sure to set `evil-want-integration' to nil before loading evil \
 or evil-collection.")
       (display-warning
        '(evil-collection)
