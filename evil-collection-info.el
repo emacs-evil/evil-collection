@@ -31,6 +31,7 @@
 (require 'evil)
 (require 'evil-collection-evil-search)
 (require 'info)
+(require 'evil-collection-evil-search)
 
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
