@@ -158,7 +158,24 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "c" 'cider-connection-browser
     "x" 'cider-connections-close-connection
     (kbd "<return>") 'cider-connections-goto-connection
-    "g?" 'describe-mode))
+    "g?" 'describe-mode)
+
+  (add-hook 'cider-inspector-mode-hook #'evil-normalize-keymaps)
+  (evil-define-key 'normal cider-inspector-mode-map
+    "q" 'quit-window
+    (kbd "RET") 'cider-inspector-operate-on-point
+    [mouse-1] 'cider-inspector-operate-on-click
+    "L" 'cider-inspector-pop
+    "gr" 'cider-inspector-refresh
+    ;; Page-up/down
+    (kbd "C-j") 'cider-inspector-next-page
+    (kbd "C-k") 'cider-inspector-prev-page
+    " " 'cider-inspector-next-page
+    "s" 'cider-inspector-set-page-size
+    (kbd "]") 'cider-inspector-next-inspectable-object
+    (kbd "[") 'cider-inspector-previous-inspectable-object
+    "gj" 'cider-inspector-next-inspectable-object
+    "gk" 'cider-inspector-previous-inspectable-object))
 
 (provide 'evil-collection-cider)
 ;;; evil-collection-cider.el ends here
