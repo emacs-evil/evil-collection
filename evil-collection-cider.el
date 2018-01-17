@@ -27,8 +27,12 @@
 ;; Evil bindings for Cider.
 
 ;;; Code:
+(require 'cl-macs)
 (require 'cider nil t)
 (require 'evil)
+(require 'evil-collection-settings)
+
+(declare-function cider-debug-mode-send-reply "cider-debug")
 
 (defun evil-collection-cider-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
@@ -39,6 +43,36 @@
         (apply command args))
     (apply command args)))
 
+(defmacro evil-collection-cider-make-debug-command (&rest cider-commands)
+  "Make functions that wrap `cider-debug' commands.
+
+Cider debug commands are sent through `cider-debug-mode-send-reply'.
+
+ex. \(cider-debug-mode-send-reply \":next\"\)"
+  (let ((commands (if (consp cider-commands)
+                      cider-commands
+                    (list cider-commands))))
+    `(progn
+       ,@(cl-loop
+          for command in commands
+          collect
+          (let ((funsymbol
+                 (intern (format "evil-collection-cider-debug-%s" command))))
+            `(defun ,funsymbol ()
+               ,(format
+                 "Send :%s to `cider-debug-mode-send-reply'." command)
+               (interactive)
+               (cider-debug-mode-send-reply ,(format ":%s" command))))))))
+
+(evil-collection-cider-make-debug-command "next"
+                                          "continue"
+                                          "out"
+                                          "quit"
+                                          "eval"
+                                          "inject"
+                                          "inspect"
+                                          "locals")
+
 (defun evil-collection-cider-setup ()
   "Set up `evil' bindings for `cider'."
   (unless evil-move-beyond-eol
@@ -47,6 +81,25 @@
     (advice-add 'cider-eval-last-sexp-to-repl :around 'evil-collection-cider-last-sexp)
     (with-eval-after-load 'cider-eval-sexp-fu
       (advice-add 'cider-esf--bounds-of-last-sexp :around 'evil-collection-cider-last-sexp)))
+
+  (when evil-collection-settings-setup-debugger-keys
+    (add-hook 'cider-mode-hook #'evil-normalize-keymaps)
+    (add-hook 'cider--debug-mode-hook #'evil-normalize-keymaps)
+    (evil-define-key 'normal cider-mode-map
+      [f6] 'cider-browse-instrumented-defs
+      [f9] 'cider-debug-defun-at-point)
+
+    (evil-define-key 'normal cider--debug-mode-map
+      "b" 'cider-debug-defun-at-point
+      "n" 'evil-collection-cider-debug-next
+      "c" 'evil-collection-cider-debug-continue
+      "o" 'evil-collection-cider-debug-out
+      "q" 'evil-collection-cider-debug-quit
+      "e" 'evil-collection-cider-debug-eval
+      "J" 'evil-collection-cider-debug-inject
+      "I" 'evil-collection-cider-debug-inspect
+      "L" 'evil-collection-cider-debug-locals
+      "H" 'cider-debug-move-here))
 
   (evil-define-key '(normal visual) cider-mode-map
     "gd" 'cider-find-var
