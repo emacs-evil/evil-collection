@@ -160,6 +160,32 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "<return>") 'cider-connections-goto-connection
     "g?" 'describe-mode)
 
+  (evil-set-initial-state 'cider-stacktrace-mode 'normal)
+  (evil-define-key 'normal cider-stacktrace-mode-map
+    (kbd "C-k") 'cider-stacktrace-previous-cause
+    (kbd "C-j") 'cider-stacktrace-next-cause
+    (kbd "gk") 'cider-stacktrace-previous-cause
+    (kbd "gj") 'cider-stacktrace-next-cause
+    (kbd "[") 'cider-stacktrace-previous-cause
+    (kbd "]") 'cider-stacktrace-next-cause
+    "gd" 'cider-stacktrace-jump
+    "q" 'cider-popup-buffer-quit-function
+    "J" 'cider-stacktrace-toggle-java
+    "C" 'cider-stacktrace-toggle-clj
+    "R" 'cider-stacktrace-toggle-repl
+    "T" 'cider-stacktrace-toggle-tooling
+    "D" 'cider-stacktrace-toggle-duplicates
+    "P" 'cider-stacktrace-show-only-project
+    "A" 'cider-stacktrace-toggle-all
+    "1" 'cider-stacktrace-cycle-cause-1
+    "2" 'cider-stacktrace-cycle-cause-2
+    "3" 'cider-stacktrace-cycle-cause-3
+    "4" 'cider-stacktrace-cycle-cause-4
+    "5" 'cider-stacktrace-cycle-cause-5
+    "0" 'cider-stacktrace-cycle-all-causes
+    (kbd "TAB") 'cider-stacktrace-cycle-current-cause
+    [backtab] 'cider-stacktrace-cycle-all-causes)
+
   (add-hook 'cider-inspector-mode-hook #'evil-normalize-keymaps)
   (evil-define-key 'normal cider-inspector-mode-map
     "q" 'quit-window
