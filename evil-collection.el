@@ -112,6 +112,7 @@ or evil-collection.")
     prodigy
     profiler
     python
+    quickrun
     racer
     realgud
     rjsx-mode
