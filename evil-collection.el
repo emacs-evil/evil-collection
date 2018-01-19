@@ -86,6 +86,7 @@ or evil-collection.")
     flycheck
     geiser
     ggtags
+    go-mode
     help
     helm
     ibuffer
