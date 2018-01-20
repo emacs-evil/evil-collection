@@ -64,6 +64,7 @@ or evil-collection.")
     bookmark
     calendar
     cider
+    cmake-mode
     comint
     company
     compile
