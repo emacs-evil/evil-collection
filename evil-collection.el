@@ -109,6 +109,7 @@ or evil-collection.")
     (package-menu package)
     pass
     (pdf pdf-view)
+    popup
     proced
     prodigy
     profiler
