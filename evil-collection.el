@@ -107,6 +107,7 @@ or evil-collection.")
     outline
     p4
     (package-menu package)
+    paren
     pass
     (pdf pdf-view)
     popup
