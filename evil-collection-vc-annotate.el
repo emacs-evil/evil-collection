@@ -37,7 +37,7 @@
     "a" 'vc-annotate-revision-previous-to-line
     "d" 'vc-annotate-show-diff-revision-at-line
     "=" 'vc-annotate-show-diff-revision-at-line
-    "d" 'vc-annotate-show-changeset-diff-revision-at-line
+    "D" 'vc-annotate-show-changeset-diff-revision-at-line
     "F" 'vc-annotate-find-revision-at-line
     "J" 'vc-annotate-revision-at-line
     "L" 'vc-annotate-show-log-revision-at-line
