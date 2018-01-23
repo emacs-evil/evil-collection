@@ -128,6 +128,7 @@ or evil-collection.")
     tide
     transmission
     typescript-mode
+    vc-annotate
     vlf
     woman
     xref
