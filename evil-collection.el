@@ -96,6 +96,7 @@ or evil-collection.")
     indium
     info
     ivy
+    log-view
     lua-mode
     kotlin-mode
     macrostep
