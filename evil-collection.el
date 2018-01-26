@@ -120,6 +120,7 @@ or evil-collection.")
     quickrun
     racer
     realgud
+    reftex
     rjsx-mode
     robe
     ruby-mode
