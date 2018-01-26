@@ -20,7 +20,7 @@
 
 ;; original code can be found in reftex-ref.el
 (defconst reftex-select-label-prompt
-  "Select: [RET]select [j]next [k]previous [gr]escan [.]context [q]uit [?]help"
+  "Select: [RET]select [j]next [k]previous [gr]escan [go]context [q]uit [?]help"
   )
 
 ;; original code can be found in reftex-cite.el
@@ -31,31 +31,29 @@
 ;; original at reftex-ref.el
 (defconst reftex-select-label-help
   " j / k      Go to next/previous label (Cursor motion works as well)
- C-j C-k  Go to next/previous section heading.	
- g          Start over with new regexp. 
- b / l      Jump back to previous selection / Reuse last referenced label.	
+ [ / ]      Go to previous/next section heading.	
+ c          Reuse last referenced label.	
  z          Jump to a specific section, e.g. '3 z' jumps to section 3.
  s          Switch label type.	
  gr         Reparse document.	
- . / go     Show context / Show insertion point.
- x          Switch to label menu of external document (with LaTeX package `xr').
- v   / V    Toggle \\ref <-> \\vref / Rotate \\ref <=> \\fref <=> \\Fref.
+ go / gO     Show context / Show insertion point.
+ S          Switch to label menu of external document (with LaTeX package `xr').
+ r / R      Toggle \\ref <-> \\vref / Rotate \\ref <=> \\fref <=> \\Fref.
  TAB        Enter a label with completion.
- m / #      Mark entry. Unmark entry.
- a / A      Put all marked entries into one/many \\ref commands.
+ m / M      Mark/unmark entry.
+ x / X      Put all marked entries into one/many \\ref commands.
  q / RET    Quit without referencing / Accept current label.")
 
 ;; code can be found in reftex-cite.el
 (defconst reftex-citation-help
   " j / k      Go to next/previous entry (Cursor motion works as well).
- . /go      Show citation / Show insertion point.
+ go / gO     Show citation / Show insertion point.
  q          Quit without inserting \\cite macro into buffer.
  TAB        Enter citation key with completion.
  RET        Accept current entry and create \\cite macro.
- m / #      Mark/Unmark the entry.
- e / E      Create BibTeX file with all (marked/unmarked) entries
- a / A      Put all (marked) entries into one/many \\cite commands.")
-
+ m / M      Mark/Unmark the entry.
+ o / O      Create BibTeX file with all marked / unmarked entries.
+ X / X      Put all (marked) entries into one/many \\cite commands.")
 
 (defun evil-collection-reftex-setup ()
   "Set up `evil' bindings for `reftex'."
@@ -66,38 +64,41 @@
   (evil-define-key 'normal reftex-select-shared-map
     "j" 'reftex-select-next
     "k" 'reftex-select-previous
-    (kbd "C-j") 'reftex-select-next-heading
-    (kbd "C-k") 'reftex-select-previous-heading
-    "." 'reftex-select-callback ;shows the point where the label is
+    (kbd "]") 'reftex-select-next-heading
+    (kbd "[") 'reftex-select-previous-heading
+    (kbd "gj") 'reftex-select-next-heading
+    (kbd "gk") 'reftex-select-previous-heading
+    "go" 'reftex-select-callback ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "q" 'reftex-select-quit
+    "ZZ" 'reftex-select-quit
+    "ZQ" 'evil-quit
     "?" 'reftex-select-help
-    "b" 'reftex-select-jump-to-previous
-    "l" (lambda nil "Press `?' during selection to find out
+    "c" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 108))
-    "z" 'reftex-select-jump
+    "z" 'reftex-select-jump ;; weird binding, using default
     (kbd "<tab>") 'reftex-select-read-label
     "s" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 115))
     "m" 'reftex-select-mark
-    "#" 'reftex-select-unmark
-    "a" (lambda nil "Press `?' during selection to find out
-    about this key." (interactive) (throw (quote myexit) 97))
-    "A" (lambda nil "Press `?' during selection to find out
-    about this key." (interactive) (throw (quote myexit) 65))
+    "M" 'reftex-select-unmark ;a mark/unmark function would help here
+    "u" 'reftex-select-unmark ;does not causes problems with undo
     "x" (lambda nil "Press `?' during selection to find out
+    about this key." (interactive) (throw (quote myexit) 97))
+    "X" (lambda nil "Press `?' during selection to find out
+    about this key." (interactive) (throw (quote myexit) 65))
+    "S" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 120))
-    "v" 'reftex-select-cycle-ref-style-forward
-    "V" 'reftex-select-cycle-ref-style-backward
-    "go" 'reftex-select-show-insertion-point 
-    "e" (lambda nil "Press `?' during selection to find out
+    "r" 'reftex-select-cycle-ref-style-forward
+    "R" 'reftex-select-cycle-ref-style-backward
+    "gO" 'reftex-select-show-insertion-point 
+    "o" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 101))
-    "E" (lambda nil "Press `?' during selection to find out
+    "O" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 69))
     )
 
-  
   (evil-set-initial-state 'reftex-toc-mode 'normal)
   
   ;; This one is more involved, in reftex-toc.el, line 282 it shows the prompt
@@ -107,8 +108,10 @@
     "k" 'reftex-toc-previous
     (kbd "RET") 'reftex-toc-goto-line-and-hide
     (kbd "<tab>") 'reftex-toc-goto-line
-    "q" 'reftex-toc-quit
     "?" 'reftex-toc-show-help
+    "q" 'reftex-toc-quit
+    "ZZ" 'reftex-toc-quit
+    "ZQ" 'evil-quit
     "gr" 'reftex-toc-rescan
     "r" 'reftex-toc-rescan
     "l" 'reftex-toc-toggle-labels
