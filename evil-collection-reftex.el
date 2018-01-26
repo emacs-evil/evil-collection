@@ -18,25 +18,18 @@
 (require 'reftex-ref nil t)
 (require 'reftex-cite nil t)
 
-(defun evil-collection-reftex-setup ()
-  "Set up `evil' bindings for `reftex'."
-
-  (evil-set-initial-state 'reftex-select-label-mode 'normal)
-  (evil-set-initial-state 'reftex-toc-mode 'normal)
-  (evil-set-initial-state 'reftex-select-bib-mode 'normal)
-  
-  ;; original code can be found in reftex-ref.el
-  (defconst reftex-select-label-prompt
+;; original code can be found in reftex-ref.el
+(defconst reftex-select-label-prompt
   "Select: [RET]select [j]next [k]previous [gr]escan [.]context [q]uit [?]help"
   )
 
-  ;; original code can be found in reftex-cite.el
-  (defconst reftex-citation-prompt
-        "Select: [RET]select [j]next [k]previous [q]uit [?]help"
-        )
-  
-  ;; original at reftex-ref.el
-  (defconst reftex-select-label-help
+;; original code can be found in reftex-cite.el
+(defconst reftex-citation-prompt
+  "Select: [RET]select [j]next [k]previous [q]uit [?]help"
+  )
+
+;; original at reftex-ref.el
+(defconst reftex-select-label-help
   " j / k      Go to next/previous label (Cursor motion works as well)
  C-j C-k  Go to next/previous section heading.	
  g          Start over with new regexp. 
@@ -52,8 +45,8 @@
  a / A      Put all marked entries into one/many \\ref commands.
  q / RET    Quit without referencing / Accept current label.")
 
-  ;; code can be found in reftex-cite.el
-  (defconst reftex-citation-help
+;; code can be found in reftex-cite.el
+(defconst reftex-citation-help
   " j / k      Go to next/previous entry (Cursor motion works as well).
  . /go      Show citation / Show insertion point.
  q          Quit without inserting \\cite macro into buffer.
@@ -62,6 +55,13 @@
  m / #      Mark/Unmark the entry.
  e / E      Create BibTeX file with all (marked/unmarked) entries
  a / A      Put all (marked) entries into one/many \\cite commands.")
+
+
+(defun evil-collection-reftex-setup ()
+  "Set up `evil' bindings for `reftex'."
+
+  (evil-set-initial-state 'reftex-select-label-mode 'normal)
+  (evil-set-initial-state 'reftex-select-bib-mode 'normal)
   
   (evil-define-key 'normal reftex-select-shared-map
     "j" 'reftex-select-next
@@ -70,7 +70,7 @@
     (kbd "C-k") 'reftex-select-previous-heading
     "." 'reftex-select-callback ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
-    about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way
+    about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "q" 'reftex-select-quit
     "?" 'reftex-select-help
     "b" 'reftex-select-jump-to-previous
@@ -97,6 +97,9 @@
     about this key." (interactive) (throw (quote myexit) 69))
     )
 
+  
+  (evil-set-initial-state 'reftex-toc-mode 'normal)
+  
   ;; This one is more involved, in reftex-toc.el, line 282 it shows the prompt
   ;; string with the keybinds and I don't see any way of changing it to show evil-like binds.
   (evil-define-key 'normal reftex-toc-mode-map
