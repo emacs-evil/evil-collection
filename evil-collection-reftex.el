@@ -81,7 +81,7 @@
     (kbd "gj") 'reftex-select-next-heading
     (kbd "gk") 'reftex-select-previous-heading
     (kbd "C-j") 'reftex-select-next-heading
-    (kbd "Ck") 'reftex-select-previous-heading
+    (kbd "C-k") 'reftex-select-previous-heading
     "go" 'reftex-select-callback ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
