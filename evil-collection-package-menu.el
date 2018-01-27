@@ -45,7 +45,7 @@
     ;; execute
     "x" 'package-menu-execute
 
-    ;; "q" 'quit-window ; macros can make sense here.
+    "q" 'quit-window ;; FIXME: Can macros make sense here?
     "ZQ" 'evil-quit
     "ZZ" 'quit-window))
 
