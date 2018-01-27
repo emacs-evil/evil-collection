@@ -35,8 +35,8 @@
 (defun evil-collection-which-key-setup ()
   "Set up `evil' bindings for `which-key'."
   
-  ;; (define-key which-key-C-h-map "a" 'which-key-abort)
   ;; (define-key which-key-C-h-map "u" 'which-key-undo-key)
+  (define-key which-key-C-h-map "q" 'which-key-abort)
   (define-key which-key-C-h-map "j" 'which-key-show-next-page-cycle)
   (define-key which-key-C-h-map "k" 'which-key-show-previous-page-cycle)
   (define-key which-key-C-h-map "?" 'which-key-show-standard-help))
