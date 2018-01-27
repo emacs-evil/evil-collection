@@ -31,6 +31,7 @@
 (require 'evil)
 (require 'which-key nil t)
 
+(defvar which-key-C-h-map)
 ;; which key is coded so that the promp properly shows j and k as the bindings
 (defun evil-collection-which-key-setup ()
   "Set up `evil' bindings for `which-key'."
