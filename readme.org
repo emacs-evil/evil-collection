@@ -10,8 +10,6 @@ more.
 *Warning:* This project is still in an early development phase, expect
 some default bindings to change in the future.
 
-
-
 ** Goals
 
 1. Reduce context switching: As soon as "moving around" gets hardwired
@@ -432,3 +430,5 @@ Other references:
    a better or more consistent binding, please open an issue or submit a PR.
 
    Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
+
+   [[https://github.com/erlang/otp/wiki/writing-good-commit-messages][This]] is also a good read for helpful commit messages.
