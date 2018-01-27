@@ -401,10 +401,10 @@ missing your ~<hjkl>~, feel free to file an issue or even a pull request.
 
 Third-party packages are provided by several parties:
 
-- [[evil-ediff][evil-ediff]]
-- [[evil-magit][evil-magit]]
-- [[evil-mu4e][evil-mu4e]]
-- [[lispyville][lispyville]]
+- [[https://github.com/emacs-evil/evil-ediff][evil-ediff]]
+- [[https://github.com/emacs-evil/evil-magit][evil-magit]]
+- [[https://github.com/JorisE/evil-mu4e][evil-mu4e]]
+- [[https://github.com/noctuid/lispyville][lispyville]]
 - Org-mode: https://github.com/GuiltyDolphin/org-evil or https://github.com/Somelauw/evil-org-mode
 
 Should you know any suitable package not mentioned in this list, let us know and
@@ -416,11 +416,9 @@ Other references:
 - [[https://github.com/hlissner/doom-emacs/blob/master/modules/private/hlissner/%2Bbindings.el][Doom Emacs]]
 
 #+LINK: EMMS https://www.gnu.org/software/emms/
-#+LINK: evil-ediff https://github.com/emacs-evil/evil-ediff
 #+LINK: evil-magit https://github.com/emacs-evil/evil-magit
 #+LINK: evil-mu4e https://github.com/JorisE/evil-mu4e
 #+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
-#+LINK: lispyville https://github.com/noctuid/lispyville
 ** Contributing
    Please do!
 
