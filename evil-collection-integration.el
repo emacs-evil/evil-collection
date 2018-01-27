@@ -98,10 +98,6 @@
   (when (fboundp 'evil-repeat-abort)
     (evil-repeat-abort)))
 
-;;; Buffer-menu
-
-(evil-add-hjkl-bindings Buffer-menu-mode-map 'motion)
-
 ;; dictionary.el
 
 (evil-add-hjkl-bindings dictionary-mode-map 'motion

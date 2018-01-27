@@ -62,6 +62,7 @@ or evil-collection.")
     anaconda-mode
     arc-mode
     bookmark
+    (buff-menu "buff-menu")
     calendar
     cider
     cmake-mode
