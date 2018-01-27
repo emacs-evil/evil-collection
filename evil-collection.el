@@ -62,7 +62,6 @@ or evil-collection.")
     anaconda-mode
     arc-mode
     bookmark
-    buffer-menu
     calendar
     cider
     cmake-mode
@@ -168,6 +167,9 @@ instance:
         (with-eval-after-load req
           (require (intern (concat "evil-collection-" (symbol-name m))))
           (funcall (intern (concat "evil-collection-" (symbol-name m) "-setup"))))))))
+
+(require 'evil-collection-buffer-menu)
+(funcall 'evil-collection-buffer-menu-setup)
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here

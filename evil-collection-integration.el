@@ -98,9 +98,9 @@
   (when (fboundp 'evil-repeat-abort)
     (evil-repeat-abort)))
 
-;;; Buffer-menu
+;;; Buffer-mode
 
-(evil-add-hjkl-bindings Buffer-menu-mode-map '(normal motion)) ;;temporary?
+;; (evil-add-hjkl-bindings Buffer-menu-mode-map 'motion)
 
 ;; dictionary.el
 
