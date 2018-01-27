@@ -33,9 +33,9 @@
 
 (defun evil-collection-debug-setup ()
   "Set up `evil' bindings for `debug'."
-  (evil-set-initial-state 'debugger-mode 'motion)
+  (evil-set-initial-state 'debugger-mode 'normal)
 
-  (evil-define-key 'motion debugger-mode-map
+  (evil-define-key 'normal debugger-mode-map
     ;; motion
     (kbd "<tab>") 'forward-button
     (kbd "S-<tab>") 'backward-button
