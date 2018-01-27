@@ -51,6 +51,7 @@
     ;; "\C-j" 'help-go-forward
     ;; "\C-k" 'help-go-back
 
+    "go" 'push-button
     "g?" 'describe-mode
     "gr" 'revert-buffer
     "<" 'help-go-back

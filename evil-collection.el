@@ -132,6 +132,7 @@ or evil-collection.")
     typescript-mode
     vc-annotate
     vlf
+    which-key
     woman
     xref
     (ztree ztree-diff))
@@ -166,6 +167,9 @@ instance:
         (with-eval-after-load req
           (require (intern (concat "evil-collection-" (symbol-name m))))
           (funcall (intern (concat "evil-collection-" (symbol-name m) "-setup"))))))))
+
+(require 'evil-collection-buffer-menu)
+(funcall 'evil-collection-buffer-menu-setup)
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here
