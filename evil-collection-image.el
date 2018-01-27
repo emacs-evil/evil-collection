@@ -48,11 +48,10 @@
     "0" 'image-bol
     "^" 'image-bol
     "$" 'image-eol
-    (kbd "C-d") 'image-scroll-down
+    (kbd "C-d") 'image-scroll-up
     (kbd "SPC") 'image-scroll-up
     (kbd "S-SPC") 'image-scroll-down
     (kbd "<delete>") 'image-scroll-down
-
     ;; animation
     (kbd "<return>") 'image-toggle-animation
     "a0" 'image-reset-speed
@@ -84,7 +83,7 @@
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll
     (evil-define-key 'motion image-mode-map
-      (kbd "C-u") 'image-scroll-up)))
+      (kbd "C-u") 'image-scroll-down)))
 
 (provide 'evil-collection-image)
 ;;; evil-collection-image.el ends here
