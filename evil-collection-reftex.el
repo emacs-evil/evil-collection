@@ -34,11 +34,11 @@
 
 ;; original code can be found in reftex-ref.el
 (setq reftex-select-label-prompt
-  "Select: [RET]select [j]next [k]previous [gr]escan [go]context [q]uit [?]help")
+  "Select: [RET]select [j]next [k]previous [gr]escan [go]context [q]uit [g?]help")
 
 ;; original code can be found in reftex-cite.el
 (setq reftex-citation-prompt
-  "Select: [RET]select [j]next [k]previous [q]uit [?]help")
+  "Select: [RET]select [j]next [k]previous [q]uit [g?]help")
 
 ;; original at reftex-ref.el
 (setq reftex-select-label-help
