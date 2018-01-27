@@ -38,6 +38,8 @@
   (evil-define-key nil which-key-C-h-map
     ;; (kbd "C-a") 'which-key-abort
     ;; "a" 'which-key-abort
+    ;; "u" . which-key-undo-key
+    "g?" . which-key-show-standard-help
     "j" 'which-key-show-next-page-cycle
     "k" 'which-key-show-previous-page-cycle))
 
