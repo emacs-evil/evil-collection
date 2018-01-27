@@ -32,10 +32,12 @@
 (require 'which-key nil t)
 
 (defvar which-key-C-h-map)
-;; which key is coded so that the promp properly shows j and k as the bindings
+
+;; `which-key'is coded so that the prompt properly shows j and k as
+;; the bindings.
 (defun evil-collection-which-key-setup ()
   "Set up `evil' bindings for `which-key'."
-  
+
   ;; (define-key which-key-C-h-map "u" 'which-key-undo-key)
   (define-key which-key-C-h-map "q" 'which-key-abort)
   (define-key which-key-C-h-map "j" 'which-key-show-next-page-cycle)
