@@ -29,14 +29,13 @@
 ;;; Code:
 
 (require 'evil)
-(require 'buff-menu nil t) ;;Necessary?
 
 ;; This function does not excecute itself and I don't know why
 ;; therefore ZZ and ZQ are not working, j and k works thanks to evil-integration
 (defun evil-collection-buffer-menu-setup ()
-  "Set up `evil' bindings for `Buffer-menu'."
-
-  (evil-define-key '(normal motion) Buffer-menu-mode-map
+  ;; "Set up `evil' bindings for `Buffer-menu'."
+  
+  (evil-define-key 'motion buffer-menu-mode-map
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
     "j"  'evil-next-line
