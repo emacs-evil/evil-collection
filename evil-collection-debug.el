@@ -45,13 +45,17 @@
     "R" 'debugger-record-expression
     "c" 'debugger-continue
     "d" 'debugger-step-through
+
     "x" 'debugger-eval-expression
+    "E" 'debugger-eval-expression
+
     "J" 'debugger-jump
 
     "gl" 'debugger-list-functions
     "gb" 'debugger-frame
     "r" 'debugger-return-value
     "u" 'debugger-frame-clear
+    "L" 'debugger-toggle-locals
     "p" 'debugger-toggle-locals
 
     ;; quit
