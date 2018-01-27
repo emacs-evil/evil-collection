@@ -33,21 +33,19 @@
 (require 'reftex-cite nil t)
 
 ;; original code can be found in reftex-ref.el
-(defconst reftex-select-label-prompt
-  "Select: [RET]select [j]next [k]previous [gr]escan [go]context [q]uit [?]help"
-  )
+(setq reftex-select-label-prompt
+  "Select: [RET]select [j]next [k]previous [gr]escan [go]context [q]uit [?]help")
 
 ;; original code can be found in reftex-cite.el
-(defconst reftex-citation-prompt
-  "Select: [RET]select [j]next [k]previous [q]uit [?]help"
-  )
+(setq reftex-citation-prompt
+  "Select: [RET]select [j]next [k]previous [q]uit [?]help")
 
 ;; original at reftex-ref.el
-(defconst reftex-select-label-help
+(setq reftex-select-label-help
   " j / k      Go to next/previous label (Cursor motion works as well)
  [ / ]      Go to previous/next section heading.	
  c          Reuse last referenced label.	
- z          Jump to a specific section, e.g. '3 z' jumps to section 3.
+ J          Jump to a specific section, e.g. '3 J' jumps to section 3.
  s          Switch label type.	
  gr         Reparse document.	
  go / gO     Show context / Show insertion point.
@@ -59,7 +57,7 @@
  q / RET    Quit without referencing / Accept current label.")
 
 ;; code can be found in reftex-cite.el
-(defconst reftex-citation-help
+(setq reftex-citation-help
   " j / k      Go to next/previous entry (Cursor motion works as well).
  go / gO     Show citation / Show insertion point.
  q          Quit without inserting \\cite macro into buffer.
@@ -82,16 +80,18 @@
     (kbd "[") 'reftex-select-previous-heading
     (kbd "gj") 'reftex-select-next-heading
     (kbd "gk") 'reftex-select-previous-heading
+    (kbd "C-j") 'reftex-select-next-heading
+    (kbd "Ck") 'reftex-select-previous-heading
     "go" 'reftex-select-callback ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "q" 'reftex-select-quit
     "ZZ" 'reftex-select-quit
     "ZQ" 'evil-quit
-    "?" 'reftex-select-help
+    "g?" 'reftex-select-help
     "c" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 108))
-    "z" 'reftex-select-jump ;; weird binding, using default
+    "J" 'reftex-select-jump ;; weird binding, using default
     (kbd "<tab>") 'reftex-select-read-label
     "s" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 115))
@@ -110,8 +110,7 @@
     "o" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 101))
     "O" (lambda nil "Press `?' during selection to find out
-    about this key." (interactive) (throw (quote myexit) 69))
-    )
+    about this key." (interactive) (throw (quote myexit) 69)))
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
   
@@ -122,7 +121,7 @@
     "k" 'reftex-toc-previous
     (kbd "RET") 'reftex-toc-goto-line-and-hide
     (kbd "<tab>") 'reftex-toc-goto-line
-    "?" 'reftex-toc-show-help
+    "g?" 'reftex-toc-show-help
     "q" 'reftex-toc-quit
     "ZZ" 'reftex-toc-quit
     "ZQ" 'evil-quit
@@ -131,10 +130,8 @@
     "l" 'reftex-toc-toggle-labels
     "?" 'reftex-toc-show-help
     "x" 'reftex-toc-external
-    "f" 'reftex-toc-toggle-follow
     ;; (kbd "SPC") 'reftex-toc-view-line
-    )
-  )
+    "f" 'reftex-toc-toggle-follow))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here
