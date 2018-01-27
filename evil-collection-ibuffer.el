@@ -33,6 +33,12 @@
 (defun evil-collection-ibuffer-setup ()
   "Set up `evil' bindings for `ibuffer'."
   (evil-set-initial-state 'ibuffer-mode 'normal)
+
+  (evil-define-key 'normal ibuffer-mode-map
+    (kbd "C-d") (if evil-want-C-d-scroll
+                    'evil-scroll-down
+                  'ibuffer-mark-for-delete-backwards))
+
   (evil-define-key 'normal ibuffer-mode-map
     (kbd "m") 'ibuffer-mark-forward
     (kbd "t") 'ibuffer-toggle-marks
@@ -60,7 +66,6 @@
     (kbd ".") 'ibuffer-mark-old-buffers
 
     (kbd "d") 'ibuffer-mark-for-delete
-    (kbd "C-d") 'ibuffer-mark-for-delete-backwards
     (kbd "x") 'ibuffer-do-kill-on-deletion-marks
 
     ;; immediate operations
