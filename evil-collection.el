@@ -132,6 +132,7 @@ or evil-collection.")
     typescript-mode
     vc-annotate
     vlf
+    which-key
     woman
     xref
     (ztree ztree-diff))
