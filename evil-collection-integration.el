@@ -100,7 +100,7 @@
 
 ;;; Buffer-menu
 
-(evil-add-hjkl-bindings Buffer-menu-mode-map 'motion)
+(evil-add-hjkl-bindings Buffer-menu-mode-map '(normal motion)) ;;temporary?
 
 ;; dictionary.el
 
