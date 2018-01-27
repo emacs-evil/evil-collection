@@ -32,7 +32,8 @@
 
 (defun evil-collection-man-setup ()
   "Set up `evil' bindings for `man'."
-  (evil-define-key 'motion Man-mode-map
+  (evil-set-initial-state 'Man-mode 'normal)
+  (evil-define-key 'normal Man-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
