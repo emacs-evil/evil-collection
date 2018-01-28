@@ -27,10 +27,54 @@
 ;;; Bindings for `buff-menu'.
 
 ;;; Code:
+(defun evil-collection-Buffer-menu-unmark-all ()
+  "Unmark all marked items."
+  ) ;; TODO: add this function
+
 (defun evil-collection-buff-menu-setup ()
   "Set up `evil' bindings for `buff-menu'.."
-  ;; FIXME: Fill me in!
-  (evil-add-hjkl-bindings Buffer-menu-mode-map 'motion))
+
+  (evil-set-initial-state 'Buffer-menu-mode 'normal)
+  (evil-add-hjkl-bindings Buffer-menu-mode-map 'normal)
+
+  (evil-define-key 'normal Buffer-menu-mode-map
+    "ZQ" 'evil-quit
+    "ZZ" 'quit-window
+    "gr" 'revert-buffer
+    "go" 'Buffer-menu-other-window
+    "d"  'Buffer-menu-delete
+    "u"  'Buffer-menu-unmark 
+    "U"  'evil-collection-Buffer-menu-unmark-all ;; TODO: add this
+    "m"  'Buffer-menu-mark
+    "s" 'Buffer-menu-save
+    [mouse-2] 'Buffer-menu-mouse-select
+    [follow-link] 'mouse-face
+    "x" 'Buffer-menu-execute
+
+    ;; Ones I am not sure about
+    "o" 'Buffer-menu-other-window
+    ;; The one I don't want
+    ;; " " 'next-line
+    
+    ;; Default ones
+    "v" 'Buffer-menu-select
+    "2" 'Buffer-menu-2-window
+    "1" 'Buffer-menu-1-window
+    "f" 'Buffer-menu-this-window
+    "e" 'Buffer-menu-this-window
+    "\C-m" 'Buffer-menu-this-window
+    "\C-k" 'Buffer-menu-delete
+    "\C-d" 'Buffer-menu-delete-backwards
+    "\177" 'Buffer-menu-backup-unmark
+    "~" 'Buffer-menu-not-modified
+    "t" 'Buffer-menu-visit-tags-table
+    "%" 'Buffer-menu-toggle-read-only
+    "b" 'Buffer-menu-bury
+    "V" 'Buffer-menu-view
+    "T" 'Buffer-menu-toggle-files-only
+    (kbd "M-s a C-s")   'Buffer-menu-isearch-buffers
+    (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
+    (kbd "M-s a C-o") 'Buffer-menu-multi-occur))
 
 (provide 'evil-collection-buff-menu)
 ;;; evil-collection-buff-menu.el ends here
