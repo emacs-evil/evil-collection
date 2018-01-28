@@ -51,8 +51,11 @@
     ;; "\C-j" 'help-go-forward
     ;; "\C-k" 'help-go-back
 
-    "go" 'push-button ;; this should open in same window
-    "gO" 'push-button ;; this should open in another window
+    ;; The following bindings don't do what they are supposed to. "go" should open
+    ;; in the same window and "gO" should open in a different one.
+    "go" 'push-button 
+    "gO" 'push-button
+    
     "g?" 'describe-mode
     "gr" 'revert-buffer
     "<" 'help-go-back
