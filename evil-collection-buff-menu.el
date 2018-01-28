@@ -31,6 +31,7 @@
 ;; `evil-collection-buff-menu-Buffer-menu-unmark-all'
 
 ;; Code taken from emacs-26 repository.
+(require 'evil)
 (require 'tabulated-list)
 
 ;; This is for `evil-collection-Buffer-menu-unmark-all-buffers.'
