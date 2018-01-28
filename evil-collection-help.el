@@ -51,7 +51,8 @@
     ;; "\C-j" 'help-go-forward
     ;; "\C-k" 'help-go-back
 
-    "go" 'push-button
+    "go" 'push-button ;; this should open in same window
+    "gO" 'push-button ;; this should open in another window
     "g?" 'describe-mode
     "gr" 'revert-buffer
     "<" 'help-go-back
