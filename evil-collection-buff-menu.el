@@ -28,37 +28,40 @@
 
 ;;; Code:
 
-;; Code taken from emacs-26 repository.
-(when (< emacs-major-version 26)
-  (require 'tabulated-list) ;; required for evil-collection-Buffer-menu-unmark-all-buffers
+;; `evil-collection-buff-menu-Buffer-menu-unmark-all'
 
-  (defsubst evil-collection-buff-menu-tabulated-list-header-overlay-p (&optional pos)
-    "Return non-nil if there is a fake header.
+;; Code taken from emacs-26 repository.
+(require 'tabulated-list)
+
+(defsubst evil-collection-buff-menu-tabulated-list-header-overlay-p (&optional pos)
+  "Return non-nil if there is a fake header.
 Optional arg POS is a buffer position where to look for a fake header;
 defaults to `point-min'."
-    (overlays-at (or pos (point-min))))
+  (overlays-at (or pos (point-min)))) ;; required for evil-collection-Buffer-menu-unmark-all-buffers
 
-  (defun evil-collection-buff-menu-Buffer-menu-unmark-all ()
-    "Cancel all requested operations on buffers."
-    (interactive)
-    (evil-collection-buff-menu-Buffer-menu-unmark-all-buffers ?\r))
+(defun evil-collection-buff-menu-Buffer-menu-unmark-all ()
+  "Cancel all requested operations on buffers."
+  (interactive)
+  (evil-collection-buff-menu-Buffer-menu-unmark-all-buffers ?\r))
 
-  (defun evil-collection-buff-menu-Buffer-menu-unmark-all-buffers (mark)
-    "Cancel a requested operation on all buffers.
+(defun evil-collection-buff-menu-Buffer-menu-unmark-all-buffers (mark)
+  "Cancel a requested operation on all buffers.
 MARK is the character to flag the operation on the buffers.
 When called interactively prompt for MARK;  RET remove all marks."
-    (interactive "cRemove marks (RET means all):")
-    (save-excursion
-      (goto-char (point-min))
-      (when (evil-collection-buff-menu-tabulated-list-header-overlay-p)
-        (forward-line))
-      (while (not (eobp))
-        (let ((xmarks (list (aref (tabulated-list-get-entry) 0)
-                            (aref (tabulated-list-get-entry) 2))))
-          (when (or (char-equal mark ?\r)
-                    (member (char-to-string mark) xmarks))
-            (Buffer-menu--unmark)))
-        (forward-line)))))
+  (interactive "cRemove marks (RET means all):")
+  (save-excursion
+    (goto-char (point-min))
+    (when (evil-collection-buff-menu-tabulated-list-header-overlay-p)
+      (forward-line))
+    (while (not (eobp))
+      (let ((xmarks (list (aref (tabulated-list-get-entry) 0)
+                          (aref (tabulated-list-get-entry) 2))))
+        (when (or (char-equal mark ?\r)
+                  (member (char-to-string mark) xmarks))
+          (Buffer-menu--unmark)))
+      (forward-line))))
+
+;; `evil-collection-buff-menu-Buffer-menu-unmark-all'
 
 (defun evil-collection-buff-menu-setup ()
   "Set up `evil' bindings for `buff-menu'.."
@@ -74,7 +77,9 @@ When called interactively prompt for MARK;  RET remove all marks."
     "gO" 'Buffer-menu-other-window
     "d"  'Buffer-menu-delete
     "u"  'Buffer-menu-unmark
-    "U"  'evil-collection-buff-menu-Buffer-menu-unmark-all
+    "U"  (if (< emacs-major-version 26)
+             'evil-collection-buff-menu-Buffer-menu-unmark-all
+           'Buffer-menu-unmark-all)
     "m"  'Buffer-menu-mark
     "s" 'Buffer-menu-save
     [mouse-2] 'Buffer-menu-mouse-select
