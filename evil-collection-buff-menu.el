@@ -29,7 +29,7 @@
 ;;; Code:
 
 ;; Code taken from emacs-26 repository.
-(when (< emacs-major-version 26) 
+(when (< emacs-major-version 26)
   (require 'tabulated-list) ;; required for evil-collection-Buffer-menu-unmark-all-buffers
 
   (defsubst evil-collection-buff-menu-tabulated-list-header-overlay-p (&optional pos)
@@ -51,14 +51,14 @@ When called interactively prompt for MARK;  RET remove all marks."
     (save-excursion
       (goto-char (point-min))
       (when (evil-collection-buff-menu-tabulated-list-header-overlay-p)
-	(forward-line))
+        (forward-line))
       (while (not (eobp))
-	(let ((xmarks (list (aref (tabulated-list-get-entry) 0)
-			    (aref (tabulated-list-get-entry) 2))))
-	  (when (or (char-equal mark ?\r)
-		    (member (char-to-string mark) xmarks))
-	    (Buffer-menu--unmark)))
-	(forward-line)))))
+        (let ((xmarks (list (aref (tabulated-list-get-entry) 0)
+                            (aref (tabulated-list-get-entry) 2))))
+          (when (or (char-equal mark ?\r)
+                    (member (char-to-string mark) xmarks))
+            (Buffer-menu--unmark)))
+        (forward-line)))))
 
 (defun evil-collection-buff-menu-setup ()
   "Set up `evil' bindings for `buff-menu'.."
@@ -73,7 +73,7 @@ When called interactively prompt for MARK;  RET remove all marks."
     "go" 'Buffer-menu-this-window
     "gO" 'Buffer-menu-other-window
     "d"  'Buffer-menu-delete
-    "u"  'Buffer-menu-unmark 
+    "u"  'Buffer-menu-unmark
     "U"  'evil-collection-buff-menu-Buffer-menu-unmark-all
     "m"  'Buffer-menu-mark
     "s" 'Buffer-menu-save
@@ -84,7 +84,7 @@ When called interactively prompt for MARK;  RET remove all marks."
     "gv" 'Buffer-menu-select
     "gV" 'Buffer-menu-view
     "v"  'evil-visual-char
-    
+
     ;; Default ones, unchanged. Redundant ones commented
     "2" 'Buffer-menu-2-window
     "1" 'Buffer-menu-1-window
