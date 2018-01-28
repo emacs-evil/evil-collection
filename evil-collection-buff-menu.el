@@ -92,11 +92,15 @@ When called interactively prompt for MARK;  RET remove all marks."
     "gV" 'Buffer-menu-view
     "v" 'evil-visual-char
 
+    "f" 'evil-find-char
+    "e" 'evil-forward-word-end
+    "b" 'evil-backward-word-begin
+
+    "X" 'Buffer-menu-bury
+
     ;; Default ones, unchanged. Redundant ones commented
     "2" 'Buffer-menu-2-window
     "1" 'Buffer-menu-1-window
-    ;; "f" 'Buffer-menu-this-window ;; TODO: if the 'hjkl' bug is fixed, cheek these
-    ;; "e" 'Buffer-menu-this-window
     "\C-m" 'Buffer-menu-this-window
     "\C-k" 'Buffer-menu-delete
     "\C-d" 'Buffer-menu-delete-backwards
@@ -104,7 +108,6 @@ When called interactively prompt for MARK;  RET remove all marks."
     "~" 'Buffer-menu-not-modified
     "t" 'Buffer-menu-visit-tags-table
     "%" 'Buffer-menu-toggle-read-only
-    "b" 'Buffer-menu-bury
     "T" 'Buffer-menu-toggle-files-only
     (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
