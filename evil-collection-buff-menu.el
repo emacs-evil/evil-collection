@@ -77,12 +77,12 @@ When called interactively prompt for MARK;  RET remove all marks."
     "gr" 'revert-buffer
     "go" 'Buffer-menu-this-window
     "gO" 'Buffer-menu-other-window
-    "d"  'Buffer-menu-delete
-    "u"  'Buffer-menu-unmark
-    "U"  (if (< emacs-major-version 26)
-             'evil-collection-buff-menu-Buffer-menu-unmark-all
-           'Buffer-menu-unmark-all)
-    "m"  'Buffer-menu-mark
+    "d" 'Buffer-menu-delete
+    "u" 'Buffer-menu-unmark
+    "U" (if (< emacs-major-version 26)
+            'evil-collection-buff-menu-Buffer-menu-unmark-all
+          'Buffer-menu-unmark-all)
+    "m" 'Buffer-menu-mark
     "s" 'Buffer-menu-save
     [mouse-2] 'Buffer-menu-mouse-select
     [follow-link] 'mouse-face
@@ -90,7 +90,7 @@ When called interactively prompt for MARK;  RET remove all marks."
     "o" 'tabulated-list-sort
     "gv" 'Buffer-menu-select
     "gV" 'Buffer-menu-view
-    "v"  'evil-visual-char
+    "v" 'evil-visual-char
 
     ;; Default ones, unchanged. Redundant ones commented
     "2" 'Buffer-menu-2-window
@@ -106,7 +106,7 @@ When called interactively prompt for MARK;  RET remove all marks."
     "%" 'Buffer-menu-toggle-read-only
     "b" 'Buffer-menu-bury
     "T" 'Buffer-menu-toggle-files-only
-    (kbd "M-s a C-s")   'Buffer-menu-isearch-buffers
+    (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
     (kbd "M-s a C-o") 'Buffer-menu-multi-occur))
 
