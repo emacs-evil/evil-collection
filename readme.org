@@ -415,6 +415,36 @@ Other references:
 #+LINK: evil-magit https://github.com/emacs-evil/evil-magit
 #+LINK: evil-mu4e https://github.com/JorisE/evil-mu4e
 #+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
+** FAQ
+   - Making SPC work similarly to ~spacemacs~.
+
+     ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
+     key:
+
+     I use ~general~ to give SPC the most precedence.
+   #+begin_src emacs-lisp :tangle yes
+     (use-package general
+       :ensure t
+       :config
+       (setq general-override-states '(insert
+                                       emacs
+                                       hybrid
+                                       normal
+                                       visual
+                                       motion
+                                       operator
+                                       replace))
+       (general-override-mode)
+       (general-define-key
+        :states '(normal visual motion)
+        :keymaps 'override
+        "SPC" 'hydra-space/body))
+   #+end_src
+
+   See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
+
+   This should also be accomplishable using key translation [[https://github.com/noctuid/general.el][general]].
+
 ** Contributing
    Please do!
 
