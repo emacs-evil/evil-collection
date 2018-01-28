@@ -86,6 +86,7 @@ or evil-collection.")
     etags-select
     eww
     flycheck
+    free-keys
     geiser
     ggtags
     go-mode
