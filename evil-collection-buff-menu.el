@@ -27,9 +27,38 @@
 ;;; Bindings for `buff-menu'.
 
 ;;; Code:
+
+;; taken from emacs upstream repository with a minnor change
+;; this is all redundant code after emacs 26 
+(require 'tabulated-list) ;; required for evil-collection-Buffer-menu-unmark-all-buffers
+
+(defsubst evil-collection-tabulated-list-header-overlay-p (&optional pos)
+  "Return non-nil if there is a fake header.
+Optional arg POS is a buffer position where to look for a fake header;
+defaults to `point-min'."
+  (overlays-at (or pos (point-min))))
+
 (defun evil-collection-Buffer-menu-unmark-all ()
-  "Unmark all marked items."
-  ) ;; TODO: add this function
+  "Cancel all requested operations on buffers."
+  (interactive)
+  (evil-collection-Buffer-menu-unmark-all-buffers ?\r))
+
+(defun evil-collection-Buffer-menu-unmark-all-buffers (mark)
+  "Cancel a requested operation on all buffers.
+MARK is the character to flag the operation on the buffers.
+When called interactively prompt for MARK;  RET remove all marks."
+  (interactive "cRemove marks (RET means all):")
+  (save-excursion
+    (goto-char (point-min))
+    (when (evil-collection-tabulated-list-header-overlay-p)
+      (forward-line))
+    (while (not (eobp))
+      (let ((xmarks (list (aref (tabulated-list-get-entry) 0)
+			  (aref (tabulated-list-get-entry) 2))))
+	(when (or (char-equal mark ?\r)
+		  (member (char-to-string mark) xmarks))
+	  (Buffer-menu--unmark)))
+      (forward-line))))
 
 (defun evil-collection-buff-menu-setup ()
   "Set up `evil' bindings for `buff-menu'.."
@@ -41,7 +70,8 @@
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
     "gr" 'revert-buffer
-    "go" 'Buffer-menu-other-window
+    "go" 'Buffer-menu-this-window
+    "gO" 'Buffer-menu-other-window
     "d"  'Buffer-menu-delete
     "u"  'Buffer-menu-unmark 
     "U"  'evil-collection-Buffer-menu-unmark-all ;; TODO: add this
@@ -50,18 +80,17 @@
     [mouse-2] 'Buffer-menu-mouse-select
     [follow-link] 'mouse-face
     "x" 'Buffer-menu-execute
-
-    ;; Ones I am not sure about
-    "o" 'Buffer-menu-other-window
-    ;; The one I don't want
-    ;; " " 'next-line
+    "o" 'tabulated-list-sort
+    ;; The ones I don't want
+    ;; "o" 'Buffer-menu-other-window  ; interferes with sorting, see rationale
+    ;; " " 'next-line 
     
-    ;; Default ones
+    ;; Default ones, unchanged. Redundant ones commented
     "v" 'Buffer-menu-select
     "2" 'Buffer-menu-2-window
     "1" 'Buffer-menu-1-window
-    "f" 'Buffer-menu-this-window
-    "e" 'Buffer-menu-this-window
+    ;; "f" 'Buffer-menu-this-window
+    ;; "e" 'Buffer-menu-this-window
     "\C-m" 'Buffer-menu-this-window
     "\C-k" 'Buffer-menu-delete
     "\C-d" 'Buffer-menu-delete-backwards
