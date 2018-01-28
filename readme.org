@@ -26,7 +26,6 @@ some default bindings to change in the future.
    reference implementation.
 
 
-
 ** Installation
 
 - Get the package, either from MELPA:
@@ -170,7 +169,6 @@ The rules are more-or-less sorted by priority.
 
 	- ~@~, ~q~
 	- ~.~
-
 
 
 ** Rationale (Work in progress)
@@ -394,8 +392,6 @@ definition".
 
 Some modes might still remain unsupported by this package.  Should you be
 missing your ~<hjkl>~, feel free to file an issue or even a pull request.
-
-
 
 ** Third-party packages
 
