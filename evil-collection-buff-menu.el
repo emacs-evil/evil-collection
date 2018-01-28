@@ -33,11 +33,12 @@
 ;; Code taken from emacs-26 repository.
 (require 'tabulated-list)
 
+;; This is for `evil-collection-Buffer-menu-unmark-all-buffers.'
 (defsubst evil-collection-buff-menu-tabulated-list-header-overlay-p (&optional pos)
   "Return non-nil if there is a fake header.
 Optional arg POS is a buffer position where to look for a fake header;
 defaults to `point-min'."
-  (overlays-at (or pos (point-min)))) ;; required for evil-collection-Buffer-menu-unmark-all-buffers
+  (overlays-at (or pos (point-min))))
 
 (defun evil-collection-buff-menu-Buffer-menu-unmark-all ()
   "Cancel all requested operations on buffers."
