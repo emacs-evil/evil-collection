@@ -33,7 +33,7 @@
 
 (defun evil-collection-ag-setup ()
   "Set up `evil' bindings for `ag'."
-  (evil-define-key 'normal ag-mode-map
+  (evil-define-key '(normal visual) ag-mode-map
     "k" 'evil-previous-line
     "h" 'evil-backward-char
 
