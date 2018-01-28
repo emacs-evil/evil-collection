@@ -416,12 +416,13 @@ Other references:
 #+LINK: evil-mu4e https://github.com/JorisE/evil-mu4e
 #+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
 ** FAQ
-   - Making SPC work similarly to ~spacemacs~.
+   - Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
 
      ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
      key:
 
-     I use ~general~ to give SPC the most precedence.
+     I use [[https://github.com/noctuid/general.el][general.]]
+
    #+begin_src emacs-lisp :tangle yes
      (use-package general
        :ensure t
@@ -443,7 +444,7 @@ Other references:
 
    See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
 
-   This should also be accomplishable using key translation [[https://github.com/noctuid/general.el][general]].
+   This should also be accomplishable using key translation from [[https://github.com/noctuid/general.el][general]].
 
 ** Contributing
    Please do!
