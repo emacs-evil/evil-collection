@@ -127,6 +127,7 @@ or evil-collection.")
     robe
     ruby-mode
     rtags
+    simple
     slime
     (term term ansi-term multi-term)
     tide
