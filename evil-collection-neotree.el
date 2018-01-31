@@ -1,0 +1,100 @@
+;;; evil-collection-neotree.el --- Evil bindings for neotree -*- lexical-binding: t -*-
+
+;; Copyright (C) 2017 Pierre Neidhardt
+
+;; Author: Maximiliano Sandoval <msandova@protonmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
+;; URL: https://github.com/jojojames/evil-collection
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "25.1"))
+;; Keywords: evil, neotree, tools
+
+;; This file is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published
+;; by the Free Software Foundation; either version 3, or (at your
+;; option) any later version.
+;;
+;; This file is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; For a full copy of the GNU General Public License
+;; see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;; Evil bindings for `neotree'
+
+;;; Code:
+
+(require 'evil)
+(require 'neotree)
+
+;; TODO: Compare with spacemacs keybindings.
+;; https://github.com/syl20bnr/spacemacs/blob/bd7ef98e4c35fd87538dd2a81356cc83f5fd02f3/layers/%2Bspacemacs/spacemacs-ui-visual/packages.el
+
+;; Maybe there are better uses of H, K, L,
+
+(defun evil-collection-neotree-setup ()
+  "Set up `evil' bindings for `neotree'."
+
+  (evil-set-initial-state 'neotree-mode 'normal) ;; Neotree start in normal by default.
+
+  (evil-define-key 'normal neotree-mode-map
+    
+    (kbd "<return>")	(neotree-make-executor
+			 :file-fn 'neo-open-file
+			 :dir-fn  'neo-open-dir)
+    (kbd "<tab>")	(neotree-make-executor
+			 :dir-fn  'neo-open-dir)
+    "z"		(neotree-make-executor
+		 :dir-fn  'neo-open-dir)
+    "gd"	(neotree-make-executor
+		 :dir-fn 'neo-open-dired)
+    "gD"	(neotree-make-executor
+		 :dir-fn 'neo-open-dired)
+    "go"	(neotree-make-executor
+		 :file-fn 'neo-open-file
+		 :dir-fn  'neo-open-dir)
+    "gO"	'neotree-quick-look
+    "gr"	'neotree-refresh
+    "q"		'neotree-hide
+    "H"		'neotree-hidden-file-toggle ;; This could use a better keybind. spacemacs uses "s"
+    "gh"	'neotree-hidden-file-toggle
+    (kbd "C-k")	'neotree-select-up-node
+    "gk"	'neotree-select-up-node
+    "["	'neotree-select-up-node
+    (kbd "C-j")	'neotree-select-down-node
+    "gj"	'neotree-select-down-node
+    "]"	'neotree-select-down-node
+    "gv"	'neotree-open-file-in-system-application
+    "c"		'neotree-create-node
+    "y"		'neotree-copy-node
+    "r"		'neotree-rename-node
+    "d"		'neotree-delete-node
+    "J"		'neotree-dir
+    "+"		'neotree-stretch-toggle
+    "ge"	'neotree-enter ;; This may be a redundant command.
+    "j"		'neotree-next-line
+    "k"		'neotree-previous-line
+
+    ;; Unchanged keybings.
+    
+    "a"		(neotree-make-executor
+		 :file-fn 'neo-open-file-ace-window)
+    "|"		(neotree-make-executor
+		 :file-fn 'neo-open-file-vertical-split)
+    "-"		(neotree-make-executor
+		 :file-fn 'neo-open-file-horizontal-split)
+    "S"		'neotree-select-previous-sibling-node
+    "s"		'neotree-select-next-sibling-node
+    (kbd "C-c C-c")	'neotree-change-root ;; This one is important/usefull, it needs a better keybind. spacemacs uses "R"
+    (kbd "C-x 1")	'neotree-empty-fn
+    (kbd "C-x 2")	'neotree-empty-fn
+    (kbd "C-x 3")	'neotree-empty-fn
+    (kbd "C-x C-f")	'find-file-other-window
+    (kbd "C-c C-f")	'find-file-other-window))
+
+(provide 'evil-collection-neotree)
+;;; evil-collection-neotree.el ends here

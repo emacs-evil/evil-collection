@@ -104,6 +104,7 @@ or evil-collection.")
     macrostep
     man
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
+    neotree
     notmuch
     nov
     ;; occur is in replace.el which was built-in before Emacs 26.
