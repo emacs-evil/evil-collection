@@ -29,12 +29,7 @@
 ;;; Code:
 
 (require 'evil)
-(require 'neotree)
-
-;; TODO: Compare with spacemacs keybindings.
-;; https://github.com/syl20bnr/spacemacs/blob/bd7ef98e4c35fd87538dd2a81356cc83f5fd02f3/layers/%2Bspacemacs/spacemacs-ui-visual/packages.el
-
-;; Maybe there are better uses of H, K, L,
+(require 'neotree nil t)
 
 (defun evil-collection-neotree-setup ()
   "Set up `evil' bindings for `neotree'."
@@ -45,22 +40,23 @@
     
     (kbd "<return>")	(neotree-make-executor
 			 :file-fn 'neo-open-file
-			 :dir-fn  'neo-open-dir)
+			 :dir-fn 'neo-open-dir)
     (kbd "<tab>")	(neotree-make-executor
-			 :dir-fn  'neo-open-dir)
+			 :dir-fn 'neo-open-dir)
     "z"		(neotree-make-executor
-		 :dir-fn  'neo-open-dir)
+		 :dir-fn 'neo-open-dir)
+    "ZZ"	'quit-window
     "gd"	(neotree-make-executor
 		 :dir-fn 'neo-open-dired)
     "gD"	(neotree-make-executor
 		 :dir-fn 'neo-open-dired)
     "go"	(neotree-make-executor
 		 :file-fn 'neo-open-file
-		 :dir-fn  'neo-open-dir)
+		 :dir-fn 'neo-open-dir)
     "gO"	'neotree-quick-look
     "gr"	'neotree-refresh
     "q"		'neotree-hide
-    "H"		'neotree-hidden-file-toggle ;; This could use a better keybind. spacemacs uses "s"
+    "H"		'neotree-hidden-file-toggle
     "gh"	'neotree-hidden-file-toggle
     (kbd "C-k")	'neotree-select-up-node
     "gk"	'neotree-select-up-node
@@ -72,15 +68,16 @@
     "c"		'neotree-create-node
     "y"		'neotree-copy-node
     "r"		'neotree-rename-node
+    "R"		'neotree-change-root
     "d"		'neotree-delete-node
     "J"		'neotree-dir
     "+"		'neotree-stretch-toggle
-    "ge"	'neotree-enter ;; This may be a redundant command.
+    "="		'neotree-stretch-toggle
+    "ge"	'neotree-enter
     "j"		'neotree-next-line
     "k"		'neotree-previous-line
 
     ;; Unchanged keybings.
-    
     "a"		(neotree-make-executor
 		 :file-fn 'neo-open-file-ace-window)
     "|"		(neotree-make-executor
@@ -89,7 +86,7 @@
 		 :file-fn 'neo-open-file-horizontal-split)
     "S"		'neotree-select-previous-sibling-node
     "s"		'neotree-select-next-sibling-node
-    (kbd "C-c C-c")	'neotree-change-root ;; This one is important/usefull, it needs a better keybind. spacemacs uses "R"
+    (kbd "C-c C-c")	'neotree-change-root
     (kbd "C-x 1")	'neotree-empty-fn
     (kbd "C-x 2")	'neotree-empty-fn
     (kbd "C-x 3")	'neotree-empty-fn
