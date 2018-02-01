@@ -81,6 +81,7 @@ or evil-collection.")
     elisp-mode
     elisp-refs
     emms
+    epa
     eshell
     eval-sexp-fu
     etags-select
