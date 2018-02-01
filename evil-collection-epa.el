@@ -34,32 +34,32 @@
 (defun evil-collection-epa-setup ()
   (evil-define-key 'normal epa-key-list-mode-map
     (kbd "<tab>") 'widget-forward
-    "m"		'epa-mark-key
-    "u"		'epa-unmark-key
-    "gr"	'revert-buffer
-    "q"		'epa-exit-buffer
-    "E"		'epa-decrypt-file
-    "d"		'epa-delete-keys	;; Originally this was binded to "r".
-    "ZZ"	'quit-window
-    "ZQ"	'evil-quit
+    "m"	 'epa-mark-key
+    "u"	 'epa-unmark-key
+    "gr" 'revert-buffer
+    "q"	 'epa-exit-buffer
+    "E"	 'epa-decrypt-file
+    "d"	 'epa-delete-keys	;; Originally this was binded to "r".
+    "ZZ" 'quit-window
+    "ZQ" 'evil-quit
     
     ;; Unchanged keybindings.
-    "v"		'epa-verify-file	;; Conflicts with visual.
-					;; There isn't any reason to use visual anyways.
-    "s"		'epa-sign-file
-    "e"		'epa-encrypt-file
-    "i"		'epa-import-keys
-    "o"		'epa-export-keys)
+    "v"	'epa-verify-file	;; Conflicts with visual.
+       				;; There isn't any reason to use visual anyways.
+    "s"	'epa-sign-file
+    "e"	'epa-encrypt-file
+    "i"	'epa-import-keys
+    "o"	'epa-export-keys)
 
   (evil-define-key 'normal epa-key-mode-map
-    "q"		'epa-exit-buffer
-    "ZZ"	'quit-window
-    "ZQ"	'evil-quit)
+    "q"	 'epa-exit-buffer
+    "ZZ" 'quit-window
+    "ZQ" 'evil-quit)
   
   (evil-define-key 'normal epa-info-mode-map
-    "q"		'delete-window
-    "ZZ"	'quit-window
-    "ZQ"	'evil-quit))
+    "q"	 'delete-window
+    "ZZ" 'quit-window
+    "ZQ" 'evil-quit))
 
 (provide 'evil-collection-epa)
 ;;; evil-collection-epa.el ends here
