@@ -42,10 +42,8 @@
   "Make read-only in motion state, writable in normal state."
   (if buffer-read-only
       (progn
-        (evil-motion-state)
-        (message "Evil Diff: enter motion state"))
-    (evil-normal-state)
-    (message "Evil Diff: enter normal state")))
+        (evil-motion-state))
+    (evil-normal-state)))
 
 (defun evil-collection-diff-toggle-setup ()
   "Toggle visiting diff buffers in motion state."
