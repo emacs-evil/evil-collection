@@ -57,7 +57,12 @@
       "D" 'ivy-occur-delete-candidate
       (kbd "C-d") 'evil-scroll-down))
 
+  (evil-define-key 'visual ivy-occur-grep-mode-map
+    "j" 'evil-next-line
+    "k" 'evil-previous-line)
+
   (evil-define-key 'normal ivy-occur-grep-mode-map
+    "d" 'ivy-occur-delete-candidate
     (kbd "C-x C-q") 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
     [mouse-1] 'ivy-occur-click
@@ -91,7 +96,6 @@
       (kbd "C-r") 'ivy-reverse-i-search
       (kbd "C-n") 'ivy-next-line
       (kbd "C-p") 'ivy-previous-line)))
-
 
 (provide 'evil-collection-ivy)
 ;;; evil-collection-ivy.el ends here
