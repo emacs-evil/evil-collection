@@ -118,7 +118,7 @@
     "r" 'dired-do-redisplay
     "m" 'dired-mark
     "t" 'dired-toggle-marks
-    "u" 'dired-unmark ; also "*u"
+    "u" 'dired-unmark                   ; also "*u"
     "W" 'browse-url-of-dired-file
     "x" 'dired-do-flagged-delete
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
@@ -133,6 +133,10 @@
     ;; sort
     "o" 'dired-sort-toggle-or-edit
     ;; moving
+    "gj" 'dired-next-dirline
+    "gk" 'dired-prev-dirline
+    "[" 'dired-prev-dirline
+    "]" 'dired-next-dirline
     "<" 'dired-prev-dirline
     ">" 'dired-next-dirline
     "^" 'dired-up-directory
