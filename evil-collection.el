@@ -136,6 +136,7 @@ or evil-collection.")
     transmission
     typescript-mode
     vc-annotate
+    vdiff
     vlf
     which-key
     woman
@@ -172,6 +173,12 @@ instance:
         (with-eval-after-load req
           (require (intern (concat "evil-collection-" (symbol-name m))))
           (funcall (intern (concat "evil-collection-" (symbol-name m) "-setup"))))))))
+
+(defvar evil-collection-delete-operators '(evil-delete
+                                           evil-cp-delete
+                                           vil-sp-delete
+                                           lispyville-delete)
+  "List of delete operators.")
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here
