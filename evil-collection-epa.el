@@ -43,7 +43,7 @@
     "ZZ" 'quit-window
     "ZQ" 'evil-quit
     "V" 'epa-verify-file
-    
+
     ;; Unchanged keybindings.
     "s" 'epa-sign-file
     "e" 'epa-encrypt-file
@@ -54,7 +54,7 @@
     "q" 'epa-exit-buffer
     "ZZ" 'quit-window
     "ZQ" 'evil-quit)
-  
+
   (evil-define-key 'normal epa-info-mode-map
     "q" 'delete-window
     "ZZ" 'quit-window
