@@ -57,7 +57,8 @@ or evil-collection.")
   :group 'evil-collection)
 
 (defcustom evil-collection-mode-list
-  `(ag
+  `(ace-jump-mode
+    ag
     alchemist
     anaconda-mode
     arc-mode
