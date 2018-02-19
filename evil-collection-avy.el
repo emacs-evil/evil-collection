@@ -45,7 +45,7 @@
 (declare-function 'avy-goto-subword-1 "avy")
 (declare-function 'avy-goto-char-timer "avy")
 
-(defmacro evil-collection-integration-enclose-avy-for-motion (&rest body)
+(defmacro evil-collection-avy-enclose-avy-for-motion (&rest body)
   "Enclose avy to make it suitable for motions.
 Based on `evil-collection-ace-jump-mode-enclose-ace-jump-for-motion'."
   (declare (indent defun)
@@ -58,7 +58,7 @@ Based on `evil-collection-ace-jump-mode-enclose-ace-jump-for-motion'."
      (ignore avy-all-windows) ;; Make byte compiler happy.
      ,@body))
 
-(defmacro evil-collection-integration-define-avy-motion (command type)
+(defmacro evil-collection-avy-define-avy-motion (command type)
   (declare (indent defun)
            (debug t))
   (let ((name (intern (format "evil-%s" command))))
@@ -68,29 +68,29 @@ Based on `evil-collection-ace-jump-mode-enclose-ace-jump-for-motion'."
        :jump t
        :repeat abort
        (evil-without-repeat
-         (evil-collection-integration-enclose-avy-for-motion
-           (call-interactively ',command))))))
+         (evil-collection-avy-enclose-avy-for-motion
+          (call-interactively ',command))))))
 
 ;; define evil-avy-* motion commands for avy-* commands
-(evil-collection-integration-define-avy-motion avy-goto-char inclusive)
-(evil-collection-integration-define-avy-motion avy-goto-char-2 inclusive)
-(evil-collection-integration-define-avy-motion avy-goto-char-2-above inclusive)
-(evil-collection-integration-define-avy-motion avy-goto-char-2-below inclusive)
-(evil-collection-integration-define-avy-motion avy-goto-char-in-line inclusive)
-(evil-collection-integration-define-avy-motion avy-goto-char-timer inclusive)
-(evil-collection-integration-define-avy-motion avy-goto-line line)
-(evil-collection-integration-define-avy-motion avy-goto-line-above line)
-(evil-collection-integration-define-avy-motion avy-goto-line-below line)
-(evil-collection-integration-define-avy-motion avy-goto-subword-0 exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-subword-1 exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-symbol-1 exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-symbol-1-above exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-symbol-1-below exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-word-0 exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-word-1 exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-word-1-above exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-word-1-below exclusive)
-(evil-collection-integration-define-avy-motion avy-goto-word-or-subword-1 exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-char inclusive)
+(evil-collection-avy-define-avy-motion avy-goto-char-2 inclusive)
+(evil-collection-avy-define-avy-motion avy-goto-char-2-above inclusive)
+(evil-collection-avy-define-avy-motion avy-goto-char-2-below inclusive)
+(evil-collection-avy-define-avy-motion avy-goto-char-in-line inclusive)
+(evil-collection-avy-define-avy-motion avy-goto-char-timer inclusive)
+(evil-collection-avy-define-avy-motion avy-goto-line line)
+(evil-collection-avy-define-avy-motion avy-goto-line-above line)
+(evil-collection-avy-define-avy-motion avy-goto-line-below line)
+(evil-collection-avy-define-avy-motion avy-goto-subword-0 exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-subword-1 exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-symbol-1 exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-symbol-1-above exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-symbol-1-below exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-word-0 exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-word-1 exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-word-1-above exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-word-1-below exclusive)
+(evil-collection-avy-define-avy-motion avy-goto-word-or-subword-1 exclusive)
 
 (defun evil-collection-avy-setup ()
   "Set up `evil' bindings for `avy'."
