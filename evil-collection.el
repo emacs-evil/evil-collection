@@ -179,7 +179,7 @@ instance:
 
 (defvar evil-collection-delete-operators '(evil-delete
                                            evil-cp-delete
-                                           vil-sp-delete
+                                           evil-sp-delete
                                            lispyville-delete)
   "List of delete operators.")
 
