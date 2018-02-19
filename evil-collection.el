@@ -62,6 +62,7 @@ or evil-collection.")
     alchemist
     anaconda-mode
     arc-mode
+    avy
     bookmark
     (buff-menu "buff-menu")
     calendar
