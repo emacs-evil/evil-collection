@@ -34,9 +34,9 @@
 (declare-function 'ace-jump-word-mode "ace-jump-mode")
 (declare-function 'ace-jump-line-mode "ace-jump-mode")
 
-(defvar evil-collection-integration-ace-jump-active nil)
+(defvar evil-collection-ace-jump-mode-jump-active nil)
 
-(defmacro evil-collection-integration-enclose-ace-jump-for-motion (&rest body)
+(defmacro evil-collection-ace-jump-mode-enclose-ace-jump-for-motion (&rest body)
   "Enclose ace-jump to make it suitable for motions.
 This includes restricting `ace-jump-mode' to the current window
 in visual and operator state, deactivating visual updates, saving
@@ -53,17 +53,17 @@ the mark and entering `recursive-edit'."
      (remove-hook 'pre-command-hook #'evil-visual-pre-command t)
      (remove-hook 'post-command-hook #'evil-visual-post-command t)
      (unwind-protect
-         (let ((evil-collection-integration-ace-jump-active 'prepare))
+         (let ((evil-collection-ace-jump-mode-jump-active 'prepare))
            (add-hook 'ace-jump-mode-end-hook
-                     #'evil-collection-integration-ace-jump-exit-recursive-edit)
+                     #'evil-collection-ace-jump-mode-jump-exit-recursive-edit)
            ,@body
-           (when evil-collection-integration-ace-jump-active
-             (setq evil-collection-integration-ace-jump-active t)
+           (when evil-collection-ace-jump-mode-jump-active
+             (setq evil-collection-ace-jump-mode-jump-active t)
              (recursive-edit)))
        (remove-hook 'post-command-hook
-                    #'evil-collection-integration-ace-jump-exit-recursive-edit)
+                    #'evil-collection-ace-jump-mode-jump-exit-recursive-edit)
        (remove-hook 'ace-jump-mode-end-hook
-                    #'evil-collection-integration-ace-jump-exit-recursive-edit)
+                    #'evil-collection-ace-jump-mode-jump-exit-recursive-edit)
        (if (evil-visual-state-p)
            (progn
              (add-hook 'pre-command-hook #'evil-visual-pre-command nil t)
@@ -71,13 +71,14 @@ the mark and entering `recursive-edit'."
              (set-mark old-mark))
          (push-mark old-mark)))))
 
-(defun evil-collection-integration-ace-jump-exit-recursive-edit ()
+(defun evil-collection-ace-jump-mode-jump-exit-recursive-edit ()
   "Exit a recursive edit caused by an evil jump."
   (cond
-   ((eq evil-collection-integration-ace-jump-active 'prepare)
-    (setq evil-collection-integration-ace-jump-active nil))
-   (evil-collection-integration-ace-jump-active
-    (remove-hook 'post-command-hook #'evil-collection-integration-ace-jump-exit-recursive-edit)
+   ((eq evil-collection-ace-jump-mode-jump-active 'prepare)
+    (setq evil-collection-ace-jump-mode-jump-active nil))
+   (evil-collection-ace-jump-mode-jump-active
+    (remove-hook 'post-command-hook
+                 #'evil-collection-ace-jump-mode-jump-exit-recursive-edit)
     (exit-recursive-edit))))
 
 (evil-define-motion evil-ace-jump-char-mode (_)
@@ -86,7 +87,7 @@ the mark and entering `recursive-edit'."
   (evil-without-repeat
     (let ((pnt (point))
           (buf (current-buffer)))
-      (evil-collection-integration-enclose-ace-jump-for-motion
+      (evil-collection-ace-jump-mode-enclose-ace-jump-for-motion
        (call-interactively 'ace-jump-char-mode))
       ;; if we jump backwards, motion type is exclusive, analogously
       ;; to `evil-find-char-backward'
@@ -103,7 +104,7 @@ the mark and entering `recursive-edit'."
   (evil-without-repeat
     (let ((pnt (point))
           (buf (current-buffer)))
-      (evil-collection-integration-enclose-ace-jump-for-motion
+      (evil-collection-ace-jump-mode-enclose-ace-jump-for-motion
        (call-interactively 'ace-jump-char-mode))
       (if (and (equal buf (current-buffer))
                (< (point) pnt))
@@ -120,7 +121,7 @@ the mark and entering `recursive-edit'."
   :type line
   :repeat abort
   (evil-without-repeat
-    (evil-collection-integration-enclose-ace-jump-for-motion
+    (evil-collection-ace-jump-mode-enclose-ace-jump-for-motion
      (call-interactively 'ace-jump-line-mode))))
 
 (evil-define-motion evil-ace-jump-word-mode (_)
@@ -128,15 +129,15 @@ the mark and entering `recursive-edit'."
   :type exclusive
   :repeat abort
   (evil-without-repeat
-    (evil-collection-integration-enclose-ace-jump-for-motion
+    (evil-collection-ace-jump-mode-enclose-ace-jump-for-motion
      (call-interactively 'ace-jump-word-mode))))
 
 (defun evil-collection-ace-jump-mode-setup ()
   "Set up `evil' bindings for `ace-jump-mode'."
 
   (defadvice ace-jump-done (after evil activate)
-    (when evil-collection-integration-ace-jump-active
-      (add-hook 'post-command-hook #'evil-collection-integration-ace-jump-exit-recursive-edit)))
+    (when evil-collection-ace-jump-mode-jump-active
+      (add-hook 'post-command-hook #'evil-collection-ace-jump-mode-jump-exit-recursive-edit)))
 
   (define-key evil-motion-state-map [remap ace-jump-char-mode] #'evil-ace-jump-char-mode)
   (define-key evil-motion-state-map [remap ace-jump-line-mode] #'evil-ace-jump-line-mode)

@@ -312,7 +312,7 @@ activated."
 
 (defmacro evil-collection-integration-enclose-avy-for-motion (&rest body)
   "Enclose avy to make it suitable for motions.
-Based on `evil-collection-integration-enclose-ace-jump-for-motion'."
+Based on `evil-collection-ace-jump-mode-enclose-ace-jump-for-motion'."
   (declare (indent defun)
            (debug t))
   `(let ((avy-all-windows
