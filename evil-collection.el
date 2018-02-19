@@ -99,6 +99,7 @@ or evil-collection.")
     indium
     info
     ivy
+    js2-mode
     log-view
     lua-mode
     kotlin-mode
