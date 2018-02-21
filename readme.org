@@ -400,7 +400,7 @@ Third-party packages are provided by several parties:
 - [[https://github.com/emacs-evil/evil-ediff][evil-ediff]]
 - [[https://github.com/emacs-evil/evil-magit][evil-magit]]
 - [[https://github.com/JorisE/evil-mu4e][evil-mu4e]]
-- [[https://github.com/noctuid/lispyville][lispyville]]
+- Lispy: [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]]
 - Org-mode: https://github.com/GuiltyDolphin/org-evil or https://github.com/Somelauw/evil-org-mode
 
 Should you know any suitable package not mentioned in this list, let us know and
