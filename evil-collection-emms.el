@@ -67,10 +67,12 @@ The return value is the yanked text."
   (evil-collection-emms-playlist-mode-paste-before))
 
 (defun evil-collection-emms-browser-setup ()
+  "Set up `evil' bindings for `emms-browser'."
   ;; TODO: Why doesn't evil-set-initial-state work with emms-browser-mode?
-  (add-hook 'emms-browser-mode-hook 'evil-motion-state)
 
-  (evil-define-key 'motion emms-browser-mode-map
+  (evil-collection-inhibit-insert-state emms-browser-mode-map)
+  (add-hook 'emms-browser-mode-hook 'evil-normal-state)
+  (evil-define-key 'normal emms-browser-mode-map
     ;; playback controls
     "x" 'emms-pause
     "X" 'emms-stop
@@ -94,8 +96,8 @@ The return value is the yanked text."
     "gk" 'emms-browser-next-non-track
 
     (kbd "<tab>") 'emms-browser-toggle-subitems
+    (kbd "<backtab>") 'emms-browser-toggle-subitems
     (kbd "SPC") 'emms-browser-toggle-subitems
-    ;; TODO: Use S-<tab>?
     "g1" 'emms-browser-collapse-all
     "g2" 'emms-browser-expand-to-level-2
     "g3" 'emms-browser-expand-to-level-3
@@ -126,9 +128,9 @@ The return value is the yanked text."
   "Set up `evil' bindings for `emms'."
   (with-eval-after-load 'emms-browser
     (evil-collection-emms-browser-setup))
-  (evil-set-initial-state 'emms-playlist-mode 'motion)
 
-  (evil-define-key 'motion emms-playlist-mode-map
+  (evil-set-initial-state 'emms-playlist-mode 'normal)
+  (evil-define-key 'normal emms-playlist-mode-map
     ;; playback controls
     "x" 'emms-pause
     "X" 'emms-stop
@@ -154,7 +156,7 @@ The return value is the yanked text."
     "]" 'emms-playlist-mode-next
     "[" 'emms-playlist-mode-previous
 
-    "D" 'emms-playlist-mode-kill-track ; emms-browser uses "D"
+    "D" 'emms-playlist-mode-kill-track  ; emms-browser uses "D"
     "C" 'emms-playlist-mode-clear
     "O" 'evil-collection-emms-playlist-mode-insert-newline-above
     "o" 'evil-collection-emms-playlist-mode-insert-newline-below
@@ -187,7 +189,7 @@ The return value is the yanked text."
   (evil-define-key 'normal emms-browser-search-mode-map
     "q" 'emms-browser-kill-search)
 
-  (evil-set-initial-state 'emms-metaplaylist-mode-map 'normal)
+  (evil-set-initial-state 'emms-metaplaylist-mode 'normal)
   (evil-define-key 'normal emms-metaplaylist-mode-map
     (kbd "<return>") 'emms-metaplaylist-mode-goto-current
     (kbd "<space>") 'emms-metaplaylist-mode-set-active
