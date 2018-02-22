@@ -31,9 +31,10 @@
 
 (defun evil-collection-ztree-setup ()
   "Set up `evil' bindings for `ztree'."
-  (evil-set-initial-state 'ztree-mode 'motion)
 
-  (evil-define-key 'motion ztree-mode-map
+  (evil-collection-inhibit-insert-state ztree-mode-map)
+  (evil-set-initial-state 'ztree-mode 'normal)
+  (evil-define-key 'normal ztree-mode-map
     (kbd "<tab>") 'ztree-jump-side
     (kbd "<return>") 'ztree-perform-action
     (kbd "SPC") 'ztree-perform-soft-action
@@ -48,7 +49,9 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-define-minor-mode-key 'motion 'ztreediff-mode
+  (evil-collection-inhibit-insert-state ztreediff-mode-map)
+  (evil-set-initial-state 'ztree-mode 'normal)
+  (evil-define-minor-mode-key 'normal 'ztreediff-mode
     "C" 'ztree-diff-copy
     "D" 'ztree-diff-delete-file
     "zH" 'ztree-diff-toggle-show-filtered-files
