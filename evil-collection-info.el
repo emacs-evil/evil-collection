@@ -24,8 +24,8 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; The default bindings in motion state override the standard
-;; movement keys.  This package restores them.
+;; The default bindings in motion state override the standard movement keys.
+;; This package uses normal state and redefines everything.
 
 ;;; Code:
 (require 'evil)
@@ -34,35 +34,45 @@
 
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
-  (evil-define-key 'motion Info-mode-map
-    ;; motion: Restore some Evil keys that got overriden.
-    "w" 'evil-forward-word-begin
-    "e" 'evil-forward-word-end
-    "ge" 'evil-backward-word-end
-    "gE" 'evil-backward-WORD-end
-    "b" 'evil-backward-word-begin
-    "gg" 'evil-goto-first-line
-    "t" 'evil-find-char-to
-    "T" 'evil-find-char-to-backward
-    "f" 'evil-find-char
-
-    "?" evil-collection-evil-search-backward
-    "/" evil-collection-evil-search-forward
-    "n" evil-collection-evil-search-next
-    "N" evil-collection-evil-search-previous
-
+  (evil-collection-inhibit-insert-state Info-mode-map)
+  (evil-set-initial-state 'Info-mode 'normal)
+  (evil-define-key 'normal Info-mode-map
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
 
+    ;; From evil-integration.el.
+    "0" 'evil-digit-argument-or-evil-beginning-of-line
+    (kbd "M-h") 'Info-help              ; "h"
+    (kbd "C-t") 'Info-history-back      ; "l"
+    (kbd "C-o") 'Info-history-back
+    " " 'Info-scroll-up
+    (kbd "C-]") 'Info-follow-nearest-node
+    (kbd "DEL") 'Info-scroll-down
+    ;; Add "C-i" for consistency.
+    (kbd "C-i") 'Info-history-forward
+
+    "d" 'Info-directory
+    "u" 'Info-up
+    "L" 'Info-history
+    "s" 'Info-search
+    "S" 'Info-search-case-sensitively
+    "i" 'Info-index
+    "I" 'Info-virtual-index
+    "a" 'info-apropos
+
+    ;; TODO: Restore digit arguments?  Use g[n] instead.
+
     ;; TODO: Should search with "n"/"N" cover the full manual like "C-s"/"C-r" does?
+    ;; TODO: Directions?
+    "n" 'isearch-repeat-forward
+    "N" 'isearch-repeat-backward
 
     ;; goto
     "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
+    "gm" 'Info-menu
     "gt" 'Info-top-node
     "gT" 'Info-toc
     "gf" 'Info-follow-reference
-    (kbd "C-o") 'Info-history-back
-    (kbd "C-i") 'Info-history-forward
     ;; TODO: "[" and "]" are Emacs default for fine-grained browsing.
     ;; We usually use "C-j"/"C-k" for that.
     (kbd "C-j") 'Info-next
@@ -71,7 +81,6 @@
     "gk" 'Info-prev
 
     (kbd "M-w") 'Info-copy-current-node-name ; TODO: Use yn?
-    "p" nil
 
     ;; quit
     "q" 'Info-exit
