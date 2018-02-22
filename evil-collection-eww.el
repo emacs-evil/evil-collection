@@ -43,7 +43,7 @@
 
     "gf" 'eww-view-source ; Like qutebrowser.
 
-    "yu" 'eww-copy-page-url
+    "yu" 'eww-copy-page-url             ; TODO: Don't shadow "y".
 
     "&" 'eww-browse-with-external-browser
     "C" 'url-cookie-list
@@ -52,6 +52,8 @@
     "x" 'eww-toggle-fonts
     "d" 'eww-download
     "b" 'eww-add-bookmark
+    "R" 'eww-readable                   ; Default binding.
+    "r" 'eww-readable
 
     "]" 'eww-next-url
     "[" 'eww-previous-url
@@ -59,8 +61,9 @@
     "gk" 'eww-previous-url
 
     ;; open
-    (kbd "S-<return>") 'eww
-    "go" 'eww
+    (kbd "S-<return>") 'eww-browse-with-external-browser
+    "go" 'eww-browse-with-external-browser
+    "o" 'eww ; Like qutebrowser.
 
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
@@ -72,7 +75,6 @@
 
     "gh" 'eww-list-histories
     "gt" 'eww-list-buffers ; Like dwb, qutebrowser.
-
 
     ;; refresh
     "gr" 'eww-reload
