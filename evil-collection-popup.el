@@ -30,7 +30,7 @@
 
 ;;; Code:
 (defun evil-collection-popup-setup ()
-  "Set up `evil' bindings for `popup'.."
+  "Set up `evil' bindings for `popup'."
   (defvar popup-menu-keymap)
   (define-key popup-menu-keymap (kbd "C-j") 'popup-next)
   (define-key popup-menu-keymap (kbd "C-k") 'popup-previous))
