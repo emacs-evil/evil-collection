@@ -32,9 +32,10 @@
 
 (defun evil-collection-elfeed-setup ()
   "Set up `evil' bindings for `elfeed'."
-  (evil-set-initial-state 'elfeed-search-mode 'motion)
 
-  (evil-define-key 'motion elfeed-search-mode-map
+  (evil-collection-inhibit-insert-state elfeed-search-mode-map)
+  (evil-set-initial-state 'elfeed-search-mode 'normal)
+  (evil-define-key 'normal elfeed-search-mode-map
     ;; open
     (kbd "<return>") 'elfeed-search-show-entry
     (kbd "S-<return>") 'elfeed-search-browse-url
@@ -55,21 +56,22 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-define-key '(motion visual) elfeed-search-mode-map
+  (evil-define-key '(normal visual) elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
     "-" 'elfeed-search-untag-all
     "U" 'elfeed-search-tag-all-unread
     "u" 'elfeed-search-untag-all-unread)
 
-  (evil-set-initial-state 'elfeed-show-mode 'motion)
-  (evil-define-key 'motion elfeed-show-mode-map
+  (evil-collection-inhibit-insert-state elfeed-show-mode-map)
+  (evil-set-initial-state 'elfeed-show-mode 'normal)
+  (evil-define-key 'normal elfeed-show-mode-map
     (kbd "S-<return>") 'elfeed-show-visit
     "go" 'elfeed-show-visit
 
     ;; filter
     "s" 'elfeed-show-new-live-search
 
-    "y" 'elfeed-show-yank
+    "y" 'elfeed-show-yank               ; TODO: Yank URL with "yu" like eww.
 
     "+" 'elfeed-show-tag
     "-" 'elfeed-show-untag
