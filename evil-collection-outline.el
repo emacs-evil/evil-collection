@@ -42,11 +42,12 @@ mode."
 
 (defun evil-collection-outline-setup ()
   "Set up `evil' bindings for `outline'."
+  (evil-set-initial-state 'outline-mode 'normal)
   (when evil-collection-outline-bind-tab-p
-    (evil-define-key 'motion outline-mode-map
-      (kbd "S-<tab>") 'outline-show-all ; Also "z r" by default
+    (evil-define-key 'normal outline-mode-map
+      (kbd "<backtab>") 'outline-show-all ; Also "z r" by default
       (kbd "<tab>") 'outline-toggle-children)) ; Also "z a" by default
-  (evil-define-key 'motion outline-mode-map
+  (evil-define-key 'normal outline-mode-map
     ;; folding
     ;; Evil default keys:
     ;; zO: Show recursively for current branch only.
@@ -83,10 +84,10 @@ mode."
     "gj" 'outline-forward-same-level
     "^" 'outline-up-heading
 
-    (kbd "M-h") 'outline-move-demote ; Org-mode has "M-<left>", Evil-org has "M-h"
+    (kbd "M-h") 'outline-promote ; Org-mode has "M-<left>", Evil-org has "M-h"
     (kbd "M-j") 'outline-move-subtree-down ; Org-mode has "M-<down>", Evil-org has "M-j"
     (kbd "M-k") 'outline-move-subtree-up ; Org-mode has "M-<up>", Evil-org has "M-k"
-    (kbd "M-l") 'outline-move-promote ; Org-mode has "M-<right>", Evil-org has "M-l"
+    (kbd "M-l") 'outline-demote ; Org-mode has "M-<right>", Evil-org has "M-l"
 
     (kbd "M-<return>") 'outline-insert-heading)) ; Org-mode has "M-<return>"
 
