@@ -36,15 +36,6 @@
 (defvar emms-browser-mode-map)
 (defvar emms-playlist-mode-map)
 
-;;; TODO: Make all playback bindings consistent across modes:
-;;; - stop
-;;; - pause
-;;; - volume
-;;; - next/previous
-;;; - fast-forward/backward
-
-;;; TODO: Add bindings to emms-browser-search-mode-map and emms-metaplaylist-mode-map.
-
 (defun evil-collection-emms-playlist-mode-insert-newline-above ()
   "Insert a newline above point."
   (interactive)
@@ -191,7 +182,20 @@ The return value is the yanked text."
 
   (evil-define-key 'visual emms-playlist-mode-map
     ;; "d" 'emms-playlist-mode-kill
-    "D" 'emms-playlist-mode-kill))
+    "D" 'emms-playlist-mode-kill)
+
+  (evil-define-key 'normal emms-browser-search-mode-map
+    "q" 'emms-browser-kill-search)
+
+  (evil-set-initial-state 'emms-metaplaylist-mode-map 'normal)
+  (evil-define-key 'normal emms-metaplaylist-mode-map
+    (kbd "<return>") 'emms-metaplaylist-mode-goto-current
+    (kbd "<space>") 'emms-metaplaylist-mode-set-active
+    "gr" 'emms-metaplaylist-mode-update
+    "C" 'emms-metaplaylist-mode-new-buffer
+    "." 'emms-metaplaylist-mode-center-current
+    "D" 'emms-metaplaylist-mode-kill-buffer
+    "q" 'kill-this-buffer))
 
 (provide 'evil-collection-emms)
 ;;; evil-collection-emms.el ends here
