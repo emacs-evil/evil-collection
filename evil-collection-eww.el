@@ -84,8 +84,9 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-set-initial-state 'eww-history-mode 'motion)
-  (evil-define-key 'motion eww-history-mode-map
+  (evil-collection-inhibit-insert-state eww-history-mode-map)
+  (evil-set-initial-state 'eww-history-mode 'normal)
+  (evil-define-key 'normal eww-history-mode-map
     (kbd "<return>") 'eww-history-browse
     ;; refresh
     "gr" 'revert-buffer
@@ -94,8 +95,9 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-set-initial-state 'eww-buffers-mode 'motion)
-  (evil-define-key 'motion eww-buffers-mode-map
+  (evil-collection-inhibit-insert-state eww-buffers-mode-map)
+  (evil-set-initial-state 'eww-buffers-mode 'normal)
+  (evil-define-key 'normal eww-buffers-mode-map
     "D" 'eww-buffer-kill
     (kbd "<return>") 'eww-buffer-select
     "]" 'eww-buffer-show-next
@@ -109,8 +111,9 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-set-initial-state 'eww-bookmark-mode 'motion)
-  (evil-define-key 'motion eww-bookmark-mode-map
+  (evil-collection-inhibit-insert-state eww-bookmark-mode-map)
+  (evil-set-initial-state 'eww-bookmark-mode 'normal)
+  (evil-define-key 'normal eww-bookmark-mode-map
     "D" 'eww-bookmark-kill
     (kbd "<return>") 'eww-bookmark-browse
     "yu" 'eww-bookmark-yank
