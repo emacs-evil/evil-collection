@@ -33,8 +33,10 @@
 
 (defun evil-collection-transmission-setup ()
   "Set up `evil' bindings for `transmission'."
-  (evil-set-initial-state 'transmission-mode 'motion)
-  (evil-define-key 'motion transmission-mode-map
+
+  (evil-collection-inhibit-insert-state transmission-mode-map)
+  (evil-set-initial-state 'transmission-mode 'normal)
+  (evil-define-key 'normal transmission-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
@@ -72,8 +74,9 @@
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
 
-  (evil-set-initial-state 'transmission-files-mode 'motion)
-  (evil-define-key 'motion transmission-files-mode-map
+  (evil-collection-inhibit-insert-state transmission-files-mode-map)
+  (evil-set-initial-state 'transmission-files-mode 'normal)
+  (evil-define-key 'normal transmission-files-mode-map
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
     (kbd "<delete>") 'scroll-down-command
@@ -110,8 +113,9 @@
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
 
-  (evil-set-initial-state 'transmission-info-mode 'motion)
-  (evil-define-key 'motion transmission-info-mode-map
+  (evil-collection-inhibit-insert-state transmission-info-mode-map)
+  (evil-set-initial-state 'transmission-info-mode 'normal)
+  (evil-define-key 'normal transmission-info-mode-map
     "p" 'transmission-peers
 
     "t" 'transmission-trackers-add
@@ -128,8 +132,9 @@
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
 
-  (evil-set-initial-state 'transmission-peers-mode 'motion)
-  (evil-define-key 'motion transmission-peers-mode-map
+  (evil-collection-inhibit-insert-state transmission-peers-mode-map)
+  (evil-set-initial-state 'transmission-peers-mode 'normal)
+  (evil-define-key 'normal transmission-peers-mode-map
     ;; sort
     "o" 'tabulated-list-sort
 
