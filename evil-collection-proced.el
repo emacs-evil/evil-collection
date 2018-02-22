@@ -31,9 +31,10 @@
 (require 'proced)
 
 (defun evil-collection-proced-setup ()
-  (evil-set-initial-state 'proced-mode 'motion)
-
-  (evil-define-key 'motion proced-mode-map
+  "Set up `evil' bindings for `proced'."
+  (evil-collection-inhibit-insert-state proced-mode-map)
+  (evil-set-initial-state 'proced-mode 'normal)
+  (evil-define-key 'normal proced-mode-map
     (kbd "<return>") 'proced-refine
 
     ;; mark
@@ -66,7 +67,7 @@
     "S" 'proced-format-interactive
 
     ;; sort
-    "oo" 'proced-sort-start ; Refers to "[o]order", Emacs has "s" mentioned in documentation.
+    "oo" 'proced-sort-start ; Refers to "[o]rder", Emacs has "s" mentioned in documentation.
     "oO" 'proced-sort-interactive
     "oc" 'proced-sort-pcpu
     "om" 'proced-sort-pmem
