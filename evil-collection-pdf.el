@@ -50,8 +50,9 @@
 
 (defun evil-collection-pdf-setup ()
   "Set up `evil' bindings for `pdf-view'."
-  (evil-set-initial-state 'pdf-view-mode 'motion)
-  (evil-define-key 'motion pdf-view-mode-map
+  (evil-collection-inhibit-insert-state pdf-view-mode-map)
+  (evil-set-initial-state 'pdf-view-mode 'normal)
+  (evil-define-key 'normal pdf-view-mode-map
     ;; motion
     (kbd "<return>") 'image-next-line
     "j" 'pdf-view-next-line-or-next-page
@@ -133,8 +134,9 @@
     "ZQ" 'kill-this-buffer
     "ZZ" 'quit-window)
 
-  (evil-set-initial-state 'pdf-outline-buffer-mode 'motion)
-  (evil-define-key 'motion pdf-outline-buffer-mode-map
+  (evil-collection-inhibit-insert-state pdf-outline-buffer-mode-map)
+  (evil-set-initial-state 'pdf-outline-buffer-mode 'normal)
+  (evil-define-key 'normal pdf-outline-buffer-mode-map
     ;; open
     (kbd "<return>") 'pdf-outline-follow-link-and-quit
     (kbd "S-<return>") 'pdf-outline-follow-link
@@ -155,7 +157,9 @@
     "ZQ" 'quit-window
     "ZZ" 'pdf-outline-quit-and-kill)
 
-  (evil-define-key 'motion pdf-occur-buffer-mode-map
+  (evil-collection-inhibit-insert-state pdf-occur-buffer-mode-map)
+  (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
+  (evil-define-key 'normal pdf-occur-buffer-mode-map
     ;; open
     (kbd "<return>") 'pdf-occur-goto-occurrence
     (kbd "S-<return>") 'pdf-occur-view-occurrence
