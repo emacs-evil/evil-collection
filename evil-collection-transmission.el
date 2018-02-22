@@ -51,7 +51,7 @@
 
     "a" 'transmission-add
     ;; "D" 'transmission-delete ; Useless with `transmission-remove'?
-    "p" 'transmission-move
+    "r" 'transmission-move
     "d" 'transmission-remove
     "x" 'transmission-toggle ; EMMS has "x" for pause.
     "t" 'transmission-trackers-add
@@ -87,7 +87,7 @@
     "p" 'transmission-peers
     "i" 'transmission-info
 
-    "R" 'transmission-move
+    "r" 'transmission-move
     "u" 'transmission-files-unwant
     "U" 'transmission-files-want
     "P" 'transmission-files-priority
@@ -125,7 +125,7 @@
     "S" 'transmission-set-torrent-ratio ; "S" for "[S]eed"
     "P" 'transmission-set-bandwidth-priority
     "gy" 'transmission-copy-magnet ; TODO: Use "ym"?
-    "R" 'transmission-move
+    "r" 'transmission-move
 
     ;; quit
     "q" 'quit-window
