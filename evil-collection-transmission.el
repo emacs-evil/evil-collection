@@ -124,13 +124,23 @@
     "U" 'transmission-set-torrent-upload
     "S" 'transmission-set-torrent-ratio ; "S" for "[S]eed"
     "P" 'transmission-set-bandwidth-priority
-    "gy" 'transmission-copy-magnet ; TODO: Use "ym"?
     "r" 'transmission-move
 
     ;; quit
     "q" 'quit-window
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+
+  (evil-define-key 'operator transmission-info-mode-map
+    ;; Like `eww'.
+    "u" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      #'transmission-copy-magnet))))
+
 
   (evil-collection-inhibit-insert-state transmission-peers-mode-map)
   (evil-set-initial-state 'transmission-peers-mode 'normal)

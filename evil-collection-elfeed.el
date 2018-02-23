@@ -48,7 +48,7 @@
     "S" 'elfeed-search-set-filter
 
     ;; refresh
-    "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
+    "gR" 'elfeed-search-fetch      ; TODO: Which update function is more useful?
     "gr" 'elfeed-search-update--force
 
     ;; quit
@@ -71,8 +71,6 @@
     ;; filter
     "s" 'elfeed-show-new-live-search
 
-    "y" 'elfeed-show-yank               ; TODO: Yank URL with "yu" like eww.
-
     "+" 'elfeed-show-tag
     "-" 'elfeed-show-untag
 
@@ -93,7 +91,17 @@
     ;; quit
     "q" 'elfeed-kill-buffer
     "ZQ" 'elfeed-kill-buffer
-    "ZZ" 'elfeed-kill-buffer))
+    "ZZ" 'elfeed-kill-buffer)
+
+  (evil-define-key 'operator elfeed-show-mode-map
+    ;; Like `eww'.
+    "u" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      #'elfeed-show-yank)))))
 
 (provide 'evil-collection-elfeed)
 ;;; evil-collection-elfeed.el ends here

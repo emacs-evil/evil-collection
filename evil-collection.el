@@ -184,6 +184,12 @@ instance:
                                            lispyville-delete)
   "List of delete operators.")
 
+(defvar evil-collection-yank-operators '(evil-yank
+                                         evil-cp-yank
+                                         evil-sp-yank
+                                         lispyville-yank)
+  "List of yank operators.")
+
 (defun evil-collection-inhibit-insert-state (map)
   "Unmap insertion keys from normal state.
 This is particularly useful for read-only modes."

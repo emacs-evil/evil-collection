@@ -41,9 +41,7 @@
     "H" 'eww-back-url
     "L" 'eww-forward-url
 
-    "gf" 'eww-view-source ; Like qutebrowser.
-
-    "yu" 'eww-copy-page-url             ; TODO: Don't shadow "y".
+    "gf" 'eww-view-source               ; Like qutebrowser.
 
     "&" 'eww-browse-with-external-browser
     "C" 'url-cookie-list
@@ -63,7 +61,7 @@
     ;; open
     (kbd "S-<return>") 'eww-browse-with-external-browser
     "go" 'eww-browse-with-external-browser
-    "o" 'eww ; Like qutebrowser.
+    "o" 'eww                            ; Like qutebrowser.
 
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
@@ -74,7 +72,7 @@
     "gb" 'eww-list-bookmarks
 
     "gh" 'eww-list-histories
-    "gt" 'eww-list-buffers ; Like dwb, qutebrowser.
+    "gt" 'eww-list-buffers              ; Like dwb, qutebrowser.
 
     ;; refresh
     "gr" 'eww-reload
@@ -83,6 +81,15 @@
     "q" 'quit-window
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+
+  (evil-define-key 'operator eww-mode-map
+    "u" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      #'eww-copy-page-url))))
 
   (evil-collection-inhibit-insert-state eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
@@ -116,13 +123,21 @@
   (evil-define-key 'normal eww-bookmark-mode-map
     "D" 'eww-bookmark-kill
     (kbd "<return>") 'eww-bookmark-browse
-    "yu" 'eww-bookmark-yank
     ;; refresh
     "gr" 'revert-buffer
     ;; quit
     "q" 'quit-window
     "ZQ" 'quit-window
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+
+  (evil-define-key 'operator eww-bookmark-mode-map
+    "u" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      #'eww-copy-page-url)))))
 
 (provide 'evil-collection-eww)
 ;;; evil-collection-eww.el ends here
