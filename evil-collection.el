@@ -65,6 +65,7 @@ or evil-collection.")
     avy
     bookmark
     (buff-menu "buff-menu")
+    calc
     calendar
     cider
     cmake-mode
