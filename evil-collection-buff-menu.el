@@ -101,10 +101,10 @@ When called interactively prompt for MARK;  RET remove all marks."
     ;; Default ones, unchanged. Redundant ones commented
     "2" 'Buffer-menu-2-window
     "1" 'Buffer-menu-1-window
-    "\C-m" 'Buffer-menu-this-window
-    "\C-k" 'Buffer-menu-delete
-    "\C-d" 'Buffer-menu-delete-backwards
-    "\177" 'Buffer-menu-backup-unmark
+    (kbd "C-m") 'Buffer-menu-this-window
+    (kbd "C-k") 'Buffer-menu-delete
+    (kbd "C-d") 'Buffer-menu-delete-backwards
+    (kbd "<delete>") 'Buffer-menu-backup-unmark
     "~" 'Buffer-menu-not-modified
     "t" 'Buffer-menu-visit-tags-table
     "%" 'Buffer-menu-toggle-read-only
