@@ -28,6 +28,7 @@
 
 ;;; Code:
 (require 'evil)
+(require 'pdf-tools nil t)
 (require 'pdf-view nil t)
 
 (declare-function pdf-view-last-page "pdf-view")
