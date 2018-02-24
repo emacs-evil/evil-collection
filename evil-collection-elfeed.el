@@ -101,6 +101,7 @@
           :filter (lambda (&optional _)
                     (when (memq evil-this-operator
                                 evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
                       #'elfeed-show-yank)))))
 
 (provide 'evil-collection-elfeed)

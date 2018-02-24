@@ -89,6 +89,7 @@
           :filter (lambda (&optional _)
                     (when (memq evil-this-operator
                                 evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
                       #'eww-copy-page-url))))
 
   (evil-collection-inhibit-insert-state eww-history-mode-map)
@@ -137,6 +138,7 @@
           :filter (lambda (&optional _)
                     (when (memq evil-this-operator
                                 evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
                       #'eww-copy-page-url)))))
 
 (provide 'evil-collection-eww)
