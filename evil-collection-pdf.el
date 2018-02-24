@@ -191,7 +191,7 @@
     "m" 'tablist-mark-forward
     "~" 'tablist-toggle-marks
     "u" 'tablist-unmark-forward
-    "M" 'tablist-unmark-all-marks
+    "U" 'tablist-unmark-all-marks
     "*!" 'tablist-unmark-all-marks
     "*c" 'tablist-change-marks
     "*n" 'tablist-mark-items-numeric
