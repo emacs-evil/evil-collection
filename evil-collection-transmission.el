@@ -52,18 +52,18 @@
     "a" 'transmission-add
     ;; "D" 'transmission-delete ; Useless with `transmission-remove'?
     "r" 'transmission-move
-    "d" 'transmission-remove
+    "D" 'transmission-remove
     "x" 'transmission-toggle ; EMMS has "x" for pause.
     "t" 'transmission-trackers-add
     "c" 'transmission-verify ; "c" for "[c]heck".
-    "D" 'transmission-set-download
-    "U" 'transmission-set-upload
+    "d" 'transmission-set-download
+    "u" 'transmission-set-upload
     "S" 'transmission-set-ratio ; "S" for "[S]eed"
     "P" 'transmission-set-bandwidth-priority
 
     ;; mark
     "m" 'transmission-toggle-mark
-    "M" 'transmission-unmark-all
+    "U" 'transmission-unmark-all
     "~" 'transmission-invert-marks
 
     ;; refresh
@@ -88,9 +88,11 @@
     "i" 'transmission-info
 
     "r" 'transmission-move
-    "u" 'transmission-files-unwant
-    "U" 'transmission-files-want
     "P" 'transmission-files-priority
+
+    ;; mark
+    "u" 'transmission-files-unwant
+    "m" 'transmission-files-want
 
     ;; open
     (kbd "<return>") 'transmission-find-file

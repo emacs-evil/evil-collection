@@ -41,7 +41,8 @@
     ;; TODO: Implement a proced-toggle-mark?
     "m" 'proced-mark ; Mentioned in documentation, should be followed.
     "*" 'proced-mark-all
-    "M" 'proced-unmark-all
+    "M" 'proced-mark-all
+    "U" 'proced-unmark-all
     "~" 'proced-toggle-marks
     "c" 'proced-mark-children
     "C" 'proced-mark-children ; Emacs has "C"

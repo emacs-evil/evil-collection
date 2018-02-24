@@ -43,11 +43,11 @@
 ;; original at reftex-ref.el
 (setq reftex-select-label-help
   " j / k      Go to next/previous label (Cursor motion works as well)
- [ / ]      Go to previous/next section heading.	
- c          Reuse last referenced label.	
+ [ / ]      Go to previous/next section heading.
+ c          Reuse last referenced label.
  J          Jump to a specific section, e.g. '3 J' jumps to section 3.
- s          Switch label type.	
- gr         Reparse document.	
+ s          Switch label type.
+ gr         Reparse document.
  go / gO     Show context / Show insertion point.
  S          Switch to label menu of external document (with LaTeX package `xr').
  r / R      Toggle \\ref <-> \\vref / Rotate \\ref <=> \\fref <=> \\Fref.
@@ -72,7 +72,7 @@
 
   (evil-set-initial-state 'reftex-select-label-mode 'normal)
   (evil-set-initial-state 'reftex-select-bib-mode 'normal)
-  
+
   (evil-define-key 'normal reftex-select-shared-map
     "j" 'reftex-select-next
     "k" 'reftex-select-previous
@@ -82,7 +82,7 @@
     (kbd "gk") 'reftex-select-previous-heading
     (kbd "C-j") 'reftex-select-next-heading
     (kbd "C-k") 'reftex-select-previous-heading
-    "go" 'reftex-select-callback ;shows the point where the label is
+    "go" 'reftex-select-callback        ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "q" 'reftex-select-quit
@@ -95,9 +95,6 @@
     (kbd "<tab>") 'reftex-select-read-label
     "s" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 115))
-    "m" 'reftex-select-mark
-    "M" 'reftex-select-unmark ;a mark/unmark function would help here
-    "u" 'reftex-select-unmark ;does not causes problems with undo
     "x" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 97))
     "X" (lambda nil "Press `?' during selection to find out
@@ -106,14 +103,18 @@
     about this key." (interactive) (throw (quote myexit) 120))
     "r" 'reftex-select-cycle-ref-style-forward
     "R" 'reftex-select-cycle-ref-style-backward
-    "gO" 'reftex-select-show-insertion-point 
+    "gO" 'reftex-select-show-insertion-point
     "o" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 101))
     "O" (lambda nil "Press `?' during selection to find out
-    about this key." (interactive) (throw (quote myexit) 69)))
+    about this key." (interactive) (throw (quote myexit) 69))
+
+    ;; mark
+    "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
+    "u" 'reftex-select-unmark)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
-  
+
   ;; This one is more involved, in reftex-toc.el, line 282 it shows the prompt
   ;; string with the keybinds and I don't see any way of changing it to show evil-like binds.
   (evil-define-key 'normal reftex-toc-mode-map
