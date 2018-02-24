@@ -42,8 +42,76 @@
 (defvar helm-find-files-map)
 (defvar helm-read-file-map)
 
+;; From https://github.com/emacs-helm/helm/issues/362.
+;; Also see https://emacs.stackexchange.com/questions/17058/change-cursor-type-in-helm-header-line#17097.
+;; TODO: With Evil, the cursor type is not right in the header line and the evil
+;; cursor remains in the minibuffer.  Visual selections also reveal overlayed
+;; text.
+(defun evil-collection-helm-hide-minibuffer-maybe ()
+  "Hide text in minibuffer when `helm-echo-input-in-header-line' is non-nil."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
+                              `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
+(defun evil-collection-helm--set-header-line (&optional update)
+  "Like `helm--set-header-line' with some Evil-specific tweaks.
+- The cursor changes when in Evil insert state.
+- Visual selection is highlighted."
+  (with-selected-window (minibuffer-window)
+    (let* ((beg (save-excursion (vertical-motion 0 (helm-window)) (point)))
+           (end (save-excursion (end-of-visual-line) (point)))
+           ;; The visual line where the cursor is.
+           (cont (buffer-substring beg end))
+           (pref (propertize
+                  " "
+                  'display (if (string-match-p (regexp-opt `(,helm--prompt
+                                                             ,helm--action-prompt))
+                                               cont)
+                               `(space :width ,helm-header-line-space-before-prompt)
+                             (propertize
+                              "->"
+                              'face 'helm-header-line-left-margin))))
+           (pos (- (point) beg)))
+      ;; Increment pos each time we find a "%" up to current-pos (#1648).
+      (cl-loop for c across (buffer-substring-no-properties beg (point))
+               when (eql c ?%) do (cl-incf pos))
+      ;; Increment pos when cursor is on a "%" to make it visible in header-line
+      ;; i.e "%%|" and not "%|%" (#1649).
+      (when (eql (char-after) ?%) (setq pos (1+ pos)))
+      (setq cont (replace-regexp-in-string "%" "%%" cont))
+      (let ((state evil-state)
+            (region-active (region-active-p))
+            (m (mark t)))
+        (with-helm-buffer
+          (setq header-line-format (concat pref cont " "))
+          (when region-active
+            (setq m (- m beg))
+            ;; Increment pos to handle the space before prompt (i.e `pref').
+            (put-text-property (1+  (min m pos))  (+ 2 (max m pos))
+                               'face
+                               (list :background (face-background 'region))
+                               header-line-format))
+          (put-text-property
+           ;; Increment pos to handle the space before prompt (i.e `pref').
+           (+ 1 pos) (+ 2 pos)
+           'face
+           (if (eq state 'insert)
+               'underline
+             ;; Don't just use 'cursor, this can hide the current character.
+             (list :inverse-video t
+                   :foreground (face-background 'cursor)
+                   :background (face-background 'default)))
+           header-line-format)
+          (when update (force-mode-line-update)))))))
+
 (defun evil-collection-helm-setup ()
   "Set up `evil' bindings for `helm'."
+  (add-hook 'helm-minibuffer-set-up-hook 'evil-collection-helm-hide-minibuffer-maybe)
+  (advice-add 'helm--set-header-line :override 'evil-collection-helm--set-header-line)
+
   (evil-define-key '(insert normal) helm-map
     (kbd "M-[") 'helm-previous-source
     (kbd "M-]") 'helm-next-source
@@ -55,8 +123,8 @@
 
   (dolist (map (list helm-find-files-map helm-read-file-map))
     (evil-define-key* 'normal map
-      "go" 'helm-ff-run-switch-other-window
-      "/" 'helm-ff-run-find-sh-command)
+                      "go" 'helm-ff-run-switch-other-window
+                      "/" 'helm-ff-run-find-sh-command)
     (evil-define-key* '(insert normal) map
                       (kbd "S-<return>") 'helm-ff-run-switch-other-window
                       (kbd "M-h") 'helm-find-files-up-one-level))
@@ -83,10 +151,10 @@
   (evil-define-key 'normal helm-find-files-map
     "=" 'helm-ff-run-ediff-file
     "%" 'helm-ff-run-query-replace-regexp
-    "D" 'helm-ff-run-delete-file) ; Ivy has "D".
+    "D" 'helm-ff-run-delete-file)       ; Ivy has "D".
 
   (evil-define-key 'normal helm-map
-    (kbd "<tab>") 'helm-select-action ; TODO: Ivy has "ga".
+    (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
     (kbd "[") 'helm-previous-source
     (kbd "]") 'helm-next-source
     "gk" 'helm-previous-source
