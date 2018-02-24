@@ -60,6 +60,8 @@
     "I" 'Info-virtual-index
     "a" 'info-apropos
 
+    "gg" 'evil-goto-first-line
+
     ;; TODO: Restore digit arguments?  Use g[n] instead.
 
     ;; TODO: Should search with "n"/"N" cover the full manual like "C-s"/"C-r" does?
