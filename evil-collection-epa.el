@@ -34,8 +34,6 @@
 (defun evil-collection-epa-setup ()
   (evil-define-key 'normal epa-key-list-mode-map
     (kbd "<tab>") 'widget-forward
-    "m" 'epa-mark-key
-    "u" 'epa-unmark-key
     "gr" 'revert-buffer
     "q" 'epa-exit-buffer
     "E" 'epa-decrypt-file
@@ -43,6 +41,10 @@
     "ZZ" 'quit-window
     "ZQ" 'evil-quit
     "V" 'epa-verify-file
+
+    ;; mark
+    "m" 'epa-mark-key
+    "u" 'epa-unmark-key
 
     ;; Unchanged keybindings.
     "s" 'epa-sign-file

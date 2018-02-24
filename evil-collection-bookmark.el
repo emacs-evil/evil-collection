@@ -45,8 +45,6 @@
     "1" 'bookmark-bmenu-1-window
     "x" 'bookmark-bmenu-execute-deletions
     "d" 'bookmark-bmenu-delete
-    "u" 'bookmark-bmenu-unmark
-    "m" 'bookmark-bmenu-mark
     "/" 'bookmark-bmenu-search
     "r" 'bookmark-bmenu-rename
     "R" 'bookmark-bmenu-relocate
@@ -58,6 +56,10 @@
     "W" 'bookmark-bmenu-locate
     "E" 'bookmark-bmenu-edit-annotation
     "D" 'bookmark-bmenu-delete-backwards
+
+    ;; mark
+    "u" 'bookmark-bmenu-unmark
+    "m" 'bookmark-bmenu-mark
 
     ;; open
     "o" 'bookmark-bmenu-select

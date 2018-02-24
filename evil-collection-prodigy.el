@@ -41,7 +41,7 @@
     "gg" 'prodigy-first
     "G" 'prodigy-last
 
-    ;; TODO: Marking subject to change.
+    ;; mark
     "m" 'prodigy-mark
     "*t" 'prodigy-mark-tag
     "M" 'prodigy-mark-all
