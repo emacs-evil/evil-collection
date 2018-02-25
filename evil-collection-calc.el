@@ -94,7 +94,7 @@ need to call it in its load hook."
     "." 'calcDigit-start
     "/" 'calc-divide
     ":" 'calc-fdiv
-    ";" 'calc-semi                   ; TODO: Shall we really override `evil-ex'?
+    ";" 'calc-semi         ; TODO: Shall we really override `evil-ex'?
     "<" 'calc-scroll-left
     "=" 'calc-evaluate
     ">" 'calc-scroll-right
@@ -129,7 +129,7 @@ need to call it in its load hook."
     "n" 'calc-change-sign
     "o" 'calc-realign
     "w" 'calc-why
-    "x" 'calc-execute-extended-command  ; TODO: Conflicts with calc-pop.
+    "x" 'calc-execute-extended-command ; TODO: Conflicts with calc-pop.
     "|" 'calc-concat
     "{" 'calc-scroll-down               ; TODO: Not necessary?
     "}" 'calc-scroll-up                 ; TODO: Not necessary?

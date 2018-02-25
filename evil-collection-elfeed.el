@@ -52,7 +52,7 @@
     "S" 'elfeed-search-set-filter
 
     ;; refresh
-    "gR" 'elfeed-search-fetch      ; TODO: Which update function is more useful?
+    "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
     "gr" 'elfeed-search-update--force
 
     ;; quit

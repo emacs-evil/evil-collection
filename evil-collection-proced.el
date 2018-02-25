@@ -46,9 +46,9 @@
     "M" 'proced-unmark-all
     "~" 'proced-toggle-marks
     "c" 'proced-mark-children
-    "C" 'proced-mark-children ; Emacs has "C"
+    "C" 'proced-mark-children           ; Emacs has "C"
     "p" 'proced-mark-parents
-    "P" 'proced-mark-parents ; Emacs has "P"
+    "P" 'proced-mark-parents            ; Emacs has "P"
     (kbd "<delete>") 'proced-unmark-backward
 
     ;; motion
@@ -60,7 +60,7 @@
 
     "u" 'proced-undo
 
-    "O" 'proced-omit-processes ; TODO: Change default binding?
+    "O" 'proced-omit-processes         ; TODO: Change default binding?
 
     "x" 'proced-send-signal ; Emacs has "k" and "x", "k" is mentioned in documentation
 
@@ -83,7 +83,7 @@
     "gr" 'revert-buffer
 
     ;; quit
-    "q" 'quit-window ; TODO: Macro support?
+    "q" 'quit-window                    ; TODO: Macro support?
     "ZQ" 'evil-quit
     "ZZ" 'quit-window))
 
