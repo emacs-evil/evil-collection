@@ -30,7 +30,6 @@
 (require 'ztree nil t)
 
 (declare-function evil-collection-inhibit-insert-state "evil-collection")
-
 (defvar ztree-mode-map)
 (defvar ztreediff-mode-map)
 
