@@ -41,6 +41,8 @@
 (defvar helm-map)
 (defvar helm-find-files-map)
 (defvar helm-read-file-map)
+(defvar helm-echo-input-in-header-line)
+(defvar helm--prompt)
 
 ;; From https://github.com/emacs-helm/helm/issues/362.
 ;; Also see https://emacs.stackexchange.com/questions/17058/change-cursor-type-in-helm-header-line#17097.

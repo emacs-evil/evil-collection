@@ -29,6 +29,10 @@
 (require 'evil)
 (require 'ztree nil t)
 
+(declare-function evil-collection-inhibit-insert-state "evil-collection")
+(defvar ztree-mode-map)
+(defvar ztreediff-mode-map)
+
 (defun evil-collection-ztree-setup ()
   "Set up `evil' bindings for `ztree'."
 

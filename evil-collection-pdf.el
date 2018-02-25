@@ -34,6 +34,10 @@
 (declare-function pdf-view-last-page "pdf-view")
 (declare-function pdf-view-first-page "pdf-view")
 (declare-function pdf-view-goto-page "pdf-view")
+(defvar pdf-view-mode-map)
+(defvar pdf-outline-buffer-mode-map)
+(defvar pdf-occur-buffer-mode-map)
+(declare-function evil-collection-inhibit-insert-state "evil-collection")
 
 (defun evil-collection-pdf-view-goto-page (&optional page)
   "`evil' wrapper around `pdf-view-last-page'."
