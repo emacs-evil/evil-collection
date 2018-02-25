@@ -78,11 +78,6 @@ When called interactively prompt for MARK;  RET remove all marks."
     "go" 'Buffer-menu-this-window
     "gO" 'Buffer-menu-other-window
     "d" 'Buffer-menu-delete
-    "u" 'Buffer-menu-unmark
-    "U" (if (< emacs-major-version 26)
-            'evil-collection-buff-menu-Buffer-menu-unmark-all
-          'Buffer-menu-unmark-all)
-    "m" 'Buffer-menu-mark
     "s" 'Buffer-menu-save
     [mouse-2] 'Buffer-menu-mouse-select
     [follow-link] 'mouse-face
@@ -91,6 +86,13 @@ When called interactively prompt for MARK;  RET remove all marks."
     "gv" 'Buffer-menu-select
     "gV" 'Buffer-menu-view
     "v" 'evil-visual-char
+
+    ;; mark
+    "u" 'Buffer-menu-unmark
+    "U" (if (< emacs-major-version 26)
+            'evil-collection-buff-menu-Buffer-menu-unmark-all
+          'Buffer-menu-unmark-all)
+    "m" 'Buffer-menu-mark
 
     "f" 'evil-find-char
     "e" 'evil-forward-word-end
