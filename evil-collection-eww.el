@@ -30,6 +30,8 @@
 (require 'eww)
 (require 'evil)
 
+(declare-function evil-collection-inhibit-insert-state "evil-collection")
+
 (defun evil-collection-eww-setup ()
   "Set up `evil' bindings for `eww'."
 

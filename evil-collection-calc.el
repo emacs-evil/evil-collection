@@ -29,6 +29,8 @@
 (require 'evil)
 (require 'calc)
 
+(declare-function evil-collection-inhibit-insert-state "evil-collection")
+
 (defun evil-collection-calc-ext-setup ()
   "Set up `evil' bindings for `calc'.
 Since calc bindings are set on-demand when calc-ext is load, we

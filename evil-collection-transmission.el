@@ -31,6 +31,12 @@
 (require 'evil)
 (require 'transmission nil t)
 
+(declare-function evil-collection-inhibit-insert-state "evil-collection")
+(defvar transmission-mode-map)
+(defvar transmission-files-mode-map)
+(defvar transmission-info-mode-map)
+(defvar transmission-peers-mode-map)
+
 (defun evil-collection-transmission-setup ()
   "Set up `evil' bindings for `transmission'."
 
