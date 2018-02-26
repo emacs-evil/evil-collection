@@ -51,7 +51,6 @@
     (kbd "gO") 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
-    "s" 'rtags-show-in-other-window ; TODO: Remove this binding?
 
     "c" 'rtags-select-caller
     "C" 'rtags-select-caller-other-window
