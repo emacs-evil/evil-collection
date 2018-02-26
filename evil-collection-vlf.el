@@ -67,7 +67,7 @@
     "E" 'vlf-ediff-buffers
 
     "g%" 'vlf-query-replace
-    "go" 'vlf-occur ; TODO: This binding clashes with "open".  Change?
+    "go" 'vlf-occur
     "L" 'vlf-goto-line
     "F" 'vlf-toggle-follow))
 

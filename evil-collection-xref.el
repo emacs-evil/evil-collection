@@ -45,7 +45,7 @@
     ;; open
     (kbd "<return>") 'xref-goto-xref
     (kbd "S-<return>") 'xref-show-location-at-point
-    "o" 'xref-show-location-at-point ; TODO: Remove binding?
+    "o" 'xref-show-location-at-point
     "go" 'xref-show-location-at-point))
 
 (provide 'evil-collection-xref)
