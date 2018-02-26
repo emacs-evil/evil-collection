@@ -61,6 +61,7 @@
     "i" 'Info-index
     "I" 'Info-virtual-index
     "a" 'info-apropos
+    "m" 'Info-menu
 
     "gg" 'evil-goto-first-line
 
