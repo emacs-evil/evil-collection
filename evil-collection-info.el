@@ -62,6 +62,7 @@
     "I" 'Info-virtual-index
     "a" 'info-apropos
     "m" 'Info-menu
+    "w" 'evil-forward-word-begin
 
     "gg" 'evil-goto-first-line
 
@@ -85,12 +86,21 @@
     "gj" 'Info-next
     "gk" 'Info-prev
 
-    (kbd "M-w") 'Info-copy-current-node-name ; TODO: Use yn?
 
     ;; quit
     "q" 'Info-exit
     "ZQ" 'evil-quit
-    "ZZ" 'Info-exit))
+    "ZZ" 'Info-exit)
+
+  (evil-define-key 'operator Info-mode-map
+    "u" '(menu-item                     ; Like eww.
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
+                      #'Info-copy-current-node-name)))))
 
 (provide 'evil-collection-info)
 ;;; evil-collection-info.el ends here
