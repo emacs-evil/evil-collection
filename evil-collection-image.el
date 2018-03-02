@@ -5,7 +5,7 @@
 ;; Author: Pierre Neidhardt <ambrevar@gmail.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <ambrevar@gmail.com>
-;; URL: https://github.com/jojojames/evil-collection
+;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
 ;; Keywords: evil, bookmark, tools
@@ -31,7 +31,7 @@
 (require 'image-mode)
 
 ;; TODO: pdf and doc-view conflict with image.
-;; See https://github.com/jojojames/evil-collection/issues/23.
+;; See https://github.com/emacs-evil/evil-collection/issues/23.
 
 (defun evil-collection-image-setup ()
   "Set up `evil' bindings for `image-mode'."
