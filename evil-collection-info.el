@@ -63,6 +63,7 @@
     "a" 'info-apropos
     "m" 'Info-menu
     "w" 'evil-forward-word-begin
+    "b" 'evil-backward-word-begin
 
     "gg" 'evil-goto-first-line
 
