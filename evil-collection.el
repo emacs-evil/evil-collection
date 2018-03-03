@@ -141,6 +141,7 @@ or evil-collection.")
     typescript-mode
     vc-annotate
     vdiff
+    view
     vlf
     which-key
     woman
