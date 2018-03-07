@@ -28,11 +28,10 @@
 
 ;;; Code:
 (require 'elfeed nil t)
-(require 'evil)
+(require 'evil-collection-util)
 
 (defvar elfeed-search-mode-map)
 (defvar elfeed-show-mode-map)
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
 
 (defun evil-collection-elfeed-setup ()
   "Set up `evil' bindings for `elfeed'."

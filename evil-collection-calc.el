@@ -26,10 +26,8 @@
 ;; Evil bindings for calc.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection-util)
 (require 'calc)
-
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
 
 (defun evil-collection-calc-ext-setup ()
   "Set up `evil' bindings for `calc'.

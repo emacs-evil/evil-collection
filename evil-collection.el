@@ -191,34 +191,5 @@ instance:
                                          lispyville-yank)
   "List of yank operators.")
 
-(defmacro evil-collection-inhibit-insert-state (map)
-  "Unmap insertion keys from normal state.
-This is particularly useful for read-only modes."
-  `(evil-define-key
-     'normal ,map
-     [remap evil-append] #'ignore
-     [remap evil-append-line] #'ignore
-     [remap evil-insert] #'ignore
-     [remap evil-insert-line] #'ignore
-     [remap evil-change] #'ignore
-     [remap evil-change-line] #'ignore
-     [remap evil-substitute] #'ignore
-     [remap evil-change-whole-line] #'ignore
-     [remap evil-delete] #'ignore
-     [remap evil-delete-line] #'ignore
-     [remap evil-delete-char] #'ignore
-     [remap evil-delete-backward-char] #'ignore
-     [remap evil-replace] #'ignore
-     [remap evil-replace-state] #'ignore
-     [remap evil-open-below] #'ignore
-     [remap evil-open-above] #'ignore
-     [remap evil-paste-after] #'ignore
-     [remap evil-paste-before] #'ignore
-     [remap evil-join] #'ignore
-     [remap evil-indent] #'ignore
-     [remap evil-shift-left] #'ignore
-     [remap evil-shift-right] #'ignore
-     [remap evil-invert-char] #'ignore))
-
 (provide 'evil-collection)
 ;;; evil-collection.el ends here

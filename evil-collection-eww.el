@@ -28,9 +28,7 @@
 
 ;;; Code:
 (require 'eww)
-(require 'evil)
-
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
+(require 'evil-collection-util)
 
 (defun evil-collection-eww-setup ()
   "Set up `evil' bindings for `eww'."

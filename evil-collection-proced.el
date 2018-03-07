@@ -27,10 +27,8 @@
 ;; Evil bindings for proced.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection-util)
 (require 'proced)
-
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
 
 (defun evil-collection-proced-setup ()
   "Set up `evil' bindings for `proced'."

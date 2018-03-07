@@ -27,7 +27,7 @@
 ;; Evil bindings for pdf-tools.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection-util)
 (require 'pdf-tools nil t)
 (require 'pdf-view nil t)
 
@@ -37,9 +37,6 @@
 (defvar pdf-view-mode-map)
 (defvar pdf-outline-buffer-mode-map)
 (defvar pdf-occur-buffer-mode-map)
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
-
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
 
 (defvar pdf-view-mode-map)
 (defvar pdf-outline-buffer-mode-map)

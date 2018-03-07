@@ -28,11 +28,10 @@
 
 ;;; Code:
 (require 'emms nil t)
-(require 'evil)
+(require 'evil-collection-util)
 
 (declare-function emms-with-inhibit-read-only-t "emms")
 (declare-function emms-playlist-mode-correct-previous-yank "emms-playlist-mode")
-(declare-function evil-collection-inhibit-insert-state "evil-collection")
 
 (defvar emms-browser-mode-map)
 (defvar emms-playlist-mode-map)
