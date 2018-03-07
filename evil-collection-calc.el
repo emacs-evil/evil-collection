@@ -163,7 +163,7 @@ need to call it in its load hook."
 
 (defun evil-collection-calc-setup ()
   "Set up `evil' bindings for `calc'."
-  (evil-collection-inhibit-insert-state calc-mode-map)
+  (evil-collection-util-inhibit-insert-state calc-mode-map)
   (evil-set-initial-state 'calc-mode 'normal)
   (evil-collection-calc-ext-setup)
   (add-hook 'calc-ext-load-hook 'evil-collection-calc-ext-setup))

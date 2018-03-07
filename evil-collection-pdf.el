@@ -58,7 +58,7 @@
 
 (defun evil-collection-pdf-setup ()
   "Set up `evil' bindings for `pdf-view'."
-  (evil-collection-inhibit-insert-state pdf-view-mode-map)
+  (evil-collection-util-inhibit-insert-state pdf-view-mode-map)
   (evil-set-initial-state 'pdf-view-mode 'normal)
   (evil-define-key 'normal pdf-view-mode-map
     ;; motion
@@ -142,7 +142,7 @@
     "ZQ" 'kill-this-buffer
     "ZZ" 'quit-window)
 
-  (evil-collection-inhibit-insert-state pdf-outline-buffer-mode-map)
+  (evil-collection-util-inhibit-insert-state pdf-outline-buffer-mode-map)
   (evil-set-initial-state 'pdf-outline-buffer-mode 'normal)
   (evil-define-key 'normal pdf-outline-buffer-mode-map
     ;; open
@@ -165,7 +165,7 @@
     "ZQ" 'quit-window
     "ZZ" 'pdf-outline-quit-and-kill)
 
-  (evil-collection-inhibit-insert-state pdf-occur-buffer-mode-map)
+  (evil-collection-util-inhibit-insert-state pdf-occur-buffer-mode-map)
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
   (evil-define-key 'normal pdf-occur-buffer-mode-map
     ;; open

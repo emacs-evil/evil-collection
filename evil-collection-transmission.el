@@ -39,7 +39,7 @@
 (defun evil-collection-transmission-setup ()
   "Set up `evil' bindings for `transmission'."
 
-  (evil-collection-inhibit-insert-state transmission-mode-map)
+  (evil-collection-util-inhibit-insert-state transmission-mode-map)
   (evil-set-initial-state 'transmission-mode 'normal)
   (evil-define-key 'normal transmission-mode-map
     ;; motion
@@ -79,7 +79,7 @@
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
 
-  (evil-collection-inhibit-insert-state transmission-files-mode-map)
+  (evil-collection-util-inhibit-insert-state transmission-files-mode-map)
   (evil-set-initial-state 'transmission-files-mode 'normal)
   (evil-define-key 'normal transmission-files-mode-map
     (kbd "SPC") 'scroll-up-command
@@ -120,7 +120,7 @@
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
 
-  (evil-collection-inhibit-insert-state transmission-info-mode-map)
+  (evil-collection-util-inhibit-insert-state transmission-info-mode-map)
   (evil-set-initial-state 'transmission-info-mode 'normal)
   (evil-define-key 'normal transmission-info-mode-map
     "p" 'transmission-peers
@@ -150,7 +150,7 @@
                       #'transmission-copy-magnet))))
 
 
-  (evil-collection-inhibit-insert-state transmission-peers-mode-map)
+  (evil-collection-util-inhibit-insert-state transmission-peers-mode-map)
   (evil-set-initial-state 'transmission-peers-mode 'normal)
   (evil-define-key 'normal transmission-peers-mode-map
     ;; sort

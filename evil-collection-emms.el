@@ -70,7 +70,7 @@ The return value is the yanked text."
   "Set up `evil' bindings for `emms-browser'."
   ;; TODO: Why doesn't evil-set-initial-state work with emms-browser-mode?
 
-  (evil-collection-inhibit-insert-state emms-browser-mode-map)
+  (evil-collection-util-inhibit-insert-state emms-browser-mode-map)
   (add-hook 'emms-browser-mode-hook 'evil-normal-state)
   (evil-define-key 'normal emms-browser-mode-map
     ;; playback controls
