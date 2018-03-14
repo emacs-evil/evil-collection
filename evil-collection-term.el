@@ -45,6 +45,14 @@ Warning: This feature is experimental."
   :group 'evil-collection-term
   :type 'boolean)
 
+(defcustom evil-collection-term-sync-state-function
+  'evil-collection-term-switch-to-char-mode-on-insert
+  "Function used when synchronizing insert/normal state with char/line-mode.
+
+This is only used if `evil-collection-term-sync-state-and-mode-p' is true."
+  :group 'evil-collection-term
+  :type 'function)
+
 ;; TODO: Rebinding ESC has the drawback that programs like vi cannot use it anymore.
 ;; Workaround: switch to Emacs state and double-press ESC.
 ;; Otherwise leave ESC to "C-c C-j".
@@ -76,10 +84,15 @@ it is not appropriate in some cases like terminals."
       (when (>= (point) last-prompt)
         (term-char-mode)))))
 
+(defun evil-collection-term-switch-to-char-mode-on-insert ()
+  "Switch to `term-char-mode' on insert state."
+  (when (get-buffer-process (current-buffer))
+    (term-char-mode)))
+
 (defun evil-collection-term-sync-state-and-mode ()
   "Sync `term-char-mode' and `term-line-mode' with insert and normal state."
   (add-hook 'evil-insert-state-entry-hook
-            'evil-collection-term-char-mode-entry-function nil t)
+            evil-collection-term-sync-state-function nil t)
   (add-hook 'evil-insert-state-exit-hook 'term-line-mode nil t))
 
 (defun evil-collection-term-send-tab ()
