@@ -39,7 +39,11 @@
     "r" #'daemons-reload-at-point
     "R" #'daemons-restart-at-point
 
-    "q" #'quit-window)
+    "gr" #'revert-buffer
+
+    "q" #'quit-window
+    "ZZ" #'quit-window
+    "ZQ" #'quit-window)
 
   ;; Functions are available in daemons-output-mode-map as well
   (evil-define-key '(normal visual) daemons-output-mode-map
@@ -49,7 +53,9 @@
     "r" #'daemons-reload-at-point
     "R" #'daemons-restart-at-point
 
-    "q" #'quit-window)
+    "q" #'quit-window
+    "ZZ" #'quit-window
+    "ZQ" #'quit-window)
 
   (evil-set-initial-state 'daemons-mode 'normal)
   (evil-set-initial-state 'daemons-output-mode 'normal))
