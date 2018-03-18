@@ -74,6 +74,7 @@ or evil-collection.")
     compile
     custom
     cus-theme
+    daemons
     debbugs
     debug
     diff-mode
