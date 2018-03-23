@@ -70,62 +70,37 @@
                               `(:background ,bg-color :foreground ,bg-color)))
       (setq-local cursor-type nil))))
 
-(defun evil-collection-helm--set-header-line (&optional update)
-  "Like `helm--set-header-line' with some Evil-specific tweaks.
-- The cursor changes when in Evil insert state.
-- Visual selection is highlighted."
-  (with-selected-window (minibuffer-window)
-    (let* ((beg (save-excursion (vertical-motion 0 (helm-window)) (point)))
-           (end (save-excursion (end-of-visual-line) (point)))
-           ;; The visual line where the cursor is.
-           (cont (buffer-substring beg end))
-           (pref (propertize
-                  " "
-                  'display (if (string-match-p (regexp-opt `(,helm--prompt
-                                                             ,helm--action-prompt))
-                                               cont)
-                               `(space :width ,helm-header-line-space-before-prompt)
-                             (propertize
-                              "->"
-                              'face 'helm-header-line-left-margin))))
-           (pos (- (point) beg)))
-      ;; Increment pos each time we find a "%" up to current-pos (#1648).
-      (cl-loop for c across (buffer-substring-no-properties beg (point))
-               when (eql c ?%) do (cl-incf pos))
-      ;; Increment pos when cursor is on a "%" to make it visible in header-line
-      ;; i.e "%%|" and not "%|%" (#1649).
-      (when (eql (char-after) ?%) (setq pos (1+ pos)))
-      (setq cont (replace-regexp-in-string "%" "%%" cont))
-      (let ((state evil-state)
-            (region-active (region-active-p))
-            (m (mark t)))
-        (with-helm-buffer
-          (setq header-line-format (concat pref cont " "))
-          (when region-active
-            (setq m (- m beg))
-            ;; Increment pos to handle the space before prompt (i.e `pref').
-            (put-text-property (1+  (min m pos))  (+ 2 (max m pos))
-                               'face
-                               (list :background (face-background 'region))
-                               header-line-format))
-          (put-text-property
-           ;; Increment pos to handle the space before prompt (i.e `pref').
-           (+ 1 pos) (+ 2 pos)
-           'face
-           (if (eq state 'insert)
-               'underline
-             ;; Don't just use 'cursor, this can hide the current character.
-             (list :inverse-video t
-                   :foreground (face-background 'cursor)
-                   :background (face-background 'default)))
-           header-line-format)
-          (when update (force-mode-line-update)))))))
+(defun evil-collection-helm--set-prompt-display (pos)
+  (let (beg state region-active m)
+    (with-selected-window (minibuffer-window)
+      (setq beg (save-excursion (vertical-motion 0 (helm-window)) (point))
+            state evil-state
+            region-active (region-active-p)
+            m (mark t)))
+    (when region-active
+      (setq m (- m beg))
+      ;; Increment pos to handle the space before prompt (i.e `pref').
+      (put-text-property (1+ (min m pos)) (+ 2 (max m pos))
+                         'face
+                         (list :background (face-background 'region))
+                         header-line-format))
+    (put-text-property
+     ;; Increment pos to handle the space before prompt (i.e `pref').
+     (+ 1 pos) (+ 2 pos)
+     'face
+     (if (eq state 'insert)
+         'underline
+       ;; Don't just use 'cursor, this can hide the current character.
+       (list :inverse-video t
+             :foreground (face-background 'cursor)
+             :background (face-background 'default)))
+     header-line-format)))
 
 
 (defun evil-collection-helm-setup ()
   "Set up `evil' bindings for `helm'."
   (add-hook 'helm-minibuffer-set-up-hook 'evil-collection-helm-hide-minibuffer-maybe)
-  (advice-add 'helm--set-header-line :override 'evil-collection-helm--set-header-line)
+  (setq helm-default-prompt-display-function 'evil-collection-helm--set-prompt-display)
 
   (evil-define-key '(insert normal) helm-map
     (kbd "M-[") 'helm-previous-source
