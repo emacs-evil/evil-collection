@@ -107,7 +107,7 @@ universally.
 
 The rules are more-or-less sorted by priority.
 
-0. [@0] Don't bind anything to ~:~ nor ~<escape>~.
+0. Don't bind anything to ~:~ nor ~<escape>~.
 
 1. Keep the movement keys when possible and sensible.
 
@@ -183,13 +183,13 @@ share the same bindings across all modes whenever feasible.
   If the mode makes no difference between the end of a section and the beginning
   of the next, use ~[~ and ~]~.
 
-- ~gj~ and ~gk~: synonym for ~[~ and ~]~.  That's what [[evil-magit][evil-magit]] does.
+- ~gj~ and ~gk~: synonym for ~[~ and ~]~.  That's what [[evilmagit][evil-magit]] does.
 
 *Question:* Should ~gj~ / ~gk~ rather be synonyms for ~C-j~ / ~C-k~?  They cannot
 emulate the behaviour of ~[]~ or ~][~.
 
 - ~C-j~, ~C-k~: If there is granularity, i.e. subsections, use ~C-j~ and ~C-k~
-  to browse them.  This reflects [[evil-magit][evil-magit]] and [[evil-mu4e][evil-mu4e]] default
+  to browse them.  This reflects [[evilmagit][evil-magit]] and [[evilmu4e][evil-mu4e]] default
   bindings.
 
 - ~{~, ~}~: If there is no paragraph structure, ~{~ and ~}~ can be used for sub-sectioning.
@@ -234,7 +234,7 @@ A good rule of thumb would be:
 
 *** Refreshing / Reverting (~gr~)
 
-- ~gr~ is used for refreshing in [[evil-magit][evil-magit]], [[evil-mu4e][evil-mu4e]], and some Spacemacs
+- ~gr~ is used for refreshing in [[evilmagit][evil-magit]], [[evilmu4e][evil-mu4e]], and some Spacemacs
   configurations (org-agenda and neotree among others).
 
 ~C-l~ is traditionally used to refresh the terminal screen.  Since there does
@@ -244,18 +244,18 @@ not seem to be any existing use of it, we leave the binding free for other uses.
 
 ~m~ defaults to ~evil-set-marker~ which might not be very useful in special
 modes.
-~'~ can still be used as it can jump to other buffers.
+='= can still be used as it can jump to other buffers.
 
 - ~m~: Mark or toggle mark, depending on what the mode offers.
-In visual mode, always mark.
-With a numeric argument, toggle mark on that many following lines.
+  In visual mode, always mark.
+  With a numeric argument, toggle mark on that many following lines.
 
 - ~u~: Unmark current selection.
 
 - ~U~: Unmark all.
 
 - =~=: Toggle all marks.  This mirrors the "invert-char" Vim command bound to =~=
-by default.
+  by default.
 
 - ~M~: Mark all, if available.  Otherwise use =U~=.
 
@@ -286,15 +286,17 @@ Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
 - ~o~: Change the sort [o]rder.
 - ~O~: Sort in reverse order.
 
-~package-menu~ uses ~S~.
+There is no real consensus around which key to bind to sorting.  What others do by default:
 
-~M-x proced~ and Dired use ~s~.
+- ~package-menu~ uses ~S~.
 
-~profiler~ uses ~A~ and ~D~.
+- ~M-x proced~ and Dired use ~s~.
 
-[[mu4e][mu4e]] uses ~O~.
+- ~profiler~ uses ~A~ and ~D~.
 
-[[http://www.nongnu.org/ranger/][ranger]] uses ~o~, inspired from [[http://mutt.org][Mutt]].
+- [[mu4e][mu4e]] uses ~O~.
+
+- [[http://www.nongnu.org/ranger/][ranger]] uses ~o~, inspired from [[http://mutt.org][Mutt]].
 
 *** Go to definition (~gd~, ~gD~)
 
@@ -386,7 +388,7 @@ definition".
 
 ** Key Translation
 ~evil-collection-translate-key~ allows binding a key to the definition of
-another key in the same keymap (comparable to how vim's keybindings work). Its
+another key in the same keymap (comparable to how Vim's keybindings work). Its
 arguments are the ~states~ and ~keymaps~ to bind/look up the key(s) in followed
 optionally by keyword arguments (currently only ~:destructive~) and
 key/replacement pairs. ~states~ should be nil for non-evil keymaps, and both
@@ -482,7 +484,7 @@ swap/unswap them with each call. Therefore when ~:destructive t~ is used, all
 cycles/swaps must be done within a single call to
 ~evil-collection-translate-key~. To make a comparison to Vim keybindings,
 ~:destructive t~ is comparable to Vim's ~map~, and ~:destructive nil~ is
-comparable to vim's ~noremap~ (where the "original" keybindings are those that
+comparable to Vim's ~noremap~ (where the "original" keybindings are those that
 existed in the keymap when ~evil-collection-translate-key~ was first called).
 You'll almost always want to use the default behavior (especially in your init
 file). The limitation of ~:destructive nil~ is that you can't translate a key to
@@ -523,19 +525,13 @@ Other references:
 - [[https://github.com/syl20bnr/spacemacs/blob/master/doc/CONVENTIONS.org#key-bindings-conventions][Spacemacs]]
 - [[https://github.com/hlissner/doom-emacs/blob/master/modules/private/hlissner/%2Bbindings.el][Doom Emacs]]
 
-#+LINK: EMMS https://www.gnu.org/software/emms/
-#+LINK: evil-magit https://github.com/emacs-evil/evil-magit
-#+LINK: evil-mu4e https://github.com/JorisE/evil-mu4e
-#+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
 ** FAQ
-   - Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
+- Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
 
-     ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
-     key:
+  ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
+  key with the [[https://github.com/noctuid/general.el][general]] library:
 
-     I use [[https://github.com/noctuid/general.el][general.]]
-
-   #+begin_src emacs-lisp :tangle yes
+  #+begin_src emacs-lisp :tangle yes
      (use-package general
        :ensure t
        :config
@@ -552,20 +548,25 @@ Other references:
         :states '(normal visual motion)
         :keymaps 'override
         "SPC" 'hydra-space/body))
-   #+end_src
+  #+end_src
 
-   See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
+  See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
 
-   This should also be accomplishable using key translation from [[https://github.com/noctuid/general.el][general]].
+  This should also be accomplishable using key translation from [[https://github.com/noctuid/general.el][general]].
 
 ** Contributing
-   Please do!
+Please do!
 
-   We welcome any additional modes that are not already supported.
+We welcome any additional modes that are not already supported.
 
-   All bindings in ~evil-collection~ are still open to change so if there's
-   a better or more consistent binding, please open an issue or submit a PR.
+All bindings in ~evil-collection~ are still open to change so if there's
+a better or more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
 
-   Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
+Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
 
-   [[https://github.com/erlang/otp/wiki/writing-good-commit-messages][This]] is also a good read for helpful commit messages.
+[[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erland/OTP]] has a good read for helpful commit messages.
+
+#+LINK: EMMS https://www.gnu.org/software/emms/
+#+LINK: evilmagit https://github.com/emacs-evil/evil-magit
+#+LINK: evilmu4e https://github.com/JorisE/evil-mu4e
+#+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
