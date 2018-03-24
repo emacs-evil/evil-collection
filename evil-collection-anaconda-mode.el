@@ -56,8 +56,7 @@
     ;; 'anaconda-mode-find-references
     "gd" 'anaconda-mode-find-definitions
     (kbd "C-t") 'anaconda-mode-go-back
-    "K" 'anaconda-mode-show-doc
-    "gf" 'anaconda-mode-find-file))
+    "K" 'anaconda-mode-show-doc))
 
 (provide 'evil-collection-anaconda-mode)
 ;;; evil-collection-anaconda-mode.el ends here
