@@ -564,7 +564,7 @@ a better or more consistent binding, please [[https://github.com/emacs-evil/evil
 
 Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
 
-[[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erland/OTP]] has a good read for helpful commit messages.
+[[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erlang/OTP]] has a good read for helpful commit messages.
 
 #+LINK: EMMS https://www.gnu.org/software/emms/
 #+LINK: evilmagit https://github.com/emacs-evil/evil-magit
