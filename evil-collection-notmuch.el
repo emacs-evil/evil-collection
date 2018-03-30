@@ -39,6 +39,7 @@
 (defconst evil-collection-notmuch-maps '(notmuch-common-keymap
                                          notmuch-hello-mode-map
                                          notmuch-show-mode-map
+                                         notmuch-show-part-map
                                          notmuch-tree-mode-map
                                          notmuch-search-mode-map
                                          notmuch-search-stash-map))
@@ -115,7 +116,8 @@
     "-" 'notmuch-show-remove-tag
     "+" 'notmuch-show-add-tag
     (kbd "TAB") 'notmuch-show-toggle-message
-    (kbd "RET") 'notmuch-show-toggle-message)
+    (kbd "RET") 'notmuch-show-toggle-message
+    "." 'notmuch-show-part-map)
 
   (evil-define-key 'normal notmuch-tree-mode-map
     "g?" (notmuch-tree-close-message-pane-and 'notmuch-help)
