@@ -62,14 +62,15 @@
 ;; TODO: With Evil, the cursor type is not right in the header line and the evil
 ;; cursor remains in the minibuffer.  Visual selections also reveal overlayed
 ;; text.
-(defun evil-collection-helm-hide-minibuffer-maybe ()
-  "Hide text in minibuffer when `helm-echo-input-in-header-line' is non-nil."
-  (when (with-helm-buffer helm-echo-input-in-header-line)
-    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-      (overlay-put ov 'window (selected-window))
-      (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
-                              `(:background ,bg-color :foreground ,bg-color)))
-      (setq-local cursor-type nil))))
+(with-no-warnings
+  (defun evil-collection-helm-hide-minibuffer-maybe ()
+    "Hide text in minibuffer when `helm-echo-input-in-header-line' is non-nil."
+    (when (with-helm-buffer helm-echo-input-in-header-line)
+      (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+        (overlay-put ov 'window (selected-window))
+        (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
+                                `(:background ,bg-color :foreground ,bg-color)))
+        (setq-local cursor-type nil)))))
 
 (defun evil-collection-helm--set-prompt-display (pos)
   (let (beg state region-active m)
