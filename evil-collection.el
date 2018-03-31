@@ -86,6 +86,7 @@ or evil-collection.")
     elisp-refs
     emms
     epa
+    ert
     eshell
     eval-sexp-fu
     etags-select
