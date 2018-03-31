@@ -12,52 +12,52 @@ some default bindings to change in the future.
 
 ** Goals
 
-1. Reduce context switching: As soon as "moving around" gets hardwired
-   to ~<hjkl>~, it becomes frustratingly inefficient not to have it everywhere.
+   1. Reduce context switching: As soon as "moving around" gets hardwired
+      to ~<hjkl>~, it becomes frustratingly inefficient not to have it everywhere.
 
-2. Community work: setting up bindings is tremendous work and joining force can
-   only save hours for all of Evil users out there.  While not everyone may agree
-   on the chosen bindings, it helps to have something to start with rather than
-   nothing at all.  In the end, users are free to override a subset of the proposed
-   bindings to best fit their needs.
+   2. Community work: setting up bindings is tremendous work and joining force can
+      only save hours for all of Evil users out there.  While not everyone may agree
+      on the chosen bindings, it helps to have something to start with rather than
+      nothing at all.  In the end, users are free to override a subset of the proposed
+      bindings to best fit their needs.
 
-3. Consistency: Having all bindings defined in one place allows for enforcing
-   consistency across special modes and coordinating the community work to define a
-   reference implementation.
+   3. Consistency: Having all bindings defined in one place allows for enforcing
+      consistency across special modes and coordinating the community work to define a
+      reference implementation.
 
 
 ** Installation
 
-- Get the package, either from MELPA:
+   - Get the package, either from MELPA:
 
-: M-x package-install RET evil-collection RET
+   : M-x package-install RET evil-collection RET
 
-Or clone / download this repository and modify your ~load-path~:
+   Or clone / download this repository and modify your ~load-path~:
 
-: (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
+   : (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
 
-- Register the bindings, either all at once with ~evil-collection-init~:
+   - Register the bindings, either all at once with ~evil-collection-init~:
 
-or mode-by-mode, for instance:
+   or mode-by-mode, for instance:
 
-: (with-eval-after-load 'calendar (require 'evil-collection-calendar) (evil-collection-calendar-setup))
+   : (with-eval-after-load 'calendar (require 'evil-collection-calendar) (evil-collection-calendar-setup))
 
-The list of supported modes is configured by ~~evil-collection-mode-list~~.
+   The list of supported modes is configured by ~~evil-collection-mode-list~~.
 
-~evil-collection~ assumes ~evil-want-integration~ is set to nil before loading ~evil~ and ~evil-collection.~
+   ~evil-collection~ assumes ~evil-want-integration~ is set to nil before loading ~evil~ and ~evil-collection.~
 
-For example:
+   For example:
 
-#+begin_src emacs-lisp :tangle yes
+   #+begin_src emacs-lisp :tangle yes
 (setq evil-want-integration nil)
 (require 'evil)
 (when (require 'evil-collection nil t)
   (evil-collection-init))
-#+end_src
+   #+end_src
 
-Here's another full TLDR ~use-package~ example.
+   Here's another full TLDR ~use-package~ example.
 
-#+begin_src emacs-lisp :tangle yes
+   #+begin_src emacs-lisp :tangle yes
 (use-package evil
   :ensure t
   :init
@@ -70,10 +70,10 @@ Here's another full TLDR ~use-package~ example.
   :ensure t
   :config
   (evil-collection-init))
-#+end_src
+   #+end_src
 
-NOTE: If you don't like surprises but still want to use ~evil-collection-init~, setting ~evil-collection-mode-list~ to nil
-and adding each mode manually might be a better option.
+   NOTE: If you don't like surprises but still want to use ~evil-collection-init~, setting ~evil-collection-mode-list~ to nil
+   and adding each mode manually might be a better option.
 
 ** Configuration
 
@@ -100,259 +100,258 @@ and adding each mode manually might be a better option.
 
 ** Guidelines
 
-The following rules serve as guiding principles to define the set of standard
-Evil bindings for various modes.  Since special modes are by definition
-structurally incomparable, those rules cannot be expected to be applied
-universally.
+   The following rules serve as guiding principles to define the set of standard
+   Evil bindings for various modes.  Since special modes are by definition
+   structurally incomparable, those rules cannot be expected to be applied
+   universally.
 
-The rules are more-or-less sorted by priority.
+   The rules are more-or-less sorted by priority.
 
-0. Don't bind anything to ~:~ nor ~<escape>~.
+   0. Don't bind anything to ~:~ nor ~<escape>~.
 
-1. Keep the movement keys when possible and sensible.
+   1. Keep the movement keys when possible and sensible.
 
-	- ~h~, ~j~, ~k~, ~l~
-	- ~w~, ~W~, ~b~, ~B~, ~e~, ~E~, ~ge~, ~gE~
-	- ~f~, ~F~, ~t~, ~T~, ~;~, =,=
-	- ~gg~, ~G~
-	- ~|~
-	- ~(~, ~)~
-	- ~{~, ~}~
-	- ~%~
-	- ~+~, ~-~, ~0~, ~^~, ~$~
-	- ~C-i~, ~C-o~
+      - ~h~, ~j~, ~k~, ~l~
+      - ~w~, ~W~, ~b~, ~B~, ~e~, ~E~, ~ge~, ~gE~
+      - ~f~, ~F~, ~t~, ~T~, ~;~, =,=
+      - ~gg~, ~G~
+      - ~|~
+      - ~(~, ~)~
+      - ~{~, ~}~
+      - ~%~
+      - ~+~, ~-~, ~0~, ~^~, ~$~
+      - ~C-i~, ~C-o~
 
-2. Keep the yanking and register keys when possible and sensible.
+   2. Keep the yanking and register keys when possible and sensible.
 
-	- ~y~, ~Y~
-	- ="=
+      - ~y~, ~Y~
+      - ="=
 
-3. Keep the search keys when possible and sensible.
+   3. Keep the search keys when possible and sensible.
 
-	- ~/~, ~?~
-	- ~#~, ~*~
+      - ~/~, ~?~
+      - ~#~, ~*~
 
-4. Keep the mark keys when possible and sensible.
+   4. Keep the mark keys when possible and sensible.
 
-	- ~m~
-	- ='=, =~=
+      - ~m~
+      - ='=, =~=
 
-5. Keep the windowing keys when possible and sensible.
+   5. Keep the windowing keys when possible and sensible.
 
-	- ~H~, ~L~, ~M~
-	- ~C-e~, ~C-y~
-	- ~C-f~, ~C-b~
-	- ~C-d~, ~C-u~
-	- ~C-w~-prefixed bindings.
-	- Some ~z~-prefixed bindings (see below).
+      - ~H~, ~L~, ~M~
+      - ~C-e~, ~C-y~
+      - ~C-f~, ~C-b~
+      - ~C-d~, ~C-u~
+      - ~C-w~-prefixed bindings.
+      - Some ~z~-prefixed bindings (see below).
 
-6. The following keys are free when insert state does not make sense in the
-   current mode:
+   6. The following keys are free when insert state does not make sense in the
+      current mode:
 
-	- ~a~, ~A~, ~i~, ~I~
-	- ~c~, ~C~, ~r~, ~R~, ~s~, ~S~
-	- ~d~, ~D~, ~x~, ~X~
-	- ~o~, ~O~
-	- ~p~, ~P~
-	- ~=~, ~<~, ~>~
-	- ~J~
-	- =~=
+      - ~a~, ~A~, ~i~, ~I~
+      - ~c~, ~C~, ~r~, ~R~, ~s~, ~S~
+      - ~d~, ~D~, ~x~, ~X~
+      - ~o~, ~O~
+      - ~p~, ~P~
+      - ~=~, ~<~, ~>~
+      - ~J~
+      - =~=
 
-	Any of those keys can be set to be a prefix key.
+        Any of those keys can be set to be a prefix key.
 
-7. Prefix keys: ~g~ and ~z~ are the ubiquitous prefix keys.
+   7. Prefix keys: ~g~ and ~z~ are the ubiquitous prefix keys.
 
-	- ~g~ generally stands for "go" and is best used for movements.
-	- ~z~ is used for scrolling, folding, spell-checking and more.
+      - ~g~ generally stands for "go" and is best used for movements.
+      - ~z~ is used for scrolling, folding, spell-checking and more.
 
-8. Macro and action keys
+   8. Macro and action keys
 
-	- ~@~, ~q~
-	- ~.~
-
+      - ~@~, ~q~
+      - ~.~
 
 ** Rationale
 
-Many special modes share the same set of similar actions.  Those actions should
-share the same bindings across all modes whenever feasible.
+   Many special modes share the same set of similar actions.  Those actions should
+   share the same bindings across all modes whenever feasible.
 
 *** Motion (~[~, ~]~, ~{~, ~}~, ~(~, ~)~, ~gj~, ~gk~, ~C-j~, ~C-k~)
 
-- ~[~ and ~]~: Use ~[-~ and ~]-~ prefixed keys for navigation between sections.
+    - ~[~ and ~]~: Use ~[-~ and ~]-~ prefixed keys for navigation between sections.
 
-  If the mode makes no difference between the end of a section and the beginning
-  of the next, use ~[~ and ~]~.
+      If the mode makes no difference between the end of a section and the beginning
+      of the next, use ~[~ and ~]~.
 
-- ~gj~ and ~gk~: synonym for ~[~ and ~]~.  That's what [[evilmagit][evil-magit]] does.
+    - ~gj~ and ~gk~: synonym for ~[~ and ~]~.  That's what [[evilmagit][evil-magit]] does.
 
-*Question:* Should ~gj~ / ~gk~ rather be synonyms for ~C-j~ / ~C-k~?  They cannot
-emulate the behaviour of ~[]~ or ~][~.
+    *Question:* Should ~gj~ / ~gk~ rather be synonyms for ~C-j~ / ~C-k~?  They cannot
+    emulate the behaviour of ~[]~ or ~][~.
 
-- ~C-j~, ~C-k~: If there is granularity, i.e. subsections, use ~C-j~ and ~C-k~
-  to browse them.  This reflects [[evilmagit][evil-magit]] and [[evilmu4e][evil-mu4e]] default
-  bindings.
+    - ~C-j~, ~C-k~: If there is granularity, i.e. subsections, use ~C-j~ and ~C-k~
+      to browse them.  This reflects [[evilmagit][evil-magit]] and [[evilmu4e][evil-mu4e]] default
+      bindings.
 
-- ~{~, ~}~: If there is no paragraph structure, ~{~ and ~}~ can be used for sub-sectioning.
+    - ~{~, ~}~: If there is no paragraph structure, ~{~ and ~}~ can be used for sub-sectioning.
 
-- ~(~, ~)~: If there is no sentence structure, ~(~ and ~)~ can be used for sub-sectioning.
+    - ~(~, ~)~: If there is no sentence structure, ~(~ and ~)~ can be used for sub-sectioning.
 
-- ~HJKL~: ~hjkl~ can be used for atomic movements, but ~HJKL~ can usually not be used
-  because ~H~, ~K~ and ~L~ are all universal (~J~ is ~evil-join~ and usually
-  does not make sense in special modes).
+    - ~HJKL~: ~hjkl~ can be used for atomic movements, but ~HJKL~ can usually not be used
+      because ~H~, ~K~ and ~L~ are all universal (~J~ is ~evil-join~ and usually
+      does not make sense in special modes).
 
-- ~C-h~ should not be remapped: Since we have ~C-j~ and ~C-k~ for vertical motion, it would
-  make sense to use ~C-h~ and ~C-l~ for horizontal motion.  There are some
-  shortcomings though:
+    - ~C-h~ should not be remapped: Since we have ~C-j~ and ~C-k~ for vertical motion, it would
+      make sense to use ~C-h~ and ~C-l~ for horizontal motion.  There are some
+      shortcomings though:
 
-  - In Vim, ~C-h~ works as backspace, but Evil does not follow that behaviour.
+      - In Vim, ~C-h~ works as backspace, but Evil does not follow that behaviour.
 
-  - In Emacs, it is a prefix key for all help-related commands, and so is ~<f1>~.
+      - In Emacs, it is a prefix key for all help-related commands, and so is ~<f1>~.
 
-  - Most importantly, ~C-h~ is too widespread and ubiquitous to be replaced.
-      So we don't.
+      - Most importantly, ~C-h~ is too widespread and ubiquitous to be replaced.
+        So we don't.
 
-- ~C-l~: As a consequence of the former point, ~C-l~ is available.
+    - ~C-l~: As a consequence of the former point, ~C-l~ is available.
 
-- ~M-<hjkl>~: Those keys are usually free in Evil but still bound to their Emacs
-  default (e.g. ~M-l~ is ~downcase-word~).  Besides, if ~C-j~ and ~C-k~ are
-  already used, having ~M-j~ and ~M-k~ might add up to the confusion.
+    - ~M-<hjkl>~: Those keys are usually free in Evil but still bound to their Emacs
+      default (e.g. ~M-l~ is ~downcase-word~).  Besides, if ~C-j~ and ~C-k~ are
+      already used, having ~M-j~ and ~M-k~ might add up to the confusion.
 
 *** Quitting (~q~, ~ZQ~, ~ZZ~)
 
-In Vim, ~q~ is for recording macros.  Vim quits with ~ZZ~ or ~ZQ~.  In most
-Emacs special modes, it stands for quitting while macros are recorded/played
-with ~<f3>~ and ~<f4>~.
+    In Vim, ~q~ is for recording macros.  Vim quits with ~ZZ~ or ~ZQ~.  In most
+    Emacs special modes, it stands for quitting while macros are recorded/played
+    with ~<f3>~ and ~<f4>~.
 
-A good rule of thumb would be:
+    A good rule of thumb would be:
 
-- Always bind ~ZZ~ and ~ZQ~ to the quitting function(s), ~evil-quit~ if nothing
-  else makes sense.
+    - Always bind ~ZZ~ and ~ZQ~ to the quitting function(s), ~evil-quit~ if nothing
+      else makes sense.
 
-- Bind ~q~ to ~evil-quit~ if macros don't make sense in current mode.
+    - Bind ~q~ to ~evil-quit~ if macros don't make sense in current mode.
 
-- If macros don't make sense in current mode, then ~@~ is available.
+    - If macros don't make sense in current mode, then ~@~ is available.
 
 *** Refreshing / Reverting (~gr~)
 
-- ~gr~ is used for refreshing in [[evilmagit][evil-magit]], [[evilmu4e][evil-mu4e]], and some Spacemacs
-  configurations (org-agenda and neotree among others).
+    - ~gr~ is used for refreshing in [[evilmagit][evil-magit]], [[evilmu4e][evil-mu4e]], and some Spacemacs
+      configurations (org-agenda and neotree among others).
 
-~C-l~ is traditionally used to refresh the terminal screen.  Since there does
-not seem to be any existing use of it, we leave the binding free for other uses.
+    ~C-l~ is traditionally used to refresh the terminal screen.  Since there does
+    not seem to be any existing use of it, we leave the binding free for other uses.
 
 *** Marking
 
-~m~ defaults to ~evil-set-marker~ which might not be very useful in special
-modes.
-='= can still be used as it can jump to other buffers.
+    ~m~ defaults to ~evil-set-marker~ which might not be very useful in special
+    modes.
+    ='= can still be used as it can jump to other buffers.
 
-- ~m~: Mark or toggle mark, depending on what the mode offers.
-  In visual mode, always mark.
-  With a numeric argument, toggle mark on that many following lines.
+    - ~m~: Mark or toggle mark, depending on what the mode offers.
+      In visual mode, always mark.
+      With a numeric argument, toggle mark on that many following lines.
 
-- ~u~: Unmark current selection.
+    - ~u~: Unmark current selection.
 
-- ~U~: Unmark all.
+    - ~U~: Unmark all.
 
-- =~=: Toggle all marks.  This mirrors the "invert-char" Vim command bound to =~=
-  by default.
+    - =~=: Toggle all marks.  This mirrors the "invert-char" Vim command bound to =~=
+      by default.
 
-- ~M~: Mark all, if available.  Otherwise use =U~=.
+    - ~M~: Mark all, if available.  Otherwise use =U~=.
 
-- ~*~: Mark-prefix or mark all if current mode has no prefix. ~*~ is traditionally a wildcard.
+    - ~*~: Mark-prefix or mark all if current mode has no prefix. ~*~ is traditionally a wildcard.
 
-- ~%~: Mark regexp.
+    - ~%~: Mark regexp.
 
-- ~x~: Execute action on marks.  This mirrors Dired's binding of ~x~.
+    - ~x~: Execute action on marks.  This mirrors Dired's binding of ~x~.
 
-If ~*~ is used for marking, then ~#~ is free.
+    If ~*~ is used for marking, then ~#~ is free.
 
-Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
+    Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
 
 *** Selecting / Filtering / Narrowing / Searching
 
-- ~s~ and ~S~ seem to be used in some places like [[mu4e][mu4e]].
+    - ~s~ and ~S~ seem to be used in some places like [[mu4e][mu4e]].
 
-  - ~s~: [s]elect/[s]earch/filter candidates according to a pattern.
+      - ~s~: [s]elect/[s]earch/filter candidates according to a pattern.
 
-  - ~S~: Remove filter and select all.
+      - ~S~: Remove filter and select all.
 
-- ~=~ is usually free and its significance is obvious.  It's taken for zooming though.
+    - ~=~ is usually free and its significance is obvious.  It's taken for zooming though.
 
-- ~|~ is not free but the pipe symbolic is very tantalizing.
+    - ~|~ is not free but the pipe symbolic is very tantalizing.
 
 *** Sorting
 
-- ~o~: Change the sort [o]rder.
-- ~O~: Sort in reverse order.
+    - ~o~: Change the sort [o]rder.
+    - ~O~: Sort in reverse order.
 
-There is no real consensus around which key to bind to sorting.  What others do by default:
+    There is no real consensus around which key to bind to sorting.  What others do by default:
 
-- ~package-menu~ uses ~S~.
+    - ~package-menu~ uses ~S~.
 
-- ~M-x proced~ and Dired use ~s~.
+    - ~M-x proced~ and Dired use ~s~.
 
-- ~profiler~ uses ~A~ and ~D~.
+    - ~profiler~ uses ~A~ and ~D~.
 
-- [[mu4e][mu4e]] uses ~O~.
+    - [[mu4e][mu4e]] uses ~O~.
 
-- [[http://www.nongnu.org/ranger/][ranger]] uses ~o~, inspired from [[http://mutt.org][Mutt]].
+    - [[http://www.nongnu.org/ranger/][ranger]] uses ~o~, inspired from [[http://mutt.org][Mutt]].
 
 *** Go to definition (~gd~, ~gD~)
 
-- ~gd~: [g]o to [d]efinition.  This is mostly for programming modes.
-  If there's a corresponding 'pop' action, use ~C-t~.
+    - ~gd~: [g]o to [d]efinition.  This is mostly for programming modes.
+      If there's a corresponding 'pop' action, use ~C-t~.
 
 *** Go to current entity
 
-- ~.~: go to current entity (day for calendar, playing track for [[EMMS][EMMS]]).
-  Bind only if more relevant than ~evil-repeat~.
+    - ~.~: go to current entity (day for calendar, playing track for [[EMMS][EMMS]]).
+      Bind only if more relevant than ~evil-repeat~.
 
 *** Open thing at point (~RET~, ~S-RET~, ~M-RET~, ~go~, ~gO~)
 
-- ~RET~, ~S-RET~, ~M-RET~: Open thing at point in current window, open in other
-  window and display in other window respectively.  The latter is like the
-  former with the focus remaining on the current window.
+    - ~RET~, ~S-RET~, ~M-RET~: Open thing at point in current window, open in other
+      window and display in other window respectively.  The latter is like the
+      former with the focus remaining on the current window.
 
-- ~go~, ~gO~: When available, same as ~S-RET~ and ~M-RET~ respectively.  This is
-  useful in terminals where ~S-RET~ and ~M-RET~ might not work.
+    - ~go~, ~gO~: When available, same as ~S-RET~ and ~M-RET~ respectively.  This is
+      useful in terminals where ~S-RET~ and ~M-RET~ might not work.
 
 *** Emacs-style jumping (~J~)
 
-- ~J~: [[mu4e][mu4e]] has ~j~ and [[evil-mu4e][evil-mu4e]] uses ~J~, so we use ~J~ too.
+    - ~J~: [[mu4e][mu4e]] has ~j~ and [[evil-mu4e][evil-mu4e]] uses ~J~, so we use ~J~ too.
 
-Some special modes like [[mu4e][mu4e]] and ibuffer offer to to "jump" to a different
-buffer.  This sometimes depends on the thing at point.
+    Some special modes like [[mu4e][mu4e]] and ibuffer offer to to "jump" to a different
+    buffer.  This sometimes depends on the thing at point.
 
-This is not related to Evil jumps like ~C-i~ and ~C-o~, nor to "go to
-definition".
+    This is not related to Evil jumps like ~C-i~ and ~C-o~, nor to "go to
+    definition".
 
 *** Browse URL (~gx~)
 
-~gx~: go to URL.  This is a default Vim binding.
+    ~gx~: go to URL.  This is a default Vim binding.
 
 *** Help (~?~)
 
-- ~g?~ : is the standard key for help related commands.
-- ~?~ in places where backward search is not very useful.
+    - ~g?~ : is the standard key for help related commands.
+    - ~?~ in places where backward search is not very useful.
 
 *** History browsing (~C-n~, ~C-p~)
 
-~C-n~ and ~C-p~ are standard bindings to browse the history elements.
+    ~C-n~ and ~C-p~ are standard bindings to browse the history elements.
 
 *** Bookmarking
 
-?
+    ?
 
 *** REPL (~gz~)
     If the mode has a Go To REPL-type command, set it to ~gz~.
 *** Zooming (~+~, ~-~, ~=~, ~0~)
 
-- ~+~ and ~-~ have obvious meanings.
+    - ~+~ and ~-~ have obvious meanings.
 
-- ~0~ has a somewhat intuitive meaning, plus it is next to ~+~ and ~-~ on QWERTY.
+    - ~0~ has a somewhat intuitive meaning, plus it is next to ~+~ and ~-~ on QWERTY.
 
-- ~=~ is useful as a synonym for ~+~ because it is the unshifted key of ~+~ on QWERTY.
+    - ~=~ is useful as a synonym for ~+~ because it is the unshifted key of ~+~ on QWERTY.
 *** Debugging
     When debugging is on, debugger keys takes the most precedence.
 
@@ -396,19 +395,19 @@ definition".
     ~ESC~ will exit editable state.
 
 ** Key Translation
-~evil-collection-translate-key~ allows binding a key to the definition of
-another key in the same keymap (comparable to how Vim's keybindings work). Its
-arguments are the ~states~ and ~keymaps~ to bind/look up the key(s) in followed
-optionally by keyword arguments (currently only ~:destructive~) and
-key/replacement pairs. ~states~ should be nil for non-evil keymaps, and both
-~states~ and ~keymaps~ can be a single symbol or a list of symbols.
+   ~evil-collection-translate-key~ allows binding a key to the definition of
+   another key in the same keymap (comparable to how Vim's keybindings work). Its
+   arguments are the ~states~ and ~keymaps~ to bind/look up the key(s) in followed
+   optionally by keyword arguments (currently only ~:destructive~) and
+   key/replacement pairs. ~states~ should be nil for non-evil keymaps, and both
+   ~states~ and ~keymaps~ can be a single symbol or a list of symbols.
 
-This function can be useful for making key swaps/cycles en masse. For example,
-someone who uses an alternate keyboard layout may want to retain the ~hjkl~
-positions for directional movement in dired, the calendar, etc.
+   This function can be useful for making key swaps/cycles en masse. For example,
+   someone who uses an alternate keyboard layout may want to retain the ~hjkl~
+   positions for directional movement in dired, the calendar, etc.
 
-Here's an example for Colemak of making swaps in a single keymap:
-#+begin_src emacs-lisp
+   Here's an example for Colemak of making swaps in a single keymap:
+   #+begin_src emacs-lisp
 (evil-collection-translate-key nil 'evil-motion-state-map
   ;; colemak hnei is qwerty hjkl
   "n" "j"
@@ -418,11 +417,11 @@ Here's an example for Colemak of making swaps in a single keymap:
   "j" "e"
   "k" "n"
   "l" "i")
-#+end_src
+   #+end_src
 
-Here's an example of using ~evil-collection-setup-hook~ to cycle the keys for
-all modes in ~evil-collection-mode-list~:
-#+begin_src emacs-lisp
+   Here's an example of using ~evil-collection-setup-hook~ to cycle the keys for
+   all modes in ~evil-collection-mode-list~:
+   #+begin_src emacs-lisp
 (defun my-hjkl-rotation (_mode mode-keymaps &rest _rest)
   (evil-collection-translate-key 'normal mode-keymaps
     "n" "j"
@@ -436,16 +435,16 @@ all modes in ~evil-collection-mode-list~:
 (add-hook 'evil-collection-setup-hook #'my-hjkl-rotation)
 
 (evil-collection-init)
-#+end_src
+   #+end_src
 
-A more common use case of ~evil-collection-translate-key~ would be for keeping
-the functionality of some keys that users may bind globally. For example, ~SPC~,
-~[~, and ~]~ are bound in some modes. If you use these keys as global prefix
-keys that you never want to be overriden, you'll want to give them higher
-priority than other evil keybindings (e.g. those made by ~(evil-define-key
-'normal some-map ...)~). To do this, you can create an "intercept" map and bind
-your prefix keys in it instead of in ~evil-normal-state-map~:
-#+begin_src emacs-lisp
+   A more common use case of ~evil-collection-translate-key~ would be for keeping
+   the functionality of some keys that users may bind globally. For example, ~SPC~,
+   ~[~, and ~]~ are bound in some modes. If you use these keys as global prefix
+   keys that you never want to be overriden, you'll want to give them higher
+   priority than other evil keybindings (e.g. those made by ~(evil-define-key
+   'normal some-map ...)~). To do this, you can create an "intercept" map and bind
+   your prefix keys in it instead of in ~evil-normal-state-map~:
+   #+begin_src emacs-lisp
 (defvar my-intercept-mode-map (make-sparse-keymap)
   "High precedence keymap.")
 
@@ -464,10 +463,10 @@ your prefix keys in it instead of in ~evil-normal-state-map~:
 (evil-define-key 'normal my-intercept-mode-map
   (kbd "SPC f") 'find-file)
 ;; ...
-#+end_src
+   #+end_src
 
-You can then define replacement keys:
-#+begin_src emacs-lisp
+   You can then define replacement keys:
+   #+begin_src emacs-lisp
 (defun my-prefix-translations (_mode mode-keymaps &rest _rest)
   (evil-collection-translate-key 'normal mode-keymaps
     "C-SPC" "SPC"
@@ -480,102 +479,102 @@ You can then define replacement keys:
 (add-hook 'evil-collection-setup-hook #'my-prefix-translation)
 
 (evil-collection-init)
-#+end_src
+   #+end_src
 
-By default, the first invocation of ~evil-collection-translate-key~ will make a
-backup of the keymap. Each subsequent invocation will look up keys in the backup
-instead of the original. This means that a call to
-~evil-collection-translate-key~ will always have the same behavior even if
-evaluated multiple times. When ~:destructive t~ is specified, keys are looked up
-in the keymap as it is currently. This means that a call to
-~evil-collection-translate-key~ that swapped two keys would continue to
-swap/unswap them with each call. Therefore when ~:destructive t~ is used, all
-cycles/swaps must be done within a single call to
-~evil-collection-translate-key~. To make a comparison to Vim keybindings,
-~:destructive t~ is comparable to Vim's ~map~, and ~:destructive nil~ is
-comparable to Vim's ~noremap~ (where the "original" keybindings are those that
-existed in the keymap when ~evil-collection-translate-key~ was first called).
-You'll almost always want to use the default behavior (especially in your init
-file). The limitation of ~:destructive nil~ is that you can't translate a key to
-another key that was defined after the first ~evil-collection-translate-key~, so
-~:destructive t~ may be useful for interactive experimentation.
+   By default, the first invocation of ~evil-collection-translate-key~ will make a
+   backup of the keymap. Each subsequent invocation will look up keys in the backup
+   instead of the original. This means that a call to
+   ~evil-collection-translate-key~ will always have the same behavior even if
+   evaluated multiple times. When ~:destructive t~ is specified, keys are looked up
+   in the keymap as it is currently. This means that a call to
+   ~evil-collection-translate-key~ that swapped two keys would continue to
+   swap/unswap them with each call. Therefore when ~:destructive t~ is used, all
+   cycles/swaps must be done within a single call to
+   ~evil-collection-translate-key~. To make a comparison to Vim keybindings,
+   ~:destructive t~ is comparable to Vim's ~map~, and ~:destructive nil~ is
+   comparable to Vim's ~noremap~ (where the "original" keybindings are those that
+   existed in the keymap when ~evil-collection-translate-key~ was first called).
+   You'll almost always want to use the default behavior (especially in your init
+   file). The limitation of ~:destructive nil~ is that you can't translate a key to
+   another key that was defined after the first ~evil-collection-translate-key~, so
+   ~:destructive t~ may be useful for interactive experimentation.
 
-~evil-collection-swap-key~ is also provided as a wrapper around
-~evil-colletion-translate-key~ that allows swapping keys:
-#+begin_src emacs-lisp
+   ~evil-collection-swap-key~ is also provided as a wrapper around
+   ~evil-colletion-translate-key~ that allows swapping keys:
+   #+begin_src emacs-lisp
 (evil-collection-swap-key nil 'evil-motion-state-map
   ";" ":")
 ;; is equivalent to
 (evil-collection-translate-key nil 'evil-motion-state-map
   ";" ":"
   ":" ";")
-#+end_src
+   #+end_src
 
 ** Modes left behind
 
-Some modes might still remain unsupported by this package.  Should you be
-missing your ~<hjkl>~, feel free to file an issue or even a pull request.
+   Some modes might still remain unsupported by this package.  Should you be
+   missing your ~<hjkl>~, feel free to file an issue or even a pull request.
 
 ** Third-party packages
 
-Third-party packages are provided by several parties:
+   Third-party packages are provided by several parties:
 
-- [[https://github.com/emacs-evil/evil-ediff][evil-ediff]]
-- [[https://github.com/emacs-evil/evil-magit][evil-magit]]
-- [[https://github.com/JorisE/evil-mu4e][evil-mu4e]]
-- Lispy: [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]]
-- Org-mode: https://github.com/GuiltyDolphin/org-evil or https://github.com/Somelauw/evil-org-mode
+   - [[https://github.com/emacs-evil/evil-ediff][evil-ediff]]
+   - [[https://github.com/emacs-evil/evil-magit][evil-magit]]
+   - [[https://github.com/JorisE/evil-mu4e][evil-mu4e]]
+   - Lispy: [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]]
+   - Org-mode: https://github.com/GuiltyDolphin/org-evil or https://github.com/Somelauw/evil-org-mode
 
-Should you know any suitable package not mentioned in this list, let us know and
-file an issue.
+   Should you know any suitable package not mentioned in this list, let us know and
+   file an issue.
 
-Other references:
+   Other references:
 
-- [[https://github.com/syl20bnr/spacemacs/blob/master/doc/CONVENTIONS.org#key-bindings-conventions][Spacemacs]]
-- [[https://github.com/hlissner/doom-emacs/blob/master/modules/private/hlissner/%2Bbindings.el][Doom Emacs]]
+   - [[https://github.com/syl20bnr/spacemacs/blob/master/doc/CONVENTIONS.org#key-bindings-conventions][Spacemacs]]
+   - [[https://github.com/hlissner/doom-emacs/blob/master/modules/private/hlissner/%2Bbindings.el][Doom Emacs]]
 
 ** FAQ
-- Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
+   - Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
 
-  ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
-  key with the [[https://github.com/noctuid/general.el][general]] library:
+     ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
+     key with the [[https://github.com/noctuid/general.el][general]] library:
 
-  #+begin_src emacs-lisp :tangle yes
-     (use-package general
-       :ensure t
-       :config
-       (setq general-override-states '(insert
-                                       emacs
-                                       hybrid
-                                       normal
-                                       visual
-                                       motion
-                                       operator
-                                       replace))
-       (general-override-mode)
-       (general-define-key
-        :states '(normal visual motion)
-        :keymaps 'override
-        "SPC" 'hydra-space/body))
-  #+end_src
+     #+begin_src emacs-lisp :tangle yes
+        (use-package general
+          :ensure t
+          :config
+          (setq general-override-states '(insert
+                                          emacs
+                                          hybrid
+                                          normal
+                                          visual
+                                          motion
+                                          operator
+                                          replace))
+          (general-override-mode)
+          (general-define-key
+           :states '(normal visual motion)
+           :keymaps 'override
+           "SPC" 'hydra-space/body))
+     #+end_src
 
-  See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
+     See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
 
-  This should also be accomplishable using key translation from [[https://github.com/noctuid/general.el][general]].
+     This should also be accomplishable using key translation from [[https://github.com/noctuid/general.el][general]].
 
 ** Contributing
-Please do!
+   Please do!
 
-We welcome any additional modes that are not already supported.
+   We welcome any additional modes that are not already supported.
 
-All bindings in ~evil-collection~ are still open to change so if there's
-a better or more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
+   All bindings in ~evil-collection~ are still open to change so if there's
+   a better or more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
 
-Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
+   Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
 
-[[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erlang/OTP]] has a good read for helpful commit messages.
+   [[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erlang/OTP]] has a good read for helpful commit messages.
 
-#+LINK: EMMS https://www.gnu.org/software/emms/
-#+LINK: evilmagit https://github.com/emacs-evil/evil-magit
-#+LINK: evilmu4e https://github.com/JorisE/evil-mu4e
-#+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
+   #+LINK: EMMS https://www.gnu.org/software/emms/
+   #+LINK: evilmagit https://github.com/emacs-evil/evil-magit
+   #+LINK: evilmu4e https://github.com/JorisE/evil-mu4e
+   #+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
