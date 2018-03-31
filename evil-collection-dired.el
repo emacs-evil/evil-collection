@@ -114,7 +114,8 @@
     "gf" 'dired-find-file
     (kbd "C-m") 'dired-find-file
     "gr" 'revert-buffer
-    "i" 'dired-maybe-insert-subdir
+    "i" 'dired-toggle-read-only
+    "I" 'dired-maybe-insert-subdir
     "J" 'dired-goto-file
     "K" 'dired-do-kill-lines
     "r" 'dired-do-redisplay
