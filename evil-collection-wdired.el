@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'wdired)
 
-(defconst evil-colletion-wdired-maps '(wdired-mode-map))
+(defconst evil-collection-wdired-maps '(wdired-mode-map))
 
 (defun evil-collection-wdired-setup ()
   "Set up `evil' bindings for `wdired'."
