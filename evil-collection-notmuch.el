@@ -154,6 +154,7 @@
     "K" 'notmuch-tag-jump
     "o" 'notmuch-search-toggle-order
     "Z" 'notmuch-tree-from-search-current-query
+    "*" 'notmuch-search-tag-all
     "a" 'notmuch-search-archive-thread
     "c" 'compose-mail
     "d" 'evil-collection-notmuch-search-toggle-delete
