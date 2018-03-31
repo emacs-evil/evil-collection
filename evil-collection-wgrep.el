@@ -32,7 +32,7 @@
 
 (defvar wgrep-mode-map)
 
-(defconst evil-colletion-wgrep-maps '(wgrep-mode-map))
+(defconst evil-collection-wgrep-maps '(wgrep-mode-map))
 
 (defun evil-collection-wgrep-setup ()
   "Set up `evil' bindings for `wgrep'."
