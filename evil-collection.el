@@ -110,6 +110,7 @@ or evil-collection.")
     kotlin-mode
     macrostep
     man
+    magit
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
     neotree
     notmuch
