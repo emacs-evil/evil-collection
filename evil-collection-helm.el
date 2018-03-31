@@ -45,6 +45,7 @@
 (defvar helm--prompt)
 (defvar helm--action-prompt)
 (defvar helm-header-line-space-before-prompt)
+(defvar helm-default-prompt-display-function)
 
 (declare-function helm-window "helm-lib")
 
