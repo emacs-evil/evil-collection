@@ -25,7 +25,6 @@ some default bindings to change in the future.
       consistency across special modes and coordinating the community work to define a
       reference implementation.
 
-
 ** Installation
 
    - Get the package, either from MELPA:
