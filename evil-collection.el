@@ -147,6 +147,7 @@ or evil-collection.")
     view
     vlf
     which-key
+    wdired
     wgrep
     woman
     xref
