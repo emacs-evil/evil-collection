@@ -147,6 +147,7 @@ or evil-collection.")
     view
     vlf
     which-key
+    wgrep
     woman
     xref
     (ztree ztree-diff))
