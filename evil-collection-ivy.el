@@ -68,6 +68,7 @@
   (evil-define-key 'normal ivy-occur-grep-mode-map
     "d" 'ivy-occur-delete-candidate
     (kbd "C-x C-q") 'ivy-wgrep-change-to-wgrep-mode
+    "i" 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
     [mouse-1] 'ivy-occur-click
     (kbd "<return>") 'ivy-occur-press-and-switch

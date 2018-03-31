@@ -385,6 +385,15 @@ definition".
     - ~f10~ Step Over
     - ~f11~ Step Into
     - ~S-f11~ Step Out
+*** Editable Buffers
+    For buffers where insert-state doesn't make sense but buffer can be edited,
+    (e.g. wdired or wgrep), pressing ~i~ will change into editable state.
+
+    When this editable state is turned on,
+
+    ~ZQ~ will abort and clear any changes.
+    ~ZZ~ will finish and save any changes.
+    ~ESC~ will exit editable state.
 
 ** Key Translation
 ~evil-collection-translate-key~ allows binding a key to the definition of
