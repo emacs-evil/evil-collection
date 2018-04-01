@@ -22,17 +22,22 @@
 
 ;;; Code:
 (require 'evil)
-(require 'git-timemachine)
+(require 'git-timemachine nil t)
 
-(defun ecgt--setup-bindings ()
-  "Setup `git-timemachine' since `evil-set-initial-state' is unavailable to
-minor modes."
-  (evil-motion-state nil)
-  (evil-local-set-key 'motion "n" #'git-timemachine-show-next-revision))
+(defvar git-timemachine-mode-map)
+(defconst evil-collection-git-timemachine-map '(git-timemachine-mode-map))
 
 (defun evil-collection-git-timemachine-setup ()
   "Setup `evil' keybindings for `git-timemachine'."
-  (add-hook 'git-timemachine-mode-hook #'ecgt--setup-bindings))
+  (evil-define-minor-mode-key 'normal 'git-timemachine-mode
+    "\C-k" #'git-timemachine-show-previous-revision
+    "\C-j" #'git-timemachine-show-next-revision
+    "q"    #'git-timemachine-quit
+    "gtg"  #'git-timemachine-show-nth-revision
+    "gtt"  #'git-timemachine-show-revision-fuzzy
+    "gty"  #'git-timemachine-kill-abbreviated-revision
+    "gtY"  #'git-timemachine-kill-revision
+    "gtb"  #'git-timemachine-blame))
 
 (provide 'evil-collection-git-timemachine)
 ;;; evil-collection-git-timemachine.el ends here
