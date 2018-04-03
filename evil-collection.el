@@ -97,6 +97,7 @@ or evil-collection.")
     ggtags
     go-mode
     help
+    guix
     helm
     ibuffer
     image
