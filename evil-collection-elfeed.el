@@ -49,6 +49,9 @@
 
     "y" 'elfeed-search-yank
 
+    (kbd "SPC") 'scroll-up-command
+    (kbd "S-SPC") 'scroll-down-command
+
     ;; filter
     "s" 'elfeed-search-live-filter
     "S" 'elfeed-search-set-filter
@@ -73,6 +76,9 @@
   (evil-define-key 'normal elfeed-show-mode-map
     (kbd "S-<return>") 'elfeed-show-visit
     "go" 'elfeed-show-visit
+
+    (kbd "SPC") 'scroll-up-command
+    (kbd "S-SPC") 'scroll-down-command
 
     ;; filter
     "s" 'elfeed-show-new-live-search
