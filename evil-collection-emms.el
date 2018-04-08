@@ -95,8 +95,10 @@ The return value is the yanked text."
     ;; motion
     "[" 'emms-browser-prev-non-track
     "]" 'emms-browser-next-non-track
-    "gj" 'emms-browser-prev-non-track
-    "gk" 'emms-browser-next-non-track
+    (kbd "C-k") 'emms-browser-prev-non-track
+    (kbd "C-j") 'emms-browser-next-non-track
+    "gk" 'emms-browser-prev-non-track
+    "gj" 'emms-browser-next-non-track
 
     (kbd "<tab>") 'emms-browser-toggle-subitems
     (kbd "<backtab>") 'emms-browser-toggle-subitems
