@@ -100,8 +100,9 @@ The return value is the yanked text."
     "gk" 'emms-browser-prev-non-track
     "gj" 'emms-browser-next-non-track
 
-    (kbd "<tab>") 'emms-browser-toggle-subitems
-    (kbd "<backtab>") 'emms-browser-toggle-subitems
+    (kbd "<tab>") 'emms-browser-toggle-subitems-recursively
+    (kbd "<backtab>") 'emms-browser-toggle-subitems-recursively
+    "^" 'emms-browser-move-up-level
     (kbd "SPC") 'emms-browser-toggle-subitems
     "g1" 'emms-browser-collapse-all
     "g2" 'emms-browser-expand-to-level-2
