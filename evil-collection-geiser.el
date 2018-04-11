@@ -82,6 +82,12 @@
   (evil-define-key 'normal geiser-repl-mode-map
     "gd" 'geiser-edit-symbol-at-point
     (kbd "C-t") 'geiser-pop-symbol-stack
+    "gj" 'geiser-repl-next-prompt
+    "gk" 'geiser-repl-previous-prompt
+    (kbd "C-j") 'geiser-repl-next-prompt
+    (kbd "C-k") 'geiser-repl-previous-prompt
+    "]" 'geiser-repl-next-prompt
+    "[" 'geiser-repl-previous-prompt
     "K" 'geiser-doc-symbol-at-point)
 
   (evil-define-key 'normal geiser-mode-map
