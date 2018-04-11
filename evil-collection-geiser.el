@@ -60,6 +60,8 @@
     "q" 'quit-window)
 
   (evil-define-key 'normal geiser-doc-mode-map
+    (kbd "<tab>") 'forward-button
+    (kbd "<S-tab>") 'backward-button
     "gd" 'geiser-edit-symbol-at-point
     (kbd "C-t") 'geiser-pop-symbol-stack
     "gr" 'geiser-doc-refresh
