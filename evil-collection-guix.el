@@ -199,7 +199,11 @@
     ;; quit
     "q" 'quit-window
     "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+
+  (evil-define-key 'normal guix-devel-mode-map
+    ;; repl
+    "gz" 'guix-switch-to-repl))
 
 (provide 'evil-collection-guix)
 ;;; evil-collection-guix.el ends here
