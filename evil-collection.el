@@ -256,7 +256,7 @@ should consist of key swaps (e.g. \"a\" \"b\" is equivalent to \"a\" \"b\" \"b\"
   `(evil-collection-translate-key ,states ,keymaps ,@args))
 
 ;;;###autoload
-(defun evil-collection-init ()
+(defun evil-collection-init (&optional modes)
   "Register the Evil bindings for all modes in `evil-collection-mode-list'.
 
 Alternatively, you may register select bindings manually, for
@@ -264,9 +264,15 @@ instance:
 
   (with-eval-after-load 'calendar
     (require 'evil-collection-calendar)
-    (evil-collection-calendar-setup))"
+    (evil-collection-calendar-setup))
+
+If MODES is specified (as either one mode or a list of modes), use those modes
+instead of the modes in `evil-collection-mode-list'."
   (interactive)
-  (dolist (mode evil-collection-mode-list)
+  (if modes
+      (or (listp modes) (setq modes (list modes)))
+    (setq modes evil-collection-mode-list))
+  (dolist (mode modes)
     (let ((m mode)
           (reqs (list mode)))
       (when (listp mode)
