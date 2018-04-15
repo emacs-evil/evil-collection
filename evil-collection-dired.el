@@ -97,6 +97,9 @@
     "*/" 'dired-mark-directories
     "*@" 'dired-mark-symlinks
     "*%" 'dired-mark-files-regexp
+    "*(" 'dired-mark-sexp
+    "*." 'dired-mark-extension
+    "*O" 'dired-mark-omitted
     "*c" 'dired-change-marks
     "*s" 'dired-mark-subdir-files
     "*m" 'dired-mark
