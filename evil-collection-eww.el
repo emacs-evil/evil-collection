@@ -49,12 +49,12 @@
     "gf" 'eww-view-source               ; Like qutebrowser.
 
     "&" 'eww-browse-with-external-browser
-    "C" 'url-cookie-list
-    "D" 'eww-toggle-paragraph-direction
-    "X" 'eww-set-character-encoding
-    "x" 'eww-toggle-fonts
+    "gc" 'url-cookie-list
+    "zd" 'eww-toggle-paragraph-direction
+    "ze" 'eww-set-character-encoding
+    "zf" 'eww-toggle-fonts
     "d" 'eww-download
-    "b" 'eww-add-bookmark
+    "m" 'eww-add-bookmark
     "R" 'eww-readable                   ; Default binding.
     "r" 'eww-readable
 
@@ -128,6 +128,8 @@
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
   (evil-define-key 'normal eww-bookmark-mode-map
     "D" 'eww-bookmark-kill
+    "P" 'eww-bookmark-yank
+
     (kbd "<return>") 'eww-bookmark-browse
     ;; refresh
     "gr" 'revert-buffer
