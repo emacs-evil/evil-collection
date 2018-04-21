@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil)
-(require 'guix)
+(require 'guix nil t)
 
 (defconst evil-collection-guix-maps '(guix-output-list-mode-map
                                       guix-package-info-mode-map
