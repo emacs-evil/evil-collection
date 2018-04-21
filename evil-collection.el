@@ -95,6 +95,7 @@ or evil-collection.")
     free-keys
     geiser
     ggtags
+    git-timemachine
     go-mode
     help
     guix
