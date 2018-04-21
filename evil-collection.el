@@ -107,6 +107,7 @@ or evil-collection.")
     ivy
     js2-mode
     log-view
+    lsp-ui-imenu
     lua-mode
     kotlin-mode
     macrostep
