@@ -81,6 +81,7 @@ or evil-collection.")
     dired
     doc-view
     edebug
+    eldoc
     elfeed
     elisp-mode
     elisp-refs
