@@ -117,6 +117,8 @@ The return value is the yanked text."
     "gp" 'emms-browse-by-performer
 
     "/" 'emms-isearch-buffer ; This shows hidden items during search.
+    "n" 'isearch-repeat-forward
+    "N" 'isearch-repeat-backward
 
     ;; filter
     ;; "" 'emms-browser-previous-filter ; TODO: What does this do?
