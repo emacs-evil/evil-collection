@@ -116,6 +116,7 @@ The return value is the yanked text."
     "gc" 'emms-browse-by-composer
     "gp" 'emms-browse-by-performer
 
+    ;; TODO find a way to integrate this with evil-collection-evil-search
     "/" 'emms-isearch-buffer ; This shows hidden items during search.
     "n" 'isearch-repeat-forward
     "N" 'isearch-repeat-backward

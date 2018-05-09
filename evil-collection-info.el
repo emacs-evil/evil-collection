@@ -71,8 +71,12 @@
 
     ;; TODO: Should search with "n"/"N" cover the full manual like "C-s"/"C-r" does?
     ;; TODO: Directions?
-    "n" 'isearch-repeat-forward
-    "N" 'isearch-repeat-backward
+    "n" (if evil-collection-evil-search-enabled
+            evil-collection-evil-search-next
+          'isearch-repeat-forward)
+    "N" (if evil-collection-evil-search-enabled
+            evil-collection-evil-search-previous
+          'isearch-repeat-backward)
 
     ;; goto
     "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
