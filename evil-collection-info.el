@@ -71,10 +71,10 @@
 
     ;; TODO: Should search with "n"/"N" cover the full manual like "C-s"/"C-r" does?
     ;; TODO: Directions?
-    "n" (if evil-collection-evil-search-enabled
+    "n" (if (evil-collection-evil-search-enabled)
             evil-collection-evil-search-next
           'isearch-repeat-forward)
-    "N" (if evil-collection-evil-search-enabled
+    "N" (if (evil-collection-evil-search-enabled)
             evil-collection-evil-search-previous
           'isearch-repeat-backward)
 
