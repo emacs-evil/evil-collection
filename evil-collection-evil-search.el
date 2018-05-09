@@ -31,7 +31,8 @@
 ;;; Code:
 (require 'evil-search)
 
-(defvar evil-collection-evil-search-enabled (eq evil-search-module 'evil-search))
+(defun evil-collection-evil-search-enabled ()
+  (eq evil-search-module 'evil-search))
 
 (defvar evil-collection-evil-search-forward
   '(menu-item "" nil :filter (lambda (&optional _)
