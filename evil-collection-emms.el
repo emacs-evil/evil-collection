@@ -115,6 +115,11 @@ The return value is the yanked text."
     "gy" 'emms-browse-by-year
     "gc" 'emms-browse-by-composer
     "gp" 'emms-browse-by-performer
+    "zm" 'emms-browser-collapse-all
+    "zr" 'emms-browser-expand-all
+    "zo" 'emms-browser-expand-one-level
+    ;; TODO find a real replacement for zc
+    "zc" 'emms-browser-collapse-all
 
     ;; TODO find a way to integrate this with evil-collection-evil-search
     "/" 'emms-isearch-buffer ; This shows hidden items during search.
