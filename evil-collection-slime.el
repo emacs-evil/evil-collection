@@ -109,7 +109,17 @@
     "B" 'sldb-break-with-default-debugger
     "P" 'sldb-print-condition
     "C" 'sldb-inspect-condition
-    "g:" 'slime-interactive-eval)
+    "g:" 'slime-interactive-eval
+    "0" 'sldb-invoke-restart-0
+    "1" 'sldb-invoke-restart-1
+    "2" 'sldb-invoke-restart-2
+    "3" 'sldb-invoke-restart-3
+    "4" 'sldb-invoke-restart-4
+    "5" 'sldb-invoke-restart-5
+    "6" 'sldb-invoke-restart-6
+    "7" 'sldb-invoke-restart-7
+    "8" 'sldb-invoke-restart-8
+    "9" 'sldb-invoke-restart-9)
 
   (evil-define-key 'normal slime-inspector-mode-map
     [return] 'slime-inspector-operate-on-point
