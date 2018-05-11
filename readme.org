@@ -7,8 +7,7 @@ This is a collection of [[https://github.com/emacs-evil/evil][Evil]] bindings fo
 not cover properly by default, such as ~help-mode~, ~M-x calendar~, Eshell and
 more.
 
-*Warning:* This project is still in an early development phase, expect
-some default bindings to change in the future.
+*Warning:* Expect some default bindings to change in the future.
 
 ** Goals
 
