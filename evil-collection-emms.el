@@ -136,7 +136,7 @@ The return value is the yanked text."
     "C" 'emms-browser-clear-playlist
     "D" 'emms-browser-delete-files
     "d" 'emms-browser-view-in-dired
-    "gd" 'emms-playlist-mode-goto-dired-at-point)) ; "d" does the same, keep "gd" for consistency.
+    "gd" 'emms-browser-view-in-dired)) ; "d" does the same, keep "gd" for consistency.
 
 (defun evil-collection-emms-setup ()
   "Set up `evil' bindings for `emms'."
@@ -183,6 +183,7 @@ The return value is the yanked text."
     "R" 'emms-tag-editor-rename
 
     "." 'emms-playlist-mode-center-current
+    "d" 'emms-playlist-mode-goto-dired-at-point
     "gd" 'emms-playlist-mode-goto-dired-at-point ; "d" does the same, keep "gd" for consistency.
 
     "zs" 'emms-show
