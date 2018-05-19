@@ -136,6 +136,11 @@
     ;; search
     (kbd "M-s o") 'pdf-occur ; TODO: More Evil bindings?
 
+    "/" #'isearch-forward
+    "?" #'isearch-backward
+    "n" #'isearch-repeat-forward
+    "N" #'isearch-repeat-backward
+
     "zd" 'pdf-view-dark-minor-mode
     "zm" 'pdf-view-midnight-minor-mode
     "zp" 'pdf-view-printer-minor-mode
