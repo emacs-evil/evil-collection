@@ -51,14 +51,16 @@
   (interactive "P")
   (if page
       (pdf-view-goto-page page)
-    (pdf-view-last-page)))
+    (pdf-view-last-page)
+    (image-eob)))
 
 (defun evil-collection-pdf-view-goto-first-page (&optional page)
   "`evil' wrapper around `pdf-view-first-page'."
   (interactive "P")
   (if page
       (pdf-view-goto-page page)
-    (pdf-view-first-page)))
+    (pdf-view-first-page)
+    (image-bob)))
 
 (defun evil-collection-pdf-setup ()
   "Set up `evil' bindings for `pdf-view'."
