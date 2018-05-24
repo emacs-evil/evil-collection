@@ -31,10 +31,16 @@
 
 (defconst evil-collection-calc-maps '(calc-mode-map))
 
-(defun evil-collection-calc-ext-setup ()
-  "Set up `evil' bindings for `calc'.
-Since calc bindings are set on-demand when calc-ext is load, we
-need to call it in its load hook."
+(defun evil-collection-calc-setup ()
+  "Set up `evil' bindings for `calc'."
+  (evil-collection-util-inhibit-insert-state calc-mode-map)
+  (evil-set-initial-state 'calc-mode 'normal)
+
+  ;; Calc sets up its bindings just-in-time for its "extensions".  I don't think
+  ;; it's worth copying this clumsy design (for what performance benefit?),
+  ;; while making the bindings much harder to maintain.
+  (require 'calc-ext)
+
   (evil-define-key 'normal calc-mode-map
     "0" 'calcDigit-start
     "1" 'calcDigit-start
@@ -162,13 +168,6 @@ need to call it in its load hook."
 
   (evil-define-key 'visual calc-mode-map
     "d" 'calc-kill-region))
-
-(defun evil-collection-calc-setup ()
-  "Set up `evil' bindings for `calc'."
-  (evil-collection-util-inhibit-insert-state calc-mode-map)
-  (evil-set-initial-state 'calc-mode 'normal)
-  (evil-collection-calc-ext-setup)
-  (add-hook 'calc-ext-load-hook 'evil-collection-calc-ext-setup))
 
 (provide 'evil-collection-calc)
 ;;; evil-collection-calc.el ends here
