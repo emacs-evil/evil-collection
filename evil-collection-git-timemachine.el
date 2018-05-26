@@ -1,7 +1,12 @@
 ;;; evil-collection-git-timemachine.el --- Bindings for `git-timemachine' -*- lexical-binding: t -*-
 
 ;; Author: William Carroll <wpcarro@gmail.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; Pierre Neidhardt <ambrevar@gmail.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "25.1"))
+;; Keywords: evil, git, tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
