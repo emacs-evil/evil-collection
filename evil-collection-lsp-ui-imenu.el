@@ -1,4 +1,4 @@
-;;; evil-collection-company.el --- Bindings for `lsp-ui-imenu-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-lsp-ui-imenu.el --- Bindings for `lsp-ui-imenu-mode'. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 
