@@ -30,7 +30,7 @@
 (require 'lsp-ui nil t)
 (require 'evil)
 
-(defconst evil-collection-lsp-imenu-mode-maps '(lsp-ui-imenu-mode-map))
+(defconst evil-collection-lsp-ui-imenu-mode-maps '(lsp-ui-imenu-mode-map))
 
 (defun evil-collection-lsp-ui-imenu-setup ()
   "Set up `evil' bindings for `lsp-ui-imenu'."
