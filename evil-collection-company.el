@@ -71,6 +71,7 @@ be set through custom or before evil-collection loads."
   (define-key company-search-map (kbd "C-k") 'company-select-previous-or-abort)
   (define-key company-search-map (kbd "M-j") 'company-select-next)
   (define-key company-search-map (kbd "M-k") 'company-select-previous)
+  (define-key company-search-map (kbd "<escape>") 'company-search-abort)
 
   ;; Sets up YCMD like behavior.
   (when evil-collection-company-use-tng (company-tng-configure-default)))
