@@ -34,7 +34,9 @@ more.
 
    : (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
 
-   - Register the bindings, either all at once with ~evil-collection-init~:
+   - Register the bindings, either all at once with
+
+   : (evil-collection-init)
 
    or mode-by-mode, for instance:
 
