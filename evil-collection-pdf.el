@@ -46,22 +46,6 @@
 (defvar pdf-outline-buffer-mode-map)
 (defvar pdf-occur-buffer-mode-map)
 
-(defun evil-collection-pdf-view-next-line-or-next-page (&optional count)
-  "'evil' wrapper include a count argument to `pdf-view-next-line-or-next-page'"
-  (interactive "P")
-  (if count
-      (dotimes (_ count nil)
-	(pdf-view-next-line-or-next-page 1))
-    (pdf-view-next-line-or-next-page 1)))
-
-(defun evil-collection-pdf-view-previous-line-or-previous-page (&optional count)
-  "'evil' wrapper include a count argument to `pdf-view-previous-line-or-previous-page'"
-  (interactive "P")
-  (if count
-      (dotimes (_ count nil)
-	(pdf-view-previous-line-or-previous-page 1))
-    (pdf-view-previous-line-or-previous-page 1)))
-
 (defun evil-collection-pdf-view-goto-page (&optional page)
   "`evil' wrapper around `pdf-view-last-page'."
   (interactive "P")
@@ -85,8 +69,8 @@
   (evil-define-key 'normal pdf-view-mode-map
     ;; motion
     (kbd "<return>") 'image-next-line
-    "j" 'evil-collection-pdf-view-next-line-or-next-page
-    "k" 'evil-collection-pdf-view-previous-line-or-previous-page
+    "j" 'pdf-view-next-line-or-next-page
+    "k" 'pdf-view-previous-line-or-previous-page
     (kbd "SPC") 'pdf-view-scroll-up-or-next-page
     (kbd "S-SPC") 'pdf-view-scroll-down-or-previous-page
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
@@ -100,8 +84,8 @@
     "gk" 'pdf-view-previous-page-command
     (kbd "<next>") 'forward-page
     (kbd "<prior>") 'backward-page
-    (kbd "<down>") 'evil-collection-pdf-view-next-line-or-next-page
-    (kbd "<up>") 'evil-collection-pdf-view-previous-line-or-previous-page
+    (kbd "<down>") 'pdf-view-next-line-or-next-page
+    (kbd "<up>") 'pdf-view-previous-line-or-previous-page
     "gg" 'evil-collection-pdf-view-goto-first-page
     "G" 'evil-collection-pdf-view-goto-page
 
