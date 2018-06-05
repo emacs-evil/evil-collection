@@ -38,7 +38,7 @@
 
   (evil-set-initial-state 'neotree-mode 'normal) ;; Neotree start in normal by default.
 
-  (evil-define-key 'normal neotree-mode-map
+  (evil-collection-define-key 'normal 'neotree 'neotree-mode-map
 
     (kbd "<return>") (neotree-make-executor
                       :file-fn 'neo-open-file

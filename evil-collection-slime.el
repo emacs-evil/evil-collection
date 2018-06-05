@@ -67,11 +67,11 @@
   (evil-set-initial-state 'slime-popup-buffer-mode 'normal)
   (evil-set-initial-state 'slime-xref-mode 'normal)
 
-  (evil-define-key 'normal slime-parent-map
+  (evil-collection-define-key 'normal 'slime 'slime-parent-map
     "gd" 'slime-edit-definition
     (kbd "C-t") 'slime-pop-find-definition-stack)
 
-  (evil-define-key 'normal sldb-mode-map
+  (evil-collection-define-key 'normal 'slime 'sldb-mode-map
     (kbd "RET") 'sldb-default-action
     (kbd "C-m") 'sldb-default-action
     [return] 'sldb-default-action
@@ -121,7 +121,7 @@
     "8" 'sldb-invoke-restart-8
     "9" 'sldb-invoke-restart-9)
 
-  (evil-define-key 'normal slime-inspector-mode-map
+  (evil-collection-define-key 'normal 'slime 'slime-inspector-mode-map
     [return] 'slime-inspector-operate-on-point
     (kbd "C-m") 'slime-inspector-operate-on-point
     [mouse-1] 'slime-inspector-operate-on-click
@@ -147,13 +147,13 @@
     "gR" 'slime-inspector-fetch-all
     "q" 'slime-inspector-quit)
 
-  (evil-define-key 'normal slime-mode-map
+  (evil-collection-define-key 'normal 'slime 'slime-mode-map
     (kbd "K") 'slime-describe-symbol
     (kbd "C-t") 'slime-pop-find-definition-stack
     ;; goto
     "gd" 'slime-edit-definition)
 
-  (evil-define-key 'normal slime-popup-buffer-mode-map
+  (evil-collection-define-key 'normal 'slime 'slime-popup-buffer-mode-map
     ;; quit
     "q" 'quit-window
 
@@ -162,7 +162,7 @@
     ;; goto
     "gd" 'slime-edit-definition)
 
-  (evil-define-key 'normal slime-xref-mode-map
+  (evil-collection-define-key 'normal 'slime 'slime-xref-mode-map
     (kbd "RET") 'slime-goto-xref
     (kbd "S-<return>") 'slime-goto-xref
     "go" 'slime-show-xref

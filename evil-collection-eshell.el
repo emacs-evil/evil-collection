@@ -55,7 +55,7 @@
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
 (defun evil-collection-eshell-setup-keys ()
   "Set up `evil' bindings for `eshell'."
-  (evil-define-key 'normal eshell-mode-map
+  (evil-collection-define-key 'normal 'eshell 'eshell-mode-map
     ;; motion
     "[" 'eshell-previous-prompt
     "]" 'eshell-next-prompt
@@ -70,11 +70,11 @@
 
     (kbd "<return>") 'eshell-send-input
     (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process)
-  (evil-define-key 'insert eshell-mode-map
+  (evil-collection-define-key 'insert 'eshell 'eshell-mode-map
     ;; motion
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument)
-  (evil-define-key 'visual eshell-mode-map
+  (evil-collection-define-key 'visual 'eshell 'eshell-mode-map
     ;; motion
     ;; TODO: This does not work with `evil-visual-line'.
     "[" 'eshell-previous-prompt

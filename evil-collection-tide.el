@@ -36,12 +36,12 @@
 
 (defun evil-collection-tide-setup ()
   "Set up `evil' bindings for `tide'."
-  (evil-define-key 'normal tide-mode-map
+  (evil-collection-define-key 'normal 'tide 'tide-mode-map
     "gd" 'tide-jump-to-definition
     (kbd "C-t") 'tide-jump-back
     "K" 'tide-documentation-at-point)
 
-  (evil-define-key 'normal tide-references-mode-map
+  (evil-collection-define-key 'normal 'tide 'tide-references-mode-map
     "gj" 'tide-find-next-reference
     "gk" 'tide-find-previous-reference
     (kbd "C-j") 'tide-find-next-reference
@@ -51,7 +51,7 @@
     ;; quit
     "q" 'quit-window)
 
-  (evil-define-key 'normal tide-project-errors-mode-map
+  (evil-collection-define-key 'normal 'tide 'tide-project-errors-mode-map
     "gj" 'tide-find-next-error
     "gk" 'tide-find-previous-error
     (kbd "C-j") 'tide-find-next-error

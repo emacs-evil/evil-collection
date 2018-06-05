@@ -34,7 +34,7 @@
 
 (defun evil-collection-xref-setup ()
   "Set up `evil' bindings for `xref'."
-  (evil-define-key 'normal xref--xref-buffer-mode-map
+  (evil-collection-define-key 'normal 'xref 'xref--xref-buffer-mode-map
     "q" 'quit-window
     "gj" 'xref-next-line
     "gk" 'xref-prev-line

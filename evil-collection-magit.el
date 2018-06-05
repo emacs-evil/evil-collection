@@ -40,7 +40,7 @@
 
 (defun evil-collection-magit-setup ()
   "Set up `evil' bindings for `magit'."
-  (evil-define-key 'normal magit-blame-mode-map
+  (evil-collection-define-key 'normal 'magit 'magit-blame-mode-map
     "q" 'magit-blame-quit))
 
 (provide 'evil-collection-magit)

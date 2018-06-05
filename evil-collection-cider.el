@@ -91,11 +91,11 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
   (when evil-collection-settings-setup-debugger-keys
     (add-hook 'cider-mode-hook #'evil-normalize-keymaps)
     (add-hook 'cider--debug-mode-hook #'evil-normalize-keymaps)
-    (evil-define-key 'normal cider-mode-map
+    (evil-collection-define-key 'normal 'cider 'cider-mode-map
       [f6] 'cider-browse-instrumented-defs
       [f9] 'cider-debug-defun-at-point)
 
-    (evil-define-key 'normal cider--debug-mode-map
+    (evil-collection-define-key 'normal 'cider 'cider--debug-mode-map
       "b" 'cider-debug-defun-at-point
       "n" 'evil-collection-cider-debug-next
       "c" 'evil-collection-cider-debug-continue
@@ -107,14 +107,14 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "L" 'evil-collection-cider-debug-locals
       "H" 'cider-debug-move-here))
 
-  (evil-define-key '(normal visual) cider-mode-map
+  (evil-collection-define-key '(normal visual) 'cider 'cider-mode-map
     "gd" 'cider-find-var
     (kbd "C-t") 'cider-pop-back
     "gz" 'cider-switch-to-repl-buffer
     "gf" 'cider-find-resource
     "K" 'cider-doc)
 
-  (evil-define-key '(normal visual) cider-repl-mode-map
+  (evil-collection-define-key '(normal visual) 'cider 'cider-repl-mode-map
     ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
     "gz" 'cider-switch-to-last-clojure-buffer
 
@@ -124,7 +124,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "gf" 'cider-find-resource
     "K" 'cider-doc)
 
-  (evil-define-key 'normal cider-test-report-mode-map
+  (evil-collection-define-key 'normal 'cider 'cider-test-report-mode-map
     (kbd "C-c ,") 'cider-test-commands-map
     (kbd "C-c C-t") 'cider-test-commands-map
     (kbd "M-p") 'cider-test-previous-result
@@ -146,7 +146,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "gr" 'cider-test-run-test
     "q" 'cider-popup-buffer-quit-function)
 
-  (evil-define-key 'normal cider-macroexpansion-mode-map
+  (evil-collection-define-key 'normal 'cider 'cider-macroexpansion-mode-map
     ;; quit
     "q" 'cider-popup-buffer-quit-function
 
@@ -159,7 +159,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "u" 'cider-macroexpand-undo
     [remap undo] 'cider-macroexpand-undo)
 
-  (evil-define-key 'normal cider-connections-buffer-mode-map
+  (evil-collection-define-key 'normal 'cider 'cider-connections-buffer-mode-map
     "d" 'cider-connections-make-default
     "c" 'cider-connection-browser
     "x" 'cider-connections-close-connection
@@ -167,7 +167,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "g?" 'describe-mode)
 
   (evil-set-initial-state 'cider-stacktrace-mode 'normal)
-  (evil-define-key 'normal cider-stacktrace-mode-map
+  (evil-collection-define-key 'normal 'cider 'cider-stacktrace-mode-map
     (kbd "C-k") 'cider-stacktrace-previous-cause
     (kbd "C-j") 'cider-stacktrace-next-cause
     (kbd "gk") 'cider-stacktrace-previous-cause
@@ -193,7 +193,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     [backtab] 'cider-stacktrace-cycle-all-causes)
 
   (add-hook 'cider-inspector-mode-hook #'evil-normalize-keymaps)
-  (evil-define-key 'normal cider-inspector-mode-map
+  (evil-collection-define-key 'normal 'cider 'cider-inspector-mode-map
     "q" 'quit-window
     (kbd "RET") 'cider-inspector-operate-on-point
     [mouse-1] 'cider-inspector-operate-on-click

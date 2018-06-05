@@ -36,9 +36,9 @@
 
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
-  (evil-collection-util-inhibit-insert-state Info-mode-map)
+  (evil-collection-util-inhibit-insert-state info Info-mode-map)
   (evil-set-initial-state 'Info-mode 'normal)
-  (evil-define-key 'normal Info-mode-map
+  (evil-collection-define-key 'normal 'info 'Info-mode-map
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
 
@@ -97,7 +97,7 @@
     "ZQ" 'evil-quit
     "ZZ" 'Info-exit)
 
-  (evil-define-key 'operator Info-mode-map
+  (evil-collection-define-key 'operator 'info 'Info-mode-map
     "u" '(menu-item                     ; Like eww.
           ""
           nil

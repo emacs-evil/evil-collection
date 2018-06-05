@@ -87,7 +87,7 @@ current file instead."
 
   (evil-set-initial-state 'diff-mode 'motion)
 
-  (evil-define-key 'normal diff-mode-map
+  (evil-collection-define-key 'normal 'diff-mode 'diff-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
@@ -100,7 +100,7 @@ current file instead."
 
     "\\" 'read-only-mode) ; magit has "\"
 
-  (evil-define-key 'motion diff-mode-map
+  (evil-collection-define-key 'motion 'diff-mode 'diff-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command

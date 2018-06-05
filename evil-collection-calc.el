@@ -33,7 +33,7 @@
 
 (defun evil-collection-calc-setup ()
   "Set up `evil' bindings for `calc'."
-  (evil-collection-util-inhibit-insert-state calc-mode-map)
+  (evil-collection-util-inhibit-insert-state calc calc-mode-map)
   (evil-set-initial-state 'calc-mode 'normal)
 
   ;; Calc sets up its bindings just-in-time for its "extensions".  I don't think
@@ -41,7 +41,7 @@
   ;; while making the bindings much harder to maintain.
   (require 'calc-ext)
 
-  (evil-define-key 'normal calc-mode-map
+  (evil-collection-define-key 'normal 'calc 'calc-mode-map
     "0" 'calcDigit-start
     "1" 'calcDigit-start
     "2" 'calcDigit-start
@@ -166,7 +166,7 @@
     ;; "ZZ" 'quit-window ; TODO: Rebind "Z"?
     "q" 'calc-quit)
 
-  (evil-define-key 'visual calc-mode-map
+  (evil-collection-define-key 'visual 'calc 'calc-mode-map
     "d" 'calc-kill-region))
 
 (provide 'evil-collection-calc)

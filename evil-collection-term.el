@@ -114,7 +114,7 @@ it is not appropriate in some cases like terminals."
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal bindings.
   ;; Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
-  (evil-define-key 'insert term-raw-map
+  (evil-collection-define-key 'insert 'term 'term-raw-map
     (kbd "C-a") 'term-send-raw
     (kbd "C-b") 'term-send-raw ; Should not be necessary.
     (kbd "C-d") 'term-send-raw
@@ -138,7 +138,7 @@ it is not appropriate in some cases like terminals."
     (kbd "C-c C-d") 'term-send-eof
     (kbd "C-c C-z") 'term-stop-subjob)
 
-  (evil-define-key 'normal term-mode-map
+  (evil-collection-define-key 'normal 'term 'term-mode-map
     (kbd "C-c C-k") 'evil-collection-term-char-mode-insert
     (kbd "<return>") 'term-send-input
 
