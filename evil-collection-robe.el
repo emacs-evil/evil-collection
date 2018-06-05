@@ -34,7 +34,7 @@
 
 (defun evil-collection-robe-setup ()
   "Set up `evil' bindings for `robe'."
-  (evil-define-key 'normal robe-mode-map
+  (evil-collection-define-key 'normal 'robe 'robe-mode-map
     "gd" 'robe-jump
     (kbd "C-t") 'pop-tag-mark
     "K" 'robe-doc

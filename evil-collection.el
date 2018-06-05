@@ -166,6 +166,24 @@ this confusing. It will be included if
   :type '(repeat (choice symbol sexp))
   :group 'evil-collection)
 
+(defcustom evil-collection-key-whitelist '()
+  "List of keys that may be used by evil-collection.
+This is a list of strings that are suitable for input to
+`kbd'. If there are no keys in the list, the whitelist will be ignored."
+  :type '(repeat string)
+  :group 'evil-collection)
+
+(defcustom evil-collection-key-blacklist '()
+  "List of keys that may not be used by evil-collection.
+This is a list of strings that are suitable for input to `kbd'."
+  :type '(repeat string)
+  :group 'evil-collection)
+
+(defvar evil-collection-bindings-record '()
+  "Record of bindings currently made by evil-collection. This is
+an alist of the form ((PACKAGE . BINDINGS)), where bindings is an
+alist of the form ((KEY . FUNCTION)).")
+
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
 This hook runs after all setup (including keybindings) for a mode has already
@@ -174,6 +192,33 @@ mode and a list of keymap names (i.e. symbols, not actual keymaps) customized by
 Evil Collection for that mode. More arguments may be added in the future, so
 functions added to this hook should include a \"&rest _rest\" for forward
 compatibility.")
+
+(defun evil-collection-define-key (state package map-sym &rest bindings)
+  "Wrapper for `evil-define-key*' with additional features.
+Filter keys on the basis of `evil-collection-key-whitelist' and
+`evil-collection-key-blacklist'. Store bindings in
+`evil-collection-bindings-record'."
+  (declare (indent defun))
+  (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+         (record (cdr-safe (assoc package evil-collection-bindings-record))))
+    (while bindings
+      (let ((key (pop bindings))
+            (def (pop bindings)))
+        (when (or (and whitelist (member key whitelist))
+                  (not (member key blacklist)))
+          (push (cons key def) record)
+          (eval-after-load package
+            `(condition-case err
+                 (evil-define-key* ',state ,map-sym ,key ',def)
+               (error
+                (message "evil-collection: Bad binding %s"
+                         '(evil-define-key* ',state ,map-sym ,key ',def))))))))
+    (setq record (nreverse record))
+    (if (assoc package evil-collection-bindings-record)
+        (setcdr (assoc package evil-collection-bindings-record) record)
+      (push (cons package record) evil-collection-bindings-record))
+    nil))
 
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations

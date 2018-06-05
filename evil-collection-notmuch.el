@@ -74,7 +74,7 @@
   (evil-set-initial-state 'notmuch-search-mode 'normal)
   (evil-set-initial-state 'notmuch-hello-mode 'normal)
 
-  (evil-define-key 'normal notmuch-common-keymap
+  (evil-collection-define-key 'normal 'notmuch 'notmuch-common-keymap
     "g?" 'notmuch-help
     "q" 'notmuch-bury-or-kill-this-buffer
     "s" 'notmuch-search
@@ -85,14 +85,14 @@
     "Z" 'notmuch-poll-and-refresh-this-buffer
     "J" 'notmuch-jump-search)
 
-  (evil-define-key 'normal notmuch-hello-mode-map
+  (evil-collection-define-key 'normal 'notmuch 'notmuch-hello-mode-map
     "g?" 'notmuch-hello-versions
     (kbd "TAB") 'widget-forward
     (kbd "RET") 'widget-button-press
     (kbd "S-TAB") 'widget-backward
     (kbd "<C-tab>") 'widget-backward)
 
-  (evil-define-key 'normal notmuch-show-mode-map
+  (evil-collection-define-key 'normal 'notmuch 'notmuch-show-mode-map
     "gd" 'goto-address-at-point
     "A" 'notmuch-show-archive-thread-then-next
     "S" 'notmuch-show-filter-thread
@@ -119,7 +119,7 @@
     (kbd "RET") 'notmuch-show-toggle-message
     "." 'notmuch-show-part-map)
 
-  (evil-define-key 'normal notmuch-tree-mode-map
+  (evil-collection-define-key 'normal 'notmuch 'notmuch-tree-mode-map
     "g?" (notmuch-tree-close-message-pane-and 'notmuch-help)
     "q" 'notmuch-tree-quit
     "s" 'notmuch-tree-to-search
@@ -147,7 +147,7 @@
     "*" 'notmuch-tree-tag-thread
     "e" 'notmuch-tree-resume-message)
 
-  (evil-define-key 'normal notmuch-search-mode-map
+  (evil-collection-define-key 'normal 'notmuch 'notmuch-search-mode-map
     "C" 'compose-mail-other-frame
     "J" 'notmuch-jump-search
     "S" 'notmuch-search-filter
@@ -167,7 +167,7 @@
     "+" 'notmuch-search-add-tag
     (kbd "RET") 'notmuch-search-show-thread)
 
-  (evil-define-key 'normal notmuch-search-stash-map
+  (evil-collection-define-key 'normal 'notmuch 'notmuch-search-stash-map
     "i" 'notmuch-search-stash-thread-id
     "q" 'notmuch-stash-query
     "g?" 'notmuch-subkeymap-help))

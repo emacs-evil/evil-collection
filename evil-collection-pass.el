@@ -36,7 +36,7 @@
 
 (defun evil-collection-pass-setup ()
   "Set up `evil' bindings for `pass-mode'."
-  (evil-define-key 'normal pass-mode-map
+  (evil-collection-define-key 'normal 'pass 'pass-mode-map
     "gj" 'pass-next-entry
     "gk" 'pass-prev-entry
     (kbd "C-j") 'pass-next-entry

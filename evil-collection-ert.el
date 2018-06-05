@@ -36,7 +36,7 @@
   "Set up `evil' bindings for `ert'."
   (evil-set-initial-state 'ert-results-mode 'normal)
 
-  (evil-define-key 'normal ert-results-mode-map
+  (evil-collection-define-key 'normal 'ert 'ert-results-mode-map
     "j" 'evil-next-line
     "k" 'evil-previous-line
     "h" 'evil-backward-char

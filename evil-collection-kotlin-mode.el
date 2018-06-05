@@ -34,7 +34,8 @@
 
 (defun evil-collection-kotlin-mode-setup ()
   "Set up `evil' bindings for `kotlin-mode'."
-  (evil-define-key 'normal kotlin-mode-map "gz" 'kotlin-repl))
+  (evil-collection-define-key 'normal 'kotlin-mode 'kotlin-mode-map
+    "gz" 'kotlin-repl))
 
 (provide 'evil-collection-kotlin-mode)
 ;;; evil-collection-kotlin-mode.el ends here

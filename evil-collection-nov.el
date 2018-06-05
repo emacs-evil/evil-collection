@@ -36,7 +36,7 @@
 
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
-  (evil-define-key 'normal nov-mode-map
+  (evil-collection-define-key 'normal 'nov 'nov-mode-map
     "gr" 'nov-render-document
     "s" 'nov-view-source
     "S" 'nov-view-content-source

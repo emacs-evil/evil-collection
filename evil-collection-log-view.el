@@ -34,7 +34,7 @@
 
 (defun evil-collection-log-view-setup ()
   "Set up `evil' bindings for `log-view'."
-  (evil-define-key 'normal log-view-mode-map
+  (evil-collection-define-key 'normal 'log-view 'log-view-mode-map
     "q" 'quit-window
     (kbd "RET") 'log-view-toggle-entry-display
     "m" 'log-view-toggle-mark-entry

@@ -76,7 +76,7 @@
   (evil-set-initial-state 'reftex-select-label-mode 'normal)
   (evil-set-initial-state 'reftex-select-bib-mode 'normal)
 
-  (evil-define-key 'normal reftex-select-shared-map
+  (evil-collection-define-key 'normal 'reftex 'reftex-select-shared-map
     "j" 'reftex-select-next
     "k" 'reftex-select-previous
     (kbd "]") 'reftex-select-next-heading
@@ -120,7 +120,7 @@
 
   ;; This one is more involved, in reftex-toc.el, line 282 it shows the prompt
   ;; string with the keybinds and I don't see any way of changing it to show evil-like binds.
-  (evil-define-key 'normal reftex-toc-mode-map
+  (evil-collection-define-key 'normal 'reftex 'reftex-toc-mode-map
     "j" 'reftex-toc-next
     "k" 'reftex-toc-previous
     (kbd "RET") 'reftex-toc-goto-line-and-hide

@@ -40,7 +40,7 @@
 (defun evil-collection-indium-setup ()
   "Set up `evil' bindings for `indium'."
   (when evil-collection-settings-setup-debugger-keys
-    (evil-define-key 'normal indium-debugger-mode-map
+    (evil-collection-define-key 'normal 'indium 'indium-debugger-mode-map
       "n" 'indium-debugger-step-over
       "i" 'indium-debugger-step-into
       "o" 'indium-debugger-step-out
@@ -55,7 +55,7 @@
 
     (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps))
 
-  (evil-define-key 'normal indium-inspector-mode-map
+  (evil-collection-define-key 'normal 'indium 'indium-inspector-mode-map
     "q" 'quit-window
     (kbd "RET") 'indium-follow-link
     [mouse-1] 'indium-follow-link
@@ -68,12 +68,12 @@
     [tab] 'indium-inspector-next-reference
     [backtab] 'indium-inspector-previous-reference)
 
-  (evil-define-key 'normal indium-debugger-locals-mode-map
+  (evil-collection-define-key 'normal 'indium 'indium-debugger-locals-mode-map
     "q" 'quit-window
     "L" nil
     "gr" nil)
 
-  (evil-define-key 'normal indium-debugger-frames-mode-map
+  (evil-collection-define-key 'normal 'indium 'indium-debugger-frames-mode-map
     "q" 'quit-window
     [return] 'indium-follow-link
     (kbd "RET") 'indium-follow-link
@@ -84,12 +84,12 @@
     [tab] 'indium-debugger-frames-next-frame
     [backtab] 'indium-debugger-frames-previous-frame)
 
-  (evil-define-key 'normal indium-interaction-mode-map
+  (evil-collection-define-key 'normal 'indium 'indium-interaction-mode-map
     "gr" 'indium-update-script-source
     "gz" 'indium-switch-to-repl-buffer)
 
   (when evil-collection-settings-setup-debugger-keys
-    (evil-define-key 'normal indium-interaction-mode-map
+    (evil-collection-define-key 'normal 'indium 'indium-interaction-mode-map
       [left-fringe mouse-1] 'evil-collection-indium-debugger-mouse-toggle-breakpoint
       [left-margin mouse-1] 'evil-collection-indium-debugger-mouse-toggle-breakpoint
       [f5] 'indium-debugger-resume
@@ -99,7 +99,7 @@
       [f11] 'indium-debugger-step-into
       [S-f11] 'indium-debugger-step-out))
 
-  (evil-define-key 'normal indium-repl-mode-map
+  (evil-collection-define-key 'normal 'indium 'indium-repl-mode-map
     (kbd "gj") 'indium-repl-next-input
     (kbd "gk") 'indium-repl-previous-input
     (kbd "C-j") 'indium-repl-next-input

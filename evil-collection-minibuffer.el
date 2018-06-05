@@ -55,24 +55,21 @@ it does not have a mode."
 (defun evil-collection-minibuffer-setup ()
   "Initialize minibuffer for `evil'."
   ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-from-Minibuffer.html
-  ;; WARNING: With lexical binding, lambdas from `mapc' and `dolist' become
-  ;; closures in which we must use `evil-define-key*' instead of
-  ;; `evil-define-key'.
   (dolist (map (list minibuffer-local-map
                      minibuffer-local-ns-map
                      minibuffer-local-completion-map
                      minibuffer-local-must-match-map
                      minibuffer-local-isearch-map))
-    (evil-define-key* 'normal map (kbd "<escape>") 'abort-recursive-edit)
-    (evil-define-key* 'normal map (kbd "<return>") 'exit-minibuffer))
+    (evil-collection-define-key 'normal 'minibuffer map (kbd "<escape>") 'abort-recursive-edit)
+    (evil-collection-define-key 'normal 'minibuffer map (kbd "<return>") 'exit-minibuffer))
 
   (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.
-  (evil-define-key 'normal evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
-  (evil-define-key 'insert evil-ex-completion-map (kbd "C-p") 'previous-complete-history-element)
-  (evil-define-key 'insert evil-ex-completion-map (kbd "C-n") 'next-complete-history-element)
-  (evil-define-key 'normal evil-ex-completion-map (kbd "C-p") 'previous-history-element)
-  (evil-define-key 'normal evil-ex-completion-map (kbd "C-n") 'next-history-element))
+  (evil-collection-define-key 'normal 'minibuffer evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
+  (evil-collection-define-key 'insert 'minibuffer evil-ex-completion-map (kbd "C-p") 'previous-complete-history-element)
+  (evil-collection-define-key 'insert 'minibuffer evil-ex-completion-map (kbd "C-n") 'next-complete-history-element)
+  (evil-collection-define-key 'normal 'minibuffer evil-ex-completion-map (kbd "C-p") 'previous-history-element)
+  (evil-collection-define-key 'normal 'minibuffer evil-ex-completion-map (kbd "C-n") 'next-history-element))
 
 (provide 'evil-collection-minibuffer)
 ;;; evil-collection-minibuffer.el ends here

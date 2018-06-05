@@ -46,10 +46,10 @@ mode."
   "Set up `evil' bindings for `outline'."
   (evil-set-initial-state 'outline-mode 'normal)
   (when evil-collection-outline-bind-tab-p
-    (evil-define-key 'normal outline-mode-map
+    (evil-collection-define-key 'normal 'outline 'outline-mode-map
       (kbd "<backtab>") 'outline-show-all ; Also "z r" by default
       (kbd "<tab>") 'outline-toggle-children)) ; Also "z a" by default
-  (evil-define-key 'normal outline-mode-map
+  (evil-collection-define-key 'normal 'outline 'outline-mode-map
     ;; folding
     ;; Evil default keys:
     ;; zO: Show recursively for current branch only.

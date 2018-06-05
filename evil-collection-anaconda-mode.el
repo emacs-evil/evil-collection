@@ -39,9 +39,9 @@
 
   ;; latest anaconda uses `anaconda-view-mode-map'; anaconda stable
   ;; uses `anaconda-mode-view-mode-map'
-  (evil-define-key 'normal (if (boundp 'anaconda-mode-view-mode-map)
-                               anaconda-mode-view-mode-map
-                             anaconda-view-mode-map)
+  (evil-collection-define-key 'normal 'anaconda-mode (if (boundp 'anaconda-mode-view-mode-map)
+                                                         'anaconda-mode-view-mode-map
+                                                       'anaconda-view-mode-map)
     "gj" 'next-error-no-select
     "gk" 'previous-error-no-select
     (kbd "C-j") 'next-error-no-select
@@ -50,7 +50,7 @@
     "[" 'previous-error-no-select
     "q" 'quit-window)
 
-  (evil-define-key 'normal anaconda-mode-map
+  (evil-collection-define-key 'normal 'anaconda-mode 'anaconda-mode-map
     ;; Would be nice to support these too.
     ;; 'anaconda-mode-find-assignments
     ;; 'anaconda-mode-find-references

@@ -35,7 +35,7 @@
 
 (defun evil-collection-daemons-setup ()
   "Set up `evil' bindings for `daemons'."
-  (evil-define-key '(normal visual) daemons-mode-map
+  (evil-collection-define-key '(normal visual) 'daemons 'daemons-mode-map
     (kbd "RET") #'daemons-status-at-point
     "s" #'daemons-start-at-point
     "S" #'daemons-stop-at-point
@@ -49,7 +49,7 @@
     "ZQ" #'quit-window)
 
   ;; Functions are available in daemons-output-mode-map as well
-  (evil-define-key '(normal visual) daemons-output-mode-map
+  (evil-collection-define-key '(normal visual) 'daemons 'daemons-output-mode-map
     (kbd "RET") #'daemons-status-at-point
     "s" #'daemons-start-at-point
     "S" #'daemons-stop-at-point
