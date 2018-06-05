@@ -220,6 +220,28 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
       (push (cons package record) evil-collection-bindings-record))
     nil))
 
+(defun evil-collection-describe-all-bindings ()
+  "Print bindings made by evil-collection to separate buffer."
+  (interactive)
+  (let ((buf (get-buffer-create "*evil-collection*")))
+    (switch-to-buffer-other-window buf)
+    (with-current-buffer buf
+      (erase-buffer)
+      (org-mode)
+      (dolist (package evil-collection-bindings-record)
+        (insert "\n\n* " (symbol-name (car package)) )
+        (insert "
+| Key | Definition |
+|-----|------------|
+")
+        (dolist (binding (cdr package))
+          ;; Don't print nil definitions
+          (when (cdr binding)
+            ;; FIXME: Handle keys with | in them
+            (insert (format "| %s | %S |\n"
+                            (key-description (car binding)) (cdr binding)))))
+        (org-table-align)))))
+
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
                                              destructive)
