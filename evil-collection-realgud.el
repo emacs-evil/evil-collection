@@ -52,15 +52,15 @@
     "i" 'realgud:cmd-step
     "!" 'realgud:cmd-shell
 
-    ;; (define-key map [M-down]    'realgud-track-hist-newer)
-    ;; (define-key map [M-kp-2]    'realgud-track-hist-newer)
-    ;; (define-key map [M-up]      'realgud-track-hist-older)
-    ;; (define-key map [M-kp-8]    'realgud-track-hist-older)
-    ;; (define-key map [M-kp-up]   'realgud-track-hist-older)
-    ;; (define-key map [M-kp-down] 'realgud-track-hist-newer)
-    ;; (define-key map [M-print]   'realgud-track-hist-older)
-    ;; (define-key map [M-S-down]  'realgud-track-hist-newest)
-    ;; (define-key map [M-S-up]    'realgud-track-hist-oldest)
+    ;; (evil-collection-define-key nil map [M-down]    'realgud-track-hist-newer)
+    ;; (evil-collection-define-key nil map [M-kp-2]    'realgud-track-hist-newer)
+    ;; (evil-collection-define-key nil map [M-up]      'realgud-track-hist-older)
+    ;; (evil-collection-define-key nil map [M-kp-8]    'realgud-track-hist-older)
+    ;; (evil-collection-define-key nil map [M-kp-up]   'realgud-track-hist-older)
+    ;; (evil-collection-define-key nil map [M-kp-down] 'realgud-track-hist-newer)
+    ;; (evil-collection-define-key nil map [M-print]   'realgud-track-hist-older)
+    ;; (evil-collection-define-key nil map [M-S-down]  'realgud-track-hist-newest)
+    ;; (evil-collection-define-key nil map [M-S-up]    'realgud-track-hist-oldest)
     )
 
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map

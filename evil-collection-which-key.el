@@ -40,11 +40,12 @@
 (defun evil-collection-which-key-setup ()
   "Set up `evil' bindings for `which-key'."
 
-  ;; (define-key which-key-C-h-map "u" 'which-key-undo-key)
-  (define-key which-key-C-h-map "q" 'which-key-abort)
-  (define-key which-key-C-h-map "j" 'which-key-show-next-page-cycle)
-  (define-key which-key-C-h-map "k" 'which-key-show-previous-page-cycle)
-  (define-key which-key-C-h-map "?" 'which-key-show-standard-help))
+  ;; (evil-collection-define-key nil 'which-key-C-h-map "u" 'which-key-undo-key)
+  (evil-collection-define-key nil 'which-key-C-h-map
+    "q" 'which-key-abort
+    "j" 'which-key-show-next-page-cycle
+    "k" 'which-key-show-previous-page-cycle
+    "?" 'which-key-show-standard-help))
 
 (provide 'evil-collection-which-key)
 ;;; evil-collection-which-key.el ends here
