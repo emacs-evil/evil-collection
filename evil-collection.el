@@ -167,22 +167,23 @@ this confusing. It will be included if
   :group 'evil-collection)
 
 (defcustom evil-collection-key-whitelist '()
-  "List of keys that may be used by evil-collection.
+  "List of keys that may be used by Evil Collection.
 This is a list of strings that are suitable for input to
-`kbd'. If there are no keys in the list, the whitelist will be ignored."
+`kbd'.  If there are no keys in the list, the whitelist will be ignored."
   :type '(repeat string)
   :group 'evil-collection)
 
 (defcustom evil-collection-key-blacklist '()
-  "List of keys that may not be used by evil-collection.
+  "List of keys that may not be used by Evil Collection.
 This is a list of strings that are suitable for input to `kbd'."
   :type '(repeat string)
   :group 'evil-collection)
 
-(defvar evil-collection-bindings-record '()
-  "Record of bindings currently made by evil-collection. This is
-an alist of the form ((PACKAGE . BINDINGS)), where bindings is an
-alist of the form ((KEY . FUNCTION)).")
+(defvar evil-collection-bindings-record (make-hash-table :test 'eq)
+  "Record of bindings currently made by Evil Collection. This is
+a hash-table with the package symbol as a key. The associated
+values are the package's bindings which are stored as a hash-table with key
+being the key to be bound and value as the binding.")
 
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
@@ -193,6 +194,9 @@ Evil Collection for that mode. More arguments may be added in the future, so
 functions added to this hook should include a \"&rest _rest\" for forward
 compatibility.")
 
+(defvar evil-collection-describe-buffer "*evil-collection*"
+  "Name for Evil Collection buffer used to describe bindings.")
+
 (defun evil-collection-define-key (state package map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
 Filter keys on the basis of `evil-collection-key-whitelist' and
@@ -201,46 +205,46 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
-         (record (cdr-safe (assoc package evil-collection-bindings-record))))
+         (record (gethash package evil-collection-bindings-record
+                          (make-hash-table :test 'equal))))
     (while bindings
       (let ((key (pop bindings))
             (def (pop bindings)))
         (when (or (and whitelist (member key whitelist))
                   (not (member key blacklist)))
-          (push (cons key def) record)
+          (puthash key def record)
           (eval-after-load package
             `(condition-case err
                  (evil-define-key* ',state ,map-sym ,key ',def)
                (error
                 (message "evil-collection: Bad binding %s"
                          '(evil-define-key* ',state ,map-sym ,key ',def))))))))
-    (setq record (nreverse record))
-    (if (assoc package evil-collection-bindings-record)
-        (setcdr (assoc package evil-collection-bindings-record) record)
-      (push (cons package record) evil-collection-bindings-record))
-    nil))
+    (puthash package record evil-collection-bindings-record)))
 
 (defun evil-collection-describe-all-bindings ()
-  "Print bindings made by evil-collection to separate buffer."
+  "Print bindings made by Evil Collection to separate buffer."
   (interactive)
-  (let ((buf (get-buffer-create "*evil-collection*")))
+  (let ((buf (get-buffer-create evil-collection-describe-buffer)))
     (switch-to-buffer-other-window buf)
     (with-current-buffer buf
       (erase-buffer)
       (org-mode)
-      (dolist (package evil-collection-bindings-record)
-        (insert "\n\n* " (symbol-name (car package)) )
-        (insert "
+      (maphash
+       (lambda (package bindings)
+         (insert "\n\n* " (symbol-name package) )
+         (insert "
 | Key | Definition |
 |-----|------------|
 ")
-        (dolist (binding (cdr package))
-          ;; Don't print nil definitions
-          (when (cdr binding)
-            ;; FIXME: Handle keys with | in them
-            (insert (format "| %s | %S |\n"
-                            (key-description (car binding)) (cdr binding)))))
-        (org-table-align)))))
+         (maphash
+          (lambda (key def)
+            ;; Don't print nil definitions
+            (when def
+              ;; FIXME: Handle keys with | in them
+              (insert (format "| %s | %S |\n" (key-description key) def))))
+          bindings)
+         (org-table-align))
+       evil-collection-bindings-record))))
 
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
