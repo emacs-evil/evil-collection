@@ -182,9 +182,8 @@ This is a list of strings that are suitable for input to `kbd'."
 (defvar evil-collection--bindings-record (make-hash-table :test 'eq)
   "Record of bindings currently made by Evil Collection. This is
 a hash-table with the package symbol as a key.  The associated
-values are the package's bindings which are stored as a
-hash-table with key being the key to be bound and value as the
-binding.")
+values are the package's bindings which are stored as a list of
+the form ((STATE KEY BINDING)).")
 
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
@@ -200,23 +199,31 @@ compatibility.")
 
 (defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
-Filter keys on the basis of `evil-collection-key-whitelist' and
-`evil-collection-key-blacklist'. Store bindings in
+Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other
+than the unquoted keymap required for `evil-define-key*'.  This
+function adds the ability to filter keys on the basis of
+`evil-collection-key-whitelist' and
+`evil-collection-key-blacklist'. It also stores bindings in
 `evil-collection--bindings-record'."
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
-         (record (gethash map-sym evil-collection--bindings-record
-                          (make-hash-table :test 'equal)))
+         (record (gethash map-sym evil-collection--bindings-record))
          filtered-bindings)
     (while bindings
       (let ((key (pop bindings))
             (def (pop bindings)))
         (when (or (and whitelist (member key whitelist))
                   (not (member key blacklist)))
-          (puthash key def record)
+          (if (consp state)
+              (dolist (st state)
+                (push (list (if st st 'all) (key-description key) def)
+                      record))
+            (push (list (if state state 'all) (key-description key) def)
+                  record))
           (push key filtered-bindings)
           (push def filtered-bindings))))
+    (puthash map-sym record evil-collection--bindings-record)
     (setq filtered-bindings (nreverse filtered-bindings))
     (cond ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
            (apply #'evil-define-key*
@@ -231,8 +238,17 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
                             (remove-hook 'after-load-functions #',fun)
                             (apply #'evil-define-key*
                                    ',state ,map-sym ',filtered-bindings))))
-             (add-hook 'after-load-functions fun t))))
-    (puthash map-sym record evil-collection--bindings-record)))
+             (add-hook 'after-load-functions fun t))))))
+
+(defun evil-collection--binding-lessp (a b)
+  "Comparison function used to sort bindings of the form (state key def)."
+  (let ((a-state (symbol-name (nth 0 a)))
+        (b-state (symbol-name (nth 0 b)))
+        (a-key (nth 1 a))
+        (b-key (nth 1 b)))
+    (if (not (string= a-state b-state))
+        (string-lessp a-state b-state)
+      (string-lessp a-key b-key))))
 
 (defun evil-collection-describe-all-bindings ()
   "Print bindings made by Evil Collection to separate buffer."
@@ -242,24 +258,28 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
     (with-current-buffer buf
       (erase-buffer)
       (org-mode)
-      (maphash
-       (lambda (package bindings)
-         (insert "\n\n* " (symbol-name package) )
-         (insert "
-| Key | Definition |
-|-----|------------|
+      (dolist (keymap
+               (sort (hash-table-keys evil-collection--bindings-record)
+                     (lambda (a b)
+                       (string-lessp (symbol-name a)
+                                     (symbol-name b)))))
+        (insert "\n\n* " (symbol-name keymap) "\n")
+        (insert "
+| State | Key | Definition |
+|-------|-----|------------|
 ")
-         (maphash
-          (lambda (key def)
-            ;; Don't print nil definitions
-            (when def
-              (insert (format "| %s | %S |\n"
-                              (replace-regexp-in-string
-                               "|" "¦" (key-description key))
-                              def))))
-          bindings)
-         (org-table-align))
-       evil-collection--bindings-record))))
+        (cl-loop
+         for (state key def) in
+         (sort (gethash keymap evil-collection--bindings-record)
+               #'evil-collection--binding-lessp)
+         do
+         (when (and def (not (eq def 'ignore)))
+           (insert (format "| %s | %s | %S |\n"
+                           state
+                           (replace-regexp-in-string "|" "¦" key)
+                           def))))
+        (org-table-align))
+      (goto-char (point-min)))))
 
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
