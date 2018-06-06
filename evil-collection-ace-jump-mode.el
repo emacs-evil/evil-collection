@@ -139,9 +139,10 @@ the mark and entering `recursive-edit'."
     (when evil-collection-ace-jump-mode-jump-active
       (add-hook 'post-command-hook #'evil-collection-ace-jump-mode-jump-exit-recursive-edit)))
 
-  (define-key evil-motion-state-map [remap ace-jump-char-mode] #'evil-ace-jump-char-mode)
-  (define-key evil-motion-state-map [remap ace-jump-line-mode] #'evil-ace-jump-line-mode)
-  (define-key evil-motion-state-map [remap ace-jump-word-mode] #'evil-ace-jump-word-mode))
+  (evil-collection-define-key nil 'evil-motion-state-map
+    [remap ace-jump-char-mode] #'evil-ace-jump-char-mode
+    [remap ace-jump-line-mode] #'evil-ace-jump-line-mode
+    [remap ace-jump-word-mode] #'evil-ace-jump-word-mode))
 
 (provide 'evil-collection-ace-jump-mode)
 ;;; evil-collection-ace-jump-mode.el ends here

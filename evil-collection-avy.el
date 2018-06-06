@@ -114,7 +114,7 @@ Based on `evil-collection-ace-jump-mode-enclose-ace-jump-for-motion'."
                      avy-goto-word-1-above
                      avy-goto-word-1-below
                      avy-goto-word-or-subword-1))
-    (define-key evil-motion-state-map
+    (evil-collection-define-key nil 'evil-motion-state-map
       (vector 'remap command) (intern-soft (format "evil-%s" command)))))
 
 (provide 'evil-collection-avy)

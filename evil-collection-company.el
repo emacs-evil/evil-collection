@@ -54,24 +54,26 @@ be set through custom or before evil-collection loads."
 
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
-  (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
-  (define-key company-active-map (kbd "C-j") 'company-select-next-or-abort)
-  (define-key company-active-map (kbd "C-k") 'company-select-previous-or-abort)
-  (define-key company-active-map (kbd "M-j") 'company-select-next)
-  (define-key company-active-map (kbd "M-k") 'company-select-previous)
+  (evil-collection-define-key nil 'company-active-map
+    (kbd "C-n") 'company-select-next-or-abort
+    (kbd "C-p") 'company-select-previous-or-abort
+    (kbd "C-j") 'company-select-next-or-abort
+    (kbd "C-k") 'company-select-previous-or-abort
+    (kbd "M-j") 'company-select-next
+    (kbd "M-k") 'company-select-previous)
 
   (when evil-want-C-u-scroll
-    (define-key company-active-map (kbd "C-u") 'company-previous-page))
+    (evil-collection-define-key nil 'company-active-map (kbd "C-u") 'company-previous-page))
 
   (when evil-want-C-d-scroll
-    (define-key company-active-map (kbd "C-d") 'company-next-page))
+    (evil-collection-define-key nil 'company-active-map (kbd "C-d") 'company-next-page))
 
-  (define-key company-search-map (kbd "C-j") 'company-select-next-or-abort)
-  (define-key company-search-map (kbd "C-k") 'company-select-previous-or-abort)
-  (define-key company-search-map (kbd "M-j") 'company-select-next)
-  (define-key company-search-map (kbd "M-k") 'company-select-previous)
-  (define-key company-search-map (kbd "<escape>") 'company-search-abort)
+  (evil-collection-define-key nil 'company-search-map
+    (kbd "C-j") 'company-select-next-or-abort
+    (kbd "C-k") 'company-select-previous-or-abort
+    (kbd "M-j") 'company-select-next
+    (kbd "M-k") 'company-select-previous
+    (kbd "<escape>") 'company-search-abort)
 
   ;; Sets up YCMD like behavior.
   (when evil-collection-company-use-tng (company-tng-configure-default)))

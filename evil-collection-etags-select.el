@@ -32,7 +32,8 @@
 (defun evil-collection-etags-select-setup ()
   "Set up `evil' bindings for `etags-select'.."
   ;; FIXME: probably etags-select should be recomended in docs
-  (define-key evil-motion-state-map "g]" 'etags-select-find-tag-at-point))
+  (evil-collection-define-key nil 'evil-motion-state-map
+    "g]" 'etags-select-find-tag-at-point))
 
 (provide 'evil-collection-etags-select)
 ;;; evil-collection-etags-select.el ends here
