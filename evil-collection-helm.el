@@ -65,7 +65,7 @@
 (with-no-warnings
   (defun evil-collection-helm-hide-minibuffer-maybe ()
     "Hide text in minibuffer when `helm-echo-input-in-header-line' is non-nil."
-    (when (with-helm-buffer helm-echo-input-in-header-line)
+    (when (with-current-buffer (helm-buffer-get) helm-echo-input-in-header-line)
       (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
         (overlay-put ov 'window (selected-window))
         (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
