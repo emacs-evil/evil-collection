@@ -46,6 +46,12 @@
 (defvar pdf-outline-buffer-mode-map)
 (defvar pdf-occur-buffer-mode-map)
 
+;; TODO: The following 2 functions are workarounds for
+;; 'pdf-view-next-line-or-next-page' and
+;; 'pdf-view-previous-line-or-previous-page' not playing well with
+;; EVIL. The root cause should be found and fixed instead.
+;; See https://github.com/emacs-evil/evil-collection/pull/137 for
+;; details.
 (defun evil-collection-pdf-view-next-line-or-next-page (&optional count)
   "'evil' wrapper include a count argument to `pdf-view-next-line-or-next-page'"
   (interactive "P")
