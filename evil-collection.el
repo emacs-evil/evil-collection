@@ -179,7 +179,7 @@ This is a list of strings that are suitable for input to `kbd'."
   :type '(repeat string)
   :group 'evil-collection)
 
-(defvar evil-collection-bindings-record (make-hash-table :test 'eq)
+(defvar evil-collection--bindings-record (make-hash-table :test 'eq)
   "Record of bindings currently made by Evil Collection. This is
 a hash-table with the package symbol as a key. The associated
 values are the package's bindings which are stored as a hash-table with key
@@ -201,11 +201,11 @@ compatibility.")
   "Wrapper for `evil-define-key*' with additional features.
 Filter keys on the basis of `evil-collection-key-whitelist' and
 `evil-collection-key-blacklist'. Store bindings in
-`evil-collection-bindings-record'."
+`evil-collection--bindings-record'."
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
-         (record (gethash package evil-collection-bindings-record
+         (record (gethash package evil-collection--bindings-record
                           (make-hash-table :test 'equal))))
     (while bindings
       (let ((key (pop bindings))
@@ -219,7 +219,7 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
                (error
                 (message "evil-collection: Bad binding %s"
                          '(evil-define-key* ',state ,map-sym ,key ',def))))))))
-    (puthash package record evil-collection-bindings-record)))
+    (puthash package record evil-collection--bindings-record)))
 
 (defun evil-collection-describe-all-bindings ()
   "Print bindings made by Evil Collection to separate buffer."
@@ -244,7 +244,7 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
               (insert (format "| %s | %S |\n" (key-description key) def))))
           bindings)
          (org-table-align))
-       evil-collection-bindings-record))))
+       evil-collection--bindings-record))))
 
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
