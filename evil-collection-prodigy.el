@@ -35,7 +35,7 @@
 
 (defun evil-collection-prodigy-setup ()
   "Set up `evil' bindings for `prodigy'."
-  (evil-collection-define-key 'normal 'prodigy 'prodigy-mode-map
+  (evil-collection-define-key 'normal 'prodigy-mode-map
     ;; quit
     "q" 'quit-window
 
@@ -72,7 +72,7 @@
     (kbd "C-k") 'prodigy-prev-with-status
     (kbd "Y") 'prodigy-copy-cmd)
 
-  (evil-collection-define-key 'normal 'prodigy 'prodigy-view-mode-map
+  (evil-collection-define-key 'normal 'prodigy-view-mode-map
     "x" 'prodigy-view-clear-buffer))
 
 (provide 'evil-collection-prodigy)

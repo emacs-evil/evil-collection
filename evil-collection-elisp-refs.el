@@ -35,7 +35,7 @@
 
 (defun evil-collection-elisp-refs-setup ()
   "Set up `evil' bindings for `elisp-refs'."
-  (evil-collection-define-key 'normal 'elisp-refs 'elisp-refs-mode-map
+  (evil-collection-define-key 'normal 'elisp-refs-mode-map
     (kbd "<tab>") 'elisp-refs-next-match
     (kbd "<backtab>") 'elisp-refs-prev-match
     (kbd "C-j") 'elisp-refs-next-match

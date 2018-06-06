@@ -36,7 +36,7 @@
   "Set up `evil' bindings for `debbugs-gnu-mode'."
   (evil-set-initial-state 'debbugs-gnu-mode 'normal)
 
-  (evil-collection-define-key 'normal 'debbugs 'debbugs-gnu-mode-map
+  (evil-collection-define-key 'normal 'debbugs-gnu-mode-map
     ;; motion
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button

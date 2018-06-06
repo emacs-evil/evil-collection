@@ -39,9 +39,9 @@
 (defun evil-collection-elfeed-setup ()
   "Set up `evil' bindings for `elfeed'."
 
-  (evil-collection-util-inhibit-insert-state elfeed elfeed-search-mode-map)
+  (evil-collection-util-inhibit-insert-state elfeed-search-mode-map)
   (evil-set-initial-state 'elfeed-search-mode 'normal)
-  (evil-collection-define-key 'normal 'elfeed 'elfeed-search-mode-map
+  (evil-collection-define-key 'normal 'elfeed-search-mode-map
     ;; open
     (kbd "<return>") 'elfeed-search-show-entry
     (kbd "S-<return>") 'elfeed-search-browse-url
@@ -65,15 +65,15 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-collection-define-key '(normal visual) 'elfeed 'elfeed-search-mode-map
+  (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
     "-" 'elfeed-search-untag-all
     "U" 'elfeed-search-tag-all-unread
     "u" 'elfeed-search-untag-all-unread)
 
-  (evil-collection-util-inhibit-insert-state elfeed elfeed-show-mode-map)
+  (evil-collection-util-inhibit-insert-state elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
-  (evil-collection-define-key 'normal 'elfeed 'elfeed-show-mode-map
+  (evil-collection-define-key 'normal 'elfeed-show-mode-map
     (kbd "S-<return>") 'elfeed-show-visit
     "go" 'elfeed-show-visit
 
@@ -105,7 +105,7 @@
     "ZQ" 'elfeed-kill-buffer
     "ZZ" 'elfeed-kill-buffer)
 
-  (evil-collection-define-key 'operator 'elfeed 'elfeed-show-mode-map
+  (evil-collection-define-key 'operator 'elfeed-show-mode-map
     ;; Like `eww'.
     "u" '(menu-item
           ""

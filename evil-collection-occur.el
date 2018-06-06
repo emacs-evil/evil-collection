@@ -39,7 +39,7 @@
   "Set up `evil' bindings for `occur'."
   (evil-set-initial-state 'occur-mode 'normal)
 
-  (evil-collection-define-key 'normal 'replace 'occur-mode-map
+  (evil-collection-define-key 'normal 'occur-mode-map
     ;; Like `wdired-mode'.
     (kbd "C-x C-q") 'occur-edit-mode
 
@@ -60,7 +60,7 @@
     "c" 'clone-buffer
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
 
-  (evil-collection-define-key 'normal 'replace 'occur-edit-mode-map
+  (evil-collection-define-key 'normal 'occur-edit-mode-map
     ;; Like `wdired-mode'.
     (kbd "C-x C-q") 'occur-cease-edit
 

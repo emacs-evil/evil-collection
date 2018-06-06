@@ -35,7 +35,7 @@
 (defun evil-collection-view-setup ()
   "Set up `evil' bindings for `view'."
   (evil-set-initial-state 'view-mode 'normal)
-  (evil-collection-define-key 'normal 'view 'view-mode-map
+  (evil-collection-define-key 'normal 'view-mode-map
     "q" 'quit-window
     (kbd "SPC") 'View-scroll-page-forward
     (kbd "S-SPC") 'View-scroll-page-backward

@@ -43,7 +43,7 @@
   (add-hook 'free-keys-mode-hook
             #'evil-collection-free-keys-set-header-line-format)
   (evil-set-initial-state 'free-keys-mode 'normal)
-  (evil-collection-define-key 'normal 'free-keys 'free-keys-mode-map
+  (evil-collection-define-key 'normal 'free-keys-mode-map
     "c" 'free-keys-change-buffer
     "p" 'free-keys-set-prefix
     "q" 'quit-window))

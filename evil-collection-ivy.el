@@ -36,9 +36,9 @@
 
 (defun evil-collection-ivy-setup ()
   "Set up `evil' bindings for `ivy-mode'."
-  (evil-collection-define-key nil 'ivy 'ivy-mode-map
+  (evil-collection-define-key nil 'ivy-mode-map
     (kbd "<escape>") 'minibuffer-keyboard-quit)
-  (evil-collection-define-key 'normal 'ivy 'ivy-occur-mode-map
+  (evil-collection-define-key 'normal 'ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
     (kbd "<return>") 'ivy-occur-press-and-switch
     "j" 'ivy-occur-next-line
@@ -59,15 +59,15 @@
     "q" 'quit-window)
 
   (when evil-want-C-d-scroll
-    (evil-collection-define-key 'normal 'ivy 'ivy-occur-grep-mode-map
+    (evil-collection-define-key 'normal 'ivy-occur-grep-mode-map
       "D" 'ivy-occur-delete-candidate
       (kbd "C-d") 'evil-scroll-down))
 
-  (evil-collection-define-key 'visual 'ivy 'ivy-occur-grep-mode-map
+  (evil-collection-define-key 'visual 'ivy-occur-grep-mode-map
     "j" 'evil-next-line
     "k" 'evil-previous-line)
 
-  (evil-collection-define-key 'normal 'ivy 'ivy-occur-grep-mode-map
+  (evil-collection-define-key 'normal 'ivy-occur-grep-mode-map
     "d" 'ivy-occur-delete-candidate
     (kbd "C-x C-q") 'ivy-wgrep-change-to-wgrep-mode
     "i" 'ivy-wgrep-change-to-wgrep-mode
@@ -91,14 +91,14 @@
 
   (defvar evil-collection-setup-minibuffer)
   (when evil-collection-setup-minibuffer
-    (evil-collection-define-key 'normal 'ivy 'ivy-minibuffer-map
+    (evil-collection-define-key 'normal 'ivy-minibuffer-map
       (kbd "<escape>") 'abort-recursive-edit
       (kbd "<return>") 'exit-minibuffer
       (kbd "C-m") 'ivy-done
       "j" 'ivy-next-line
       "k" 'ivy-previous-line)
 
-    (evil-collection-define-key 'insert 'ivy 'ivy-minibuffer-map
+    (evil-collection-define-key 'insert 'ivy-minibuffer-map
       [backspace] 'ivy-backward-delete-char
       (kbd "C-r") 'ivy-reverse-i-search
       (kbd "C-n") 'ivy-next-line

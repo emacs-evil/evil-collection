@@ -35,7 +35,7 @@
   "Set up `evil' bindings for `bookmark'."
   (evil-set-initial-state 'bookmark-bmenu-mode 'normal)
 
-  (evil-collection-define-key 'normal 'bookmark 'bookmark-bmenu-mode-map
+  (evil-collection-define-key 'normal 'bookmark-bmenu-mode-map
     "q" 'quit-window
     "gr" 'revert-buffer
     "g?" 'describe-mode

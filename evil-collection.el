@@ -181,9 +181,10 @@ This is a list of strings that are suitable for input to `kbd'."
 
 (defvar evil-collection--bindings-record (make-hash-table :test 'eq)
   "Record of bindings currently made by Evil Collection. This is
-a hash-table with the package symbol as a key. The associated
-values are the package's bindings which are stored as a hash-table with key
-being the key to be bound and value as the binding.")
+a hash-table with the package symbol as a key.  The associated
+values are the package's bindings which are stored as a
+hash-table with key being the key to be bound and value as the
+binding.")
 
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
@@ -197,7 +198,7 @@ compatibility.")
 (defvar evil-collection-describe-buffer "*evil-collection*"
   "Name for Evil Collection buffer used to describe bindings.")
 
-(defun evil-collection-define-key (state package map-sym &rest bindings)
+(defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
 Filter keys on the basis of `evil-collection-key-whitelist' and
 `evil-collection-key-blacklist'. Store bindings in
@@ -205,21 +206,33 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
-         (record (gethash package evil-collection--bindings-record
-                          (make-hash-table :test 'equal))))
+         (record (gethash map-sym evil-collection--bindings-record
+                          (make-hash-table :test 'equal)))
+         filtered-bindings)
     (while bindings
       (let ((key (pop bindings))
             (def (pop bindings)))
         (when (or (and whitelist (member key whitelist))
                   (not (member key blacklist)))
           (puthash key def record)
-          (eval-after-load package
-            `(condition-case err
-                 (evil-define-key* ',state ,map-sym ,key ',def)
-               (error
-                (message "evil-collection: Bad binding %s"
-                         '(evil-define-key* ',state ,map-sym ,key ',def))))))))
-    (puthash package record evil-collection--bindings-record)))
+          (push key filtered-bindings)
+          (push def filtered-bindings))))
+    (setq filtered-bindings (nreverse filtered-bindings))
+    (cond ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
+           (apply #'evil-define-key*
+                  state (symbol-value map-sym) filtered-bindings))
+          ((boundp map-sym)
+           (user-error "evil-collection: %s is not a keymap" map-sym))
+          (t
+           (let* ((fname (format "evil-collection-define-key-in-%s" map-sym))
+                  (fun (make-symbol fname)))
+             (fset fun `(lambda (&rest args)
+                          (when (and (boundp ',map-sym) (keymapp ,map-sym))
+                            (remove-hook 'after-load-functions #',fun)
+                            (apply #'evil-define-key*
+                                   ',state ,map-sym ',filtered-bindings))))
+             (add-hook 'after-load-functions fun t))))
+    (puthash map-sym record evil-collection--bindings-record)))
 
 (defun evil-collection-describe-all-bindings ()
   "Print bindings made by Evil Collection to separate buffer."

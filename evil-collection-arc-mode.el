@@ -36,7 +36,7 @@
   "Set up `evil' bindings for `arc-mode'."
   (evil-set-initial-state 'arc-mode 'normal)
   (evil-set-initial-state 'archive-mode 'normal)
-  (evil-collection-define-key 'normal 'arc-mode 'archive-mode-map
+  (evil-collection-define-key 'normal 'archive-mode-map
     "j" 'archive-next-line
     "k" 'archive-previous-line
     (kbd "C-j") 'archive-next-line

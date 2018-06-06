@@ -29,11 +29,11 @@
 ;;; Code:
 (require 'evil)
 
-(defmacro evil-collection-util-inhibit-insert-state (package map)
+(defmacro evil-collection-util-inhibit-insert-state (map)
   "Unmap insertion keys from normal state.
 This is particularly useful for read-only modes."
   `(evil-collection-define-key
-     'normal ',package ',map
+     'normal ',map
      [remap evil-append] #'ignore
      [remap evil-append-line] #'ignore
      [remap evil-insert] #'ignore
