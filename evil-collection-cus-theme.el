@@ -38,7 +38,7 @@
   (evil-set-initial-state 'custom-new-theme-mode 'normal)
   (evil-set-initial-state 'custom-theme-choose-mode 'normal)
 
-  (evil-collection-define-key 'normal 'cus-theme 'custom-theme-choose-mode-map
+  (evil-collection-define-key 'normal 'custom-theme-choose-mode-map
     "gj" 'widget-forward
     "gk" 'widget-backward
     (kbd "]") 'widget-forward
@@ -47,7 +47,7 @@
     (kbd "C-k") 'widget-backward
     "K" 'custom-describe-theme)
 
-  (evil-collection-define-key 'normal 'cus-theme 'custom-new-theme-mode-map
+  (evil-collection-define-key 'normal 'custom-new-theme-mode-map
     "gj" 'widget-forward
     "gk" 'widget-backward
     (kbd "]") 'widget-forward

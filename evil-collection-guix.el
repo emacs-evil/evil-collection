@@ -46,8 +46,8 @@
 (defmacro evil-collection-guix-set (map)
   "Set common bindings in MAP."
   `(progn
-     (evil-collection-util-inhibit-insert-state guix ,map)
-     (evil-collection-define-key 'normal 'guix ',map
+     (evil-collection-util-inhibit-insert-state ,map)
+     (evil-collection-define-key 'normal ',map
         ;; motion
         (kbd "SPC") 'scroll-up-command
         (kbd "S-SPC") 'scroll-down-command
@@ -88,7 +88,7 @@
   "Set up `evil' bindings for `guix'."
   (evil-collection-guix-set guix-ui-map) ; Covers output-list and generation-list.
 
-  (evil-collection-define-key 'normal 'guix 'guix-output-list-mode-map
+  (evil-collection-define-key 'normal 'guix-output-list-mode-map
     (kbd "<return>") 'bui-list-describe
 
     "gb" 'guix-package-list-latest-builds
@@ -106,7 +106,7 @@
     "x" 'guix-output-list-execute)
 
   (evil-collection-guix-set guix-package-info-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-package-info-mode-map
+  (evil-collection-define-key 'normal 'guix-package-info-mode-map
     "gG" 'guix-package-info-graph
     "gl" 'guix-package-info-lint
     "gs" 'guix-package-info-size
@@ -117,7 +117,7 @@
     "i" 'guix-package-info-install)
 
   (evil-collection-guix-set guix-profile-list-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-profile-list-mode-map
+  (evil-collection-define-key 'normal 'guix-profile-list-mode-map
     (kbd "<return>") 'bui-list-describe
 
     "c" 'guix-profile-list-set-current ; TODO: Bind to "." as per the rationale?
@@ -126,7 +126,7 @@
     "P" 'guix-profile-list-show-search-paths)
 
   (evil-collection-guix-set guix-profile-info-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-profile-info-mode-map
+  (evil-collection-define-key 'normal 'guix-profile-info-mode-map
     "gm" 'guix-profile-info-apply-manifest
 
     "p" 'guix-profile-info-show-packages
@@ -134,7 +134,7 @@
     "P" 'guix-profile-info-show-search-paths
     "c" 'guix-profile-info-set-current)
 
-  (evil-collection-define-key 'normal 'guix 'guix-generation-list-mode-map
+  (evil-collection-define-key 'normal 'guix-generation-list-mode-map
     (kbd "<return>") 'bui-list-describe
 
     "p" 'guix-generation-list-show-packages
@@ -151,7 +151,7 @@
     "x" 'guix-generation-list-execute)
 
   (evil-collection-guix-set guix-license-list-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-license-list-mode-map
+  (evil-collection-define-key 'normal 'guix-license-list-mode-map
     (kbd "<tab>") 'forward-button       ; Why isn't this binding inhibited?
     (kbd "<return>") 'bui-list-describe
 
@@ -161,14 +161,14 @@
   (evil-collection-guix-set guix-license-info-mode-map)
 
   (evil-collection-guix-set guix-location-list-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-location-list-mode-map
+  (evil-collection-define-key 'normal 'guix-location-list-mode-map
     (kbd "<return>") 'guix-location-list-show-packages ; In Emacs state, it seems to be overriden by `push-button'.
 
     "p" 'guix-location-list-show-packages
     "gd" 'guix-location-list-edit)
 
   (evil-collection-guix-set guix-hydra-build-list-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-hydra-build-list-mode-map
+  (evil-collection-define-key 'normal 'guix-hydra-build-list-mode-map
     (kbd "<return>") 'bui-list-describe
 
     "gb" 'guix-hydra-build-list-latest-builds
@@ -176,8 +176,8 @@
 
   (evil-collection-guix-set guix-hydra-build-info-mode-map)
 
-  (evil-collection-util-inhibit-insert-state guix guix-build-log-mode-map)
-  (evil-collection-define-key 'normal 'guix 'guix-build-log-mode-map
+  (evil-collection-util-inhibit-insert-state guix-build-log-mode-map)
+  (evil-collection-define-key 'normal 'guix-build-log-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
@@ -201,7 +201,7 @@
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
 
-  (evil-collection-define-key 'normal 'guix 'guix-devel-mode-map
+  (evil-collection-define-key 'normal 'guix-devel-mode-map
     ;; repl
     "gz" 'guix-switch-to-repl))
 

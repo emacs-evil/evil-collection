@@ -60,16 +60,16 @@ it does not have a mode."
                      minibuffer-local-completion-map
                      minibuffer-local-must-match-map
                      minibuffer-local-isearch-map))
-    (evil-collection-define-key 'normal 'minibuffer map (kbd "<escape>") 'abort-recursive-edit)
-    (evil-collection-define-key 'normal 'minibuffer map (kbd "<return>") 'exit-minibuffer))
+    (evil-collection-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
+    (evil-collection-define-key 'normal map (kbd "<return>") 'exit-minibuffer))
 
   (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.
-  (evil-collection-define-key 'normal 'minibuffer evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
-  (evil-collection-define-key 'insert 'minibuffer evil-ex-completion-map (kbd "C-p") 'previous-complete-history-element)
-  (evil-collection-define-key 'insert 'minibuffer evil-ex-completion-map (kbd "C-n") 'next-complete-history-element)
-  (evil-collection-define-key 'normal 'minibuffer evil-ex-completion-map (kbd "C-p") 'previous-history-element)
-  (evil-collection-define-key 'normal 'minibuffer evil-ex-completion-map (kbd "C-n") 'next-history-element))
+  (evil-collection-define-key 'normal 'evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
+  (evil-collection-define-key 'insert 'evil-ex-completion-map (kbd "C-p") 'previous-complete-history-element)
+  (evil-collection-define-key 'insert 'evil-ex-completion-map (kbd "C-n") 'next-complete-history-element)
+  (evil-collection-define-key 'normal 'evil-ex-completion-map (kbd "C-p") 'previous-history-element)
+  (evil-collection-define-key 'normal 'evil-ex-completion-map (kbd "C-n") 'next-history-element))
 
 (provide 'evil-collection-minibuffer)
 ;;; evil-collection-minibuffer.el ends here

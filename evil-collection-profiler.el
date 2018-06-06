@@ -36,7 +36,7 @@
   "Set up `evil' bindings for `profiler'."
   (evil-set-initial-state 'profiler-report-mode 'normal)
 
-  (evil-collection-define-key 'normal 'profiler 'profiler-report-mode-map
+  (evil-collection-define-key 'normal 'profiler-report-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command

@@ -35,7 +35,7 @@
 (defun evil-collection-calendar-setup ()
   "Set up `evil' bindings for `calendar'."
   (evil-set-initial-state 'calendar-mode 'normal)
-  (evil-collection-define-key 'normal 'calendar 'calendar-mode-map
+  (evil-collection-define-key 'normal 'calendar-mode-map
     ;; motion
     "h" 'calendar-backward-day
     "j" 'calendar-forward-week

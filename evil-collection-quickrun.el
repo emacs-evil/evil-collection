@@ -34,7 +34,7 @@
 
 (defun evil-collection-quickrun-setup ()
   "Set up `evil' bindings for `quickrun'.."
-  (evil-collection-define-key 'normal 'quickrun 'quickrun--mode-map
+  (evil-collection-define-key 'normal 'quickrun--mode-map
     "q" 'quit-window))
 
 (provide 'evil-collection-quickrun)

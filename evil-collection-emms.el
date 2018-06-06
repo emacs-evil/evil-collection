@@ -73,9 +73,9 @@ The return value is the yanked text."
   "Set up `evil' bindings for `emms-browser'."
   ;; TODO: Why doesn't evil-set-initial-state work with emms-browser-mode?
 
-  (evil-collection-util-inhibit-insert-state emms emms-browser-mode-map)
+  (evil-collection-util-inhibit-insert-state emms-browser-mode-map)
   (add-hook 'emms-browser-mode-hook 'evil-normal-state)
-  (evil-collection-define-key 'normal 'emms 'emms-browser-mode-map
+  (evil-collection-define-key 'normal 'emms-browser-mode-map
     ;; playback controls
     "x" 'emms-pause
     "X" 'emms-stop
@@ -144,7 +144,7 @@ The return value is the yanked text."
     (evil-collection-emms-browser-setup))
 
   (evil-set-initial-state 'emms-playlist-mode 'normal)
-  (evil-collection-define-key 'normal 'emms 'emms-playlist-mode-map
+  (evil-collection-define-key 'normal 'emms-playlist-mode-map
     ;; playback controls
     "x" 'emms-pause
     "X" 'emms-stop
@@ -197,15 +197,15 @@ The return value is the yanked text."
 
     (kbd "M-y") 'emms-playlist-mode-yank-pop)
 
-  (evil-collection-define-key 'visual 'emms 'emms-playlist-mode-map
+  (evil-collection-define-key 'visual 'emms-playlist-mode-map
     ;; "d" 'emms-playlist-mode-kill
     "D" 'emms-playlist-mode-kill)
 
-  (evil-collection-define-key 'normal 'emms 'emms-browser-search-mode-map
+  (evil-collection-define-key 'normal 'emms-browser-search-mode-map
     "q" 'emms-browser-kill-search)
 
   (evil-set-initial-state 'emms-metaplaylist-mode 'normal)
-  (evil-collection-define-key 'normal 'emms 'emms-metaplaylist-mode-map
+  (evil-collection-define-key 'normal 'emms-metaplaylist-mode-map
     (kbd "<return>") 'emms-metaplaylist-mode-goto-current
     (kbd "<space>") 'emms-metaplaylist-mode-set-active
     "gr" 'emms-metaplaylist-mode-update

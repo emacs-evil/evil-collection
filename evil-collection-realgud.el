@@ -35,7 +35,7 @@
 (defun evil-collection-realgud-setup ()
   "Set up `evil' bindings for `realgud'."
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.
-  (evil-collection-define-key 'normal 'realgud 'realgud:shortkey-mode-map
+  (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     "b" 'realgud:cmd-break
     "u" 'realgud:cmd-delete
     "X" 'realgud:cmd-clear
@@ -63,7 +63,7 @@
     ;; (define-key map [M-S-up]    'realgud-track-hist-oldest)
     )
 
-  (evil-collection-define-key 'normal 'realgud 'realgud:shortkey-mode-map
+  (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     (kbd "C-x C-q") 'realgud-short-key-mode
     "1" 'realgud-goto-arrow1
     "2" 'realgud-goto-arrow2

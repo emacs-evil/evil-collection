@@ -38,7 +38,7 @@
 (defun evil-collection-eww-setup ()
   "Set up `evil' bindings for `eww'."
 
-  (evil-collection-define-key 'normal 'eww 'eww-mode-map
+  (evil-collection-define-key 'normal 'eww-mode-map
     "^" 'eww-up-url
     "u" 'eww-up-url
     "U" 'eww-top-url
@@ -87,7 +87,7 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-collection-define-key 'operator 'eww 'eww-mode-map
+  (evil-collection-define-key 'operator 'eww-mode-map
     "u" '(menu-item
           ""
           nil
@@ -97,9 +97,9 @@
                       (setq evil-inhibit-operator t)
                       #'eww-copy-page-url))))
 
-  (evil-collection-util-inhibit-insert-state eww eww-history-mode-map)
+  (evil-collection-util-inhibit-insert-state eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
-  (evil-collection-define-key 'normal 'eww 'eww-history-mode-map
+  (evil-collection-define-key 'normal 'eww-history-mode-map
     (kbd "<return>") 'eww-history-browse
     ;; refresh
     "gr" 'revert-buffer
@@ -108,9 +108,9 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-collection-util-inhibit-insert-state eww eww-buffers-mode-map)
+  (evil-collection-util-inhibit-insert-state eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
-  (evil-collection-define-key 'normal 'eww 'eww-buffers-mode-map
+  (evil-collection-define-key 'normal 'eww-buffers-mode-map
     "D" 'eww-buffer-kill
     (kbd "<return>") 'eww-buffer-select
     "]" 'eww-buffer-show-next
@@ -124,9 +124,9 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-collection-util-inhibit-insert-state eww eww-bookmark-mode-map)
+  (evil-collection-util-inhibit-insert-state eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
-  (evil-collection-define-key 'normal 'eww 'eww-bookmark-mode-map
+  (evil-collection-define-key 'normal 'eww-bookmark-mode-map
     "D" 'eww-bookmark-kill
     "P" 'eww-bookmark-yank
 
@@ -138,7 +138,7 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-collection-define-key 'operator 'eww 'eww-bookmark-mode-map
+  (evil-collection-define-key 'operator 'eww-bookmark-mode-map
     "u" '(menu-item
           ""
           nil

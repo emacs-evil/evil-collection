@@ -34,7 +34,7 @@
 
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
-  (evil-collection-define-key 'normal 'dired 'dired-mode-map
+  (evil-collection-define-key 'normal 'dired-mode-map
     "q" 'quit-window
     "j" 'dired-next-line
     "k" 'dired-previous-line

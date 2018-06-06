@@ -47,7 +47,7 @@
   (evil-set-initial-state 'rtags-references-tree-mode 'normal)
   (evil-set-initial-state 'rtags-location-stack-visualize-mode 'normal)
 
-  (evil-collection-define-key 'normal 'rtags 'rtags-mode-map
+  (evil-collection-define-key 'normal 'rtags-mode-map
     ;; open
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
@@ -62,7 +62,7 @@
     "x" 'rtags-select-and-remove-rtags-buffer
     "q" 'rtags-call-bury-or-delete)
 
-  (evil-collection-define-key 'normal 'rtags 'rtags-dependency-tree-mode-map
+  (evil-collection-define-key 'normal 'rtags-dependency-tree-mode-map
     (kbd "<tab>") 'rtags-dependency-tree-toggle-current-expanded
     "E" 'rtags-dependency-tree-expand-all
     "c" 'rtags-dependency-tree-collapse-all
@@ -92,7 +92,7 @@
     "x" 'rtags-select-and-remove-rtags-buffer
     "q" 'rtags-call-bury-or-delete)
 
-  (evil-collection-define-key 'normal 'rtags 'rtags-references-tree-mode-map
+  (evil-collection-define-key 'normal 'rtags-references-tree-mode-map
     (kbd "<tab>") 'rtags-references-tree-toggle-current-expanded
 
     "E" 'rtags-references-tree-expand-all
@@ -122,7 +122,7 @@
     "x" 'rtags-select-and-remove-rtags-buffer
     "q" 'rtags-call-bury-or-delete)
 
-  (evil-collection-define-key 'normal 'rtags 'rtags-location-stack-visualize-mode-map
+  (evil-collection-define-key 'normal 'rtags-location-stack-visualize-mode-map
     ;; open
     (kbd "<return>") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window

@@ -38,7 +38,7 @@
   ;; Force `evil' to normalize keymaps.
   (add-hook 'macrostep-mode-hook #'evil-normalize-keymaps)
 
-  (evil-collection-define-key 'normal 'macrostep 'macrostep-keymap
+  (evil-collection-define-key 'normal 'macrostep-keymap
     "q" 'macrostep-collapse-all
     "e" 'macrostep-expand
     "u" 'macrostep-collapse

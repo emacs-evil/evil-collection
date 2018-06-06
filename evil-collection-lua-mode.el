@@ -42,7 +42,7 @@
   "Set up `evil' bindings for `lua-mode'."
   (add-hook 'lua-mode-hook #'evil-collection-lua-mode-set-evil-shift-width)
 
-  (evil-collection-define-key 'normal 'lua-mode 'lua-mode-map
+  (evil-collection-define-key 'normal 'lua-mode-map
     "K" 'lua-search-documentation))
 
 (provide 'evil-collection-lua-mode)

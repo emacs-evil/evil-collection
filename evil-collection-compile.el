@@ -37,7 +37,7 @@
   "Set up `evil' bindings for `compile'."
   (evil-set-initial-state 'compilation-mode 'normal)
 
-  (evil-collection-define-key 'normal 'compile 'compilation-mode-map
+  (evil-collection-define-key 'normal 'compilation-mode-map
     "g?" 'describe-mode
     "?" evil-collection-evil-search-backward
     "gg" 'evil-goto-first-line

@@ -36,7 +36,7 @@
 (defun evil-collection-woman-setup ()
   "Set up `evil' bindings for `woman'."
   (evil-set-initial-state 'woman-mode 'normal)
-  (evil-collection-define-key 'normal 'woman 'woman-mode-map
+  (evil-collection-define-key 'normal 'woman-mode-map
     (kbd "]") 'WoMan-next-manpage
     (kbd "[") 'WoMan-previous-manpage
 

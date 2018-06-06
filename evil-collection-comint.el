@@ -35,10 +35,10 @@
 (defun evil-collection-comint-setup ()
   "Set up `evil' bindings for `comint'."
   (when evil-want-C-d-scroll
-    (evil-collection-define-key 'normal 'comint 'comint-mode-map
+    (evil-collection-define-key 'normal 'comint-mode-map
       (kbd "C-d") #'evil-scroll-down))
 
-  (evil-collection-define-key 'normal 'comint 'comint-mode-map
+  (evil-collection-define-key 'normal 'comint-mode-map
     (kbd "C-j") #'comint-next-input
     (kbd "C-k") #'comint-previous-input
     (kbd "gj") #'comint-next-input
@@ -46,7 +46,7 @@
     (kbd "]") #'comint-next-input
     (kbd "[") #'comint-previous-input)
 
-  (evil-collection-define-key 'insert 'comint 'comint-mode-map
+  (evil-collection-define-key 'insert 'comint-mode-map
     (kbd "<up>") #'comint-previous-input
     (kbd "<down>") #'comint-next-input))
 

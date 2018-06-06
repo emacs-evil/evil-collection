@@ -34,9 +34,9 @@
 
 (defun evil-collection-proced-setup ()
   "Set up `evil' bindings for `proced'."
-  (evil-collection-util-inhibit-insert-state proced proced-mode-map)
+  (evil-collection-util-inhibit-insert-state proced-mode-map)
   (evil-set-initial-state 'proced-mode 'normal)
-  (evil-collection-define-key 'normal 'proced 'proced-mode-map
+  (evil-collection-define-key 'normal 'proced-mode-map
     (kbd "<return>") 'proced-refine
 
     ;; mark

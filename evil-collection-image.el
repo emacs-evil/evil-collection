@@ -39,7 +39,7 @@
   "Set up `evil' bindings for `image-mode'."
   (evil-set-initial-state 'image-mode 'normal)
 
-  (evil-collection-define-key 'normal 'image-mode 'image-mode-map
+  (evil-collection-define-key 'normal 'image-mode-map
     ;; motion
     "gg" 'image-bob
     "G" 'image-eob
@@ -84,7 +84,7 @@
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll
-    (evil-collection-define-key 'normal 'image-mode 'image-mode-map
+    (evil-collection-define-key 'normal 'image-mode-map
       (kbd "C-u") 'image-scroll-down)))
 
 (provide 'evil-collection-image)

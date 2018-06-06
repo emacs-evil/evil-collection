@@ -73,7 +73,7 @@ When called interactively prompt for MARK;  RET remove all marks."
   (evil-set-initial-state 'Buffer-menu-mode 'normal)
   (evil-add-hjkl-bindings Buffer-menu-mode-map 'normal)
 
-  (evil-collection-define-key 'normal 'buf-menu 'Buffer-menu-mode-map
+  (evil-collection-define-key 'normal 'Buffer-menu-mode-map
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
     "gr" 'revert-buffer
