@@ -240,8 +240,10 @@ Filter keys on the basis of `evil-collection-key-whitelist' and
           (lambda (key def)
             ;; Don't print nil definitions
             (when def
-              ;; FIXME: Handle keys with | in them
-              (insert (format "| %s | %S |\n" (key-description key) def))))
+              (insert (format "| %s | %S |\n"
+                              (replace-regexp-in-string
+                               "|" "¦" (key-description key))
+                              def))))
           bindings)
          (org-table-align))
        evil-collection--bindings-record))))
