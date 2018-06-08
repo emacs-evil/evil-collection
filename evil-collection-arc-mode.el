@@ -30,7 +30,7 @@
 (require 'arc-mode)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-arc-mode-maps '(archive-mode-map))
 
 (defun evil-collection-arc-mode-setup ()

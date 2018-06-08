@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'kotlin-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-kotlin-maps '(kotlin-mode-map))
 
 (defun evil-collection-kotlin-mode-setup ()

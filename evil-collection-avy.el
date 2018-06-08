@@ -29,7 +29,7 @@
 ;;; Code:
 (require 'avy nil t)
 (require 'evil)
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (declare-function 'avy-goto-word-or-subword-1 "avy")
 (declare-function 'avy-goto-line "avy")

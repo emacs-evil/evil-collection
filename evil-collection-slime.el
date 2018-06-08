@@ -37,7 +37,7 @@
 (defvar slime-popup-buffer-mode-map)
 (defvar slime-xref-mode-map)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-slime-maps '(slime-parent-map
                                        sldb-mode-map

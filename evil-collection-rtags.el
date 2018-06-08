@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'rtags nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defvar rtags-mode-map)
 (defvar rtags-dependency-tree-mode-map)

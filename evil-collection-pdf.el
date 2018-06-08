@@ -31,7 +31,7 @@
 (require 'pdf-tools nil t)
 (require 'pdf-view nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-pdf-maps '(pdf-view-mode-map
                                      pdf-outline-buffer-mode-map

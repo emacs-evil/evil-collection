@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'ggtags nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defvar ggtags-global-mode-map)
 (defvar ggtags-mode-map)

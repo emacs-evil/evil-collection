@@ -32,7 +32,7 @@
 
 (defvar wgrep-mode-map)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-wgrep-maps '(wgrep-mode-map))
 
 (defun evil-collection-wgrep-setup ()

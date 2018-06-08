@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'outline)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defcustom evil-collection-outline-bind-tab-p t
   "Enable <tab>-based bindings in Outline mode.

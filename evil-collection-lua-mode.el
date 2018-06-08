@@ -31,7 +31,7 @@
 (require 'lua-mode nil t)
 
 (defvar lua-indent-level)
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-lua-mode-maps '(lua-mode-map))
 
 (defun evil-collection-lua-mode-set-evil-shift-width ()

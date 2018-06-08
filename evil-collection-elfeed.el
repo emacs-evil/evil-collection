@@ -30,7 +30,7 @@
 (require 'elfeed nil t)
 (require 'evil-collection-util)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defvar elfeed-search-mode-map)
 (defvar elfeed-show-mode-map)

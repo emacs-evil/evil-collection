@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'python)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-python-maps '(python-mode-map))
 

@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'simple)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defvar special-mode-map)
 

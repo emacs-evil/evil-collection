@@ -34,7 +34,7 @@
 (require 'evil)
 (require 'term)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defcustom evil-collection-term-sync-state-and-mode-p t
   "Synchronize insert/normal state with char/line-mode respectively.

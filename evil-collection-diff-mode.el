@@ -38,7 +38,7 @@
 (require 'evil)
 (require 'diff-mode)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-diff-mode-maps '(diff-mode-map))
 
 (defun evil-collection-diff-read-only-state-switch ()

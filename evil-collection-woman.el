@@ -31,7 +31,7 @@
 (require 'evil-collection-man) ; WoMan's keymap inherits from Man.
 (require 'woman)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-woman-maps '(woman-mode-map))
 
 (defun evil-collection-woman-setup ()

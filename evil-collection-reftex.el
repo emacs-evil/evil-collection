@@ -32,7 +32,7 @@
 (require 'reftex-ref nil t)
 (require 'reftex-cite nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-reftex-maps '(reftex-select-shared-map
                                         reftex-toc-mode-map))

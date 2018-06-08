@@ -29,7 +29,7 @@
 (require 'evil-collection-util)
 (require 'ztree nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defvar ztree-mode-map)
 (defvar ztreediff-mode-map)

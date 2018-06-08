@@ -30,7 +30,7 @@
 (require 'ert)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-ert-maps '(ert-results-mode-map))
 
 (defun evil-collection-ert-setup ()

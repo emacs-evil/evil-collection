@@ -32,7 +32,7 @@
 (require 'evil)
 (require 'evil-collection-settings)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (declare-function cider-debug-mode-send-reply "cider-debug")
 
 (defconst evil-collection-cider-maps '(cider-mode-map

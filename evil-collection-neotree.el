@@ -31,7 +31,7 @@
 (require 'evil)
 (require 'neotree nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (declare-function neotree-make-executor "neotree.el")
 (defconst evil-collection-neotree-maps '(neotree-mode-map))
 

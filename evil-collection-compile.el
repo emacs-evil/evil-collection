@@ -31,7 +31,7 @@
 (require 'compile)
 (require 'evil-collection-evil-search)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-compile-maps '(compilation-mode-map))
 
 (defun evil-collection-compile-setup ()

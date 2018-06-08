@@ -29,7 +29,7 @@
 ;;; Code:
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defmacro evil-collection-util-inhibit-insert-state (map)
   "Unmap insertion keys from normal state.

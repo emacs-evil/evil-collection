@@ -28,7 +28,7 @@
 (require 'evil)
 (require 'paren)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defun evil-collection-paren-show-paren-function (f &rest args)
   "Integrate `show-paren-function' with `evil'."

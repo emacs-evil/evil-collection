@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'typescript-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defvar typescript-indent-level)
 

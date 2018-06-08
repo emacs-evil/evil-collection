@@ -30,7 +30,7 @@
 (require 'company nil t)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (declare-function company-tng-configure-default "company-tng")
 
 (defgroup evil-collection-company nil

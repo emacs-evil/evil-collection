@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'go-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-go-mode-maps '(go-mode-map
                                          godoc-mode-map))
 

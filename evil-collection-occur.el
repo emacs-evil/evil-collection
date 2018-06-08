@@ -29,7 +29,7 @@
 ;;; Code:
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (when (> emacs-major-version 25)
   (require 'replace))

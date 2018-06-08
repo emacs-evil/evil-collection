@@ -31,7 +31,7 @@
 (require 'evil)
 (require 'epa nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-epa-maps '(epa-key-list-mode-map
                                      epa-key-mode-map
                                      epa-info-mode-map))

@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'robe nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-robe-maps '(robe-mode-map))
 

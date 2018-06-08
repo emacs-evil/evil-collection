@@ -31,7 +31,7 @@
 (require 'eshell)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-eshell-maps '(eshell-mode-map))
 
 (defun evil-collection-eshell-next-prompt ()

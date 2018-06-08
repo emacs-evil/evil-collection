@@ -30,7 +30,7 @@
 (require 'cus-theme)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-cus-theme-maps '(custom-theme-choose-mode-map
                                            custom-new-theme-mode-map))
 

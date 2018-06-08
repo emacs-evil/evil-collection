@@ -30,7 +30,7 @@
 (require 'vdiff nil t)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defun evil-collection-vdiff-setup ()
   "Set up `evil' bindings for `vdiff-mode'."

@@ -35,7 +35,7 @@
 (require 'magit nil t)
 
 (defvar magit-blame-mode-map)
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-magit-maps '(magit-blame-mode-map))
 

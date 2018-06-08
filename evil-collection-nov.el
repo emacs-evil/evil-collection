@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'nov nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defvar nov-mode-map)
 
 (defconst evil-collection-nov-maps '(nov-mode-map))

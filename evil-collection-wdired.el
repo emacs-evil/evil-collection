@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'wdired)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-wdired-maps '(wdired-mode-map))
 
 (defun evil-collection-wdired-setup ()

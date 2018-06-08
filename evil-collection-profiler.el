@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'profiler)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-profiler-maps '(profiler-report-mode-map))
 

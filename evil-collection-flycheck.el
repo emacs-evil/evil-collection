@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'flycheck nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defvar flycheck-error-list-mode-map)
 
 (defconst evil-collection-flycheck-maps '(flycheck-error-list-mode-map))

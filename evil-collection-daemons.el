@@ -30,7 +30,7 @@
 (require 'daemons nil t)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-daemons-maps '(daemons-mode-map
                                          daemons-output-mode-map))
 

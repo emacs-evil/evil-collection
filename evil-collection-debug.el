@@ -31,7 +31,7 @@
 (require 'evil)
 (require 'debug)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-debug-maps '(debugger-mode-map))
 
 (defun evil-collection-debug-setup ()

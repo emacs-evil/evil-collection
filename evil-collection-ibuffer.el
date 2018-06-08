@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'ibuffer)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-ibuffer-maps '(ibuffer-mode-map))
 
 (defun evil-collection-ibuffer-setup ()

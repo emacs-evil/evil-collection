@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'image-mode)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 
 ;; TODO: pdf and doc-view conflict with image.
 ;; See https://github.com/emacs-evil/evil-collection/issues/23.

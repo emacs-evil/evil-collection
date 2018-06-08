@@ -30,7 +30,7 @@
 (require 'evil)
 (require 'js2-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defvar js-indent-level)
 
 (defun evil-collection-js2-set-evil-shift-width ()

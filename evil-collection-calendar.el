@@ -30,7 +30,7 @@
 (require 'calendar)
 (require 'evil)
 
-(declare-function evil-collection-define-key "evil-collection.el")
+(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-calendar-maps '(calendar-mode-map))
 
 (defun evil-collection-calendar-setup ()
