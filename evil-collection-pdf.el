@@ -40,6 +40,9 @@
 (declare-function pdf-view-last-page "pdf-view")
 (declare-function pdf-view-first-page "pdf-view")
 (declare-function pdf-view-goto-page "pdf-view")
+(declare-function pdf-view-previous-line-or-previous-page "pdf-view")
+(declare-function pdf-view-next-line-or-next-page "pdf-view")
+
 (defvar pdf-view-mode-map)
 (defvar pdf-outline-buffer-mode-map)
 (defvar pdf-occur-buffer-mode-map)

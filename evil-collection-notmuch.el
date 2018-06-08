@@ -38,6 +38,8 @@
 (declare-function notmuch-search-tag "notmuch")
 (declare-function notmuch-tree-tag "notmuch-tree")
 
+(declare-function notmuch-tree-close-message-pane-and "notmuch-tree")
+
 (defconst evil-collection-notmuch-maps '(notmuch-common-keymap
                                          notmuch-hello-mode-map
                                          notmuch-show-mode-map
