@@ -120,12 +120,12 @@
     (kbd "C-b") 'helm-previous-page)
 
   (dolist (map (list helm-find-files-map helm-read-file-map))
-    (evil-collection-define-key* 'normal map
-                      "go" 'helm-ff-run-switch-other-window
-                      "/" 'helm-ff-run-find-sh-command)
-    (evil-collection-define-key* '(insert normal) map
-                      (kbd "S-<return>") 'helm-ff-run-switch-other-window
-                      (kbd "M-h") 'helm-find-files-up-one-level))
+    (evil-collection-define-key 'normal map
+      "go" 'helm-ff-run-switch-other-window
+      "/" 'helm-ff-run-find-sh-command)
+    (evil-collection-define-key '(insert normal) map
+      (kbd "S-<return>") 'helm-ff-run-switch-other-window
+      (kbd "M-h") 'helm-find-files-up-one-level))
 
   ;; TODO: Change the Helm header to display "M-l" instead of "C-l".  We don't
   ;; want to modify the Emacs Helm map.
