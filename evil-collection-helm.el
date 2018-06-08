@@ -42,6 +42,10 @@
 
 (defvar helm-map)
 (defvar helm-find-files-map)
+(defvar helm-generic-files-map)
+(defvar helm-buffer-map)
+(defvar helm-moccur-map)
+(defvar helm-grep-map)
 (defvar helm-read-file-map)
 (defvar helm-echo-input-in-header-line)
 (defvar helm--prompt)
