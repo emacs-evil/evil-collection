@@ -32,6 +32,7 @@
 ;; This is so because many users find it confusing.
 
 ;;; Code:
+(eval-when-compile (require 'subr-x))
 (require 'cl-lib)
 (require 'evil)
 
@@ -46,6 +47,8 @@ or evil-collection.")
        '(evil-collection)
        "`evil-want-integration' was set to nil but not before loading evil."))
   (require 'evil-collection-integration))
+
+(declare-function org-table-align "org-table.el" nil)
 
 (defgroup evil-collection nil
   "A set of keybindings for Evil mode"
