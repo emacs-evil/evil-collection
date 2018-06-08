@@ -31,6 +31,7 @@
 (require 'evil)
 (require 'elisp-refs nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-elisp-refs-maps '(elisp-refs-mode-map))
 
 (defun evil-collection-elisp-refs-setup ()

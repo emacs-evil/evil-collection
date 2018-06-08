@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'quickrun nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-quickrun-maps '(quickrun--mode-map))
 
 (defun evil-collection-quickrun-setup ()

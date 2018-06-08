@@ -29,6 +29,8 @@
 ;;; Code:
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-minibuffer-maps '(minibuffer-local-map
                                             minibuffer-local-ns-map
                                             minibuffer-local-completion-map

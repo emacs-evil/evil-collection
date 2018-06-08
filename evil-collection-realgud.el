@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'realgud nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-realgud-maps '(realgud:shortkey-mode-map))
 
 (defun evil-collection-realgud-setup ()

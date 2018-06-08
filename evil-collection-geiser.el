@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'geiser nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defvar geiser-debug-mode-map)
 (defvar geiser-doc-mode-map)
 

@@ -30,6 +30,8 @@
 (require 'notmuch nil t)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (declare-function notmuch-show-get-tags "notmuch-show")
 (declare-function notmuch-show-tag "notmuch-show")
 (declare-function notmuch-search-get-tags "notmuch")

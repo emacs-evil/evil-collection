@@ -30,6 +30,8 @@
 (require 'tide nil t)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-tide-maps '(tide-mode-map
                                       tide-references-mode-map
                                       tide-project-errors-mode-map))

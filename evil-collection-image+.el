@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'image+ nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-image+-maps '(image-mode-map))
 
 (defun evil-collection-image+-setup ()

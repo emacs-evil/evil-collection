@@ -29,6 +29,7 @@
 (require 'evil-collection-util)
 (require 'calc)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-calc-maps '(calc-mode-map))
 
 (defun evil-collection-calc-setup ()

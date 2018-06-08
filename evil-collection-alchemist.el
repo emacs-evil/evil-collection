@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'alchemist nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-alchemist-maps '(alchemist-compile-mode-map
                                            alchemist-eval-mode-map
                                            alchemist-execute-mode-map

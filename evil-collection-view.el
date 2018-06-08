@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'view)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-view-maps '(view-mode-map))
 
 (defun evil-collection-view-setup ()

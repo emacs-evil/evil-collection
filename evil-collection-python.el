@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'python)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-python-maps '(python-mode-map))
 
 (defun evil-collection-python-set-evil-shift-width ()

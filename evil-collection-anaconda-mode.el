@@ -29,6 +29,8 @@
 (require 'anaconda-mode nil t)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-anaconda-mode-maps '(anaconda-mode-view-mode-map
                                                anaconda-mode-map))
 

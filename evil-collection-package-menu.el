@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'package)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-package-menu-maps '(package-menu-mode-map))
 
 (defun evil-collection-package-menu-setup ()

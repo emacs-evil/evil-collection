@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'vc-annotate)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-vc-annotate-maps '(vc-annotate-mode-map))
 
 (defun evil-collection-vc-annotate-setup ()

@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'macrostep nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-macrostep-maps '(macrostep-keymap))
 
 (defun evil-collection-macrostep-setup ()

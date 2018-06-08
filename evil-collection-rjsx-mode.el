@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'rjsx-mode nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defvar rjsx-mode-map)
 
 (defconst evil-collection-rjsx-maps '(rjsx-mode-map))

@@ -30,6 +30,8 @@
 (require 'eww)
 (require 'evil-collection-util)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defvar evil-collection-eww-maps '(eww-mode-map
                                    eww-history-mode-map
                                    eww-buffers-mode-map

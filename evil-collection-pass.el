@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'pass nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defvar pass-mode-map)
 
 (defconst evil-collection-pass-maps '(pass-mode-map))

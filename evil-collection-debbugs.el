@@ -30,6 +30,7 @@
 (require 'debbugs nil t)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-debbugs-maps '(debbugs-gnu-mode-map))
 
 (defun evil-collection-debbugs-setup ()

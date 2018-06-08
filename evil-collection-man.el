@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'man)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-man-maps '(Man-mode-map))
 
 (defun evil-collection-man-setup ()

@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'racer nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-racer-maps '(racer-mode-map
                                        racer-help-mode-map))
 

@@ -33,6 +33,7 @@
 
 (defvar which-key-C-h-map)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-which-key-maps '(which-key-C-h-map))
 
 ;; `which-key'is coded so that the prompt properly shows j and k as

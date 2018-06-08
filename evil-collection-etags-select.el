@@ -28,6 +28,8 @@
 (require 'evil)
 (require 'etags-select nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 ;;; Code:
 (defun evil-collection-etags-select-setup ()
   "Set up `evil' bindings for `etags-select'.."

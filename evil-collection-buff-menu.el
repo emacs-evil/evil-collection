@@ -34,6 +34,7 @@
 (require 'evil)
 (require 'tabulated-list)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-buff-menu-maps '(Buffer-menu-mode-map))
 
 ;; This is for `evil-collection-Buffer-menu-unmark-all-buffers.'

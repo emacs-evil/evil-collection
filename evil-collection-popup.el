@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'popup nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-popup-maps '(popup-menu-keymap))
 
 (defun evil-collection-popup-setup ()

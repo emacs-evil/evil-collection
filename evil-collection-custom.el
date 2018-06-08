@@ -30,6 +30,7 @@
 (require 'cus-edit)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-custom-maps '(custom-mode-map))
 
 (defun evil-collection-custom-setup ()

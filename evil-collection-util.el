@@ -29,6 +29,8 @@
 ;;; Code:
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defmacro evil-collection-util-inhibit-insert-state (map)
   "Unmap insertion keys from normal state.
 This is particularly useful for read-only modes."

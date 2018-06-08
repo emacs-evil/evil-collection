@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'eval-sexp-fu nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-eval-sexp-fu-maps nil)
 
 (defun evil-collection-eval-sexp-fu-bounds-of-thing-at-point-sexp (command &rest args)

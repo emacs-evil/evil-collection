@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'typescript-mode nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defvar typescript-indent-level)
 
 (defun evil-collection-typescript-mode-set-evil-shift-width ()

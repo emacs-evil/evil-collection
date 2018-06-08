@@ -30,6 +30,7 @@
 (require 'emms nil t)
 (require 'evil-collection-util)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (declare-function emms-with-inhibit-read-only-t "emms")
 (declare-function emms-playlist-mode-correct-previous-yank "emms-playlist-mode")
 

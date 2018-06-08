@@ -29,6 +29,7 @@
 ;;; Code:
 (require 'bookmark)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-bookmark-maps '(bookmark-bmenu-mode-map))
 
 (defun evil-collection-bookmark-setup ()

@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'ruby-mode)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-ruby-mode-maps nil)
 
 (defun evil-collection-ruby-mode-set-evil-shift-width ()

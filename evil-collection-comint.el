@@ -30,6 +30,7 @@
 (require 'comint)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-comint-maps '(comint-mode-map))
 
 (defun evil-collection-comint-setup ()

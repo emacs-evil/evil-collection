@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'help-mode)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-help-maps '(help-mode-map))
 
 (defun evil-collection-help-setup ()

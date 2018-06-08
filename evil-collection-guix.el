@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'guix nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-guix-maps '(guix-output-list-mode-map
                                       guix-package-info-mode-map
                                       guix-profile-list-mode-map

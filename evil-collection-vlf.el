@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'vlf nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defvar vlf-mode-map)
 (declare-function vlf-change-batch-size "vlf")
 

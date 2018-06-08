@@ -30,6 +30,7 @@
 (require 'evil)
 (require 'prodigy nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-prodigy-maps '(prodigy-mode-map
                                          prodigy-view-mode-map))
 

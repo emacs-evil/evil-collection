@@ -30,6 +30,8 @@
 (require 'edebug)
 (require 'evil)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defconst evil-collection-edebug-maps
   '(edebug-mode-map
     edebug-x-instrumented-function-list-mode-map

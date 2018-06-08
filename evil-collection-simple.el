@@ -30,6 +30,8 @@
 (require 'evil)
 (require 'simple)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 (defvar special-mode-map)
 
 (defconst evil-collection-simple-maps '(special-mode-map))

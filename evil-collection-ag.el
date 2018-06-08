@@ -31,6 +31,7 @@
 (require 'evil)
 (require 'evil-collection-evil-search)
 
+(declare-function evil-collection-define-key "evil-collection.el")
 (defconst evil-collection-ag-maps '(ag-mode-map))
 
 (defun evil-collection-ag-setup ()

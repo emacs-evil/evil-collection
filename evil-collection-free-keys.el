@@ -28,6 +28,8 @@
 (require 'evil)
 (require 'free-keys nil t)
 
+(declare-function evil-collection-define-key "evil-collection.el")
+
 ;;; Code:
 (defvar free-keys-mode-map)
 
