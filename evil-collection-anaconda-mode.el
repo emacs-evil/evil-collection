@@ -31,7 +31,7 @@
 
 (declare-function evil-collection-define-key "evil-collection")
 
-(defconst evil-collection-anaconda-mode-maps '(anaconda-mode-view-mode-map
+(defconst evil-collection-anaconda-mode-maps '(anaconda-view-mode-map
                                                anaconda-mode-map))
 
 (defun evil-collection-anaconda-mode-setup ()
@@ -39,25 +39,26 @@
   ;; Bindings don't seem to be set the first time.
   (add-hook 'anaconda-mode-hook #'evil-normalize-keymaps)
 
-  ;; latest anaconda uses `anaconda-view-mode-map'; anaconda stable
-  ;; uses `anaconda-mode-view-mode-map'
-  (evil-collection-define-key 'normal (if (boundp 'anaconda-mode-view-mode-map)
-                                                         'anaconda-mode-view-mode-map
-                                                       'anaconda-view-mode-map)
-    "gj" 'next-error-no-select
-    "gk" 'previous-error-no-select
-    (kbd "C-j") 'next-error-no-select
-    (kbd "C-k") 'previous-error-no-select
-    "]" 'next-error-no-select
-    "[" 'previous-error-no-select
-    "q" 'quit-window)
+  ;; latest anaconda has replaced view mode by an xref implementation,
+  ;; anaconda stable uses `anaconda-view-mode-map'
+  (when (boundp 'anaconda-view-mode-map)
+    (evil-collection-define-key 'normal 'anaconda-view-mode-map
+      "gj" 'next-error-no-select
+      "gk" 'previous-error-no-select
+      (kbd "C-j") 'next-error-no-select
+      (kbd "C-k") 'previous-error-no-select
+      "]" 'next-error-no-select
+      "[" 'previous-error-no-select
+      "q" 'quit-window))
 
   (evil-collection-define-key 'normal 'anaconda-mode-map
     ;; Would be nice to support these too.
     ;; 'anaconda-mode-find-assignments
     ;; 'anaconda-mode-find-references
     "gd" 'anaconda-mode-find-definitions
-    (kbd "C-t") 'anaconda-mode-go-back
+    (kbd "C-t") (if (fboundp 'anaconda-mode-go-back)
+                    'anaconda-mode-go-back
+                  'xref-pop-marker-stack)
     "K" 'anaconda-mode-show-doc))
 
 (provide 'evil-collection-anaconda-mode)
