@@ -57,11 +57,11 @@ it does not have a mode."
 (defun evil-collection-minibuffer-setup ()
   "Initialize minibuffer for `evil'."
   ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-from-Minibuffer.html
-  (dolist (map (list minibuffer-local-map
-                     minibuffer-local-ns-map
-                     minibuffer-local-completion-map
-                     minibuffer-local-must-match-map
-                     minibuffer-local-isearch-map))
+  (dolist (map '(minibuffer-local-map
+                 minibuffer-local-ns-map
+                 minibuffer-local-completion-map
+                 minibuffer-local-must-match-map
+                 minibuffer-local-isearch-map))
     (evil-collection-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
     (evil-collection-define-key 'normal map (kbd "<return>") 'exit-minibuffer))
 
