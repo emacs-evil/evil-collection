@@ -119,7 +119,7 @@
     (kbd "C-f") 'helm-next-page
     (kbd "C-b") 'helm-previous-page)
 
-  (dolist (map (list helm-find-files-map helm-read-file-map))
+  (dolist (map '(helm-find-files-map helm-read-file-map))
     (evil-collection-define-key 'normal map
       "go" 'helm-ff-run-switch-other-window
       "/" 'helm-ff-run-find-sh-command)
@@ -130,28 +130,42 @@
   ;; TODO: Change the Helm header to display "M-l" instead of "C-l".  We don't
   ;; want to modify the Emacs Helm map.
 
-  (evil-collection-define-key '(insert normal) helm-generic-files-map (kbd "S-<return>") 'helm-ff-run-switch-other-window)
-  (evil-collection-define-key '(insert normal) helm-buffer-map (kbd "S-<return>") 'helm-buffer-switch-other-window)
-  (evil-collection-define-key '(insert normal) helm-buffer-map (kbd "M-<return>") 'display-buffer)
-  (evil-collection-define-key '(insert normal) helm-moccur-map (kbd "S-<return>") 'helm-moccur-run-goto-line-ow)
-  (evil-collection-define-key '(insert normal) helm-grep-map (kbd "S-<return>") 'helm-grep-run-other-window-action)
-  (evil-collection-define-key 'normal helm-generic-files-map "go" 'helm-ff-run-switch-other-window)
-  (evil-collection-define-key 'normal helm-buffer-map "go" 'helm-buffer-switch-other-window)
-  (evil-collection-define-key 'normal helm-buffer-map "gO" 'display-buffer)
-  (evil-collection-define-key 'normal helm-moccur-map "go" 'helm-moccur-run-goto-line-ow)
-  (evil-collection-define-key 'normal helm-grep-map "go" 'helm-grep-run-other-window-action)
+  (evil-collection-define-key '(insert normal) 'helm-generic-files-map
+    (kbd "S-<return>") 'helm-ff-run-switch-other-window)
 
-  (evil-collection-define-key 'normal helm-buffer-map
+  (evil-collection-define-key '(insert normal) 'helm-buffer-map
+    (kbd "S-<return>") 'helm-buffer-switch-other-window
+    (kbd "M-<return>") 'display-buffer)
+
+  (evil-collection-define-key '(insert normal) 'helm-moccur-map
+    (kbd "S-<return>") 'helm-moccur-run-goto-line-ow)
+
+  (evil-collection-define-key '(insert normal) 'helm-grep-map
+    (kbd "S-<return>") 'helm-grep-run-other-window-action)
+
+  (evil-collection-define-key 'normal 'helm-generic-files-map
+    "go" 'helm-ff-run-switch-other-window)
+
+  (evil-collection-define-key 'normal 'helm-buffer-map
+    "go" 'helm-buffer-switch-other-window
+    "gO" 'display-buffer
     "=" 'helm-buffer-run-ediff
     "%" 'helm-buffer-run-query-replace-regexp
-    "D" 'helm-buffer-run-kill-persistent) ; Ivy has "D".
+    "D" 'helm-buffer-run-kill-persistent ; Ivy has "D".
+    )
 
-  (evil-collection-define-key 'normal helm-find-files-map
+  (evil-collection-define-key 'normal 'helm-moccur-map
+    "go" 'helm-moccur-run-goto-line-ow)
+
+  (evil-collection-define-key 'normal 'helm-grep-map
+    "go" 'helm-grep-run-other-window-action)
+
+  (evil-collection-define-key 'normal 'helm-find-files-map
     "=" 'helm-ff-run-ediff-file
     "%" 'helm-ff-run-query-replace-regexp
     "D" 'helm-ff-run-delete-file)       ; Ivy has "D".
 
-  (evil-collection-define-key 'normal helm-map
+  (evil-collection-define-key 'normal 'helm-map
     (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
     (kbd "[") 'helm-previous-source
     (kbd "]") 'helm-next-source
