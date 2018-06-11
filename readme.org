@@ -93,6 +93,7 @@ more.
 
    For example, if you want to enable Evil in the minibuffer, you'll have to turn it on
    explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.
+   Some minibuffer-related packages such as Helm rely on this option.
 
    ~use-package~ example:
 
