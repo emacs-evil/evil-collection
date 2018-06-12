@@ -181,8 +181,7 @@
   (interactive)
   (evil-set-initial-state 'ediff-mode 'normal)
   (add-hook 'ediff-startup-hook 'evil-collection-ediff-startup-hook)
-  (eval-after-load
-      '(evil-collection-ediff-adjust-help)))
+  (evil-collection-ediff-adjust-help))
 
 (defun evil-collection-ediff-revert ()
   "Revert changes made by evil-ediff."
