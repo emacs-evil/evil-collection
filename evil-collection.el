@@ -295,7 +295,8 @@ modes in the current buffer."
 ")
           (cl-loop
            for (state key def) in
-           (sort (gethash keymap evil-collection--bindings-record)
+           (sort (copy-sequence
+                  (gethash keymap evil-collection--bindings-record))
                  #'evil-collection--binding-lessp)
            do
            (when (and def (not (eq def 'ignore)))
