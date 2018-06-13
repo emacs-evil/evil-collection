@@ -230,7 +230,8 @@ function adds the ability to filter keys on the basis of
           (push def filtered-bindings))))
     (puthash map-sym record evil-collection--bindings-record)
     (setq filtered-bindings (nreverse filtered-bindings))
-    (cond ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
+    (cond ((null filtered-bindings))
+          ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
            (apply #'evil-define-key*
                   state (symbol-value map-sym) filtered-bindings))
           ((boundp map-sym)
