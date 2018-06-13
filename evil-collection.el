@@ -255,12 +255,29 @@ function adds the ability to filter keys on the basis of
         (string-lessp a-state b-state)
       (string-lessp a-key b-key))))
 
-(defun evil-collection-describe-all-bindings ()
-  "Print bindings made by Evil Collection to separate buffer."
-  (interactive)
-  (let ((buf (get-buffer-create evil-collection-describe-buffer)))
-    (switch-to-buffer-other-window buf)
-    (with-current-buffer buf
+(defun evil-collection--map-active-p (map-name)
+  "Does MAP-NAME correspond to an active major or minor mode?
+
+This is a guess based on the convention that xyz-mode typically
+is associated with the map xyz-mode-map."
+  (save-match-data
+    (when (string-match "\\(.+-mode\\)-map" map-name)
+      (let ((mode (intern (match-string 1 map-name))))
+        (or (eq major-mode mode)
+            (and (boundp mode)
+                 (assoc mode minor-mode-alist)
+                 (symbol-value mode)))))))
+
+(defun evil-collection-describe-bindings (&optional arg)
+  "Print bindings made by Evil Collection to separate buffer.
+
+With non-nil ARG, restrict to bindings corresponding to active
+modes in the current buffer."
+  (interactive "P")
+  (let ((orig-buf (current-buffer))
+        (desc-buf (get-buffer-create evil-collection-describe-buffer)))
+    (switch-to-buffer-other-window desc-buf)
+    (with-current-buffer desc-buf
       (erase-buffer)
       (org-mode)
       (dolist (keymap
@@ -268,22 +285,25 @@ function adds the ability to filter keys on the basis of
                      (lambda (a b)
                        (string-lessp (symbol-name a)
                                      (symbol-name b)))))
-        (insert "\n\n* " (symbol-name keymap) "\n")
-        (insert "
+        (when (or (null arg)
+                  (with-current-buffer orig-buf
+                    (evil-collection--map-active-p (symbol-name keymap))))
+          (insert "\n\n* " (symbol-name keymap) "\n")
+          (insert "
 | State | Key | Definition |
 |-------|-----|------------|
 ")
-        (cl-loop
-         for (state key def) in
-         (sort (gethash keymap evil-collection--bindings-record)
-               #'evil-collection--binding-lessp)
-         do
-         (when (and def (not (eq def 'ignore)))
-           (insert (format "| %s | %s | %S |\n"
-                           state
-                           (replace-regexp-in-string "|" "¦" key)
-                           def))))
-        (org-table-align))
+          (cl-loop
+           for (state key def) in
+           (sort (gethash keymap evil-collection--bindings-record)
+                 #'evil-collection--binding-lessp)
+           do
+           (when (and def (not (eq def 'ignore)))
+             (insert (format "| %s | %s | %S |\n"
+                             state
+                             (replace-regexp-in-string "|" "¦" key)
+                             def))))
+          (org-table-align)))
       (goto-char (point-min)))))
 
 (defun evil-collection--translate-key (state keymap-symbol
