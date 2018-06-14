@@ -172,6 +172,8 @@
   ;; C-o switches to evil state (again, not useful).
   (evil-collection-define-key '(insert normal) 'helm-map
     (kbd "RET") 'helm-maybe-exit-minibuffer
+    (kbd "M-v") 'helm-previous-page
+    (kbd "C-v") 'helm-next-page
     (kbd "C-p") 'helm-previous-line
     (kbd "C-n") 'helm-next-line
     (kbd "C-o") 'helm-next-source)
@@ -180,6 +182,8 @@
     (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
     (kbd "[") 'helm-previous-source
     (kbd "]") 'helm-next-source
+    (kbd "C-u") 'helm-previous-page
+    (kbd "C-d") 'helm-next-page
     "gk" 'helm-previous-source
     "gj" 'helm-next-source
     (kbd "(") 'helm-prev-visible-mark
