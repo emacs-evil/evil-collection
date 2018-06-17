@@ -66,7 +66,7 @@
 ;;; Code:
 
 (require 'evil)
-(require 'mu4e)
+(require 'mu4e nil t)
 
 (declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-mu4e-maps '(mu4e-main-mode-map
