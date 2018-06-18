@@ -257,19 +257,6 @@ function adds the ability to filter keys on the basis of
         (string-lessp a-state b-state)
       (string-lessp a-key b-key))))
 
-(defun evil-collection--map-active-p (map-name)
-  "Does MAP-NAME correspond to an active major or minor mode?
-
-This is a guess based on the convention that xyz-mode typically
-is associated with the map xyz-mode-map."
-  (save-match-data
-    (when (string-match "\\(.+-mode\\)-map" map-name)
-      (let ((mode (intern (match-string 1 map-name))))
-        (or (eq major-mode mode)
-            (and (boundp mode)
-                 (assoc mode minor-mode-alist)
-                 (symbol-value mode)))))))
-
 (defun evil-collection-describe-bindings (&optional arg)
   "Print bindings made by Evil Collection to separate buffer.
 
@@ -289,7 +276,8 @@ modes in the current buffer."
                                      (symbol-name b)))))
         (when (or (null arg)
                   (with-current-buffer orig-buf
-                    (evil-collection--map-active-p (symbol-name keymap))))
+                    (and (boundp keymap)
+                         (memq (symbol-value keymap) (current-active-maps)))))
           (insert "\n\n* " (symbol-name keymap) "\n")
           (insert "
 | State | Key | Definition |
@@ -302,10 +290,14 @@ modes in the current buffer."
                  #'evil-collection--binding-lessp)
            do
            (when (and def (not (eq def 'ignore)))
-             (insert (format "| %s | %s | %S |\n"
+             (insert (format "| %s | %s | %s |\n"
                              state
                              (replace-regexp-in-string "|" "¦" key)
-                             def))))
+                             (cond ((symbolp def) def)
+                                   ((functionp def) "(lambda ...)")
+                                   ((consp def)
+                                    (format "(%s ...)" (car def)))
+                                   (t "??"))))))
           (org-table-align)))
       (goto-char (point-min)))))
 
