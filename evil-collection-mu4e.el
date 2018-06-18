@@ -90,7 +90,7 @@
 ;;; Define bindings
 
 ;; TODO: Inhibit insert-state functions as per Evil Collection.
-(defvar evil-mu4e-mode-map-bindings
+(defvar evil-collection-mu4e-mode-map-bindings
   `((mu4e-main-mode-map "J"               mu4e~headers-jump-to-maildir)
     (mu4e-main-mode-map "j"               next-line)
     (mu4e-main-mode-map "k"               previous-line)
@@ -229,7 +229,7 @@
   ;; WARNING: With lexical binding, lambdas from `mapc' and `dolist' become
   ;; closures in which we must use `evil-define-key*' instead of
   ;; `evil-define-key'.
-  (dolist (binding evil-mu4e-mode-map-bindings)
+  (dolist (binding evil-collection-mu4e-mode-map-bindings)
     (evil-collection-define-key 'normal
       (nth 0 binding) (nth 1 binding) (nth 2 binding)))
   (evil-define-key 'operator mu4e-view-mode-map
