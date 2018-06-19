@@ -69,6 +69,12 @@
 (require 'mu4e nil t)
 
 (declare-function evil-collection-define-key "evil-collection")
+
+(declare-function mu4e~main-action-str "mu4e-main")
+(declare-function mu4e~main-view-queue "mu4e-main")
+(defvar smtpmail-send-queued-mail)
+(defvar smtpmail-queue-dir)
+
 (defconst evil-collection-mu4e-maps '(mu4e-main-mode-map
                                       mu4e-headers-mode-map
                                       mu4e-view-mode-map
