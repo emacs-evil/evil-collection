@@ -122,6 +122,7 @@ or evil-collection.")
     magit
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
     mu4e
+    mu4e-conversation
     neotree
     notmuch
     nov
