@@ -27,10 +27,9 @@
 ;;; Bindings for `ace-jump-mode'
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'ace-jump-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (declare-function 'ace-jump-char-mode "ace-jump-mode")
 (declare-function 'ace-jump-word-mode "ace-jump-mode")
 (declare-function 'ace-jump-line-mode "ace-jump-mode")

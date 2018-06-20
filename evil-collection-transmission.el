@@ -31,7 +31,6 @@
 (require 'evil-collection-util)
 (require 'transmission nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defvar transmission-mode-map)
 (defvar transmission-files-mode-map)
 (defvar transmission-info-mode-map)

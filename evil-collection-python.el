@@ -27,10 +27,8 @@
 ;;; Bindings for `python'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'python)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-python-maps '(python-mode-map))
 

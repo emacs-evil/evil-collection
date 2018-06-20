@@ -27,10 +27,9 @@
 ;; Bindings for `vc-annotate'
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'vc-annotate)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-vc-annotate-maps '(vc-annotate-mode-map))
 
 (defun evil-collection-vc-annotate-setup ()

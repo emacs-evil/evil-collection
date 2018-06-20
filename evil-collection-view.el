@@ -27,10 +27,9 @@
 ;; Evil bindings for View.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'view)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-view-maps '(view-mode-map))
 
 (defun evil-collection-view-setup ()

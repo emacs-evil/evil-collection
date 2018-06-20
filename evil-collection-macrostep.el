@@ -27,10 +27,9 @@
 ;; Evil bindings for `macrostep-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'macrostep nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-macrostep-maps '(macrostep-keymap))
 
 (defun evil-collection-macrostep-setup ()

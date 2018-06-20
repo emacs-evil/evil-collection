@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'dired)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-dired-maps '(dired-mode-map))
 
 (defun evil-collection-dired-setup ()

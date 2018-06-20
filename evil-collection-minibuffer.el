@@ -27,9 +27,7 @@
 ;; Evil bindings for the minibuffer.
 
 ;;; Code:
-(require 'evil)
-
-(declare-function evil-collection-define-key "evil-collection")
+(require 'evil-collection)
 
 (defconst evil-collection-minibuffer-maps '(minibuffer-local-map
                                             minibuffer-local-ns-map

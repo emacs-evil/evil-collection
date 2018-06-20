@@ -27,10 +27,8 @@
 ;;; Evil bindings for `rtags'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'rtags nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defvar rtags-mode-map)
 (defvar rtags-dependency-tree-mode-map)

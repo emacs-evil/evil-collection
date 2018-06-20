@@ -29,9 +29,8 @@
 ;;; Code:
 (require 'em-prompt)
 (require 'eshell)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-eshell-maps '(eshell-mode-map))
 
 (defun evil-collection-eshell-next-prompt ()

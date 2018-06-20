@@ -27,10 +27,9 @@
 ;;; Bindings for `js2-mode'
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'js2-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defvar js-indent-level)
 
 (defun evil-collection-js2-set-evil-shift-width ()

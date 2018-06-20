@@ -27,10 +27,9 @@
 ;; Evil integration for `package-menu-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'package)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-package-menu-maps '(package-menu-mode-map))
 
 (defun evil-collection-package-menu-setup ()

@@ -27,10 +27,9 @@
 ;; Bindings for `go-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'go-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-go-mode-maps '(go-mode-map
                                          godoc-mode-map))
 

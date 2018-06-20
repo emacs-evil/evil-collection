@@ -32,7 +32,6 @@
 (require 'evil-collection-evil-search)
 (require 'info)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-info-maps '(Info-mode-map))
 
 (defun evil-collection-info-setup ()

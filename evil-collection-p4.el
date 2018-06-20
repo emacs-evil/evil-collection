@@ -29,7 +29,6 @@
 ;;; Code:
 (require 'p4 nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defvar p4-basic-mode-map)
 
 (defconst evil-collection-p4-maps '(p4-basic-mode-map))

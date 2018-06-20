@@ -27,10 +27,9 @@
 ;; Evil bindings for `ivy-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'ivy nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-ivy-maps '(ivy-occur-mode-map
                                      ivy-occur-grep-mode-map
                                      ivy-minibuffer-map))

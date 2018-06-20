@@ -27,10 +27,9 @@
 ;; Evil bindings for IBuffer.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'ibuffer)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-ibuffer-maps '(ibuffer-mode-map))
 
 (defun evil-collection-ibuffer-setup ()

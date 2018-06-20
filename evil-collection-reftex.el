@@ -27,12 +27,10 @@
 ;; Evil bindings for `reftex-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'reftex-ref nil t)
 (require 'reftex-ref nil t)
 (require 'reftex-cite nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-reftex-maps '(reftex-select-shared-map
                                         reftex-toc-mode-map))

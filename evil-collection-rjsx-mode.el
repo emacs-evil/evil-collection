@@ -27,10 +27,8 @@
 ;;; Bindings for `rjsx-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'rjsx-mode nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defvar rjsx-mode-map)
 

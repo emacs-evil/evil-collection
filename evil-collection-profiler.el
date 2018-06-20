@@ -27,10 +27,8 @@
 ;; Evil bindings for `profiler'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'profiler)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-profiler-maps '(profiler-report-mode-map))
 

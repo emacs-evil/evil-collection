@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'cus-theme)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-cus-theme-maps '(custom-theme-choose-mode-map
                                            custom-new-theme-mode-map))
 

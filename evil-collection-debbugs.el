@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'debbugs nil t)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-debbugs-maps '(debbugs-gnu-mode-map))
 
 (defun evil-collection-debbugs-setup ()

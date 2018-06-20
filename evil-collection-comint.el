@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'comint)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-comint-maps '(comint-mode-map))
 
 (defun evil-collection-comint-setup ()

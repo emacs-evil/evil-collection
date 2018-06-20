@@ -27,10 +27,9 @@
 ;;; Bindings for`nov'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'nov nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defvar nov-mode-map)
 
 (defconst evil-collection-nov-maps '(nov-mode-map))

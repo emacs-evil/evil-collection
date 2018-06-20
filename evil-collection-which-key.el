@@ -28,12 +28,11 @@
 
 ;;; Code:
 
-(require 'evil)
+(require 'evil-collection)
 (require 'which-key nil t)
 
 (defvar which-key-C-h-map)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-which-key-maps '(which-key-C-h-map))
 
 ;; `which-key'is coded so that the prompt properly shows j and k as

@@ -28,10 +28,9 @@
 
 ;;; Code:
 (require 'ag nil t)
-(require 'evil)
+(require 'evil-collection)
 (require 'evil-collection-evil-search)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-ag-maps '(ag-mode-map))
 
 (defun evil-collection-ag-setup ()

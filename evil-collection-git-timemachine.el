@@ -26,10 +26,8 @@
 ;; outlines in evil-collection
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'git-timemachine nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defvar git-timemachine-mode-map)
 (defconst evil-collection-git-timemachine-map '(git-timemachine-mode-map))

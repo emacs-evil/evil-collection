@@ -29,10 +29,9 @@
 ;;; Code:
 (require 'cl-macs)
 (require 'cider nil t)
-(require 'evil)
+(require 'evil-collection)
 (require 'evil-collection-settings)
 
-(declare-function evil-collection-define-key "evil-collection")
 (declare-function cider-debug-mode-send-reply "cider-debug")
 
 (defconst evil-collection-cider-maps '(cider-mode-map

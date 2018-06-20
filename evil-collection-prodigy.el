@@ -27,10 +27,9 @@
 ;; Evil bindings for `prodigy'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'prodigy nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-prodigy-maps '(prodigy-mode-map
                                          prodigy-view-mode-map))
 

@@ -28,9 +28,7 @@
 
 ;;; Code:
 (require 'notmuch nil t)
-(require 'evil)
-
-(declare-function evil-collection-define-key "evil-collection")
+(require 'evil-collection)
 
 (declare-function notmuch-show-get-tags "notmuch-show")
 (declare-function notmuch-show-tag "notmuch-show")

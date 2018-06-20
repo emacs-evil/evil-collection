@@ -27,10 +27,8 @@
 ;;; Bindings for `alchemist'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'alchemist nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-alchemist-maps '(alchemist-compile-mode-map
                                            alchemist-eval-mode-map

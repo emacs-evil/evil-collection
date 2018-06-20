@@ -27,10 +27,8 @@
 ;; Bindings for `simple'
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'simple)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defvar special-mode-map)
 

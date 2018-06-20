@@ -27,10 +27,9 @@
 ;; Evil bindings for `pass-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'pass nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defvar pass-mode-map)
 
 (defconst evil-collection-pass-maps '(pass-mode-map))

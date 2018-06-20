@@ -27,10 +27,8 @@
 ;; Evil bindings for `ggtags-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'ggtags nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defvar ggtags-global-mode-map)
 (defvar ggtags-mode-map)

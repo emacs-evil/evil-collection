@@ -65,10 +65,8 @@
 ;;
 ;;; Code:
 
-(require 'evil)
+(require 'evil-collection)
 (require 'mu4e nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (declare-function mu4e~main-action-str "mu4e-main")
 (declare-function mu4e~main-view-queue "mu4e-main")

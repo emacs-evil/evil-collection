@@ -27,10 +27,8 @@
 ;; Evil bindings for `vlf'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'vlf nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defvar vlf-mode-map)
 (declare-function vlf-change-batch-size "vlf")

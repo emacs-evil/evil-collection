@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'cus-edit)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-custom-maps '(custom-mode-map))
 
 (defun evil-collection-custom-setup ()

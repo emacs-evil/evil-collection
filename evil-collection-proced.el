@@ -30,8 +30,6 @@
 (require 'evil-collection-util)
 (require 'proced)
 
-(declare-function evil-collection-define-key "evil-collection")
-
 (defconst evil-collection-proced-maps '(proced-mode-map))
 
 (defun evil-collection-proced-setup ()

@@ -30,7 +30,6 @@
 (require 'evil-collection-settings)
 (require 'indium nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-indium-maps '(indium-debugger-mode-map
                                         indium-inspector-mode-map
                                         indium-debugger-locals-mode-map

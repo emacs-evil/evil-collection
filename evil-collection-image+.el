@@ -27,10 +27,9 @@
 ;; Evil bindings for image-mode with image+.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'image+ nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-image+-maps '(image-mode-map))
 
 (defun evil-collection-image+-setup ()

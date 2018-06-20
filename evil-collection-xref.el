@@ -27,10 +27,9 @@
 ;; Evil bindings for `xref'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'xref)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-xref-maps '(xref--xref-buffer-mode-map))
 
 (defun evil-collection-xref-setup ()

@@ -27,10 +27,9 @@
 ;;; Bindings for `kotlin-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'kotlin-mode nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-kotlin-maps '(kotlin-mode-map))
 
 (defun evil-collection-kotlin-mode-setup ()

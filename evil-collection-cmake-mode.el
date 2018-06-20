@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 ;;; Bindings for `cmake-mode'
-(require 'evil)
+(require 'evil-collection)
 (require 'cmake-mode nil t)
 
 ;;; Code:

@@ -53,7 +53,7 @@
 
 ;;; Code:
 
-(require 'evil)
+(require 'evil-collection)
 (require 'ediff nil t)
 
 (defconst evil-collection-ediff-maps '(ediff-mode-map))

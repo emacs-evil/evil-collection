@@ -25,10 +25,8 @@
 
 ;;; Commentary:
 ;;; Bindings for `free-keys'.
-(require 'evil)
+(require 'evil-collection)
 (require 'free-keys nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 ;;; Code:
 (defvar free-keys-mode-map)

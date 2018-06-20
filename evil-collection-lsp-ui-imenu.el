@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'lsp-ui nil t)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-lsp-ui-imenu-mode-maps '(lsp-ui-imenu-mode-map))
 
 (defun evil-collection-lsp-ui-imenu-setup ()

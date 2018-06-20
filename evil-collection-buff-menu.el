@@ -31,10 +31,9 @@
 ;; `evil-collection-buff-menu-Buffer-menu-unmark-all'
 
 ;; Code taken from emacs-26 repository.
-(require 'evil)
+(require 'evil-collection)
 (require 'tabulated-list)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-buff-menu-maps '(Buffer-menu-mode-map))
 
 ;; This is for `evil-collection-Buffer-menu-unmark-all-buffers.'

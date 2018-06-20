@@ -27,10 +27,8 @@
 ;; Bindings for `racer'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'racer nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-racer-maps '(racer-mode-map
                                        racer-help-mode-map))

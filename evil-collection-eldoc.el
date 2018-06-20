@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'eldoc)
-(require 'evil)
+(require 'evil-collection)
 
 (defun evil-collection-eldoc-setup ()
   "Set up `evil' bindings for `eldoc'.."

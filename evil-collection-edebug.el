@@ -28,9 +28,7 @@
 
 ;;; Code:
 (require 'edebug)
-(require 'evil)
-
-(declare-function evil-collection-define-key "evil-collection")
+(require 'evil-collection)
 
 (defconst evil-collection-edebug-maps
   '(edebug-mode-map

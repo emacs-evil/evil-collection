@@ -25,10 +25,8 @@
 
 ;;; Commentary:
 ;;; Bindings for `etags-select'.
-(require 'evil)
+(require 'evil-collection)
 (require 'etags-select nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 ;;; Code:
 (defun evil-collection-etags-select-setup ()

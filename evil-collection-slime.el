@@ -27,7 +27,7 @@
 ;; Evil bindings for `slime-mode'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'slime nil t)
 
 (defvar slime-parent-map)
@@ -36,8 +36,6 @@
 (defvar slime-mode-map)
 (defvar slime-popup-buffer-mode-map)
 (defvar slime-xref-mode-map)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-slime-maps '(slime-parent-map
                                        sldb-mode-map

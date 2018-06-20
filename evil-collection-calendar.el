@@ -28,9 +28,8 @@
 
 ;;; Code:
 (require 'calendar)
-(require 'evil)
+(require 'evil-collection)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-calendar-maps '(calendar-mode-map))
 
 (defun evil-collection-calendar-setup ()

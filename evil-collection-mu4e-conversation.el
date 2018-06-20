@@ -28,10 +28,9 @@
 
 ;;; Code:
 
-(require 'evil)
+(require 'evil-collection)
 (require 'mu4e-conversation nil t)
 
-(declare-function evil-collection-define-key "evil-collection")
 (defconst evil-collection-mu4e-conversation-maps '(mu4e-conversation-mode-map
                                                    mu4e-conversation-linear-map
                                                    mu4e-conversation-tree-map))

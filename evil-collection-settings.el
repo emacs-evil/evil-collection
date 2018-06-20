@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 ;;; Settings for `evil-collection'.
-(require 'evil)
+(require 'evil-collection)
 
 ;;; Code:
 (defcustom evil-collection-settings-setup-debugger-keys t

@@ -27,10 +27,8 @@
 ;;; Bindings for `robe'.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'robe nil t)
-
-(declare-function evil-collection-define-key "evil-collection")
 
 (defconst evil-collection-robe-maps '(robe-mode-map))
 
