@@ -178,12 +178,18 @@
     (kbd "C-n") 'helm-next-line
     (kbd "C-o") 'helm-next-source)
 
+  (when evil-want-C-u-scroll
+    (evil-collection-define-key 'normal 'helm-map
+      (kbd "C-u") 'helm-previous-page))
+
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'helm-map
+      (kbd "C-d") 'helm-next-page))
+
   (evil-collection-define-key 'normal 'helm-map
     (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
     (kbd "[") 'helm-previous-source
     (kbd "]") 'helm-next-source
-    (kbd "C-u") 'helm-previous-page
-    (kbd "C-d") 'helm-next-page
     "gk" 'helm-previous-source
     "gj" 'helm-next-source
     (kbd "(") 'helm-prev-visible-mark
