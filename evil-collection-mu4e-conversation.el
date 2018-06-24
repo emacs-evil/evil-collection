@@ -38,6 +38,8 @@
 (defun evil-collection-mu4e-conversation-setup ()
   "Set up `evil' bindings for `mu4e-conversation'."
   (evil-define-key 'normal mu4e-conversation-linear-map
+    " " 'evil-scroll-page-down
+    (kbd "S-SPC") 'evil-scroll-page-up
     "zv" 'mu4e-conversation-toggle-view)
   (evil-define-key 'visual mu4e-conversation-linear-map
     (kbd "<return>") 'mu4e-conversation-cite)
@@ -50,6 +52,8 @@
     "]" 'mu4e-conversation-next-message
     "q" 'mu4e-conversation-quit)
   (evil-define-key 'normal mu4e-conversation-tree-map
+    " " 'evil-scroll-page-down
+    (kbd "S-SPC") 'evil-scroll-page-up
     "zv" 'mu4e-conversation-toggle-view)
   (evil-define-key 'visual mu4e-conversation-tree-map
     (kbd "<return>") 'mu4e-conversation-cite)
