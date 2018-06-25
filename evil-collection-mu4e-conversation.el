@@ -54,6 +54,7 @@
   (evil-define-key 'normal mu4e-conversation-tree-map
     " " 'evil-scroll-page-down
     (kbd "S-SPC") 'evil-scroll-page-up
+    "a" 'mu4e-view-action
     "zv" 'mu4e-conversation-toggle-view)
   (evil-define-key 'visual mu4e-conversation-tree-map
     (kbd "<return>") 'mu4e-conversation-cite)
