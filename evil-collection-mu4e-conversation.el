@@ -47,6 +47,8 @@
     (kbd "C-x C-s") 'mu4e-conversation-save
     (kbd "C-c C-c") 'mu4e-conversation-send
     (kbd "M-q") 'mu4e-conversation-fill-long-lines
+    "p" 'mu4e-view-save-attachment-multi
+    "o" 'mu4e-view-open-attachment
     "#" 'mu4e-conversation-toggle-hide-cited
     "[" 'mu4e-conversation-previous-message ; TODO: Don't override previous-unread?  There is still "gk".
     "]" 'mu4e-conversation-next-message
@@ -64,8 +66,8 @@
     (kbd "M-q") 'mu4e-conversation-fill-long-lines
     "C" 'mu4e-compose-new
     "R" 'mu4e-compose-reply
-    "p" 'mu4e-conversation-save-attachment
-    "o" 'mu4e-conversation-open-attachment
+    "p" 'mu4e-view-save-attachment-multi
+    "o" 'mu4e-view-open-attachment
     "cc" 'mu4e-compose-new
     "cr" 'mu4e-compose-reply
     "ce" 'mu4e-compose-edit
