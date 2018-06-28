@@ -163,6 +163,27 @@
     "%" 'helm-ff-run-query-replace-regexp
     "D" 'helm-ff-run-delete-file)       ; Ivy has "D".
 
+  ;; These helm bindings should always exist, the evil equivalents do
+  ;; nothing useful in the minibuffer (error or pure failure).
+  ;; RET can't do a second line in the minibuffer.
+  ;; The C-n/C-p completions error with 'helm in helm' session.
+  ;; C-o switches to evil state (again, not useful).
+  (evil-collection-define-key '(insert normal) 'helm-map
+    (kbd "RET") 'helm-maybe-exit-minibuffer
+    (kbd "M-v") 'helm-previous-page
+    (kbd "C-v") 'helm-next-page
+    (kbd "C-p") 'helm-previous-line
+    (kbd "C-n") 'helm-next-line
+    (kbd "C-o") 'helm-next-source)
+
+  (when evil-want-C-u-scroll
+    (evil-collection-define-key 'normal 'helm-map
+      (kbd "C-u") 'helm-previous-page))
+
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'helm-map
+      (kbd "C-d") 'helm-next-page))
+
   (evil-collection-define-key 'normal 'helm-map
     (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
     (kbd "[") 'helm-previous-source
