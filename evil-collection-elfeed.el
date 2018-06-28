@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'elfeed nil t)
-(require 'evil-collection-util)
+(require 'evil-collection)
 
 (defvar elfeed-search-mode-map)
 (defvar elfeed-show-mode-map)
@@ -39,7 +39,7 @@
 (defun evil-collection-elfeed-setup ()
   "Set up `evil' bindings for `elfeed'."
 
-  (evil-collection-util-inhibit-insert-state elfeed-search-mode-map)
+  (evil-collection-inhibit-insert-state 'elfeed-search-mode-map)
   (evil-set-initial-state 'elfeed-search-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-search-mode-map
     ;; open
@@ -71,7 +71,7 @@
     "U" 'elfeed-search-tag-all-unread
     "u" 'elfeed-search-untag-all-unread)
 
-  (evil-collection-util-inhibit-insert-state elfeed-show-mode-map)
+  (evil-collection-inhibit-insert-state 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-show-mode-map
     (kbd "S-<return>") 'elfeed-show-visit

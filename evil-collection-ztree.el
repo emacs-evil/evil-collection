@@ -26,7 +26,7 @@
 ;; Evil bindings for ztree.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil-collection)
 (require 'ztree nil t)
 
 (defvar ztree-mode-map)
@@ -37,7 +37,7 @@
 (defun evil-collection-ztree-setup ()
   "Set up `evil' bindings for `ztree'."
 
-  (evil-collection-util-inhibit-insert-state ztree-mode-map)
+  (evil-collection-inhibit-insert-state 'ztree-mode-map)
   (evil-set-initial-state 'ztree-mode 'normal)
   (evil-collection-define-key 'normal 'ztree-mode-map
     (kbd "<tab>") 'ztree-jump-side
@@ -54,7 +54,7 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
 
-  (evil-collection-util-inhibit-insert-state ztreediff-mode-map)
+  (evil-collection-inhibit-insert-state 'ztreediff-mode-map)
   (evil-set-initial-state 'ztree-mode 'normal)
   (evil-define-minor-mode-key 'normal 'ztreediff-mode
     "C" 'ztree-diff-copy

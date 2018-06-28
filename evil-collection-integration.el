@@ -32,14 +32,11 @@
 ;; Maintainer: Vegard Øye <vegard_oye at hotmail.com>
 
 ;;; Code:
-
 (require 'evil-maps)
 (require 'evil-core)
 (require 'evil-macros)
 (require 'evil-types)
 (require 'evil-repeat)
-
-;;; Code:
 
 ;;; Evilize some commands
 

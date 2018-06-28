@@ -25,8 +25,10 @@
 
 ;;; Commentary:
 ;;; Bindings for `paren'.
-(require 'evil-collection)
+
+;;; Code:
 (require 'paren)
+(require 'evil-collection)
 
 (defun evil-collection-paren-show-paren-function (f &rest args)
   "Integrate `show-paren-function' with `evil'."
@@ -65,7 +67,6 @@
             (let ((ov (and (boundp ov) (symbol-value ov))))
               (when (overlayp ov) (delete-overlay ov)))))))))
 
-;;; Code:
 (defun evil-collection-paren-setup ()
   "Set up `evil' bindings for `paren'."
   (advice-add 'show-paren-function

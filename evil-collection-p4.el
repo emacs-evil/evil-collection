@@ -28,6 +28,7 @@
 
 ;;; Code:
 (require 'p4 nil t)
+(require 'evil-collection)
 
 (defvar p4-basic-mode-map)
 
@@ -52,6 +53,5 @@
     "G" 'p4-bottom-of-buffer
     "=" 'delete-other-windows))
 
-;;; Code:
 (provide 'evil-collection-p4)
 ;;; evil-collection-p4.el ends here

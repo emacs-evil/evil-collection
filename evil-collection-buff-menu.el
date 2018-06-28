@@ -27,12 +27,12 @@
 ;;; Bindings for `buff-menu'.
 
 ;;; Code:
+(require 'evil-collection)
+(require 'tabulated-list)
 
 ;; `evil-collection-buff-menu-Buffer-menu-unmark-all'
 
 ;; Code taken from emacs-26 repository.
-(require 'evil-collection)
-(require 'tabulated-list)
 
 (defconst evil-collection-buff-menu-maps '(Buffer-menu-mode-map))
 

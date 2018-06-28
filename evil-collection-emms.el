@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'emms nil t)
-(require 'evil-collection-util)
+(require 'evil-collection)
 
 (declare-function emms-with-inhibit-read-only-t "emms")
 (declare-function emms-playlist-mode-correct-previous-yank "emms-playlist-mode")
@@ -73,7 +73,7 @@ The return value is the yanked text."
   "Set up `evil' bindings for `emms-browser'."
   ;; TODO: Why doesn't evil-set-initial-state work with emms-browser-mode?
 
-  (evil-collection-util-inhibit-insert-state emms-browser-mode-map)
+  (evil-collection-inhibit-insert-state 'emms-browser-mode-map)
   (add-hook 'emms-browser-mode-hook 'evil-normal-state)
   (evil-collection-define-key 'normal 'emms-browser-mode-map
     ;; playback controls

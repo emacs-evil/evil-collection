@@ -25,10 +25,11 @@
 
 ;;; Commentary:
 ;;; Bindings for `cmake-mode'
+
+;;; Code:
 (require 'evil-collection)
 (require 'cmake-mode nil t)
 
-;;; Code:
 (defvar cmake-tab-width)
 (defun evil-collection-cmake-mode-set-evil-shift-width ()
   "Set `evil-shift-width' according to `cmake-tab-with'."
