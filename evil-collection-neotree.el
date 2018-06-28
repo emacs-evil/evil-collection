@@ -1,4 +1,4 @@
-;;; evil-collection-neotree.el --- Evil bindings for neotree -*- lexical-binding: t -*-
+;;; evil-collection-neotree.el --- Evil bindings for neotree -*- lexical-binding: t; no-byte-compile: t; -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 
