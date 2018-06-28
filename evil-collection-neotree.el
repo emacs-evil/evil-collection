@@ -31,8 +31,17 @@
 (require 'evil-collection)
 (require 'neotree nil t)
 
-(declare-function neotree-make-executor "neotree.el")
 (defconst evil-collection-neotree-maps '(neotree-mode-map))
+
+(defmacro evil-collection-neotree-exec (&optional file-fn dir-fn)
+  "Replacement for `neotree-make-executor'."
+  ;; `neotree-make-executor' is a macro, so it will get expanded correctly at
+  ;; compile time if neotree is available. If neotree is not available, somehow
+  ;; `neotree-make-executor' gets tagged as an invalid function at compile time.
+  `(lambda (&optional arg)
+     (interactive "P")
+     (neo-global--select-window)
+     (neo-buffer--execute arg ,file-fn ,dir-fn)))
 
 (defun evil-collection-neotree-setup ()
   "Set up `evil' bindings for `neotree'."
@@ -41,21 +50,13 @@
 
   (evil-collection-define-key 'normal 'neotree-mode-map
 
-    (kbd "<return>") (neotree-make-executor
-                      :file-fn 'neo-open-file
-                      :dir-fn 'neo-open-dir)
-    (kbd "<tab>") (neotree-make-executor
-                   :dir-fn 'neo-open-dir)
-    "z" (neotree-make-executor
-         :dir-fn 'neo-open-dir)
+    (kbd "<return>") (evil-collection-neotree-exec 'neo-open-file 'neo-open-dir)
+    (kbd "<tab>") (evil-collection-neotree-exec nil 'neo-open-dir)
+    "z" (evil-collection-neotree-exec nil 'neo-open-dir)
     "ZZ" 'quit-window
-    "gd" (neotree-make-executor
-          :dir-fn 'neo-open-dired)
-    "gD" (neotree-make-executor
-          :dir-fn 'neo-open-dired)
-    "go" (neotree-make-executor
-          :file-fn 'neo-open-file
-          :dir-fn 'neo-open-dir)
+    "gd" (evil-collection-neotree-exec nil 'neo-open-dired)
+    "gD" (evil-collection-neotree-exec nil 'neo-open-dired)
+    "go" (evil-collection-neotree-exec 'neo-open-file 'neo-open-dir)
     "gO" 'neotree-quick-look
     "gr" 'neotree-refresh
     "q" 'neotree-hide
@@ -81,12 +82,9 @@
     "k" 'neotree-previous-line
 
     ;; Unchanged keybings.
-    "a" (neotree-make-executor
-         :file-fn 'neo-open-file-ace-window)
-    "|" (neotree-make-executor
-         :file-fn 'neo-open-file-vertical-split)
-    "-" (neotree-make-executor
-         :file-fn 'neo-open-file-horizontal-split)
+    "a" (evil-collection-neotree-exec 'neo-open-file-ace-window)
+    "|" (evil-collection-neotree-exec 'neo-open-file-vertical-split)
+    "-" (evil-collection-neotree-exec 'neo-open-file-horizontal-split)
     "S" 'neotree-select-previous-sibling-node
     "s" 'neotree-select-next-sibling-node
     (kbd "C-c C-c") 'neotree-change-root
