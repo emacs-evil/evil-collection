@@ -25,10 +25,11 @@
 
 ;;; Commentary:
 ;;; Bindings for `etags-select'.
+
+;;; Code:
 (require 'evil-collection)
 (require 'etags-select nil t)
 
-;;; Code:
 (defun evil-collection-etags-select-setup ()
   "Set up `evil' bindings for `etags-select'.."
   ;; FIXME: probably etags-select should be recomended in docs

@@ -26,14 +26,14 @@
 ;; Evil bindings for calc.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil-collection)
 (require 'calc)
 
 (defconst evil-collection-calc-maps '(calc-mode-map))
 
 (defun evil-collection-calc-setup ()
   "Set up `evil' bindings for `calc'."
-  (evil-collection-util-inhibit-insert-state calc-mode-map)
+  (evil-collection-inhibit-insert-state 'calc-mode-map)
   (evil-set-initial-state 'calc-mode 'normal)
 
   ;; Calc sets up its bindings just-in-time for its "extensions".  I don't think

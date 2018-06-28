@@ -28,7 +28,7 @@
 ;; This package uses normal state and redefines everything.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil-collection)
 (require 'evil-collection-evil-search)
 (require 'info)
 
@@ -36,7 +36,7 @@
 
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
-  (evil-collection-util-inhibit-insert-state Info-mode-map)
+  (evil-collection-inhibit-insert-state 'Info-mode-map)
   (evil-set-initial-state 'Info-mode 'normal)
   (evil-collection-define-key 'normal 'Info-mode-map
     (kbd "<tab>") 'Info-next-reference

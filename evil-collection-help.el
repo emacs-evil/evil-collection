@@ -27,7 +27,7 @@
 ;; Evil bindings for `help-mode'.
 
 ;;; Code:
-(require 'evil-collection-util)
+(require 'evil-collection)
 (require 'help-mode)
 
 (defconst evil-collection-help-maps '(help-mode-map))
@@ -35,7 +35,7 @@
 (defun evil-collection-help-setup ()
   "Set up `evil' bindings for `help'."
   (evil-set-initial-state 'help-mode 'normal)
-  (evil-collection-util-inhibit-insert-state help-mode-map)
+  (evil-collection-inhibit-insert-state 'help-mode-map)
   (evil-collection-define-key 'normal 'help-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command

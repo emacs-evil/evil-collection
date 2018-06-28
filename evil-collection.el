@@ -248,6 +248,34 @@ function adds the ability to filter keys on the basis of
                                    ',state ,map-sym ',filtered-bindings))))
              (add-hook 'after-load-functions fun t))))))
 
+(defun evil-collection-inhibit-insert-state (map-sym)
+  "Unmap insertion keys from normal state.
+This is particularly useful for read-only modes."
+  (evil-collection-define-key 'normal map-sym
+    [remap evil-append] #'ignore
+    [remap evil-append-line] #'ignore
+    [remap evil-insert] #'ignore
+    [remap evil-insert-line] #'ignore
+    [remap evil-change] #'ignore
+    [remap evil-change-line] #'ignore
+    [remap evil-substitute] #'ignore
+    [remap evil-change-whole-line] #'ignore
+    [remap evil-delete] #'ignore
+    [remap evil-delete-line] #'ignore
+    [remap evil-delete-char] #'ignore
+    [remap evil-delete-backward-char] #'ignore
+    [remap evil-replace] #'ignore
+    [remap evil-replace-state] #'ignore
+    [remap evil-open-below] #'ignore
+    [remap evil-open-above] #'ignore
+    [remap evil-paste-after] #'ignore
+    [remap evil-paste-before] #'ignore
+    [remap evil-join] #'ignore
+    [remap evil-indent] #'ignore
+    [remap evil-shift-left] #'ignore
+    [remap evil-shift-right] #'ignore
+    [remap evil-invert-char] #'ignore))
+
 (defun evil-collection--binding-lessp (a b)
   "Comparison function used to sort bindings of the form (state key def)."
   (let ((a-state (symbol-name (nth 0 a)))

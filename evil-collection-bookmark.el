@@ -27,6 +27,7 @@
 ;; Evil bindings for bookmarks.
 
 ;;; Code:
+(require 'evil-collection)
 (require 'bookmark)
 
 (defconst evil-collection-bookmark-maps '(bookmark-bmenu-mode-map))

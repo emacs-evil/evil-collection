@@ -46,7 +46,7 @@
 (defmacro evil-collection-guix-set (map)
   "Set common bindings in MAP."
   `(progn
-     (evil-collection-util-inhibit-insert-state ,map)
+     (evil-collection-inhibit-insert-state ',map)
      (evil-collection-define-key 'normal ',map
         ;; motion
         (kbd "SPC") 'scroll-up-command
@@ -176,7 +176,7 @@
 
   (evil-collection-guix-set guix-hydra-build-info-mode-map)
 
-  (evil-collection-util-inhibit-insert-state guix-build-log-mode-map)
+  (evil-collection-inhibit-insert-state 'guix-build-log-mode-map)
   (evil-collection-define-key 'normal 'guix-build-log-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
