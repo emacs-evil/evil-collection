@@ -27,7 +27,7 @@
 ;; Evil bindings for `help-mode'.
 
 ;;; Code:
-(require 'evil-collection)
+(require 'evil-collection-util)
 (require 'help-mode)
 
 (defconst evil-collection-help-maps '(help-mode-map))
