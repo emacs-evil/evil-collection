@@ -51,6 +51,14 @@
   (eshell-interrupt-process)
   (evil-insert 1))
 
+(defun evil-collection-eshell-dd ()
+  "Emulate dd on `eshell' input."
+  (interactive)
+  (progn
+    (end-of-line)
+    (eshell-kill-input)
+    (evil-insert 1)))
+
 ;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
 (defun evil-collection-eshell-setup-keys ()
@@ -65,6 +73,7 @@
     "gj" 'eshell-next-prompt
     "0" 'eshell-bol
     "^" 'eshell-bol
+    "dd" 'evil-collection-eshell-dd
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument
 
