@@ -29,7 +29,6 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'evil-collection-evil-search)
 (require 'info)
 
 (defconst evil-collection-info-maps '(Info-mode-map))

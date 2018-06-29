@@ -460,5 +460,34 @@ instead of the modes in `evil-collection-mode-list'."
                                          lispyville-yank)
   "List of yank operators.")
 
+;;* Search
+
+(defun evil-collection-evil-search-enabled ()
+  (eq evil-search-module 'evil-search))
+
+(defvar evil-collection-evil-search-forward
+  '(menu-item "" nil :filter (lambda (&optional _)
+                               (if (eq evil-search-module 'evil-search)
+                                   #'evil-ex-search-forward
+                                 #'evil-search-forward))))
+
+(defvar evil-collection-evil-search-backward
+  '(menu-item "" nil :filter (lambda (&optional _)
+                               (if (eq evil-search-module 'evil-search)
+                                   #'evil-ex-search-backward
+                                 #'evil-search-backward))))
+
+(defvar evil-collection-evil-search-next
+  '(menu-item "" nil :filter (lambda (&optional _)
+                               (if (eq evil-search-module 'evil-search)
+                                   #'evil-ex-search-next
+                                 #'evil-search-next))))
+
+(defvar evil-collection-evil-search-previous
+  '(menu-item "" nil :filter (lambda (&optional _)
+                               (if (eq evil-search-module 'evil-search)
+                                   #'evil-ex-search-previous
+                                 #'evil-search-previous))))
+
 (provide 'evil-collection)
 ;;; evil-collection.el ends here
