@@ -29,7 +29,6 @@
 ;;; Code:
 (require 'ag nil t)
 (require 'evil-collection)
-(require 'evil-collection-evil-search)
 
 (defconst evil-collection-ag-maps '(ag-mode-map))
 

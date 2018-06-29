@@ -29,7 +29,6 @@
 ;;; Code:
 (require 'evil-collection)
 (require 'compile)
-(require 'evil-collection-evil-search)
 
 (defconst evil-collection-compile-maps '(compilation-mode-map))
 
