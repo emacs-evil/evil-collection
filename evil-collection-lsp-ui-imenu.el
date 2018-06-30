@@ -39,8 +39,8 @@
     (kbd "C-k") 'lsp-ui-imenu--prev-kind
     (kbd "C-j") 'lsp-ui-imenu--next-kind
     (kbd "q") 'lsp-ui-imenu--kill
-    (kbd "<return>") 'lsp-ui-imenu--look
-    (kbd "<M-return>") 'lsp-ui-imenu--go))
+    (kbd "<return>") 'lsp-ui-imenu--view
+    (kbd "<M-return>") 'lsp-ui-imenu--visit))
 
 (provide 'evil-collection-lsp-ui-imenu)
 ;;; evil-collection-lsp-ui-imenu.el ends here
