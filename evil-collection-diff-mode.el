@@ -53,8 +53,7 @@
   (when (eq major-mode 'diff-mode)
     (if (memq 'evil-collection-diff-read-only-state-switch read-only-mode-hook)
         (remove-hook 'read-only-mode-hook 'evil-collection-diff-read-only-state-switch t)
-      (add-hook 'read-only-mode-hook 'evil-collection-diff-read-only-state-switch nil t)
-      (read-only-mode))))
+      (add-hook 'read-only-mode-hook 'evil-collection-diff-read-only-state-switch nil t))))
 
 ;;; TODO: Report toggle function upstream?
 (defun evil-collection-diff-toggle-context-unified (start end)
@@ -85,7 +84,9 @@ current file instead."
 (defun evil-collection-diff-mode-setup ()
   "Set up `evil' bindings for `diff-mode'."
 
-  (evil-set-initial-state 'diff-mode 'motion)
+  ;; Don't switch to read-only/motion state by default as this can interfere
+  ;; with other modes which require a writable buffer, e.g. magit.
+  (evil-set-initial-state 'diff-mode 'normal)
 
   (evil-collection-define-key 'normal 'diff-mode-map
     ;; motion
