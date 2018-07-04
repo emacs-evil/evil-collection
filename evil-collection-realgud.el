@@ -37,7 +37,7 @@
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     "b" 'realgud:cmd-break
-    "u" 'realgud:cmd-delete
+    "D" 'realgud:cmd-delete
     "X" 'realgud:cmd-clear
     "-" 'realgud:cmd-disable
     "+" 'realgud:cmd-enable
@@ -86,6 +86,8 @@
     [left-margin mouse-1] 'realgud-cmds--mouse-add-remove-bp
     ">" 'realgud:cmd-newer-frame
     "<" 'realgud:cmd-older-frame
+    "d" 'realgud:cmd-newer-frame
+    "u" 'realgud:cmd-older-frame
     "gR" 'realgud-recenter-arrow ;; FIXME: Hmnn!
     "C" 'realgud-window-cmd-undisturb-src
     "g?" 'realgud:cmdbuf-info-describe
