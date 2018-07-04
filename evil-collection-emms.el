@@ -212,7 +212,21 @@ The return value is the yanked text."
     "C" 'emms-metaplaylist-mode-new-buffer
     "." 'emms-metaplaylist-mode-center-current
     "D" 'emms-metaplaylist-mode-kill-buffer
-    "q" 'kill-this-buffer))
+    "q" 'kill-this-buffer)
+
+  (evil-set-initial-state 'emms-stream-mode 'normal)
+  (evil-collection-define-key 'normal 'emms-stream-mode-map
+    (kbd "<return>") 'emms-stream-play
+    "j" 'emms-stream-next-line
+    "k" 'emms-stream-previous-line
+    "y" 'emms-stream-yank-bookmark
+    "d" 'emms-stream-kill-bookmark
+    "c" 'emms-stream-edit-bookmark
+    "r" 'emms-stream-edit-bookmark
+    "i" 'emms-stream-info-bookmark
+    "s" 'emms-stream-save-bookmarks-file
+    "x" 'emms-stream-toggle-default-action
+    "q" 'emms-stream-quit))
 
 (provide 'evil-collection-emms)
 ;;; evil-collection-emms.el ends here
