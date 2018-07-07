@@ -37,7 +37,9 @@
 (defvar emms-playlist-mode-map)
 
 (defconst evil-collection-emms-maps '(emms-browser-mode-map
-                                      emms-playlist-mode-map))
+                                      emms-playlist-mode-map
+                                      emms-metaplaylist-mode-map
+                                      emms-stream-mode-map))
 
 (defun evil-collection-emms-playlist-mode-insert-newline-above ()
   "Insert a newline above point."
