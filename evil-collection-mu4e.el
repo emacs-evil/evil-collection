@@ -212,7 +212,8 @@
     (mu4e-view-mode-map "%"               mu4e-view-mark-pattern)
     (mu4e-view-mode-map "+"               mu4e-view-mark-for-flag)
     (mu4e-view-mode-map "-"               mu4e-view-mark-for-unflag)
-    (mu4e-view-mode-map "\C-u"            evil-scroll-up)
+    ,(when evil-want-C-u-scroll
+       `(mu4e-view-mode-map "\C-u"            evil-scroll-up))
     (mu4e-view-mode-map "zr"              mu4e-headers-toggle-include-related)
     (mu4e-view-mode-map "zt"              mu4e-headers-toggle-threading)
     (mu4e-view-mode-map "za"              mu4e-view-toggle-hide-cited)
