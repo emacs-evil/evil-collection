@@ -37,13 +37,13 @@
 
 (defun evil-collection-mu4e-conversation-setup ()
   "Set up `evil' bindings for `mu4e-conversation'."
-  (evil-define-key 'normal mu4e-conversation-linear-map
+  (evil-collection-define-key 'normal 'mu4e-conversation-linear-map
     " " 'evil-scroll-page-down
     (kbd "S-SPC") 'evil-scroll-page-up
     "zv" 'mu4e-conversation-toggle-view)
-  (evil-define-key 'visual mu4e-conversation-linear-map
+  (evil-collection-define-key 'visual 'mu4e-conversation-linear-map
     (kbd "<return>") 'mu4e-conversation-cite)
-  (evil-define-key '(normal visual) mu4e-conversation-linear-map
+  (evil-collection-define-key '(normal visual) 'mu4e-conversation-linear-map
     (kbd "C-x C-s") 'mu4e-conversation-save
     (kbd "C-c C-c") 'mu4e-conversation-send
     (kbd "M-q") 'mu4e-conversation-fill-long-lines
@@ -53,14 +53,14 @@
     "[" 'mu4e-conversation-previous-message ; TODO: Don't override previous-unread?  There is still "gk".
     "]" 'mu4e-conversation-next-message
     "q" 'mu4e-conversation-quit)
-  (evil-define-key 'normal mu4e-conversation-tree-map
+  (evil-collection-define-key 'normal 'mu4e-conversation-tree-map
     " " 'evil-scroll-page-down
     (kbd "S-SPC") 'evil-scroll-page-up
     "a" 'mu4e-view-action
     "zv" 'mu4e-conversation-toggle-view)
-  (evil-define-key 'visual mu4e-conversation-tree-map
+  (evil-collection-define-key 'visual 'mu4e-conversation-tree-map
     (kbd "<return>") 'mu4e-conversation-cite)
-  (evil-define-key '(normal visual) mu4e-conversation-tree-map
+  (evil-collection-define-key '(normal visual) 'mu4e-conversation-tree-map
     (kbd "C-x C-s") 'mu4e-conversation-save
     (kbd "C-c C-c") 'mu4e-conversation-send
     (kbd "M-q") 'mu4e-conversation-fill-long-lines

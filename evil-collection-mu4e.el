@@ -239,7 +239,7 @@
   ;; `evil-define-key'.
   (dolist (binding evil-collection-mu4e-mode-map-bindings)
     (apply #'evil-collection-define-key 'normal binding))
-  (evil-define-key 'operator mu4e-view-mode-map
+  (evil-collection-define-key 'operator 'mu4e-view-mode-map
     "u" '(menu-item
           ""
           nil
