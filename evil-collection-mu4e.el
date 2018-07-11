@@ -95,135 +95,140 @@
 
 ;; TODO: Inhibit insert-state functions as per Evil Collection.
 (defvar evil-collection-mu4e-mode-map-bindings
-  `((mu4e-main-mode-map "J"               mu4e~headers-jump-to-maildir)
-    (mu4e-main-mode-map "j"               next-line)
-    (mu4e-main-mode-map "k"               previous-line)
-    (mu4e-main-mode-map "u"               mu4e-update-mail-and-index)
-    (mu4e-main-mode-map "gr"              revert-buffer)
-    (mu4e-main-mode-map "b"               mu4e-headers-search-bookmark)
-    (mu4e-main-mode-map "B"               mu4e-headers-search-bookmark-edit)
-    (mu4e-main-mode-map "N"               mu4e-news)
-    (mu4e-main-mode-map ";"               mu4e-context-switch)
-    (mu4e-main-mode-map "H"               mu4e-display-manual)
-    (mu4e-main-mode-map "C"               mu4e-compose-new)
-    (mu4e-main-mode-map "cc"              mu4e-compose-new)
-    (mu4e-main-mode-map "x"               mu4e-kill-update-mail)
-    (mu4e-main-mode-map "A"               mu4e-about)
-    (mu4e-main-mode-map "f"               smtpmail-send-queued-mail)
-    (mu4e-main-mode-map "m"               mu4e~main-toggle-mail-sending-mode)
-    (mu4e-main-mode-map "s"               mu4e-headers-search)
-    (mu4e-main-mode-map "q"               mu4e-quit)
+  `((mu4e-main-mode-map
+     "J" mu4e~headers-jump-to-maildir
+     "j" next-line
+     "k" previous-line
+     "u" mu4e-update-mail-and-index
+     "gr" revert-buffer
+     "b" mu4e-headers-search-bookmark
+     "B" mu4e-headers-search-bookmark-edit
+     "N" mu4e-news
+     ";" mu4e-context-switch
+     "H" mu4e-display-manual
+     "C" mu4e-compose-new
+     "cc" mu4e-compose-new
+     "x" mu4e-kill-update-mail
+     "A" mu4e-about
+     "f" smtpmail-send-queued-mail
+     "m" mu4e~main-toggle-mail-sending-mode
+     "s" mu4e-headers-search
+     "q" mu4e-quit)
 
-    (mu4e-headers-mode-map "q"            mu4e~headers-quit-buffer)
-    (mu4e-headers-mode-map "J"            mu4e~headers-jump-to-maildir)
-    (mu4e-headers-mode-map "C"            mu4e-compose-new)
-    (mu4e-headers-mode-map "E"            mu4e-compose-edit)
-    (mu4e-headers-mode-map "F"            mu4e-compose-forward)
-    (mu4e-headers-mode-map "R"            mu4e-compose-reply)
-    (mu4e-headers-mode-map "cc"           mu4e-compose-new)
-    (mu4e-headers-mode-map "ce"           mu4e-compose-edit)
-    (mu4e-headers-mode-map "cf"           mu4e-compose-forward)
-    (mu4e-headers-mode-map "cr"           mu4e-compose-reply)
-    (mu4e-headers-mode-map "o"            mu4e-headers-change-sorting)
-    (mu4e-headers-mode-map "j"            mu4e-headers-next)
-    (mu4e-headers-mode-map "k"            mu4e-headers-prev)
-    (mu4e-headers-mode-map "gr"           mu4e-headers-rerun-search)
-    (mu4e-headers-mode-map "b"            mu4e-headers-search-bookmark)
-    (mu4e-headers-mode-map "B"            mu4e-headers-search-bookmark-edit)
-    (mu4e-headers-mode-map ";"            mu4e-context-switch)
-    (mu4e-headers-mode-map ,(kbd "RET")   mu4e-headers-view-message)
-    (mu4e-headers-mode-map "/"            mu4e-headers-search-narrow)
-    (mu4e-headers-mode-map "s"            mu4e-headers-search)
-    (mu4e-headers-mode-map "S"            mu4e-headers-search-edit)
-    (mu4e-headers-mode-map "x"            mu4e-mark-execute-all)
-    (mu4e-headers-mode-map "a"            mu4e-headers-action)
-    (mu4e-headers-mode-map "*"            mu4e-headers-mark-for-something) ; TODO: Don't override evil-seach-word-forward?
-    (mu4e-headers-mode-map "&"            mu4e-headers-mark-custom)
-    (mu4e-headers-mode-map "A"            mu4e-headers-mark-for-action)
-    (mu4e-headers-mode-map "m"            mu4e-headers-mark-for-move)
-    (mu4e-headers-mode-map "r"            mu4e-headers-mark-for-refile)
-    (mu4e-headers-mode-map "D"            mu4e-headers-mark-for-delete)
-    (mu4e-headers-mode-map "d"            mu4e-headers-mark-for-trash)
-    (mu4e-headers-mode-map "="            mu4e-headers-mark-for-untrash)
-    (mu4e-headers-mode-map "u"            mu4e-headers-mark-for-unmark)
-    (mu4e-headers-mode-map "U"            mu4e-mark-unmark-all)
-    (mu4e-headers-mode-map "?"            mu4e-headers-mark-for-unread)
-    (mu4e-headers-mode-map "!"            mu4e-headers-mark-for-read)
-    (mu4e-headers-mode-map "%"            mu4e-headers-mark-pattern)
-    (mu4e-headers-mode-map "+"            mu4e-headers-mark-for-flag)
-    (mu4e-headers-mode-map "-"            mu4e-headers-mark-for-unflag)
-    (mu4e-headers-mode-map "["            mu4e-headers-prev-unread)
-    (mu4e-headers-mode-map "]"            mu4e-headers-next-unread)
-    (mu4e-headers-mode-map "gk"           mu4e-headers-prev-unread)
-    (mu4e-headers-mode-map "gj"           mu4e-headers-next-unread)
-    (mu4e-headers-mode-map "\C-j"         mu4e-headers-next)
-    (mu4e-headers-mode-map "\C-k"         mu4e-headers-prev)
-    (mu4e-headers-mode-map "zr"           mu4e-headers-toggle-include-related)
-    (mu4e-headers-mode-map "zt"           mu4e-headers-toggle-threading)
-    (mu4e-headers-mode-map "zd"           mu4e-headers-toggle-skip-duplicates)
-    (mu4e-headers-mode-map "gl"           mu4e-show-log)
-    (mu4e-headers-mode-map "gv"           mu4e-select-other-view)
-    (mu4e-headers-mode-map "T"           (lambda ()
-                                                                       (interactive)
-                                                                       (mu4e-headers-mark-thread nil '(read))))
+    (mu4e-headers-mode-map
+     "q" mu4e~headers-quit-buffer
+     "J" mu4e~headers-jump-to-maildir
+     "C" mu4e-compose-new
+     "E" mu4e-compose-edit
+     "F" mu4e-compose-forward
+     "R" mu4e-compose-reply
+     "cc" mu4e-compose-new
+     "ce" mu4e-compose-edit
+     "cf" mu4e-compose-forward
+     "cr" mu4e-compose-reply
+     "o" mu4e-headers-change-sorting
+     "j" mu4e-headers-next
+     "k" mu4e-headers-prev
+     "gr" mu4e-headers-rerun-search
+     "b" mu4e-headers-search-bookmark
+     "B" mu4e-headers-search-bookmark-edit
+     ";" mu4e-context-switch
+     ,(kbd "RET") mu4e-headers-view-message
+     "/" mu4e-headers-search-narrow
+     "s" mu4e-headers-search
+     "S" mu4e-headers-search-edit
+     "x" mu4e-mark-execute-all
+     "a" mu4e-headers-action
+     "*" mu4e-headers-mark-for-something ; TODO: Don't override evil-seach-word-forward?
+     "&" mu4e-headers-mark-custom
+     "A" mu4e-headers-mark-for-action
+     "m" mu4e-headers-mark-for-move
+     "r" mu4e-headers-mark-for-refile
+     "D" mu4e-headers-mark-for-delete
+     "d" mu4e-headers-mark-for-trash
+     "=" mu4e-headers-mark-for-untrash
+     "u" mu4e-headers-mark-for-unmark
+     "U" mu4e-mark-unmark-all
+     "?" mu4e-headers-mark-for-unread
+     "!" mu4e-headers-mark-for-read
+     "%" mu4e-headers-mark-pattern
+     "+" mu4e-headers-mark-for-flag
+     "-" mu4e-headers-mark-for-unflag
+     "[" mu4e-headers-prev-unread
+     "]" mu4e-headers-next-unread
+     "gk" mu4e-headers-prev-unread
+     "gj" mu4e-headers-next-unread
+     "\C-j" mu4e-headers-next
+     "\C-k" mu4e-headers-prev
+     "zr" mu4e-headers-toggle-include-related
+     "zt" mu4e-headers-toggle-threading
+     "zd" mu4e-headers-toggle-skip-duplicates
+     "gl" mu4e-show-log
+     "gv" mu4e-select-other-view
+     "T" (lambda ()
+           (interactive)
+           (mu4e-headers-mark-thread nil '(read))))
 
     ;; (,evil-collection-mu4e-state mu4e-compose-mode-map "gg" mu4e-compose-goto-top) ; TODO: Make this work.
 
-    (mu4e-view-mode-map ,(kbd "SPC")      mu4e-view-scroll-up-or-next)
-    (mu4e-view-mode-map ,(kbd "<tab>")    shr-next-link)
-    (mu4e-view-mode-map ,(kbd "<backtab>") shr-previous-link)
-    (mu4e-view-mode-map "q"               mu4e~view-quit-buffer)
-    (mu4e-view-mode-map "gx"              mu4e-view-go-to-url)
-    (mu4e-view-mode-map "gX"              mu4e-view-fetch-url)
-    (mu4e-view-mode-map "C"               mu4e-compose-new)
-    (mu4e-view-mode-map "H"               mu4e-view-toggle-html)
-    ;te mu4e-view-mode-map "E"               mu4e-compose-edit)
-    ;te mu4e-view-mode-map "F"               mu4e-compose-forward)
-    (mu4e-view-mode-map "R"               mu4e-compose-reply)
-    (mu4e-view-mode-map "cc"              mu4e-compose-new)
-    (mu4e-view-mode-map "ce"              mu4e-compose-edit)
-    (mu4e-view-mode-map "cf"              mu4e-compose-forward)
-    (mu4e-view-mode-map "cr"              mu4e-compose-reply)
-    (mu4e-view-mode-map "p"               mu4e-view-save-attachment)
-    (mu4e-view-mode-map "P"               mu4e-view-save-attachment-multi) ; Since mu4e 1.0, -multi is same as normal.
-    (mu4e-view-mode-map "O"               mu4e-headers-change-sorting)
-    (mu4e-view-mode-map "o"               mu4e-view-open-attachment)
-    (mu4e-view-mode-map "A"               mu4e-view-attachment-action)
-    (mu4e-view-mode-map "a"               mu4e-view-action)
-    (mu4e-view-mode-map "J"               mu4e~headers-jump-to-maildir)
-    (mu4e-view-mode-map "["               mu4e-view-headers-prev-unread)
-    (mu4e-view-mode-map "]"               mu4e-view-headers-next-unread)
-    (mu4e-view-mode-map "gk"              mu4e-view-headers-prev-unread)
-    (mu4e-view-mode-map "gj"              mu4e-view-headers-next-unread)
-    (mu4e-view-mode-map "\C-j"            mu4e-view-headers-next)
-    (mu4e-view-mode-map "\C-k"            mu4e-view-headers-prev)
-    (mu4e-view-mode-map "x"               mu4e-view-marked-execute)
-    (mu4e-view-mode-map "&"               mu4e-view-mark-custom)
-    (mu4e-view-mode-map "*"               mu4e-view-mark-for-something) ; TODO: Don't override "*".
-    (mu4e-view-mode-map "m"               mu4e-view-mark-for-move)
-    (mu4e-view-mode-map "r"               mu4e-view-mark-for-refile)
-    (mu4e-view-mode-map "D"               mu4e-view-mark-for-delete)
-    (mu4e-view-mode-map "d"               mu4e-view-mark-for-trash)
-    (mu4e-view-mode-map "="               mu4e-view-mark-for-untrash)
-    (mu4e-view-mode-map "u"               mu4e-view-unmark)
-    (mu4e-view-mode-map "U"               mu4e-view-unmark-all)
-    (mu4e-view-mode-map "?"               mu4e-view-mark-for-unread)
-    (mu4e-view-mode-map "!"               mu4e-view-mark-for-read)
-    (mu4e-view-mode-map "%"               mu4e-view-mark-pattern)
-    (mu4e-view-mode-map "+"               mu4e-view-mark-for-flag)
-    (mu4e-view-mode-map "-"               mu4e-view-mark-for-unflag)
-    (mu4e-view-mode-map "zr"              mu4e-headers-toggle-include-related)
-    (mu4e-view-mode-map "zt"              mu4e-headers-toggle-threading)
-    (mu4e-view-mode-map "za"              mu4e-view-toggle-hide-cited)
-    (mu4e-view-mode-map "gl"              mu4e-show-log)
-    (mu4e-view-mode-map "s"               mu4e-view-search-edit)
-    (mu4e-view-mode-map "|"               mu4e-view-pipe)
-    (mu4e-view-mode-map "."               mu4e-view-raw-message)
-    (mu4e-view-mode-map ,(kbd "C--")      mu4e-headers-split-view-shrink)
-    (mu4e-view-mode-map ,(kbd "C-+")      mu4e-headers-split-view-grow)
-    (mu4e-view-mode-map "T"              (lambda ()
-                                                                       (interactive)
-                                                                       (mu4e-headers-mark-thread nil '(read)))))
+    (mu4e-view-mode-map
+     " " mu4e-view-scroll-up-or-next
+     [tab] shr-next-link
+     [backtab] shr-previous-link
+     "q" mu4e~view-quit-buffer
+     "gx" mu4e-view-go-to-url
+     "gX" mu4e-view-fetch-url
+     "C" mu4e-compose-new
+     "H" mu4e-view-toggle-html
+     ;; "E"               mu4e-compose-edit
+     ;; "F"               mu4e-compose-forward
+     "R" mu4e-compose-reply
+     "cc" mu4e-compose-new
+     "ce" mu4e-compose-edit
+     "cf" mu4e-compose-forward
+     "cr" mu4e-compose-reply
+     "p" mu4e-view-save-attachment
+     "P" mu4e-view-save-attachment-multi ; Since mu4e 1.0, -multi is same as normal.
+     "O" mu4e-headers-change-sorting
+     "o" mu4e-view-open-attachment
+     "A" mu4e-view-attachment-action
+     "a" mu4e-view-action
+     "J" mu4e~headers-jump-to-maildir
+     "[" mu4e-view-headers-prev-unread
+     "]" mu4e-view-headers-next-unread
+     "gk" mu4e-view-headers-prev-unread
+     "gj" mu4e-view-headers-next-unread
+     "\C-j" mu4e-view-headers-next
+     "\C-k" mu4e-view-headers-prev
+     "x" mu4e-view-marked-execute
+     "&" mu4e-view-mark-custom
+     "*" mu4e-view-mark-for-something   ; TODO: Don't override "*".
+     "m" mu4e-view-mark-for-move
+     "r" mu4e-view-mark-for-refile
+     "D" mu4e-view-mark-for-delete
+     "d" mu4e-view-mark-for-trash
+     "=" mu4e-view-mark-for-untrash
+     "u" mu4e-view-unmark
+     "U" mu4e-view-unmark-all
+     "?" mu4e-view-mark-for-unread
+     "!" mu4e-view-mark-for-read
+     "%" mu4e-view-mark-pattern
+     "+" mu4e-view-mark-for-flag
+     "-" mu4e-view-mark-for-unflag
+     "zr" mu4e-headers-toggle-include-related
+     "zt" mu4e-headers-toggle-threading
+     "za" mu4e-view-toggle-hide-cited
+     "gl" mu4e-show-log
+     "s" mu4e-view-search-edit
+     "|" mu4e-view-pipe
+     "." mu4e-view-raw-message
+     ,(kbd "C--") mu4e-headers-split-view-shrink
+     ,(kbd "C-+") mu4e-headers-split-view-grow
+     "T" (lambda ()
+           (interactive)
+           (mu4e-headers-mark-thread nil '(read)))
+     ,@(when evil-want-C-u-scroll
+         '("\C-u" evil-scroll-up))))
   ;; TODO: Add mu4e-headers-search-bookmark?
   "All evil-mu4e bindings.")
 
@@ -233,10 +238,7 @@
   ;; closures in which we must use `evil-define-key*' instead of
   ;; `evil-define-key'.
   (dolist (binding evil-collection-mu4e-mode-map-bindings)
-    (evil-collection-define-key 'normal
-      (nth 0 binding) (nth 1 binding) (nth 2 binding)))
-  (when evil-want-C-u-scroll
-    (evil-define-key 'normal mu4e-view-mode-map "\C-u" evil-scroll-up))
+    (apply #'evil-collection-define-key 'normal binding))
   (evil-define-key 'operator mu4e-view-mode-map
     "u" '(menu-item
           ""
