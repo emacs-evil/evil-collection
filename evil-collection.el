@@ -103,6 +103,7 @@ or evil-collection.")
     ggtags
     git-timemachine
     go-mode
+    grep
     help
     guix
     helm
