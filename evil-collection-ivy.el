@@ -86,6 +86,8 @@
     "go" 'ivy-occur-dispatch
     "gc" 'ivy-occur-toggle-calling
 
+    "0" 'evil-digit-argument-or-evil-beginning-of-line
+
     ;; quit
     "q" 'quit-window)
 
