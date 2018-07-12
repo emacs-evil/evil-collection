@@ -122,6 +122,7 @@ or evil-collection.")
     macrostep
     man
     magit
+    magit-todos
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
     mu4e
     mu4e-conversation
