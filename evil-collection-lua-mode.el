@@ -42,7 +42,8 @@
   (add-hook 'lua-mode-hook #'evil-collection-lua-mode-set-evil-shift-width)
 
   (evil-collection-define-key 'normal 'lua-mode-map
-    "K" 'lua-search-documentation))
+    "K" 'lua-search-documentation
+    "gz" 'run-lua))
 
 (provide 'evil-collection-lua-mode)
 ;;; evil-collection-lua-mode.el ends here
