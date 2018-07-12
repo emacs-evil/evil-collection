@@ -37,6 +37,9 @@
 (require 'cl-lib)
 (require 'evil)
 
+(defvar evil-collection-base-dir (file-name-directory load-file-name)
+  "Store the directory evil-collection.el was loaded from.")
+
 (defvar evil-want-integration)
 (if (featurep 'evil-integration)
     (if evil-want-integration
@@ -440,7 +443,9 @@ instead of the modes in `evil-collection-mode-list'."
               reqs (cdr mode)))
       (dolist (req reqs)
         (with-eval-after-load req
-          (require (intern (concat "evil-collection-" (symbol-name m))))
+          (load (expand-file-name (format "%s/evil-collection-%s" m m)
+                                  evil-collection-base-dir)
+                nil t)
           (funcall (intern (concat "evil-collection-" (symbol-name m)
                                    "-setup")))
           (let ((mode-keymaps
