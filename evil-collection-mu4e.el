@@ -169,7 +169,9 @@
            (interactive)
            (mu4e-headers-mark-thread nil '(read))))
 
-    ;; (,evil-collection-mu4e-state mu4e-compose-mode-map "gg" mu4e-compose-goto-top) ; TODO: Make this work.
+    (mu4e-compose-mode-map
+     "gg" mu4e-compose-goto-top
+     "G" mu4e-compose-goto-bottom)
 
     (mu4e-view-mode-map
      " " mu4e-view-scroll-up-or-next
@@ -239,6 +241,9 @@
   ;; `evil-define-key'.
   (dolist (binding evil-collection-mu4e-mode-map-bindings)
     (apply #'evil-collection-define-key 'normal binding))
+  (evil-collection-define-key 'visual 'mu4e-compose-mode-map
+    "gg" 'mu4e-compose-goto-top
+    "G" 'mu4e-compose-goto-bottom)
   (evil-collection-define-key 'operator 'mu4e-view-mode-map
     "u" '(menu-item
           ""
