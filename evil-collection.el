@@ -110,6 +110,7 @@ or evil-collection.")
     ibuffer
     image
     image+
+    imenu-list
     indium
     info
     ivy
