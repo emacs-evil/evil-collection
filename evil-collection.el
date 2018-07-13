@@ -335,6 +335,41 @@ modes in the current buffer."
           (org-table-align)))
       (goto-char (point-min)))))
 
+(defun evil-collection--mode-file (mode file)
+  "Return path to FILE for MODE. Return nil if it doesn't exist."
+  (let ((path (expand-file-name
+               (format "modes/%s/%s" mode file) evil-collection-base-dir)))
+    (when (file-exists-p path)
+        path)))
+
+(defun evil-collection-open-config-file (mode)
+  "Open configuration file corresponding to MODE."
+  (interactive
+   (list
+    (completing-read
+     "Mode: "
+     (cl-remove-if-not
+      (lambda (mode)
+        (evil-collection--mode-file mode (format "evil-collection-%s.el" mode)))
+      (directory-files
+       (expand-file-name "modes" evil-collection-base-dir)
+       nil "^[^.]")))))
+  (find-file (evil-collection--mode-file mode (format "evil-collection-%s.el" mode))))
+
+(defun evil-collection-open-readme (mode)
+  "Open README.org corresponding to MODE."
+  (interactive
+   (list
+    (completing-read
+     "Mode: "
+     (cl-remove-if-not
+      (lambda (mode)
+        (evil-collection--mode-file mode "README.org"))
+      (directory-files
+       (expand-file-name "modes" evil-collection-base-dir)
+       nil "^[^.]")))))
+  (find-file (evil-collection--mode-file mode "README.org")))
+
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
                                              destructive)
