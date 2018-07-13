@@ -5,7 +5,7 @@ compile:
 	-L .						\
 	--eval '(setq evil-want-integration nil)'	\
 	--eval '(setq byte-compile-error-on-warn t)'	\
-	-f batch-byte-compile *.el */*.el
+	-f batch-byte-compile *.el modes/*/*.el
 
 lint:
 	cask exec $(EMACS) -Q -batch							\
@@ -14,7 +14,7 @@ lint:
 	--eval "(package-initialize)"							\
 	--eval "(package-refresh-contents)"						\
 	-l package-lint.el								\
-	-f package-lint-batch-and-exit *.el */*.el
+	-f package-lint-batch-and-exit *.el modes/*/*.el
 
 test:
 	cask exec ert-runner

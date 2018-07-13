@@ -443,7 +443,7 @@ instead of the modes in `evil-collection-mode-list'."
               reqs (cdr mode)))
       (dolist (req reqs)
         (with-eval-after-load req
-          (load (expand-file-name (format "%s/evil-collection-%s" m m)
+          (load (expand-file-name (format "modes/%s/evil-collection-%s" m m)
                                   evil-collection-base-dir)
                 nil t)
           (funcall (intern (concat "evil-collection-" (symbol-name m)
