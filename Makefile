@@ -3,8 +3,9 @@ EMACS ?= emacs
 compile:
 	cask exec $(EMACS) -Q -batch			\
 	-L .						\
+	--eval '(setq evil-want-integration nil)'	\
 	--eval '(setq byte-compile-error-on-warn t)'	\
-	-f batch-byte-compile *.el
+	-f batch-byte-compile *.el */*.el
 
 lint:
 	cask exec $(EMACS) -Q -batch							\
@@ -13,9 +14,9 @@ lint:
 	--eval "(package-initialize)"							\
 	--eval "(package-refresh-contents)"						\
 	-l package-lint.el								\
-	-f package-lint-batch-and-exit *.el
+	-f package-lint-batch-and-exit *.el */*.el
 
 test:
 	cask exec ert-runner
 
-.PHONY: test
+.PHONY: test compile
