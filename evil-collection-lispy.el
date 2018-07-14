@@ -39,7 +39,17 @@
 
 (defconst evil-collection-lispy-maps '(lispy-mode-map))
 
-(declare-function 'lispy-define-key "lispy")
+(defvar lispy-mode-map-base)
+(defvar lispy-mode-map-special)
+(defvar lispy-mode-map-lispy)
+(defvar lispy-mode-map-paredit)
+(defvar lispy-mode-map-parinfer)
+(defvar lispy-mode-map-evilcp)
+(defvar lispy-mode-map-c-digits)
+(defvar lispy-mode-map-oleh)
+(defvar lispy-mode-map)
+(declare-function lispy-define-key "lispy")
+(declare-function lispy-set-key-theme "lispy")
 
 (defvar evil-collection-lispy-mode-map-special-evil
   (let ((map (make-sparse-keymap)))
