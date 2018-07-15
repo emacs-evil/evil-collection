@@ -68,7 +68,7 @@ The return value is the yanked text."
   "Pastes the latest yanked playlist items behind point.
 The return value is the yanked text."
   (interactive)
-  (evil-next-line)
+  (unless (eobp) (evil-next-line))
   (evil-collection-emms-playlist-mode-paste-before))
 
 (defun evil-collection-emms-browser-setup ()
