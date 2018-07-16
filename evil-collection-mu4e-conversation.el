@@ -31,47 +31,43 @@
 (require 'evil-collection)
 (require 'mu4e-conversation nil t)
 
-(defconst evil-collection-mu4e-conversation-maps '(mu4e-conversation-mode-map
-                                                   mu4e-conversation-linear-map
-                                                   mu4e-conversation-tree-map))
+(defconst evil-collection-mu4e-conversation-maps '(mu4e-conversation-map
+                                                   mu4e-conversation-thread-map))
+
+(defvar evil-collection-mu4e-conversation--local-map-p nil
+  "Non-nil if last position was on a local-map property.")
+
+(defun evil-collection-mu4e-conversation--switch ()
+  "Re-compute the bindings if point has moved between the thread
+  area and the composition area."
+  (let ((local-map-here (get-text-property (point) 'local-map)))
+    (when (or (and evil-collection-mu4e-conversation--local-map-p
+                   (not local-map-here))
+              (and (not evil-collection-mu4e-conversation--local-map-p)
+                   local-map-here))
+      (evil-normalize-keymaps))
+    (setq evil-collection-mu4e-conversation--local-map-p local-map-here)))
+
+(defun evil-collection-mu4e-conversation--update-local-map ()
+  (setq evil-collection-mu4e-conversation--local-map-p (get-text-property (point) 'local-map))
+  (evil-normalize-keymaps)
+  (add-hook 'post-command-hook 'evil-collection-mu4e-conversation--switch nil t))
 
 (defun evil-collection-mu4e-conversation-setup ()
   "Set up `evil' bindings for `mu4e-conversation'."
-  (evil-collection-define-key 'normal 'mu4e-conversation-linear-map
+  ;; Evil does not update its current keymap state when it the point hits a
+  ;; local-map property is used.  See
+  ;; https://github.com/emacs-evil/evil/issues/301.  Thus we force the update
+  ;; with a technique similar to what `org~mu4e-mime-switch-headers-or-body'
+  ;; does.
+  (add-hook 'mu4e-conversation-hook 'evil-collection-mu4e-conversation--update-local-map)
+  (evil-collection-define-key 'normal 'mu4e-conversation-map
     " " 'evil-scroll-page-down
     (kbd "S-SPC") 'evil-scroll-page-up
-    "zv" 'mu4e-conversation-toggle-view)
-  (evil-collection-define-key 'visual 'mu4e-conversation-linear-map
-    (kbd "<return>") 'mu4e-conversation-cite)
-  (evil-collection-define-key '(normal visual) 'mu4e-conversation-linear-map
-    (kbd "C-x C-s") 'mu4e-conversation-save
-    (kbd "C-c C-c") 'mu4e-conversation-send
-    (kbd "M-q") 'mu4e-conversation-fill-long-lines
-    "p" 'mu4e-view-save-attachment-multi
-    "o" 'mu4e-view-open-attachment
-    "#" 'mu4e-conversation-toggle-hide-cited
-    "[" 'mu4e-conversation-previous-message ; TODO: Don't override previous-unread?  There is still "gk".
+    "[" 'mu4e-conversation-previous-message
     "]" 'mu4e-conversation-next-message
-    "q" 'mu4e-conversation-quit)
-  (evil-collection-define-key 'normal 'mu4e-conversation-tree-map
-    " " 'evil-scroll-page-down
-    (kbd "S-SPC") 'evil-scroll-page-up
-    "a" 'mu4e-view-action
-    "zv" 'mu4e-conversation-toggle-view)
-  (evil-collection-define-key 'visual 'mu4e-conversation-tree-map
-    (kbd "<return>") 'mu4e-conversation-cite)
-  (evil-collection-define-key '(normal visual) 'mu4e-conversation-tree-map
-    (kbd "C-x C-s") 'mu4e-conversation-save
-    (kbd "C-c C-c") 'mu4e-conversation-send
-    (kbd "M-q") 'mu4e-conversation-fill-long-lines
-    "C" 'mu4e-compose-new
-    "R" 'mu4e-compose-reply
-    "p" 'mu4e-view-save-attachment-multi
-    "o" 'mu4e-view-open-attachment
-    "cc" 'mu4e-compose-new
-    "cr" 'mu4e-compose-reply
-    "ce" 'mu4e-compose-edit
-    "cf" 'mu4e-compose-forward
+    "zv" 'mu4e-conversation-toggle-view
+    "za" 'mu4e-conversation-toggle-hide-cited
     "q" 'mu4e-conversation-quit))
 
 (provide 'evil-collection-mu4e-conversation)
