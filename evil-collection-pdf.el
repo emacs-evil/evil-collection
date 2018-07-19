@@ -96,8 +96,8 @@
     (kbd "<return>") 'image-next-line
     "j" 'evil-collection-pdf-view-next-line-or-next-page
     "k" 'evil-collection-pdf-view-previous-line-or-previous-page
-    (kbd "SPC") 'pdf-view-scroll-up-or-next-page
-    (kbd "S-SPC") 'pdf-view-scroll-down-or-previous-page
+    (kbd "SPC") 'pdf-view-scroll-down-or-previous-page
+    (kbd "S-SPC") 'pdf-view-scroll-up-or-next-page
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
     (kbd "C-f") 'pdf-view-scroll-up-or-next-page
     (kbd "C-b") 'pdf-view-scroll-down-or-previous-page
