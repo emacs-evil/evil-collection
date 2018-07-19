@@ -120,9 +120,12 @@
 
     ;; zoom
     "+" 'pdf-view-enlarge
-    "-" 'pdf-view-shrink
-    "0" 'pdf-view-scale-reset
+    "zi" 'pdf-view-enlarge
     "=" 'pdf-view-enlarge
+    "-" 'pdf-view-shrink
+    "zo" 'pdf-view-shrink		      
+    "0" 'pdf-view-scale-reset
+    "zz" 'pdf-view-scale-reset
 
     ;; TODO: Why are those image-* bindings in pdf-tools?
     "a+" 'image-increase-speed
