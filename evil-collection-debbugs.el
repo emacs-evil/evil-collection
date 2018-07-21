@@ -47,9 +47,10 @@
     "d" 'debbugs-gnu-display-status
 
     ;; filter
-    (kbd "s") 'debbugs-gnu-narrow-to-status
+    "s" 'debbugs-gnu-narrow-to-status
+    "S" 'debbugs-gnu-search
     ;; "S" 'debbugs-gnu-widen ; Useless if we can just press "s RET" (empty filter).
-    "S" 'debbugs-gnu-toggle-suppress
+    "x" 'debbugs-gnu-toggle-suppress
     "r" 'debbugs-gnu-show-all-blocking-reports
 
     ;; sort
@@ -65,6 +66,10 @@
 
     ;; refresh
     "gr" 'debbugs-gnu-rescan
+
+    "g?" 'debbugs-gnu-manual
+    "gt" 'debbugs-gnu-view-bug-triage
+    "g#" 'debbugs-gnu-bugs
 
     ;; quit
     "q" 'quit-window
