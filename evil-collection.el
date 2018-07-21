@@ -79,6 +79,7 @@ or evil-collection.")
     custom
     cus-theme
     daemons
+    deadgrep
     debbugs
     debug
     diff-mode
