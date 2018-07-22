@@ -77,6 +77,9 @@
     (lispy-define-key map ">" 'lispy-slurp-or-barf-right) ;; `lispy-slurp'
     (lispy-define-key map "<" 'lispy-slurp-or-barf-left) ;; `lispy-barf'
 
+    ;; FIXME: This doesn't work for me for some reason.
+    ;; `lispy-occur' doesn't show up in evil-collection-lispy-mode-map-special-evil.
+    ;; Evaluating lispy-define-key again in *scratch* works...
     (lispy-define-key map "/" 'lispy-occur) ;; `lispy-x' -> q
 
     (lispy-define-key map "r" 'lispy-raise)
