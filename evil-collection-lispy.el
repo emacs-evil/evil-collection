@@ -1,4 +1,4 @@
-;;; evil-collection-lispy.el --- Evil Bindings for Lispy -*- lexical-binding: t -*-
+;;; evil-collection-lispy.el --- Evil Bindings for Lispy -*- lexical-binding: t; no-byte-compile: t; -*-
 
 ;; Copyright (C) 2018 James Nguyen
 
