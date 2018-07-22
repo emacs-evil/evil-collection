@@ -51,6 +51,32 @@
 (declare-function lispy-define-key "lispy")
 (declare-function lispy-set-key-theme "lispy")
 
+(declare-function lispyville-insert-at-beginning-of-list "lispyville")
+(declare-function lispyville-insert-at-end-of-list "lispyville")
+
+(defun evil-collection-lispy-insert-at-end-of-list ()
+  "Forward list and enter insert state."
+  (interactive)
+  (lispyville-insert-at-end-of-list 1))
+
+(defun evil-collection-lispy-insert-at-beginning-of-list ()
+  "Backward list and enter insert state."
+  (interactive)
+  (lispyville-insert-at-beginning-of-list 1))
+
+(defhydra g-knight (:color blue :hint nil :idle .3)
+  "g knight"
+  ("j" lispy-knight-down "Knight Down")
+  ("k" lispy-knight-up "Knight Up")
+  ("g" lispy-beginning-of-defun "Beginning of Defun")
+  ("d" lispy-goto "Goto")
+  ("l" lispy-goto-local "Goto Local"))
+
+(defhydra lispy-tab-hydra (:color blue :hint nil :idle .3)
+  "Tab"
+  ("i" lispy-tab "Tab")
+  ("s" lispy-shifttab "Shifttab"))
+
 (defvar evil-collection-lispy-mode-map-special-evil
   (let ((map (make-sparse-keymap)))
     ;; navigation
@@ -66,7 +92,11 @@
     (lispy-define-key map "p" 'lispy-paste) ;; `lispy-eval-other-window' -> P
     (lispy-define-key map "P" 'lispy-eval-other-window) ;; `lispy-paste' -> p
     (lispy-define-key map "y" 'lispy-new-copy) ;; `lispy-occur' -> /
-    (lispy-define-key map "z" 'lh-knight/body)
+
+    (lispy-define-key map "g" 'g-knight/body) ;; `lispy-goto' -> gd
+
+    ;; FIXME: Looks like one of the evil keymaps is taking precedence.
+    (lispy-define-key map "C-t" 'pop-tag-mark)
 
     ;; outline
     (lispy-define-key map "J" 'lispy-join)     ;; `lispy-outline-next'
@@ -106,16 +136,22 @@
     ;; dialect-specific
     (lispy-define-key map "e" 'lispy-eval)
     (lispy-define-key map "E" 'lispy-eval-and-insert)
-    (lispy-define-key map "G" 'lispy-goto-local)
-    (lispy-define-key map "g" 'lispy-goto)
+
+    ;; Hmnn, not sure why there's no `lispy-end-of-defun'.
+    ;; `end-of-defun' doesn't work quite right yet. It exits the list
+    ;; which would exit lispy state.
+    (lispy-define-key map "G" 'end-of-defun) ;; `lispy-goto-local' -> gl
+
+    (lispy-define-key map "A" 'evil-collection-lispy-insert-at-end-of-list) ;; `lispy-beginning-of-defun' -> gg
+    (lispy-define-key map "I" 'evil-collection-lispy-insert-at-beginning-of-list) ;; `lispy-shifttab' -> zs
+
     (lispy-define-key map "F" 'lispy-follow t)
     (lispy-define-key map "D" 'pop-tag-mark)
-    (lispy-define-key map "A" 'lispy-beginning-of-defun)
     (lispy-define-key map "_" 'lispy-underscore)
     ;; miscellanea
     (define-key map (kbd "SPC") 'lispy-space)
-    (lispy-define-key map "i" 'lispy-tab)
-    (lispy-define-key map "I" 'lispy-shifttab)
+    (lispy-define-key map "z" 'lispy-tab-hydra/body) ;; `lh-knight/body'  -> g
+
     (lispy-define-key map "N" 'lispy-narrow)
     (lispy-define-key map "W" 'lispy-widen)
     (lispy-define-key map "c" 'lispy-clone)
