@@ -155,8 +155,13 @@
     (define-key map (kbd "M-)") 'lispy-wrap-round)
     (define-key map (kbd "M-s") 'lispy-splice)
     (define-key map (kbd "M-<up>") 'lispy-splice-sexp-killing-backward)
+
+    ;; FIXME: It would be good to have a `lispy-splice-sexp-killing-forward'
+    ;; command similar to `sp-splice-sexp-killing-forward'.
     (define-key map (kbd "M-<down>") 'lispy-splice-sexp-killing-backward)
+
     (define-key map (kbd "M-r") 'lispy-raise-sexp)
+    (define-key map (kbd "M-R") 'lispy-raise-some)
     (define-key map (kbd "M-C") 'lispy-convolute-sexp)
     (define-key map (kbd "M-S") 'lispy-split)
     (define-key map (kbd "M-J") 'lispy-join)
