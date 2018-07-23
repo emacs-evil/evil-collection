@@ -32,15 +32,8 @@
 
 (defun evil-collection-vdiff-setup ()
   "Set up `evil' bindings for `vdiff-mode'."
-
   (dolist (mode '(vdiff-mode vdiff-3way-mode))
     (evil-define-minor-mode-key 'normal mode
-      "zc" 'vdiff-close-fold
-      "zM" 'vdiff-close-all-folds
-      "zo" 'vdiff-open-fold
-      "zR" 'vdiff-open-all-folds
-      "go" 'vdiff-receive-changes
-      "gp" 'vdiff-send-changes
       "]c" 'vdiff-next-hunk
       "[c" 'vdiff-previous-hunk)
 
