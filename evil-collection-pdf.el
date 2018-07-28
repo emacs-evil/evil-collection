@@ -161,8 +161,6 @@
     ;; goto
     "gl" 'pdf-view-goto-label
 
-    "y" 'pdf-view-kill-ring-save
-
     ;; search
     (kbd "M-s o") 'pdf-occur ; TODO: More Evil bindings?
 
@@ -182,6 +180,9 @@
     "Q" 'kill-this-buffer
     "ZQ" 'kill-this-buffer
     "ZZ" 'quit-window)
+
+  (evil-collection-define-key 'visual 'pdf-view-mode-map
+    "y" 'pdf-view-kill-ring-save)
 
   (evil-collection-inhibit-insert-state 'pdf-outline-buffer-mode-map)
   (evil-set-initial-state 'pdf-outline-buffer-mode 'normal)
