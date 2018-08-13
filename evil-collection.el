@@ -110,6 +110,7 @@ or evil-collection.")
     helm
     ibuffer
     image
+    image-dired
     image+
     imenu-list
     indium
