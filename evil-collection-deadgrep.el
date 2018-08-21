@@ -39,7 +39,12 @@
     "gr" 'deadgrep-restart
     (kbd "C-j") 'deadgrep-forward
     (kbd "C-k") 'deadgrep-backward
-    (kbd "TAB") 'deadgrep-toggle-file-results))
+    (kbd "TAB") 'deadgrep-toggle-file-results
+    ;; Quit
+    "q" 'quit-window
+    "ZZ" 'quit-window
+    "ZQ" 'evil-quit
+    ))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here
