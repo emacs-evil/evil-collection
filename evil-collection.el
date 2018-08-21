@@ -67,6 +67,7 @@ or evil-collection.")
     anaconda-mode
     arc-mode
     avy
+    beginend
     bookmark
     (buff-menu "buff-menu")
     calc
