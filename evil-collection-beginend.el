@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'beginend)
+(require 'beginend nil t)
 
 (defun evil-collection-beginend-setup ()
   "Set up `evil' bindings for `beginend'."
@@ -38,8 +38,7 @@
                  (map-name (intern (format "%s-map" mode-name))))
             (evil-collection-define-key 'normal map-name
               "gg" 'beginning-of-buffer
-              "G" 'end-of-buffer)
-            ))
+              "G" 'end-of-buffer)))
         beginend-modes))
 
 (provide 'evil-collection-beginend)
