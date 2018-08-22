@@ -87,6 +87,7 @@ or evil-collection.")
     doc-view
     edebug
     ediff
+    eglot
     eldoc
     elfeed
     elisp-mode
