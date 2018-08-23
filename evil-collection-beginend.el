@@ -30,6 +30,8 @@
 (require 'evil-collection)
 (require 'beginend nil t)
 
+(defvar beginend-modes)
+
 (defun evil-collection-beginend-setup ()
   "Set up `evil' bindings for `beginend'."
   (mapc (lambda (pair)
@@ -37,8 +39,8 @@
                  (mode-name (symbol-name mode))
                  (map-name (intern (format "%s-map" mode-name))))
             (evil-collection-define-key 'normal map-name
-              "gg" 'beginning-of-buffer
-              "G" 'end-of-buffer)))
+              "gg" (command-remapping 'beginning-of-buffer nil (eval map-name))
+              "G" (command-remapping 'end-of-buffer nil (eval map-name)))))
         beginend-modes))
 
 (provide 'evil-collection-beginend)
