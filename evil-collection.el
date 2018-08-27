@@ -3,9 +3,9 @@
 ;; Copyright (C) 2017 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
-;; Pierre Neidhardt <ambrevar@gmail.com>
+;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; Maintainer: James Nguyen <james@jojojames.com>
-;; Pierre Neidhardt <ambrevar@gmail.com>
+;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1") (cl-lib "0.5") (evil "1.2.13"))

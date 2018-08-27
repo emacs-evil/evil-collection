@@ -3,7 +3,7 @@
 
 ;; Author: Justin Burkett <justin@burkett.cc>
 ;; Maintainer: James Nguyen <james@jojojames.com>
-;; Pierre Neidhardt <ambrevar@gmail.com>
+;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Homepage: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1

@@ -2,9 +2,9 @@
 
 ;; Copyright (C) 2018 Pierre Neidhardt
 
-;; Author: Pierre Neidhardt <ambrevar@gmail.com>
+;; Author: Pierre Neidhardt <mail@ambrevar.xyz>
 ;; Maintainer: James Nguyen <james@jojojames.com>
-;; Pierre Neidhardt <ambrevar@gmail.com>
+;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))

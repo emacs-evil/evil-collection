@@ -1,11 +1,11 @@
 ;;; evil-collection-mu4e.el --- Evil bindings for mu4e -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2015-2018 Joris Engbers
-;; Copyright (C) 2018 Pierre Neidhardt <ambrevar@gmail.com>
+;; Copyright (C) 2018 Pierre Neidhardt <mail@ambrevar.xyz>
 
 ;; Author: Joris Engbers <info@jorisengbers.nl>
 ;; Maintainer: James Nguyen <james@jojojames.com>
-;; Pierre Neidhardt <ambrevar@gmail.com>
+;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.9
 ;; Package-Requires: ((emacs "24.4") (evil "1.2.10"))
