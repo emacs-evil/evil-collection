@@ -24,7 +24,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `ert'
+;; Bindings for `ert'.
 
 ;;; Code:
 (require 'ert)
@@ -34,6 +34,7 @@
 
 (defun evil-collection-ert-setup ()
   "Set up `evil' bindings for `ert'."
+  (evil-collection-inhibit-insert-state 'ert-results-mode-map)
   (evil-set-initial-state 'ert-results-mode 'normal)
 
   (evil-collection-define-key 'normal 'ert-results-mode-map
@@ -59,7 +60,7 @@
     "gd" 'ert-results-find-test-at-point-other-window
     "B" 'ert-results-pop-to-backtrace-for-test-at-point
     "M" 'ert-results-pop-to-messages-for-test-at-point
-    "S" 'ert-results-pop-to-should-forms-for-test-at-point
+    "s" 'ert-results-pop-to-should-forms-for-test-at-point
     "K" 'ert-results-describe-test-at-point
     "g?" 'ert-results-describe-test-at-point
     "x" 'ert-delete-test
