@@ -99,6 +99,8 @@ current file instead."
     "gj" 'diff-hunk-next
     "gk" 'diff-hunk-prev
 
+    "q" 'quit-window
+
     "\\" 'read-only-mode) ; magit has "\"
 
   (evil-collection-define-key 'motion 'diff-mode-map
