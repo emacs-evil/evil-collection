@@ -34,6 +34,12 @@
 
 (defun evil-collection-log-view-setup ()
   "Set up `evil' bindings for `log-view'."
+
+  ;; Currently vc has these various log-view modes
+  (evil-set-initial-state 'vc-hg-log-view-mode 'normal)
+  (evil-set-initial-state 'vc-git-log-view-mode 'normal)
+  (evil-set-initial-state 'vc-svn-log-view-mode 'normal)
+
   (evil-collection-define-key 'normal 'log-view-mode-map
     "q" 'quit-window
     (kbd "RET") 'log-view-toggle-entry-display
