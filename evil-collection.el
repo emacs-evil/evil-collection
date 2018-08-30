@@ -160,6 +160,8 @@ or evil-collection.")
     transmission
     typescript-mode
     vc-annotate
+    vc-dir
+    vc-git
     vdiff
     view
     vlf
