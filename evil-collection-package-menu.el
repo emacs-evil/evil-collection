@@ -40,6 +40,7 @@
     "i" 'package-menu-mark-install
     "U" 'package-menu-mark-upgrades
     "d" 'package-menu-mark-delete
+    "gr" 'package-menu-refresh
 
     ;; undo
     "u" 'package-menu-mark-unmark
