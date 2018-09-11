@@ -167,6 +167,15 @@
     "p" 'guix-location-list-show-packages
     "gd" 'guix-location-list-edit)
 
+  (evil-collection-guix-set guix-store-item-list-mode-map)
+  (evil-collection-define-key 'normal 'guix-store-item-list-mode-map
+    (kbd "<return>") 'bui-list-describe
+    "d" 'guix-store-item-list-mark-delete
+    "gd" 'guix-store-item-list-edit
+    "x" 'guix-store-item-list-execute)
+
+  (evil-collection-guix-set guix-store-item-info-mode-map)
+
   (evil-collection-guix-set guix-hydra-build-list-mode-map)
   (evil-collection-define-key 'normal 'guix-hydra-build-list-mode-map
     (kbd "<return>") 'bui-list-describe
