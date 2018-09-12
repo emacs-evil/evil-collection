@@ -18,4 +18,4 @@ lint:
 test:
 	cask exec ert-runner
 
-.PHONY: test
+.PHONY: compile lint test
