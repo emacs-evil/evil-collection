@@ -39,7 +39,7 @@
 
 (defvar evil-want-integration)
 (defvar evil-want-keybinding)
-(if (featurep 'evil-want-keybinding)
+(if (featurep 'evil-keybindings)
     (if evil-want-keybinding
         (display-warning
          '(evil-collection)
