@@ -38,16 +38,30 @@
 (require 'evil)
 
 (defvar evil-want-integration)
-(if (featurep 'evil-integration)
-    (if evil-want-integration
+(defvar evil-want-keybinding)
+(if (featurep 'evil-want-keybinding)
+    (if evil-want-keybinding
         (display-warning
          '(evil-collection)
-         "Make sure to set `evil-want-integration' to nil before loading evil \
-or evil-collection.")
+         "Make sure to set `evil-want-keybinding' to nil before loading evil \
+or evil-collection.\
+\n
+See https://github.com/emacs-evil/evil-collection/issues/60 for more details. ")
       (display-warning
        '(evil-collection)
-       "`evil-want-integration' was set to nil but not before loading evil."))
-  (require 'evil-collection-integration))
+       "`evil-want-keybinding' was set to nil but not before loading evil.\
+\n
+Make sure to set `evil-want-keybinding' to nil before loading evil \
+or evil-collection.\
+\n
+See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")))
+
+(unless (featurep 'evil-integration)
+  (message "Requiring evil-integration. Set evil-want-integration to t to\
+ remove this message.\
+\n
+See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
+  (require 'evil-integration))
 
 (declare-function org-table-align "org-table.el" nil)
 
