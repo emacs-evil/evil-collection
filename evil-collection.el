@@ -102,7 +102,6 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     edebug
     ediff
     eglot
-    eldoc
     elfeed
     elisp-mode
     elisp-refs
