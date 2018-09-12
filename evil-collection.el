@@ -100,6 +100,7 @@ or evil-collection.")
     etags-select
     eww
     flycheck
+    flymake
     free-keys
     geiser
     ggtags
