@@ -48,12 +48,17 @@ more.
 
    The list of supported modes is configured by ~~evil-collection-mode-list~~.
 
-   ~evil-collection~ assumes ~evil-want-integration~ is set to nil before loading ~evil~ and ~evil-collection.~
+   ~evil-collection~ assumes ~evil-want-keybinding~ is set to nil
+   and ~evil-want-integration~ is set to t before loading ~evil~ and ~evil-collection.~
+
+   See https://github.com/emacs-evil/evil-collection/issues/60 and https://github.com/emacs-evil/evil/pull/1087
+   for more details.
 
    For example:
 
    #+begin_src emacs-lisp :tangle yes
-(setq evil-want-integration nil)
+(setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+(setq evil-want-keybinding nil)
 (require 'evil)
 (when (require 'evil-collection nil t)
   (evil-collection-init))
@@ -65,7 +70,8 @@ more.
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-integration nil)
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
 
