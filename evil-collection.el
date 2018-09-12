@@ -171,6 +171,7 @@ or evil-collection.")
     wgrep
     woman
     xref
+    youtube-dl
     (ztree ztree-diff))
   "The list of modes which will be evilified by `evil-collection-init'.
 Elements are either target mode symbols or lists which `car' is the
