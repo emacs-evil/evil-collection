@@ -46,7 +46,7 @@
          "Make sure to set `evil-want-keybinding' to nil before loading evil \
 or evil-collection.\
 \n
-See https://github.com/emacs-evil/evil-collection/issues/60 for more details. ")
+See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
       (display-warning
        '(evil-collection)
        "`evil-want-keybinding' was set to nil but not before loading evil.\
