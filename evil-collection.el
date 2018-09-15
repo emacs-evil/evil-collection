@@ -94,7 +94,6 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     alchemist
     anaconda-mode
     arc-mode
-    avy
     bookmark
     (buff-menu "buff-menu")
     calc
