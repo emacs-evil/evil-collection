@@ -90,8 +90,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
   :group 'evil-collection)
 
 (defcustom evil-collection-mode-list
-  `(ace-jump-mode
-    ag
+  `(ag
     alchemist
     anaconda-mode
     arc-mode
