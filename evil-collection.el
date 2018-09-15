@@ -166,7 +166,6 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     outline
     p4
     (package-menu package)
-    paren
     pass
     (pdf pdf-view)
     popup
