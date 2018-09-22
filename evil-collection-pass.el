@@ -43,6 +43,7 @@
     (kbd "C-k") 'pass-prev-entry
     (kbd "]") 'pass-next-directory
     (kbd "[") 'pass-prev-directory
+    "d" 'pass-kill
     "x" 'pass-kill
     "s" 'isearch-forward
     "g?" 'describe-mode
