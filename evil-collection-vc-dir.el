@@ -37,7 +37,7 @@
   (evil-set-initial-state 'vc-dir-mode 'normal)
   (evil-collection-define-key 'normal 'vc-dir-mode-map
     ;; VC commands
-    "n" 'vc-next-action
+    "c" 'vc-next-action
 
     "d" 'vc-diff
     "D" 'vc-root-diff
