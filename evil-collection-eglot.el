@@ -35,6 +35,7 @@
   "Set up `evil' bindings for `eglot'."
   (evil-collection-define-key 'normal 'eglot-mode-map
     "gd" 'xref-find-definitions
+    "gr" 'eglot-rename
     (kbd "C-t") 'xref-pop-marker-stack
     "K" 'eglot-help-at-point))
 
