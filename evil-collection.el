@@ -175,6 +175,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     racer
     realgud
     reftex
+    restclient
     rjsx-mode
     robe
     ruby-mode
