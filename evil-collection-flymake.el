@@ -33,6 +33,7 @@
 (defconst evil-collection-flymake-maps '(flymake-mode-map
                                          flymake-diagnostics-buffer-mode-map))
 
+;;;###autoload
 (defun evil-collection-flymake-setup ()
   "Set up `evil' bindings for `flymake'."
   (evil-collection-define-key

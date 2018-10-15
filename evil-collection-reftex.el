@@ -70,6 +70,7 @@
  o / O      Create BibTeX file with all marked / unmarked entries.
  X / X      Put all (marked) entries into one/many \\cite commands.")
 
+;;;###autoload
 (defun evil-collection-reftex-setup ()
   "Set up `evil' bindings for `reftex'."
 

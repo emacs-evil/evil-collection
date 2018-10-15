@@ -31,6 +31,7 @@
 
 (defconst evil-collection-eglot-maps '(eglot-mode-map))
 
+;;;###autoload
 (defun evil-collection-eglot-setup ()
   "Set up `evil' bindings for `eglot'."
   (evil-collection-define-key 'normal 'eglot-mode-map

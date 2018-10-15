@@ -70,6 +70,7 @@
     (notmuch-tree-tag (list "+deleted")))
   (evil-next-line))
 
+;;;###autoload
 (defun evil-collection-notmuch-setup ()
   "Set up `evil' bindings for `notmuch'."
   (evil-set-initial-state 'notmuch-show-mode 'normal)

@@ -33,6 +33,7 @@
 (defconst evil-collection-go-mode-maps '(go-mode-map
                                          godoc-mode-map))
 
+;;;###autoload
 (defun evil-collection-go-mode-setup ()
   "Set up `evil' bindings for `go-mode'."
   (evil-collection-define-key 'normal 'go-mode-map

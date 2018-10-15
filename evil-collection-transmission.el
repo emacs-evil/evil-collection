@@ -41,6 +41,7 @@
                                               transmission-info-mode-map
                                               transmission-peers-mode-map))
 
+;;;###autoload
 (defun evil-collection-transmission-setup ()
   "Set up `evil' bindings for `transmission'."
 

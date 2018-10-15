@@ -34,6 +34,7 @@
 
 (defconst evil-collection-pass-maps '(pass-mode-map))
 
+;;;###autoload
 (defun evil-collection-pass-setup ()
   "Set up `evil' bindings for `pass-mode'."
   (evil-collection-define-key 'normal 'pass-mode-map

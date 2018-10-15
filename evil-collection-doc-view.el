@@ -32,6 +32,7 @@
 
 (defconst evil-collection-doc-view-maps '(doc-view-mode-map))
 
+;;;###autoload
 (defun evil-collection-doc-view-setup ()
   "Set up `evil' bindings for `doc-view'."
   (evil-set-initial-state 'doc-view-mode 'normal)

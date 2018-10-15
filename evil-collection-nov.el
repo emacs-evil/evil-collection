@@ -34,6 +34,7 @@
 
 (defconst evil-collection-nov-maps '(nov-mode-map))
 
+;;;###autoload
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
   (evil-collection-define-key 'normal 'nov-mode-map

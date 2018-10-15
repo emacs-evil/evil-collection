@@ -325,6 +325,7 @@ keybindings."
 
 ;;; Initialize evil-collection-mu4e
 
+;;;###autoload
 (defun evil-collection-mu4e-setup ()
   "Initialize evil-mu4e if necessary.
 If mu4e-main-mode is in evil-state-motion-modes, initialization

@@ -32,6 +32,7 @@
 
 (defconst evil-collection-calendar-maps '(calendar-mode-map))
 
+;;;###autoload
 (defun evil-collection-calendar-setup ()
   "Set up `evil' bindings for `calendar'."
   (evil-set-initial-state 'calendar-mode 'normal)

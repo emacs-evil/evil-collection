@@ -32,6 +32,7 @@
 
 (defconst evil-collection-profiler-maps '(profiler-report-mode-map))
 
+;;;###autoload
 (defun evil-collection-profiler-setup ()
   "Set up `evil' bindings for `profiler'."
   (evil-set-initial-state 'profiler-report-mode 'normal)

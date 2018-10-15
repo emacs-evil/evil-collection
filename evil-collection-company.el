@@ -52,6 +52,7 @@ be set through custom or before evil-collection loads."
 
 (defconst evil-collection-company-maps '(company-active-map company-search-map))
 
+;;;###autoload
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
   (evil-collection-define-key nil 'company-active-map

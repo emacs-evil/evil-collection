@@ -32,6 +32,7 @@
 
 (defconst evil-collection-lsp-ui-imenu-mode-maps '(lsp-ui-imenu-mode-map))
 
+;;;###autoload
 (defun evil-collection-lsp-ui-imenu-setup ()
   "Set up `evil' bindings for `lsp-ui-imenu'."
   (evil-set-initial-state 'lsp-ui-imenu-mode 'normal)

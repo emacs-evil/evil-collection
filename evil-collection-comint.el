@@ -32,6 +32,7 @@
 
 (defconst evil-collection-comint-maps '(comint-mode-map))
 
+;;;###autoload
 (defun evil-collection-comint-setup ()
   "Set up `evil' bindings for `comint'."
   (when evil-want-C-d-scroll

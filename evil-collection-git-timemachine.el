@@ -32,6 +32,7 @@
 (defvar git-timemachine-mode-map)
 (defconst evil-collection-git-timemachine-map '(git-timemachine-mode-map))
 
+;;;###autoload
 (defun evil-collection-git-timemachine-setup ()
   "Setup `evil' keybindings for `git-timemachine'."
   (evil-define-minor-mode-key 'normal 'git-timemachine-mode

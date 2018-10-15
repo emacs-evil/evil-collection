@@ -33,6 +33,7 @@
 
 (defconst evil-collection-info-maps '(Info-mode-map))
 
+;;;###autoload
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
   (evil-collection-inhibit-insert-state 'Info-mode-map)

@@ -67,6 +67,7 @@ alternative printed representations that can be displayed."
         (apply command args))
     (apply command args)))
 
+;;;###autoload
 (defun evil-collection-elisp-mode-setup ()
   "Set up `evil' bindings for `elisp-mode'."
   (unless evil-move-beyond-eol

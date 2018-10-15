@@ -32,6 +32,7 @@
 
 (defconst evil-collection-robe-maps '(robe-mode-map))
 
+;;;###autoload
 (defun evil-collection-robe-setup ()
   "Set up `evil' bindings for `robe'."
   (evil-collection-define-key 'normal 'robe-mode-map

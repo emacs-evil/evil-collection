@@ -53,6 +53,7 @@
         (apply command args))
     (apply command args)))
 
+;;;###autoload
 (defun evil-collection-slime-setup ()
   "Set up `evil' bindings for `slime'."
   (unless evil-move-beyond-eol

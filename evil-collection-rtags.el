@@ -40,6 +40,7 @@
                                        rtags-references-tree-mode-map
                                        rtags-location-stack-visualize-mode-map))
 
+;;;###autoload
 (defun evil-collection-rtags-setup ()
   "Set up `evil' bindings for `rtags'."
   (evil-set-initial-state 'rtags-mode 'normal)

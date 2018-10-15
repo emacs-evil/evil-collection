@@ -36,6 +36,7 @@
   "Set `evil-shift-width' according to `typescript-indent-level'."
   (setq evil-shift-width typescript-indent-level))
 
+;;;###autoload
 (defun evil-collection-typescript-mode-setup ()
   "Set up `evil' bindings for `typescript-mode'."
   (add-hook 'typescript-mode-hook

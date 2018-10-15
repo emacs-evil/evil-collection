@@ -41,6 +41,7 @@
     (setq evil-mode-map-alist
           (delq evil-mc-map evil-mode-map-alist))))
 
+;;;###autoload
 (defun evil-collection-evil-mc-setup ()
   "Set up `evil' bindings for evil-mc."
   ;; `evil-mc''s default keybindings conflict with `evil-collection' using the

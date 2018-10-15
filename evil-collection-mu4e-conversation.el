@@ -53,6 +53,7 @@
   (evil-normalize-keymaps)
   (add-hook 'post-command-hook 'evil-collection-mu4e-conversation--switch nil t))
 
+;;;###autoload
 (defun evil-collection-mu4e-conversation-setup ()
   "Set up `evil' bindings for `mu4e-conversation'."
   ;; Evil does not update its current keymap state when it the point hits a

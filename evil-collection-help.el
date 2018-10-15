@@ -32,6 +32,7 @@
 
 (defconst evil-collection-help-maps '(help-mode-map))
 
+;;;###autoload
 (defun evil-collection-help-setup ()
   "Set up `evil' bindings for `help'."
   (evil-set-initial-state 'help-mode 'normal)
@@ -56,9 +57,9 @@
 
     ;; The following bindings don't do what they are supposed to. "go" should open
     ;; in the same window and "gO" should open in a different one.
-    "go" 'push-button 
+    "go" 'push-button
     "gO" 'push-button
-    
+
     "g?" 'describe-mode
     "gr" 'revert-buffer
     "<" 'help-go-back

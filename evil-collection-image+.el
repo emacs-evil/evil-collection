@@ -32,6 +32,7 @@
 
 (defconst evil-collection-image+-maps '(image-mode-map))
 
+;;;###autoload
 (defun evil-collection-image+-setup ()
   "Set up `evil' bindings for `image+'."
   (evil-collection-define-key 'normal 'image-mode-map

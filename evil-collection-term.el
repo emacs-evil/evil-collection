@@ -103,6 +103,7 @@ it is not appropriate in some cases like terminals."
   (interactive)
   (term-send-raw-string "\t"))
 
+;;;###autoload
 (defun evil-collection-term-setup ()
   "Set up `evil' bindings for `term'."
   (evil-set-initial-state 'term-mode 'insert)

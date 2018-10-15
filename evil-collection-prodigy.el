@@ -33,6 +33,7 @@
 (defconst evil-collection-prodigy-maps '(prodigy-mode-map
                                          prodigy-view-mode-map))
 
+;;;###autoload
 (defun evil-collection-prodigy-setup ()
   "Set up `evil' bindings for `prodigy'."
   (evil-collection-define-key 'normal 'prodigy-mode-map

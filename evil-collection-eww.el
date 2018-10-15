@@ -35,6 +35,7 @@
                                    eww-buffers-mode-map
                                    eww-bookmark-mode-map))
 
+;;;###autoload
 (defun evil-collection-eww-setup ()
   "Set up `evil' bindings for `eww'."
 

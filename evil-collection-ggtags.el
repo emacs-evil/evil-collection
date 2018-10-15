@@ -41,6 +41,7 @@
                                         ggtags-view-tag-history-mode-map
                                         ggtags-navigation-map))
 
+;;;###autoload
 (defun evil-collection-ggtags-setup ()
   "Set up `evil' bindings for `ggtags'."
   (evil-set-initial-state 'ggtags-global-mode 'normal)

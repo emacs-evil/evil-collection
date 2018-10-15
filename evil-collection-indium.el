@@ -38,6 +38,7 @@
                                         indium-interaction-mode-map
                                         indium-repl-mode-map))
 
+;;;###autoload
 (defun evil-collection-indium-setup ()
   "Set up `evil' bindings for `indium'."
   (when evil-collection-settings-setup-debugger-keys

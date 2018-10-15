@@ -32,6 +32,7 @@
 
 (defconst evil-collection-dired-maps '(dired-mode-map))
 
+;;;###autoload
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
   (evil-collection-define-key 'normal 'dired-mode-map

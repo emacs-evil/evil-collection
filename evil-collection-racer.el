@@ -33,6 +33,7 @@
 (defconst evil-collection-racer-maps '(racer-mode-map
                                        racer-help-mode-map))
 
+;;;###autoload
 (defun evil-collection-racer-setup ()
   "Set up `evil' bindings for `racer'."
   (evil-collection-define-key 'normal 'racer-mode-map

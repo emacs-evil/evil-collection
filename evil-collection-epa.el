@@ -35,6 +35,7 @@
                                      epa-key-mode-map
                                      epa-info-mode-map))
 
+;;;###autoload
 (defun evil-collection-epa-setup ()
   (evil-collection-define-key 'normal 'epa-key-list-mode-map
     (kbd "<tab>") 'widget-forward

@@ -32,6 +32,7 @@
 
 (defconst evil-collection-wdired-maps '(wdired-mode-map))
 
+;;;###autoload
 (defun evil-collection-wdired-setup ()
   "Set up `evil' bindings for `wdired'."
   (evil-collection-define-key nil 'wdired-mode-map

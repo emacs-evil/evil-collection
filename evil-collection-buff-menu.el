@@ -67,6 +67,7 @@ When called interactively prompt for MARK;  RET remove all marks."
 
 ;; `evil-collection-buff-menu-Buffer-menu-unmark-all'
 
+;;;###autoload
 (defun evil-collection-buff-menu-setup ()
   "Set up `evil' bindings for `buff-menu'.."
 

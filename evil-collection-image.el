@@ -35,6 +35,7 @@
 
 (defconst evil-collection-image-maps '(image-mode-map))
 
+;;;###autoload
 (defun evil-collection-image-setup ()
   "Set up `evil' bindings for `image-mode'."
   (evil-set-initial-state 'image-mode 'normal)

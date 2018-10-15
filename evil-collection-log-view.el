@@ -32,6 +32,7 @@
 
 (defconst evil-collection-log-view-maps '(log-view-mode-map))
 
+;;;###autoload
 (defun evil-collection-log-view-setup ()
   "Set up `evil' bindings for `log-view'."
 

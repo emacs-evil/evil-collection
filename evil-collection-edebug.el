@@ -35,6 +35,7 @@
     edebug-x-instrumented-function-list-mode-map
     edebug-x-breakpoint-list-mode-map))
 
+;;;###autoload
 (defun evil-collection-edebug-setup ()
   "Set up `evil' bindings for `edebug'."
   (evil-set-initial-state 'edebug-mode 'normal)

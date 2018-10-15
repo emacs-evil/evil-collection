@@ -79,6 +79,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                                           "inspect"
                                           "locals")
 
+;;;###autoload
 (defun evil-collection-cider-setup ()
   "Set up `evil' bindings for `cider'."
   (unless evil-move-beyond-eol

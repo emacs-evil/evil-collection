@@ -32,6 +32,7 @@
 
 (defconst evil-collection-ag-maps '(ag-mode-map))
 
+;;;###autoload
 (defun evil-collection-ag-setup ()
   "Set up `evil' bindings for `ag'."
   (evil-collection-define-key '(normal visual) 'ag-mode-map

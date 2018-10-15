@@ -32,6 +32,7 @@
 
 (defconst evil-collection-ert-maps '(ert-results-mode-map))
 
+;;;###autoload
 (defun evil-collection-ert-setup ()
   "Set up `evil' bindings for `ert'."
   (evil-collection-inhibit-insert-state 'ert-results-mode-map)

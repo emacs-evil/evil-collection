@@ -32,6 +32,7 @@
 
 (defconst evil-collection-ibuffer-maps '(ibuffer-mode-map))
 
+;;;###autoload
 (defun evil-collection-ibuffer-setup ()
   "Set up `evil' bindings for `ibuffer'."
   (evil-set-initial-state 'ibuffer-mode 'normal)

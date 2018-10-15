@@ -33,6 +33,7 @@
 (defconst evil-collection-daemons-maps '(daemons-mode-map
                                          daemons-output-mode-map))
 
+;;;###autoload
 (defun evil-collection-daemons-setup ()
   "Set up `evil' bindings for `daemons'."
   (evil-collection-define-key '(normal visual) 'daemons-mode-map

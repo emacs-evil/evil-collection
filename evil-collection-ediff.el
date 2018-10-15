@@ -176,6 +176,7 @@
   (evil-normalize-keymaps)
   nil)
 
+;;;###autoload
 (defun evil-collection-ediff-setup ()
   "Initialize evil-ediff."
   (interactive)

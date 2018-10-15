@@ -32,6 +32,7 @@
 
 (defconst evil-collection-vc-dir-maps '(vc-dir-mode-map))
 
+;;;###autoload
 (defun evil-collection-vc-dir-setup ()
   "Set up `evil' bindings for `vc-dir'."
   (evil-set-initial-state 'vc-dir-mode 'normal)

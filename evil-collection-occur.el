@@ -35,6 +35,7 @@
 (defconst evil-collection-occur-maps '(occur-mode-map
                                        occur-edit-mode-map))
 
+;;;###autoload
 (defun evil-collection-occur-setup ()
   "Set up `evil' bindings for `occur'."
   (evil-set-initial-state 'occur-mode 'normal)
