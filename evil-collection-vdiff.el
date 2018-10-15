@@ -30,6 +30,7 @@
 (require 'vdiff nil t)
 (require 'evil-collection)
 
+;;;###autoload
 (defun evil-collection-vdiff-setup ()
   "Set up `evil' bindings for `vdiff-mode'."
   (dolist (mode '(vdiff-mode vdiff-3way-mode))

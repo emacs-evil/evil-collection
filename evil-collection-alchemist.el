@@ -41,6 +41,7 @@
                                            alchemist-mode-map))
 
 
+;;;###autoload
 (defun evil-collection-alchemist-setup ()
   "Set up `evil' bindings for `alchemist'."
   (evil-set-initial-state 'alchemist-compile-mode 'normal)

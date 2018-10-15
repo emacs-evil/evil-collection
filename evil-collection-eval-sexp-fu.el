@@ -50,6 +50,7 @@
   (advice-remove 'bounds-of-thing-at-point
                  'evil-collection-eval-sexp-fu-bounds-of-thing-at-point-sexp))
 
+;;;###autoload
 (defun evil-collection-eval-sexp-fu-setup ()
   "Set up `evil' with `eval-sexp-fu'."
   (unless evil-move-beyond-eol

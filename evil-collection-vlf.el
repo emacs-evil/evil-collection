@@ -41,6 +41,7 @@
   (vlf-change-batch-size t))
 
 ;;; Code:
+;;;###autoload
 (defun evil-collection-vlf-setup ()
   "Set up `evil' bindings for `vlf'."
   (evil-set-initial-state 'vlf-mode 'normal)

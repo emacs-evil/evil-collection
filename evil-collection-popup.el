@@ -32,6 +32,7 @@
 
 (defconst evil-collection-popup-maps '(popup-menu-keymap))
 
+;;;###autoload
 (defun evil-collection-popup-setup ()
   "Set up `evil' bindings for `popup'."
   (defvar popup-menu-keymap)

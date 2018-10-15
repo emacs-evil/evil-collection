@@ -47,6 +47,7 @@
         (evil-motion-state)
       (evil-normal-state))))
 
+;;;###autoload
 (defun evil-collection-diff-toggle-setup ()
   "Toggle visiting diff buffers in motion state."
   (interactive)
@@ -81,6 +82,7 @@ current file instead."
       (widen)
     (diff-restrict-view arg)))
 
+;;;###autoload
 (defun evil-collection-diff-mode-setup ()
   "Set up `evil' bindings for `diff-mode'."
 

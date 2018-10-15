@@ -103,6 +103,7 @@
      header-line-format)))
 
 
+;;;###autoload
 (defun evil-collection-helm-setup ()
   "Set up `evil' bindings for `helm'."
   (add-hook 'helm-minibuffer-set-up-hook 'evil-collection-helm-hide-minibuffer-maybe)

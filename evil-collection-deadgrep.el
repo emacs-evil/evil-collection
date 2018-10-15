@@ -32,6 +32,7 @@
 
 (defconst evil-collection-deadgrep-maps '(deadgrep-mode-map))
 
+;;;###autoload
 (defun evil-collection-deadgrep-setup ()
   "Set up `evil' bindings for deadgrep.."
   (evil-collection-define-key 'normal 'deadgrep-mode-map

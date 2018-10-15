@@ -32,6 +32,7 @@
 
 (defconst evil-collection-kotlin-maps '(kotlin-mode-map))
 
+;;;###autoload
 (defun evil-collection-kotlin-mode-setup ()
   "Set up `evil' bindings for `kotlin-mode'."
   (evil-collection-define-key 'normal 'kotlin-mode-map

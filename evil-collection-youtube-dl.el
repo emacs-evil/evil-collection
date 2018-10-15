@@ -33,6 +33,7 @@
 
 (defconst evil-collection-youtube-dl-maps '(youtube-dl-list-mode-map))
 
+;;;###autoload
 (defun evil-collection-youtube-dl-setup ()
   "Set up `evil' bindings for `youtube-dl'."
 

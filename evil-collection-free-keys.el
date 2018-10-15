@@ -38,6 +38,7 @@
   (setq-local header-line-format
               "Help: (c) change buffer (p) change prefix (q) quit"))
 
+;;;###autoload
 (defun evil-collection-free-keys-setup ()
   "Set up `evil' bindings for `free-keys'."
   (add-hook 'free-keys-mode-hook

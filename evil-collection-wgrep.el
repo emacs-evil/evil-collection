@@ -34,6 +34,7 @@
 
 (defconst evil-collection-wgrep-maps '(wgrep-mode-map))
 
+;;;###autoload
 (defun evil-collection-wgrep-setup ()
   "Set up `evil' bindings for `wgrep'."
   (evil-collection-define-key nil 'wgrep-mode-map

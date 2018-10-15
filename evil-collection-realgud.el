@@ -32,6 +32,7 @@
 
 (defconst evil-collection-realgud-maps '(realgud:shortkey-mode-map))
 
+;;;###autoload
 (defun evil-collection-realgud-setup ()
   "Set up `evil' bindings for `realgud'."
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.

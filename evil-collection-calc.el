@@ -31,6 +31,7 @@
 
 (defconst evil-collection-calc-maps '(calc-mode-map))
 
+;;;###autoload
 (defun evil-collection-calc-setup ()
   "Set up `evil' bindings for `calc'."
   (evil-collection-inhibit-insert-state 'calc-mode-map)

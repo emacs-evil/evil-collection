@@ -32,6 +32,7 @@
 
 (defconst evil-collection-macrostep-maps '(macrostep-keymap))
 
+;;;###autoload
 (defun evil-collection-macrostep-setup ()
   "Set up `evil' bindings for `macrostep'."
   ;; Keymaps don't seem to be populated on first try.

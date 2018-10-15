@@ -32,6 +32,7 @@
 (defconst evil-collection-anaconda-mode-maps '(anaconda-view-mode-map
                                                anaconda-mode-map))
 
+;;;###autoload
 (defun evil-collection-anaconda-mode-setup ()
   "Set up `evil' bindings for `anaconda-mode'."
   ;; Bindings don't seem to be set the first time.

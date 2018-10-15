@@ -87,6 +87,7 @@
     "^" 'eshell-bol))
 
 ;; TODO: Compare this setup procedure with evil-ediff.
+;;;###autoload
 (defun evil-collection-eshell-setup ()
   "Set up `evil' bindings for `eshell'."
   (add-hook 'eshell-mode-hook 'evil-collection-eshell-next-prompt-on-insert)

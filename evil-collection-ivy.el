@@ -34,6 +34,7 @@
                                      ivy-occur-grep-mode-map
                                      ivy-minibuffer-map))
 
+;;;###autoload
 (defun evil-collection-ivy-setup ()
   "Set up `evil' bindings for `ivy-mode'."
   (evil-collection-define-key nil 'ivy-mode-map

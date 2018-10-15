@@ -34,6 +34,7 @@
                                       tide-references-mode-map
                                       tide-project-errors-mode-map))
 
+;;;###autoload
 (defun evil-collection-tide-setup ()
   "Set up `evil' bindings for `tide'."
   (evil-collection-define-key 'normal 'tide-mode-map

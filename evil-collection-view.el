@@ -32,6 +32,7 @@
 
 (defconst evil-collection-view-maps '(view-mode-map))
 
+;;;###autoload
 (defun evil-collection-view-setup ()
   "Set up `evil' bindings for `view'."
   (evil-set-initial-state 'view-mode 'normal)

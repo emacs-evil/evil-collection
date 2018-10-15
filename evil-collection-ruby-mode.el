@@ -36,6 +36,7 @@
   "Set `evil-shift-width' according to `ruby-indent-level'."
   (setq evil-shift-width ruby-indent-level))
 
+;;;###autoload
 (defun evil-collection-ruby-mode-setup ()
   "Set up `evil' bindings for `ruby'."
   (add-hook 'ruby-mode-hook #'evil-collection-ruby-mode-set-evil-shift-width))

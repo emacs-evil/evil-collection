@@ -36,6 +36,7 @@
 (defconst evil-collection-elfeed-maps '(elfeed-search-mode-map
                                         elfeed-show-mode-map))
 
+;;;###autoload
 (defun evil-collection-elfeed-setup ()
   "Set up `evil' bindings for `elfeed'."
 

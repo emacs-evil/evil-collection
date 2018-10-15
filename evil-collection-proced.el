@@ -32,6 +32,7 @@
 
 (defconst evil-collection-proced-maps '(proced-mode-map))
 
+;;;###autoload
 (defun evil-collection-proced-setup ()
   "Set up `evil' bindings for `proced'."
   (evil-collection-inhibit-insert-state 'proced-mode-map)

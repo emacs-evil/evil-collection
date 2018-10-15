@@ -37,6 +37,7 @@
 
 ;; `which-key'is coded so that the prompt properly shows j and k as
 ;; the bindings.
+;;;###autoload
 (defun evil-collection-which-key-setup ()
   "Set up `evil' bindings for `which-key'."
 

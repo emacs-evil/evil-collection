@@ -32,6 +32,7 @@
 
 (defconst evil-collection-xref-maps '(xref--xref-buffer-mode-map))
 
+;;;###autoload
 (defun evil-collection-xref-setup ()
   "Set up `evil' bindings for `xref'."
   (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map

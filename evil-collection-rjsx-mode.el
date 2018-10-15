@@ -34,6 +34,7 @@
 
 (defconst evil-collection-rjsx-maps '(rjsx-mode-map))
 
+;;;###autoload
 (defun evil-collection-rjsx-mode-setup ()
   "Set up `evil' bindings for `rjsx-mode'."
   (when evil-want-C-d-scroll

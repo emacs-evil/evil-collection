@@ -32,6 +32,7 @@
 
 (defconst evil-collection-compile-maps '(compilation-mode-map))
 
+;;;###autoload
 (defun evil-collection-compile-setup ()
   "Set up `evil' bindings for `compile'."
   (evil-set-initial-state 'compilation-mode 'normal)

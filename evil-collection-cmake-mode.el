@@ -35,6 +35,7 @@
   "Set `evil-shift-width' according to `cmake-tab-with'."
   (setq-local evil-shift-width cmake-tab-width))
 
+;;;###autoload
 (defun evil-collection-cmake-mode-setup ()
   "Set up `evil' bindings for `cmake-mode'."
   (add-hook 'cmake-mode-hook #'evil-collection-cmake-mode-set-evil-shift-width))

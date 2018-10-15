@@ -33,6 +33,7 @@
 
 (defconst evil-collection-woman-maps '(woman-mode-map))
 
+;;;###autoload
 (defun evil-collection-woman-setup ()
   "Set up `evil' bindings for `woman'."
   (evil-set-initial-state 'woman-mode 'normal)

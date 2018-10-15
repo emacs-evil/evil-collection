@@ -34,6 +34,7 @@
 (declare-function neotree-make-executor "neotree.el")
 (defconst evil-collection-neotree-maps '(neotree-mode-map))
 
+;;;###autoload
 (defun evil-collection-neotree-setup ()
   "Set up `evil' bindings for `neotree'."
 

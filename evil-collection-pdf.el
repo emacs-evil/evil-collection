@@ -87,6 +87,7 @@
     (pdf-view-first-page)
     (image-bob)))
 
+;;;###autoload
 (defun evil-collection-pdf-setup ()
   "Set up `evil' bindings for `pdf-view'."
   (evil-collection-inhibit-insert-state 'pdf-view-mode-map)
@@ -123,7 +124,7 @@
     "zi" 'pdf-view-enlarge
     "=" 'pdf-view-enlarge
     "-" 'pdf-view-shrink
-    "zo" 'pdf-view-shrink		      
+    "zo" 'pdf-view-shrink
     "0" 'pdf-view-scale-reset
     "z0" 'pdf-view-scale-reset
 

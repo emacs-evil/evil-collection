@@ -34,6 +34,7 @@
 
 (defconst evil-collection-simple-maps '(special-mode-map))
 
+;;;###autoload
 (defun evil-collection-simple-setup ()
   "Set up `evil' bindings for `simple'."
   (evil-collection-define-key '(normal visual) 'special-mode-map

@@ -42,6 +42,7 @@ mode."
 
 (defconst evil-collection-outline-maps '(outline-mode-map))
 
+;;;###autoload
 (defun evil-collection-outline-setup ()
   "Set up `evil' bindings for `outline'."
   (evil-set-initial-state 'outline-mode 'normal)

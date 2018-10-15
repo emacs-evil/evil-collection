@@ -33,6 +33,7 @@
 (defconst evil-collection-cus-theme-maps '(custom-theme-choose-mode-map
                                            custom-new-theme-mode-map))
 
+;;;###autoload
 (defun evil-collection-cus-theme-setup ()
   "Set up `evil' bindings for `cus-theme'."
   (evil-set-initial-state 'custom-new-theme-mode 'normal)

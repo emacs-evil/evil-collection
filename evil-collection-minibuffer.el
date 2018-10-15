@@ -52,6 +52,7 @@ it does not have a mode."
   ;; then it may conflict with other packages' if they do the same.
   (evil-insert 1))
 
+;;;###autoload
 (defun evil-collection-minibuffer-setup ()
   "Initialize minibuffer for `evil'."
   ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-from-Minibuffer.html

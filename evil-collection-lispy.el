@@ -246,6 +246,7 @@ This is an exact copy of `lispy-set-key-theme' except with the additions of
    (assq 'lispy-mode minor-mode-map-alist)
    lispy-mode-map))
 
+;;;###autoload
 (defun evil-collection-lispy-setup ()
   "Set up `evil' bindings for `lispy'."
   (advice-add 'lispy-set-key-theme :override 'evil-collection-lispy-set-key-theme)

@@ -32,6 +32,7 @@
 
 (defconst evil-collection-vc-git-maps '(vc-git-mode-map))
 
+;;;###autoload
 (defun evil-collection-vc-git-setup ()
   "Set up `evil' bindings for `vc-git'."
   (evil-set-initial-state 'vc-git-log-view-mode 'normal))

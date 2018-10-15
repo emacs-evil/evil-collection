@@ -47,6 +47,7 @@
         (apply command args))
     (apply command args)))
 
+;;;###autoload
 (defun evil-collection-geiser-setup ()
   "Set up bindings for `geiser'."
   (unless evil-move-beyond-eol

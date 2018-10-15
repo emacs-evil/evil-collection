@@ -32,6 +32,7 @@
 
 (defconst evil-collection-package-menu-maps '(package-menu-mode-map))
 
+;;;###autoload
 (defun evil-collection-package-menu-setup ()
   "Set up `evil' bindings for `package-menu'."
   (evil-set-initial-state 'package-menu-mode 'normal)

@@ -32,6 +32,7 @@
 
 (defconst evil-collection-vc-annotate-maps '(vc-annotate-mode-map))
 
+;;;###autoload
 (defun evil-collection-vc-annotate-setup ()
   "Set up `evil' bindings for `vc-annotate'."
   (evil-set-initial-state 'vc-annotate-mode 'normal)

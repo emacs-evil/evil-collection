@@ -46,6 +46,7 @@
   (evil-collection-restclient-result-mode)
   (evil-normalize-keymaps))
 
+;;;###autoload
 (defun evil-collection-restclient-setup ()
   "Set up `evil' bindings for `restclient'."
   ;; Enable a separate minor mode so that we can bind keys to it.

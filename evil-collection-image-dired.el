@@ -32,6 +32,7 @@
 
 (defconst evil-collection-image-dired-maps '(image-dired-thumbnail-mode-map))
 
+;;;###autoload
 (defun evil-collection-image-dired-setup ()
   "Set up `evil' bindings for `image-dired-thumbnail-mode'."
   (evil-collection-define-key 'normal 'image-dired-thumbnail-mode-map

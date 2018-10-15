@@ -32,6 +32,7 @@
 
 (defconst evil-collection-quickrun-maps '(quickrun--mode-map))
 
+;;;###autoload
 (defun evil-collection-quickrun-setup ()
   "Set up `evil' bindings for `quickrun'.."
   (evil-collection-define-key 'normal 'quickrun--mode-map

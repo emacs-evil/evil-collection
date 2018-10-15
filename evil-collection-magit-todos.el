@@ -39,6 +39,7 @@
     "gT" (and (bound-and-true-p magit-todos-mode) 'magit-todos-jump-to-todos)))
 
 
+;;;###autoload
 (defun evil-collection-magit-todos-setup ()
   "Set up `evil' bindings for `magit-todos'."
   ;; magit-todos binds jT which prevents evil users from stepping into the section

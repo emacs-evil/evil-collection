@@ -32,6 +32,7 @@
 
 (defconst evil-collection-custom-maps '(custom-mode-map))
 
+;;;###autoload
 (defun evil-collection-custom-setup ()
   "Set up `evil' bindings for `Custom-mode'."
   (evil-set-initial-state 'Custom-mode 'normal)

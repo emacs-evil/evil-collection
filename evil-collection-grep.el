@@ -32,6 +32,7 @@
 
 (defconst evil-collection-grep-maps '(grep-mode-map))
 
+;;;###autoload
 (defun evil-collection-grep-setup ()
   "Set up `evil' bindings for `grep'."
   (evil-collection-define-key 'normal 'grep-mode-map

@@ -71,6 +71,7 @@ The return value is the yanked text."
   (unless (eobp) (evil-next-line))
   (evil-collection-emms-playlist-mode-paste-before))
 
+;;;###autoload
 (defun evil-collection-emms-browser-setup ()
   "Set up `evil' bindings for `emms-browser'."
   ;; TODO: Why doesn't evil-set-initial-state work with emms-browser-mode?
@@ -140,6 +141,7 @@ The return value is the yanked text."
     "d" 'emms-browser-view-in-dired
     "gd" 'emms-browser-view-in-dired)) ; "d" does the same, keep "gd" for consistency.
 
+;;;###autoload
 (defun evil-collection-emms-setup ()
   "Set up `evil' bindings for `emms'."
   (with-eval-after-load 'emms-browser

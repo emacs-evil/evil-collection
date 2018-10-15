@@ -84,6 +84,7 @@
         "ZQ" 'evil-quit
         "ZZ" 'quit-window)))
 
+;;;###autoload
 (defun evil-collection-guix-setup ()
   "Set up `evil' bindings for `guix'."
   (evil-collection-guix-set guix-ui-map) ; Covers output-list and generation-list.

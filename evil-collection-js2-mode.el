@@ -36,6 +36,7 @@
   "Set `evil-shift-width' according to `js-indent-level'."
   (setq-local evil-shift-width js-indent-level))
 
+;;;###autoload
 (defun evil-collection-js2-mode-setup ()
   "Set up `evil' bindings for `js2-mode'."
   (add-hook 'js2-mode-hook #'evil-collection-js2-set-evil-shift-width)

@@ -32,6 +32,7 @@
 
 (defconst evil-collection-man-maps '(Man-mode-map))
 
+;;;###autoload
 (defun evil-collection-man-setup ()
   "Set up `evil' bindings for `man'."
   (evil-set-initial-state 'Man-mode 'normal)

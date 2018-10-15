@@ -38,6 +38,7 @@
 
 (defconst evil-collection-magit-maps '(magit-blame-mode-map))
 
+;;;###autoload
 (defun evil-collection-magit-setup ()
   "Set up `evil' bindings for `magit'."
   (evil-collection-define-key 'normal 'magit-blame-mode-map

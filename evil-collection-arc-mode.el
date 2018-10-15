@@ -32,6 +32,7 @@
 
 (defconst evil-collection-arc-mode-maps '(archive-mode-map))
 
+;;;###autoload
 (defun evil-collection-arc-mode-setup ()
   "Set up `evil' bindings for `arc-mode'."
   (evil-set-initial-state 'arc-mode 'normal)
