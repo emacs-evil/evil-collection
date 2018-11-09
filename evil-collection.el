@@ -193,9 +193,10 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     vdiff
     view
     vlf
-    which-key
+    w3m
     wdired
     wgrep
+    which-key
     woman
     xref
     youtube-dl
