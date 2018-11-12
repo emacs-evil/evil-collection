@@ -35,6 +35,7 @@
 ;;;###autoload
 (defun evil-collection-view-setup ()
   "Set up `evil' bindings for `view'."
+  (add-hook 'view-mode-hook 'evil-normalize-keymaps)
   (evil-set-initial-state 'view-mode 'normal)
   (evil-collection-define-key 'normal 'view-mode-map
     "q" 'quit-window
