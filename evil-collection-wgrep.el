@@ -43,6 +43,7 @@
   (evil-collection-define-key 'normal 'wgrep-mode-map
     "ZQ" 'wgrep-abort-changes
     "ZZ" 'wgrep-finish-edit
+    "dd" 'wgrep-mark-deletion
     (kbd "<escape>") 'wgrep-exit))
 
 (provide 'evil-collection-wgrep)
