@@ -181,7 +181,7 @@
   "Initialize evil-ediff."
   (interactive)
   (evil-set-initial-state 'ediff-mode 'normal)
-  (add-hook 'ediff-startup-hook 'evil-collection-ediff-startup-hook)
+  (add-hook 'ediff-keymap-setup-hook 'evil-collection-ediff-startup-hook)
   (evil-collection-ediff-adjust-help))
 
 (defun evil-collection-ediff-revert ()
@@ -199,7 +199,7 @@
                (ediff-long-help-message-tail . ediff-long-help-message-tail-backup)))
       (setf (symbol-value (car msg)) (symbol-value (cdr msg)))))
   (setq evil-collection-ediff-help-changed nil)
-  (remove-hook 'ediff-startup-hook 'evil-collection-ediff-startup-hook))
+  (remove-hook 'ediff-keymap-setup-hook 'evil-collection-ediff-startup-hook))
 
 (provide 'evil-collection-ediff)
 ;;; evil-collection-ediff.el ends here
