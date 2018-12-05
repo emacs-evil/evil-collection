@@ -112,6 +112,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     diff-mode
     dired
     doc-view
+    ebib
     edebug
     ediff
     eglot
