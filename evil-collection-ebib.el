@@ -29,6 +29,9 @@
 (defconst evil-collection-ebib-maps '(ebib-index-mode-map
                                       ebib-entry-mode-map))
 
+(defvar ebib-index-mode-map)
+(defvar ebib-entry-mode-map)
+
 ;;;###autoload
 (defun evil-collection-ebib-setup ()
   "Set up `evil' bindings for `ebib'."
