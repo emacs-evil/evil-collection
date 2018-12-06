@@ -184,6 +184,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     simple
     slime
     (term term ansi-term multi-term)
+    tetris
     tide
     transmission
     typescript-mode
