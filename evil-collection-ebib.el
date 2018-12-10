@@ -36,28 +36,41 @@
 (defun evil-collection-ebib-setup ()
   "Set up `evil' bindings for `ebib'."
   (evil-set-initial-state 'ebib-index-mode 'normal)
-  (evil-set-initial-state 'ebib-entry-mode 'normal)
   (evil-make-overriding-map ebib-index-mode-map 'normal)
-  (evil-make-overriding-map ebib-entry-mode-map 'normal)
+  (evil-collection-inhibit-insert-state 'ebib-index-mode-map)
   (evil-collection-define-key 'normal 'ebib-index-mode-map
-    "j" 'ebib-next-entry
-    "k" 'ebib-prev-entry
     "d" 'ebib-kill-entry
     "D" 'ebib-delete-entry
-    "g" nil
     "gg" 'ebib-goto-first-entry
     "G" 'ebib-goto-last-entry
-    "C-u" 'ebib-index-scroll-down
-    "C-d" 'ebib-index-scroll-up
-    "n" 'ebib-search-next)
+    "j" 'ebib-next-entry
+    "k" 'ebib-prev-entry
+    "n" 'ebib-search-next
+    "p" 'ebib-yank-entry
+    "ZQ" 'ebib-quit
+    "ZZ" 'ebib-quit
+    (kbd "C-u") 'ebib-index-scroll-down
+    (kbd "C-d") 'ebib-index-scroll-up
+    (kbd "C-b") 'ebib-index-scroll-down
+    (kbd "C-f") 'ebib-index-scroll-up)
+  (evil-set-initial-state 'ebib-entry-mode 'normal)
+  (evil-make-overriding-map ebib-entry-mode-map 'normal)
+  (evil-collection-inhibit-insert-state 'ebib-entry-mode-map)
   (evil-collection-define-key 'normal 'ebib-entry-mode-map
-    "j" 'ebib-next-field
-    "k" 'ebib-prev-field
+    "[" 'ebib-goto-prev-set
+    "]" 'ebib-goto-next-set
     "d" 'ebib-kill-field-contents
     "D" 'ebib-delete-field-contents
-    "g" nil
     "gg" 'ebib-goto-first-field
-    "G" 'ebib-goto-last-field))
+    "gk" 'ebib-goto-prev-set
+    "gj" 'ebib-goto-next-set
+    "G" 'ebib-goto-last-field
+    "j" 'ebib-next-field
+    "k" 'ebib-prev-field
+    "p" 'ebib-yank-field-contents
+    "y" 'ebib-copy-field-contents
+    "ZZ" 'ebib-quit-entry-buffer
+    "ZQ" 'ebib-quit-entry-buffer))
 
 (provide 'evil-collection-ebib)
 ;;; evil-collection-ebib.el ends here
