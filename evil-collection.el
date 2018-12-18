@@ -134,10 +134,11 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     git-timemachine
     go-mode
     grep
-    help
     guix
     hackernews
     helm
+    help
+    helpful
     ibuffer
     image
     image-dired
