@@ -27,7 +27,7 @@
 ;; Evil bindings for Cider.
 
 ;;; Code:
-(require 'cl-macs)
+(require 'cl-lib)
 (require 'cider nil t)
 (require 'evil-collection)
 (require 'evil-collection-settings)
