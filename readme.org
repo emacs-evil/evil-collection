@@ -452,7 +452,7 @@ more.
    A more common use case of ~evil-collection-translate-key~ would be for keeping
    the functionality of some keys that users may bind globally. For example, ~SPC~,
    ~[~, and ~]~ are bound in some modes. If you use these keys as global prefix
-   keys that you never want to be overriden, you'll want to give them higher
+   keys that you never want to be overridden, you'll want to give them higher
    priority than other evil keybindings (e.g. those made by ~(evil-define-key
    'normal some-map ...)~). To do this, you can create an "intercept" map and bind
    your prefix keys in it instead of in ~evil-normal-state-map~:
@@ -488,7 +488,7 @@ more.
     "[[" "["
     "]]" "]"))
 
-(add-hook 'evil-collection-setup-hook #'my-prefix-translation)
+(add-hook 'evil-collection-setup-hook #'my-prefix-translations)
 
 (evil-collection-init)
    #+end_src
