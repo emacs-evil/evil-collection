@@ -49,8 +49,10 @@ more.
 
    The list of supported modes is configured by ~evil-collection-mode-list~.
 
-   ~evil-collection~ assumes ~evil-want-keybinding~ is set to nil
-   and ~evil-want-integration~ is set to t before loading ~evil~ and ~evil-collection.~
+   ~evil-collection~ assumes ~evil-want-keybinding~ is set to nil and
+   ~evil-want-integration~ is set to t before loading ~evil~ and
+   ~evil-collection.~ Note some other packages may load evil (e.g. evil-leader)
+   so bear that in mind when determining when to set the variables.
 
    See https://github.com/emacs-evil/evil-collection/issues/60 and https://github.com/emacs-evil/evil/pull/1087
    for more details.
