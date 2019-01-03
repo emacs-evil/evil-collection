@@ -47,7 +47,7 @@ more.
 
    : (evil-collection-init 'calendar)
 
-   The list of supported modes is configured by ~~evil-collection-mode-list~~.
+   The list of supported modes is configured by ~evil-collection-mode-list~.
 
    ~evil-collection~ assumes ~evil-want-keybinding~ is set to nil
    and ~evil-want-integration~ is set to t before loading ~evil~ and ~evil-collection.~
