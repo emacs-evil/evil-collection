@@ -554,7 +554,7 @@ more.
      #+begin_src emacs-lisp :tangle yes
         (use-package general
           :ensure t
-          :config
+          :init
           (setq general-override-states '(insert
                                           emacs
                                           hybrid
@@ -563,11 +563,12 @@ more.
                                           motion
                                           operator
                                           replace))
-          (general-override-mode)
+          :config
           (general-define-key
            :states '(normal visual motion)
            :keymaps 'override
            "SPC" 'hydra-space/body))
+           ;; Replace 'hydra-space/body with your leader function.
      #+end_src
 
      See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
