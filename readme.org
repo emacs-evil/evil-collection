@@ -334,7 +334,7 @@ more.
 
     - ~J~: [[mu4e][mu4e]] has ~j~ and [[evil-mu4e][evil-mu4e]] uses ~J~, so we use ~J~ too.
 
-    Some special modes like [[mu4e][mu4e]] and ibuffer offer to to "jump" to a different
+    Some special modes like [[mu4e][mu4e]] and ibuffer offer to "jump" to a different
     buffer.  This sometimes depends on the thing at point.
 
     This is not related to Evil jumps like ~C-i~ and ~C-o~, nor to "go to
@@ -514,7 +514,7 @@ more.
    ~:destructive t~ may be useful for interactive experimentation.
 
    ~evil-collection-swap-key~ is also provided as a wrapper around
-   ~evil-colletion-translate-key~ that allows swapping keys:
+   ~evil-collection-translate-key~ that allows swapping keys:
    #+begin_src emacs-lisp
 (evil-collection-swap-key nil 'evil-motion-state-map
   ";" ":")
