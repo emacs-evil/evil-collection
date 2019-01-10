@@ -123,7 +123,7 @@
     "9" 'sldb-invoke-restart-9)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
-    [return] 'slime-inspector-operate-on-point
+    (kbd "<return>") 'slime-inspector-operate-on-point
     (kbd "C-m") 'slime-inspector-operate-on-point
     [mouse-1] 'slime-inspector-operate-on-click
     [mouse-2] 'slime-inspector-operate-on-click
@@ -131,19 +131,20 @@
     [mouse-7] 'slime-inspector-next
     "gk" 'slime-inspector-pop
     (kbd "C-k") 'slime-inspector-pop
+    "[" 'slime-inspector-pop
     "gj" 'slime-inspector-next
-    "j" 'slime-inspector-next
-    "k" 'slime-inspector-previous-inspectable-object
+    (kbd "C-j") 'slime-inspector-next
+    "]" 'slime-inspector-next
     "K" 'slime-inspector-describe
     "p" 'slime-inspector-pprint
     "e" 'slime-inspector-eval
     "h" 'slime-inspector-history
     "gr" 'slime-inspector-reinspect
     "gv" 'slime-inspector-toggle-verbose
-    "\C-i" 'slime-inspector-next-inspectable-object
-    [(shift tab)]
-    'slime-inspector-previous-inspectable-object ; Emacs translates S-TAB
-    [backtab] 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
+    (kbd "<tab>") 'slime-inspector-next-inspectable-object
+    (kbd "C-i") 'slime-inspector-next-inspectable-object
+    (kbd "<S-tab>") 'slime-inspector-previous-inspectable-object ; Emacs translates S-TAB
+    (kbd "<backtab>") 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
     "." 'slime-inspector-show-source
     "gR" 'slime-inspector-fetch-all
     "q" 'slime-inspector-quit)
