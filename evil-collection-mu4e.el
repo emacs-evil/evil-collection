@@ -277,7 +277,8 @@
 (defvar evil-collection-mu4e-end-region-misc "q]uit"
   "The place where to end overriding Misc section.")
 
-(defvar evil-collection-mu4e-new-region-misc
+(defun evil-collection-mu4e-new-region-misc ()
+  "Define the evil-mu4e Misc region."
   (concat
    (mu4e~main-action-str "\t* [;]Switch focus\n" 'mu4e-context-switch)
    (mu4e~main-action-str "\t* [u]pdate email & database (Alternatively: gr)\n"
@@ -292,8 +293,7 @@
    (mu4e~main-action-str "\t* [N]ews\n" 'mu4e-news)
    (mu4e~main-action-str "\t* [A]bout mu4e\n" 'mu4e-about)
    (mu4e~main-action-str "\t* [H]elp\n" 'mu4e-display-manual)
-   (mu4e~main-action-str "\t* [q]uit\n" 'mu4e-quit))
-  "Define the evil-mu4e Misc region.")
+   (mu4e~main-action-str "\t* [q]uit\n" 'mu4e-quit)))
 
 (defun evil-collection-mu4e-replace-region (new-region start end)
   "Replace region between START and END with NEW-REGION.
@@ -310,17 +310,15 @@ START end END end are regular expressions."
         (end-point (re-search-forward end)))
     (delete-region start-point end-point)))
 
-
 (defun evil-collection-mu4e-update-main-view ()
   "Update 'Basic' and 'Misc' regions to reflect the new
 keybindings."
   (evil-collection-mu4e-replace-region evil-collection-mu4e-new-region-basic
                                        evil-collection-mu4e-begin-region-basic
                                        evil-collection-mu4e-end-region-basic)
-  (evil-collection-mu4e-replace-region evil-collection-mu4e-new-region-misc
+  (evil-collection-mu4e-replace-region (evil-collection-mu4e-new-region-misc)
                                        evil-collection-mu4e-begin-region-misc
                                        evil-collection-mu4e-end-region-misc))
-
 
 
 ;;; Initialize evil-collection-mu4e
