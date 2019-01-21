@@ -253,7 +253,7 @@
     (kbd "<backtab>") 'tablist-backward-column
     (kbd "C-c C-e") 'tablist-export-csv
 
-    [remap evil-first-non-blank] 'tablist-move-to-major-columnj
+    [remap evil-first-non-blank] 'tablist-move-to-major-column
     [remap evil-next-line] 'tablist-next-line
     [remap evil-previous-line] 'tablist-previous-line
 
