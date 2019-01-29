@@ -88,9 +88,9 @@
     "gf" 'p4-find-file-other-window
     "S" 'p4-filelog-short-format
     "L" 'p4-filelog-long-format
-    " " 'p4-scroll-up-1-window-other-w
-    "gg" 'p4-top-of-buffer-other-w
-    "G" 'p4-bottom-of-buffer-other-w
+    " " 'p4-scroll-up-1-window
+    "gg" 'p4-top-of-buffer
+    "G" 'p4-bottom-of-buffer
     "=" 'p4-delete-other-windows
     "]" 'p4-goto-next-change
     "[" 'p4-goto-prev-change
