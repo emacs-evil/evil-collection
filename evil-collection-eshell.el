@@ -24,7 +24,7 @@
 ;; see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil bindings for EMMS
+;; Evil bindings for Eshell.
 
 ;;; Code:
 (require 'em-prompt)
@@ -67,6 +67,9 @@
     "^" 'eshell-bol
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument
+
+    (kbd "C-n") 'eshell-next-matching-input-from-input
+    (kbd "C-p") 'eshell-previous-matching-input-from-input
 
     (kbd "<return>") 'eshell-send-input
     (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process)
