@@ -40,12 +40,15 @@
       (kbd "C-d") #'evil-scroll-down))
 
   (evil-collection-define-key 'normal 'comint-mode-map
-    (kbd "C-j") #'comint-next-input
-    (kbd "C-k") #'comint-previous-input
-    (kbd "gj") #'comint-next-input
-    (kbd "gk") #'comint-previous-input
-    (kbd "]") #'comint-next-input
-    (kbd "[") #'comint-previous-input)
+    ;; Match Eshell bindings:
+    (kbd "C-j") #'comint-next-prompt
+    (kbd "C-k") #'comint-previous-prompt
+    (kbd "gj") #'comint-next-prompt
+    (kbd "gk") #'comint-previous-prompt
+    (kbd "]") #'comint-next-prompt
+    (kbd "[") #'comint-previous-prompt
+    (kbd "C-p") #'comint-previous-input
+    (kbd "C-n") #'comint-next-input)
 
   (evil-collection-define-key 'insert 'comint-mode-map
     (kbd "<up>") #'comint-previous-input
