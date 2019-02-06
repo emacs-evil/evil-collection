@@ -178,6 +178,16 @@
     "gR" 'slime-recompile-all-xrefs
     "r" 'slime-xref-retract)
 
+  (evil-collection-define-key 'normal 'slime-repl-mode-map
+    "gj" 'slime-repl-next-prompt
+    "gk" 'slime-repl-previous-prompt
+    (kbd "C-j") 'slime-repl-next-prompt
+    (kbd "C-k") 'slime-repl-previous-prompt
+    "]" 'slime-repl-next-prompt
+    "[" 'slime-repl-previous-prompt
+    (kbd "C-p") 'slime-repl-previous-input
+    (kbd "C-n") 'slime-repl-next-input)
+
   (add-hook 'slime-popup-buffer-mode-hook #'evil-normalize-keymaps))
 
 (provide 'evil-collection-slime)
