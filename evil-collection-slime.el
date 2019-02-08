@@ -153,7 +153,8 @@
     (kbd "K") 'slime-describe-symbol
     (kbd "C-t") 'slime-pop-find-definition-stack
     ;; goto
-    "gd" 'slime-edit-definition)
+    "gd" 'slime-edit-definition
+    "gz" 'slime-switch-to-output-buffer)
 
   (evil-collection-define-key 'normal 'slime-popup-buffer-mode-map
     ;; quit
