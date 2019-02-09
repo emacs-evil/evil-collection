@@ -43,9 +43,10 @@
 
   (evil-collection-define-key 'normal 'log-view-mode-map
     "q" 'quit-window
-    (kbd "RET") 'log-view-toggle-entry-display
+    (kbd "TAB") 'log-view-toggle-entry-display
     "m" 'log-view-toggle-mark-entry
     "c" 'log-view-modify-change-comment
+    (kbd "RET") 'log-view-diff
     "d" 'log-view-diff
     "=" 'log-view-diff
     "D" 'log-view-diff-changeset
