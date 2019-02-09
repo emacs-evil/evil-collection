@@ -51,6 +51,7 @@
     "p" 'vc-push
     "P" 'vc-push
 
+    "Lf" 'vc-print-log ;; Log File.
     "Ll" 'vc-print-log
     "Lr" 'vc-print-root-log
     "LL" 'vc-print-root-log
