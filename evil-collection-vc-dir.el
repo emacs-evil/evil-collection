@@ -67,9 +67,7 @@
     "U" 'vc-dir-unmark-all-files
 
     ;; Movement.
-    "j" 'vc-dir-next-line
     "\t" 'vc-dir-next-directory
-    "k" 'vc-dir-previous-line
     [backtab] 'vc-dir-previous-directory
 
     ;; Rebind paragraph-movement commands.
