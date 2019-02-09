@@ -44,8 +44,7 @@
     ;; Quit
     "q" 'quit-window
     "ZZ" 'quit-window
-    "ZQ" 'evil-quit
-    ))
+    "ZQ" 'evil-quit))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here
