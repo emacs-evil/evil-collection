@@ -113,6 +113,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     dired
     doc-view
     ebib
+    edbi
     edebug
     ediff
     eglot
