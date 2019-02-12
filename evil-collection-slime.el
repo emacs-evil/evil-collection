@@ -129,12 +129,16 @@
     [mouse-2] 'slime-inspector-operate-on-click
     [mouse-6] 'slime-inspector-pop
     [mouse-7] 'slime-inspector-next
+    ;; TODO: `slime-inspector-next' and `slime-inspector-pop' should probably
+    ;; just be bound to C-i and C-o.
     "gk" 'slime-inspector-pop
     (kbd "C-k") 'slime-inspector-pop
     "[" 'slime-inspector-pop
+    (kbd "C-o") 'slime-inspector-pop
     "gj" 'slime-inspector-next
     (kbd "C-j") 'slime-inspector-next
     "]" 'slime-inspector-next
+    (kbd "C-i") 'slime-inspector-next
     "K" 'slime-inspector-describe
     "p" 'slime-inspector-pprint
     "e" 'slime-inspector-eval
