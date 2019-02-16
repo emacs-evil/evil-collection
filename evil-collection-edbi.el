@@ -30,6 +30,11 @@
 (require 'evil-collection)
 (require 'edbi nil t)
 
+(defvar ctbl:table-mode-map)
+(defvar edbi:dbview-keymap)
+(declare-function ctbl:define-keymap "ctable")
+(declare-function epc:add-keymap "epc")
+
 (defconst evil-collection-edbi-maps '(edbi:dbview-query-result-keymap
                                       edbi:sql-mode-map))
 
