@@ -13,6 +13,7 @@ lint:
 	--eval "(package-initialize)"							\
 	--eval "(package-refresh-contents)"						\
 	-l package-lint.el								\
+	--eval "(advice-add 'package-lint--check-eval-after-load :around 'ignore)" \
 	-f package-lint-batch-and-exit *.el
 
 test:
