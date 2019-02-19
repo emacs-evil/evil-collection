@@ -111,6 +111,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     debug
     diff-mode
     dired
+    disk-usage
     doc-view
     ebib
     edbi
