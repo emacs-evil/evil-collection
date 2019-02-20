@@ -79,6 +79,12 @@ The return value is the yanked text."
   (evil-collection-inhibit-insert-state 'emms-browser-mode-map)
   (add-hook 'emms-browser-mode-hook 'evil-normal-state)
   (evil-collection-define-key 'normal 'emms-browser-mode-map
+    ;; The following overrides other "g-" and "s-" prefixed keys so we set it first.
+    "g" nil
+    "g" (lookup-key emms-browser-mode-map (kbd "W"))
+    "s" nil
+    "s" (lookup-key emms-browser-mode-map (kbd "s"))
+
     ;; playback controls
     "x" 'emms-pause
     "X" 'emms-stop
@@ -133,8 +139,6 @@ The return value is the yanked text."
     ;; "" 'emms-browser-previous-filter ; TODO: What does this do?
     ;; "" 'emms-browser-next-filter
 
-    "s" (lookup-key emms-browser-mode-map (kbd "s"))
-    "g" (lookup-key emms-browser-mode-map (kbd "W")) ;; TODO: This overrides other "g-" prefixed keys.
 
     "C" 'emms-browser-clear-playlist
     "D" 'emms-browser-delete-files
@@ -142,11 +146,8 @@ The return value is the yanked text."
     "gd" 'emms-browser-view-in-dired)) ; "d" does the same, keep "gd" for consistency.
 
 ;;;###autoload
-(defun evil-collection-emms-setup ()
-  "Set up `evil' bindings for `emms'."
-  (with-eval-after-load 'emms-browser
-    (evil-collection-emms-browser-setup))
-
+(defun evil-collection-emms-playlist-setup ()
+  "Set up `evil' bindings for `emms-playlist'."
   (evil-set-initial-state 'emms-playlist-mode 'normal)
   (evil-collection-define-key 'normal 'emms-playlist-mode-map
     ;; playback controls
@@ -203,7 +204,18 @@ The return value is the yanked text."
 
   (evil-collection-define-key 'visual 'emms-playlist-mode-map
     ;; "d" 'emms-playlist-mode-kill
-    "D" 'emms-playlist-mode-kill)
+    "D" 'emms-playlist-mode-kill))
+
+;;;###autoload
+(defun evil-collection-emms-setup ()
+  "Set up `evil' bindings for `emms'."
+  ;; emms-browser and emms-playlist-mode must be set up after they are loaded
+  ;; because we need the mode map to be defined when we `(lookup-key
+  ;; ...-mode-map ...)'.
+  (with-eval-after-load 'emms-browser
+    (evil-collection-emms-browser-setup))
+  (with-eval-after-load 'emms-playlist-mode
+    (evil-collection-emms-playlist-setup))
 
   (evil-collection-define-key 'normal 'emms-browser-search-mode-map
     "q" 'emms-browser-kill-search)
