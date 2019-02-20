@@ -55,9 +55,12 @@
     (kbd "zs") 'disk-usage-shell-at-point
     (kbd "d") 'disk-usage-dired-at-point
 
-    "m" 'disk-usage-mark-at-point
-    "m" 'disk-usage-unmark-at-point
+    "m" 'disk-usage-mark
+    "u" 'disk-usage-unmark
     "x" 'disk-usage-delete-marked-files
+
+    "a" 'disk-usage-add-filters
+    "A" 'disk-usage-remove-filters
 
     "g?" 'describe-mode
     "gr" 'revert-buffer
@@ -83,6 +86,9 @@
 
     "g?" 'describe-mode
     "gr" 'revert-buffer
+
+    "a" 'disk-usage-add-filters
+    "A" 'disk-usage-remove-filters
 
     ;; quit
     "q" 'quit-window
