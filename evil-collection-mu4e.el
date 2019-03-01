@@ -244,6 +244,8 @@
   (evil-collection-define-key 'visual 'mu4e-compose-mode-map
     "gg" 'mu4e-compose-goto-top
     "G" 'mu4e-compose-goto-bottom)
+  (evil-set-command-property 'mu4e-compose-goto-bottom :keep-visual t)
+  (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
   (evil-collection-define-key 'operator 'mu4e-view-mode-map
     "u" '(menu-item
           ""
