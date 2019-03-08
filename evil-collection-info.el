@@ -38,7 +38,10 @@
   "Set up `evil' bindings for `info-mode'."
   (evil-collection-inhibit-insert-state 'Info-mode-map)
   (evil-set-initial-state 'Info-mode 'normal)
+
   (evil-collection-define-key 'normal 'Info-mode-map
+    "l" 'evil-forward-char
+    "h" 'evil-backward-char
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
 
