@@ -166,6 +166,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     nov
     ;; occur is in replace.el which was built-in before Emacs 26.
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
+    omnisharp
     outline
     p4
     (package-menu package)
