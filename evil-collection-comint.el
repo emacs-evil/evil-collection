@@ -45,8 +45,8 @@
     (kbd "C-k") #'comint-previous-prompt
     (kbd "gj") #'comint-next-prompt
     (kbd "gk") #'comint-previous-prompt
-    (kbd "]") #'comint-next-prompt
-    (kbd "[") #'comint-previous-prompt
+    (kbd "]]") #'comint-next-prompt
+    (kbd "[[") #'comint-previous-prompt
     (kbd "C-p") #'comint-previous-input
     (kbd "C-n") #'comint-next-input)
 

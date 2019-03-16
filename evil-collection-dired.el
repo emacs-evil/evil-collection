@@ -142,8 +142,8 @@
     ;; moving
     "gj" 'dired-next-dirline
     "gk" 'dired-prev-dirline
-    "[" 'dired-prev-dirline
-    "]" 'dired-next-dirline
+    "[[" 'dired-prev-dirline
+    "]]" 'dired-next-dirline
     "<" 'dired-prev-dirline
     ">" 'dired-next-dirline
     "^" 'dired-up-directory

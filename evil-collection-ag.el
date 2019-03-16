@@ -47,8 +47,8 @@
     "gk" 'compilation-previous-error
     (kbd "C-j") 'compilation-next-error
     (kbd "C-k") 'compilation-previous-error
-    "]" 'compilation-next-error
-    "[" 'compilation-previous-error
+    "]]" 'compilation-next-error
+    "[[" 'compilation-previous-error
 
     ;; search
     "?" evil-collection-evil-search-backward

@@ -56,8 +56,8 @@
     "a" 'youtube-dl
     "d" 'youtube-dl-list-kill
 
-    "[" 'youtube-dl-list-priority-down
-    "]" 'youtube-dl-list-priority-up
+    "[[" 'youtube-dl-list-priority-down
+    "]]" 'youtube-dl-list-priority-up
     "gj" 'youtube-dl-list-priority-down
     "gk" 'youtube-dl-list-priority-up
     (kbd "C-j") 'youtube-dl-list-priority-down

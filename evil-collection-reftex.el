@@ -80,8 +80,8 @@
   (evil-collection-define-key 'normal 'reftex-select-shared-map
     "j" 'reftex-select-next
     "k" 'reftex-select-previous
-    (kbd "]") 'reftex-select-next-heading
-    (kbd "[") 'reftex-select-previous-heading
+    (kbd "]]") 'reftex-select-next-heading
+    (kbd "[[") 'reftex-select-previous-heading
     (kbd "gj") 'reftex-select-next-heading
     (kbd "gk") 'reftex-select-previous-heading
     (kbd "C-j") 'reftex-select-next-heading

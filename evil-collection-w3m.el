@@ -44,8 +44,8 @@
     "o" 'w3m-goto-url
     "O" 'w3m-goto-url-new-session
 
-    "]" 'w3m-next-form
-    "[" 'w3m-previous-form
+    "]]" 'w3m-next-form
+    "[[" 'w3m-previous-form
 
     "H" 'w3m-view-previous-page
     "L" 'w3m-view-next-page

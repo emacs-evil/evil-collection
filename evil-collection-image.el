@@ -69,8 +69,8 @@
     "H" 'image-transform-fit-to-height
     "W" 'image-transform-fit-to-width
 
-    "[" 'image-previous-file
-    "]" 'image-next-file
+    "[[" 'image-previous-file
+    "]]" 'image-next-file
     "gk" 'image-previous-file
     "gj" 'image-next-file
     (kbd "C-k") 'image-previous-file

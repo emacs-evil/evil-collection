@@ -66,8 +66,8 @@
     (kbd "<return>") 'p4-buffer-commands
     "q" 'quit-window
     "gr" 'revert-buffer
-    "]" 'p4-scroll-down-1-window
-    "[" 'p4-scroll-up-1-window
+    "]]" 'p4-scroll-down-1-window
+    "[[" 'p4-scroll-up-1-window
     "gg" 'p4-top-of-buffer
     "G" 'p4-bottom-of-buffer
     "=" 'delete-other-windows)
@@ -92,16 +92,16 @@
     "gg" 'p4-top-of-buffer
     "G" 'p4-bottom-of-buffer
     "=" 'p4-delete-other-windows
-    "]" 'p4-goto-next-change
-    "[" 'p4-goto-prev-change
+    "]]" 'p4-goto-next-change
+    "[[" 'p4-goto-prev-change
     (kbd "C-j") 'p4-goto-next-change
     (kbd "C-k") 'p4-goto-prev-change)
 
   (evil-collection-define-key 'normal 'p4-diff-mode-map
-    "]" 'diff-hunk-next
+    "]]" 'diff-hunk-next
     (kbd "C-j") 'diff-hunk-next
     (kbd "M-j") 'diff-file-next
-    "[" 'diff-hunk-prev
+    "[[" 'diff-hunk-prev
     (kbd "C-k") 'diff-hunk-prev
     (kbd "M-k") 'diff-file-prev
     "\t" 'diff-hunk-next
@@ -113,8 +113,8 @@
     "gb" 'p4-buffer-commands)
 
   (evil-collection-define-key 'normal 'p4-annotate-mode-map
-    "]" 'p4-next-change-rev-line
-    "[" 'p4-prev-change-rev-line
+    "]]" 'p4-next-change-rev-line
+    "[[" 'p4-prev-change-rev-line
     (kbd "C-j") 'p4-next-change-rev-line
     (kbd "C-k") 'p4-prev-change-rev-line
     "L" 'p4-toggle-line-wrap))

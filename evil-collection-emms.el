@@ -102,8 +102,8 @@ The return value is the yanked text."
     "u" 'emms-playlist-mode-undo
 
     ;; motion
-    "[" 'emms-browser-prev-non-track
-    "]" 'emms-browser-next-non-track
+    "[[" 'emms-browser-prev-non-track
+    "]]" 'emms-browser-next-non-track
     (kbd "C-k") 'emms-browser-prev-non-track
     (kbd "C-j") 'emms-browser-next-non-track
     "gk" 'emms-browser-prev-non-track
@@ -172,8 +172,8 @@ The return value is the yanked text."
     ;; motion
     "gg" 'emms-playlist-mode-first
     "G" 'emms-playlist-mode-last
-    "]" 'emms-playlist-mode-next
-    "[" 'emms-playlist-mode-previous
+    "]]" 'emms-playlist-mode-next
+    "[[" 'emms-playlist-mode-previous
 
     "D" 'emms-playlist-mode-kill-track  ; emms-browser uses "D"
     "C" 'emms-playlist-mode-clear

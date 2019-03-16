@@ -54,8 +54,8 @@
     "F" 'log-view-find-revision
     "gj" 'log-view-msg-next
     "gk" 'log-view-msg-prev
-    "]" 'log-view-msg-next
-    "[" 'log-view-msg-prev
+    "]]" 'log-view-msg-next
+    "[[" 'log-view-msg-prev
     (kbd "C-j") 'log-view-file-next
     (kbd "C-k") 'log-view-file-prev))
 

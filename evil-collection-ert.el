@@ -48,8 +48,8 @@
     "L" 'ert-results-toggle-printer-limits-for-test-at-point
     "gj" 'ert-results-next-test
     "gk" 'ert-results-previous-test
-    "]" 'ert-results-next-test
-    "[" 'ert-results-previous-test
+    "]]" 'ert-results-next-test
+    "[[" 'ert-results-previous-test
     (kbd "C-j") 'ert-results-next-test
     (kbd "C-k") 'ert-results-previous-test
     ;; Stuff that is in the menu.

@@ -53,8 +53,8 @@
     "gk" 'compilation-previous-error
     (kbd "C-j") 'compilation-next-error
     (kbd "C-k") 'compilation-previous-error
-    "[" 'compilation-previous-file
-    "]" 'compilation-next-file
+    "[[" 'compilation-previous-file
+    "]]" 'compilation-next-file
     "gr" 'recompile))
 
 (provide 'evil-collection-compile)

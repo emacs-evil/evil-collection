@@ -51,8 +51,8 @@
     "gk" 'vlf-prev-batch
     (kbd "C-j") 'vlf-next-batch
     (kbd "C-k") 'vlf-prev-batch
-    "]" 'vlf-next-batch
-    "[" 'vlf-prev-batch
+    "]]" 'vlf-next-batch
+    "[[" 'vlf-prev-batch
 
     "+" 'vlf-change-batch-size
     "-" 'evil-collection-vlf-decrease-batch-size

@@ -108,8 +108,8 @@
     "H" 'notmuch-show-toggle-visibility-headers
     "gj" 'notmuch-show-next-open-message
     "gk" 'notmuch-show-previous-open-message
-    "]" 'notmuch-show-next-message
-    "[" 'notmuch-show-previous-message
+    "]]" 'notmuch-show-next-message
+    "[[" 'notmuch-show-previous-message
     (kbd "M-j") 'notmuch-show-next-thread-show
     (kbd "M-k") 'notmuch-show-previous-thread-show
     "r" 'notmuch-show-reply-sender
@@ -141,8 +141,8 @@
     "z" 'notmuch-tree-to-tree
     "gj" 'notmuch-tree-next-matching-message
     "gk" 'notmuch-tree-prev-matching-message
-    "]" 'notmuch-tree-next-message
-    "[" 'notmuch-tree-prev-message
+    "]]" 'notmuch-tree-next-message
+    "[[" 'notmuch-tree-prev-message
     (kbd "C-k") 'notmuch-tree-prev-thread
     (kbd "C-j") 'notmuch-tree-next-thread
     "-" 'notmuch-tree-remove-tag

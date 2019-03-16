@@ -42,8 +42,8 @@
   (evil-collection-define-key 'normal 'custom-theme-choose-mode-map
     "gj" 'widget-forward
     "gk" 'widget-backward
-    (kbd "]") 'widget-forward
-    (kbd "[") 'widget-backward
+    (kbd "]]") 'widget-forward
+    (kbd "[[") 'widget-backward
     (kbd "C-j") 'widget-forward
     (kbd "C-k") 'widget-backward
     "K" 'custom-describe-theme)
@@ -51,8 +51,8 @@
   (evil-collection-define-key 'normal 'custom-new-theme-mode-map
     "gj" 'widget-forward
     "gk" 'widget-backward
-    (kbd "]") 'widget-forward
-    (kbd "[") 'widget-backward
+    (kbd "]]") 'widget-forward
+    (kbd "[[") 'widget-backward
     (kbd "C-j") 'widget-forward
     (kbd "C-k") 'widget-backward
 

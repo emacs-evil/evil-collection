@@ -46,8 +46,8 @@
     (kbd "S-SPC") 'scroll-down-command
     (kbd "<delete>") 'scroll-down-command
     (kbd "<return>") 'Custom-newline
-    (kbd "]") 'widget-forward
-    (kbd "[") 'widget-backward
+    (kbd "]]") 'widget-forward
+    (kbd "[[") 'widget-backward
     ;; TODO: Should the following be added?
     (kbd "C-j") 'widget-forward
     (kbd "C-k") 'widget-backward

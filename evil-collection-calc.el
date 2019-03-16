@@ -126,8 +126,8 @@
     "R" 'calc-round
     "S" 'calc-sin
     "T" 'calc-tan
-    "[" 'calc-begin-vector
-    "]" 'calc-end-vector
+    "[[" 'calc-begin-vector
+    "]]" 'calc-end-vector
     "\\" 'calc-idiv
     "^" 'calc-power
     "_" 'calcDigit-start

@@ -154,8 +154,8 @@
      "%" mu4e-headers-mark-pattern
      "+" mu4e-headers-mark-for-flag
      "-" mu4e-headers-mark-for-unflag
-     "[" mu4e-headers-prev-unread
-     "]" mu4e-headers-next-unread
+     "[[" mu4e-headers-prev-unread
+     "]]" mu4e-headers-next-unread
      "gk" mu4e-headers-prev-unread
      "gj" mu4e-headers-next-unread
      "\C-j" mu4e-headers-next
@@ -196,8 +196,8 @@
      "A" mu4e-view-attachment-action
      "a" mu4e-view-action
      "J" mu4e~headers-jump-to-maildir
-     "[" mu4e-view-headers-prev-unread
-     "]" mu4e-view-headers-next-unread
+     "[[" mu4e-view-headers-prev-unread
+     "]]" mu4e-view-headers-next-unread
      "gk" mu4e-view-headers-prev-unread
      "gj" mu4e-view-headers-next-unread
      "\C-j" mu4e-view-headers-next

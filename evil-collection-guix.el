@@ -196,8 +196,8 @@
 
     "gk" 'guix-build-log-previous-phase
     "gj" 'guix-build-log-next-phase
-    "[" 'guix-build-log-previous-phase
-    "]" 'guix-build-log-next-phase
+    "[[" 'guix-build-log-previous-phase
+    "]]" 'guix-build-log-next-phase
     (kbd "C-k") 'guix-build-log-previous-phase
     (kbd "C-j") 'guix-build-log-next-phase
 

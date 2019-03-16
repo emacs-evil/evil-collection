@@ -94,8 +94,8 @@ current file instead."
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "[") 'diff-file-prev
-    (kbd "]") 'diff-file-next
+    (kbd "[[") 'diff-file-prev
+    (kbd "]]") 'diff-file-next
     (kbd "C-j") 'diff-hunk-next
     (kbd "C-k") 'diff-hunk-prev
     "gj" 'diff-hunk-next
@@ -109,8 +109,8 @@ current file instead."
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "[") 'diff-file-prev
-    (kbd "]") 'diff-file-next
+    (kbd "[[") 'diff-file-prev
+    (kbd "]]") 'diff-file-next
     (kbd "C-j") 'diff-hunk-next
     (kbd "C-k") 'diff-hunk-prev
     "gj" 'diff-hunk-next

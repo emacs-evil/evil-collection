@@ -43,8 +43,8 @@
     "gk" 'flycheck-error-list-previous-error
     (kbd "C-j") 'flycheck-error-list-next-error
     (kbd "C-k") 'flycheck-error-list-previous-error
-    "]" 'flycheck-error-list-next-error
-    "[" 'flycheck-error-list-previous-error
+    "]]" 'flycheck-error-list-next-error
+    "[[" 'flycheck-error-list-previous-error
     "gr" 'flycheck-error-list-check-source
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter

@@ -57,8 +57,8 @@
   (evil-make-overriding-map ebib-entry-mode-map 'normal)
   (evil-collection-inhibit-insert-state 'ebib-entry-mode-map)
   (evil-collection-define-key 'normal 'ebib-entry-mode-map
-    "[" 'ebib-goto-prev-set
-    "]" 'ebib-goto-next-set
+    "[[" 'ebib-goto-prev-set
+    "]]" 'ebib-goto-next-set
     "d" 'ebib-kill-field-contents
     "D" 'ebib-delete-field-contents
     "gg" 'ebib-goto-first-field

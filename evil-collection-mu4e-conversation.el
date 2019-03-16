@@ -65,8 +65,8 @@
   (evil-collection-define-key 'normal 'mu4e-conversation-map
     " " 'evil-scroll-page-down
     (kbd "S-SPC") 'evil-scroll-page-up
-    "[" 'mu4e-conversation-previous-message
-    "]" 'mu4e-conversation-next-message
+    "[[" 'mu4e-conversation-previous-message
+    "]]" 'mu4e-conversation-next-message
     "zv" 'mu4e-conversation-toggle-view
     "za" 'mu4e-conversation-toggle-hide-cited
     "q" 'mu4e-conversation-quit))

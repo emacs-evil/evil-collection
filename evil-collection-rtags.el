@@ -77,8 +77,8 @@
 
     (kbd "C-j") 'rtags-dependency-tree-next-level
     (kbd "C-k") 'rtags-dependency-tree-previous-level
-    "]" 'rtags-dependency-tree-next-level
-    "[" 'rtags-dependency-tree-previous-level
+    "]]" 'rtags-dependency-tree-next-level
+    "[[" 'rtags-dependency-tree-previous-level
 
     ;; open
     (kbd "<return>") 'rtags-select
@@ -107,8 +107,8 @@
     (kbd "C-j") 'rtags-references-tree-next-level
     (kbd "C-k") 'rtags-references-tree-previous-level
 
-    "]" 'rtags-references-tree-next-level
-    "[" 'rtags-references-tree-previous-level
+    "]]" 'rtags-references-tree-next-level
+    "[[" 'rtags-references-tree-previous-level
 
     ;; open
     (kbd "<return>") 'rtags-select

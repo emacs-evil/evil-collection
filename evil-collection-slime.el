@@ -89,8 +89,8 @@
     "gk" 'sldb-up
     (kbd "C-j") 'sldb-down
     (kbd "C-k") 'sldb-up
-    "]" 'sldb-details-down
-    "[" 'sldb-details-up
+    "]]" 'sldb-details-down
+    "[[" 'sldb-details-up
     (kbd "M-j") 'sldb-details-down
     (kbd "M-k") 'sldb-details-up
     "gg" 'sldb-beginning-of-backtrace
@@ -133,11 +133,11 @@
     ;; just be bound to C-i and C-o.
     "gk" 'slime-inspector-pop
     (kbd "C-k") 'slime-inspector-pop
-    "[" 'slime-inspector-pop
+    "[[" 'slime-inspector-pop
     (kbd "C-o") 'slime-inspector-pop
     "gj" 'slime-inspector-next
     (kbd "C-j") 'slime-inspector-next
-    "]" 'slime-inspector-next
+    "]]" 'slime-inspector-next
     (kbd "C-i") 'slime-inspector-next
     "K" 'slime-inspector-describe
     "p" 'slime-inspector-pprint
@@ -177,8 +177,8 @@
     "gk" 'slime-xref-prev-line
     (kbd "C-j") 'slime-xref-next-line
     (kbd "C-k") 'slime-xref-prev-line
-    "]" 'slime-xref-next-line
-    "[" 'slime-xref-prev-line
+    "]]" 'slime-xref-next-line
+    "[[" 'slime-xref-prev-line
     "gr" 'slime-recompile-xref
     "gR" 'slime-recompile-all-xrefs
     "r" 'slime-xref-retract)
@@ -188,8 +188,8 @@
     "gk" 'slime-repl-previous-prompt
     (kbd "C-j") 'slime-repl-next-prompt
     (kbd "C-k") 'slime-repl-previous-prompt
-    "]" 'slime-repl-next-prompt
-    "[" 'slime-repl-previous-prompt
+    "]]" 'slime-repl-next-prompt
+    "[[" 'slime-repl-previous-prompt
     (kbd "C-p") 'slime-repl-previous-input
     (kbd "C-n") 'slime-repl-next-input)
 

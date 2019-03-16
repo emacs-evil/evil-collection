@@ -91,8 +91,8 @@
     "P" 'elfeed-show-play-enclosure
     "d" 'elfeed-show-save-enclosure
 
-    "]" 'elfeed-show-next
-    "[" 'elfeed-show-prev
+    "]]" 'elfeed-show-next
+    "[[" 'elfeed-show-prev
     "gj" 'elfeed-show-next
     "gk" 'elfeed-show-prev
     (kbd "C-j") 'elfeed-show-next

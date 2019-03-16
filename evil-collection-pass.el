@@ -42,8 +42,8 @@
     "gk" 'pass-prev-entry
     (kbd "C-j") 'pass-next-entry
     (kbd "C-k") 'pass-prev-entry
-    (kbd "]") 'pass-next-directory
-    (kbd "[") 'pass-prev-directory
+    (kbd "]]") 'pass-next-directory
+    (kbd "[[") 'pass-prev-directory
     "d" 'pass-kill
     "x" 'pass-kill
     "s" 'isearch-forward

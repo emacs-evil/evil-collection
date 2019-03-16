@@ -47,8 +47,8 @@
     "L" 'vc-annotate-show-log-revision-at-line
     "gj" 'vc-annotate-next-revision
     "gk" 'vc-annotate-prev-revision
-    "]" 'vc-annotate-next-revision
-    "[" 'vc-annotate-prev-revision
+    "]]" 'vc-annotate-next-revision
+    "[[" 'vc-annotate-prev-revision
     (kbd "C-j") 'vc-annotate-next-revision
     (kbd "C-k") 'vc-annotate-prev-revision
     "W" 'vc-annotate-working-revision

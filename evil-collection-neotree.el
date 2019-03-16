@@ -64,10 +64,10 @@
     "gh" 'neotree-hidden-file-toggle
     (kbd "C-k") 'neotree-select-up-node
     "gk" 'neotree-select-up-node
-    "[" 'neotree-select-up-node
+    "[[" 'neotree-select-up-node
     (kbd "C-j") 'neotree-select-down-node
     "gj" 'neotree-select-down-node
-    "]" 'neotree-select-down-node
+    "]]" 'neotree-select-down-node
     "gv" 'neotree-open-file-in-system-application
     "c" 'neotree-create-node
     "y" 'neotree-copy-node

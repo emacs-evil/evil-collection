@@ -43,8 +43,8 @@
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
 
-    (kbd "]") 'Man-next-manpage
-    (kbd "[") 'Man-previous-manpage
+    (kbd "]]") 'Man-next-manpage
+    (kbd "[[") 'Man-previous-manpage
     (kbd "gj") 'Man-next-manpage
     (kbd "gk") 'Man-previous-manpage
     (kbd "C-j") 'Man-next-section

@@ -38,8 +38,8 @@
   "Set up `evil' bindings for `hackernews-mode'."
   (evil-collection-inhibit-insert-state 'hackernews-mode-map)
   (evil-collection-define-key 'normal 'hackernews-mode-map
-    "]" 'hackernews-next-item
-    "[" 'hackernews-previous-item
+    "]]" 'hackernews-next-item
+    "[[" 'hackernews-previous-item
     "gj" 'hackernews-next-item
     "gk" 'hackernews-previous-item
     (kbd "C-j") 'hackernews-next-item

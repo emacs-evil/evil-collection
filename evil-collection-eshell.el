@@ -57,8 +57,8 @@
   "Set up `evil' bindings for `eshell'."
   (evil-collection-define-key 'normal 'eshell-mode-map
     ;; motion
-    "[" 'eshell-previous-prompt
-    "]" 'eshell-next-prompt
+    "[[" 'eshell-previous-prompt
+    "]]" 'eshell-next-prompt
     (kbd "C-k") 'eshell-previous-prompt
     (kbd "C-j") 'eshell-next-prompt
     "gk" 'eshell-previous-prompt
@@ -80,8 +80,8 @@
   (evil-collection-define-key 'visual 'eshell-mode-map
     ;; motion
     ;; TODO: This does not work with `evil-visual-line'.
-    "[" 'eshell-previous-prompt
-    "]" 'eshell-next-prompt
+    "[[" 'eshell-previous-prompt
+    "]]" 'eshell-next-prompt
     (kbd "C-k") 'eshell-previous-prompt
     (kbd "C-j") 'eshell-next-prompt
     "gk" 'eshell-previous-prompt

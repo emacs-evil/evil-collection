@@ -187,8 +187,8 @@
 
   (evil-collection-define-key 'normal 'helm-map
     (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
-    (kbd "[") 'helm-previous-source
-    (kbd "]") 'helm-next-source
+    (kbd "[[") 'helm-previous-source
+    (kbd "]]") 'helm-next-source
     "gk" 'helm-previous-source
     "gj" 'helm-next-source
     (kbd "(") 'helm-prev-visible-mark

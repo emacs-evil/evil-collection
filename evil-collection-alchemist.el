@@ -97,8 +97,8 @@
     "gk" 'alchemist-test-previous-result
     (kbd "C-j") 'alchemist-test-next-result
     (kbd "C-k") 'alchemist-test-previous-result
-    "]" 'alchemist-test-next-stacktrace-file
-    "[" 'alchemist-test-previous-stacktrace-file
+    "]]" 'alchemist-test-next-stacktrace-file
+    "[[" 'alchemist-test-previous-stacktrace-file
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
 
   (evil-collection-define-key 'normal 'alchemist-mode-map

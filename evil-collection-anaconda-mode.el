@@ -46,8 +46,8 @@
       "gk" 'previous-error-no-select
       (kbd "C-j") 'next-error-no-select
       (kbd "C-k") 'previous-error-no-select
-      "]" 'next-error-no-select
-      "[" 'previous-error-no-select
+      "]]" 'next-error-no-select
+      "[[" 'previous-error-no-select
       "q" 'quit-window))
 
   (evil-collection-define-key 'normal 'anaconda-mode-map

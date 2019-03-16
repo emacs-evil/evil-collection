@@ -173,8 +173,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "C-j") 'cider-stacktrace-next-cause
     (kbd "gk") 'cider-stacktrace-previous-cause
     (kbd "gj") 'cider-stacktrace-next-cause
-    (kbd "[") 'cider-stacktrace-previous-cause
-    (kbd "]") 'cider-stacktrace-next-cause
+    (kbd "[[") 'cider-stacktrace-previous-cause
+    (kbd "]]") 'cider-stacktrace-next-cause
     "gd" 'cider-stacktrace-jump
     "q" 'cider-popup-buffer-quit-function
     "J" 'cider-stacktrace-toggle-java
@@ -205,8 +205,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "C-k") 'cider-inspector-prev-page
     " " 'cider-inspector-next-page
     "s" 'cider-inspector-set-page-size
-    (kbd "]") 'cider-inspector-next-inspectable-object
-    (kbd "[") 'cider-inspector-previous-inspectable-object
+    (kbd "]]") 'cider-inspector-next-inspectable-object
+    (kbd "[[") 'cider-inspector-previous-inspectable-object
     "gj" 'cider-inspector-next-inspectable-object
     "gk" 'cider-inspector-previous-inspectable-object))
 

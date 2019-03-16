@@ -45,8 +45,8 @@
     "0" 'calendar-beginning-of-week
     "^" 'calendar-beginning-of-week
     "$" 'calendar-end-of-week
-    "[" 'calendar-backward-year
-    "]" 'calendar-forward-year
+    "[[" 'calendar-backward-year
+    "]]" 'calendar-forward-year
     (kbd "M-<") 'calendar-beginning-of-year
     (kbd "M->") 'calendar-end-of-year
     "(" 'calendar-beginning-of-month

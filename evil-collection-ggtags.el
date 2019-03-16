@@ -63,8 +63,8 @@
     "gk" 'ggtags-view-search-history-prev
     (kbd "C-j") 'ggtags-view-search-history-next
     (kbd "C-k") 'ggtags-view-search-history-prev
-    "]" 'ggtags-view-search-history-next
-    "[" 'ggtags-view-search-history-prev
+    "]]" 'ggtags-view-search-history-next
+    "[[" 'ggtags-view-search-history-prev
     "x" 'ggtags-view-search-history-kill
     "gr" 'ggtags-view-search-history-update
     "r" 'ggtags-save-to-register
@@ -74,10 +74,10 @@
   (evil-collection-define-key 'normal 'ggtags-view-tag-history-mode-map
     "gj" 'next-error-no-select
     (kbd "C-j") 'next-error-no-select
-    "]" 'next-error-no-select
+    "]]" 'next-error-no-select
     "gk" 'previous-error-no-select
     (kbd "C-k") 'previous-error-no-select
-    (kbd "[") 'previous-error-no-select
+    (kbd "[[") 'previous-error-no-select
     "q" 'ggtags-kill-window)
 
   (evil-collection-define-key 'normal 'ggtags-navigation-map
@@ -86,8 +86,8 @@
     "gk" 'next-error
     (kbd "C-j") 'previous-error
     (kbd "C-k") 'previous-error
-    "]" 'ggtags-navigation-next-file
-    "[" 'ggtags-navigation-previous-file
+    "]]" 'ggtags-navigation-next-file
+    "[[" 'ggtags-navigation-previous-file
 
     ;; search
     "s" 'ggtags-navigation-isearch-forward

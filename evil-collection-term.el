@@ -146,8 +146,8 @@ it is not appropriate in some cases like terminals."
     (kbd "p") 'term-paste
 
     ;; motion
-    "[" 'term-previous-prompt
-    "]" 'term-next-prompt
+    "[[" 'term-previous-prompt
+    "]]" 'term-next-prompt
     (kbd "C-k") 'term-previous-prompt
     (kbd "C-j") 'term-next-prompt
     "gk" 'term-previous-prompt

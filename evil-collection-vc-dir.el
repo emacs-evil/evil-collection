@@ -72,8 +72,8 @@
     [backtab] 'vc-dir-previous-directory
 
     ;; Rebind paragraph-movement commands.
-    "]" 'vc-dir-next-directory
-    "[" 'vc-dir-previous-directory
+    "]]" 'vc-dir-next-directory
+    "[[" 'vc-dir-previous-directory
     "gj" 'vc-dir-next-directory
     "gk" 'vc-dir-previous-directory
     (kbd "C-j") 'vc-dir-next-directory

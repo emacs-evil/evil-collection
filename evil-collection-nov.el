@@ -45,11 +45,11 @@
     "gj" 'nov-next-document
     (kbd "C-j") 'nov-next-document
     (kbd "M-j") 'nov-next-document
-    "]" 'nov-next-document
+    "]]" 'nov-next-document
     "gk" 'nov-previous-document
     (kbd "C-k") 'nov-previous-document
     (kbd "M-k") 'nov-previous-document
-    "[" 'nov-previous-document
+    "[[" 'nov-previous-document
 
     "t" 'nov-goto-toc
     "i" 'nov-goto-toc

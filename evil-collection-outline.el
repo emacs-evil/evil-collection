@@ -79,8 +79,8 @@ mode."
     ;; TODO: To mark subtree ("C-c @"), we would need to define a tree object.
 
     ;; motion
-    "[" 'outline-previous-visible-heading
-    "]" 'outline-next-visible-heading
+    "[[" 'outline-previous-visible-heading
+    "]]" 'outline-next-visible-heading
     (kbd "C-k") 'outline-backward-same-level
     (kbd "C-j") 'outline-forward-same-level
     "gk" 'outline-backward-same-level

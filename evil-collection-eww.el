@@ -59,8 +59,8 @@
     "R" 'eww-readable                   ; Default binding.
     "r" 'eww-readable
 
-    "]" 'eww-next-url
-    "[" 'eww-previous-url
+    "]]" 'eww-next-url
+    "[[" 'eww-previous-url
     "gj" 'eww-next-url
     "gk" 'eww-previous-url
 
@@ -114,8 +114,8 @@
   (evil-collection-define-key 'normal 'eww-buffers-mode-map
     "D" 'eww-buffer-kill
     (kbd "<return>") 'eww-buffer-select
-    "]" 'eww-buffer-show-next
-    "[" 'eww-buffer-show-previous
+    "]]" 'eww-buffer-show-next
+    "[[" 'eww-buffer-show-previous
     "gj" 'eww-buffer-show-next
     "gk" 'eww-buffer-show-previous
     ;; refresh

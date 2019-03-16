@@ -74,8 +74,8 @@
     "gk" 'backward-button
     (kbd "C-j") 'forward-button
     (kbd "C-k") 'backward-button
-    "]" 'geiser-doc-next-section
-    "[" 'geiser-doc-previous-section
+    "]]" 'geiser-doc-next-section
+    "[[" 'geiser-doc-previous-section
     "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
 
@@ -89,8 +89,8 @@
     "gk" 'geiser-repl-previous-prompt
     (kbd "C-j") 'geiser-repl-next-prompt
     (kbd "C-k") 'geiser-repl-previous-prompt
-    "]" 'geiser-repl-next-prompt
-    "[" 'geiser-repl-previous-prompt
+    "]]" 'geiser-repl-next-prompt
+    "[[" 'geiser-repl-previous-prompt
     "K" 'geiser-doc-symbol-at-point)
 
   (evil-collection-define-key 'normal 'geiser-mode-map
