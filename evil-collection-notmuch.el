@@ -73,6 +73,10 @@
 ;;;###autoload
 (defun evil-collection-notmuch-setup ()
   "Set up `evil' bindings for `notmuch'."
+  (evil-collection-inhibit-insert-state 'notmuch-show-mode-map)
+  (evil-collection-inhibit-insert-state 'notmuch-search-mode-map)
+  (evil-collection-inhibit-insert-state 'notmuch-tree-mode-map)
+
   (evil-set-initial-state 'notmuch-show-mode 'normal)
   (evil-set-initial-state 'notmuch-search-mode 'normal)
   (evil-set-initial-state 'notmuch-hello-mode 'normal)
