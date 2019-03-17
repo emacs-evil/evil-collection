@@ -101,6 +101,7 @@
 
   (evil-collection-define-key 'normal 'notmuch-show-mode-map
     "gd" 'goto-address-at-point
+    "p" 'notmuch-show-save-attachments
     "A" 'notmuch-show-archive-thread-then-next
     "S" 'notmuch-show-filter-thread
     "K" 'notmuch-tag-jump
