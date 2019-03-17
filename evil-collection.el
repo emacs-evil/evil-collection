@@ -174,6 +174,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
     (pdf pdf-view)
     popup
     proced
+    process-menu
     prodigy
     profiler
     python
