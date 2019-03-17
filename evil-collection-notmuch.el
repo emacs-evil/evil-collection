@@ -155,25 +155,26 @@
     "*" 'notmuch-tree-tag-thread
     "e" 'notmuch-tree-resume-message)
 
-  (evil-collection-define-key 'normal 'notmuch-search-mode-map
-    "C" 'compose-mail-other-frame
-    "J" 'notmuch-jump-search
-    "S" 'notmuch-search-filter
-    "K" 'notmuch-tag-jump
-    "o" 'notmuch-search-toggle-order
-    "Z" 'notmuch-tree-from-search-current-query
-    "*" 'notmuch-search-tag-all
-    "a" 'notmuch-search-archive-thread
-    "c" 'compose-mail
-    "d" 'evil-collection-notmuch-search-toggle-delete
-    "q" 'notmuch-bury-or-kill-this-buffer
-    "r" 'notmuch-search-reply-to-thread-sender
-    "t" 'notmuch-search-filter-by-tag
-    "z" 'notmuch-search-stash-map
-    [mouse-1] 'notmuch-search-show-thread
-    "-" 'notmuch-search-remove-tag
-    "+" 'notmuch-search-add-tag
-    (kbd "RET") 'notmuch-search-show-thread)
+  (dolist (state '(normal visual))
+    (evil-collection-define-key state 'notmuch-search-mode-map
+      "C" 'compose-mail-other-frame
+      "J" 'notmuch-jump-search
+      "S" 'notmuch-search-filter
+      "K" 'notmuch-tag-jump
+      "o" 'notmuch-search-toggle-order
+      "Z" 'notmuch-tree-from-search-current-query
+      "*" 'notmuch-search-tag-all
+      "a" 'notmuch-search-archive-thread
+      "c" 'compose-mail
+      "d" 'evil-collection-notmuch-search-toggle-delete
+      "q" 'notmuch-bury-or-kill-this-buffer
+      "r" 'notmuch-search-reply-to-thread-sender
+      "t" 'notmuch-search-filter-by-tag
+      "z" 'notmuch-search-stash-map
+      [mouse-1] 'notmuch-search-show-thread
+      "-" 'notmuch-search-remove-tag
+      "+" 'notmuch-search-add-tag
+      (kbd "RET") 'notmuch-search-show-thread))
 
   (evil-collection-define-key 'normal 'notmuch-search-stash-map
     "i" 'notmuch-search-stash-thread-id
