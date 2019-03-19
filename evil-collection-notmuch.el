@@ -118,7 +118,8 @@
     "q" 'notmuch-bury-or-kill-this-buffer
     "s" 'notmuch-search
     "z" 'notmuch-tree
-    "c" 'notmuch-mua-new-mail
+    "C" 'notmuch-mua-new-mail           ; like mu4e
+    "cc" 'notmuch-mua-new-mail          ; like mu4e
     "gr" 'notmuch-refresh-this-buffer
     "gR" 'notmuch-refresh-all-buffers
     "Z" 'notmuch-poll-and-refresh-this-buffer
@@ -137,7 +138,9 @@
     "A" 'notmuch-show-archive-thread-then-next
     "S" 'notmuch-show-filter-thread
     "K" 'notmuch-tag-jump
-    "R" 'notmuch-show-reply
+    "C" 'notmuch-mua-new-mail           ; like mu4e
+    "cc" 'notmuch-mua-new-mail          ; like mu4e
+    "cR" 'notmuch-show-reply
     "X" 'notmuch-show-archive-thread-then-exit
     "Z" 'notmuch-tree-from-show-current-query
     "a" 'notmuch-show-archive-message-then-next-or-next-thread
@@ -152,7 +155,7 @@
     (kbd "C-k") 'notmuch-show-previous-message
     (kbd "M-j") 'notmuch-show-next-thread-show
     (kbd "M-k") 'notmuch-show-previous-thread-show
-    "r" 'notmuch-show-reply-sender
+    "cr" 'notmuch-show-reply-sender
     (kbd "x") 'notmuch-show-archive-message-then-next-or-exit
     "|" 'notmuch-show-pipe-message
     "*" 'notmuch-show-tag-all
@@ -166,11 +169,12 @@
     "g?" (notmuch-tree-close-message-pane-and 'notmuch-help)
     "q" 'notmuch-tree-quit
     "s" 'notmuch-tree-to-search
-    "c" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail)
+    "C" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail) ; like mu4e
+    "cc" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail) ; like mu4e
     "J" (notmuch-tree-close-message-pane-and 'notmuch-jump-search)
     "S" 'notmuch-search-from-tree-current-query
-    "r" (notmuch-tree-close-message-pane-and 'notmuch-show-reply-sender)
-    "R" (notmuch-tree-close-message-pane-and 'notmuch-show-reply)
+    "cr" (notmuch-tree-close-message-pane-and 'notmuch-show-reply-sender) ; like mu4e
+    "cR" (notmuch-tree-close-message-pane-and 'notmuch-show-reply)
     "d" 'evil-collection-notmuch-tree-toggle-delete
     "!" 'evil-collection-notmuch-tree-toggle-unread
     "=" 'evil-collection-notmuch-tree-toggle-flagged
@@ -193,7 +197,7 @@
 
   (dolist (state '(normal visual))
     (evil-collection-define-key state 'notmuch-search-mode-map
-      "C" 'compose-mail-other-frame
+      "cC" 'compose-mail-other-frame
       "J" 'notmuch-jump-search
       "S" 'notmuch-search-filter
       "K" 'notmuch-tag-jump
@@ -201,12 +205,13 @@
       "Z" 'notmuch-tree-from-search-current-query
       "*" 'notmuch-search-tag-all
       "a" 'notmuch-search-archive-thread
-      "c" 'compose-mail
+      "cc" 'compose-mail                ; like mu4e
       "d" 'evil-collection-notmuch-search-toggle-delete
       "!" 'evil-collection-notmuch-search-toggle-unread
       "=" 'evil-collection-notmuch-search-toggle-flagged
       "q" 'notmuch-bury-or-kill-this-buffer
-      "r" 'notmuch-search-reply-to-thread-sender
+      "cr" 'notmuch-search-reply-to-thread-sender
+      "cR" 'notmuch-search-reply-to-thread
       "t" 'notmuch-search-filter-by-tag
       "z" 'notmuch-search-stash-map
       [mouse-1] 'notmuch-search-show-thread
