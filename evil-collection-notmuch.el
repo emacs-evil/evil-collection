@@ -161,7 +161,8 @@
     "*" 'notmuch-show-tag-all
     "-" 'notmuch-show-remove-tag
     "+" 'notmuch-show-add-tag
-    (kbd "TAB") 'notmuch-show-toggle-message
+    (kbd "TAB") 'notmuch-show-next-button
+    (kbd "<backtab>") 'notmuch-show-previous-button
     (kbd "RET") 'notmuch-show-toggle-message
     "." 'notmuch-show-part-map)
 
