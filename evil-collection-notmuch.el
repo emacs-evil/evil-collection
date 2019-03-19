@@ -172,7 +172,7 @@
     "C" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail) ; like mu4e
     "cc" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail) ; like mu4e
     "J" (notmuch-tree-close-message-pane-and 'notmuch-jump-search)
-    "zv" 'notmuch-search-from-tree-current-query                          ; like mu4e-conversation
+    "zv" 'notmuch-search-from-tree-current-query ; like mu4e-conversation
     "cr" (notmuch-tree-close-message-pane-and 'notmuch-show-reply-sender) ; like mu4e
     "cR" (notmuch-tree-close-message-pane-and 'notmuch-show-reply)
     "d" 'evil-collection-notmuch-tree-toggle-delete
@@ -213,16 +213,34 @@
       "cr" 'notmuch-search-reply-to-thread-sender
       "cR" 'notmuch-search-reply-to-thread
       "t" 'notmuch-search-filter-by-tag
-      "y" 'notmuch-search-stash-map
       [mouse-1] 'notmuch-search-show-thread
       "-" 'notmuch-search-remove-tag
       "+" 'notmuch-search-add-tag
       (kbd "RET") 'notmuch-search-show-thread))
 
-  (evil-collection-define-key 'normal 'notmuch-search-stash-map
-    "i" 'notmuch-search-stash-thread-id
-    "q" 'notmuch-stash-query
-    "g?" 'notmuch-subkeymap-help))
+  (evil-collection-define-key 'operator 'notmuch-search-mode-map
+    ;; Like `eww'.
+    "s"
+    `(menu-item
+      ""
+      nil
+      :filter (lambda (&optional _)
+                (when (memq evil-this-operator
+                            evil-collection-yank-operators)
+                  (setq evil-inhibit-operator t)
+                  #'notmuch-search-stash-map))))
+
+  (evil-collection-define-key 'operator 'notmuch-show-mode-map
+    ;; Like `eww'.
+    "s"
+    `(menu-item
+      ""
+      nil
+      :filter (lambda (&optional _)
+                (when (memq evil-this-operator
+                            evil-collection-yank-operators)
+                  (setq evil-inhibit-operator t)
+                  #'notmuch-show-stash-map)))))
 
 (provide 'evil-collection-notmuch)
 ;;; evil-collection-notmuch.el ends here
