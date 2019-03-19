@@ -85,6 +85,7 @@
   (evil-set-initial-state 'notmuch-show-mode 'normal)
   (evil-set-initial-state 'notmuch-search-mode 'normal)
   (evil-set-initial-state 'notmuch-hello-mode 'normal)
+  (evil-set-initial-state 'notmuch-tree-mode 'normal)
 
   (evil-collection-define-key 'normal 'notmuch-common-keymap
     "g?" 'notmuch-help
