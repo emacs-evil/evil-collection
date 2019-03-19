@@ -46,29 +46,55 @@
                                          notmuch-search-mode-map
                                          notmuch-search-stash-map))
 
+(defun evil-collection-notmuch-toggle-tag (tag mode &optional next-function)
+  "Toggle TAG tag for message in MODE."
+  (let ((get (intern (format "notmuch-%s-get-tags" mode)))
+        (set (intern (format "notmuch-%s-tag" mode)))
+        (next (or next-function (intern (format "notmuch-%s-next-message" mode)))))
+    (funcall set (list (concat (if (member tag (funcall get))
+                                   "-" "+")
+                               tag)))
+    (funcall next)))
+
 (defun evil-collection-notmuch-show-toggle-delete ()
   "Toggle deleted tag for message."
   (interactive)
-  (if (member "deleted" (notmuch-show-get-tags))
-      (notmuch-show-tag (list "-deleted"))
-    (notmuch-show-tag (list "+deleted")))
-  (evil-next-line))
-
-(defun evil-collection-notmuch-search-toggle-delete ()
-  "Toggle deleted tag for message."
-  (interactive)
-  (if (member "deleted" (notmuch-search-get-tags))
-      (notmuch-search-tag (list "-deleted"))
-    (notmuch-search-tag (list "+deleted")))
-  (evil-next-line))
+  (evil-collection-notmuch-toggle-tag "deleted" "show"))
 
 (defun evil-collection-notmuch-tree-toggle-delete ()
   "Toggle deleted tag for message."
   (interactive)
-  (if (member "deleted" (notmuch-search-get-tags))
-      (notmuch-tree-tag (list "-deleted"))
-    (notmuch-tree-tag (list "+deleted")))
-  (evil-next-line))
+  (evil-collection-notmuch-toggle-tag "deleted" "tree"))
+
+(defun evil-collection-notmuch-search-toggle-delete ()
+  "Toggle deleted tag for message."
+  (interactive)
+  (evil-collection-notmuch-toggle-tag "deleted" "search" 'notmuch-search-next-thread))
+
+(defun evil-collection-notmuch-tree-toggle-unread ()
+  "Toggle unread tag for message."
+  (interactive)
+  (evil-collection-notmuch-toggle-tag "unread" "tree"))
+
+(defun evil-collection-notmuch-search-toggle-unread ()
+  "Toggle unread tag for message."
+  (interactive)
+  (evil-collection-notmuch-toggle-tag "unread" "search" 'notmuch-search-next-thread))
+
+(defun evil-collection-notmuch-show-toggle-flagged ()
+  "Toggle flagged tag for message."
+  (interactive)
+  (evil-collection-notmuch-toggle-tag "flagged" "show"))
+
+(defun evil-collection-notmuch-tree-toggle-flagged ()
+  "Toggle flagged tag for message."
+  (interactive)
+  (evil-collection-notmuch-toggle-tag "flagged" "tree"))
+
+(defun evil-collection-notmuch-search-toggle-flagged ()
+  "Toggle flagged tag for message."
+  (interactive)
+  (evil-collection-notmuch-toggle-tag "flagged" "tree" 'notmuch-search-next-thread))
 
 (defun evil-collection-notmuch-hello-ret ()
   (interactive)
@@ -116,11 +142,14 @@
     "Z" 'notmuch-tree-from-show-current-query
     "a" 'notmuch-show-archive-message-then-next-or-next-thread
     "d" 'evil-collection-notmuch-show-toggle-delete
+    "=" 'evil-collection-notmuch-show-toggle-flagged
     "H" 'notmuch-show-toggle-visibility-headers
     "gj" 'notmuch-show-next-open-message
     "gk" 'notmuch-show-previous-open-message
     "]]" 'notmuch-show-next-message
     "[[" 'notmuch-show-previous-message
+    (kbd "C-j") 'notmuch-show-next-message
+    (kbd "C-k") 'notmuch-show-previous-message
     (kbd "M-j") 'notmuch-show-next-thread-show
     (kbd "M-k") 'notmuch-show-previous-thread-show
     "r" 'notmuch-show-reply-sender
@@ -143,7 +172,8 @@
     "r" (notmuch-tree-close-message-pane-and 'notmuch-show-reply-sender)
     "R" (notmuch-tree-close-message-pane-and 'notmuch-show-reply)
     "d" 'evil-collection-notmuch-tree-toggle-delete
-
+    "!" 'evil-collection-notmuch-tree-toggle-unread
+    "=" 'evil-collection-notmuch-tree-toggle-flagged
     "K" 'notmuch-tag-jump
     (kbd "RET") 'notmuch-tree-show-message
     [mouse-1] 'notmuch-tree-show-message
@@ -173,6 +203,8 @@
       "a" 'notmuch-search-archive-thread
       "c" 'compose-mail
       "d" 'evil-collection-notmuch-search-toggle-delete
+      "!" 'evil-collection-notmuch-search-toggle-unread
+      "=" 'evil-collection-notmuch-search-toggle-flagged
       "q" 'notmuch-bury-or-kill-this-buffer
       "r" 'notmuch-search-reply-to-thread-sender
       "t" 'notmuch-search-filter-by-tag
