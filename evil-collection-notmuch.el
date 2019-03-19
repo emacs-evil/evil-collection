@@ -143,6 +143,7 @@
     "cR" 'notmuch-show-reply
     "X" 'notmuch-show-archive-thread-then-exit
     "zv" 'notmuch-tree-from-show-current-query ; like mu4e-conversation
+    "<" 'notmuch-show-toggle-thread-indentation
     "a" 'notmuch-show-archive-message-then-next-or-next-thread
     "d" 'evil-collection-notmuch-show-toggle-delete
     "=" 'evil-collection-notmuch-show-toggle-flagged
