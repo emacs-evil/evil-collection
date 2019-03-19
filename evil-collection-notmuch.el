@@ -70,6 +70,11 @@
     (notmuch-tree-tag (list "+deleted")))
   (evil-next-line))
 
+(defun evil-collection-notmuch-hello-ret ()
+  (interactive)
+  (evil-execute-in-emacs-state)
+  (call-interactively (key-binding (kbd "RET"))))
+
 ;;;###autoload
 (defun evil-collection-notmuch-setup ()
   "Set up `evil' bindings for `notmuch'."
@@ -95,7 +100,7 @@
   (evil-collection-define-key 'normal 'notmuch-hello-mode-map
     "g?" 'notmuch-hello-versions
     (kbd "TAB") 'widget-forward
-    (kbd "RET") 'widget-button-press
+    (kbd "RET") 'evil-collection-notmuch-hello-ret
     (kbd "S-TAB") 'widget-backward
     (kbd "<C-tab>") 'widget-backward)
 
