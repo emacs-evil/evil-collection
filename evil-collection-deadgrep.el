@@ -37,10 +37,16 @@
   "Set up `evil' bindings for deadgrep.."
   (evil-collection-define-key 'normal 'deadgrep-mode-map
     (kbd "RET") 'deadgrep-visit-result
+    (kbd "<S-return>") 'deadgrep-visit-result-other-window
+    "go" 'deadgrep-visit-result-other-window
     "gr" 'deadgrep-restart
     (kbd "C-j") 'deadgrep-forward
     (kbd "C-k") 'deadgrep-backward
     (kbd "TAB") 'deadgrep-toggle-file-results
+
+    ;; FIXME: Maybe we should bind this to something?
+    ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
+
     ;; Quit
     "q" 'quit-window
     "ZZ" 'quit-window
