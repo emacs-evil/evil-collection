@@ -70,6 +70,7 @@ mode."
     "zl" 'outline-hide-leaves ; Like `outline-hide-body' but for current subtree only, Emacs has "C-c C-l".
     "zK" 'outline-show-branches ; Show all children recursively but no body.  Emacs has "C-c C-k".
     "zk" 'outline-show-children ; Direct children only unlike `outline-show-branches', and no content unlike `outline-show-entry' and `outline-toggle-children'.  Emacs has "C-c TAB".
+    "zu" 'outline-up-heading
 
     "zp" 'outline-hide-other ; Hide all nodes and bodies except current body.  Emacs has "C-c C-o".
     ;; outline-hide-sublevels ; q ; Is it any different from `outline-hide-body'?
@@ -85,7 +86,6 @@ mode."
     (kbd "C-j") 'outline-forward-same-level
     "gk" 'outline-backward-same-level
     "gj" 'outline-forward-same-level
-    "^" 'outline-up-heading
 
     (kbd "M-h") 'outline-promote ; Org-mode has "M-<left>", Evil-org has "M-h"
     (kbd "M-j") 'outline-move-subtree-down ; Org-mode has "M-<down>", Evil-org has "M-j"
