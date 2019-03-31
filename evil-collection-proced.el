@@ -51,6 +51,7 @@
     "C" 'proced-mark-children           ; Emacs has "C"
     "p" 'proced-mark-parents
     "P" 'proced-mark-parents            ; Emacs has "P"
+    "?" 'proced-why
     (kbd "<delete>") 'proced-unmark-backward
 
     ;; motion
