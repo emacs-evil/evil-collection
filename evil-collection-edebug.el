@@ -42,9 +42,10 @@
 
   (add-hook 'edebug-mode-hook #'evil-normalize-keymaps)
 
-  (evil-collection-define-key nil 'edebug-mode-map
+  (evil-collection-define-key 'normal 'edebug-mode-map
     "g" nil
-    "G" nil)
+    "E" nil                         
+    "W" nil)
 
   ;; FIXME: Seems like other minor modes will readily clash with `edebug'.
   ;; `lispyville' and `edebug' 's' key?
