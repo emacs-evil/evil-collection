@@ -45,6 +45,9 @@
     "[[" 'xref-prev-line
     "r" 'xref-query-replace-in-results
 
+    ;; Match `dired''s `dired-do-find-regexp-and-replace'.
+    "Q" 'xref-query-replace-in-results
+
     ;; open
     (kbd "<return>") 'xref-goto-xref
     (kbd "S-<return>") 'xref-show-location-at-point
