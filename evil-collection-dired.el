@@ -147,6 +147,7 @@
     "<" 'dired-prev-dirline
     ">" 'dired-next-dirline
     "^" 'dired-up-directory
+    "-" 'dired-up-directory
     " " 'dired-next-line
     [?\S-\ ] 'dired-previous-line
     [remap next-line] 'dired-next-line
