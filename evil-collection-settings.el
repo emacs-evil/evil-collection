@@ -28,6 +28,11 @@
 (require 'evil-collection)
 
 ;;; Code:
+
+(make-obsolete-variable
+ 'evil-collection-settings-setup-debugger-keys
+ 'evil-collection-setup-debugger-keys "2019/05/02")
+
 (defcustom evil-collection-settings-setup-debugger-keys t
   "Whether to bind debugger keys when debugger is active.
 

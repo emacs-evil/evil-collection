@@ -28,7 +28,6 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'evil-collection-settings)
 (require 'indium nil t)
 
 (defconst evil-collection-indium-maps '(indium-debugger-mode-map
@@ -41,7 +40,7 @@
 ;;;###autoload
 (defun evil-collection-indium-setup ()
   "Set up `evil' bindings for `indium'."
-  (when evil-collection-settings-setup-debugger-keys
+  (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'indium-debugger-mode-map
       "n" 'indium-debugger-step-over
       "i" 'indium-debugger-step-into
@@ -90,7 +89,7 @@
     "gr" 'indium-update-script-source
     "gz" 'indium-switch-to-repl-buffer)
 
-  (when evil-collection-settings-setup-debugger-keys
+  (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'indium-interaction-mode-map
       [left-fringe mouse-1] 'indium-mouse-toggle-breakpoint
       [left-margin mouse-1] 'indium-mouse-toggle-breakpoint

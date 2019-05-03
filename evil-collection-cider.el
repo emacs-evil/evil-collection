@@ -30,7 +30,6 @@
 (require 'cl-lib)
 (require 'cider nil t)
 (require 'evil-collection)
-(require 'evil-collection-settings)
 
 (declare-function cider-debug-mode-send-reply "cider-debug")
 
@@ -89,7 +88,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (with-eval-after-load 'cider-eval-sexp-fu
       (advice-add 'cider-esf--bounds-of-last-sexp :around 'evil-collection-cider-last-sexp)))
 
-  (when evil-collection-settings-setup-debugger-keys
+  (when evil-collection-setup-debugger-keys
     (add-hook 'cider-mode-hook #'evil-normalize-keymaps)
     (add-hook 'cider--debug-mode-hook #'evil-normalize-keymaps)
     (evil-collection-define-key 'normal 'cider-mode-map

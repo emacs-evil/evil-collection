@@ -89,6 +89,19 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
   :type 'boolean
   :group 'evil-collection)
 
+(defcustom evil-collection-setup-debugger-keys t
+  "Whether to bind debugger keys when debugger is active.
+
+Debugger in this case is dependent on mode.
+
+This is only relevant for debug modes that are part of another mode,
+
+e.g. `indium'. Modes like `edebug' or `realgud' needs to be explicitly disabled
+
+through removing their entry from `evil-collection-mode-list'."
+  :type 'boolean
+  :group 'evil-collection)
+
 (defcustom evil-collection-mode-list
   `(ag
     alchemist
