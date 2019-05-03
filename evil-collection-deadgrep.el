@@ -30,11 +30,15 @@
 (require 'evil-collection)
 (require 'deadgrep nil t)
 
-(defconst evil-collection-deadgrep-maps '(deadgrep-mode-map))
+(defconst evil-collection-deadgrep-maps '(deadgrep-edit-mode-map
+                                          deadgrep-mode-map))
 
 ;;;###autoload
 (defun evil-collection-deadgrep-setup ()
   "Set up `evil' bindings for deadgrep.."
+  (evil-collection-define-key 'normal 'deadgrep-edit-mode-map
+    (kbd "RET") 'deadgrep-visit-result
+    (kbd "<escape>") 'deadgrep-mode)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
     (kbd "RET") 'deadgrep-visit-result
     (kbd "<S-return>") 'deadgrep-visit-result-other-window
@@ -43,6 +47,8 @@
     (kbd "C-j") 'deadgrep-forward
     (kbd "C-k") 'deadgrep-backward
     (kbd "TAB") 'deadgrep-toggle-file-results
+
+    "i" 'deadgrep-edit-mode
 
     ;; FIXME: Maybe we should bind this to something?
     ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
