@@ -42,6 +42,8 @@
 
     "d" 'vc-diff
     "D" 'vc-root-diff
+    "\t" 'vc-diff
+    [backtab] 'vc-root-diff
 
     "R" 'vc-register
     "s" 'vc-register ;; Like `magit-stage'?
@@ -66,10 +68,6 @@
     "M" 'vc-dir-mark-all-files
     "u" 'vc-dir-unmark
     "U" 'vc-dir-unmark-all-files
-
-    ;; Movement.
-    "\t" 'vc-dir-next-directory
-    [backtab] 'vc-dir-previous-directory
 
     ;; Rebind paragraph-movement commands.
     "]]" 'vc-dir-next-directory
