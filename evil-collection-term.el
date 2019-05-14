@@ -117,21 +117,21 @@ it is not appropriate in some cases like terminals."
   ;; Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
   (evil-collection-define-key 'insert 'term-raw-map
     (kbd "C-a") 'term-send-raw
-    (kbd "C-b") 'term-send-raw ; Should not be necessary.
+    (kbd "C-b") 'term-send-raw          ; Should not be necessary.
     (kbd "C-d") 'term-send-raw
     (kbd "C-e") 'term-send-raw
-    (kbd "C-f") 'term-send-raw ; Should not be necessary.
+    (kbd "C-f") 'term-send-raw          ; Should not be necessary.
     (kbd "C-k") 'term-send-raw
-    (kbd "C-l") 'term-send-raw ; Should not be necessary.
+    (kbd "C-l") 'term-send-raw          ; Should not be necessary.
     (kbd "C-n") 'term-send-raw
     (kbd "C-o") 'term-send-raw
     (kbd "C-p") 'term-send-raw
-    (kbd "C-q") 'term-send-raw ; Should not be necessary.
+    (kbd "C-q") 'term-send-raw          ; Should not be necessary.
     (kbd "C-r") 'term-send-raw
-    (kbd "C-s") 'term-send-raw ; Should not be necessary.
+    (kbd "C-s") 'term-send-raw          ; Should not be necessary.
     (kbd "C-t") 'term-send-raw
-    (kbd "C-u") 'term-send-raw ; Should not be necessary.
-    (kbd "C-v") 'term-send-raw ; Should not be necessary.
+    (kbd "C-u") 'term-send-raw          ; Should not be necessary.
+    (kbd "C-v") 'term-send-raw          ; Should not be necessary.
     (kbd "C-w") 'term-send-raw
     (kbd "C-y") 'term-send-raw
     (kbd "C-z") 'term-send-raw
