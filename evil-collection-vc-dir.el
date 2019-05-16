@@ -50,6 +50,7 @@
     "gu" 'vc-update
     "gr" 'revert-buffer
 
+    "F" 'vc-update ;; This is the same as `vc-update' bound to "gu".
     "p" 'vc-push
     "P" 'vc-push
 
