@@ -407,7 +407,8 @@ more.
     ~ZQ~ will abort and clear any changes.
     ~ZZ~ will finish and save any changes.
     ~ESC~ will exit editable state.
-
+*** :q/:wq/etc
+    Modes with commands that can be bound to :q/:wq/etc will have those keys remapped.
 ** Key Translation
    ~evil-collection-translate-key~ allows binding a key to the definition of
    another key in the same keymap (comparable to how Vim's keybindings work). Its
