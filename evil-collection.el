@@ -163,6 +163,7 @@ through removing their entry from `evil-collection-mode-list'."
     info
     ivy
     js2-mode
+    log-edit
     log-view
     lsp-ui-imenu
     lua-mode
