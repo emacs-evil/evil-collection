@@ -141,6 +141,7 @@
     "C" 'notmuch-mua-new-mail           ; like mu4e
     "cc" 'notmuch-mua-new-mail          ; like mu4e
     "cR" 'notmuch-show-reply
+    "cf" 'notmuch-show-forward-message
     "X" 'notmuch-show-archive-thread-then-exit
     "zv" 'notmuch-tree-from-show-current-query ; like mu4e-conversation
     "<" 'notmuch-show-toggle-thread-indentation
