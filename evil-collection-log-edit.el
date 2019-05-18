@@ -1,4 +1,4 @@
-;; evil-collection-log-edit.el --- Evil bindings for log-edit -*- lexical-binding: t -*-
+;;; evil-collection-log-edit.el --- Evil bindings for log-edit -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 
