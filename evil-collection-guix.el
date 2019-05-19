@@ -41,7 +41,8 @@
                                       guix-location-list-mode-map
                                       guix-hydra-build-list-mode-map
                                       guix-hydra-build-info-mode-map
-                                      guix-build-log-mode-map))
+                                      guix-build-log-mode-map
+                                      guix-service-list-mode-map))
 
 (defmacro evil-collection-guix-set (map)
   "Set common bindings in MAP."
@@ -210,6 +211,13 @@
     "q" 'quit-window
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+
+  (evil-collection-guix-set guix-service-list-mode-map)
+  (evil-collection-define-key 'normal 'guix-service-list-mode-map
+    (kbd "<tab>") 'forward-button
+    (kbd "<return>") 'bui-list-describe
+
+    "gd" 'guix-service-list-edit)
 
   (evil-collection-define-key 'normal 'guix-devel-mode-map
     ;; repl
