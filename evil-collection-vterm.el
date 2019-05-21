@@ -55,21 +55,21 @@ it is not appropriate in some cases like terminals."
   ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
   (evil-collection-define-key 'insert 'vterm-mode-map
     (kbd "C-a") 'vterm--self-insert
-    (kbd "C-b") 'vterm--self-insert          ; Should not be necessary.
+    (kbd "C-b") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-d") 'vterm--self-insert
     (kbd "C-e") 'vterm--self-insert
-    (kbd "C-f") 'vterm--self-insert          ; Should not be necessary.
+    (kbd "C-f") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-k") 'vterm--self-insert
-    (kbd "C-l") 'vterm--self-insert          ; Should not be necessary.
+    (kbd "C-l") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-n") 'vterm--self-insert
     (kbd "C-o") 'vterm--self-insert
     (kbd "C-p") 'vterm--self-insert
-    (kbd "C-q") 'vterm--self-insert          ; Should not be necessary.
+    (kbd "C-q") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-r") 'vterm--self-insert
-    (kbd "C-s") 'vterm--self-insert          ; Should not be necessary.
+    (kbd "C-s") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-t") 'vterm--self-insert
-    (kbd "C-u") 'vterm--self-insert          ; Should not be necessary.
-    (kbd "C-v") 'vterm--self-insert          ; Should not be necessary.
+    (kbd "C-u") 'vterm--self-insert     ; Should not be necessary.
+    (kbd "C-v") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-w") 'vterm--self-insert
     (kbd "C-y") 'vterm--self-insert
     (kbd "C-z") 'vterm--self-insert)
