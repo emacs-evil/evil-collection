@@ -38,12 +38,18 @@ Moving cursor backwards is the default vim behavior but
 it is not appropriate in some cases like terminals."
   (setq-local evil-move-cursor-back nil))
 
+(defun evil-collection-vterm-exit-function (buffer)
+  "Automatically kill `vterm' buffer on exit."
+  (when buffer
+    (kill-buffer buffer)))
+
 ;;;###autoload
 (defun evil-collection-vterm-setup ()
   "Set up `evil' bindings for `vterm'."
   (evil-set-initial-state 'vterm-mode 'insert)
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
+  (add-hook 'vterm-exit-functions #'evil-collection-vterm-exit-function)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal
   ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
