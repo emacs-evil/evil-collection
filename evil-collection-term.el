@@ -113,8 +113,8 @@ it is not appropriate in some cases like terminals."
 
   (add-hook 'term-mode-hook 'evil-collection-term-escape-stay)
 
-  ;; Evil has some "C-" bindings in insert state that shadow regular terminal bindings.
-  ;; Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
+  ;; Evil has some "C-" bindings in insert state that shadow regular terminal
+  ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
   (evil-collection-define-key 'insert 'term-raw-map
     (kbd "C-a") 'term-send-raw
     (kbd "C-b") 'term-send-raw          ; Should not be necessary.
