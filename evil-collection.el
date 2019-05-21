@@ -214,6 +214,7 @@ through removing their entry from `evil-collection-mode-list'."
     vdiff
     view
     vlf
+    vterm
     w3m
     wdired
     wgrep
