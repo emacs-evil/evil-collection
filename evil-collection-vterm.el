@@ -43,6 +43,13 @@ it is not appropriate in some cases like terminals."
   (when buffer
     (kill-buffer buffer)))
 
+(defun evil-collection-vterm-send-return ()
+  "Sends C-m to the libvterm.
+
+Credits: https://github.com/akermu/emacs-libvterm/pull/70"
+  (interactive)
+  (process-send-string vterm--process "\C-m"))
+
 ;;;###autoload
 (defun evil-collection-vterm-setup ()
   "Set up `evil' bindings for `vterm'."
@@ -50,6 +57,10 @@ it is not appropriate in some cases like terminals."
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
   (add-hook 'vterm-exit-functions #'evil-collection-vterm-exit-function)
+
+  ;; FIXME: Remove this once https://github.com/akermu/emacs-libvterm/pull/70
+  ;; is in.
+  (evil-collection-define-key 'insert 'vterm-mode-map [return] #'evil-collection-vterm-send-return)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal
   ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
