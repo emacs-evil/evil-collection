@@ -50,6 +50,27 @@ Credits: https://github.com/akermu/emacs-libvterm/pull/70"
   (interactive)
   (process-send-string vterm--process "\C-m"))
 
+(defvar-local evil-collection-vterm-send-escape-to-vterm-p nil
+  "Track whether or not we send ESC to `vterm' or `emacs'.")
+
+(defun evil-collection-vterm-toggle-send-escape ()
+  "Toggle where ESC is sent between `vterm' and `emacs'.
+
+This is needed for programs that use ESC, e.g. vim or an ssh'd emacs that
+also uses `evil-mode'."
+  (interactive)
+  (if evil-collection-vterm-send-escape-to-vterm-p
+      (evil-collection-define-key 'insert 'vterm-mode-map (kbd "<escape>")
+        (lookup-key evil-insert-state-map (kbd "<escape>")))
+    (evil-collection-define-key 'insert 'vterm-mode-map
+      (kbd "<escape>") 'vterm--self-insert))
+  (setq evil-collection-vterm-send-escape-to-vterm-p
+        (not evil-collection-vterm-send-escape-to-vterm-p))
+  (message (format "Sending ESC to %s."
+                   (if evil-collection-vterm-send-escape-to-vterm-p
+                       "vterm"
+                     "emacs"))))
+
 ;;;###autoload
 (defun evil-collection-vterm-setup ()
   "Set up `evil' bindings for `vterm'."
@@ -60,7 +81,12 @@ Credits: https://github.com/akermu/emacs-libvterm/pull/70"
 
   ;; FIXME: Remove this once https://github.com/akermu/emacs-libvterm/pull/70
   ;; is in.
-  (evil-collection-define-key 'insert 'vterm-mode-map [return] #'evil-collection-vterm-send-return)
+  (evil-collection-define-key 'insert 'vterm-mode-map
+    [return] #'evil-collection-vterm-send-return)
+
+  ;; Open to a better binding...
+  (evil-collection-define-key '(normal insert) 'vterm-mode-map
+    (kbd "C-c C-z") 'evil-collection-vterm-toggle-send-escape)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal
   ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
