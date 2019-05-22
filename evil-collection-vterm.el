@@ -32,6 +32,8 @@
 
 (defconst evil-collection-vterm-maps '(vterm-mode-map))
 
+(defvar vterm--process)
+
 (defun evil-collection-vterm-escape-stay ()
   "Go back to normal state but don't move cursor backwards.
 Moving cursor backwards is the default vim behavior but
