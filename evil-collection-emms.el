@@ -176,7 +176,7 @@ The return value is the yanked text."
     "[[" 'emms-playlist-mode-previous
 
     "D" 'emms-playlist-mode-kill-track  ; emms-browser uses "D"
-    "C" 'emms-playlist-mode-clear
+    "C" 'emms-playlist-clear
     "O" 'evil-collection-emms-playlist-mode-insert-newline-above
     "o" 'evil-collection-emms-playlist-mode-insert-newline-below
     "P" 'evil-collection-emms-playlist-mode-paste-before
