@@ -134,6 +134,7 @@ through removing their entry from `evil-collection-mode-list'."
     elfeed
     elisp-mode
     elisp-refs
+    elisp-slime-nav
     emms
     epa
     ert
