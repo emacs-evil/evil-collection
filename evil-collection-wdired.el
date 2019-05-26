@@ -35,6 +35,8 @@
 ;;;###autoload
 (defun evil-collection-wdired-setup ()
   "Set up `evil' bindings for `wdired'."
+  (evil-set-initial-state 'wdired-mode 'normal)
+
   (evil-collection-define-key nil 'wdired-mode-map
     [remap evil-write] 'wdired-finish-edit)
 
