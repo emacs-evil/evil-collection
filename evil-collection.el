@@ -154,6 +154,7 @@ through removing their entry from `evil-collection-mode-list'."
     helm
     help
     helpful
+    hungry-delete
     ibuffer
     image
     image-dired
