@@ -103,7 +103,8 @@ through removing their entry from `evil-collection-mode-list'."
   :group 'evil-collection)
 
 (defcustom evil-collection-mode-list
-  `(ag
+  `(2048-game
+    ag
     alchemist
     anaconda-mode
     arc-mode
