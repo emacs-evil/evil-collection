@@ -50,7 +50,7 @@
 
   (evil-collection-define-key 'normal 'rtags-mode-map
     ;; open
-    (kbd "<return>") 'rtags-select
+    (kbd "RET") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
     (kbd "go") 'rtags-select-other-window
@@ -81,7 +81,7 @@
     "[[" 'rtags-dependency-tree-previous-level
 
     ;; open
-    (kbd "<return>") 'rtags-select
+    (kbd "RET") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
     "go" 'rtags-select-other-window
@@ -111,7 +111,7 @@
     "[[" 'rtags-references-tree-previous-level
 
     ;; open
-    (kbd "<return>") 'rtags-select
+    (kbd "RET") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
     "go" 'rtags-select-other-window
@@ -125,7 +125,7 @@
 
   (evil-collection-define-key 'normal 'rtags-location-stack-visualize-mode-map
     ;; open
-    (kbd "<return>") 'rtags-select
+    (kbd "RET") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
     (kbd "M-<return>") 'rtags-show-in-other-window
     (kbd "go") 'rtags-select-other-window

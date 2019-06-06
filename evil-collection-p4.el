@@ -63,7 +63,7 @@
     "j" 'evil-next-line
     (kbd "C-j") 'p4-forward-active-link
     (kbd "C-k") 'p4-backward-active-link
-    (kbd "<return>") 'p4-buffer-commands
+    (kbd "RET") 'p4-buffer-commands
     "q" 'quit-window
     "gr" 'revert-buffer
     "]]" 'p4-scroll-down-1-window

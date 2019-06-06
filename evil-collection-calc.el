@@ -56,7 +56,7 @@
 
     (kbd "<tab>") 'calc-roll-down
     (kbd "S-<return>") 'calc-over
-    (kbd "<return>") 'calc-enter
+    (kbd "RET") 'calc-enter
     (kbd "SPC") 'calc-enter
 
     (kbd "C-x C-t") 'calc-transpose-lines

@@ -101,7 +101,7 @@
   (evil-collection-inhibit-insert-state 'eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
   (evil-collection-define-key 'normal 'eww-history-mode-map
-    (kbd "<return>") 'eww-history-browse
+    (kbd "RET") 'eww-history-browse
     ;; refresh
     "gr" 'revert-buffer
     ;; quit
@@ -113,7 +113,7 @@
   (evil-set-initial-state 'eww-buffers-mode 'normal)
   (evil-collection-define-key 'normal 'eww-buffers-mode-map
     "D" 'eww-buffer-kill
-    (kbd "<return>") 'eww-buffer-select
+    (kbd "RET") 'eww-buffer-select
     "]]" 'eww-buffer-show-next
     "[[" 'eww-buffer-show-previous
     "gj" 'eww-buffer-show-next
@@ -131,7 +131,7 @@
     "D" 'eww-bookmark-kill
     "P" 'eww-bookmark-yank
 
-    (kbd "<return>") 'eww-bookmark-browse
+    (kbd "RET") 'eww-bookmark-browse
     ;; refresh
     "gr" 'revert-buffer
     ;; quit

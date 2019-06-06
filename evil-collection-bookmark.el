@@ -70,7 +70,7 @@
     "O" 'bookmark-bmenu-other-window
     "go" 'bookmark-bmenu-other-window
     "gO" 'bookmark-bmenu-switch-other-window
-    (kbd "<return>") 'bookmark-bmenu-this-window
+    (kbd "RET") 'bookmark-bmenu-this-window
     (kbd "S-<return>") 'bookmark-bmenu-other-window
     (kbd "M-<return>") 'bookmark-bmenu-switch-other-window))
 

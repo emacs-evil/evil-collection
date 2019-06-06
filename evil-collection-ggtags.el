@@ -94,7 +94,7 @@
     "S" 'ggtags-navigation-isearch-forward
 
     "go" 'ggtags-navigation-visible-mode ;; FIXME: This can be anything.
-    (kbd "<return>") 'ggtags-navigation-mode-done))
+    (kbd "RET") 'ggtags-navigation-mode-done))
 
 (provide 'evil-collection-ggtags)
 ;;; evil-collection-ggtags.el ends here

@@ -49,7 +49,7 @@
     "G" 'end-of-buffer
 
     ;; open
-    (kbd "<return>") 'archive-extract
+    (kbd "RET") 'archive-extract
     (kbd "S-<return>") 'archive-extract-other-window
     (kbd "M-<return>") 'archive-view
     "go" 'archive-extract-other-window

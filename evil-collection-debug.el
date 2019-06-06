@@ -42,7 +42,7 @@
     ;; motion
     (kbd "<tab>") 'forward-button
     (kbd "S-<tab>") 'backward-button
-    (kbd "<return>") (if (< emacs-major-version 27)
+    (kbd "RET") (if (< emacs-major-version 27)
                          'debug-help-follow
                        'backtrace-help-follow-symbol)
     (kbd "SPC") 'next-line

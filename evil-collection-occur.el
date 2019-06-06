@@ -48,7 +48,7 @@
     (kbd "C-c C-c") 'occur-mode-goto-occurrence
 
     ;; open
-    (kbd "<return>") 'occur-mode-goto-occurrence
+    (kbd "RET") 'occur-mode-goto-occurrence
     (kbd "S-<return>") 'occur-mode-goto-occurrence-other-window
     (kbd "M-<return>") 'occur-mode-display-occurrence
     "go" 'occur-mode-goto-occurrence-other-window

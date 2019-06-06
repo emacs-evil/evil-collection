@@ -74,8 +74,6 @@
 
   (evil-collection-define-key 'normal 'sldb-mode-map
     (kbd "RET") 'sldb-default-action
-    (kbd "C-m") 'sldb-default-action
-    [return] 'sldb-default-action
     [mouse-2]  'sldb-default-action/mouse
     [follow-link] 'mouse-face
     "\C-i" 'sldb-cycle
@@ -123,8 +121,7 @@
     "9" 'sldb-invoke-restart-9)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
-    (kbd "<return>") 'slime-inspector-operate-on-point
-    (kbd "C-m") 'slime-inspector-operate-on-point
+    (kbd "RET") 'slime-inspector-operate-on-point
     [mouse-1] 'slime-inspector-operate-on-click
     [mouse-2] 'slime-inspector-operate-on-click
     [mouse-6] 'slime-inspector-pop

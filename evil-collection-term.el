@@ -141,7 +141,7 @@ it is not appropriate in some cases like terminals."
 
   (evil-collection-define-key 'normal 'term-mode-map
     (kbd "C-c C-k") 'evil-collection-term-char-mode-insert
-    (kbd "<return>") 'term-send-input
+    (kbd "RET") 'term-send-input
 
     (kbd "p") 'term-paste
 

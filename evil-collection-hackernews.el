@@ -56,7 +56,7 @@
     "!" 'hackernews-button-mark-as-visited ; like mu4e
     "?" 'hackernews-button-mark-as-unvisited
 
-    (kbd "<return>") 'hackernews-button-browse-internal
+    (kbd "RET") 'hackernews-button-browse-internal
     (kbd "S-<return>") 'push-button
 
     ;; quit

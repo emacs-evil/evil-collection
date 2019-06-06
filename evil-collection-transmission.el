@@ -56,7 +56,7 @@
     ;; sort
     "o" 'tabulated-list-sort
 
-    (kbd "<return>") 'transmission-files
+    (kbd "RET") 'transmission-files
     "p" 'transmission-peers
     "i" 'transmission-info
 
@@ -106,7 +106,7 @@
     "m" 'transmission-files-want
 
     ;; open
-    (kbd "<return>") 'transmission-find-file
+    (kbd "RET") 'transmission-find-file
     (kbd "S-<return>") 'transmission-find-file-other-window
     (kbd "M-<return>") 'transmission-display-file
     "go" 'transmission-find-file-other-window

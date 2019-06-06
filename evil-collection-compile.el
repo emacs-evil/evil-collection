@@ -44,7 +44,7 @@
     "0" 'evil-digit-argument-or-evil-beginning-of-line
     [mouse-2] 'compile-goto-error
     [follow-link] 'mouse-face
-    (kbd "<return>") 'compile-goto-error
+    (kbd "RET") 'compile-goto-error
 
     "go" 'compilation-display-error
     (kbd "S-<return>") 'compilation-display-error

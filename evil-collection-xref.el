@@ -49,7 +49,7 @@
     "Q" 'xref-query-replace-in-results
 
     ;; open
-    (kbd "<return>") 'xref-goto-xref
+    (kbd "RET") 'xref-goto-xref
     (kbd "S-<return>") 'xref-show-location-at-point
     "o" 'xref-show-location-at-point
     "go" 'xref-show-location-at-point))

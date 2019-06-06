@@ -62,7 +62,7 @@ it does not have a mode."
                  minibuffer-local-must-match-map
                  minibuffer-local-isearch-map))
     (evil-collection-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
-    (evil-collection-define-key 'normal map (kbd "<return>") 'exit-minibuffer))
+    (evil-collection-define-key 'normal map (kbd "RET") 'exit-minibuffer))
 
   (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.

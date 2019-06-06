@@ -91,7 +91,7 @@
   (evil-collection-guix-set guix-ui-map) ; Covers output-list and generation-list.
 
   (evil-collection-define-key 'normal 'guix-output-list-mode-map
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
 
     "gb" 'guix-package-list-latest-builds
     "gG" 'guix-output-list-graph
@@ -120,7 +120,7 @@
 
   (evil-collection-guix-set guix-profile-list-mode-map)
   (evil-collection-define-key 'normal 'guix-profile-list-mode-map
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
 
     "c" 'guix-profile-list-set-current ; TODO: Bind to "." as per the rationale?
     "p" 'guix-profile-list-show-packages
@@ -137,7 +137,7 @@
     "c" 'guix-profile-info-set-current)
 
   (evil-collection-define-key 'normal 'guix-generation-list-mode-map
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
 
     "p" 'guix-generation-list-show-packages
     "D" 'guix-generation-list-mark-delete
@@ -155,7 +155,7 @@
   (evil-collection-guix-set guix-license-list-mode-map)
   (evil-collection-define-key 'normal 'guix-license-list-mode-map
     (kbd "<tab>") 'forward-button       ; Why isn't this binding inhibited?
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
 
     "p" 'guix-license-list-show-packages
     "gd" 'guix-license-list-edit)
@@ -164,14 +164,14 @@
 
   (evil-collection-guix-set guix-location-list-mode-map)
   (evil-collection-define-key 'normal 'guix-location-list-mode-map
-    (kbd "<return>") 'guix-location-list-show-packages ; In Emacs state, it seems to be overriden by `push-button'.
+    (kbd "RET") 'guix-location-list-show-packages ; In Emacs state, it seems to be overriden by `push-button'.
 
     "p" 'guix-location-list-show-packages
     "gd" 'guix-location-list-edit)
 
   (evil-collection-guix-set guix-store-item-list-mode-map)
   (evil-collection-define-key 'normal 'guix-store-item-list-mode-map
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
     "d" 'guix-store-item-list-mark-delete
     "gd" 'guix-store-item-list-edit
     "x" 'guix-store-item-list-execute)
@@ -180,7 +180,7 @@
 
   (evil-collection-guix-set guix-hydra-build-list-mode-map)
   (evil-collection-define-key 'normal 'guix-hydra-build-list-mode-map
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
 
     "gb" 'guix-hydra-build-list-latest-builds
     "gl" 'guix-hydra-build-list-view-log)
@@ -215,7 +215,7 @@
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map
     (kbd "<tab>") 'forward-button
-    (kbd "<return>") 'bui-list-describe
+    (kbd "RET") 'bui-list-describe
 
     "gd" 'guix-service-list-edit)
 

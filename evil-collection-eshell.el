@@ -71,7 +71,7 @@
     (kbd "C-n") 'eshell-next-matching-input-from-input
     (kbd "C-p") 'eshell-previous-matching-input-from-input
 
-    (kbd "<return>") 'eshell-send-input
+    (kbd "RET") 'eshell-send-input
     (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process)
   (evil-collection-define-key 'insert 'eshell-mode-map
     ;; motion

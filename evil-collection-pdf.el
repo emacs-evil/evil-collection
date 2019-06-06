@@ -94,7 +94,7 @@
   (evil-set-initial-state 'pdf-view-mode 'normal)
   (evil-collection-define-key 'normal 'pdf-view-mode-map
     ;; motion
-    (kbd "<return>") 'image-next-line
+    (kbd "RET") 'image-next-line
     "j" 'evil-collection-pdf-view-next-line-or-next-page
     "k" 'evil-collection-pdf-view-previous-line-or-previous-page
     (kbd "SPC") 'pdf-view-scroll-up-or-next-page
@@ -189,7 +189,7 @@
   (evil-set-initial-state 'pdf-outline-buffer-mode 'normal)
   (evil-collection-define-key 'normal 'pdf-outline-buffer-mode-map
     ;; open
-    (kbd "<return>") 'pdf-outline-follow-link-and-quit
+    (kbd "RET") 'pdf-outline-follow-link-and-quit
     (kbd "S-<return>") 'pdf-outline-follow-link
     (kbd "M-<return>") 'pdf-outline-display-link
     "go" 'pdf-outline-follow-link
@@ -212,7 +212,7 @@
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
   (evil-collection-define-key 'normal 'pdf-occur-buffer-mode-map
     ;; open
-    (kbd "<return>") 'pdf-occur-goto-occurrence
+    (kbd "RET") 'pdf-occur-goto-occurrence
     (kbd "S-<return>") 'pdf-occur-view-occurrence
     (kbd "SPC") 'pdf-occur-view-occurrence
     "gd" 'pdf-occur-goto-occurrence

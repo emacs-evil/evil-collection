@@ -91,7 +91,7 @@ The return value is the yanked text."
     "r" 'emms-random
     "<" 'emms-seek-backward
     ">" 'emms-seek-forward
-    (kbd "<return>") 'emms-browser-add-tracks
+    (kbd "RET") 'emms-browser-add-tracks
     (kbd "C-<return>") 'emms-browser-add-tracks-and-play
 
     ;; volume controls
@@ -160,7 +160,7 @@ The return value is the yanked text."
     (kbd "C-k") 'emms-previous
     "gj" 'emms-next
     "gk" 'emms-previous
-    (kbd "<return>") 'emms-playlist-mode-play-smart
+    (kbd "RET") 'emms-playlist-mode-play-smart
 
     ;; volume controls
     "+" 'emms-volume-raise
@@ -222,7 +222,7 @@ The return value is the yanked text."
 
   (evil-set-initial-state 'emms-metaplaylist-mode 'normal)
   (evil-collection-define-key 'normal 'emms-metaplaylist-mode-map
-    (kbd "<return>") 'emms-metaplaylist-mode-goto-current
+    (kbd "RET") 'emms-metaplaylist-mode-goto-current
     (kbd "<space>") 'emms-metaplaylist-mode-set-active
     "gr" 'emms-metaplaylist-mode-update
     "C" 'emms-metaplaylist-mode-new-buffer
@@ -232,7 +232,7 @@ The return value is the yanked text."
 
   (evil-set-initial-state 'emms-stream-mode 'normal)
   (evil-collection-define-key 'normal 'emms-stream-mode-map
-    (kbd "<return>") 'emms-stream-play
+    (kbd "RET") 'emms-stream-play
     "j" 'emms-stream-next-line
     "k" 'emms-stream-previous-line
     "y" 'emms-stream-yank-bookmark

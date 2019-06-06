@@ -78,7 +78,7 @@
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
 
-    (kbd "<return>") 'disk-usage-files
+    (kbd "RET") 'disk-usage-files
 
     "S" 'tabulated-list-sort
 

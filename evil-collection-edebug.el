@@ -113,10 +113,10 @@
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map
       "E" 'edebug-x-evaluate-function
       "Q" 'edebug-x-clear-data
-      (kbd "<return>") 'edebug-x-find-function
+      (kbd "RET") 'edebug-x-find-function
       "q" 'quit-window)
     (evil-collection-define-key 'normal 'edebug-x-breakpoint-list-mode-map
-      (kbd "<return>") 'edebug-x-visit-breakpoint
+      (kbd "RET") 'edebug-x-visit-breakpoint
       "x" 'edebug-x-kill-breakpoint
       "Q" 'edebug-x-clear-data
       "q" 'quit-window)))

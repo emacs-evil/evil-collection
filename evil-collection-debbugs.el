@@ -43,7 +43,7 @@
     (kbd "<backtab>") 'backward-button
     (kbd "SPC") 'scroll-up-command
 
-    (kbd "<return>") 'debbugs-gnu-select-report
+    (kbd "RET") 'debbugs-gnu-select-report
     "c" 'debbugs-gnu-send-control-message
     "d" 'debbugs-gnu-display-status
 

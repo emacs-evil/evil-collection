@@ -116,7 +116,7 @@ current file instead."
     "gj" 'diff-hunk-next
     "gk" 'diff-hunk-prev
 
-    (kbd "<return>") 'diff-goto-source
+    (kbd "RET") 'diff-goto-source
     "A" 'diff-add-change-log-entries-other-window
 
     "a" 'diff-apply-hunk

@@ -41,7 +41,7 @@
     (kbd "<escape>") 'minibuffer-keyboard-quit)
   (evil-collection-define-key 'normal 'ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
-    (kbd "<return>") 'ivy-occur-press-and-switch
+    (kbd "RET") 'ivy-occur-press-and-switch
     "j" 'ivy-occur-next-line
     "k" 'ivy-occur-previous-line
     "h" 'evil-backward-char
@@ -74,7 +74,7 @@
     "i" 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
     [mouse-1] 'ivy-occur-click
-    (kbd "<return>") 'ivy-occur-press-and-switch
+    (kbd "RET") 'ivy-occur-press-and-switch
     "j" 'ivy-occur-next-line
     "k" 'ivy-occur-previous-line
     "h" 'evil-backward-char
@@ -96,7 +96,7 @@
   (when evil-collection-setup-minibuffer
     (evil-collection-define-key 'normal 'ivy-minibuffer-map
       (kbd "<escape>") 'abort-recursive-edit
-      (kbd "<return>") 'exit-minibuffer
+      (kbd "RET") 'exit-minibuffer
       (kbd "C-m") 'ivy-done
       "j" 'ivy-next-line
       "k" 'ivy-previous-line)

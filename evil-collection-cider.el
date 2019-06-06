@@ -135,7 +135,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 
     (kbd "<backtab>") 'cider-test-previous-result
     (kbd "<tab>") 'cider-test-next-result
-    (kbd "<return>") 'cider-test-jump
+    (kbd "RET") 'cider-test-jump
     "t" 'cider-test-jump
     "d" 'cider-test-ediff
     "e" 'cider-test-stacktrace
@@ -163,7 +163,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "d" 'cider-connections-make-default
     "c" 'cider-connection-browser
     "x" 'cider-connections-close-connection
-    (kbd "<return>") 'cider-connections-goto-connection
+    (kbd "RET") 'cider-connections-goto-connection
     "g?" 'describe-mode)
 
   (evil-set-initial-state 'cider-stacktrace-mode 'normal)

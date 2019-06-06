@@ -57,7 +57,7 @@
     "=" 'profiler-report-compare-profile
 
     ;; open
-    (kbd "<return>") 'profiler-report-find-entry
+    (kbd "RET") 'profiler-report-find-entry
 
     ;; refresh
     "gr" 'revert-buffer

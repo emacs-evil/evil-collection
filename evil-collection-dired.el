@@ -132,7 +132,7 @@
     "Y" 'dired-copy-filename-as-kill
     "+" 'dired-create-directory
     ;; open
-    (kbd "<return>") 'dired-find-file
+    (kbd "RET") 'dired-find-file
     (kbd "S-<return>") 'dired-find-file-other-window
     (kbd "M-<return>") 'dired-display-file
     "gO" 'dired-find-file-other-window

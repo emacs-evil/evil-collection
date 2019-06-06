@@ -44,7 +44,7 @@
 
     (kbd "SPC") 'image-dired-display-next-thumbnail-original
     (kbd "S-SPC") 'image-dired-display-previous-thumbnail-original
-    (kbd "<return>") 'image-dired-display-thumbnail-original-image
+    (kbd "RET") 'image-dired-display-thumbnail-original-image
 
     "c" 'image-dired-comment-thumbnail
     "d" 'image-dired-thumbnail-set-image-description

@@ -40,7 +40,7 @@
     (kbd "S-SPC") 'w3m-scroll-down-or-previous-url
     (kbd "SPC") 'w3m-scroll-up-or-next-url
 
-    (kbd "<return>") 'w3m-view-this-url
+    (kbd "RET") 'w3m-view-this-url
     "o" 'w3m-goto-url
     "O" 'w3m-goto-url-new-session
 

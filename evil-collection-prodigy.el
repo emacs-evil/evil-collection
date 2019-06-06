@@ -60,7 +60,7 @@
     "gr" 'prodigy-restart
 
     "`" 'prodigy-display-process
-    (kbd "<return>") 'prodigy-browse
+    (kbd "RET") 'prodigy-browse
     "it" 'prodigy-add-tag-filter
     "in" 'prodigy-add-name-filter
     "I" 'prodigy-clear-filters

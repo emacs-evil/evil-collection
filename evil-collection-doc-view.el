@@ -48,7 +48,7 @@
     "gg" 'doc-view-first-page
     "G" 'doc-view-last-page
     "J" 'doc-view-goto-page
-    (kbd "<return>") 'image-next-line
+    (kbd "RET") 'image-next-line
 
     ;; zoom
     "+" 'doc-view-enlarge

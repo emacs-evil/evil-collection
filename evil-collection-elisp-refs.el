@@ -43,7 +43,7 @@
     (kbd "C-k") 'elisp-refs-prev-match
     "gj" 'elisp-refs-next-match
     "gk" 'elisp-refs-prev-match
-    (kbd "<return>") 'elisp-refs-visit-match
+    (kbd "RET") 'elisp-refs-visit-match
 
     ;; quit
     "q" 'kill-this-buffer))

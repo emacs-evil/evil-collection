@@ -38,7 +38,7 @@
   (evil-collection-inhibit-insert-state 'proced-mode-map)
   (evil-set-initial-state 'proced-mode 'normal)
   (evil-collection-define-key 'normal 'proced-mode-map
-    (kbd "<return>") 'proced-refine
+    (kbd "RET") 'proced-refine
 
     ;; mark
     ;; TODO: Implement a proced-toggle-mark?

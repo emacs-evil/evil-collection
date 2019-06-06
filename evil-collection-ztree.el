@@ -42,7 +42,7 @@
   (evil-set-initial-state 'ztree-mode 'normal)
   (evil-collection-define-key 'normal 'ztree-mode-map
     (kbd "<tab>") 'ztree-jump-side
-    (kbd "<return>") 'ztree-perform-action
+    (kbd "RET") 'ztree-perform-action
     (kbd "SPC") 'ztree-perform-soft-action
 
     "x" 'ztree-toggle-expand-subtree

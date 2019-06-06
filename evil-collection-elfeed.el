@@ -44,7 +44,7 @@
   (evil-set-initial-state 'elfeed-search-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-search-mode-map
     ;; open
-    (kbd "<return>") 'elfeed-search-show-entry
+    (kbd "RET") 'elfeed-search-show-entry
     (kbd "S-<return>") 'elfeed-search-browse-url
     "go" 'elfeed-search-browse-url
 

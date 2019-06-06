@@ -42,7 +42,7 @@
 
   (evil-collection-define-key 'normal 'neotree-mode-map
 
-    (kbd "<return>") (neotree-make-executor
+    (kbd "RET") (neotree-make-executor
                       :file-fn 'neo-open-file
                       :dir-fn 'neo-open-dir)
     (kbd "<tab>") (neotree-make-executor

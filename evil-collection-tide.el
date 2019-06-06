@@ -47,8 +47,7 @@
     "gk" 'tide-find-previous-reference
     (kbd "C-j") 'tide-find-next-reference
     (kbd "C-k") 'tide-find-previous-reference
-    (kbd "C-m") 'tide-goto-reference
-    (kbd "<return>") 'tide-goto-reference
+    (kbd "RET") 'tide-goto-reference
     ;; quit
     "q" 'quit-window)
 
@@ -57,8 +56,7 @@
     "gk" 'tide-find-previous-error
     (kbd "C-j") 'tide-find-next-error
     (kbd "C-k") 'tide-find-previous-error
-    (kbd "C-m") 'tide-goto-error
-    (kbd "<return>") 'tide-goto-error
+    (kbd "RET") 'tide-goto-error
     ;; quit
     (kbd "q") 'quit-window))
 

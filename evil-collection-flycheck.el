@@ -49,7 +49,7 @@
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error
-    (kbd "<return>") 'flycheck-error-list-goto-error
+    (kbd "RET") 'flycheck-error-list-goto-error
     "q" 'quit-window))
 
 (provide 'evil-collection-flycheck)

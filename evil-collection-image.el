@@ -56,7 +56,7 @@
     (kbd "S-SPC") 'image-scroll-down
     (kbd "<delete>") 'image-scroll-down
     ;; animation
-    (kbd "<return>") 'image-toggle-animation
+    (kbd "RET") 'image-toggle-animation
     "a0" 'image-reset-speed
     "ar" 'image-reverse-speed
     "F" 'image-goto-frame

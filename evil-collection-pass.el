@@ -54,7 +54,7 @@
     "Y" 'pass-copy
     "r" 'pass-rename
     "o" 'pass-otp-options
-    (kbd "<return>") 'pass-view
+    (kbd "RET") 'pass-view
     "q" 'pass-quit))
 
 (provide 'evil-collection-pass)
