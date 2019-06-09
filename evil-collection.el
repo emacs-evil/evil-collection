@@ -176,6 +176,7 @@ through removing their entry from `evil-collection-mode-list'."
     magit
     magit-todos
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
+    monky
     mu4e
     mu4e-conversation
     neotree
