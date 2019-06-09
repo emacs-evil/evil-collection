@@ -83,7 +83,8 @@
     "\C-m" 'vc-dir-find-file
 
     (kbd "S-<return>") 'vc-dir-find-file-other-window
-    "gO" 'vc-dir-find-file-other-window
+    "go" 'vc-dir-find-file-other-window
+    "gO" 'vc-dir-display-file
     (kbd "M-<return>") 'vc-dir-display-file
 
     "\C-c\C-c" 'vc-dir-kill-dir-status-process
