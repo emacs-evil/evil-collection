@@ -102,6 +102,11 @@ through removing their entry from `evil-collection-mode-list'."
   :type 'boolean
   :group 'evil-collection)
 
+(defcustom evil-collection-want-unimpaired-p t
+  "Whether to enable unimpaired style bindings globally."
+  :type 'boolean
+  :group 'evil-collection)
+
 (defcustom evil-collection-mode-list
   `(2048-game
     ag
@@ -511,7 +516,11 @@ instead of the modes in `evil-collection-mode-list'."
                    (symbol-value
                     (intern (format "evil-collection-%s-maps" m))))))
             (run-hook-with-args 'evil-collection-setup-hook
-                                m mode-keymaps)))))))
+                                m mode-keymaps))))))
+  (when evil-collection-want-unimpaired-p
+    (require 'evil-collection-unimpaired)
+    (when (fboundp 'evil-collection-unimpaired-setup)
+      (evil-collection-unimpaired-setup))))
 
 (defvar evil-collection-delete-operators '(evil-delete
                                            evil-cp-delete
