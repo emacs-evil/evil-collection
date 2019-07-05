@@ -27,7 +27,7 @@
 ;;; Bindings for `lsp-ui-imenu-mode'.
 
 ;;; Code:
-(require 'lsp-ui nil t)
+(require 'lsp-ui-imenu nil t)
 (require 'evil-collection)
 
 (defconst evil-collection-lsp-ui-imenu-mode-maps '(lsp-ui-imenu-mode-map))
