@@ -161,6 +161,7 @@ through removing their entry from `evil-collection-mode-list'."
     helm
     help
     helpful
+    hg-histedit
     hungry-delete
     ibuffer
     image
