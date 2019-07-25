@@ -193,6 +193,7 @@
     "[[" 'notmuch-tree-prev-message
     (kbd "C-k") 'notmuch-tree-prev-thread
     (kbd "C-j") 'notmuch-tree-next-thread
+    "|" 'notmuch-show-pipe-message
     "-" 'notmuch-tree-remove-tag
     "+" 'notmuch-tree-add-tag
     "*" 'notmuch-tree-tag-thread
