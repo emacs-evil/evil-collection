@@ -8,7 +8,7 @@
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.2
-;; Package-Requires: ((emacs "25.1") (cl-lib "0.5") (evil "1.2.13"))
+;; Package-Requires: ((emacs "25.1") (cl-lib "0.5") (evil "1.2.13") (annalist "1.0"))
 ;; Keywords: evil, tools
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -33,9 +33,9 @@
 ;; Some minibuffer-related packages such as Helm rely on this option.
 
 ;;; Code:
-(eval-when-compile (require 'subr-x))
 (require 'cl-lib)
 (require 'evil)
+(require 'annalist)
 
 (defvar evil-want-integration)
 (defvar evil-want-keybinding)
@@ -257,12 +257,6 @@ This is a list of strings that are suitable for input to `kbd'."
   :type '(repeat string)
   :group 'evil-collection)
 
-(defvar evil-collection--bindings-record (make-hash-table :test 'eq)
-  "Record of bindings currently made by Evil Collection. This is
-a hash-table with the package symbol as a key.  The associated
-values are the package's bindings which are stored as a list of
-the form ((STATE KEY BINDING)).")
-
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
 This hook runs after all setup (including keybindings) for a mode has already
@@ -272,36 +266,27 @@ Evil Collection for that mode. More arguments may be added in the future, so
 functions added to this hook should include a \"&rest _rest\" for forward
 compatibility.")
 
-(defvar evil-collection-describe-buffer "*evil-collection*"
-  "Name for Evil Collection buffer used to describe bindings.")
-
 (defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
-Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other
-than the unquoted keymap required for `evil-define-key*'.  This
-function adds the ability to filter keys on the basis of
-`evil-collection-key-whitelist' and
-`evil-collection-key-blacklist'. It also stores bindings in
-`evil-collection--bindings-record'."
+Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other than the
+unquoted keymap required for `evil-define-key*'. This function adds the ability
+to filter keys on the basis of `evil-collection-key-whitelist' and
+`evil-collection-key-blacklist'. It also records bindings with annalist.el."
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
-         (record (gethash map-sym evil-collection--bindings-record))
          filtered-bindings)
     (while bindings
       (let ((key (pop bindings))
             (def (pop bindings)))
         (when (or (and whitelist (member key whitelist))
                   (not (member key blacklist)))
-          (if (consp state)
-              (dolist (st state)
-                (push (list (if st st 'all) (key-description key) def)
-                      record))
-            (push (list (if state state 'all) (key-description key) def)
-                  record))
+          (annalist-record 'evil-collection 'keybindings
+                           (list map-sym state key def)
+                           :local (or (eq map-sym 'local)
+                                      (local-variable-p map-sym)))
           (push key filtered-bindings)
           (push def filtered-bindings))))
-    (puthash map-sym record evil-collection--bindings-record)
     (setq filtered-bindings (nreverse filtered-bindings))
     (cond ((null filtered-bindings))
           ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
@@ -357,49 +342,26 @@ This is particularly useful for read-only modes."
         (string-lessp a-state b-state)
       (string-lessp a-key b-key))))
 
+(annalist-define-view 'keybindings 'evil-collection-valid
+  (list (list 'keymap :sort #'annalist-string-<)
+        (list 'state :sort #'annalist-string-<))
+  :inherit 'valid)
+
+(annalist-define-view 'keybindings 'evil-collection-active
+  (list (list 'keymap :sort #'annalist-string-<)
+        (list 'state :sort #'annalist-string-<))
+  :inherit 'active)
+
 (defun evil-collection-describe-bindings (&optional arg)
   "Print bindings made by Evil Collection to separate buffer.
 
 With non-nil ARG, restrict to bindings corresponding to active
 modes in the current buffer."
   (interactive "P")
-  (let ((orig-buf (current-buffer))
-        (desc-buf (get-buffer-create evil-collection-describe-buffer)))
-    (switch-to-buffer-other-window desc-buf)
-    (with-current-buffer desc-buf
-      (erase-buffer)
-      (org-mode)
-      (dolist (keymap
-               (sort (hash-table-keys evil-collection--bindings-record)
-                     (lambda (a b)
-                       (string-lessp (symbol-name a)
-                                     (symbol-name b)))))
-        (when (or (null arg)
-                  (with-current-buffer orig-buf
-                    (and (boundp keymap)
-                         (memq (symbol-value keymap) (current-active-maps)))))
-          (insert "\n\n* " (symbol-name keymap) "\n")
-          (insert "
-| State | Key | Definition |
-|-------|-----|------------|
-")
-          (cl-loop
-           for (state key def) in
-           (sort (copy-sequence
-                  (gethash keymap evil-collection--bindings-record))
-                 #'evil-collection--binding-lessp)
-           do
-           (when (and def (not (eq def 'ignore)))
-             (insert (format "| %s | %s | %s |\n"
-                             state
-                             (replace-regexp-in-string "|" "¦" key)
-                             (cond ((symbolp def) def)
-                                   ((functionp def) "(lambda ...)")
-                                   ((consp def)
-                                    (format "(%s ...)" (car def)))
-                                   (t "??"))))))
-          (org-table-align)))
-      (goto-char (point-min)))))
+  (annalist-describe 'evil-collection 'keybindings
+                     (if arg
+                         'evil-collection-active
+                       'evil-collection-valid)))
 
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
