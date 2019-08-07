@@ -41,13 +41,22 @@
       (hungry-delete-backward 1)
     (apply f args)))
 
+(defun evil-collection-hungry-delete-for-join (f &rest args)
+  "Wrapper function to run `hungry-delete-backward' if
+`hungry-delete-mode' is on."
+  (interactive)
+  (if (and (bound-and-true-p hungry-delete-mode)
+           (fboundp 'hungry-delete-backward))
+      (hungry-delete-backward 1)
+    (funcall f args)))
+
 ;;;###autoload
 (defun evil-collection-hungry-delete-setup ()
   "Set up `evil' bindings for `hungry-delete'."
   (advice-add 'evil-delete-backward-char
               :around #'evil-collection-hungry-delete)
   (advice-add 'evil-delete-backward-char-and-join
-              :around #'evil-collection-hungry-delete))
+              :around #'evil-collection-hungry-delete-for-join))
 
 (provide 'evil-collection-hungry-delete)
 ;;; evil-collection-hungry-delete.el ends here
