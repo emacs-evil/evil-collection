@@ -45,13 +45,6 @@ it is not appropriate in some cases like terminals."
   (when buffer
     (kill-buffer buffer)))
 
-(defun evil-collection-vterm-send-return ()
-  "Sends C-m to the libvterm.
-
-Credits: https://github.com/akermu/emacs-libvterm/pull/70"
-  (interactive)
-  (process-send-string vterm--process "\C-m"))
-
 (defvar-local evil-collection-vterm-send-escape-to-vterm-p nil
   "Track whether or not we send ESC to `vterm' or `emacs'.")
 
@@ -80,11 +73,6 @@ also uses `evil-mode'."
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
   (add-hook 'vterm-exit-functions #'evil-collection-vterm-exit-function)
-
-  ;; FIXME: Remove this once https://github.com/akermu/emacs-libvterm/pull/70
-  ;; is in.
-  (evil-collection-define-key 'insert 'vterm-mode-map
-    [return] #'evil-collection-vterm-send-return)
 
   ;; Open to a better binding...
   (evil-collection-define-key '(normal insert) 'vterm-mode-map
