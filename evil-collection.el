@@ -305,8 +305,12 @@ function adds the ability to filter keys on the basis of
     (setq filtered-bindings (nreverse filtered-bindings))
     (cond ((null filtered-bindings))
           ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
-           (apply #'evil-define-key*
-                  state (symbol-value map-sym) filtered-bindings))
+           (condition-case-unless-debug err
+               (apply #'evil-define-key*
+                      state (symbol-value map-sym) filtered-bindings)
+             (error
+              (message "evil-collection: error setting key in %s %S"
+                       map-sym err))))
           ((boundp map-sym)
            (user-error "evil-collection: %s is not a keymap" map-sym))
           (t
@@ -315,8 +319,15 @@ function adds the ability to filter keys on the basis of
              (fset fun `(lambda (&rest args)
                           (when (and (boundp ',map-sym) (keymapp ,map-sym))
                             (remove-hook 'after-load-functions #',fun)
-                            (apply #'evil-define-key*
-                                   ',state ,map-sym ',filtered-bindings))))
+                            (condition-case-unless-debug err
+                                (apply #'evil-define-key*
+                                       ',state ,map-sym ',filtered-bindings)
+                              (error
+                               (message
+                                ,(format
+                                  "evil-collection: error setting key in %s %%S"
+                                  map-sym)
+                                err))))))
              (add-hook 'after-load-functions fun t))))))
 
 (defun evil-collection-inhibit-insert-state (map-sym)
