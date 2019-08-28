@@ -38,7 +38,7 @@
 (defun evil-collection-leetcode-setup ()
   "Set up `evil' bindings for `leetcode'."
   (evil-collection-define-key 'normal 'leetcode--problems-mode-map
-    (kbd "RET") 'leetcode-show-descri
+    (kbd "RET") 'leetcode-show-description
     "gr" 'leetcode-problems-refresh
     "q" 'quit-window))
 
