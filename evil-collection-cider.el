@@ -35,6 +35,7 @@
 
 (defconst evil-collection-cider-maps '(cider-mode-map
                                        cider-repl-mode-map
+                                       cider-repl-history-mode-map
                                        cider-test-report-mode-map
                                        cider-macroexpansion-mode-map
                                        cider-connections-buffer-mode-map))
@@ -123,6 +124,19 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "gr" 'cider-refresh
     "gf" 'cider-find-resource
     "K" 'cider-doc)
+
+  (evil-collection-define-key '(normal visual) 'cider-repl-history-mode-map
+    (kbd "C-k") 'cider-repl-history-previous
+    (kbd "C-j") 'cider-repl-history-forward
+    "gk" 'cider-repl-history-previous
+    "gj" 'cider-repl-history-forward
+    "[[" 'cider-repl-history-previous
+    "]]" 'cider-repl-history-forward
+
+    (kbd "RET") 'cider-repl-history-insert-and-quit
+    "gr" 'cider-repl-history-update
+    "q" 'cider-repl-history-quit
+    "u" 'cider-repl-history-undo-other-window)
 
   (evil-collection-define-key 'normal 'cider-test-report-mode-map
     (kbd "C-c ,") 'cider-test-commands-map
