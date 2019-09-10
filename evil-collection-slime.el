@@ -42,7 +42,8 @@
                                        slime-inspector-mode-map
                                        slime-mode-map
                                        slime-popup-buffer-mode-map
-                                       slime-xref-mode-map ))
+                                       slime-thread-control-mode-map
+                                       slime-xref-mode-map))
 
 (defun evil-collection-slime-last-sexp (command &rest args)
   "In normal-state or motion-state, last sexp ends at point."
@@ -66,6 +67,7 @@
   (evil-set-initial-state 'sldb-mode 'normal)
   (evil-set-initial-state 'slime-inspector-mode 'normal)
   (evil-set-initial-state 'slime-popup-buffer-mode 'normal)
+  (evil-set-initial-state 'slime-thread-control-mode 'normal)
   (evil-set-initial-state 'slime-xref-mode 'normal)
 
   (evil-collection-define-key 'normal 'slime-parent-map
@@ -165,6 +167,13 @@
 
     ;; goto
     "gd" 'slime-edit-definition)
+
+  (evil-collection-inhibit-insert-state 'slime-thread-control-mode-map)
+  (evil-collection-define-key 'normal 'slime-thread-control-mode-map
+    "a" 'slime-thread-attach
+    "d" 'slime-thread-debug
+    "x" 'slime-thread-kill
+    "gr" 'slime-update-threads-buffer)
 
   (evil-collection-define-key 'normal 'slime-xref-mode-map
     (kbd "RET") 'slime-goto-xref
