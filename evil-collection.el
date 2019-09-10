@@ -112,6 +112,7 @@ through removing their entry from `evil-collection-mode-list'."
     ag
     alchemist
     anaconda-mode
+    apropos
     arc-mode
     bookmark
     (buff-menu "buff-menu")
