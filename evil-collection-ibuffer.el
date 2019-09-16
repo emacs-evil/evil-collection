@@ -136,7 +136,7 @@
     (kbd "]]") 'ibuffer-forward-filter-group
     "\t" 'ibuffer-forward-filter-group
     (kbd "M-p") 'ibuffer-backward-filter-group
-    (kbd "C-k") 'ibuffer-forward-filter-group
+    (kbd "C-k") 'ibuffer-backward-filter-group
     (kbd "[[") 'ibuffer-backward-filter-group
     [backtab] 'ibuffer-backward-filter-group
     (kbd "M-j") 'ibuffer-jump-to-filter-group
