@@ -133,6 +133,7 @@ through removing their entry from `evil-collection-mode-list'."
     dired
     disk-usage
     doc-view
+    docker
     ebib
     edbi
     edebug
