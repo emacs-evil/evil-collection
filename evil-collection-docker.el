@@ -25,6 +25,8 @@
 (require 'docker nil t)
 (require 'evil-collection)
 
+(defvar tablist-mode-filter-map)
+
 (defconst evil-collection-docker-maps '(docker-container-mode-map
                                         docker-image-mode-map
                                         docker-machine-mode-map
