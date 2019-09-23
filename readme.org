@@ -41,7 +41,7 @@ more.
 
    or mode-by-mode, for instance:
 
-   : (with-eval-after-load 'calendar (require 'evil-collection-calendar) (evil-collection-calendar-setup))
+   : (with-eval-after-load 'calendar (evil-collection-calendar-setup))
 
    or by providing an argument to ~evil-collection-init~:
 
