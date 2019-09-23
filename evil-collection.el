@@ -110,7 +110,7 @@ through removing their entry from `evil-collection-mode-list'."
   :type 'boolean
   :group 'evil-collection)
 
-(defcustom evil-collection-mode-list
+(defvar evil-collection--supported-modes
   `(2048-game
     ag
     alchemist
@@ -240,6 +240,19 @@ through removing their entry from `evil-collection-mode-list'."
     xref
     youtube-dl
     (ztree ztree-diff))
+  "List of modes supported by evil-collection. Elements are
+either target mode symbols or lists which `car' is the mode
+symbol and `cdr' the packages to register.")
+
+(dolist (mode evil-collection--supported-modes)
+  (let ((ec-mode-name (if (listp mode) (car mode) mode)))
+    (autoload
+      (intern (format "evil-collection-%s-setup" ec-mode-name))
+      (expand-file-name
+       (format "modes/%s/evil-collection-%s" ec-mode-name ec-mode-name)
+       evil-collection-base-dir))))
+
+(defcustom evil-collection-mode-list evil-collection--supported-modes
   "The list of modes which will be evilified by `evil-collection-init'.
 Elements are either target mode symbols or lists which `car' is the
 mode symbol and `cdr' the packages to register.
@@ -499,6 +512,20 @@ should consist of key swaps (e.g. \"a\" \"b\" is equivalent to \"a\" \"b\" \"b\"
   `(evil-collection-translate-key ,states ,keymaps ,@args))
 
 ;;;###autoload
+(defun evil-collection-require (mode &optional noerror)
+  "Require the evil-collection-MODE file, but do not activate it.
+
+MODE should be a symbol. This requires the evil-collection-MODE
+feature without needing to manipulate `load-path'. NOERROR is
+forwarded to `require'."
+  (let* ((mode-name (symbol-name mode))
+         (feature (intern (format "evil-collection-%s" mode-name)))
+         (file (expand-file-name
+                (format "modes/%s/evil-collection-%s" mode-name mode-name)
+                evil-collection-base-dir)))
+    (require feature file noerror)))
+
+;;;###autoload
 (defun evil-collection-init (&optional modes)
   "Register the Evil bindings for all modes in `evil-collection-mode-list'.
 
@@ -506,7 +533,6 @@ Alternatively, you may register select bindings manually, for
 instance:
 
   (with-eval-after-load 'calendar
-    (require 'evil-collection-calendar)
     (evil-collection-calendar-setup))
 
 If MODES is specified (as either one mode or a list of modes), use those modes
@@ -523,9 +549,7 @@ instead of the modes in `evil-collection-mode-list'."
               reqs (cdr mode)))
       (dolist (req reqs)
         (with-eval-after-load req
-          (load (expand-file-name (format "modes/%s/evil-collection-%s" m m)
-                                  evil-collection-base-dir)
-                nil t)
+          (evil-collection-require m)
           (funcall (intern (concat "evil-collection-" (symbol-name m)
                                    "-setup")))
           (let ((mode-keymaps

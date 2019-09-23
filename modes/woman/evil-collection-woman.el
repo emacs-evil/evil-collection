@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'evil-collection-man) ; WoMan's keymap inherits from Man.
+(evil-collection-require 'man)
 (require 'woman)
 
 (defconst evil-collection-woman-maps '(woman-mode-map))
