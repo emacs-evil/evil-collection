@@ -25,8 +25,6 @@
 (require 'docker nil t)
 (require 'evil-collection)
 
-(defvar tablist-mode-filter-map)
-
 (defconst evil-collection-docker-maps '(docker-container-mode-map
                                         docker-image-mode-map
                                         docker-machine-mode-map
@@ -51,9 +49,6 @@
     "b"  'docker-container-shell-popup
     "d"  'docker-container-diff-popup
     "f"  'docker-container-find-file-popup
-    "g/" tablist-mode-filter-map
-    "gr" 'revert-buffer
-    "q"  'quit-window
     "r"  'docker-container-rename-selection)
 
   (evil-collection-define-key 'normal 'docker-image-mode-map
@@ -64,10 +59,7 @@
     "I"  'docker-image-inspect-popup
     "P"  'docker-image-push-popup
     "R"  'docker-image-run-popup
-    "T"  'docker-image-tag-selection
-    "g/" tablist-mode-filter-map
-    "gr" 'revert-buffer
-    "q"  'quit-window)
+    "T"  'docker-image-tag-selection)
 
   (evil-collection-define-key 'normal 'docker-machine-mode-map
     ";"  'docker-machine-ls-popup
@@ -77,24 +69,18 @@
     "E"  'docker-machine-env-popup
     "O"  'docker-machine-stop-popup
     "R"  'docker-machine-restart-popup
-    "S"  'docker-machine-start-popup
-    "gr" 'revert-buffer
-    "q"  'quit-window)
+    "S"  'docker-machine-start-popup)
 
   (evil-collection-define-key 'normal 'docker-network-mode-map
     ";"  'docker-network-ls-popup
     "?"  'docker-network-help-popup
-    "D"  'docker-network-rm-popup
-    "gr" 'revert-buffer
-    "q"  'quit-window)
+    "D"  'docker-network-rm-popup)
 
   (evil-collection-define-key 'normal 'docker-volume-mode-map
     ";"  'docker-volume-ls-popup
     "?"  'docker-volume-help-popup
     "D"  'docker-volume-rm-popup
-    "d"  'docker-volume-dired-selection
-    "gr" 'revert-buffer
-    "q"  'quit-window))
+    "d"  'docker-volume-dired-selection))
 
 (provide 'evil-collection-docker)
 
