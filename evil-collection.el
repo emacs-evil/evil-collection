@@ -212,8 +212,8 @@ through removing their entry from `evil-collection-mode-list'."
     restclient
     rjsx-mode
     robe
-    ruby-mode
     rtags
+    ruby-mode
     simple
     slime
     tablist
