@@ -525,6 +525,8 @@ forwarded to `require'."
                 evil-collection-base-dir)))
     (require feature file noerror)))
 
+(declare-function evil-collection-unimpaired-setup "evil-collection-unimpaired")
+
 ;;;###autoload
 (defun evil-collection-init (&optional modes)
   "Register the Evil bindings for all modes in `evil-collection-mode-list'.

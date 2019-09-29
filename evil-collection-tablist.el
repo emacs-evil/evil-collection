@@ -27,6 +27,10 @@
 
 (defconst evil-collection-tablist-maps '(tablist-mode-map tablist-minor-mode-map))
 
+(defvar tablist-mode-regexp-map)
+(defvar tablist-mode-mark-map)
+(defvar tablist-mode-filter-map)
+
 ;;;###autoload
 (defun evil-collection-tablist-setup ()
   "Set up `evil' bindings for `tablist'."
