@@ -30,7 +30,8 @@
 (require 'evil-collection)
 
 (when (> emacs-major-version 25)
-  (require 'replace))
+  ;; Specifying NOERROR pacifies package-lint
+  (require 'replace nil t))
 
 (defconst evil-collection-occur-maps '(occur-mode-map
                                        occur-edit-mode-map))
