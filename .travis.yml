@@ -4,9 +4,10 @@ language: emacs-lisp
 sudo: required
 dist: trusty
 group: deprecated-2017Q4
-cache:
-  - directories:
-      - "$HOME/emacs/"
+# See https://github.com/flycheck/emacs-travis/issues/22
+# cache:
+#   - directories:
+#       - "$HOME/emacs/"
 matrix:
   fast_finish: true
   allow_failures:
