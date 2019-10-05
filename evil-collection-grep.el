@@ -36,7 +36,6 @@
 (defun evil-collection-grep-setup ()
   "Set up `evil' bindings for `grep'."
   (evil-collection-define-key 'normal 'grep-mode-map
-    "h" #'evil-backward-char
     "n" 'evil-search-next
     "\C-j" 'next-error-no-select
     "\C-k" 'previous-error-no-select))
