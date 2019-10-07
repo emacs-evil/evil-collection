@@ -94,7 +94,7 @@
 (defun evil-collection-notmuch-search-toggle-flagged ()
   "Toggle flagged tag for message."
   (interactive)
-  (evil-collection-notmuch-toggle-tag "flagged" "tree" 'notmuch-search-next-thread))
+  (evil-collection-notmuch-toggle-tag "flagged" "search" 'notmuch-search-next-thread))
 
 (defun evil-collection-notmuch-hello-ret ()
   (interactive)
