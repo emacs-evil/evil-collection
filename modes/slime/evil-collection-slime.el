@@ -150,6 +150,7 @@
     (kbd "<S-tab>") 'slime-inspector-previous-inspectable-object ; Emacs translates S-TAB
     (kbd "<backtab>") 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
     "." 'slime-inspector-show-source
+    "gd" 'slime-inspector-show-source
     "gR" 'slime-inspector-fetch-all
     "q" 'slime-inspector-quit)
 
