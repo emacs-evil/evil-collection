@@ -35,6 +35,7 @@
 (defvar slime-inspector-mode-map)
 (defvar slime-mode-map)
 (defvar slime-popup-buffer-mode-map)
+(defvar slime-thread-control-mode-map)
 (defvar slime-xref-mode-map)
 
 (defconst evil-collection-slime-maps '(slime-parent-map
@@ -141,7 +142,7 @@
     "K" 'slime-inspector-describe
     "p" 'slime-inspector-pprint
     "e" 'slime-inspector-eval
-    "h" 'slime-inspector-history
+    "M-p" 'slime-inspector-history
     "gr" 'slime-inspector-reinspect
     "gv" 'slime-inspector-toggle-verbose
     (kbd "<tab>") 'slime-inspector-next-inspectable-object
