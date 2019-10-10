@@ -219,6 +219,7 @@ through removing their entry from `evil-collection-mode-list'."
     ruby-mode
     simple
     slime
+    sly
     tablist
     (term term ansi-term multi-term)
     tetris
