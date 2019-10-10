@@ -126,7 +126,7 @@ through removing their entry from `evil-collection-mode-list'."
     comint
     company
     compile
-    custom
+    (custom cus-edit)
     cus-theme
     daemons
     deadgrep
