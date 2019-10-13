@@ -545,7 +545,7 @@ more.
    Other references:
 
    - [[https://github.com/syl20bnr/spacemacs/blob/master/doc/CONVENTIONS.org#key-bindings-conventions][Spacemacs]]
-   - [[https://github.com/hlissner/doom-emacs/blob/master/modules/private/hlissner/%2Bbindings.el][Doom Emacs]]
+   - [[https://github.com/hlissner/doom-emacs/tree/develop/modules/editor/evil][Doom Emacs]]
 
 ** FAQ
    - Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
