@@ -37,6 +37,7 @@
 (defvar sly-mode-map)
 (defvar sly-popup-buffer-mode-map)
 (defvar sly-thread-control-mode-map)
+(defvar sly-trace-dialog-mode-map)
 (defvar sly-xref-mode-map)
 
 (defconst evil-collection-sly-maps '(sly-db-mode-map
@@ -44,6 +45,7 @@
                                      sly-mode-map
                                      sly-popup-buffer-mode-map
                                      sly-thread-control-mode-map
+                                     sly-trace-dialog-mode-map
                                      sly-xref-mode-map))
 
 ;; Same as `evil-collection-slime-last-sexp'.
@@ -190,6 +192,11 @@
     "[[" 'sly-mrepl-previous-prompt
     (kbd "C-p") 'sly-mrepl-previous-input-or-button
     (kbd "C-n") 'sly-mrepl-next-input-or-button)
+
+  (evil-collection-define-key 'normal 'sly-trace-dialog-mode-map
+    "q" 'quit-window
+    "gr" 'sly-trace-dialog-fetch-status
+    "gR" 'sly-trace-dialog-fetch-traces)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 
