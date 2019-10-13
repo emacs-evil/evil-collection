@@ -38,12 +38,14 @@
 (defvar sly-popup-buffer-mode-map)
 (defvar sly-thread-control-mode-map)
 (defvar sly-trace-dialog-mode-map)
+(defvar sly-stickers--replay-mode-map)
 (defvar sly-xref-mode-map)
 
 (defconst evil-collection-sly-maps '(sly-db-mode-map
                                      sly-inspector-mode-map
                                      sly-mode-map
                                      sly-popup-buffer-mode-map
+                                     sly-stickers--replay-mode-map
                                      sly-thread-control-mode-map
                                      sly-trace-dialog-mode-map
                                      sly-xref-mode-map))
@@ -197,6 +199,32 @@
     "q" 'quit-window
     "gr" 'sly-trace-dialog-fetch-status
     "gR" 'sly-trace-dialog-fetch-traces)
+
+  (evil-collection-define-key 'normal 'sly-stickers--replay-mode-map
+    ;; The "n", "p", "x", "h" and "q" key are hard-coded in the description, so
+    ;; we need to set them to the expected command.
+    "gg" 'sly-stickers-replay-jump-to-beginning
+    "G" 'sly-stickers-replay-jump-to-end
+    "F" 'sly-stickers-forget
+    "J" 'sly-stickers-replay-next-for-sticker
+    "K" 'sly-stickers-replay-prev-for-sticker
+    "N" 'sly-stickers-replay-next-for-sticker
+    "P" 'sly-stickers-replay-prev-for-sticker
+    "R" 'sly-stickers-replay-reset-ignore-list
+    "zv" 'sly-stickers-replay-toggle-pop-to-stickers
+    "h" 'sly-stickers-replay-toggle-help
+    "g?" 'sly-stickers-replay-toggle-help
+    "gd" 'sly-stickers-replay-jump
+    "j" 'sly-stickers-replay-next
+    "k" 'sly-stickers-replay-prev
+    "n" 'sly-stickers-replay-next
+    "p" 'sly-stickers-replay-prev
+    "q" 'quit-window
+    "go" 'sly-stickers-replay-pop-to-current-sticker
+    "v" 'sly-stickers-replay-pop-to-current-sticker
+    "x" 'sly-stickers-replay-toggle-ignore-sticker
+    "zi" 'sly-stickers-replay-toggle-ignore-sticker
+    "zz" 'sly-stickers-replay-toggle-ignore-zombies)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 
