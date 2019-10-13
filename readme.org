@@ -537,6 +537,7 @@ more.
    - [[https://github.com/emacs-evil/evil-magit][evil-magit]]
    - Lispy: [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]]
    - Org-mode: https://github.com/GuiltyDolphin/org-evil or https://github.com/Somelauw/evil-org-mode
+   - [[https://github.com/atheriel/evil-ledger][evil-ledger]]
 
    Should you know any suitable package not mentioned in this list, let us know and
    file an issue.
