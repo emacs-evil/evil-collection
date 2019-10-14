@@ -32,6 +32,7 @@
 (require 'evil-collection)
 (require 'sly nil t)
 
+(defvar sly-connection-list-mode-map)
 (defvar sly-db-mode-map)
 (defvar sly-inspector-mode-map)
 (defvar sly-mode-map)
@@ -41,7 +42,8 @@
 (defvar sly-stickers--replay-mode-map)
 (defvar sly-xref-mode-map)
 
-(defconst evil-collection-sly-maps '(sly-db-mode-map
+(defconst evil-collection-sly-maps '(sly-connection-list-mode-map
+                                     sly-db-mode-map
                                      sly-inspector-mode-map
                                      sly-mode-map
                                      sly-popup-buffer-mode-map
@@ -225,6 +227,19 @@
     "x" 'sly-stickers-replay-toggle-ignore-sticker
     "zi" 'sly-stickers-replay-toggle-ignore-sticker
     "zz" 'sly-stickers-replay-toggle-ignore-zombies)
+
+  (evil-collection-define-key 'normal 'sly-connection-list-mode-map
+    (kbd "<tab>") 'forward-button
+    (kbd "C-i") 'forward-button
+    (kbd "<S-tab>") 'backward-button
+    (kbd "<backtab>") 'backward-button
+    (kbd "RET") 'sly-connection-list-default-action
+    "R" 'sly-restart-connection-at-point
+    "d" 'sly-connection-list-make-default
+    "x" 'sly-quit-connection-at-point
+    "gr" 'sly-update-connection-list
+    "o" 'tabulated-list-sort
+    "q" 'quit-window)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 
