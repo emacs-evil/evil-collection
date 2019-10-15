@@ -189,7 +189,7 @@
     ";e" 'epa-dired-do-encrypt)
 
     ;; dired-subtree commands
-    (when (featurep 'dired-subtree)
+    (with-eval-after-load 'dired-subtree
 	(evil-collection-define-key 'normal 'dired-mode-map
 	    "I" 'dired-subtree-toggle
 	    (kbd "TAB") 'dired-subtree-cycle
