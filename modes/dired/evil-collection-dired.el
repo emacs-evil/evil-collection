@@ -186,7 +186,17 @@
     ";d" 'epa-dired-do-decrypt
     ";v" 'epa-dired-do-verify
     ";s" 'epa-dired-do-sign
-    ";e" 'epa-dired-do-encrypt))
+    ";e" 'epa-dired-do-encrypt)
+
+    ;; dired-subtree commands
+    (when (featurep 'dired-subtree)
+	(evil-collection-define-key 'normal 'dired-mode-map
+	    "I" 'dired-subtree-toggle
+	    (kbd "TAB") 'dired-subtree-cycle
+	    "gh" 'dired-subtree-up
+	    "gl" 'dired-subtree-down
+	    (kbd "M-j") 'dired-subtree-next-sibling
+	    (kbd "M-k") 'dired-subtree-previous-sibling)))
 
 (provide 'evil-collection-dired)
 ;;; evil-collection-dired.el ends here
