@@ -534,7 +534,7 @@ more.
 
    Third-party packages are provided by several parties:
 
-   | Major mode | evil bindings            |
+   | Major mode | Evil bindings            |
    |------------+--------------------------|
    | magit      | [[https://github.com/emacs-evil/evil-magit][evil-magit]]               |
    | lispy      | [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]] |
