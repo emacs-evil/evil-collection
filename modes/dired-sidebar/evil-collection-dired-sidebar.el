@@ -1,4 +1,4 @@
-;;; evil-collection-dired-sidebar.el --- Evil bindings for dired-sidebar -*- lexical-binding: t; no-byte-compile: t; -*-
+;;; evil-collection-dired-sidebar.el --- Evil bindings for dired-sidebar -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 James Nguyen
 
