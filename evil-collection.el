@@ -134,6 +134,7 @@ through removing their entry from `evil-collection-mode-list'."
     debug
     diff-mode
     dired
+    dired-sidebar
     disk-usage
     doc-view
     docker
