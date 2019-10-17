@@ -539,6 +539,7 @@ more.
    | magit      | [[https://github.com/emacs-evil/evil-magit][evil-magit]]               |
    | lispy      | [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]] |
    | org        | [[https://github.com/GuiltyDolphin/org-evil][org-evil]] or [[https://github.com/Somelauw/evil-org-mode][evil-org]]     |
+   | markdown   | [[https://github.com/Somelauw/evil-markdown][evil-markdown]]          |
    | ledger     | [[https://github.com/atheriel/evil-ledger][evil-ledger]]              |
 
    Should you know any suitable package not mentioned in this list, let us know and
