@@ -191,7 +191,6 @@
     ;; dired-subtree commands
     (with-eval-after-load 'dired-subtree
 	(evil-collection-define-key 'normal 'dired-mode-map
-	    "I" 'dired-subtree-toggle
 	    (kbd "TAB") 'dired-subtree-cycle
 	    "gh" 'dired-subtree-up
 	    "gl" 'dired-subtree-down
