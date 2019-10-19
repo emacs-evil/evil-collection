@@ -34,52 +34,52 @@
 (defun evil-collection-docker-setup ()
   "Set up `evil' bindings for `docker'."
   (evil-collection-define-key 'normal 'docker-container-mode-map
-    ";"  'docker-container-ls-popup
-    "?"  'docker-container-help-popup
-    "C"  'docker-container-cp-popup
-    "D"  'docker-container-rm-popup
-    "I"  'docker-container-inspect-popup
-    "K"  'docker-container-kill-popup
-    "L"  'docker-container-logs-popup
-    "O"  'docker-container-stop-popup
-    "P"  'docker-container-pause-popup
-    "R"  'docker-container-restart-popup
-    "S"  'docker-container-start-popup
-    "a"  'docker-container-attach-popup
-    "b"  'docker-container-shell-popup
-    "d"  'docker-container-diff-popup
-    "f"  'docker-container-find-file-popup
+    ";"  'docker-container-ls
+    "?"  'docker-container-help
+    "C"  'docker-container-cp
+    "D"  'docker-container-rm
+    "I"  'docker-container-inspect
+    "K"  'docker-container-kill
+    "L"  'docker-container-logs
+    "O"  'docker-container-stop
+    "P"  'docker-container-pause
+    "R"  'docker-container-restart
+    "S"  'docker-container-start
+    "a"  'docker-container-attach
+    "b"  'docker-container-shell
+    "d"  'docker-container-diff
+    "f"  'docker-container-find-file
     "r"  'docker-container-rename-selection)
 
   (evil-collection-define-key 'normal 'docker-image-mode-map
-    ";"  'docker-image-ls-popup
-    "?"  'docker-image-help-popup
-    "D"  'docker-image-rm-popup
-    "F"  'docker-image-pull-popup
-    "I"  'docker-image-inspect-popup
-    "P"  'docker-image-push-popup
-    "R"  'docker-image-run-popup
+    ";"  'docker-image-ls
+    "?"  'docker-image-help
+    "D"  'docker-image-rm
+    "F"  'docker-image-pull
+    "I"  'docker-image-inspect
+    "P"  'docker-image-push
+    "R"  'docker-image-run
     "T"  'docker-image-tag-selection)
 
   (evil-collection-define-key 'normal 'docker-machine-mode-map
-    ";"  'docker-machine-ls-popup
-    "?"  'docker-machine-help-popup
+    ";"  'docker-machine-ls
+    "?"  'docker-machine-help
     "C"  'docker-machine-create
-    "D"  'docker-machine-rm-popup
-    "E"  'docker-machine-env-popup
-    "O"  'docker-machine-stop-popup
-    "R"  'docker-machine-restart-popup
-    "S"  'docker-machine-start-popup)
+    "D"  'docker-machine-rm
+    "E"  'docker-machine-env
+    "O"  'docker-machine-stop
+    "R"  'docker-machine-restart
+    "S"  'docker-machine-start)
 
   (evil-collection-define-key 'normal 'docker-network-mode-map
-    ";"  'docker-network-ls-popup
-    "?"  'docker-network-help-popup
-    "D"  'docker-network-rm-popup)
+    ";"  'docker-network-ls
+    "?"  'docker-network-help
+    "D"  'docker-network-rm)
 
   (evil-collection-define-key 'normal 'docker-volume-mode-map
-    ";"  'docker-volume-ls-popup
-    "?"  'docker-volume-help-popup
-    "D"  'docker-volume-rm-popup
+    ";"  'docker-volume-ls
+    "?"  'docker-volume-help
+    "D"  'docker-volume-rm
     "d"  'docker-volume-dired-selection))
 
 (provide 'evil-collection-docker)
