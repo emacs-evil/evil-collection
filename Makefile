@@ -15,6 +15,7 @@ lint:
 	--eval "(package-refresh-contents)"						\
 	-l package-lint.el								\
 	--eval "(advice-add 'package-lint--check-eval-after-load :around 'ignore)" \
+	--eval "(advice-add 'package-lint--check-version-regexp-list :around 'ignore)" \
 	-f package-lint-batch-and-exit *.el modes/*/*.el
 
 test:
