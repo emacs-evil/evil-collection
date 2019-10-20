@@ -179,6 +179,7 @@ through removing their entry from `evil-collection-mode-list'."
     ivy
     js2-mode
     leetcode
+    lispy
     log-edit
     log-view
     lsp-ui-imenu
@@ -246,7 +247,7 @@ through removing their entry from `evil-collection-mode-list'."
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
 
-(dolist (mode (append evil-collection--supported-modes '(lispy)))
+(dolist (mode evil-collection--supported-modes)
   (let ((ec-mode-name (if (listp mode) (car mode) mode)))
     (autoload
       (intern (format "evil-collection-%s-setup" ec-mode-name))
