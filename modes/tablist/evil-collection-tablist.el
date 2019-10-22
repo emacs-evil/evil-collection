@@ -39,7 +39,7 @@
     (kbd "RET") 'tablist-find-entry
     "d" 'tablist-flag-forward
     "f" 'tablist-find-entry
-    "D" 'tablist-do-delete
+    "X" 'tablist-do-delete
     "C" 'tablist-do-copy
     "R" 'tablist-do-rename
     "x" 'tablist-do-flagged-delete)
@@ -53,7 +53,7 @@
     "g*" tablist-mode-mark-map
     "g/" tablist-mode-filter-map
     "gr" 'tablist-revert
-    "k"  'tablist-do-kill-lines
+    "D"  'tablist-do-kill-lines
     "m"  'tablist-mark-forward
     "q"  'tablist-quit
     "s"  'tablist-sort
