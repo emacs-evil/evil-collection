@@ -188,14 +188,14 @@
     ";s" 'epa-dired-do-sign
     ";e" 'epa-dired-do-encrypt)
 
-    ;; dired-subtree commands
-    (with-eval-after-load 'dired-subtree
-	(evil-collection-define-key 'normal 'dired-mode-map
-	    (kbd "TAB") 'dired-subtree-cycle
-	    "gh" 'dired-subtree-up
-	    "gl" 'dired-subtree-down
-	    (kbd "M-j") 'dired-subtree-next-sibling
-	    (kbd "M-k") 'dired-subtree-previous-sibling)))
+  ;; dired-subtree commands
+  (with-eval-after-load 'dired-subtree
+    (evil-collection-define-key 'normal 'dired-mode-map
+      (kbd "TAB") 'dired-subtree-toggle
+      "gh" 'dired-subtree-up
+      "gl" 'dired-subtree-down
+      (kbd "M-j") 'dired-subtree-next-sibling
+      (kbd "M-k") 'dired-subtree-previous-sibling)))
 
 (provide 'evil-collection-dired)
 ;;; evil-collection-dired.el ends here
