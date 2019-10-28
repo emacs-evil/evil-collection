@@ -30,12 +30,12 @@
 (require 'evil-collection)
 (require 'outline)
 
-(defcustom evil-collection-outline-bind-tab-p t
+(defcustom evil-collection-outline-bind-tab-p nil
   "Enable <tab>-based bindings in Outline mode.
 
 Unless you have Evil bindings set up for Org mode, Org will
-inherit the <tab>-based bindings from Outline.  Set this option
-to nil if you want to preserve the Emacs-state <tab> keys in Org
+preserve the Emacs-state <tab> keys in Org mode. Set this option
+to t if you want to inherit the <tab>-based bindings from Outline
 mode."
   :group 'evil-collection-outline
   :type 'boolean)
