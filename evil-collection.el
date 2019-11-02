@@ -160,6 +160,7 @@ through removing their entry from `evil-collection-mode-list'."
     geiser
     ggtags
     git-timemachine
+    gnus
     go-mode
     grep
     guix
