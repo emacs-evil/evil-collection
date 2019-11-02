@@ -37,6 +37,12 @@
 (defun evil-collection-gnus-setup ()
   "Set up `evil' bindings for `gnus'."
   (evil-set-initial-state 'gnus-summary-mode 'normal)
+  (when evil-want-C-u-scroll
+    (evil-collection-define-key 'normal 'gnus-summary-mode-map
+      (kbd "C-u") 'gnus-summary-scroll-up))
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'gnus-summary-mode-map
+      (kbd "C-d") 'gnus-summary-scroll-down))
   (evil-define-key 'normal gnus-summary-mode-map
     ;; motion
     (kbd "<tab>") 'gnus-summary-widget-forward
@@ -50,27 +56,38 @@
     (kbd "C-j") 'gnus-summary-next-article
     (kbd "C-k") 'gnus-summary-prev-article
 
+    ;; TODO: Is this getting in the way of regular "hjkl"?
+    ;; "j" 'gnus-summary-next-unread-article
+    ;; "k" 'gnus-summary-prev-unread-article
+
     "m" 'gnus-summary-mark-as-processable
+    "M" 'gnus-summary-unmark-as-processable
     "!" 'gnus-summary-execute-command
-    "p" 'gnus-summary-pipe-output
+    "|" 'gnus-summary-pipe-output
+
+    "gu" 'gnus-summary-first-unread-article
+    "gU" 'gnus-summary-best-unread-article
+
+    "^" 'gnus-summary-refer-parent-article
+    (kbd "M-^") 'gnus-summary-refer-article
 
     "zz" 'gnus-recenter
-    "zc" 'gnus-cache-enter-article
-    "gb" 'gnus-summary-best-unread-article
-    "gf" 'gnus-summary-first-unread-article
     "z/" 'gnus-summary-limit-map
     "zd" 'gnus-summary-mark-as-dormant
-    "z^" 'gnus-summary-refer-parent-article
     "zt" 'gnus-summary-toggle-header
     "u" 'gnus-summary-tick-article-forward
     "U" 'gnus-summary-tick-article-backward
     "x" 'gnus-summary-limit-to-unread
 
-    ;; TODO: Bind the following?
-    ;; "<" "=" ">" ...
+    "gg" 'gnus-summary-beginning-of-article
+    "G" 'gnus-summary-end-of-article
+    "J" 'gnus-summary-goto-article
 
-    "r" 'gnus-summary-very-wide-reply
-    "R" 'gnus-summary-very-wide-reply-with-original
+    "r" 'gnus-summary-reply
+    "R" 'gnus-summary-reply-with-original
+    ;; TODO: Should it be very-wide?
+    ;; "r" 'gnus-summary-very-wide-reply
+    ;; "R" 'gnus-summary-very-wide-reply-with-original
 
     "gO" 'gnus-summary-save-map
     "gS" 'gnus-summary-send-map
@@ -83,6 +100,91 @@
 
     ;; filter
     "s" 'gnus-summary-isearch-article
+
+    ;; search
+    (kbd "M-s") 'gnus-summary-search-article-forward
+    (kbd "M-r") 'gnus-summary-search-article-backward
+    (kbd "M-S") 'gnus-summary-repeat-search-article-forward
+    (kbd "M-R") 'gnus-summary-repeat-search-article-backward
+
+    ;; sort
+    "oa" 'gnus-summary-sort-by-author
+    "oc" 'gnus-summary-sort-by-chars
+    "od" 'gnus-summary-sort-by-date
+    "oi" 'gnus-summary-sort-by-score
+    "ol" 'gnus-summary-sort-by-lines
+    "omd" 'gnus-summary-sort-by-most-recent-date
+    "omm" 'gnus-summary-sort-by-marks
+    "omn" 'gnus-summary-sort-by-most-recent-number
+    "on" 'gnus-summary-sort-by-number
+    "oo" 'gnus-summary-sort-by-original
+    "or" 'gnus-summary-sort-by-random
+    "os" 'gnus-summary-sort-by-subject
+    "ot" 'gnus-summary-sort-by-recipient
+
+    [mouse-2] 'gnus-mouse-pick-article
+    [follow-link] 'mouse-face
+
+    "gr" 'gnus-summary-rescan-group
+
+    ;; Rest of the bindings "as is".
+    "d" 'gnus-summary-mark-as-read-forward
+    "D" 'gnus-summary-mark-as-read-backward
+    "E" 'gnus-summary-mark-as-expirable
+    (kbd "M-u") 'gnus-summary-clear-mark-forward
+    (kbd "M-U") 'gnus-summary-clear-mark-backward
+    "k" 'gnus-summary-kill-same-subject-and-select
+    (kbd "C-k") 'gnus-summary-kill-same-subject
+    (kbd "M-C-k") 'gnus-summary-kill-thread
+    (kbd "M-C-l") 'gnus-summary-lower-thread
+    "e" 'gnus-summary-edit-article
+    (kbd "M-C-t") 'gnus-summary-toggle-threads
+    "zs" 'gnus-summary-show-thread
+    "zh" 'gnus-summary-hide-thread
+    (kbd "M-C-f") 'gnus-summary-next-thread
+    (kbd "M-C-b") 'gnus-summary-prev-thread
+    (kbd "<M-down>") 'gnus-summary-next-thread
+    (kbd "<M-up>") 'gnus-summary-prev-thread
+    (kbd "M-C-u") 'gnus-summary-up-thread
+    (kbd "M-C-d") 'gnus-summary-down-thread
+    "c" 'gnus-summary-catchup-and-exit
+    (kbd "C-w") 'gnus-summary-mark-region-as-read
+    (kbd "C-t") 'toggle-truncate-lines
+    (kbd "C-c M-C-s") 'gnus-summary-limit-include-expunged
+    "=" 'gnus-summary-expand-window
+    (kbd "C-x C-s") 'gnus-summary-reselect-current-group
+    (kbd "C-c C-r") 'gnus-summary-caesar-message
+    "f" 'gnus-summary-followup
+    "F" 'gnus-summary-followup-with-original
+    "C" 'gnus-summary-cancel-article
+    (kbd "C-c C-f") 'gnus-summary-mail-forward
+    ".s" 'gnus-summary-save-article     ; Like notmuch?
+    (kbd "C-o") 'gnus-summary-save-article-mail
+    (kbd "M-k") 'gnus-summary-edit-local-kill
+    (kbd "M-K") 'gnus-summary-edit-global-kill
+    ;; "V" 'gnus-version
+    (kbd "C-c C-d") 'gnus-summary-describe-group
+    "zm" 'gnus-summary-mail-other-window
+    "a" 'gnus-summary-post-news
+    ;; "g" 'gnus-summary-show-article
+    "gG" 'gnus-summary-goto-last-article
+    (kbd "C-c C-v C-v") 'gnus-uu-decode-uu-view
+    ;; "\C-d" 'gnus-summary-enter-digest-group
+    ;; "\M-\C-d" 'gnus-summary-read-document
+    (kbd "M-C-e") 'gnus-summary-edit-parameters
+    (kbd "M-C-a") 'gnus-summary-customize-parameters
+    (kbd "C-c C-b") 'gnus-bug
+    "*" 'gnus-cache-enter-article
+    (kbd "M-*") 'gnus-cache-remove-article
+    (kbd "M-&") 'gnus-summary-universal-argument
+    (kbd "M-i") 'gnus-symbolic-argument
+    "I" 'gnus-summary-increase-score
+    "L" 'gnus-summary-lower-score
+    ;; "h" 'gnus-summary-select-article-buffer
+
+    "K" 'gnus-info-find-node
+    "zv" 'gnus-article-view-part
+    (kbd "M-t") 'gnus-summary-toggle-display-buttonized
 
     ;; quit
     "Q" 'gnus-summary-exit-no-update
