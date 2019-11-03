@@ -195,7 +195,12 @@
       "gh" 'dired-subtree-up
       "gl" 'dired-subtree-down
       (kbd "M-j") 'dired-subtree-next-sibling
-      (kbd "M-k") 'dired-subtree-previous-sibling)))
+      (kbd "M-k") 'dired-subtree-previous-sibling))
+
+  (with-eval-after-load 'dired-filter
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "*"  dired-filter-mark-map
+      "g/" dired-filter-map)))
 
 (provide 'evil-collection-dired)
 ;;; evil-collection-dired.el ends here
