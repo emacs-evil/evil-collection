@@ -53,7 +53,7 @@
     "g*" tablist-mode-mark-map
     "g/" tablist-mode-filter-map
     "gr" 'tablist-revert
-    "D"  'tablist-do-kill-lines
+    "K"  'tablist-do-kill-lines
     "m"  'tablist-mark-forward
     "q"  'tablist-quit
     "s"  'tablist-sort
