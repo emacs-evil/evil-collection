@@ -86,7 +86,9 @@
     "gm" 'Info-menu
     "gt" 'Info-top-node
     "gT" 'Info-toc
+    "t" 'evil-find-char-to              ; Else this would be `Info-top-node'.
     "gf" 'Info-follow-reference
+    "f" 'evil-find-char                 ; Else this would be `Info-follow-reference'.
     ;; TODO: "[" and "]" are Emacs default for fine-grained browsing.
     ;; We usually use "C-j"/"C-k" for that.
     (kbd "C-j") 'Info-next
@@ -94,6 +96,8 @@
     "gj" 'Info-next
     "gk" 'Info-prev
 
+    "g?" 'Info-summary
+    "?" 'evil-ex-search-backward        ; Else this would be `Info-summary'.
 
     ;; quit
     "q" 'Info-exit
