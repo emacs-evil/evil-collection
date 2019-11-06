@@ -92,8 +92,8 @@
     "f" 'evil-find-char                 ; Else this would be `Info-follow-reference'.
     ;; TODO: "[" and "]" are Emacs default for fine-grained browsing.
     ;; We usually use "C-j"/"C-k" for that.
-    (kbd "C-j") 'Info-next
-    (kbd "C-k") 'Info-prev
+    (kbd "C-j") 'Info-forward-node
+    (kbd "C-k") 'Info-backward-node
     "gj" 'Info-next
     "gk" 'Info-prev
 
