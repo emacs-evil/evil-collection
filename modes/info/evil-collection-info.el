@@ -64,7 +64,6 @@
     "i" 'Info-index
     "I" 'Info-virtual-index
     "a" 'info-apropos
-    "m" 'Info-menu
     "w" 'evil-forward-word-begin
     "b" 'evil-backward-word-begin
 
@@ -84,9 +83,11 @@
     ;; goto
     "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
     "gm" 'Info-menu
+    "m" 'evil-set-marker                ; Else this would be `Info-menu'.
     "gt" 'Info-top-node
-    "gT" 'Info-toc
     "t" 'evil-find-char-to              ; Else this would be `Info-top-node'.
+    "gT" 'Info-toc
+    "T" 'evil-find-char-to-backward     ; Else this would be `Info-toc'.
     "gf" 'Info-follow-reference
     "f" 'evil-find-char                 ; Else this would be `Info-follow-reference'.
     ;; TODO: "[" and "]" are Emacs default for fine-grained browsing.
