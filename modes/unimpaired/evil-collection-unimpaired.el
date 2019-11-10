@@ -75,6 +75,16 @@
    (:default
     (message "No linting modes are on."))))
 
+(defun evil-collection-unimpaired-insert-space-above (count)
+  "Insert space above current line"
+  (interactive "p")
+  (dotimes (_ count) (save-excursion (evil-insert-newline-above))))
+
+(defun evil-collection-unimpaired-insert-space-below (count)
+  "Insert space below current line"
+  (interactive "p")
+  (dotimes (_ count) (save-excursion (evil-insert-newline-below))))
+
 ;;;###autoload
 (defun evil-collection-unimpaired-setup ()
   "Set up unimpaired-like bindings."
@@ -83,7 +93,9 @@
     "[b" 'previous-buffer
     "]b" 'next-buffer
     "]l" 'evil-collection-unimpaired-next-error
-    "[l" 'evil-collection-unimpaired-previous-error))
+    "[l" 'evil-collection-unimpaired-previous-error
+    (kbd "[ SPC") 'evil-collection-unimpaired-insert-space-above
+    (kbd "] SPC") 'evil-collection-unimpaired-insert-space-below))
 
 (provide 'evil-collection-unimpaired)
 ;;; evil-collection-unimpaired.el ends here
