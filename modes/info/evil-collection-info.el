@@ -53,7 +53,6 @@
     " " 'Info-scroll-up
     (kbd "C-]") 'Info-follow-nearest-node
     (kbd "DEL") 'Info-scroll-down
-    ;; Add "C-i" for consistency.
     (kbd "C-i") 'Info-history-forward
 
     "d" 'Info-directory
