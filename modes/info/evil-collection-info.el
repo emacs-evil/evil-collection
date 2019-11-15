@@ -70,14 +70,9 @@
 
     ;; TODO: Restore digit arguments?  Use g[n] instead.
 
-    ;; TODO: Should search with "n"/"N" cover the full manual like "C-s"/"C-r" does?
-    ;; TODO: Directions?
-    "n" (if (evil-collection-evil-search-enabled)
-            evil-collection-evil-search-next
-          'isearch-repeat-forward)
-    "N" (if (evil-collection-evil-search-enabled)
-            evil-collection-evil-search-previous
-          'isearch-repeat-backward)
+    ;; NOTE: We do NOT search the entire buffer, only the narrowed buffer.
+    "n" evil-collection-evil-search-next
+    "N" evil-collection-evil-search-previous
 
     ;; goto
     "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
@@ -97,7 +92,7 @@
     "gk" 'Info-prev
 
     "g?" 'Info-summary
-    "?" 'evil-ex-search-backward        ; Else this would be `Info-summary'.
+    "?" evil-collection-evil-search-backward  ; Else this would be `Info-summary'.
 
     ;; quit
     "q" 'Info-exit
