@@ -133,7 +133,6 @@
     "E" 'gnus-summary-mark-as-expirable
     (kbd "M-u") 'gnus-summary-clear-mark-forward
     (kbd "M-U") 'gnus-summary-clear-mark-backward
-    "k" 'gnus-summary-kill-same-subject-and-select
     (kbd "C-k") 'gnus-summary-kill-same-subject
     (kbd "M-C-k") 'gnus-summary-kill-thread
     (kbd "M-C-l") 'gnus-summary-lower-thread
