@@ -224,6 +224,7 @@ through removing their entry from `evil-collection-mode-list'."
     slime
     sly
     tablist
+    tar-mode
     (term term ansi-term multi-term)
     tetris
     tide
