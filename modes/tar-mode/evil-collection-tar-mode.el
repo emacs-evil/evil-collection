@@ -1,6 +1,6 @@
 ;;; evil-collection-tar-mode.el --- Evil bindings for tar-mode. -*- lexical-binding: t -*-
 
-;; Copyright (C) 2019 James Nguyen
+;; Copyright (C) 2019 Michael Arndt
 
 ;; Author: 0x28
 ;; Maintainer: James Nguyen <james@jojojames.com>
