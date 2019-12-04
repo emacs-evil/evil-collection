@@ -46,9 +46,9 @@
     "R"  'docker-container-restart
     "S"  'docker-container-start
     "a"  'docker-container-attach
-    "b"  'docker-container-shell
+    "b"  'docker-container-shells
     "d"  'docker-container-diff
-    "f"  'docker-container-find-file
+    "f"  'docker-container-open
     "r"  'docker-container-rename-selection)
 
   (evil-collection-define-key 'normal 'docker-image-mode-map
