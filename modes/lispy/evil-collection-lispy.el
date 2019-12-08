@@ -70,7 +70,7 @@
                   (and (lispy-bolp)
                        (or (looking-at lispy-outline-header)
                            (looking-at lispy-outline))))
-        (call-interactively #'sp-next-sexp)))))
+        (call-interactively #'lispy-down)))))
 
 (defun evil-collection-lispy-delete (arg)
   "Copy and delete current sexp.
