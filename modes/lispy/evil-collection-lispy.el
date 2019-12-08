@@ -110,7 +110,7 @@ Copy of `noc:lispy-delete'."
     (lispy-define-key map "j" 'lispy-down)
     (lispy-define-key map "k" 'lispy-up)
 
-    (lispy-define-key lispy-mode-map-special
+    (lispy-define-key map
         "d" (evil-collection-lispy-action-then-next-sexp
              'evil-collection-lispy-delete)) ;; `lispy-different' -> o
 
