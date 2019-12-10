@@ -40,7 +40,7 @@ Moving cursor backwards is the default vim behavior but
 it is not appropriate in some cases like terminals."
   (setq-local evil-move-cursor-back nil))
 
-(defun evil-collection-vterm-exit-function (buffer)
+(defun evil-collection-vterm-exit-function (buffer &optional event)
   "Automatically kill `vterm' buffer on exit."
   (when buffer
     (kill-buffer buffer)))
