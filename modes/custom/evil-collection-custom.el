@@ -39,7 +39,7 @@
 
   (evil-collection-define-key 'normal 'custom-mode-map
     ;; motion
-    (kbd "<tab>") 'widget-forward
+    (kbd "TAB") 'widget-forward
     (kbd "S-<tab>") 'widget-backward
     (kbd "<backtab>") 'widget-backward
     (kbd "SPC") 'scroll-up-command

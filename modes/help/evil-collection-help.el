@@ -43,11 +43,11 @@
     (kbd "S-SPC") 'scroll-down-command
     (kbd "C-f") 'scroll-up-command
     (kbd "C-b") 'scroll-down-command
-    (kbd "<tab>") 'forward-button
+    (kbd "TAB") 'forward-button
     (kbd "<backtab>") 'backward-button
 
     (kbd "C-o") 'help-go-back
-    (kbd "C-i") 'help-go-forward
+    (kbd "g TAB") 'help-go-forward
 
     ;; TODO: Enable more help-go-* bindings?
     ;; "gj" 'help-go-forward

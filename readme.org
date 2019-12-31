@@ -184,6 +184,15 @@ more.
       - ~@~, ~q~
       - ~.~
 
+   9. A keystroke should be bound to the same function in GUI and terminal
+
+      - Tab key is recognized as ~<tab>~ in GUI and ~TAB~ in terminal. ~TAB~ equals ~Ctrl+i~.
+      - Enter key is recognized as ~<return>~ in GUI and ~RET~ in terminal. ~RET~ equals ~Ctrl+m~.
+      - If ~<tab>~ is not bound, tab key is recognized as ~TAB~. Bind only ~TAB~, or bind ~<tab>~ and ~TAB~ to the same function.
+      - If ~<return>~ is not bound, enter key is recognized as ~RET~. Bind only ~RET~, or bind ~<return>~ and ~RET~ to the same function.
+      - Use ~g~ as a prefix for bindings that are displaced for compatibility with terminal. (e.g. Rebind ~TAB~ to ~g TAB~ and ~RET~ to ~g RET~)
+      - ...
+
 ** Rationale
 
    Many special modes share the same set of similar actions.  Those actions should

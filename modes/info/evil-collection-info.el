@@ -42,7 +42,7 @@
   (evil-collection-define-key 'normal 'Info-mode-map
     "l" 'evil-forward-char
     "h" 'evil-backward-char
-    (kbd "<tab>") 'Info-next-reference
+    (kbd "TAB") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
 
     ;; From evil-integration.el.
@@ -53,7 +53,7 @@
     " " 'Info-scroll-up
     (kbd "C-]") 'Info-follow-nearest-node
     (kbd "DEL") 'Info-scroll-down
-    (kbd "C-i") 'Info-history-forward
+    (kbd "g TAB") 'Info-history-forward
 
     "d" 'Info-directory
     "u" 'Info-up

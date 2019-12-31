@@ -134,7 +134,7 @@
     ;; open
     (kbd "RET") 'dired-find-file
     (kbd "S-<return>") 'dired-find-file-other-window
-    (kbd "M-<return>") 'dired-display-file
+    (kbd "M-RET") 'dired-display-file
     "gO" 'dired-find-file-other-window
     "go" 'dired-view-file
     ;; sort
