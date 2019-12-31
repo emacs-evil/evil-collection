@@ -46,8 +46,8 @@
     (kbd "TAB") 'forward-button
     (kbd "<backtab>") 'backward-button
 
-    (kbd "C-o") 'help-go-back
-    (kbd "g TAB") 'help-go-forward
+    (kbd "gh") 'help-go-back
+    (kbd "gl") 'help-go-forward
 
     ;; TODO: Enable more help-go-* bindings?
     ;; "gj" 'help-go-forward

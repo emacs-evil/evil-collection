@@ -49,11 +49,11 @@
     "0" 'evil-digit-argument-or-evil-beginning-of-line
     (kbd "M-h") 'Info-help              ; "h"
     (kbd "C-t") 'Info-history-back      ; "l"
-    (kbd "C-o") 'Info-history-back
+    (kbd "gh") 'Info-history-back
     " " 'Info-scroll-up
     (kbd "C-]") 'Info-follow-nearest-node
     (kbd "DEL") 'Info-scroll-down
-    (kbd "g TAB") 'Info-history-forward
+    (kbd "gl") 'Info-history-forward
 
     "d" 'Info-directory
     "u" 'Info-up
