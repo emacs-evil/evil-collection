@@ -202,6 +202,9 @@
 
     "zf" 'pdf-outline-follow-mode ; Helm has "C-c C-f" in Emacs state.
 
+    (kbd "<tab>") 'outline-toggle-children
+    (kbd "<backtab>") 'pdf-outline-toggle-subtree
+
     ;; quit
     (kbd "C-w q") 'pdf-outline-quit-and-kill ; TODO: Do we need to set this? I think not.
     "q" 'quit-window
