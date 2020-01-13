@@ -118,6 +118,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
   (evil-collection-define-key '(normal visual) 'cider-repl-mode-map
     ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
     "gz" 'cider-switch-to-last-clojure-buffer
+    (kbd "RET") 'cider-repl-return
 
     "gd" 'cider-find-var
     (kbd "C-t") 'cider-pop-back
