@@ -244,7 +244,8 @@ through removing their entry from `evil-collection-mode-list'."
     woman
     xref
     youtube-dl
-    (ztree ztree-diff))
+    (ztree ztree-diff)
+    xwidget)
   "List of modes supported by evil-collection. Elements are
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
