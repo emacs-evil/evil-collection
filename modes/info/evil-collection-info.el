@@ -44,6 +44,9 @@
     "h" 'evil-backward-char
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
+    ;; This exists because <tab> is recognized as C-i on terminals.
+    "g]" 'Info-next-reference
+    "g[" 'Info-prev-reference
 
     ;; From evil-integration.el.
     "0" 'evil-digit-argument-or-evil-beginning-of-line

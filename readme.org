@@ -121,9 +121,9 @@ more.
 
    The rules are more-or-less sorted by priority.
 
-   0. Don't bind anything to ~:~ nor ~<escape>~.
+   1. Don't bind anything to ~:~ nor ~<escape>~.
 
-   1. Keep the movement keys when possible and sensible.
+   2. Keep the movement keys when possible and sensible.
 
       - ~h~, ~j~, ~k~, ~l~
       - ~w~, ~W~, ~b~, ~B~, ~e~, ~E~, ~ge~, ~gE~
@@ -136,22 +136,22 @@ more.
       - ~+~, ~-~, ~0~, ~^~, ~$~
       - ~C-i~, ~C-o~
 
-   2. Keep the yanking and register keys when possible and sensible.
+   3. Keep the yanking and register keys when possible and sensible.
 
       - ~y~, ~Y~
       - ="=
 
-   3. Keep the search keys when possible and sensible.
+   4. Keep the search keys when possible and sensible.
 
       - ~/~, ~?~
       - ~#~, ~*~
 
-   4. Keep the mark keys when possible and sensible.
+   5. Keep the mark keys when possible and sensible.
 
       - ~m~
       - ='=, =~=
 
-   5. Keep the windowing keys when possible and sensible.
+   6. Keep the windowing keys when possible and sensible.
 
       - ~H~, ~L~, ~M~
       - ~C-e~, ~C-y~
@@ -160,7 +160,7 @@ more.
       - ~C-w~-prefixed bindings.
       - Some ~z~-prefixed bindings (see below).
 
-   6. The following keys are free when insert state does not make sense in the
+   7. The following keys are free when insert state does not make sense in the
       current mode:
 
       - ~a~, ~A~, ~i~, ~I~
@@ -174,15 +174,31 @@ more.
 
         Any of those keys can be set to be a prefix key.
 
-   7. Prefix keys: ~g~ and ~z~ are the ubiquitous prefix keys.
+   8. Prefix keys: ~g~ and ~z~ are the ubiquitous prefix keys.
 
       - ~g~ generally stands for "go" and is best used for movements.
       - ~z~ is used for scrolling, folding, spell-checking and more.
 
-   8. Macro and action keys
+   9. Macro and action keys
 
       - ~@~, ~q~
       - ~.~
+
+   10. Ensure terminal compatibility without sacrificing GUI key bindings.
+
+       - Tab key
+         - Tab key is recognized as ~<tab>~ in GUI and ~TAB~ in terminal.
+           ~TAB~ equals ~C-i~.
+         - Since ~C-i~ is bound to jumping forward for vim compatibility,
+           bind ~g[~ and ~g]~ to the functions that Shift+Tab and Tab
+           are bound to on GUI for terminal compatibility.
+       - Enter key
+         - Enter key is recognized as ~<return>~ in GUI and ~RET~ in terminal.
+           ~RET~ equals ~Ctrl+m~.
+         - Bind only ~RET~ and ~M-RET~. Or, bind ~RET~ and ~M-RET~ to the same
+           functions ~<return>~ and ~<M-return>~ are bound to.
+         - ~S-RET~ is impossible on terminal. Bind ~<S-return>~ and a vacant key
+           to the same function for terminal compatibility.
 
 ** Rationale
 
