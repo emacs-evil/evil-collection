@@ -30,7 +30,12 @@
 (require 'dired)
 (require 'evil-collection)
 
-(defconst evil-collection-dired-maps '(dired-mode-map))
+(defvar dired-filter-mark-map)
+(defvar dired-filter-map)
+
+(defconst evil-collection-dired-maps '(dired-mode-map
+                                       dired-filter-mark-map
+                                       dired-filter-map))
 
 ;;;###autoload
 (defun evil-collection-dired-setup ()
