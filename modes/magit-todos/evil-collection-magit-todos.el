@@ -31,6 +31,7 @@
 (require 'magit-todos nil t)
 
 (defconst evil-collection-magit-todos-maps '(magit-todos-section-map
+                                             magit-todos-item-section-map
                                              magit-status-mode-map))
 
 (defun evil-collection-magit-todos-setup-jump-key ()
@@ -44,6 +45,9 @@
   "Set up `evil' bindings for `magit-todos'."
   ;; magit-todos binds jT which prevents evil users from stepping into the section
   (evil-collection-define-key nil 'magit-todos-section-map
+    "j" nil)
+
+  (evil-collection-define-key nil 'magit-todos-item-section-map
     "j" nil)
 
   (add-hook 'magit-todos-mode-hook 'evil-collection-magit-todos-setup-jump-key))
