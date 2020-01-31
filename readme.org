@@ -190,8 +190,8 @@ more.
          - Tab key is recognized as ~<tab>~ in GUI and ~TAB~ in terminal.
            ~TAB~ equals ~C-i~.
          - Since ~C-i~ is bound to jumping forward for vim compatibility,
-           bind ~g[~ and ~g]~ to the functions that Shift+Tab and Tab
-           are bound to on GUI for terminal compatibility.
+           bind ~g TAB~ to the function that ~<tab>~ is bound to for
+           terminal compatibility.
        - Enter key
          - Enter key is recognized as ~<return>~ in GUI and ~RET~ in terminal.
            ~RET~ equals ~Ctrl+m~.

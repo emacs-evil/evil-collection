@@ -44,10 +44,8 @@
     (kbd "C-f") 'scroll-up-command
     (kbd "C-b") 'scroll-down-command
     (kbd "<tab>") 'forward-button
+    (kbd "g TAB") 'forward-button
     (kbd "<backtab>") 'backward-button
-    ;; This exists because <tab> is recognized as C-i on terminals.
-    "g]" 'forward-button
-    "g[" 'backward-button
 
     (kbd "C-o") 'help-go-back
     (kbd "C-i") 'help-go-forward
