@@ -128,6 +128,7 @@ through removing their entry from `evil-collection-mode-list'."
     compile
     (custom cus-edit)
     cus-theme
+    dashboard
     daemons
     deadgrep
     debbugs
