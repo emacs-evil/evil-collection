@@ -40,6 +40,7 @@
     ;; motion
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
+    (kbd "RET") 'helpful-visit-reference
 
     ;; The following bindings don't do what they are supposed to. "go" should open
     ;; in the same window and "gO" should open in a different one.
