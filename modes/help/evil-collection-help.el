@@ -46,6 +46,7 @@
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
     ;; This exists because <tab> is recognized as C-i on terminals.
+    (kbd "g TAB") 'forward-button
     "g]" 'forward-button
     "g[" 'backward-button
 
