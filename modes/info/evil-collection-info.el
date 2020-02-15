@@ -45,6 +45,7 @@
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
     ;; This exists because <tab> is recognized as C-i on terminals.
+    (kbd "g TAB") 'Info-next-reference
     "g]" 'Info-next-reference
     "g[" 'Info-prev-reference
 
