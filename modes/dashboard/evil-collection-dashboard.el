@@ -28,7 +28,7 @@
 ;;; Code:
 
 (require 'evil-collection)
-(require 'dashboard)
+(require 'dashboard nil t)
 
 (defconst evil-collection-dashboard-maps '(dashboard-mode-map))
 

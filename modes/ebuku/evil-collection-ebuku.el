@@ -28,8 +28,8 @@
 
 ;;; Code:
 
-(require 'ebuku)
 (require 'evil-collection)
+(require 'ebuku nil t)
 
 
 ;;;###autoload
