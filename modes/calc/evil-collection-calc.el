@@ -71,7 +71,7 @@
     (kbd "M-m t") 'calc-total-algebraic-mode
     (kbd "<delete>") 'calc-pop
     (kbd "<mouse-2>") 'calc-yank
-    "x" 'calc-pop ; was "C-d".  TODO: Conflicts with calc-execute-extended-command.
+    (kbd "<backspace>") 'calc-pop ; was "C-d".
     "d" 'calc-kill                      ; was "C-k"
     "u" 'calc-undo                      ; was "U"
     "X" 'calc-call-last-kbd-macro       ; "@" is already used.
@@ -136,7 +136,7 @@
     "n" 'calc-change-sign
     "o" 'calc-realign
     "w" 'calc-why
-    "x" 'calc-execute-extended-command ; TODO: Conflicts with calc-pop.
+    "x" 'calc-execute-extended-command
     "|" 'calc-concat
     "{" 'calc-scroll-down               ; TODO: Not necessary?
     "}" 'calc-scroll-up                 ; TODO: Not necessary?
