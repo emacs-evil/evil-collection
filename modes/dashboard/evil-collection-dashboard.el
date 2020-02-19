@@ -30,6 +30,8 @@
 (require 'evil-collection)
 (require 'dashboard nil t)
 
+(defvar dashboard-mode-map)
+
 (defconst evil-collection-dashboard-maps '(dashboard-mode-map))
 
 (defun evil-collection-dashboard-setup-jump-commands ()
