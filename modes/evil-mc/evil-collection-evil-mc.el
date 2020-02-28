@@ -31,15 +31,13 @@
 (require 'evil-mc nil t)
 (eval-when-compile (require 'subr-x)) ; `if-let*' and `when-let*'
 
-(defvar evil-mc-map)
-(defconst evil-collection-evil-mc-maps '(evil-mc-mode-map))
+(defvar evil-mc-key-map)
+(defconst evil-collection-evil-mc-maps '(evil-mc-key-map))
 
 (defun evil-collection-evil-mc-clear-keymap (&rest _args)
   "Brute force remove `evil-mc-key-map' from `evil-mode-map-alist'."
-  (evil-collection-when-let*
-      ((evil-mc-map (assq 'evil-mc-mode evil-mode-map-alist)))
-    (setq evil-mode-map-alist
-          (delq evil-mc-map evil-mode-map-alist))))
+  (evil-collection-when-let* ((map (assq 'evil-mc-mode evil-mode-map-alist)))
+    (setq evil-mode-map-alist (delq map evil-mode-map-alist))))
 
 ;;;###autoload
 (defun evil-collection-evil-mc-setup ()
@@ -51,6 +49,9 @@
   ;; details.
   (advice-add 'evil-normalize-keymaps
               :after 'evil-collection-evil-mc-clear-keymap)
+
+  (setq evil-mc-key-map (make-sparse-keymap))
+  (evil-define-key* '(normal visual) evil-mc-key-map (kbd "gz") evil-mc-cursors-map)
 
   ;; https://github.com/gabesoft/evil-mc/issues/70
   (add-hook 'evil-mc-after-cursors-deleted
