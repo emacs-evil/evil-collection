@@ -39,6 +39,7 @@
 (defun evil-collection-eww-setup ()
   "Set up `evil' bindings for `eww'."
 
+  (evil-set-initial-state 'eww-mode 'normal)
   (evil-collection-define-key 'normal 'eww-mode-map
     "^" 'eww-up-url
     "u" 'eww-up-url
