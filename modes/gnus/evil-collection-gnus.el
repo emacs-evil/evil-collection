@@ -233,8 +233,8 @@
     "a"         'gnus-server-add-server
     "y"         'gnus-server-copy-server
     "e"         'gnus-server-edit-server
-    "g"         'gnus-server-regenerate-server
-    "h"         'describe-mode
+    "gr"        'gnus-server-regenerate-server
+    "g?"        'describe-mode
     "i"         'gnus-server-toggle-cloud-server
     "d"         'gnus-server-kill-server
     "L"         'gnus-server-list-servers
