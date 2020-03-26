@@ -31,18 +31,15 @@
 (require 'evil-collection)
 
 (defconst evil-collection-gnus-maps '(gnus-summary-mode-map
-                                      gnus-article-mode-map))
+                                      gnus-article-mode-map
+                                      gnus-group-mode-map
+                                      gnus-server-mode-map
+                                      gnus-browse-mode-map))
 
 ;;;###autoload
 (defun evil-collection-gnus-setup ()
   "Set up `evil' bindings for `gnus'."
   (evil-set-initial-state 'gnus-summary-mode 'normal)
-  (when evil-want-C-u-scroll
-    (evil-collection-define-key 'normal 'gnus-summary-mode-map
-      (kbd "C-u") 'gnus-summary-scroll-up))
-  (when evil-want-C-d-scroll
-    (evil-collection-define-key 'normal 'gnus-summary-mode-map
-      (kbd "C-d") 'gnus-summary-scroll-down))
   (evil-define-key 'normal gnus-summary-mode-map
     ;; motion
     (kbd "<tab>") 'gnus-summary-widget-forward
@@ -56,12 +53,13 @@
     (kbd "C-j") 'gnus-summary-next-article
     (kbd "C-k") 'gnus-summary-prev-article
 
-    ;; TODO: Is this getting in the way of regular "hjkl"?
-    ;; "j" 'gnus-summary-next-unread-article
-    ;; "k" 'gnus-summary-prev-unread-article
 
+    ;; Marking
     "m" 'gnus-summary-mark-as-processable
-    "M" 'gnus-summary-unmark-as-processable
+    "M" 'gnus-summary-put-mark-as-read
+    "u" 'gnus-summary-clear-mark-forward
+    "U" 'gnus-summary-clear-mark-backward
+
     "!" 'gnus-summary-execute-command
     "|" 'gnus-summary-pipe-output
 
@@ -75,12 +73,8 @@
     "z/" 'gnus-summary-limit-map
     "zd" 'gnus-summary-mark-as-dormant
     "zt" 'gnus-summary-toggle-header
-    "u" 'gnus-summary-tick-article-forward
-    "U" 'gnus-summary-tick-article-backward
     "x" 'gnus-summary-limit-to-unread
 
-    "gg" 'gnus-summary-beginning-of-article
-    "G" 'gnus-summary-end-of-article
     "J" 'gnus-summary-goto-article
 
     "r" 'gnus-summary-reply
@@ -146,7 +140,6 @@
     (kbd "M-C-u") 'gnus-summary-up-thread
     (kbd "M-C-d") 'gnus-summary-down-thread
     "c" 'gnus-summary-catchup-and-exit
-    (kbd "C-w") 'gnus-summary-mark-region-as-read
     (kbd "C-t") 'toggle-truncate-lines
     (kbd "C-c M-C-s") 'gnus-summary-limit-include-expunged
     "=" 'gnus-summary-expand-window
@@ -192,7 +185,75 @@
 
   (evil-set-initial-state 'gnus-article-mode 'normal)
   (evil-define-key 'normal gnus-article-mode-map
-    "q" 'evil-window-delete))
+    "r" 'gnus-summary-reply
+    "R" 'gnus-summary-reply-with-original
+    "q" 'evil-window-delete)
+
+  (evil-set-initial-state 'gnus-group-mode 'normal)
+  (evil-define-key 'normal gnus-group-mode-map
+
+    ;; quit
+    "q"  'gnus-group-exit
+    "ZZ" 'gnus-group-exit
+    "ZQ" 'gnus-group-quit
+
+    "x" 'gnus-group-kill-group
+    "p" 'gnus-group-yank-group
+
+    ; Marking
+    "m" 'gnus-group-mark-group
+    "u" 'gnus-group-unmark-group
+    "U" 'gnus-group-unmark-all-groups
+    "M" 'gnus-group-mark-buffer
+    "*" 'gnus-group-mark-buffer
+    "%" 'gnus-group-mark-regexp
+
+    ; Searching
+    "s" 'gnus-group-apropos
+    "S" 'gnus-group-description-apropos
+
+    "^" 'gnus-group-enter-server-mode
+
+    (kbd "RET") 'gnus-group-select-group
+    "g?" 'gnus-group-help-map
+    "a" 'gnus-group-mail)
+
+  (evil-set-initial-state 'gnus-server-mode 'normal)
+  (evil-define-key 'normal gnus-server-mode-map
+    (kbd "RET") 'gnus-server-read-server
+    (kbd "SPC") 'gnus-server-read-server-in-server-buffer
+    "C"         'gnus-server-close-server
+    "D"         'gnus-server-deny-server
+    "G"         'gnus-group-make-nnir-group
+    "I"         'gnus-server-set-cloud-method-server
+    "L"         'gnus-server-offline-server
+    "O"         'gnus-server-open-server
+    "R"         'gnus-server-remove-denials
+    "S"         'gnus-server-show-server
+    "a"         'gnus-server-add-server
+    "y"         'gnus-server-copy-server
+    "e"         'gnus-server-edit-server
+    "g"         'gnus-server-regenerate-server
+    "h"         'describe-mode
+    "i"         'gnus-server-toggle-cloud-server
+    "d"         'gnus-server-kill-server
+    "L"         'gnus-server-list-servers
+    "s"         'gnus-server-scan-server
+    "p"         'gnus-server-yank-server
+    "z"         'gnus-server-compact-server
+    "M-c"       'gnus-server-close-all-servers
+    "M-o"       'gnus-server-open-all-servers
+    "q"         'gnus-server-exit
+    "ZZ"        'gnus-server-exit
+    "ZQ"        'gnus-server-exit)
+
+  (evil-set-initial-state 'gnus-browse-mode 'normal)
+  (evil-define-key 'normal gnus-browse-mode-map
+    "u" 'gnus-browse-unsubscribe-current-group
+    (kbd "SPC") 'gnus-browse-read-group
+    "q"         'gnus-browse-exit
+    "ZZ"        'gnus-browse-exit
+    "ZQ"        'gnus-browse-exit))
 
 (provide 'evil-collection-gnus)
 ;;; evil-collection-gnus.el ends here
