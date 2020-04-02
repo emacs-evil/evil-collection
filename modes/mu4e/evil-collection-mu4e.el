@@ -330,9 +330,10 @@ keybindings."
   "Initialize evil-mu4e if necessary.
 If mu4e-main-mode is in evil-state-motion-modes, initialization
 is already done earlier."
-    (evil-collection-mu4e-set-state)
-    (evil-collection-mu4e-set-bindings)
-    (add-hook 'mu4e-main-mode-hook 'evil-collection-mu4e-update-main-view))
+  (evil-collection-mu4e-set-state)
+  (evil-collection-mu4e-set-bindings)
+  (advice-add 'mu4e~main-redraw-buffer :after 'evil-collection-mu4e-update-main-view))
+
 
 (provide 'evil-collection-mu4e)
 ;;; evil-collection-mu4e.el ends here
