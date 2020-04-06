@@ -31,7 +31,8 @@
 (require 'restclient nil t)
 
 (defconst evil-collection-restclient-maps
-  '(evil-collection-restclient-mode-map))
+  '(evil-collection-restclient-mode-map
+    restclient-mode-map))
 
 (defvar evil-collection-restclient-mode-map (make-sparse-keymap))
 
@@ -49,6 +50,9 @@
 ;;;###autoload
 (defun evil-collection-restclient-setup ()
   "Set up `evil' bindings for `restclient'."
+  (evil-collection-define-key 'normal 'restclient-mode-map
+    "[[" 'restclient-jump-prev
+    "]]" 'restclient-jump-next)
   ;; Enable a separate minor mode so that we can bind keys to it.
   (evil-collection-define-key 'normal 'evil-collection-restclient-mode-map
     "q" 'quit-window)
