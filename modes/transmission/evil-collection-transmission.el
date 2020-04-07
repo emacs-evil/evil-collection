@@ -126,6 +126,12 @@
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
 
+  (evil-collection-define-key 'visual 'transmission-files-mode-map
+    "r" 'transmission-move
+    "P" 'transmission-files-priority
+    "u" 'transmission-files-unwant
+    "m" 'transmission-files-want)
+
   (evil-collection-inhibit-insert-state 'transmission-info-mode-map)
   (evil-set-initial-state 'transmission-info-mode 'normal)
   (evil-collection-define-key 'normal 'transmission-info-mode-map
