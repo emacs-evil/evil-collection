@@ -78,12 +78,13 @@
 (defun evil-collection-unimpaired-insert-space-above (count)
   "Insert space above current line"
   (interactive "p")
-  (dotimes (_ count) (save-excursion (evil-insert-newline-above))))
+  (save-excursion (dotimes (_ count) (evil-insert-newline-above)))
+  (when (bolp) (forward-char count)))
 
 (defun evil-collection-unimpaired-insert-space-below (count)
   "Insert space below current line"
   (interactive "p")
-  (dotimes (_ count) (save-excursion (evil-insert-newline-below))))
+  (save-excursion (dotimes (_ count) (evil-insert-newline-below))))
 
 ;;;###autoload
 (defun evil-collection-unimpaired-setup ()
