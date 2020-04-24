@@ -102,6 +102,10 @@
     "ZQ" 'evil-quit
     "ZZ" 'Info-exit)
 
+  (evil-collection-define-key 'visual 'Info-mode-map
+    "l" 'evil-forward-char
+    "h" 'evil-backward-char)
+
   (evil-collection-define-key 'operator 'Info-mode-map
     "u" '(menu-item                     ; Like eww.
           ""
