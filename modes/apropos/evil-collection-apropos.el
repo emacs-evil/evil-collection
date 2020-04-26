@@ -38,6 +38,8 @@
   (evil-set-initial-state 'apropos-mode 'normal)
   (evil-collection-define-key 'normal 'apropos-mode-map
     (kbd "RET") 'apropos-follow
+    (kbd "TAB") 'forward-button
+    (kbd "S-TAB") 'backward-button
     "g?" 'describe-mode
     "gr" 'revert-buffer
 
