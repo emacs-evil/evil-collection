@@ -1,4 +1,4 @@
-;;; evil-collection-cus-theme.el --- Bindings for `cus-theme'. -*- lexical-binding: t -*-
+;;; evil-collection-cus-theme.el --- Bindings for `cus-theme' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

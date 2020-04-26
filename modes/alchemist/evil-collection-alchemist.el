@@ -1,4 +1,4 @@
-;;; evil-collection-alchemist.el --- Bindings for `alchemist'. -*- lexical-binding: t -*-
+;;; evil-collection-alchemist.el --- Bindings for `alchemist' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

@@ -1,4 +1,4 @@
-;;; evil-collection-kotlin-mode.el --- Bindings for `kotlin-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-kotlin-mode.el --- Bindings for `kotlin-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

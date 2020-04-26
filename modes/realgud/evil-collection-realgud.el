@@ -1,4 +1,4 @@
-;;; evil-collection-realgud.el --- Bindings for `realgud'. -*- lexical-binding: t -*-
+;;; evil-collection-realgud.el --- Bindings for `realgud' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

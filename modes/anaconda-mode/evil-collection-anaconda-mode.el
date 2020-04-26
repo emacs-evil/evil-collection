@@ -1,4 +1,4 @@
-;;; evil-collection-anaconda-mode.el --- Bindings for `anaconda-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-anaconda-mode.el --- Bindings for `anaconda-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

@@ -1,4 +1,4 @@
-;;; evil-collection-robe.el --- Bindings for `robe'. -*- lexical-binding: t -*-
+;;; evil-collection-robe.el --- Bindings for `robe' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

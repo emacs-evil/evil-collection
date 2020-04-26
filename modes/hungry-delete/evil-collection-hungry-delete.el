@@ -1,4 +1,4 @@
-;;; evil-collection-hungry-delete.el --- Bindings for `hungry-delete'. -*- lexical-binding: t -*-
+;;; evil-collection-hungry-delete.el --- Bindings for `hungry-delete' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 

@@ -1,4 +1,4 @@
-;;; evil-collection-reftex.el --- Bindings for `reftex'. -*- lexical-binding: t -*-
+;;; evil-collection-reftex.el --- Bindings for `reftex' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Pierre Neidhardt
 

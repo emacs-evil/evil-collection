@@ -1,4 +1,4 @@
-;;; evil-collection-racer.el --- Bindings for `racer'. -*- lexical-binding: t -*-
+;;; evil-collection-racer.el --- Bindings for `racer' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

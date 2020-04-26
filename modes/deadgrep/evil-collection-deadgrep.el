@@ -1,4 +1,4 @@
-;;; evil-collection-deadgrep.el --- Bindings for deadgrep. -*- lexical-binding: t -*-
+;;; evil-collection-deadgrep.el --- Bindings for deadgrep -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2018 James Nguyen
 

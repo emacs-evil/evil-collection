@@ -1,4 +1,4 @@
-;;; evil-collection-leetcode.el --- Bindings for `leetcode'. -*- lexical-binding: t -*-
+;;; evil-collection-leetcode.el --- Bindings for `leetcode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 

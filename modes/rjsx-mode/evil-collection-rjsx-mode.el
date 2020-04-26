@@ -1,4 +1,4 @@
-;;; evil-collection-rjsx-mode.el --- Bindings for `rjsx-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-rjsx-mode.el --- Bindings for `rjsx-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

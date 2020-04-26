@@ -1,4 +1,4 @@
-;;; evil-collection-arc-mode.el --- Evil bindings for arc-mode. -*- lexical-binding: t -*-
+;;; evil-collection-arc-mode.el --- Evil bindings for arc-mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

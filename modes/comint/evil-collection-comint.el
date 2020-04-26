@@ -1,4 +1,4 @@
-;;; evil-collection-comint.el --- Bindings for `comint-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-comint.el --- Bindings for `comint-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

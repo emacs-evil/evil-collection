@@ -1,4 +1,4 @@
-;;; evil-collection-hg-histedit.el --- Bindings for `hg-histedit'. -*- lexical-binding: t -*-
+;;; evil-collection-hg-histedit.el --- Bindings for `hg-histedit' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 

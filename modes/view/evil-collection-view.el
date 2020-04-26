@@ -1,4 +1,4 @@
-;;; evil-collection-view.el --- Evil bindings for view. -*- lexical-binding: t -*-
+;;; evil-collection-view.el --- Evil bindings for view -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2018 Pierre Neidhardt
 

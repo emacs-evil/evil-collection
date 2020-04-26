@@ -1,4 +1,4 @@
-;;; evil-collection-ruby-mode.el --- Bindings for `ruby-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-ruby-mode.el --- Bindings for `ruby-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

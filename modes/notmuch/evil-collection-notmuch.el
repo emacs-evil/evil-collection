@@ -1,4 +1,4 @@
-;;; evil-collection-notmuch.el --- Bindings for `notmuch'. -*- lexical-binding: t -*-
+;;; evil-collection-notmuch.el --- Bindings for `notmuch' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

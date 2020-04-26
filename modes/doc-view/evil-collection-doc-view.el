@@ -1,4 +1,4 @@
-;;; evil-collection-doc-view.el --- Evil bindings for docview. -*- lexical-binding: t -*-
+;;; evil-collection-doc-view.el --- Evil bindings for docview -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

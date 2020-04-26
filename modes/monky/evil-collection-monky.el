@@ -1,4 +1,4 @@
-;;; evil-collection-monky.el --- Bindings for `monky'. -*- lexical-binding: t -*-
+;;; evil-collection-monky.el --- Bindings for `monky' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 
