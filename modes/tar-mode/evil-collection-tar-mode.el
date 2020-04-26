@@ -1,4 +1,4 @@
-;;; evil-collection-tar-mode.el --- Evil bindings for tar-mode. -*- lexical-binding: t -*-
+;;; evil-collection-tar-mode.el --- Evil bindings for tar-mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Michael Arndt
 

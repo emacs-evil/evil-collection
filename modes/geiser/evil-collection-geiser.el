@@ -1,4 +1,4 @@
-;;; evil-collection-geiser.el --- Bindings for `geiser'. -*- lexical-binding: t -*-
+;;; evil-collection-geiser.el --- Bindings for `geiser' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

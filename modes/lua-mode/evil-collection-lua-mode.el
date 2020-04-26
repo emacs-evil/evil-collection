@@ -1,4 +1,4 @@
-;;; evil-collection-lua-mode.el --- Bindings for `lua-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-lua-mode.el --- Bindings for `lua-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

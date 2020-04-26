@@ -1,4 +1,4 @@
-;;; evil-collection-python.el --- Bindings for `python'. -*- lexical-binding: t -*-
+;;; evil-collection-python.el --- Bindings for `python' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

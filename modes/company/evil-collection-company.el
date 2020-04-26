@@ -1,4 +1,4 @@
-;;; evil-collection-company.el --- Bindings for `company-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-company.el --- Bindings for `company-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

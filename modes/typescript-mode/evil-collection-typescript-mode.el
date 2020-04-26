@@ -1,4 +1,4 @@
-;;; evil-collection-typescript-mode.el --- Bindings for `typescript-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-typescript-mode.el --- Bindings for `typescript-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

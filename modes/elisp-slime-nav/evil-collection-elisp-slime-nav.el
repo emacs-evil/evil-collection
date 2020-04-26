@@ -1,4 +1,4 @@
-;;; evil-collection-elisp-slime-nav.el --- Bindings for `elisp-slime-nav'. -*- lexical-binding: t -*-
+;;; evil-collection-elisp-slime-nav.el --- Bindings for `elisp-slime-nav' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 

@@ -1,4 +1,4 @@
-;;; evil-collection-tide.el --- Bindings for `tide-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-tide.el --- Bindings for `tide-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

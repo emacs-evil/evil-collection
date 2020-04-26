@@ -1,4 +1,4 @@
-;;; evil-collection-buff-menu.el --- Bindings for `buff-menu'. -*- lexical-binding: t -*-
+;;; evil-collection-buff-menu.el --- Bindings for `buff-menu' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

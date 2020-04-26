@@ -1,4 +1,4 @@
-;;; evil-collection-indium.el --- Bindings for `indium'. -*- lexical-binding: t -*-
+;;; evil-collection-indium.el --- Bindings for `indium' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

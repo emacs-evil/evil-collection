@@ -1,4 +1,4 @@
-;;; evil-collection-eglot.el --- Bindings for `eglot'. -*- lexical-binding: t -*-
+;;; evil-collection-eglot.el --- Bindings for `eglot' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2018 James Nguyen
 

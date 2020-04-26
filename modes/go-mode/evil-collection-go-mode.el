@@ -1,4 +1,4 @@
-;;; evil-collection-go-mode.el --- Bindings for `go-mode'. -*- lexical-binding: t -*-
+;;; evil-collection-go-mode.el --- Bindings for `go-mode' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

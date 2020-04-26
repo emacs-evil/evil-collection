@@ -1,4 +1,4 @@
-;;; evil-collection-rtags.el --- Evil bindings for `rtags'. -*- lexical-binding: t -*-
+;;; evil-collection-rtags.el --- Evil bindings for `rtags' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

@@ -1,4 +1,4 @@
-;;; evil-collection-gnus.el --- Bindings for `gnus'. -*- lexical-binding: t -*-
+;;; evil-collection-gnus.el --- Bindings for `gnus' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 Pierre Neidhardt
 

@@ -1,4 +1,4 @@
-;;; evil-collection-eval-sexp-fu.el --- Bindings for `eval-sexp-fu'. -*- lexical-binding: t -*-
+;;; evil-collection-eval-sexp-fu.el --- Bindings for `eval-sexp-fu' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

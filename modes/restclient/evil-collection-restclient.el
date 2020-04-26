@@ -1,4 +1,4 @@
-;;; evil-collection-restclient.el --- Bindings for `restclient'. -*- lexical-binding: t -*-
+;;; evil-collection-restclient.el --- Bindings for `restclient' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2018 James Nguyen
 

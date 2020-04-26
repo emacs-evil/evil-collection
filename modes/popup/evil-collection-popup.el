@@ -1,4 +1,4 @@
-;;; evil-collection-popup.el --- Bindings for `popup'. -*- lexical-binding: t -*-
+;;; evil-collection-popup.el --- Bindings for `popup' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

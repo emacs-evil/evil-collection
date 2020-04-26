@@ -1,4 +1,4 @@
-;;; evil-collection-quickrun.el --- Bindings for `quickrun'. -*- lexical-binding: t -*-
+;;; evil-collection-quickrun.el --- Bindings for `quickrun' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

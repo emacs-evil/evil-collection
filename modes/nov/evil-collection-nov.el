@@ -1,4 +1,4 @@
-;;; evil-collection-nov.el --- Bindings for `nov'. -*- lexical-binding: t -*-
+;;; evil-collection-nov.el --- Bindings for `nov' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 James Nguyen
 

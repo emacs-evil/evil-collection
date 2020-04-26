@@ -1,4 +1,4 @@
-;;; evil-collection-vterm.el --- Bindings for `vterm'. -*- lexical-binding: t -*-
+;;; evil-collection-vterm.el --- Bindings for `vterm' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
 

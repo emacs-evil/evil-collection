@@ -60,8 +60,7 @@
       (kbd "C-d") 'xwidget-webkit-scroll-up))
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
-      (kbd "C-u") 'xwidget-webkit-scroll-down))
-  )
+      (kbd "C-u") 'xwidget-webkit-scroll-down)))
 
 (provide 'evil-collection-xwidget)
 ;;; evil-collection-xwidget.el ends here
