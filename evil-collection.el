@@ -230,6 +230,7 @@ through removing their entry from `evil-collection-mode-list'."
     tetris
     tide
     transmission
+    trashed
     typescript-mode
     vc-annotate
     vc-dir
