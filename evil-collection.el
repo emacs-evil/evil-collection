@@ -175,6 +175,7 @@ through removing their entry from `evil-collection-mode-list'."
     image
     image-dired
     image+
+    imenu
     imenu-list
     indium
     info
