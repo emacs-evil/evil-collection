@@ -145,7 +145,7 @@
      "m" mu4e-headers-mark-for-move
      "r" mu4e-headers-mark-for-refile
      "D" mu4e-headers-mark-for-delete
-     "d" mu4e-headers-mark-for-trash
+     "d" mu4e-headers-mark-or-move-to-trash
      "=" mu4e-headers-mark-for-untrash
      "u" mu4e-headers-mark-for-unmark
      "U" mu4e-mark-unmark-all
@@ -208,7 +208,7 @@
      "m" mu4e-view-mark-for-move
      "r" mu4e-view-mark-for-refile
      "D" mu4e-view-mark-for-delete
-     "d" mu4e-view-mark-for-trash
+     "d" mu4e-view-mark-or-move-to-trash
      "=" mu4e-view-mark-for-untrash
      "u" mu4e-view-unmark
      "U" mu4e-view-unmark-all
