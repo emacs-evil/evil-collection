@@ -76,16 +76,20 @@
   (interactive "P")
   (if page
       (pdf-view-goto-page page)
-    (pdf-view-last-page)
-    (image-eob)))
+    (let ((hscroll (window-hscroll)))
+      (pdf-view-last-page)
+      (image-eob)
+      (image-set-window-hscroll hscroll))))
 
 (defun evil-collection-pdf-view-goto-first-page (&optional page)
   "`evil' wrapper around `pdf-view-first-page'."
   (interactive "P")
   (if page
       (pdf-view-goto-page page)
-    (pdf-view-first-page)
-    (image-bob)))
+    (let ((hscroll (window-hscroll)))
+      (pdf-view-first-page)
+      (image-bob)
+      (image-set-window-hscroll hscroll))))
 
 ;;;###autoload
 (defun evil-collection-pdf-setup ()
