@@ -106,6 +106,8 @@
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
     (kbd "C-f") 'pdf-view-scroll-up-or-next-page
     (kbd "C-b") 'pdf-view-scroll-down-or-previous-page
+    (kbd "C-d") 'pdf-view-scroll-up-or-next-page
+    (kbd "C-u") 'pdf-view-scroll-down-or-previous-page
     "]]" 'pdf-view-next-page-command
     "[[" 'pdf-view-previous-page-command
     (kbd "C-j") 'pdf-view-next-page-command
