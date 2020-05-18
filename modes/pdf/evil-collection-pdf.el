@@ -180,6 +180,14 @@
     "ZQ" 'kill-this-buffer
     "ZZ" 'quit-window)
 
+
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'pdf-view-mode-map
+      (kbd "C-d") 'pdf-view-scroll-up-or-next-page))
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'pdf-view-mode-map
+      (kbd "C-u") 'pdf-view-scroll-down-or-previous-page))
+
   (evil-collection-define-key 'visual 'pdf-view-mode-map
     "y" 'pdf-view-kill-ring-save)
 
