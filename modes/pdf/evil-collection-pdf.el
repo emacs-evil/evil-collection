@@ -106,8 +106,6 @@
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
     (kbd "C-f") 'pdf-view-scroll-up-or-next-page
     (kbd "C-b") 'pdf-view-scroll-down-or-previous-page
-    (kbd "C-d") 'pdf-view-scroll-up-or-next-page
-    (kbd "C-u") 'pdf-view-scroll-down-or-previous-page
     "]]" 'pdf-view-next-page-command
     "[[" 'pdf-view-previous-page-command
     (kbd "C-j") 'pdf-view-next-page-command
@@ -187,6 +185,14 @@
     "Q" 'kill-this-buffer
     "ZQ" 'kill-this-buffer
     "ZZ" 'quit-window)
+
+
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'pdf-view-mode-map
+      (kbd "C-d") 'pdf-view-scroll-up-or-next-page))
+  (when evil-want-C-d-scroll
+    (evil-collection-define-key 'normal 'pdf-view-mode-map
+      (kbd "C-u") 'pdf-view-scroll-down-or-previous-page))
 
   (evil-collection-define-key 'visual 'pdf-view-mode-map
     "y" 'pdf-view-kill-ring-save)
