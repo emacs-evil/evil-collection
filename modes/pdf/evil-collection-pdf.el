@@ -132,14 +132,8 @@
     "0" 'pdf-view-scale-reset
     "z0" 'pdf-view-scale-reset
 
-    ;; TODO: Why are those image-* bindings in pdf-tools?
-    "a+" 'image-increase-speed
-    "a-" 'image-decrease-speed
-    "a0" 'image-reset-speed
-    "ar" 'image-reverse-speed
-    "F" 'image-goto-frame
-    "b" 'image-previous-frame
-    "f" 'image-next-frame
+    "f" 'pdf-links-isearch-link
+    "F" 'pdf-links-action-perform
     "h" 'image-backward-hscroll
     "^" 'image-bol
     "$" 'image-eol
