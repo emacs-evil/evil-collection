@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'bm)
+(require 'bm nil t)
 
 ;;;###autoload
 (defun evil-collection-bm-setup ()
