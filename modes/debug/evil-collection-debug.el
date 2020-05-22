@@ -42,9 +42,9 @@
     ;; motion
     (kbd "<tab>") 'forward-button
     (kbd "S-<tab>") 'backward-button
-    (kbd "RET") (if (< emacs-major-version 27)
-                         'debug-help-follow
-                       'backtrace-help-follow-symbol)
+    (kbd "RET") (if (fboundp 'debug-help-follow)
+                    'debug-help-follow
+                  'backtrace-help-follow-symbol)
     (kbd "SPC") 'next-line
 
     "R" 'debugger-record-expression
@@ -60,8 +60,12 @@
     "gb" 'debugger-frame
     "r" 'debugger-return-value
     "u" 'debugger-frame-clear
-    "L" 'debugger-toggle-locals
-    "p" 'debugger-toggle-locals
+    "L" (if (fboundp 'debugger-toggle-locals)
+            'debugger-toggle-locals
+          'backtrace-toggle-locals)
+    "p" (if (fboundp 'debugger-toggle-locals)
+            'debugger-toggle-locals
+          'backtrace-toggle-locals)
 
     ;; quit
     "q" 'top-level
