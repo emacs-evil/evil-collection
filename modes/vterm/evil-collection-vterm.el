@@ -1,6 +1,7 @@
 ;;; evil-collection-vterm.el --- Bindings for `vterm' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2019 James Nguyen
+;; Copyright (C) 2020 Alex Griffin <a@ajgrf.com>
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -99,9 +100,12 @@ also uses `evil-mode'."
     (kbd "C-v") 'vterm--self-insert     ; Should not be necessary.
     (kbd "C-w") 'vterm--self-insert
     (kbd "C-y") 'vterm--self-insert
-    (kbd "C-z") 'vterm--self-insert)
+    (kbd "C-z") 'vterm--self-insert
+    (kbd "<delete>") 'vterm-send-delete)
 
   (evil-collection-define-key 'normal 'vterm-mode-map
+    "[[" 'vterm-previous-prompt
+    "]]" 'vterm-next-prompt
     "p" 'vterm-yank
     "u" 'vterm-undo))
 
