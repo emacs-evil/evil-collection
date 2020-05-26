@@ -117,6 +117,7 @@ through removing their entry from `evil-collection-mode-list'."
     anaconda-mode
     apropos
     arc-mode
+    auto-package-update
     bm
     bookmark
     (buff-menu "buff-menu")
