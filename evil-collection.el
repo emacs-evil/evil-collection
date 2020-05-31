@@ -227,6 +227,7 @@ through removing their entry from `evil-collection-mode-list'."
     simple
     slime
     sly
+    speedbar
     tablist
     tar-mode
     (term term ansi-term multi-term)
