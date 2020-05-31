@@ -30,6 +30,8 @@
 (require 'evil-collection)
 (require 'bm nil t)
 
+(defconst evil-collection-bm-maps '(bm-show-mode-map))
+
 ;;;###autoload
 (defun evil-collection-bm-setup ()
   "Set up `evil' bindings for `bm'."
