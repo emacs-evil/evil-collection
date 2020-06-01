@@ -51,6 +51,41 @@
   (eshell-interrupt-process)
   (evil-insert 1))
 
+;; Taken from Doom Emacs
+(evil-define-operator evil-collection-eshell-evil-change (beg end type register yank-handler delete-func)
+  "Like `evil-change' but will not delete/copy the prompt."
+  (interactive "<R><x><y>")
+  (save-restriction
+    (narrow-to-region eshell-last-output-end (point-max))
+    (evil-change (max beg (point-min))
+                 (if (eq type 'line) (point-max) (min (or end (point-max)) (point-max)))
+                 type register yank-handler delete-func)))
+
+;; Taken from Doom Emacs
+(evil-define-operator evil-collection-eshell-evil-change-line (beg end type register yank-handler)
+  "Change to end of line."
+  :motion evil-end-of-line
+  (interactive "<R><x><y>")
+  (evil-collection-eshell-evil-change beg end type register yank-handler #'evil-delete-line))
+
+;; Taken from Doom Emacs
+(evil-define-operator evil-collection-eshell-evil-delete (beg end type register yank-handler)
+  "Like `evil-delete' but will not delete/copy the prompt."
+  (interactive "<R><x><y>")
+  (save-restriction
+    (narrow-to-region eshell-last-output-end (point-max))
+    (evil-delete (if beg (max beg (point-min)) (point-min))
+                 (if (eq type 'line) (point-max) (min (or end (point-max)) (point-max)))
+                 type register yank-handler)))
+
+;; Taken from Doom Emacs
+(evil-define-operator evil-collection-eshell-evil-delete-line (_beg end type register yank-handler)
+  "Change to end of line."
+  :motion nil
+  :keep-visual t
+  (interactive "<R><x>")
+  (evil-collection-eshell-evil-delete (point) end type register yank-handler))
+
 ;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
 ;;; need to add bindings to `eshell-first-time-mode-hook'.
 (defun evil-collection-eshell-setup-keys ()
@@ -72,7 +107,11 @@
     (kbd "C-p") 'eshell-previous-matching-input-from-input
 
     (kbd "RET") 'eshell-send-input
-    (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process)
+    (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process
+    "c" 'evil-collection-eshell-evil-change
+    "C" 'evil-collection-eshell-evil-change-line
+    "d" 'evil-collection-eshell-evil-delete
+    "D" 'evil-collection-eshell-evil-delete-line)
   (evil-collection-define-key 'insert 'eshell-mode-map
     ;; motion
     (kbd "M-h") 'eshell-backward-argument
