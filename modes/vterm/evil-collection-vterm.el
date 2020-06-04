@@ -41,11 +41,6 @@ Moving cursor backwards is the default vim behavior but
 it is not appropriate in some cases like terminals."
   (setq-local evil-move-cursor-back nil))
 
-(defun evil-collection-vterm-exit-function (buffer &optional _event)
-  "Automatically kill `vterm' buffer on exit."
-  (when buffer
-    (kill-buffer buffer)))
-
 (defvar-local evil-collection-vterm-send-escape-to-vterm-p nil
   "Track whether or not we send ESC to `vterm' or `emacs'.")
 
@@ -73,7 +68,6 @@ also uses `evil-mode'."
   (evil-set-initial-state 'vterm-mode 'insert)
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
-  (add-hook 'vterm-exit-functions #'evil-collection-vterm-exit-function)
 
   ;; Open to a better binding...
   (evil-collection-define-key '(normal insert) 'vterm-mode-map
