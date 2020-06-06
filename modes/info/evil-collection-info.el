@@ -99,9 +99,9 @@
     "?" evil-collection-evil-search-backward  ; Else this would be `Info-summary'.
 
     ;; quit
-    "q" 'Info-exit
+    "q" 'quit-window
     "ZQ" 'evil-quit
-    "ZZ" 'Info-exit)
+    "ZZ" 'quit-window)
 
   (evil-collection-define-key 'visual 'Info-mode-map
     "l" 'evil-forward-char
