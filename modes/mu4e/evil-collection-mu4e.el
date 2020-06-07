@@ -91,19 +91,13 @@
 
 ;; When using org-mu4e, the above leads to an annoying behaviour, because
 ;; switching from message body to header activates mu4e-compose-mode, thus
-;; putting the user into insert-state. The below code fixes this issue.
+;; putting the user into insert-state. The below code, together with the hooks
+;; set in evil-collection-mu4e-setup fixes this issue.
 (defun evil-collection-mu4e-org-set-header-to-normal-mode ()
   (evil-set-initial-state 'mu4e-compose-mode 'normal))
 
 (defun evil-collection-mu4e-org-set-header-to-insert-mode ()
   (evil-set-initial-state 'mu4e-compose-mode 'insert))
-
-(add-hook 'org-mode-hook
-          #'evil-collection-mu4e-org-set-header-to-normal-mode)
-
-(add-hook 'mu4e-compose-pre-hook
-          #'evil-collection-mu4e-org-set-header-to-insert-mode)
-
 
 
 ;;; Define bindings
@@ -347,7 +341,9 @@ If mu4e-main-mode is in evil-state-motion-modes, initialization
 is already done earlier."
     (evil-collection-mu4e-set-state)
     (evil-collection-mu4e-set-bindings)
-    (add-hook 'mu4e-main-mode-hook 'evil-collection-mu4e-update-main-view))
+    (add-hook 'mu4e-main-mode-hook 'evil-collection-mu4e-update-main-view)
+    (add-hook 'org-mode-hook #'evil-collection-mu4e-org-set-header-to-normal-mode)
+    (add-hook 'mu4e-compose-pre-hook #'evil-collection-mu4e-org-set-header-to-insert-mode))
 
 (provide 'evil-collection-mu4e)
 ;;; evil-collection-mu4e.el ends here
