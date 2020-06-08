@@ -251,6 +251,7 @@
   (evil-define-key 'normal gnus-browse-mode-map
     "u" 'gnus-browse-unsubscribe-current-group
     (kbd "SPC") 'gnus-browse-read-group
+    (kbd "RET") 'gnus-browse-select-group
     "q"         'gnus-browse-exit
     "ZZ"        'gnus-browse-exit
     "ZQ"        'gnus-browse-exit))
