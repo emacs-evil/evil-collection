@@ -49,6 +49,8 @@
     ;; execute
     "x" 'package-menu-execute
 
+    "g?" 'package-menu-describe-package
+
     "q" 'quit-window ;; FIXME: Can macros make sense here?
     "ZQ" 'evil-quit
     "ZZ" 'quit-window))
