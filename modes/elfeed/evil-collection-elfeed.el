@@ -80,6 +80,7 @@
 
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
+    (kbd "<tab>") 'elfeed-show-next-link
 
     ;; filter
     "s" 'elfeed-show-new-live-search
