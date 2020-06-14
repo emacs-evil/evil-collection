@@ -75,16 +75,37 @@
    (:default
     (message "No linting modes are on."))))
 
-(defun evil-collection-unimpaired-insert-space-above (count)
-  "Insert space above current line"
+(defun evil-collection-unimpaired-insert-newline-above (count)
+  "Insert COUNT blank line(s) above current line."
   (interactive "p")
   (save-excursion (dotimes (_ count) (evil-insert-newline-above)))
   (when (bolp) (forward-char count)))
 
-(defun evil-collection-unimpaired-insert-space-below (count)
-  "Insert space below current line"
+(defun evil-collection-unimpaired-insert-newline-below (count)
+  "Insert COUNT blank line(s) below current line."
   (interactive "p")
   (save-excursion (dotimes (_ count) (evil-insert-newline-below))))
+
+(defun evil-collection-unimpaired--encode (beg end fn)
+  "Apply FN in range from BEG to END."
+  (save-excursion
+    (goto-char beg)
+    (let* ((end (if (eq evil-this-type 'line) (1- end) end))
+           (text (buffer-substring-no-properties beg end)))
+      (delete-region beg end)
+      (insert (funcall fn text)))))
+
+(evil-define-operator evil-collection-unimpaired-url-encode (count &optional beg end)
+  "Encode a URL string."
+  (interactive "<c><r>")
+  (ignore count)
+  (evil-collection-unimpaired--encode beg end #'url-encode-url))
+
+(evil-define-operator evil-collection-unimpaired-url-decode (count &optional beg end)
+  "Decode a URL string."
+  (interactive "<c><r>")
+  (ignore count)
+  (evil-collection-unimpaired--encode beg end #'url-unhex-string))
 
 ;;;###autoload
 (defun evil-collection-unimpaired-setup ()
@@ -95,8 +116,11 @@
     "]b" 'next-buffer
     "]l" 'evil-collection-unimpaired-next-error
     "[l" 'evil-collection-unimpaired-previous-error
-    (kbd "[ SPC") 'evil-collection-unimpaired-insert-space-above
-    (kbd "] SPC") 'evil-collection-unimpaired-insert-space-below))
+    (kbd "[ SPC") 'evil-collection-unimpaired-insert-newline-above
+    (kbd "] SPC") 'evil-collection-unimpaired-insert-newline-below)
+  (evil-collection-define-key 'motion 'evil-collection-unimpaired-mode-map
+    "[u" 'evil-collection-unimpaired-url-encode
+    "]u" 'evil-collection-unimpaired-url-decode))
 
 (provide 'evil-collection-unimpaired)
 ;;; evil-collection-unimpaired.el ends here
