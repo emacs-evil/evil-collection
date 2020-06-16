@@ -92,6 +92,11 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
   :type 'boolean
   :group 'evil-collection)
 
+(defcustom evil-collection-calendar-want-org-bindings nil
+  "Whether to bind Org functions in calendar keymap."
+  :type 'boolean
+  :group 'evil-collection)
+
 (defcustom evil-collection-setup-debugger-keys t
   "Whether to bind debugger keys when debugger is active.
 

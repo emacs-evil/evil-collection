@@ -32,6 +32,35 @@
 
 (defconst evil-collection-calendar-maps '(calendar-mode-map))
 
+(defun evil-collection-calendar-setup-org-bindings ()
+  "Bind Org functions to Calendar keymap."
+  (require 'org)
+  (defvar org-calendar-to-agenda-key)
+  (defvar org-agenda-diary-file)
+  (defvar org-calendar-insert-diary-entry-key)
+
+  (let ((key (pcase org-calendar-to-agenda-key
+               ((and key (pred stringp)) key)
+               ;; The default value of `org-calendar-to-agenda-key' is [?c] in Org 9.1
+               ;; We do make a minimal compatibility support for vector of integers.
+               ((and key (pred vectorp)) (mapconcat (lambda (x) (format "%c" x)) key ""))
+               ((and (pred symbolp) 'default) "c")
+               (_ ""))))
+    (evil-collection-define-key 'normal 'calendar-mode-map
+      (kbd key) 'org-calendar-goto-agenda))
+
+  ;; Similar to `org-calendar-to-agenda-key'.
+  (unless (eq org-agenda-diary-file 'diary-file)
+    (let ((key (pcase org-calendar-insert-diary-entry-key
+                 ((and key (pred stringp)) key)
+                 ((and key (pred vectorp)) (mapconcat (lambda (x) (format "%c" x)) key ""))
+                 ;; NOTE Consistent behavior with `org-calendar-to-agenda-key'
+                 ;; although it's not supported in Org officially.
+                 ((and (pred symbolp) 'default) "i")
+                 (_ ""))))
+      (evil-collection-define-key 'normal 'calendar-mode-map
+        (kbd key) 'org-agenda-diary-entry))))
+
 ;;;###autoload
 (defun evil-collection-calendar-setup ()
   "Set up `evil' bindings for `calendar'."
@@ -70,14 +99,19 @@
 
     ;; goto
     "." 'calendar-goto-today
+    "o" 'calendar-other-month
     "gd" 'calendar-goto-date ; "gd" in evil-org-agenda, "gd" in Emacs.
-    ;; "gD" 'calendar-other-month ; Not very useful if we have `calendar-goto-date'.
+    "gD" 'calendar-other-month
 
     ;; diary
     "D" 'diary-view-other-diary-entries
     "d" 'diary-view-entries
     "m" 'diary-mark-entries
     "s" 'diary-show-all-entries
+
+    ;; appointment
+    "Aa" 'appt-add
+    "Ad" 'appt-delete
 
     "u" 'calendar-unmark
     "x" 'calendar-mark-holidays
@@ -87,6 +121,7 @@
     "gs" 'calendar-sunrise-sunset ; "gs" in evil-org-agenda
     "gh" 'calendar-list-holidays ; "gh" in evil-org-agenda. TODO: Shadows calendar-hebrew.
     "gc" 'org-calendar-goto-agenda ; "gc" in evil-org-agenda. TODO: Shadows calendar-iso.
+    "a" 'calendar-list-holidays
     "r" 'calendar-cursor-holidays
 
     ;; refresh
@@ -99,7 +134,11 @@
     ;; quit
     "q" 'calendar-exit
     "ZQ" 'evil-quit
-    "ZZ" 'calendar-exit))
+    "ZZ" 'calendar-exit)
+
+  (defvar evil-collection-calendar-want-org-bindings)
+  (when evil-collection-calendar-want-org-bindings
+    (evil-collection-calendar-setup-org-bindings)))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here
