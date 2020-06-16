@@ -211,7 +211,7 @@ through removing their entry from `evil-collection-mode-list'."
     (pdf pdf-view)
     popup
     proced
-    process-menu
+    (process-menu simple)
     prodigy
     profiler
     python
