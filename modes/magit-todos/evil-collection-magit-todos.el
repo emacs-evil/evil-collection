@@ -39,6 +39,10 @@
   (evil-collection-define-key 'normal 'magit-status-mode-map
     "gT" (and (bound-and-true-p magit-todos-mode) 'magit-todos-jump-to-todos)))
 
+(defun evil-collection-magit-todos-supress-warning (func &rest args)
+  "Supress the jT keybinding warning."
+  (cl-letf* (((symbol-function 'message) #'ignore))
+    (apply func args)))
 
 ;;;###autoload
 (defun evil-collection-magit-todos-setup ()
@@ -49,6 +53,9 @@
 
   (evil-collection-define-key nil 'magit-todos-item-section-map
     "j" nil)
+
+  ;; No need to tell me that jT isn't bound
+  (advice-add 'magit-todos-mode :around 'evil-collection-magit-todos-supress-warning)
 
   (add-hook 'magit-todos-mode-hook 'evil-collection-magit-todos-setup-jump-key))
 
