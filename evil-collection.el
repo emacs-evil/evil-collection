@@ -151,6 +151,7 @@ through removing their entry from `evil-collection-mode-list'."
     edebug
     ediff
     eglot
+    explain-pause-mode
     elfeed
     elisp-mode
     elisp-refs
