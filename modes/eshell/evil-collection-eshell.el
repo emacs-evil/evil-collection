@@ -79,7 +79,8 @@
                  type register yank-handler)))
 
 ;; Taken from Doom Emacs
-(evil-define-operator evil-collection-eshell-evil-delete-line (_beg end type register yank-handler)
+;; Although the BEG argument doesn't get used in any meaningful way, `evil-define-operator' must access it nonetheless, so putting an underscore in front will make the CI fail.
+(evil-define-operator evil-collection-eshell-evil-delete-line (beg end type register yank-handler)
   "Change to end of line."
   :motion nil
   :keep-visual t
