@@ -210,6 +210,7 @@ through removing their entry from `evil-collection-mode-list'."
     ;; occur is in replace.el which was built-in before Emacs 26.
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
     omnisharp
+    osx-dictionary
     outline
     p4
     (package-menu package)
