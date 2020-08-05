@@ -30,9 +30,6 @@
 (require 'evil-collection)
 (require 'image-mode)
 
-;; TODO: pdf and doc-view conflict with image.
-;; See https://github.com/emacs-evil/evil-collection/issues/23.
-
 (defconst evil-collection-image-maps '(image-mode-map))
 
 ;;;###autoload
