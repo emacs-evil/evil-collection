@@ -488,7 +488,7 @@ STATES should be the name of an evil state, a list of states, or nil. KEYMAPS
 should be a symbol corresponding to the keymap to make the translations in or a
 list of keymap symbols. Like `evil-define-key', when a keymap does not exist,
 the keybindings will be deferred until the keymap is defined, so
-`with-eval-after-load' is not neccessary. TRANSLATIONS corresponds to a list of
+`with-eval-after-load' is not necessary. TRANSLATIONS corresponds to a list of
 key replacement pairs. For example, specifying \"a\" \"b\" will bind \"a\" to
 \"b\"'s definition in the keymap. Specifying nil as a replacement will unbind a
 key. If DESTRUCTIVE is nil, a backup of the keymap will be stored on the initial
