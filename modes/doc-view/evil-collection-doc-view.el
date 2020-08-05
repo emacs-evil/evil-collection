@@ -45,6 +45,9 @@
     (kbd "C-d") 'forward-page
     "j" 'doc-view-next-line-or-next-page
     "k" 'doc-view-previous-line-or-previous-page
+    (kbd "SPC") 'doc-view-scroll-up-or-next-page
+    (kbd "DEL") 'doc-view-scroll-down-or-previous-page
+    (kbd "S-SPC") 'doc-view-scroll-down-or-previous-page
     "gg" 'doc-view-first-page
     "G" 'doc-view-last-page
     "J" 'doc-view-goto-page
