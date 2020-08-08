@@ -83,8 +83,8 @@
   (evil-collection-define-key 'normal 'ggtags-navigation-map
     ;; navigation
     "gj" 'next-error
-    "gk" 'next-error
-    (kbd "C-j") 'previous-error
+    "gk" 'previous-error
+    (kbd "C-j") 'next-error
     (kbd "C-k") 'previous-error
     "]]" 'ggtags-navigation-next-file
     "[[" 'ggtags-navigation-previous-file
