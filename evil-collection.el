@@ -235,6 +235,7 @@ through removing their entry from `evil-collection-mode-list'."
     slime
     sly
     speedbar
+    ,@(when (>= emacs-major-version 27) '(tab-bar))
     tablist
     tar-mode
     (term term ansi-term multi-term)
