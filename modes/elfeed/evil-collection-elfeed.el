@@ -60,7 +60,9 @@
     ;; refresh
     "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
     "gr" 'elfeed-search-update--force
-
+    "R" 'elfeed-search-fetch
+    "r" 'elfeed-search-update--force
+                              
     ;; quit
     "q" 'quit-window
     "ZQ" 'quit-window
