@@ -47,6 +47,7 @@
     (kbd "RET") 'elfeed-search-show-entry
     (kbd "S-<return>") 'elfeed-search-browse-url
     "go" 'elfeed-search-browse-url
+    "o" 'elfeed-search-browse-url
 
     "y" 'elfeed-search-yank
 
