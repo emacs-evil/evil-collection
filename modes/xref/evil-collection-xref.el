@@ -52,7 +52,11 @@
     (kbd "RET") 'xref-goto-xref
     (kbd "S-<return>") 'xref-show-location-at-point
     "o" 'xref-show-location-at-point
-    "go" 'xref-show-location-at-point))
+    "go" 'xref-show-location-at-point)
+
+  (when (>= emacs-major-version 27)
+    (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
+      "gr" 'xref-revert-buffer)))
 
 (provide 'evil-collection-xref)
 ;;; evil-collection-xref.el ends here
