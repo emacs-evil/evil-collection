@@ -163,6 +163,7 @@ through removing their entry from `evil-collection-mode-list'."
     eval-sexp-fu
     evil-mc
     eww
+    finder
     flycheck
     flymake
     free-keys
