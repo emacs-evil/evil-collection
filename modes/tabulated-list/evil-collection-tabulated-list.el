@@ -1,10 +1,9 @@
-;;; evil-collection-simple.el --- Bindings for `simple' -*- lexical-binding: t -*-
+;;; evil-collection-tabulated-list.el --- Bindings for `tabulated-list' -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2020 Morgan Smith <Morgan.J.Smith@outlook.com>
 
-;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>
-;; Pierre Neidhardt <mail@ambrevar.xyz>
+;; Author: Morgan Smith <Morgan.J.Smith@outlook.com>
+;; Maintainer: Morgan Smith <Morgan.J.Smith@outlook.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
@@ -24,29 +23,23 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Bindings for `simple'
+;; Bindings for `tabulated-list'
 
 ;;; Code:
 (require 'evil-collection)
-(require 'simple)
+(require 'tabulated-list)
 
-(defvar special-mode-map)
+(defvar tabulated-list-mode-map)
 
-(defconst evil-collection-simple-maps '(special-mode-map))
+(defconst evil-collection-tabulated-list-maps '(tabulated-list-mode-map))
 
 ;;;###autoload
-(defun evil-collection-simple-setup ()
-  "Set up `evil' bindings for `simple'."
+(defun evil-collection-tabulated-list-setup ()
+  "Set up `evil' bindings for `tabulated-list'."
 
-  (evil-collection-define-key nil 'special-mode-map
-    "g" nil)
+  (evil-collection-define-key nil 'tabulated-list-mode-map
+    "n" nil
+    "p" nil))
 
-  (evil-collection-define-key '(normal visual) 'special-mode-map
-    "q" 'quit-window
-    " " 'scroll-up-command
-    "g?" 'describe-mode
-    "h" 'evil-backward-char
-    "gr" 'revert-buffer))
-
-(provide 'evil-collection-simple)
-;;; evil-collection-simple.el ends here
+(provide 'evil-collection-tabulated-list)
+;;; evil-collection-tabulated-list.el ends here
