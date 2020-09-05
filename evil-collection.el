@@ -228,6 +228,7 @@ through removing their entry from `evil-collection-mode-list'."
     realgud
     reftex
     restclient
+    rg
     rjsx-mode
     robe
     rtags
