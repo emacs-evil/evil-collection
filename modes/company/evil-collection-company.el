@@ -30,7 +30,7 @@
 (require 'company nil t)
 (require 'evil-collection)
 
-(declare-function company-tng-configure-default "company-tng")
+(declare-function company-tng-mode "company-tng")
 
 (defgroup evil-collection-company nil
   "Evil bindings for `company-mode'."
@@ -47,10 +47,21 @@ be set through custom or before evil-collection loads."
   :group 'evil-collection-company
   :type 'boolean)
 
+(defcustom evil-collection-company-supported-states '(insert replace emacs)
+  "The `evil-state's which `company' function can be requested."
+  :type '(repeat symbol))
+
 (defvar company-active-map)
 (defvar company-search-map)
 
 (defconst evil-collection-company-maps '(company-active-map company-search-map))
+
+(defun evil-collection-company-supported-p (command &rest _)
+  "Return non-nil if `evil-state' is in supported states."
+  (cond
+    ((eq command 'prefix)
+     (memq evil-state evil-collection-company-supported-states))
+    (t t)))
 
 ;;;###autoload
 (defun evil-collection-company-setup ()
@@ -77,7 +88,10 @@ be set through custom or before evil-collection loads."
     (kbd "<escape>") 'company-search-abort)
 
   ;; Sets up YCMD like behavior.
-  (when evil-collection-company-use-tng (company-tng-configure-default)))
+  (when evil-collection-company-use-tng (company-tng-mode +1))
+
+  ;; Make `company-mode' not show popup when not in supported state
+  (advice-add 'company-call-backend :before-while 'evil-collection-company-supported-p))
 
 (provide 'evil-collection-company)
 ;;; evil-collection-company.el ends here
