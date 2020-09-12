@@ -213,6 +213,7 @@ through removing their entry from `evil-collection-mode-list'."
     (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
     omnisharp
     org-present
+    zmusic
     osx-dictionary
     outline
     p4
