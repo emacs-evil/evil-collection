@@ -206,6 +206,7 @@ through removing their entry from `evil-collection-mode-list'."
     mu4e
     mu4e-conversation
     neotree
+    newsticker
     notmuch
     nov
     ;; occur is in replace.el which was built-in before Emacs 26.
