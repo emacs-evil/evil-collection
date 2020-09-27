@@ -39,7 +39,14 @@
 
   (evil-collection-define-key nil 'tabulated-list-mode-map
     "n" nil
-    "p" nil))
+    "p" nil)
+
+  (evil-set-initial-state 'tabulated-list-mode 'normal)
+  (evil-collection-define-key 'normal 'tabulated-list-mode-map
+    "S" 'tabulated-list-sort
+    "{" 'tabulated-list-narrow-current-column
+    "}" 'tabulated-list-widen-current-column
+    "q" 'quit-window))
 
 (provide 'evil-collection-tabulated-list)
 ;;; evil-collection-tabulated-list.el ends here
