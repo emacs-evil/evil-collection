@@ -245,7 +245,9 @@ through removing their entry from `evil-collection-mode-list'."
     tar-mode
     (term term ansi-term multi-term)
     tetris
+    ,@(when (>= emacs-major-version 27) '(thread))
     tide
+    timer-list
     transmission
     trashed
     typescript-mode
