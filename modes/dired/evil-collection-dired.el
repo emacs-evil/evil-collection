@@ -193,6 +193,11 @@
     ";s" 'epa-dired-do-sign
     ";e" 'epa-dired-do-encrypt)
 
+  ;; dired-narrow commands
+  (with-eval-after-load 'dired-narrow
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "s" 'dired-narrow-regexp))
+
   ;; dired-subtree commands
   (with-eval-after-load 'dired-subtree
     (evil-collection-define-key 'normal 'dired-mode-map
