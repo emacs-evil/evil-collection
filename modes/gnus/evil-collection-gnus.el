@@ -30,17 +30,18 @@
 (require 'gnus nil t)
 (require 'evil-collection)
 
-(defconst evil-collection-gnus-maps '(gnus-summary-mode-map
-                                      gnus-article-mode-map
+(defconst evil-collection-gnus-maps '(gnus-article-mode-map
+                                      gnus-bookmark-bmenu-mode-map
+                                      gnus-browse-mode-map
                                       gnus-group-mode-map
                                       gnus-server-mode-map
-                                      gnus-browse-mode-map))
+                                      gnus-summary-mode-map))
 
 ;;;###autoload
 (defun evil-collection-gnus-setup ()
   "Set up `evil' bindings for `gnus'."
   (evil-set-initial-state 'gnus-summary-mode 'normal)
-  (evil-define-key 'normal gnus-summary-mode-map
+  (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; motion
     (kbd "<tab>") 'gnus-summary-widget-forward
     (kbd "<backtab>") 'gnus-summary-widget-backward
@@ -184,42 +185,128 @@
     "ZZ" 'gnus-summary-exit)
 
   (evil-set-initial-state 'gnus-article-mode 'normal)
-  (evil-define-key 'normal gnus-article-mode-map
-    "r" 'gnus-summary-reply
-    "R" 'gnus-summary-reply-with-original
-    "q" 'evil-window-delete)
+  (evil-collection-define-key 'motion 'gnus-article-mode-map
+    "F"         'gnus-article-followup-with-original
+    "R"         'gnus-article-reply-with-original
+    "W"         'gnus-article-wide-reply-with-original)
+  (evil-collection-define-key 'normal 'gnus-article-mode-map
+    ;; quit
+    "q"         'evil-window-delete
+    "ZQ"        'evil-window-delete
+    "ZZ"        'evil-window-delete
+
+    ;; Movement
+    (kbd "TAB") 'forward-button
+    (kbd "<backtab>") 'backward-button
+    (kbd "SPC") 'gnus-article-goto-next-page
+    (kbd "DEL") 'gnus-article-goto-prev-page
+    (kbd "S-SPC") 'gnus-article-goto-prev-page
+
+    ;; Reply
+    "r"         'gnus-summary-reply
+
+    ;; Composing
+    "C"         'gnus-article-mail
+    "cc"        'gnus-article-mail
+
+    ;; Actions
+    (kbd "C-]") 'gnus-article-refer-article
+    "s"         'gnus-article-show-summary
+    "E"         'gnus-article-read-summary-keys
+    (kbd "C-c C-f") 'gnus-summary-mail-forward)
 
   (evil-set-initial-state 'gnus-group-mode 'normal)
-  (evil-define-key 'normal gnus-group-mode-map
-
+  (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
-    "q"  'gnus-group-exit
-    "ZZ" 'gnus-group-exit
-    "ZQ" 'gnus-group-quit
+    "q"         'gnus-group-exit
+    "ZZ"        'gnus-group-exit
+    "ZQ"        'gnus-group-quit
 
-    "x" 'gnus-group-kill-group
-    "p" 'gnus-group-yank-group
+    ;; Movement
+    "k"         'gnus-group-prev-group
+    "j"         'gnus-group-next-group
+    "[["        'gnus-group-prev-unread-group
+    "]]"        'gnus-group-next-unread-group
+    "gk"        'gnus-group-prev-unread-group
+    "gj"        'gnus-group-next-unread-group
 
-    ; Marking
-    "m" 'gnus-group-mark-group
-    "u" 'gnus-group-unmark-group
-    "U" 'gnus-group-unmark-all-groups
-    "M" 'gnus-group-mark-buffer
-    "*" 'gnus-group-mark-buffer
-    "%" 'gnus-group-mark-regexp
+    ;; Composing, like mu4e
+    "C"         'gnus-group-mail
+    "cc"        'gnus-group-mail
+    "ci"        'gnus-group-news
 
-    ; Searching
-    "s" 'gnus-group-apropos
-    "S" 'gnus-group-description-apropos
-
-    "^" 'gnus-group-enter-server-mode
-
+    ;; Actions
+    "."         'gnus-group-first-unread-group
+    "A"         'gnus-activate-all-groups
+    "B"         'gnus-group-browse-foreign-server
+    "E"         'gnus-group-edit-group
+    "F"         'gnus-group-find-new-groups
+    "J"         'gnus-group-jump-to-group
+    "R"         'gnus-group-rename-group
+    "X"         'gnus-group-expunge-group
     (kbd "RET") 'gnus-group-select-group
-    "g?" 'gnus-group-help-map
-    "a" 'gnus-group-mail)
+    (kbd "SPC") 'gnus-group-read-group
+    "gr"        'gnus-group-get-new-news-this-group
+    "gR"        'gnus-group-get-new-news
+    "gu"        'gnus-group-unsubscribe-current-group
+    "gU"        'gnus-group-unsubscribe-group
+    "gc"        'gnus-group-catchup-current
+    "gC"        'gnus-group-catchup-current-all
+    "ge"        'gnus-group-expire-articles
+    "gE"        'gnus-group-expire-all-groups
+
+    ;; Deleting & Pasting
+    "dd"        'gnus-group-kill-group
+    "D"         'gnus-group-kill-group
+    "p"         'gnus-group-yank-group
+    "P"         'gnus-group-yank-group
+
+    ;; Marking
+    "m"         'gnus-group-mark-group
+    "u"         'gnus-group-unmark-group
+    "U"         'gnus-group-unmark-all-groups
+    "M"         'gnus-group-mark-buffer
+    "*"         'gnus-group-mark-buffer
+    "%"         'gnus-group-mark-regexp
+
+    ;; Searching
+    "s"         'gnus-group-apropos
+    "S"         'gnus-group-description-apropos
+
+    ;; Sorting
+    "oa"        'gnus-group-sort-groups-by-alphabet
+    "ol"        'gnus-group-sort-groups-by-level
+    "om"        'gnus-group-sort-groups-by-method
+    "on"        'gnus-group-sort-groups-by-real-name
+    "or"        'gnus-group-sort-groups-by-rank
+    "os"        'gnus-group-sort-groups
+    "ou"        'gnus-group-sort-groups-by-unread
+    "ov"        'gnus-group-sort-groups-by-score
+
+    ;; Listing
+    "L!"        'gnus-group-list-ticked
+    "L/"        'gnus-group-list-limit-map
+    "L?"        'gnus-group-list-dormant
+    "La"        'gnus-group-list-active        ;; was A A
+    "Lc"        'gnus-group-list-cached
+    "Lf"        'gnus-group-list-flush-map
+    "Lk"        'gnus-group-list-killed
+    "Ll"        'gnus-group-list-level
+    "Lm"        'gnus-group-list-matching
+    "LM"        'gnus-group-list-all-matching
+    "Lp"        'gnus-group-list-plus-map
+    "Ls"        'gnus-group-list-groups
+    "Lu"        'gnus-group-list-all-groups
+    "Lz"        'gnus-group-list-zombies
+
+    "^"         'gnus-group-enter-server-mode
+
+    (kbd "DEL") 'gnus-group-prev-unread-group
+    [mouse-2]   'gnus-mouse-pick-group
+    "g?"        'gnus-group-help-map)
 
   (evil-set-initial-state 'gnus-server-mode 'normal)
-  (evil-define-key 'normal gnus-server-mode-map
+  (evil-collection-define-key 'normal 'gnus-server-mode-map
     (kbd "RET") 'gnus-server-read-server
     (kbd "SPC") 'gnus-server-read-server-in-server-buffer
     "C"         'gnus-server-close-server
@@ -248,13 +335,40 @@
     "ZQ"        'gnus-server-exit)
 
   (evil-set-initial-state 'gnus-browse-mode 'normal)
-  (evil-define-key 'normal gnus-browse-mode-map
+  (evil-collection-define-key 'normal 'gnus-browse-mode-map
     "u" 'gnus-browse-unsubscribe-current-group
     (kbd "SPC") 'gnus-browse-read-group
     (kbd "RET") 'gnus-browse-select-group
     "q"         'gnus-browse-exit
     "ZZ"        'gnus-browse-exit
-    "ZQ"        'gnus-browse-exit))
+    "ZQ"        'gnus-browse-exit)
+
+  (evil-set-initial-state 'gnus-bookmark-bmenu-mode 'normal)
+  (evil-collection-define-key 'normal 'gnus-bookmark-bmenu-mode-map
+    ;; quit
+    "q"         'quit-window
+    "ZZ"        'quit-window
+    "ZQ"        'quit-window
+
+    "g?"        'describe-mode
+
+    ;; mark and execution
+    "m"         'gnus-bookmark-bmenu-mark
+    "u"         'gnus-bookmark-bmenu-unmark
+    (kbd "DEL") 'gnus-bookmark-bmenu-backup-unmark
+    "d"         'gnus-bookmark-bmenu-delete
+    "x"         'gnus-bookmark-bmenu-execute-deletions
+
+    (kbd "RET") 'gnus-bookmark-bmenu-select
+    [mouse-2]   'gnus-bookmark-bmenu-select-by-mouse
+    "L"         'gnus-bookmark-bmenu-load
+    "s"         'gnus-bookmark-bmenu-save
+    "t"         'gnus-bookmark-bmenu-toggle-infos
+    "a"         'gnus-bookmark-bmenu-show-details
+    ;; not implemented yet
+    "A"         'gnus-bookmark-bmenu-show-all-annotations
+    "E"         'gnus-bookmark-bmenu-edit-annotation
+    "R"         'gnus-bookmark-bmenu-rename))
 
 (provide 'evil-collection-gnus)
 ;;; evil-collection-gnus.el ends here
