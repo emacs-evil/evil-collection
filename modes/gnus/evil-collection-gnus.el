@@ -204,16 +204,16 @@
 
     ;; Reply
     "r"         'gnus-summary-reply
+    "R"         'gnus-article-reply-with-original ;; override `evil-replace-state'
 
     ;; Composing
     "C"         'gnus-article-mail
     "cc"        'gnus-article-mail
+    "cf"        'gnus-summary-mail-forward
 
     ;; Actions
     (kbd "C-]") 'gnus-article-refer-article
-    "s"         'gnus-article-show-summary
-    "E"         'gnus-article-read-summary-keys
-    (kbd "C-c C-f") 'gnus-summary-mail-forward)
+    "s"         'gnus-article-show-summary)
 
   (evil-set-initial-state 'gnus-group-mode 'normal)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
