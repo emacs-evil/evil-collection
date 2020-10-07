@@ -37,7 +37,7 @@
   (evil-collection-define-key 'normal 'eglot-mode-map
     "gd" 'xref-find-definitions
     (kbd "C-t") 'xref-pop-marker-stack
-    "K" 'eglot-help-at-point))
+    "K" 'eldoc-doc-buffer))
 
 (provide 'evil-collection-eglot)
 ;;; evil-collection-eglot.el ends here
