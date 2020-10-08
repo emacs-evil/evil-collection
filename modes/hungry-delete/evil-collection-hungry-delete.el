@@ -35,7 +35,6 @@
 (defun evil-collection-hungry-delete (f &rest args)
   "Wrapper function to run `hungry-delete-backward' if
 `hungry-delete-mode' is on."
-  (interactive)
   (if (and (bound-and-true-p hungry-delete-mode)
            (fboundp 'hungry-delete-backward))
       (hungry-delete-backward 1)
@@ -44,7 +43,6 @@
 (defun evil-collection-hungry-delete-for-join (f &rest args)
   "Wrapper function to run `hungry-delete-backward' if
 `hungry-delete-mode' is on."
-  (interactive)
   (if (and (bound-and-true-p hungry-delete-mode)
            (fboundp 'hungry-delete-backward))
       (hungry-delete-backward 1)
