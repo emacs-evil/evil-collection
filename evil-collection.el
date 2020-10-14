@@ -186,6 +186,7 @@ through removing their entry from `evil-collection-mode-list'."
     image+
     imenu
     imenu-list
+    (indent "indent")
     indium
     info
     ivy
