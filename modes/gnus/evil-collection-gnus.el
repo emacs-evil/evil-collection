@@ -66,6 +66,8 @@ Note that there is no gnus-common-mode-map")
     "q"         'gnus-summary-exit
     "ZZ"        'gnus-summary-exit
 
+    "g?"        'gnus-summary-help-map
+
     ;; motion
     (kbd "<tab>") 'gnus-summary-widget-forward
     (kbd "<backtab>") 'gnus-summary-widget-backward
@@ -334,7 +336,6 @@ Note that there is no gnus-common-mode-map")
     "J"         'gnus-group-jump-to-group
     "R"         'gnus-group-rename-group
     "X"         'gnus-group-expunge-group
-    "Z"         'gnus-group-compact-group
     (kbd "RET") 'gnus-group-select-group
     (kbd "SPC") 'gnus-group-read-group
     "gr"        'gnus-group-get-new-news-this-group
@@ -438,13 +439,12 @@ Note that there is no gnus-common-mode-map")
     "y"         'gnus-server-copy-server
     "e"         'gnus-server-edit-server
     "gr"        'gnus-server-regenerate-server
-    "g?"        'describe-mode
     "i"         'gnus-server-toggle-cloud-server
     "d"         'gnus-server-kill-server
     "L"         'gnus-server-list-servers
     "s"         'gnus-server-scan-server
     "p"         'gnus-server-yank-server
-    "z"         'gnus-server-compact-server
+    "c"         'gnus-server-compact-server
     "M-c"       'gnus-server-close-all-servers
     "M-o"       'gnus-server-open-all-servers)
 
@@ -465,8 +465,6 @@ Note that there is no gnus-common-mode-map")
     "ZQ"        'quit-window
     "q"         'quit-window
     "ZZ"        'quit-window
-
-    "g?"        'describe-mode
 
     ;; mark and execution
     "m"         'gnus-bookmark-bmenu-mark
