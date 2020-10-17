@@ -37,15 +37,33 @@
                                       gnus-server-mode-map
                                       gnus-summary-mode-map))
 
+(defvar evil-collection-gnus-common-normal-bindings
+  '("zz" gnus-recenter)
+  "Keybindings added to all gnus normal mode-maps.
+Note that there is no gnus-common-mode-map")
+
 ;;;###autoload
 (defun evil-collection-gnus-setup ()
   "Set up `evil' bindings for `gnus'."
-  (evil-set-initial-state 'gnus-summary-mode 'normal)
+
+  ;; For all gnus modes:
+  ;;  - Set the initial state to 'normal
+  ;;  - Inhibit insert
+  ;;  - Use `evil-collection-gnus-common-normal-bindings'
+  (dolist (map evil-collection-gnus-maps)
+    (let* ((map-string (symbol-name map))
+           (mode-string (string-trim-right map-string "-map"))
+           (mode (intern mode-string)))
+      (evil-set-initial-state mode 'normal)
+      (evil-collection-inhibit-insert-state map)
+      (apply #'evil-collection-define-key 'normal map
+             evil-collection-gnus-common-normal-bindings)))
+
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
-    "q"         'gnus-summary-exit
     "ZQ"        'gnus-summary-exit-no-update
+    "q"         'gnus-summary-exit
     "ZZ"        'gnus-summary-exit
 
     ;; motion
@@ -99,7 +117,6 @@
     "gr"        'gnus-summary-rescan-group
     "e"         'gnus-summary-edit-article
     "E"         'gnus-summary-mark-as-expirable
-    "zz"        'gnus-recenter
     "z/"        'gnus-summary-limit-map
     "zt"        'gnus-summary-toggle-header
     "x"         'gnus-summary-limit-to-unread
@@ -212,15 +229,15 @@
     "I"         'gnus-summary-increase-score
     "L"         'gnus-summary-lower-score)
 
-  (evil-set-initial-state 'gnus-article-mode 'normal)
   (evil-collection-define-key 'motion 'gnus-article-mode-map
     "F"         'gnus-article-followup-with-original
     "R"         'gnus-article-reply-with-original
     "W"         'gnus-article-wide-reply-with-original)
   (evil-collection-define-key 'normal 'gnus-article-mode-map
     ;; quit
-    "q"         'evil-window-delete
+    "Q"         'evil-window-delete
     "ZQ"        'evil-window-delete
+    "q"         'evil-window-delete
     "ZZ"        'evil-window-delete
 
     ;; Movement
@@ -289,12 +306,12 @@
     "gr"        'gnus-summary-show-article
     "gX"        'gnus-summary-browse-url)
 
-  (evil-set-initial-state 'gnus-group-mode 'normal)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
+    "Q"         'gnus-group-quit
+    "ZQ"        'gnus-group-quit
     "q"         'gnus-group-exit
     "ZZ"        'gnus-group-exit
-    "ZQ"        'gnus-group-quit
 
     ;; Movement
     "[["        'gnus-group-prev-unread-group
@@ -400,8 +417,13 @@
     [mouse-2]   'gnus-mouse-pick-group
     "g?"        'gnus-group-help-map)
 
-  (evil-set-initial-state 'gnus-server-mode 'normal)
   (evil-collection-define-key 'normal 'gnus-server-mode-map
+    ;; quit
+    "Q"         'gnus-server-exit
+    "ZQ"        'gnus-server-exit
+    "q"         'gnus-server-exit
+    "ZZ"        'gnus-server-exit
+
     (kbd "RET") 'gnus-server-read-server
     (kbd "SPC") 'gnus-server-read-server-in-server-buffer
     "C"         'gnus-server-close-server
@@ -424,26 +446,25 @@
     "p"         'gnus-server-yank-server
     "z"         'gnus-server-compact-server
     "M-c"       'gnus-server-close-all-servers
-    "M-o"       'gnus-server-open-all-servers
-    "q"         'gnus-server-exit
-    "ZZ"        'gnus-server-exit
-    "ZQ"        'gnus-server-exit)
+    "M-o"       'gnus-server-open-all-servers)
 
-  (evil-set-initial-state 'gnus-browse-mode 'normal)
   (evil-collection-define-key 'normal 'gnus-browse-mode-map
-    "u" 'gnus-browse-unsubscribe-current-group
-    (kbd "SPC") 'gnus-browse-read-group
-    (kbd "RET") 'gnus-browse-select-group
+    ;; quit
+    "Q"         'gnus-browse-exit
+    "ZQ"        'gnus-browse-exit
     "q"         'gnus-browse-exit
     "ZZ"        'gnus-browse-exit
-    "ZQ"        'gnus-browse-exit)
 
-  (evil-set-initial-state 'gnus-bookmark-bmenu-mode 'normal)
+    "u" 'gnus-browse-unsubscribe-current-group
+    (kbd "SPC") 'gnus-browse-read-group
+    (kbd "RET") 'gnus-browse-select-group)
+
   (evil-collection-define-key 'normal 'gnus-bookmark-bmenu-mode-map
     ;; quit
+    "Q"         'quit-window
+    "ZQ"        'quit-window
     "q"         'quit-window
     "ZZ"        'quit-window
-    "ZQ"        'quit-window
 
     "g?"        'describe-mode
 
