@@ -30,32 +30,34 @@
 (require 'evil-collection)
 (require 'compile)
 
-(defconst evil-collection-compile-maps '(compilation-mode-map))
+(defconst evil-collection-compile-maps '(compilation-mode-map compilation-minor-mode-map))
 
 ;;;###autoload
 (defun evil-collection-compile-setup ()
   "Set up `evil' bindings for `compile'."
   (evil-set-initial-state 'compilation-mode 'normal)
 
-  (evil-collection-define-key 'normal 'compilation-mode-map
-    "g?" 'describe-mode
-    "?" evil-collection-evil-search-backward
-    "gg" 'evil-goto-first-line
-    "0" 'evil-digit-argument-or-evil-beginning-of-line
-    [mouse-2] 'compile-goto-error
-    [follow-link] 'mouse-face
-    (kbd "RET") 'compile-goto-error
+  (dolist (keymap evil-collection-compile-maps)
 
-    "go" 'compilation-display-error
-    (kbd "S-<return>") 'compilation-display-error
+    (evil-collection-define-key 'normal keymap
+      "g?" 'describe-mode
+      "?" evil-collection-evil-search-backward
+      "gg" 'evil-goto-first-line
+      "0" 'evil-digit-argument-or-evil-beginning-of-line
+      [mouse-2] 'compile-goto-error
+      [follow-link] 'mouse-face
+      (kbd "RET") 'compile-goto-error
 
-    "gj" 'compilation-next-error
-    "gk" 'compilation-previous-error
-    (kbd "C-j") 'compilation-next-error
-    (kbd "C-k") 'compilation-previous-error
-    "[[" 'compilation-previous-file
-    "]]" 'compilation-next-file
-    "gr" 'recompile))
+      "go" 'compilation-display-error
+      (kbd "S-<return>") 'compilation-display-error
+
+      "gj" 'compilation-next-error
+      "gk" 'compilation-previous-error
+      (kbd "C-j") 'compilation-next-error
+      (kbd "C-k") 'compilation-previous-error
+      "[[" 'compilation-previous-file
+      "]]" 'compilation-next-file
+      "gr" 'recompile)))
 
 (provide 'evil-collection-compile)
 ;;; evil-collection-compile.el ends here
