@@ -63,13 +63,16 @@
 
     ;; mark
     "u" 'bookmark-bmenu-unmark
+    "U" 'bookmark-bmenu-unmark-all
     "m" 'bookmark-bmenu-mark
+    "M" 'bookmark-bmenu-mark-all
 
     ;; open
     "o" 'bookmark-bmenu-select
     "O" 'bookmark-bmenu-other-window
     "go" 'bookmark-bmenu-other-window
     "gO" 'bookmark-bmenu-switch-other-window
+    (kbd "DEL") 'bookmark-bmenu-backup-unmark
     (kbd "RET") 'bookmark-bmenu-this-window
     (kbd "S-<return>") 'bookmark-bmenu-other-window
     (kbd "M-<return>") 'bookmark-bmenu-switch-other-window))
