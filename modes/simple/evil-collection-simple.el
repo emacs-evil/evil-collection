@@ -39,14 +39,11 @@
   "Set up `evil' bindings for `simple'."
 
   (evil-collection-define-key nil 'special-mode-map
-    "g" nil)
-
-  (evil-collection-define-key '(normal visual) 'special-mode-map
-    "q" 'quit-window
-    " " 'scroll-up-command
-    "g?" 'describe-mode
-    "h" 'evil-backward-char
-    "gr" 'revert-buffer))
+    "g" nil
+    "gr" 'revert-buffer
+    "h" nil
+    "?" nil
+    "0" nil))
 
 (provide 'evil-collection-simple)
 ;;; evil-collection-simple.el ends here
