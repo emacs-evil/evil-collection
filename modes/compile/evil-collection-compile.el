@@ -30,7 +30,8 @@
 (require 'evil-collection)
 (require 'compile)
 
-(defconst evil-collection-compile-maps '(compilation-mode-map compilation-minor-mode-map))
+(defconst evil-collection-compile-maps '(compilation-mode-map
+                                         compilation-minor-mode-map))
 
 ;;;###autoload
 (defun evil-collection-compile-setup ()
@@ -40,12 +41,6 @@
   (dolist (keymap evil-collection-compile-maps)
 
     (evil-collection-define-key 'normal keymap
-      "g?" 'describe-mode
-      "?" evil-collection-evil-search-backward
-      "gg" 'evil-goto-first-line
-      "0" 'evil-digit-argument-or-evil-beginning-of-line
-      [mouse-2] 'compile-goto-error
-      [follow-link] 'mouse-face
       (kbd "RET") 'compile-goto-error
 
       "go" 'compilation-display-error
