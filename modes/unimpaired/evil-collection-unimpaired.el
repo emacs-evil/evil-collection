@@ -30,6 +30,10 @@
 ;;; Code:
 (require 'evil-collection)
 
+(defgroup evil-collection-unimpaired nil
+  "Evil port of unimpaired for `evil-collection'."
+  :group 'evil-collection)
+
 (defconst evil-collection-unimpaired-maps '(evil-collection-unimpaired-mode-map))
 
 (defvar evil-collection-unimpaired-mode-map (make-sparse-keymap)
@@ -43,7 +47,8 @@
 
 ;;;###autoload
 (define-global-minor-mode global-evil-collection-unimpaired-mode
-  evil-collection-unimpaired-mode evil-collection-unimpaired-mode-on)
+  evil-collection-unimpaired-mode evil-collection-unimpaired-mode-on
+  :group 'evil-collection-unimpaired)
 
 (defun evil-collection-unimpaired-mode-on ()
   "Turn on `evil-collection-unimpaired-mode'."
