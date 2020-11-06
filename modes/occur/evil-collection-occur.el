@@ -45,6 +45,9 @@
     ;; Like `wdired-mode'.
     (kbd "C-x C-q") 'occur-edit-mode
 
+    ;; quit
+    "q" 'quit-window
+
     [mouse-2] 'occur-mode-mouse-goto
     (kbd "C-c C-c") 'occur-mode-goto-occurrence
 
