@@ -365,6 +365,18 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
                                 err))))))
              (add-hook 'after-load-functions fun t))))))
 
+(cl-defun evil-collection-move-bindings-to-emacs-state (map-sym &rest keys)
+  "Move KEYS in MAP-SYM to the `emacs' state."
+  (let* ((keymap (symbol-value map-sym))
+         (bindings (mapcan (lambda (key)
+                             (list key (lookup-key keymap key)))
+                           keys))
+         (unbindings (mapcan (lambda (key)
+                               (list key nil))
+                             keys)))
+    (apply #'evil-collection-define-key nil map-sym unbindings)
+    (apply #'evil-collection-define-key 'emacs map-sym bindings)))
+
 (defun evil-collection-inhibit-insert-state (map-sym)
   "Unmap insertion keys from normal state.
 This is particularly useful for read-only modes."
