@@ -38,12 +38,11 @@
 (defun evil-collection-simple-setup ()
   "Set up `evil' bindings for `simple'."
   (evil-collection-set-readonly-bindings 'special-mode-map)
-  (evil-collection-define-key nil 'special-mode-map
-    "g" nil
-    "gr" 'revert-buffer
-    "h" nil
-    "?" nil
-    "0" nil))
+  (evil-collection-move-bindings-to-emacs-state 'special-mode-map
+    "g" "h" "?" "0"))
+
+  (evil-collection-define-key 'normal 'special-mode-map
+    "gr" 'revert-buffer)
 
 (provide 'evil-collection-simple)
 ;;; evil-collection-simple.el ends here

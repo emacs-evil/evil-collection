@@ -69,26 +69,19 @@ be set through custom or before evil-collection loads."
 ;;;###autoload
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
-  (evil-collection-define-key nil 'company-active-map
-    (kbd "C-n") 'company-select-next-or-abort
-    (kbd "C-p") 'company-select-previous-or-abort
-    (kbd "C-j") 'company-select-next-or-abort
-    (kbd "C-k") 'company-select-previous-or-abort
-    (kbd "M-j") 'company-select-next
-    (kbd "M-k") 'company-select-previous)
+  (evil-collection-move-bindings-to-emacs-state 'company-active-map
+    (kbd "C-n") (kbd "C-p") (kbd "C-j") (kbd "C-k") (kbd "M-j") (kbd "M-k"))
 
   (when evil-want-C-u-scroll
-    (evil-collection-define-key nil 'company-active-map (kbd "C-u") 'company-previous-page))
+    (evil-collection-move-bindings-to-emacs-state 'company-active-map
+      (kbd "C-u")))
 
   (when evil-want-C-d-scroll
-    (evil-collection-define-key nil 'company-active-map (kbd "C-d") 'company-next-page))
+    (evil-collection-move-bindings-to-emacs-state 'company-active-map
+      (kbd "C-d")))
 
-  (evil-collection-define-key nil 'company-search-map
-    (kbd "C-j") 'company-select-next-or-abort
-    (kbd "C-k") 'company-select-previous-or-abort
-    (kbd "M-j") 'company-select-next
-    (kbd "M-k") 'company-select-previous
-    (kbd "<escape>") 'company-search-abort)
+  (evil-collection-move-bindings-to-emacs-state 'company-search-map
+    (kbd "C-j") (kbd "C-k") (kbd "M-j") (kbd "M-k") (kbd "<escape>"))
 
   ;; Sets up YCMD like behavior.
   (when evil-collection-company-use-tng

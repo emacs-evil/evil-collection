@@ -37,9 +37,8 @@
 (defun evil-collection-tabulated-list-setup ()
   "Set up `evil' bindings for `tabulated-list'."
 
-  (evil-collection-define-key nil 'tabulated-list-mode-map
-    "n" nil
-    "p" nil)
+  (evil-collection-move-bindings-to-emacs-state 'tabulated-list-mode-map
+    "n" "p")
 
   (evil-set-initial-state 'tabulated-list-mode 'normal)
   (evil-collection-define-key 'normal 'tabulated-list-mode-map

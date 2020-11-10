@@ -37,8 +37,10 @@
 ;;;###autoload
 (defun evil-collection-ivy-setup ()
   "Set up `evil' bindings for `ivy-mode'."
-  (evil-collection-define-key nil 'ivy-mode-map
-    (kbd "<escape>") 'minibuffer-keyboard-quit)
+
+  (evil-collection-move-bindings-to-emacs-state 'ivy-mode-map
+    (kbd "<escape>"))
+
   (evil-collection-define-key 'normal 'ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
     (kbd "RET") 'ivy-occur-press-and-switch

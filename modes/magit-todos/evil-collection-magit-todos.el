@@ -48,11 +48,11 @@
 (defun evil-collection-magit-todos-setup ()
   "Set up `evil' bindings for `magit-todos'."
   ;; magit-todos binds jT which prevents evil users from stepping into the section
-  (evil-collection-define-key nil 'magit-todos-section-map
-    "j" nil)
+  (evil-collection-move-bindings-to-emacs-state 'magit-todos-section-map
+    "j")
 
-  (evil-collection-define-key nil 'magit-todos-item-section-map
-    "j" nil)
+  (evil-collection-move-bindings-to-emacs-state 'magit-todos-item-section-map
+    "j")
 
   ;; No need to tell me that jT isn't bound
   (advice-add 'magit-todos-mode :around 'evil-collection-magit-todos-supress-warning)

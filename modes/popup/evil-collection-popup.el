@@ -36,9 +36,8 @@
 (defun evil-collection-popup-setup ()
   "Set up `evil' bindings for `popup'."
   (defvar popup-menu-keymap)
-  (evil-collection-define-key nil 'popup-menu-keymap
-    (kbd "C-j") 'popup-next
-    (kbd "C-k") 'popup-previous))
+  (evil-collection-move-bindings-to-emacs-state 'popup-menu-keymap
+    (kbd "C-j") (kbd "C-k")))
 
 (provide 'evil-collection-popup)
 ;;; evil-collection-popup.el ends here

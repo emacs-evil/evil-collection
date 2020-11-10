@@ -40,8 +40,8 @@
 
   (dolist (keymap evil-collection-compile-maps)
 
-    (evil-collection-define-key nil keymap
-      "g" nil)
+    (evil-collection-move-bindings-to-emacs-state keymap
+      "g")
 
     (evil-collection-define-key 'normal keymap
       (kbd "RET") 'compile-goto-error
