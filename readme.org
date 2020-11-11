@@ -256,11 +256,12 @@ more.
     with ~<f3>~ and ~<f4>~.
 
     A good rule of thumb would be:
-
-    - Always bind ~ZZ~ and ~ZQ~ to the quitting function(s), ~evil-quit~ if nothing
-      else makes sense.
-
-    - Bind ~q~ to ~evil-quit~ if macros don't make sense in current mode.
+    
+    - Always bind ~q~, ~ZZ~ and ~ZQ~ to the mode specific quitting functions. If there is none,
+      
+    - Bind ~q~ and ~ZZ~ to ~quit-window~
+    
+    - Bind ~ZQ~ to ~evil-quit~
 
     - If macros don't make sense in current mode, then ~@~ is available.
 
