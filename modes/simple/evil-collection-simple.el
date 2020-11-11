@@ -37,7 +37,7 @@
 ;;;###autoload
 (defun evil-collection-simple-setup ()
   "Set up `evil' bindings for `simple'."
-
+  (evil-collection-set-readonly-bindings 'special-mode-map)
   (evil-collection-define-key nil 'special-mode-map
     "g" nil
     "gr" 'revert-buffer

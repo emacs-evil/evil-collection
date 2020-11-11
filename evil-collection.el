@@ -391,6 +391,17 @@ This is particularly useful for read-only modes."
     [remap evil-shift-right] #'ignore
     [remap evil-invert-char] #'ignore))
 
+(defun evil-collection-set-readonly-bindings (map-sym)
+  "Unmap insertion keys from normal state. Additionally q can `quit-window'.
+This is particularly useful for read-only modes. Make sure it's
+called before setting up other evil bindings so that it can be
+overriden."
+  (evil-collection-inhibit-insert-state map-sym)
+  (evil-collection-define-key 'normal map-sym
+    "q"  #'quit-window
+    "ZZ" #'quit-window
+    "ZQ" #'evil-quit))
+
 (defun evil-collection--binding-lessp (a b)
   "Comparison function used to sort bindings of the form (state key def)."
   (let ((a-state (symbol-name (nth 0 a)))
