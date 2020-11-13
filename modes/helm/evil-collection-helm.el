@@ -108,6 +108,8 @@
   "Set up `evil' bindings for `helm'."
   (add-hook 'helm-minibuffer-set-up-hook 'evil-collection-helm-hide-minibuffer-maybe)
   (setq helm-default-prompt-display-function 'evil-collection-helm--set-prompt-display)
+  (custom-set-variables
+   '(helm-minibuffer-history-key "M-p"))
 
   (evil-collection-define-key '(insert normal) 'helm-map
     (kbd "M-[") 'helm-previous-source
