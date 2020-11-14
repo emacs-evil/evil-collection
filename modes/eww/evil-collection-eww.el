@@ -99,18 +99,14 @@
                       (setq evil-inhibit-operator t)
                       #'eww-copy-page-url))))
 
-  (evil-collection-inhibit-insert-state 'eww-history-mode-map)
+  (evil-collection-set-readonly-bindings 'eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
   (evil-collection-define-key 'normal 'eww-history-mode-map
     (kbd "RET") 'eww-history-browse
     ;; refresh
-    "gr" 'revert-buffer
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "gr" 'revert-buffer)
 
-  (evil-collection-inhibit-insert-state 'eww-buffers-mode-map)
+  (evil-collection-set-readonly-bindings 'eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
   (evil-collection-define-key 'normal 'eww-buffers-mode-map
     "D" 'eww-buffer-kill
@@ -120,13 +116,9 @@
     "gj" 'eww-buffer-show-next
     "gk" 'eww-buffer-show-previous
     ;; refresh
-    "gr" 'revert-buffer
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "gr" 'revert-buffer)
 
-  (evil-collection-inhibit-insert-state 'eww-bookmark-mode-map)
+  (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
   (evil-collection-define-key 'normal 'eww-bookmark-mode-map
     "D" 'eww-bookmark-kill
@@ -134,11 +126,7 @@
 
     (kbd "RET") 'eww-bookmark-browse
     ;; refresh
-    "gr" 'revert-buffer
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "gr" 'revert-buffer)
 
   (evil-collection-define-key 'operator 'eww-bookmark-mode-map
     "u" '(menu-item
