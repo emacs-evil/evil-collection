@@ -34,7 +34,7 @@
 ;;;###autoload
 (defun evil-collection-calc-setup ()
   "Set up `evil' bindings for `calc'."
-  (evil-collection-inhibit-insert-state 'calc-mode-map)
+  (evil-collection-set-readonly-bindings 'calc-mode-map)
   (evil-set-initial-state 'calc-mode 'normal)
 
   ;; Calc sets up its bindings just-in-time for its "extensions".  I don't think
@@ -163,8 +163,6 @@
     "zz" (lookup-key calc-mode-map (kbd "z"))
 
     ;; quit
-    ;; "ZQ" 'quit-window ; TODO: Rebind "Z"?
-    ;; "ZZ" 'quit-window ; TODO: Rebind "Z"?
     "q" 'calc-quit)
 
   (evil-collection-define-key 'visual 'calc-mode-map
