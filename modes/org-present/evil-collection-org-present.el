@@ -28,9 +28,9 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'org-present nil t) 
+(require 'org-present nil t)
 
-(defvar org-present-mode-map) 
+(defvar org-present-mode-map)
 
 (defconst evil-collection-org-present-maps '(org-present-mode-map))
 
@@ -38,29 +38,29 @@
 (defun evil-collection-org-present-setup ()
   "Set up `evil' bindings for `org-present'."
   (evil-collection-define-key 'normal 'org-present-mode-map
-    "j" 'org-present-next 
-    "k" 'org-present-prev 
-    "gj" 'org-present-next 
-    "gk" 'org-present-prev 
-    "]]" 'org-present-next 
-    "[[" 'org-present-prev 
-    (kbd "SPC") 'org-present-next 
-    (kbd "S-SPC") 'org-present-prev 
-    (kbd "C-j") 'org-present-next 
-    (kbd "M-j") 'org-present-next 
-    (kbd "C-k") 'org-present-prev 
-    (kbd "M-k") 'org-present-prev 
+    "j" 'org-present-next
+    "k" 'org-present-prev
+    "gj" 'org-present-next
+    "gk" 'org-present-prev
+    "]]" 'org-present-next
+    "[[" 'org-present-prev
+    (kbd "SPC") 'org-present-next
+    (kbd "S-SPC") 'org-present-prev
+    (kbd "C-j") 'org-present-next
+    (kbd "M-j") 'org-present-next
+    (kbd "C-k") 'org-present-prev
+    (kbd "M-k") 'org-present-prev
     "zi" 'org-present-big
     "zo" 'org-present-small
     "+" 'org-present-big
-    "=" 'org-present-big 
-    "-" 'org-present-small 
-    "q" 'org-present-quit 
+    "=" 'org-present-big
+    "-" 'org-present-small
+    "q" 'org-present-quit
     "ZQ" 'org-present-quit
     "ZZ" 'org-present-quit
-    "r" 'org-present-read-only 
-    "w" 'org-present-read-write 
-    "gg" 'org-present-beginning 
+    "r" 'org-present-read-only
+    "w" 'org-present-read-write
+    "gg" 'org-present-beginning
     "G" 'org-present-end))
 
 (provide 'evil-collection-org-present)
