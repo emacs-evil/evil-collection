@@ -35,7 +35,7 @@
 ;;;###autoload
 (defun evil-collection-helpful-setup ()
   "Set up `evil' bindings for `helpful'."
-  (evil-collection-inhibit-insert-state 'helpful-mode-map)
+  (evil-collection-set-readonly-bindings 'helpful-mode-map)
   (evil-collection-define-key 'normal 'helpful-mode-map
     ;; motion
     (kbd "<tab>") 'forward-button
@@ -48,12 +48,7 @@
     "gO" 'push-button
 
     "g?" 'describe-mode
-    "gr" 'helpful-update
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "gr" 'helpful-update))
 
 (provide 'evil-collection-helpful)
 ;;; evil-collection-helpful.el ends here
