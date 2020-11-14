@@ -35,7 +35,7 @@
 ;;;###autoload
 (defun evil-collection-proced-setup ()
   "Set up `evil' bindings for `proced'."
-  (evil-collection-inhibit-insert-state 'proced-mode-map)
+  (evil-collection-set-readonly-bindings 'proced-mode-map)
   (evil-set-initial-state 'proced-mode 'normal)
   (evil-collection-define-key 'normal 'proced-mode-map
     (kbd "RET") 'proced-refine
@@ -82,12 +82,7 @@
     "r" 'proced-renice
 
     ;; refresh
-    "gr" 'revert-buffer
-
-    ;; quit
-    "q" 'quit-window                    ; TODO: Macro support?
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "gr" 'revert-buffer))
 
 (provide 'evil-collection-proced)
 ;;; evil-collection-proced.el ends here
