@@ -132,7 +132,7 @@
     "u" 'transmission-files-unwant
     "m" 'transmission-files-want)
 
-  (evil-collection-inhibit-insert-state 'transmission-info-mode-map)
+  (evil-collection-set-readonly-bindings 'transmission-info-mode-map)
   (evil-set-initial-state 'transmission-info-mode 'normal)
   (evil-collection-define-key 'normal 'transmission-info-mode-map
     "p" 'transmission-peers
@@ -143,12 +143,7 @@
     "U" 'transmission-set-torrent-upload
     "S" 'transmission-set-torrent-ratio ; "S" for "[S]eed"
     "P" 'transmission-set-bandwidth-priority
-    "r" 'transmission-move
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window)
+    "r" 'transmission-move)
 
   (evil-collection-define-key 'operator 'transmission-info-mode-map
     ;; Like `eww'.
@@ -162,18 +157,13 @@
                       #'transmission-copy-magnet))))
 
 
-  (evil-collection-inhibit-insert-state 'transmission-peers-mode-map)
+  (evil-collection-set-readonly-bindings 'transmission-peers-mode-map)
   (evil-set-initial-state 'transmission-peers-mode 'normal)
   (evil-collection-define-key 'normal 'transmission-peers-mode-map
     ;; sort
     "o" 'tabulated-list-sort
 
-    "i" 'transmission-info
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "i" 'transmission-info))
 
 (provide 'evil-collection-transmission)
 ;;; evil-collection-transmission.el ends here
