@@ -47,7 +47,7 @@
 (defmacro evil-collection-guix-set (map)
   "Set common bindings in MAP."
   `(progn
-     (evil-collection-inhibit-insert-state ',map)
+     (evil-collection-set-readonly-bindings ',map)
      (evil-collection-define-key 'normal ',map
         ;; motion
         (kbd "SPC") 'scroll-up-command
@@ -78,12 +78,7 @@
         "gR" 'bui-redisplay
 
         ;; repl
-        "gz" 'guix-switch-to-repl
-
-        ;; quit
-        "q" 'quit-window
-        "ZQ" 'evil-quit
-        "ZZ" 'quit-window)))
+        "gz" 'guix-switch-to-repl)))
 
 ;;;###autoload
 (defun evil-collection-guix-setup ()
@@ -187,7 +182,7 @@
 
   (evil-collection-guix-set guix-hydra-build-info-mode-map)
 
-  (evil-collection-inhibit-insert-state 'guix-build-log-mode-map)
+  (evil-collection-set-readonly-bindings 'guix-build-log-mode-map)
   (evil-collection-define-key 'normal 'guix-build-log-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
@@ -205,12 +200,7 @@
     "gr" 'revert-buffer
 
     ;; repl
-    "gz" 'guix-switch-to-repl           ; TODO: Does it still make sense here?
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window)
+    "gz" 'guix-switch-to-repl)
 
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map
