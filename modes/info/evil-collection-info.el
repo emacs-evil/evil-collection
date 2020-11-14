@@ -36,9 +36,8 @@
 ;;;###autoload
 (defun evil-collection-info-setup ()
   "Set up `evil' bindings for `info-mode'."
-  (evil-collection-inhibit-insert-state 'Info-mode-map)
+  (evil-collection-set-readonly-bindings 'Info-mode-map)
   (evil-set-initial-state 'Info-mode 'normal)
-
   (evil-collection-define-key 'normal 'Info-mode-map
     "l" 'evil-forward-char
     "h" 'evil-backward-char
@@ -97,12 +96,7 @@
     "gk" 'Info-prev
 
     "g?" 'Info-summary
-    "?" evil-collection-evil-search-backward  ; Else this would be `Info-summary'.
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window)
+    "?" evil-collection-evil-search-backward)  ; Else this would be `Info-summary'.
 
   (evil-collection-define-key 'visual 'Info-mode-map
     "l" 'evil-forward-char
