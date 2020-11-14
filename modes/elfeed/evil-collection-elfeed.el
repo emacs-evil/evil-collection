@@ -40,7 +40,7 @@
 (defun evil-collection-elfeed-setup ()
   "Set up `evil' bindings for `elfeed'."
 
-  (evil-collection-inhibit-insert-state 'elfeed-search-mode-map)
+  (evil-collection-set-readonly-bindings 'elfeed-search-mode-map)
   (evil-set-initial-state 'elfeed-search-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-search-mode-map
     ;; open
@@ -59,12 +59,7 @@
 
     ;; refresh
     "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
-    "gr" 'elfeed-search-update--force
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "gr" 'elfeed-search-update--force)
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
@@ -72,7 +67,7 @@
     "U" 'elfeed-search-tag-all-unread
     "u" 'elfeed-search-untag-all-unread)
 
-  (evil-collection-inhibit-insert-state 'elfeed-show-mode-map)
+  (evil-collection-set-readonly-bindings 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-show-mode-map
     (kbd "S-<return>") 'elfeed-show-visit
