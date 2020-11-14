@@ -34,7 +34,7 @@
 ;;;###autoload
 (defun evil-collection-process-menu-setup ()
   "Set up `evil' bindings for `list-processes'."
-  (evil-collection-inhibit-insert-state 'process-menu-mode-map)
+  (evil-collection-set-readonly-bindings 'process-menu-mode-map)
   (evil-collection-define-key 'normal 'process-menu-mode-map
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
@@ -48,12 +48,7 @@
     (kbd "S-SPC") 'evil-scroll-up
 
     ;; refresh
-    "gr" 'revert-buffer
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "gr" 'revert-buffer))
 
 (provide 'evil-collection-process-menu)
 ;;; evil-collection-process-menu.el ends here
