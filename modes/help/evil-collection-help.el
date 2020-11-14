@@ -36,7 +36,7 @@
 (defun evil-collection-help-setup ()
   "Set up `evil' bindings for `help'."
   (evil-set-initial-state 'help-mode 'normal)
-  (evil-collection-inhibit-insert-state 'help-mode-map)
+  (evil-collection-set-readonly-bindings 'help-mode-map)
   (evil-collection-define-key 'normal 'help-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
@@ -68,12 +68,7 @@
     "gr" 'revert-buffer
     "<" 'help-go-back
     ">" 'help-go-forward
-    "r" 'help-follow
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "r" 'help-follow))
 
 (provide 'evil-collection-help)
 ;;; evil-collection-help.el ends here
