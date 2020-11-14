@@ -36,7 +36,7 @@
 ;;;###autoload
 (defun evil-collection-disk-usage-setup ()
   "Set up `evil' bindings for `disk-usage'."
-  (evil-collection-inhibit-insert-state 'disk-usage-mode-map)
+  (evil-collection-set-readonly-bindings 'disk-usage-mode-map)
   (evil-collection-define-key 'normal 'disk-usage-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
@@ -63,14 +63,9 @@
     "A" 'disk-usage-remove-filters
 
     "g?" 'describe-mode
-    "gr" 'revert-buffer
+    "gr" 'revert-buffer)
 
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window)
-
-  (evil-collection-inhibit-insert-state 'disk-usage-by-types-mode-map)
+  (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
   (evil-collection-define-key 'normal 'disk-usage-by-types-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
@@ -88,12 +83,7 @@
     "gr" 'revert-buffer
 
     "a" 'disk-usage-add-filters
-    "A" 'disk-usage-remove-filters
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "A" 'disk-usage-remove-filters))
 
 (provide 'evil-collection-disk-usage)
 ;;; evil-collection-disk-usage.el ends here
