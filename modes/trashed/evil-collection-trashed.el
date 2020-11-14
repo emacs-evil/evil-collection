@@ -35,7 +35,7 @@
 ;;;###autoload
 (defun evil-collection-trashed-setup ()
   "Set up `evil' bindings for `trashed'."
-  (evil-collection-inhibit-insert-state 'trashed-mode-map)
+  (evil-collection-set-readonly-bindings 'trashed-mode-map)
   (evil-collection-define-key 'normal 'trashed-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
@@ -81,12 +81,7 @@
     "v" 'trashed-view-file
 
     "g?" 'describe-mode
-    "gr" 'revert-buffer
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "gr" 'revert-buffer))
 
 (provide 'evil-collection-trashed)
 ;;; evil-collection-trashed.el ends here
