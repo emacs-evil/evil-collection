@@ -37,7 +37,7 @@
 (defun evil-collection-youtube-dl-setup ()
   "Set up `evil' bindings for `youtube-dl'."
 
-  (evil-collection-inhibit-insert-state 'youtube-dl-list-mode-map)
+  (evil-collection-set-readonly-bindings 'youtube-dl-list-mode-map)
   (evil-collection-define-key 'normal 'youtube-dl-list-mode-map
     (kbd "S-SPC") 'scroll-down-command
 
@@ -61,12 +61,7 @@
     "gj" 'youtube-dl-list-priority-down
     "gk" 'youtube-dl-list-priority-up
     (kbd "C-j") 'youtube-dl-list-priority-down
-    (kbd "C-k") 'youtube-dl-list-priority-up
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'evil-quit))
+    (kbd "C-k") 'youtube-dl-list-priority-up))
 
 (provide 'evil-collection-youtube-dl)
 ;;; evil-collection-youtube-dl.el ends here
