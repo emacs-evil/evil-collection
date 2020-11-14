@@ -53,7 +53,7 @@
 ;;;###autoload
 (defun evil-collection-dashboard-setup ()
   "Set up Evil bindings for Dashboard."
-  (evil-collection-inhibit-insert-state 'dashboard-mode-map)
+  (evil-collection-set-readonly-bindings 'dashboard-mode-map)
   (evil-collection-define-key 'normal 'dashboard-mode-map
     ;; Movement
     "j" 'dashboard-next-line
