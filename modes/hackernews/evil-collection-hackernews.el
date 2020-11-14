@@ -36,7 +36,7 @@
 ;;;###autoload
 (defun evil-collection-hackernews-setup ()
   "Set up `evil' bindings for `hackernews-mode'."
-  (evil-collection-inhibit-insert-state 'hackernews-mode-map)
+  (evil-collection-set-readonly-bindings 'hackernews-mode-map)
   (evil-collection-define-key 'normal 'hackernews-mode-map
     "]]" 'hackernews-next-item
     "[[" 'hackernews-previous-item
@@ -57,12 +57,7 @@
     "?" 'hackernews-button-mark-as-unvisited
 
     (kbd "RET") 'hackernews-button-browse-internal
-    (kbd "S-<return>") 'push-button
-
-    ;; quit
-    "q" 'quit-window
-    "ZQ" 'evil-quit
-    "ZZ" 'evil-quit))
+    (kbd "S-<return>") 'push-button))
 
 (provide 'evil-collection-hackernews)
 ;;; evil-collection-hackernews.el ends here
