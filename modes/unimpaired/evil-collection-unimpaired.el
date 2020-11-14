@@ -117,8 +117,8 @@
   "Set up unimpaired-like bindings."
   (global-evil-collection-unimpaired-mode 1)
   (evil-collection-define-key 'normal 'evil-collection-unimpaired-mode-map
-    "[b" 'previous-buffer
-    "]b" 'next-buffer
+    "[b" 'evil-prev-buffer
+    "]b" 'evil-next-buffer
     "]l" 'evil-collection-unimpaired-next-error
     "[l" 'evil-collection-unimpaired-previous-error
     (kbd "[ SPC") 'evil-collection-unimpaired-insert-newline-above
