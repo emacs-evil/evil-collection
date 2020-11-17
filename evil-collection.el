@@ -229,6 +229,7 @@ through removing their entry from `evil-collection-mode-list'."
     python
     quickrun
     racer
+    racket-describe
     realgud
     reftex
     restclient
