@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'racket-describe)
+(require 'racket-describe nil t)
 
 (defconst evil-collection-racket-describe-maps '(racket-describe-mode-map))
 
