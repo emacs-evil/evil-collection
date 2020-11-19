@@ -44,8 +44,9 @@
 
 (defcustom evil-collection-magit-use-y-for-yank t
   "When non nil, replace \"y\" for `magit-show-refs-popup' with
-\"yy\" for `evil-yank-line', `ys' `magit-copy-section-value',
-\"yb\" for `magit-copy-buffer-revision' and \"yr\" for
+\"yy\" for `evil-collection-magit-yank-whole-line', `ys'
+`magit-copy-section-value', \"yb\" for
+`magit-copy-buffer-revision' and \"yr\" for
 `magit-show-refs-popup'. This keeps \"y\" for
 `magit-show-refs-popup' in the help
 popup (`magit-dispatch-popup'). Default is t."
@@ -123,8 +124,7 @@ When this option is enabled, the stash popup is available on \"Z\"."
   ;; TODO do something here
   '(git-popup-mode
     magit-blame-mode
-    magit-blame-read-only-mode
-    magit-file-mode)
+    magit-blame-read-only-mode)
   "Modes whose evil states are unchanged")
 
 (defvar evil-collection-magit-ignored-modes
@@ -135,7 +135,6 @@ When this option is enabled, the stash popup is available on \"Z\"."
     magit-merge-preview-mode
     transient-resume-mode
     magit-rebase-mode
-    magit-file-mode-major-mode
     magit-wip-after-save-mode
     magit-wip-after-save-local-mode-major-mode
     magit-wip-after-save-local-mode
@@ -242,6 +241,14 @@ moment.")
   (advice-add 'evil-visual-expand-region
               :filter-args #'evil-collection-magit--filter-args-visual-expand-region))
 
+;; keep visual state for magit-section movement commands
+(dolist (cmd '(magit-section-forward-sibling
+               magit-section-forward
+               magit-section-backward-sibling
+               magit-section-backward
+               magit-section-up))
+  (evil-set-command-property cmd :keep-visual t))
+
 (defvar evil-collection-magit-mode-map-bindings
   (let ((states (if evil-collection-magit-use-y-for-yank
                     `(,evil-collection-magit-state visual)
@@ -276,6 +283,7 @@ moment.")
        (,states magit-mode-map "C-f"   evil-scroll-page-down)
        (,states magit-mode-map "C-b"   evil-scroll-page-up)
        (,states magit-mode-map ":"     evil-ex)
+       (,states magit-mode-map "q"     magit-mode-bury-buffer)
 
        ;; these are to fix the priority of the log mode map and the magit mode map
        ;; FIXME: Conflict between this and revert. Revert seems more important here
@@ -285,7 +293,7 @@ moment.")
        (,states magit-mode-map "S-SPC" magit-diff-show-or-scroll-up   "SPC")
        (,states magit-mode-map "S-DEL" magit-diff-show-or-scroll-down "DEL")
 
-       ((,evil-collection-magit-state) magit-mode-map "C-z"      evil-emacs-state)
+       ((,evil-collection-magit-state) magit-mode-map ,evil-toggle-key evil-emacs-state)
        ((,evil-collection-magit-state) magit-mode-map "<escape>" magit-mode-bury-buffer))
 
      (if (eq evil-search-module 'evil-search)
@@ -296,15 +304,15 @@ moment.")
          (,states magit-mode-map "n" evil-search-next)
          (,states magit-mode-map "N" evil-search-previous)))
 
-     `((,states magit-status-mode-map "gz"  magit-jump-to-stashes                  "jz")
-       (,states magit-status-mode-map "gt"  magit-jump-to-tracked                  "jt")
-       (,states magit-status-mode-map "gn"  magit-jump-to-untracked                "jn")
-       (,states magit-status-mode-map "gu"  magit-jump-to-unstaged                 "ju")
-       (,states magit-status-mode-map "gs"  magit-jump-to-staged                   "js")
-       (,states magit-status-mode-map "gfu" magit-jump-to-unpulled-from-upstream   "jfu")
-       (,states magit-status-mode-map "gfp" magit-jump-to-unpulled-from-pushremote "jfp")
-       (,states magit-status-mode-map "gpu" magit-jump-to-unpushed-to-upstream     "jpu")
-       (,states magit-status-mode-map "gpp" magit-jump-to-unpushed-to-pushremote   "jpp")
+     `((,states magit-status-mode-map "gz"  magit-jump-to-stashes)
+       (,states magit-status-mode-map "gt"  magit-jump-to-tracked)
+       (,states magit-status-mode-map "gn"  magit-jump-to-untracked)
+       (,states magit-status-mode-map "gu"  magit-jump-to-unstaged)
+       (,states magit-status-mode-map "gs"  magit-jump-to-staged)
+       (,states magit-status-mode-map "gfu" magit-jump-to-unpulled-from-upstream)
+       (,states magit-status-mode-map "gfp" magit-jump-to-unpulled-from-pushremote)
+       (,states magit-status-mode-map "gpu" magit-jump-to-unpushed-to-upstream)
+       (,states magit-status-mode-map "gpp" magit-jump-to-unpushed-to-pushremote)
        (,states magit-status-mode-map "gh"  magit-section-up                       "^")
        (,states magit-diff-mode-map "gj" magit-section-forward)
        (,states magit-diff-mode-map "gd" magit-jump-to-diffstat-or-diff "j")
@@ -327,7 +335,7 @@ moment.")
            (,states magit-mode-map "V"    evil-visual-line)
            (,states magit-mode-map "C-w"  evil-window-map)
            (,states magit-mode-map "y")
-           (,states magit-mode-map "yy"   evil-yank-line)
+           (,states magit-mode-map "yy"   evil-collection-magit-yank-whole-line)
            (,states magit-mode-map "yr"   magit-show-refs            "y")
            (,states magit-mode-map "ys"   magit-copy-section-value   "C-w")
            (,states magit-mode-map "yb"   magit-copy-buffer-revision "M-w")
@@ -401,7 +409,6 @@ denotes the original magit key for this command.")
                    magit-log-select-mode-map
                    magit-reflog-mode-map
                    magit-status-mode-map
-                   magit-file-mode-map
                    magit-log-read-revs-map
                    magit-process-mode-map
                    magit-refs-mode-map))
@@ -467,14 +474,16 @@ denotes the original magit key for this command.")
              (aux-map (evil-get-auxiliary-keymap git-rebase-mode-map evil-collection-magit-state)))
          (save-excursion
            (save-match-data
-             (flush-lines "^#.+ = ")
              (goto-char (point-min))
              (when (and (boundp 'git-rebase-show-instructions)
                         git-rebase-show-instructions
-                        (re-search-forward "^# Commands:\n" nil t))
+                        (re-search-forward
+                         (concat "^" (regexp-quote comment-start) "\\s-+p, pick") nil t))
+               (goto-char (line-beginning-position))
+               (flush-lines (concat "^" (regexp-quote comment-start) ".+ = "))
                (dolist (cmd evil-collection-magit-rebase-commands-w-descriptions)
                  (insert
-                  (format "# %-8s %s\n"
+                  (format (concat comment-start " %-8s %s\n")
                           (if (and (car cmd)
                                    (eq (nth 1 cmd)
                                        (lookup-key aux-map (kbd (car cmd)))))
@@ -499,8 +508,8 @@ denotes the original magit key for this command.")
     (magit-stage-untracked t)))
 
 (defvar evil-collection-magit-original-section-bindings
-  `((,(copy-keymap magit-file-section-map) "\C-j" magit-diff-visit-file-worktree)
-    (,(copy-keymap magit-hunk-section-map) "\C-j" magit-diff-visit-file-worktree))
+  `((,(copy-keymap magit-file-section-map) "\C-j" magit-diff-visit-worktree-file)
+    (,(copy-keymap magit-hunk-section-map) "\C-j" magit-diff-visit-worktree-file))
   "For testing purposes only. The original magit keybindings that
 evil-collection-magit affects.")
 
@@ -633,6 +642,13 @@ using `evil-collection-magit-toggle-text-mode'"
          (evil-change-state evil-collection-magit-state))
         (t
          (user-error "evil-collection-magit-toggle-text-mode unexpected state"))))
+
+(evil-define-operator evil-collection-magit-yank-whole-line
+  (beg end type register yank-handler)
+  "Yank whole line."
+  :motion evil-line-or-visual-line
+  (interactive "<R><x>")
+  (evil-yank beg end type register yank-handler))
 
 ;;;###autoload
 (defun evil-collection-magit-setup ()
