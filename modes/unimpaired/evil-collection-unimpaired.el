@@ -112,6 +112,41 @@
   (ignore count)
   (evil-collection-unimpaired--encode beg end #'url-unhex-string))
 
+;; https://stackoverflow.com/questions/2423834/move-line-region-up-and-down-in-emacs
+(defun evil-collection-unimpaired--move-text (arg)
+  "Move text down if ARG is positive, otherwise move text up."
+  (cond
+   ((and mark-active transient-mark-mode)
+    (when (> (point) (mark))
+      (exchange-point-and-mark))
+    (let ((column (current-column))
+          (text (delete-and-extract-region (point) (mark))))
+      (forward-line arg)
+      (move-to-column column :force)
+      (set-mark (point))
+      (insert text)
+      (exchange-point-and-mark)
+      (setq deactivate-mark nil)))
+   (t
+    (let ((column (current-column)))
+      (beginning-of-line)
+      (when (or (> arg 0) (not (bobp)))
+        (forward-line)
+        (when (or (< arg 0) (not (eobp)))
+          (transpose-lines arg))
+        (forward-line -1))
+      (move-to-column column)))))
+
+(defun evil-collection-unimpaired-move-text-down (arg)
+  "Move region (transient-mark-mode active) or current line ARG lines down."
+  (interactive "*p")
+  (evil-collection-unimpaired--move-text arg))
+
+(defun evil-collection-unimpaired-move-text-up (arg)
+  "Move region (transient-mark-mode active) or current line ARG lines up."
+  (interactive "*p")
+  (evil-collection-unimpaired--move-text (- arg)))
+
 ;;;###autoload
 (defun evil-collection-unimpaired-setup ()
   "Set up unimpaired-like bindings."
@@ -119,10 +154,15 @@
   (evil-collection-define-key 'normal 'evil-collection-unimpaired-mode-map
     "[b" 'evil-prev-buffer
     "]b" 'evil-next-buffer
+    "[e" 'evil-collection-unimpaired-move-text-up
+    "]e" 'evil-collection-unimpaired-move-text-down
     "]l" 'evil-collection-unimpaired-next-error
     "[l" 'evil-collection-unimpaired-previous-error
     (kbd "[ SPC") 'evil-collection-unimpaired-insert-newline-above
     (kbd "] SPC") 'evil-collection-unimpaired-insert-newline-below)
+  (evil-collection-define-key 'visual 'evil-collection-unimpaired-mode-map
+    "[e" 'evil-collection-unimpaired-move-text-up
+    "]e" 'evil-collection-unimpaired-move-text-down)
   (evil-collection-define-key 'motion 'evil-collection-unimpaired-mode-map
     "[u" 'evil-collection-unimpaired-url-encode
     "]u" 'evil-collection-unimpaired-url-decode))
