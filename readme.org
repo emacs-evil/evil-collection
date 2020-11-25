@@ -556,7 +556,6 @@ more.
 
    | Major mode | Evil bindings            |
    |------------+--------------------------|
-   | magit      | [[https://github.com/emacs-evil/evil-magit][evil-magit]]               |
    | lispy      | [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]] |
    | org        | [[https://github.com/GuiltyDolphin/org-evil][org-evil]] or [[https://github.com/Somelauw/evil-org-mode][evil-org]]     |
    | markdown   | [[https://github.com/Somelauw/evil-markdown][evil-markdown]]          |
@@ -564,6 +563,9 @@ more.
 
    Should you know any suitable package not mentioned in this list, let us know and
    file an issue.
+
+   [[https://github.com/emacs-evil/evil-magit][evil-magit]] is included with evil-collection as of:
+   [[https://github.com/emacs-evil/evil-collection/commit/e24469514a30dd55e65d2c6d90264f496cf4d27f][this commit]].
 
    Other references:
 
