@@ -290,8 +290,11 @@ moment.")
        ;; (,states magit-log-mode-map "-" magit-log-half-commit-limit    "-")
        (,states magit-log-mode-map "=" magit-log-toggle-commit-limit  "=")
 
-       (,states magit-mode-map "S-SPC" magit-diff-show-or-scroll-up   "SPC")
-       (,states magit-mode-map "S-DEL" magit-diff-show-or-scroll-down "DEL")
+       ;; https://github.com/emacs-evil/evil-collection/issues/406
+       ;; Use kbd here for S-SPC and S-DEL so evil-collection-define-key can
+       ;; parse definition correctly;.
+       (,states magit-mode-map ,(kbd "S-SPC") magit-diff-show-or-scroll-up   "SPC")
+       (,states magit-mode-map ,(kbd "S-DEL") magit-diff-show-or-scroll-down "DEL")
 
        ((,evil-collection-magit-state) magit-mode-map ,evil-toggle-key evil-emacs-state)
        ((,evil-collection-magit-state) magit-mode-map "<escape>" magit-mode-bury-buffer))
