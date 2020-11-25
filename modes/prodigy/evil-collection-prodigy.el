@@ -74,6 +74,12 @@
     (kbd "Y") 'prodigy-copy-cmd)
 
   (evil-collection-define-key 'normal 'prodigy-view-mode-map
+    "s" 'prodigy-start
+    "S" 'prodigy-stop
+    "gr" 'prodigy-restart
+    "r" 'prodigy-restart
+    "c" 'prodigy-view-clear-buffer
+    "c-l" 'prodigy-view-clear-buffer
     "x" 'prodigy-view-clear-buffer))
 
 (provide 'evil-collection-prodigy)
