@@ -379,11 +379,11 @@ denotes the original magit key for this command.")
     ((,evil-collection-magit-state visual) git-commit-mode-map "gk" git-commit-prev-message "M-p")
     ((,evil-collection-magit-state visual) git-commit-mode-map "gj" git-commit-next-message "M-n")
     ((normal) magit-blame-read-only-mode-map "j"    evil-next-line)
-    ((normal) magit-blame-read-only-mode-map "\C-j"  magit-blame-next-chunk                 "n") ;
+    ((normal) magit-blame-read-only-mode-map "\C-j"  magit-blame-next-chunk                 "n")
     ((normal) magit-blame-read-only-mode-map "gj"   magit-blame-next-chunk                 "n")
     ((normal) magit-blame-read-only-mode-map "gJ"   magit-blame-next-chunk-same-commit     "N")
     ((normal) magit-blame-read-only-mode-map "k"    evil-previous-line)
-    ((normal) magit-blame-read-only-mode-map "\C-k"  magit-blame-previous-chunk             "p") ;
+    ((normal) magit-blame-read-only-mode-map "\C-k"  magit-blame-previous-chunk             "p")
     ((normal) magit-blame-read-only-mode-map "gk"   magit-blame-previous-chunk             "p")
     ((normal) magit-blame-read-only-mode-map "gK"   magit-blame-previous-chunk-same-commit "P"))
   "evil-collection-magit bindings for minor modes. Each element of
