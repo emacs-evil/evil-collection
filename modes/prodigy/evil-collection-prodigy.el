@@ -79,7 +79,7 @@
     "gr" 'prodigy-restart
     "r" 'prodigy-restart
     "c" 'prodigy-view-clear-buffer
-    "c-l" 'prodigy-view-clear-buffer
+    (kbd "C-l") 'prodigy-view-clear-buffer
     "x" 'prodigy-view-clear-buffer))
 
 (provide 'evil-collection-prodigy)
