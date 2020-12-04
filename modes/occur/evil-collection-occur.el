@@ -54,10 +54,10 @@
     (kbd "M-<return>") 'occur-mode-display-occurrence
     "go" 'occur-mode-goto-occurrence-other-window
 
-    "gj" 'occur-next
-    "gk" 'occur-prev
-    (kbd "C-j") 'occur-next
-    (kbd "C-k") 'occur-prev
+    "gj" 'next-error-no-select
+    "gk" 'previous-error-no-select
+    (kbd "C-j") 'next-error-no-select
+    (kbd "C-k") 'previous-error-no-select
     "r" 'occur-rename-buffer
     "c" 'clone-buffer
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
