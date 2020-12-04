@@ -44,8 +44,8 @@
     ;; mouse
     [mouse-1] 'link-selected
     ;; misc
-    (kbd "?") 'dictionary-help ; normally under `h` which is rebound here
-    (kbd "C-o") 'dictionary-previous) ; normally under `l` which is rebound here
+    "g?" 'dictionary-help ; normally under `h` which is rebound here
+    (kbd "C-o") 'dictionary-previous)) ; normally under `l` which is rebound here
 
 (provide 'evil-collection-dictionary)
 ;;; evil-collection-dictionary.el ends here
