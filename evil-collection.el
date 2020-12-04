@@ -140,6 +140,7 @@ through removing their entry from `evil-collection-mode-list'."
     deadgrep
     debbugs
     debug
+    dictionary
     diff-mode
     dired
     dired-sidebar
