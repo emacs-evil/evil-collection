@@ -133,6 +133,7 @@ through removing their entry from `evil-collection-mode-list'."
     comint
     company
     compile
+    consult
     (custom cus-edit)
     cus-theme
     dashboard
