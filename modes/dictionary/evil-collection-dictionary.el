@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'dictionary)
+(require 'dictionary nil t)
 
 (defconst evil-collection-dictionary-maps '(dictionary-mode-map))
 
