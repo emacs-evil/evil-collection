@@ -236,6 +236,7 @@ through removing their entry from `evil-collection-mode-list'."
     reftex
     restclient
     rg
+    ripgrep
     rjsx-mode
     robe
     rtags
