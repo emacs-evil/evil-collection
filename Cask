@@ -7,7 +7,6 @@
  (depends-on "evil")
  (depends-on "f")
  (depends-on "ert-runner")
- (depends-on "dictionary")
  (depends-on "package-lint")
  (depends-on "annalist")
  (depends-on "magit"))
