@@ -36,8 +36,6 @@
 (declare-function notmuch-search-tag "notmuch")
 (declare-function notmuch-tree-tag "notmuch-tree")
 
-(declare-function notmuch-tree-close-message-pane-and "notmuch-tree")
-
 (defconst evil-collection-notmuch-maps '(notmuch-common-keymap
                                          notmuch-hello-mode-map
                                          notmuch-show-mode-map
@@ -126,7 +124,7 @@
     "J" 'notmuch-jump-search)
 
   (evil-collection-define-key 'normal 'notmuch-hello-mode-map
-    "g?" 'notmuch-hello-versions
+    "g?" 'notmuch-version
     (kbd "TAB") 'widget-forward
     (kbd "RET") 'evil-collection-notmuch-hello-ret
     (kbd "S-TAB") 'widget-backward
@@ -169,15 +167,15 @@
     "." 'notmuch-show-part-map)
 
   (evil-collection-define-key 'normal 'notmuch-tree-mode-map
-    "g?" (notmuch-tree-close-message-pane-and 'notmuch-help)
+    "g?" 'notmuch-help
     "q" 'notmuch-tree-quit
     "S" 'notmuch-tree-to-search
-    "C" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail) ; like mu4e
-    "cc" (notmuch-tree-close-message-pane-and 'notmuch-mua-new-mail) ; like mu4e
-    "J" (notmuch-tree-close-message-pane-and 'notmuch-jump-search)
+    "C" 'notmuch-mua-new-mail ; like mu4e
+    "cc" 'notmuch-mua-new-mail ; like mu4e
+    "J" 'notmuch-jump-search
     "zv" 'notmuch-search-from-tree-current-query ; like mu4e-conversation
-    "cr" (notmuch-tree-close-message-pane-and 'notmuch-show-reply-sender) ; like mu4e
-    "cR" (notmuch-tree-close-message-pane-and 'notmuch-show-reply)
+    "cr" 'notmuch-show-reply-sender ; like mu4e
+    "cR" 'notmuch-show-reply
     "d" 'evil-collection-notmuch-tree-toggle-delete
     "!" 'evil-collection-notmuch-tree-toggle-unread
     "=" 'evil-collection-notmuch-tree-toggle-flagged
