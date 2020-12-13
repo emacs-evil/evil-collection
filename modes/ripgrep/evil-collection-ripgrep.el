@@ -37,8 +37,13 @@
   "Set up `evil' bindings for `ripgrep'."
   (evil-collection-define-key 'normal 'ripgrep-search-mode-map
     "n" 'evil-search-next
+    "\C-k" 'previous-error-no-select
     "\C-j" 'next-error-no-select
-    "\C-k" 'previous-error-no-select))
+    "gk" 'previous-error-no-select
+    "gj" 'next-error-no-select
+    "{" 'compilation-previous-file
+    "}" 'compilation-next-file
+    "i" 'wgrep-change-to-wgrep-mode))
 
 
 (provide 'evil-collection-ripgrep)
