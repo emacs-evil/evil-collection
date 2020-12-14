@@ -317,7 +317,6 @@ moment.")
        (,states magit-status-mode-map "gpu" magit-jump-to-unpushed-to-upstream)
        (,states magit-status-mode-map "gpp" magit-jump-to-unpushed-to-pushremote)
        (,states magit-status-mode-map "gh"  magit-section-up                       "^")
-       (,states magit-diff-mode-map "gj" magit-section-forward)
        (,states magit-diff-mode-map "gd" magit-jump-to-diffstat-or-diff "j")
        ;; NOTE This is now transient-map and the binding is C-g.
        ;; ((emacs) magit-popup-mode-map "<escape>" "q")
