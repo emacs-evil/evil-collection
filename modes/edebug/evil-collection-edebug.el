@@ -44,7 +44,8 @@
 
   (evil-collection-define-key nil 'edebug-mode-map
     "g" nil
-    "G" nil)
+    "G" nil
+    "h" nil)
 
   ;; FIXME: Seems like other minor modes will readily clash with `edebug'.
   ;; `lispyville' and `edebug' 's' key?
