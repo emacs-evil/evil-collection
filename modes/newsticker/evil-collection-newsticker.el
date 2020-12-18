@@ -35,28 +35,74 @@
 ;;;###autoload
 (defun evil-collection-newsticker-setup ()
   "Set up `evil' bindings for `newsticker'."
+  ;; plainview
   (evil-set-initial-state 'newsticker-mode 'normal)
   (evil-collection-define-key 'normal 'newsticker-mode-map
-      ;; move
-      "k" 'newsticker-previous-item
-      "j" 'newsticker-next-item
-      "gk" 'newsticker-previous-feed
-      "gj" 'newsticker-next-feed
+    ;; move
+    "gk" 'newsticker-previous-feed
+    "gj" 'newsticker-next-feed
 
-      ;; mark
-      "r" 'newsticker-mark-item-at-point-as-read
-      "i" 'newsticker-mark-item-at-point-as-immortal
+    ;; mark
+    "r" 'newsticker-mark-item-at-point-as-read
+    "i" 'newsticker-mark-item-at-point-as-immortal
 
-      ;; show/hide
-      "o" 'newsticker-show-old-items
-      "O" 'newsticker-hide-old-items
+    ;; show/hide
+    "o" 'newsticker-show-old-items
+    "O" 'newsticker-hide-old-items
 
-      ;; refresh
-      "gr" 'newsticker-buffer-force-update
-      "gR" 'newsticker-get-all-news
+    ;; refresh
+    "gr" 'newsticker-buffer-force-update
+    "gR" 'newsticker-get-all-news
 
-      ;; quit
-      "q" 'newsticker-close-buffer))
+    ;; quit
+    "q" 'newsticker-close-buffer)
+
+  ;; treeview
+  (evil-set-initial-state 'newsticker-treeview-list-mode 'normal)
+  (evil-collection-define-key 'normal 'newsticker-treeview-list-mode-map
+    [down-mouse-3] 'newsticker-treeview-list-menu)
+
+  (evil-set-initial-state 'newsticker-treeview-item-mode 'normal)
+  (evil-collection-define-key 'normal 'newsticker-treeview-item-mode-map
+    [down-mouse-3] 'newsticker-treeview-item-menu)
+
+  (evil-set-initial-state 'newsticker-treeview-mode 'normal)
+  (evil-collection-define-key 'normal 'newsticker-treeview-mode-map
+    ;; move
+    "[[" 'newsticker-treeview-prev-feed
+    "]]" 'newsticker-treeview-next-feed
+    "\C-j" 'newsticker-treeview-next-item
+    "\C-k" 'newsticker-treeview-prev-item
+    "gj" 'newsticker-treeview-next-new-or-immortal-item
+    "gk" 'newsticker-treeview-prev-new-or-immortal-item
+    (kbd "SPC") 'newsticker-treeview-next-page
+    "J" 'newsticker-treeview-jump
+
+    ;; mark
+    "o" 'newsticker-treeview-mark-item-old
+    "O" 'newsticker-treeview-mark-list-items-old
+    "i" 'newsticker-treeview-toggle-item-immortal
+
+    "b" 'newsticker-treeview-browse-url-item
+    "B" 'newsticker-treeview-browse-url
+
+    ;; group
+    "A" 'newsticker-group-add-group
+    "D" 'newsticker-group-delete-group
+    "R" 'newsticker-group-rename-group
+    "S" 'newsticker-treeview-save
+    (kbd "M-m") 'newsticker-group-move-feed
+    (kbd "<M-down>") 'newsticker-group-shift-feed-down
+    (kbd "<M-up>") 'newsticker-group-shift-feed-up
+    (kbd "<M-S-down>") 'newsticker-group-shift-group-down
+    (kbd "<M-S-up>") 'newsticker-group-shift-group-up
+
+    ;; refresh
+    "gr" 'newsticker-treeview-update
+    "gR" 'newsticker-get-all-news
+
+    ;; quit
+    "q" 'newsticker-treeview-quit))
 
 (provide 'evil-collection-newsticker)
 ;;; evil-collection-newsticker.el ends here
