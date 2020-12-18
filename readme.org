@@ -1,6 +1,6 @@
 #+TITLE: Evil Collection
 
-[[https://travis-ci.org/emacs-evil/evil-collection][file:https://travis-ci.org/emacs-evil/evil-collection.svg?branch=master]]
+[[https://github.com/emacs-evil/evil-collection/actions][file:https://github.com/emacs-evil/evil-collection/workflows/build/badge.svg?branch=master]]
 [[https://melpa.org/#/evil-collection][file:https://melpa.org/packages/evil-collection-badge.svg]]
 [[https://stable.melpa.org/#/evil-collection][file:https://stable.melpa.org/packages/evil-collection-badge.svg]]
 
@@ -256,11 +256,11 @@ more.
     with ~<f3>~ and ~<f4>~.
 
     A good rule of thumb would be:
-    
+
     - Always bind ~q~, ~ZZ~ and ~ZQ~ to the mode specific quitting functions. If there is none,
-      
+
     - Bind ~q~ and ~ZZ~ to ~quit-window~
-    
+
     - Bind ~ZQ~ to ~evil-quit~
 
     - If macros don't make sense in current mode, then ~@~ is available.
