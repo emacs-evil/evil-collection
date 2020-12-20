@@ -40,6 +40,18 @@ mode."
   :group 'evil-collection-outline
   :type 'boolean)
 
+(defcustom evil-collection-outline-enable-in-minor-mode-p t
+  "Enable Outline mode bindings in Outline minor mode.
+
+To override individual bindings, modify the minor mode keymap.
+For example, \"zB\" is bound to `outline-hide-body' in Outline
+mode. To turn off this specific binding in Outline minor mode,
+you can do:
+
+    (evil-define-minor-mode-key 'normal 'outline-minor-mode \"zB\" nil)"
+  :group 'evil-collection-outline
+  :type 'boolean)
+
 (defconst evil-collection-outline-maps '(outline-mode-map))
 
 ;;;###autoload
@@ -92,7 +104,13 @@ mode."
     (kbd "M-k") 'outline-move-subtree-up ; Org-mode has "M-<up>", Evil-org has "M-k"
     (kbd "M-l") 'outline-demote ; Org-mode has "M-<right>", Evil-org has "M-l"
 
-    (kbd "M-<return>") 'outline-insert-heading)) ; Org-mode has "M-<return>"
+    (kbd "M-<return>") 'outline-insert-heading) ; Org-mode has "M-<return>"
+
+  ;; Enable bindings in Outline minor mode if requested
+  (when evil-collection-outline-enable-in-minor-mode-p
+    (let* ((minor-map (evil-get-minor-mode-keymap 'normal 'outline-minor-mode))
+           (major-map (evil-get-auxiliary-keymap outline-mode-map 'normal)))
+      (set-keymap-parent minor-map major-map))))
 
 (provide 'evil-collection-outline)
 ;;; evil-collection-outline.el ends here
