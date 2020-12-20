@@ -1,7 +1,5 @@
 ;;; evil-collection-ripgrep.el --- Bindings for `ripgrep' -*- lexical-binding: t -*-
 
-;; Copyright (C) 2018 James Nguyen
-
 ;; Author: Sid Kasivajhula <sid@countvajhula.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
