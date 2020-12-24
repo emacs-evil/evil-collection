@@ -36,13 +36,20 @@
 (declare-function notmuch-search-tag "notmuch")
 (declare-function notmuch-tree-tag "notmuch-tree")
 
-(defconst evil-collection-notmuch-maps '(notmuch-common-keymap
-                                         notmuch-hello-mode-map
+;; Since all the other maps in `evil-collection-notmuch-maps`
+;; have notmuch-common-keymap as parent
+;; https://git.notmuchmail.org/git?p=notmuch;a=blob;f=emacs/notmuch-hello.el;h=fa31694ff0f79a7f2781849394390a673f75aade;hb=HEAD#l651
+;; 
+;; When `evil-collection-setup-hook` runs, if it changes keymaps
+;; using a `dolist` over `evil-collection-notmuch-maps`, then a binding might
+;; see 2 changes at once. To avoid that, notmuch-common-keymap is last
+(defconst evil-collection-notmuch-maps '(notmuch-hello-mode-map
                                          notmuch-show-mode-map
                                          notmuch-show-part-map
                                          notmuch-tree-mode-map
                                          notmuch-search-mode-map
-                                         notmuch-search-stash-map))
+                                         notmuch-search-stash-map
+                                         notmuch-common-keymap))
 
 (defun evil-collection-notmuch-toggle-tag (tag mode &optional next-function)
   "Toggle TAG tag for message in MODE."
