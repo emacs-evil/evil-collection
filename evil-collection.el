@@ -208,6 +208,7 @@ through removing their entry from `evil-collection-mode-list'."
     monky
     mu4e
     mu4e-conversation
+    mu4e-views
     neotree
     newsticker
     notmuch
