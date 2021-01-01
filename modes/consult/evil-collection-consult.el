@@ -34,9 +34,7 @@
   "Set the bindings."
   (evil-set-command-property 'consult-outline :jump t)
   (evil-set-command-property 'consult-mark :jump t)
-  (evil-set-command-property 'consult-line :jump t)
-  (evil-set-command-property 'consult-line-symbol-at-point :jump t)
-  (evil-set-command-property 'consult-line-from-isearch :jump t))
+  (evil-set-command-property 'consult-line :jump t))
 
 ;;;###autoload
 (defun evil-collection-consult-setup ()
