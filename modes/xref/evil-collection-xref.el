@@ -1,6 +1,6 @@
 ;;; evil-collection-xref.el --- Evil bindings for xref -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2017, 2021 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -30,13 +30,15 @@
 (require 'evil-collection)
 (require 'xref)
 
-(defconst evil-collection-xref-maps '(xref--xref-buffer-mode-map))
+(defconst evil-collection-xref-maps `(xref--xref-buffer-mode-map
+                                      ,@(when (>= emacs-major-version 27) '(xref--transient-buffer-mode-map))))
 
 ;;;###autoload
 (defun evil-collection-xref-setup ()
   "Set up `evil' bindings for `xref'."
+  (evil-set-initial-state 'xref--xref-buffer-mode 'normal)
+  (evil-collection-set-readonly-bindings 'xref--xref-buffer-mode-map)
   (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
-    "q" 'quit-window
     "gj" 'xref-next-line
     "gk" 'xref-prev-line
     (kbd "C-j") 'xref-next-line
@@ -50,13 +52,23 @@
 
     ;; open
     (kbd "RET") 'xref-goto-xref
-    (kbd "S-<return>") 'xref-show-location-at-point
+    (kbd "S-<return>") 'xref-quit-and-goto-xref  ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'
     "o" 'xref-show-location-at-point
     "go" 'xref-show-location-at-point)
 
   (when (>= emacs-major-version 27)
     (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
-      "gr" 'xref-revert-buffer)))
+      "gr" 'xref-revert-buffer))
+
+  (when (>= emacs-major-version 28)
+    (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
+      "[[" 'xref-prev-group
+      "]]" 'xref-next-group))
+
+  (when (>= emacs-major-version 27)
+    (evil-set-initial-state 'xref--transient-buffer-mode 'normal)
+    (evil-collection-define-key 'normal 'xref--transient-buffer-mode-map
+      (kbd "RET") 'xref-quit-and-goto-xref)))
 
 (provide 'evil-collection-xref)
 ;;; evil-collection-xref.el ends here
