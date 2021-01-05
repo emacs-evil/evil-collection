@@ -48,7 +48,7 @@
     "n" 'ebib-search-next
     "p" 'ebib-yank-entry
     "ZQ" 'ebib-quit
-    "ZZ" 'ebib-quit
+    "ZZ" 'ebib-lower
     (kbd "C-u") 'ebib-index-scroll-down
     (kbd "C-d") 'ebib-index-scroll-up
     (kbd "C-b") 'ebib-index-scroll-down
