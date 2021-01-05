@@ -30,7 +30,7 @@
 (require 'elisp-mode)
 (require 'evil-collection)
 
-(defconst evil-collection-elisp-mode-maps nil)
+(defconst evil-collection-elisp-mode-maps '(emacs-lisp-mode-map))
 
 (defun evil-collection-elisp-mode-last-sexp-setup-props (beg end value alt1 alt2)
   "Set up text properties for the output of `elisp--eval-last-sexp'.
@@ -67,13 +67,23 @@ alternative printed representations that can be displayed."
         (apply command args))
     (apply command args)))
 
+(defun evil-collection-elisp-mode-ielm-repl ()
+  "Open the Emacs Lisp REPL (`ielm')."
+  (interactive)
+  (pop-to-buffer (get-buffer-create "*ielm*"))
+  (ielm))
+
 ;;;###autoload
 (defun evil-collection-elisp-mode-setup ()
   "Set up `evil' bindings for `elisp-mode'."
   (unless evil-move-beyond-eol
     (advice-add 'eval-print-last-sexp :around 'evil-collection-elisp-mode-last-sexp))
   (advice-add 'last-sexp-setup-props
-              :override 'evil-collection-elisp-mode-last-sexp-setup-props))
+              :override 'evil-collection-elisp-mode-last-sexp-setup-props)
+
+  (evil-set-initial-state 'emacs-lisp-mode 'normal)
+  (evil-collection-define-key 'normal 'emacs-lisp-mode-map
+    "gz" 'evil-collection-elisp-mode-ielm-repl))
 
 (provide 'evil-collection-elisp-mode)
 ;;; evil-collection-elisp-mode.el ends here
