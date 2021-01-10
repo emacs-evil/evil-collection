@@ -59,7 +59,12 @@
 
     ;; refresh
     "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
-    "gr" 'elfeed-search-update--force)
+    "gr" 'elfeed-search-update--force
+
+    ;; quit
+    "q" 'elfeed-search-quit-window
+    "ZQ" 'elfeed-search-quit-window
+    "ZZ" 'elfeed-search-quit-window)
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
