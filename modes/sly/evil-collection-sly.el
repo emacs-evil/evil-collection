@@ -168,6 +168,7 @@
     "gr" 'sly-update-threads-buffer)
 
   (evil-collection-define-key 'normal 'sly-xref-mode-map
+    "q" 'quit-window
     (kbd "RET") 'sly-xref-goto
     (kbd "SPC") 'sly-xref-show
     "go" 'sly-show-xref
