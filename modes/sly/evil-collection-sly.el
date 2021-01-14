@@ -32,6 +32,9 @@
 (require 'evil-collection)
 (require 'sly nil t)
 
+(declare-function sly-last-expression "sly")
+(declare-function sly-eval-print "sly")
+
 (defvar sly-connection-list-mode-map)
 (defvar sly-db-mode-map)
 (defvar sly-inspector-mode-map)
@@ -62,14 +65,29 @@
         (apply command args))
     (apply command args)))
 
+(defun evil-collection-sly-eval-print-last-expression (string)
+  "Evaluate sexp before point; print value into the current buffer.
+
+Evil version of `sly-eval-print-last-expression' that accounts for
+`evil-move-beyond-eol'."
+  (interactive
+   (list (progn
+           (when (and (not evil-move-beyond-eol)
+                      (or (evil-normal-state-p) (evil-motion-state-p)))
+             (unless (or (eobp) (eolp))
+               (forward-char)))
+           (sly-last-expression))))
+  (insert "\n")
+  (sly-eval-print string))
+
 ;;;###autoload
 (defun evil-collection-sly-setup ()
   "Set up `evil' bindings for `sly'."
   (unless evil-move-beyond-eol
     (advice-add 'sly-eval-last-expression :around 'evil-collection-sly-last-sexp)
     (advice-add 'sly-pprint-eval-last-expression :around 'evil-collection-sly-last-sexp)
-    (advice-add 'sly-eval-print-last-expression :around 'evil-collection-sly-last-sexp)
-    (advice-add 'sly-mrepl-return :around 'evil-collection-sly-last-sexp))
+    (advice-add 'sly-mrepl-return :around 'evil-collection-sly-last-sexp)
+    (advice-add 'sly-eval-print-last-expression :override 'evil-collection-sly-eval-print-last-expression))
 
   (evil-collection-define-key 'normal 'sly-db-mode-map
     [follow-link] 'mouse-face
