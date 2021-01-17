@@ -180,7 +180,11 @@
 
     (mu4e-compose-mode-map
      "gg" mu4e-compose-goto-top
-     "G" mu4e-compose-goto-bottom)
+     "G" mu4e-compose-goto-bottom
+     "ZD" message-dont-send
+     "ZF" mml-attach-file
+     "ZQ" mu4e-message-kill-buffer
+     "ZZ" message-send-and-exit)
 
     (mu4e-view-mode-map
      " " mu4e-view-scroll-up-or-next
