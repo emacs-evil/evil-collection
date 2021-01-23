@@ -30,11 +30,61 @@
 (require 'evil-collection)
 (require 'consult nil t)
 
+(defvar consult-line-numbers-widen)
+(declare-function consult--forbid-minibuffer "consult")
+(declare-function consult--fontify-all "consult")
+(declare-function consult--in-range-p "consult")
+(declare-function consult--line-with-cursor "consult")
+(declare-function consult--remove-dups "consult")
+(declare-function consult--add-line-number "consult")
+(declare-function consult--mark-candidates "consult")
+(declare-function consult-mark "consult")
+
 (defun evil-collection-consult-set-bindings ()
   "Set the bindings."
   (evil-set-command-property 'consult-outline :jump t)
   (evil-set-command-property 'consult-mark :jump t)
   (evil-set-command-property 'consult-line :jump t))
+
+(defun evil-collection-consult-evil-mark-ring ()
+  "Return alist of char & marker for evil markers in current buffer."
+  (sort (cl-remove-if (lambda (elem)
+                        (or (not (evil-global-marker-p (car elem)))
+                            (not (markerp (cdr-safe elem)))))
+                      evil-markers-alist)
+        #'car-less-than-car))
+
+(defun evil-collection-consult--mark-candidates ()
+  "Return alist of lines containing markers.
+The alist contains (string . position) pairs."
+  (consult--forbid-minibuffer)
+  (unless (evil-collection-consult-evil-mark-ring)
+    (user-error "No marks"))
+  (consult--fontify-all)
+  (let* ((max-line 0)
+         (candidates))
+    (save-excursion
+      (dolist (marker (evil-collection-consult-evil-mark-ring))
+        (let ((pos (marker-position (cdr marker))))
+          (when (consult--in-range-p pos)
+            (goto-char pos)
+            (let ((line (line-number-at-pos pos consult-line-numbers-widen)))
+              (setq max-line (max line max-line))
+              (push (list (cdr marker) line (format "%s: %s" (char-to-string (car marker))
+                                                    (consult--line-with-cursor (cdr marker))))
+                    candidates))))))
+    (nreverse (consult--remove-dups (consult--add-line-number max-line candidates)))))
+
+(defun evil-collection-consult-mark ()
+  "Jump to an evil marker in the current buffer."
+  (interactive)
+  (unwind-protect
+      (progn
+        (advice-add #'consult--mark-candidates :override
+                    #'evil-collection-consult--mark-candidates)
+        (consult-mark))
+    (advice-remove #'consult--mark-candidates
+                   #'evil-collection-consult--mark-candidates)))
 
 ;;;###autoload
 (defun evil-collection-consult-setup ()
