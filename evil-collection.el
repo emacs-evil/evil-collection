@@ -241,6 +241,7 @@ through removing their entry from `evil-collection-mode-list'."
     robe
     rtags
     ruby-mode
+    scroll-lock
     sh-script
     ,@(when (>= emacs-major-version 28) '(shortdoc))
     simple
