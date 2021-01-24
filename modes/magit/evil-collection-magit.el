@@ -38,6 +38,21 @@
 (require 'magit nil t)
 
 (defvar magit-blame-mode-map)
+(defvar magit-blame-read-only-mode-map)
+(defvar magit-blob-mode-map)
+(defvar magit-cherry-mode-map)
+(defvar magit-diff-mode-map)
+(defvar magit-file-section-map)
+(defvar magit-hunk-section-map)
+(defvar magit-log-mode-map)
+(defvar magit-log-read-revs-map)
+(defvar magit-log-select-mode-map)
+(defvar magit-process-mode-map)
+(defvar magit-reflog-mode-map)
+(defvar magit-refs-mode-map)
+(defvar magit-repolist-mode-map)
+(defvar magit-status-mode-map)
+(defvar magit-submodule-list-mode-map)
 
 (defconst evil-collection-magit-maps '(evil-collection-magit-toggle-text-minor-mode-map
                                        magit-blame-mode-map
