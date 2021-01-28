@@ -63,12 +63,9 @@ be set through custom or before evil-collection loads."
   "Return non-nil if `evil-state' is in supported states."
   (cond
    ((eq command 'prefix)
-    (memq evil-state evil-collection-company-supported-states))
+    (or (and (bound-and-true-p evil-mode) (memq evil-state evil-collection-company-supported-states))
+        (not (bound-and-true-p evil-mode))))
    (t t)))
-
-(defun evil-collection-company-popup ()
-  "When `evil-mode' is active, make `company-mode' not show popup if not in supported state."
-  (advice-add 'company-call-backend :before-while 'evil-collection-company-supported-p))
 
 ;;;###autoload
 (defun evil-collection-company-setup ()
@@ -102,7 +99,7 @@ be set through custom or before evil-collection loads."
       (company-tng-configure-default)))
 
   ;; Make `company-mode' not show popup when not in supported state
-  (add-hook 'evil-mode-hook 'evil-collection-company-popup))
+  (advice-add 'company-call-backend :before-while 'evil-collection-company-supported-p))
 
 
 (provide 'evil-collection-company)
