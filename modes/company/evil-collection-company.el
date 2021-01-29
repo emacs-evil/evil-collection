@@ -63,7 +63,8 @@ be set through custom or before evil-collection loads."
   "Return non-nil if `evil-state' is in supported states."
   (cond
    ((not (bound-and-true-p evil-mode)) t)
-   ((eq command 'prefix) (memq evil-state evil-collection-company-supported-states))
+   ((eq command 'prefix)
+    (memq evil-state evil-collection-company-supported-states))
    (t t)))
 
 ;;;###autoload
@@ -78,10 +79,12 @@ be set through custom or before evil-collection loads."
     (kbd "M-k") 'company-select-previous)
 
   (when evil-want-C-u-scroll
-    (evil-collection-define-key nil 'company-active-map (kbd "C-u") 'company-previous-page))
+    (evil-collection-define-key nil 'company-active-map
+      (kbd "C-u") 'company-previous-page))
 
   (when evil-want-C-d-scroll
-    (evil-collection-define-key nil 'company-active-map (kbd "C-d") 'company-next-page))
+    (evil-collection-define-key nil 'company-active-map
+      (kbd "C-d") 'company-next-page))
 
   (evil-collection-define-key nil 'company-search-map
     (kbd "C-j") 'company-select-next-or-abort
@@ -98,7 +101,8 @@ be set through custom or before evil-collection loads."
       (company-tng-configure-default)))
 
   ;; Make `company-mode' not show popup when not in supported state
-  (advice-add 'company-call-backend :before-while 'evil-collection-company-supported-p))
+  (advice-add 'company-call-backend
+              :before-while 'evil-collection-company-supported-p))
 
 
 (provide 'evil-collection-company)
