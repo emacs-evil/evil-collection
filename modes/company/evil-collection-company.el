@@ -63,8 +63,7 @@ be set through custom or before evil-collection loads."
   "Return non-nil if `evil-state' is in supported states."
   (cond
    ((not (bound-and-true-p evil-mode)) t)
-   ((eq command 'prefix)
-    (and (bound-and-true-p evil-mode) (memq evil-state evil-collection-company-supported-states)))
+   ((eq command 'prefix) (memq evil-state evil-collection-company-supported-states))
    (t t)))
 
 ;;;###autoload
