@@ -596,6 +596,12 @@ evil-collection-magit affects.")
     (dolist (change evil-collection-magit-popup-changes)
       (apply #'evil-collection-magit-change-popup-key change))
     (with-eval-after-load 'forge
+      ;; When `forge' is loaded, it maps `forge-dispatch' to ' key which is
+      ;; set for `magit-submodule', wiping it so we add it back after `forge'
+      ;; loads.
+      (transient-append-suffix 'magit-dispatch "M"
+        '("'" "Submodule" magit-submodule))
+      ;; Clear `forge' key and re-add back in as "@".
       (transient-remove-suffix 'magit-dispatch 'forge-dispatch)
       (transient-append-suffix 'magit-dispatch "!"
         '("@" "Forge" forge-dispatch)))
