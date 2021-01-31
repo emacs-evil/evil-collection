@@ -32,11 +32,77 @@
 
 (defvar pass-mode-map)
 
+(declare-function "pass--display-keybinding" "pass")
+
 (defconst evil-collection-pass-maps '(pass-mode-map))
+
+(defvar evil-collection-pass-command-to-label
+  '((pass-copy-field . "yf")
+    (pass-copy-username . "yn")
+    (pass-copy-url . "yu"))
+  "Alist holding labels to be used in `pass' header.")
+
+(defun evil-collection-pass-display-keybinding (f &rest args)
+  "A version of `pass--display-keybinding' that handles displaying
+keybindings listed in `evil-collection-pass-command-to-label'."
+  (if (alist-get (car args) evil-collection-pass-command-to-label)
+      (insert
+       (format
+        "%8s %-13s \t "
+        (format "%s"
+                (propertize
+                 (format
+                  "<%s>"
+                  (alist-get (car args)
+                             evil-collection-pass-command-to-label))
+                 'face 'font-lock-constant-face))
+        (cadr args)))
+    (apply f args)))
 
 ;;;###autoload
 (defun evil-collection-pass-setup ()
   "Set up `evil' bindings for `pass-mode'."
+
+  (advice-add 'pass--display-keybinding
+              :around 'evil-collection-pass-display-keybinding)
+
+  ;; FIXME: #1 This type of binding is duplicated throughout `evil-collection'
+  ;; Maybe define new utility to do these types of bindings that append
+  ;; to (e.g. y or d) operators.
+  ;; FIXME: #2 These types of bindings will slip through the white/blacklist.
+  ;; For example a user may want to set a blacklist for a bind like "yf"
+  ;; but these binds would be registered as "f" in this case.
+  ;; FIXME: #3 Handle [remap evil-yank], etc to be more bulletproof.
+  ;; https://github.com/emacs-evil/evil-collection/pull/91#issuecomment-366181047
+  (evil-collection-define-key 'operator 'pass-mode-map
+    ;; Like `eww'.
+    "f" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
+                      'pass-copy-field)))
+
+    "n" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
+                      'pass-copy-username)))
+
+    "u" '(menu-item
+          ""
+          nil
+          :filter (lambda (&optional _)
+                    (when (memq evil-this-operator
+                                evil-collection-yank-operators)
+                      (setq evil-inhibit-operator t)
+                      'pass-copy-url))))
+
   (evil-collection-define-key 'normal 'pass-mode-map
     "gj" 'pass-next-entry
     "gk" 'pass-prev-entry
