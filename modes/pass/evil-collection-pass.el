@@ -1,6 +1,6 @@
 ;;; evil-collection-pass.el --- Evil bindings for pass-mode -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2021 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -47,6 +47,7 @@
     "d" 'pass-kill
     "x" 'pass-kill
     "s" 'isearch-forward
+    "J" 'pass-goto-entry
     "g?" 'describe-mode
     "gr" 'pass-update-buffer
     "i" 'pass-insert
