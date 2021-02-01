@@ -66,42 +66,10 @@ keybindings listed in `evil-collection-pass-command-to-label'."
   (advice-add 'pass--display-keybinding
               :around 'evil-collection-pass-display-keybinding)
 
-  ;; FIXME: #1 This type of binding is duplicated throughout `evil-collection'
-  ;; Maybe define new utility to do these types of bindings that append
-  ;; to (e.g. y or d) operators.
-  ;; FIXME: #2 These types of bindings will slip through the white/blacklist.
-  ;; For example a user may want to set a blacklist for a bind like "yf"
-  ;; but these binds would be registered as "f" in this case.
-  ;; FIXME: #3 Handle [remap evil-yank], etc to be more bulletproof.
-  ;; https://github.com/emacs-evil/evil-collection/pull/91#issuecomment-366181047
-  (evil-collection-define-key 'operator 'pass-mode-map
-    ;; Like `eww'.
-    "f" '(menu-item
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                evil-collection-yank-operators)
-                      (setq evil-inhibit-operator t)
-                      'pass-copy-field)))
-
-    "n" '(menu-item
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                evil-collection-yank-operators)
-                      (setq evil-inhibit-operator t)
-                      'pass-copy-username)))
-
-    "u" '(menu-item
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                evil-collection-yank-operators)
-                      (setq evil-inhibit-operator t)
-                      'pass-copy-url))))
+  (evil-collection-define-operator-key 'yank 'pass-mode-map
+    "f" 'pass-copy-field
+    "n" 'pass-copy-username
+    "u" 'pass-copy-url)
 
   ;; https://github.com/NicolasPetton/pass/pull/47
   (when (fboundp 'pass-edit)
