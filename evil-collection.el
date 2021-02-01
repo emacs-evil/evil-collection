@@ -446,7 +446,7 @@ modes in the current buffer."
   (let ((path (expand-file-name
                (format "modes/%s/%s" mode file) evil-collection-base-dir)))
     (when (file-exists-p path)
-        path)))
+      path)))
 
 (defun evil-collection-open-config-file (mode)
   "Open configuration file corresponding to MODE."
