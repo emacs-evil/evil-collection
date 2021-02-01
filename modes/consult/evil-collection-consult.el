@@ -46,10 +46,10 @@
   (evil-set-command-property 'consult-mark :jump t)
   (evil-set-command-property 'consult-line :jump t))
 
-(defun evil-collection-consult-evil-mark-ring ()
+(defun evil-collection-consult--evil-mark-ring ()
   "Return alist of char & marker for evil markers in current buffer."
   (sort (cl-remove-if (lambda (elem)
-                        (or (not (evil-global-marker-p (car elem)))
+                        (or (evil-global-marker-p (car elem))
                             (not (markerp (cdr-safe elem)))))
                       evil-markers-alist)
         #'car-less-than-car))
@@ -58,13 +58,13 @@
   "Return alist of lines containing markers.
 The alist contains (string . position) pairs."
   (consult--forbid-minibuffer)
-  (unless (evil-collection-consult-evil-mark-ring)
+  (unless (evil-collection-consult--evil-mark-ring)
     (user-error "No marks"))
   (consult--fontify-all)
   (let* ((max-line 0)
          (candidates))
     (save-excursion
-      (dolist (marker (evil-collection-consult-evil-mark-ring))
+      (dolist (marker (evil-collection-consult--evil-mark-ring))
         (let ((pos (marker-position (cdr marker))))
           (when (consult--in-range-p pos)
             (goto-char pos)
