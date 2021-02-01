@@ -352,32 +352,38 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
           (push key filtered-bindings)
           (push def filtered-bindings))))
     (setq filtered-bindings (nreverse filtered-bindings))
-    (cond ((null filtered-bindings))
-          ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
-           (condition-case-unless-debug err
-               (apply #'evil-define-key*
-                      state (symbol-value map-sym) filtered-bindings)
-             (error
-              (message "evil-collection: error setting key in %s %S"
-                       map-sym err))))
-          ((boundp map-sym)
-           (user-error "evil-collection: %s is not a keymap" map-sym))
-          (t
-           (let* ((fname (format "evil-collection-define-key-in-%s" map-sym))
-                  (fun (make-symbol fname)))
-             (fset fun `(lambda (&rest args)
-                          (when (and (boundp ',map-sym) (keymapp ,map-sym))
-                            (remove-hook 'after-load-functions #',fun)
-                            (condition-case-unless-debug err
-                                (apply #'evil-define-key*
-                                       ',state ,map-sym ',filtered-bindings)
-                              (error
-                               (message
-                                ,(format
-                                  "evil-collection: error setting key in %s %%S"
-                                  map-sym)
-                                err))))))
-             (add-hook 'after-load-functions fun t))))))
+    (evil-collection--define-key state map-sym filtered-bindings)))
+
+(defun evil-collection--define-key (state map-sym bindings)
+  "Workhorse function for `evil-collection-define-key'.
+
+See `evil-collection-define-key' docstring for more details."
+  (cond ((null bindings))
+        ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
+         (condition-case-unless-debug err
+             (apply #'evil-define-key*
+                    state (symbol-value map-sym) bindings)
+           (error
+            (message "evil-collection: error setting key in %s %S"
+                     map-sym err))))
+        ((boundp map-sym)
+         (user-error "evil-collection: %s is not a keymap" map-sym))
+        (t
+         (let* ((fname (format "evil-collection-define-key-in-%s" map-sym))
+                (fun (make-symbol fname)))
+           (fset fun `(lambda (&rest args)
+                        (when (and (boundp ',map-sym) (keymapp ,map-sym))
+                          (remove-hook 'after-load-functions #',fun)
+                          (condition-case-unless-debug err
+                              (apply #'evil-define-key*
+                                     ',state ,map-sym ',bindings)
+                            (error
+                             (message
+                              ,(format
+                                "evil-collection: error setting key in %s %%S"
+                                map-sym)
+                              err))))))
+           (add-hook 'after-load-functions fun t)))))
 
 (defun evil-collection-inhibit-insert-state (map-sym)
   "Unmap insertion keys from normal state.
