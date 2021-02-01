@@ -330,6 +330,58 @@ Evil Collection for that mode. More arguments may be added in the future, so
 functions added to this hook should include a \"&rest _rest\" for forward
 compatibility.")
 
+(defun evil-collection-define-operator-key (operator map-sym &rest bindings)
+  "Defines a key on a specific operator e.g. yank or delete.
+
+This function is useful for adding specific binds to operator maps
+(e.g. `evil-yank' or `evil-delete') without erasing the original bind.
+
+For example, say one wants to bind \"yf\" to something but also wants to keep
+\"yy\".
+
+This function takes care of checking the whitelist/blacklist against the full
+binding.
+
+For example:
+(evil-collection-define-operator-key 'yank 'pass-mode-map \"f\" 'pass-copy-field)
+
+This will check \"yf\" against a user's white/blacklist and also record the
+binding in `annalist' as so."
+  (declare (indent defun))
+  (let* ((prefix (if (eq operator 'yank) "y" "d"))
+         (operators (if (eq operator 'yank)
+                        'evil-collection-yank-operators
+                      'evil-collection-delete-operators))
+         (remap (if (eq operator 'yank) [remap evil-yank] [remap evil-delete]))
+         (whitelist (mapcar 'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+         filtered-bindings)
+    (while bindings
+      (let* ((key (pop bindings))
+             (key-with-prefix (concat prefix key))
+             (def
+              `(menu-item
+                ""
+                nil
+                :filter
+                (lambda (&optional _)
+                  (when (or
+                         (eq evil-this-operator (key-binding ,remap))
+                         (memq evil-this-operator ,operators))
+                    (setq evil-inhibit-operator t)
+                    ',(pop bindings))))))
+        (when (or (and whitelist (member key-with-prefix whitelist))
+                  (not (member key-with-prefix blacklist)))
+          (annalist-record 'evil-collection 'keybindings
+                           (list map-sym 'operator key-with-prefix def)
+                           :local (or (eq map-sym 'local)
+                                      (local-variable-p map-sym)))
+          ;; Use the original key declared when actually setting the binding.
+          (push key filtered-bindings)
+          (push def filtered-bindings))))
+    (setq filtered-bindings (nreverse filtered-bindings))
+    (evil-collection--define-key 'operator map-sym filtered-bindings)))
+
 (defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
 Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other than the
