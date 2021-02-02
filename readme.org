@@ -545,11 +545,6 @@ more.
   ":" ";")
    #+end_src
 
-** Modes left behind
-
-   Some modes might still remain unsupported by this package.  Should you be
-   missing your ~<hjkl>~, feel free to file an issue or even a pull request.
-
 ** Third-party packages
 
    Third-party packages are provided by several parties:
@@ -563,9 +558,6 @@ more.
 
    Should you know any suitable package not mentioned in this list, let us know and
    file an issue.
-
-   [[https://github.com/emacs-evil/evil-magit][evil-magit]] is included with evil-collection as of:
-   [[https://github.com/emacs-evil/evil-collection/commit/e24469514a30dd55e65d2c6d90264f496cf4d27f][this commit]].
 
    Other references:
 
@@ -600,15 +592,31 @@ more.
 
      See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
 
-     This should also be accomplishable using key translation from [[https://github.com/noctuid/general.el][general]].
+     - Unintialized mode maps in ~evil-collection-setup-hook~.
+   ~evil-collection-setup-hook~ is ran with a list of keymaps passed into it.
+   Some misconfigured modes may not have yet initialized their keymap at this
+   time so the value of the variable may be nil. In that case, an alternative
+   is to use a mode-hook to do any custom settings.
+
+     #+begin_src emacs-lisp :tangle yes
+   (add-hook 'evil-collection-setup-hook
+          (lambda (_mode keymaps)
+              (add-hook 'ediff-mode-hook
+                (lambda ()
+                 (... keymaps ...)))))
+     #+end_src
+     View [[https://github.com/emacs-evil/evil-collection/issues/196][196]] for more info.
+
+** Modes left behind
+   Some modes might still remain unsupported by this package.  Should you be
+   missing your ~<hjkl>~, please feel free to do a pull request.
 
 ** Contributing
-   Please do!
-
    We welcome any additional modes that are not already supported.
 
-   All bindings in ~evil-collection~ are still open to change so if there's
-   a better or more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
+   All bindings in ~evil-collection~ are open to change so if there's
+   a better or more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or
+   [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
 
    Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
 
