@@ -103,6 +103,11 @@ keybindings listed in `evil-collection-pass-command-to-label'."
                       (setq evil-inhibit-operator t)
                       'pass-copy-url))))
 
+  ;; https://github.com/NicolasPetton/pass/pull/47
+  (when (fboundp 'pass-edit)
+    (evil-collection-define-key 'normal 'pass-mode-map
+      "E" 'pass-edit))
+
   (evil-collection-define-key 'normal 'pass-mode-map
     "gj" 'pass-next-entry
     "gk" 'pass-prev-entry
