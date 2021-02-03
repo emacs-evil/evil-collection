@@ -153,6 +153,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     dired
     dired-sidebar
     disk-usage
+    distel
     doc-view
     docker
     ebib
