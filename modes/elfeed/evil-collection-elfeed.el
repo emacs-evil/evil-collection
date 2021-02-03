@@ -107,16 +107,9 @@
     "ZQ" 'elfeed-kill-buffer
     "ZZ" 'elfeed-kill-buffer)
 
-  (evil-collection-define-key 'operator 'elfeed-show-mode-map
-    ;; Like `eww'.
-    "u" '(menu-item
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                evil-collection-yank-operators)
-                      (setq evil-inhibit-operator t)
-                      #'elfeed-show-yank)))))
+  ;; yu, like `eww'
+  (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map
+    "u" 'elfeed-show-yank))
 
 (provide 'evil-collection-elfeed)
 ;;; evil-collection-elfeed.el ends here

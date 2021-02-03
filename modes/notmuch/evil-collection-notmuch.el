@@ -227,29 +227,13 @@
       "+" 'notmuch-search-add-tag
       (kbd "RET") 'notmuch-search-show-thread))
 
-  (evil-collection-define-key 'operator 'notmuch-search-mode-map
-    ;; Like `eww'.
-    "s"
-    `(menu-item
-      ""
-      nil
-      :filter (lambda (&optional _)
-                (when (memq evil-this-operator
-                            evil-collection-yank-operators)
-                  (setq evil-inhibit-operator t)
-                  #'notmuch-search-stash-map))))
+  ;; ys
+  (evil-collection-define-operator-key 'yank 'notmuch-search-mode-map
+    "s" 'notmuch-search-stash-map)
 
-  (evil-collection-define-key 'operator 'notmuch-show-mode-map
-    ;; Like `eww'.
-    "s"
-    `(menu-item
-      ""
-      nil
-      :filter (lambda (&optional _)
-                (when (memq evil-this-operator
-                            evil-collection-yank-operators)
-                  (setq evil-inhibit-operator t)
-                  #'notmuch-show-stash-map)))))
+  ;; ys
+  (evil-collection-define-operator-key 'yank 'notmuch-show-mode-map
+    "s" 'notmuch-show-stash-map))
 
 (provide 'evil-collection-notmuch)
 ;;; evil-collection-notmuch.el ends here

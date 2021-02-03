@@ -259,15 +259,10 @@
     "G" 'mu4e-compose-goto-bottom)
   (evil-set-command-property 'mu4e-compose-goto-bottom :keep-visual t)
   (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
-  (evil-collection-define-key 'operator 'mu4e-view-mode-map
-    "u" '(menu-item
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                '(evil-yank evil-cp-yank evil-sp-yank lispyville-yank))
-                      (setq evil-inhibit-operator t)
-                      #'mu4e-view-save-url)))))
+
+  ;; yu
+  (evil-collection-define-operator-key 'mu4e-view-mode-map
+    "u" 'mu4e-view-save-url))
 
 
 ;;; Update mu4e-main-view
