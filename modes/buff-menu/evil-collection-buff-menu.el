@@ -70,11 +70,12 @@ When called interactively prompt for MARK;  RET remove all marks."
 ;;;###autoload
 (defun evil-collection-buff-menu-setup ()
   "Set up `evil' bindings for `buff-menu'.."
-
   (evil-set-initial-state 'Buffer-menu-mode 'normal)
-  (evil-add-hjkl-bindings Buffer-menu-mode-map 'normal)
 
   (evil-collection-define-key 'normal 'Buffer-menu-mode-map
+    "k" 'evil-previous-line
+    "j" 'evil-next-line
+
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
     "gr" 'revert-buffer
