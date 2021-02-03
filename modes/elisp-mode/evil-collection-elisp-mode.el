@@ -83,7 +83,11 @@ alternative printed representations that can be displayed."
 
   (evil-set-initial-state 'emacs-lisp-mode 'normal)
   (evil-collection-define-key 'normal 'emacs-lisp-mode-map
-    "gz" 'evil-collection-elisp-mode-ielm-repl))
+    "gz" 'evil-collection-elisp-mode-ielm-repl)
+
+  (when evil-collection-want-find-usages-bindings
+    (evil-collection-define-key 'normal 'emacs-lisp-mode-map
+      "gr" 'xref-find-references)))
 
 (provide 'evil-collection-elisp-mode)
 ;;; evil-collection-elisp-mode.el ends here

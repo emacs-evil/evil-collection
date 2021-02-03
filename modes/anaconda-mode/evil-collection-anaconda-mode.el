@@ -51,14 +51,16 @@
       "q" 'quit-window))
 
   (evil-collection-define-key 'normal 'anaconda-mode-map
-    ;; Would be nice to support these too.
-    ;; 'anaconda-mode-find-assignments
-    ;; 'anaconda-mode-find-references
     "gd" 'anaconda-mode-find-definitions
     (kbd "C-t") (if (fboundp 'anaconda-mode-go-back)
                     'anaconda-mode-go-back
                   'xref-pop-marker-stack)
-    "K" 'anaconda-mode-show-doc))
+    "K" 'anaconda-mode-show-doc)
+
+  (when evil-collection-want-find-usages-bindings
+    (evil-collection-define-key 'normal 'anaconda-mode-map
+      "gA" 'anaconda-mode-find-assignments
+      "gr" 'anaconda-mode-find-references)))
 
 (provide 'evil-collection-anaconda-mode)
 ;;; evil-collection-anaconda-mode.el ends here

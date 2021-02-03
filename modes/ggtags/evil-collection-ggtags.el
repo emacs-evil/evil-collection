@@ -58,6 +58,10 @@
     (kbd "C-t") 'ggtags-prev-mark
     "gf" 'ggtags-find-file)
 
+  (when evil-collection-want-find-usages-bindings
+    (evil-collection-define-key 'normal 'ggtags-mode-map
+      "gr" 'ggtags-find-reference))
+
   (evil-collection-define-key 'normal 'ggtags-view-search-history-mode-map
     "gj" 'ggtags-view-search-history-next
     "gk" 'ggtags-view-search-history-prev

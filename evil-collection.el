@@ -115,6 +115,13 @@ through removing their entry from `evil-collection-mode-list'."
   :type 'boolean
   :group 'evil-collection)
 
+(defcustom evil-collection-want-find-usages-bindings t
+  "Whether to bind `xref-find-references'-like bindings.
+
+This will bind additional find-* type commands, e.g. usages, assignments, etc.."
+  :type 'boolean
+  :group 'evil-collection)
+
 (defvar evil-collection--supported-modes
   `(2048-game
     ag

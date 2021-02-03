@@ -98,7 +98,17 @@
     (kbd "C-t") 'geiser-pop-symbol-stack
     "gZ" 'geiser-mode-switch-to-repl-and-enter
     "gz" 'geiser-mode-switch-to-repl
-    "K" 'geiser-doc-symbol-at-point))
+    "K" 'geiser-doc-symbol-at-point)
+
+  (when evil-collection-want-find-usages-bindings
+    ;; FIXME:
+    ;; ("Callers" ((kbd "C-c <")) geiser-xref-callers
+    ;;  :enable (and (geiser-eval--supported-p 'callers)
+    ;;               (geiser--symbol-at-point)))
+    ;; ("Callees" ((kbd "C-c >")) geiser-xref-callees
+    ;;  :enable (and (geiser-eval--supported-p 'callees)
+    ;;               (geiser--symbol-at-point)))
+    ))
 
 (provide 'evil-collection-geiser)
 ;;; evil-collection-geiser.el ends here

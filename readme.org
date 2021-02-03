@@ -101,6 +101,7 @@ more.
    | evil-collection-setup-minibuffer           | nil     | Set up Vim style bindings in the minibuffer.                      |
    | evil-collection-setup-debugger-keys        | t       | Set up debugger keys for certain modes.                           |
    | evil-collection-want-unimpaired-p          | t       | Set up unimpaired bindings globally.                              |
+   | evil-collection-want-find-usages-bindings  | t       | Bind -find references-, etc to various modes.                     |
 
    For example, if you want to enable Evil in the minibuffer, you'll have to turn it on
    explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.
@@ -336,6 +337,17 @@ more.
 
     - ~gd~: [g]o to [d]efinition.  This is mostly for programming modes.
       If there's a corresponding 'pop' action, use ~C-t~.
+
+*** Go to references, etc (~gr~, ~gA~)
+    When ~evil-collection-want-find-usages-bindings~ is set to t:
+
+    - ~gr~: [g] to [r]eferences. This binding is also used for refresh/reverting
+      modes in non programming modes but is usually empty for programming modes.
+
+    - ~gA~: [g]o to [A]ssignments.
+
+    - Additional bindings:
+      There may be additional binds under this category. Please file a Pull Request if so.
 
 *** Go to current entity
 
