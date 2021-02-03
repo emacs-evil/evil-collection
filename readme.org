@@ -100,6 +100,7 @@ more.
    | evil-collection-term-sync-state-and-mode-p | t       | Synchronize insert/normal state with char/line-mode in term-mode. |
    | evil-collection-setup-minibuffer           | nil     | Set up Vim style bindings in the minibuffer.                      |
    | evil-collection-setup-debugger-keys        | t       | Set up debugger keys for certain modes.                           |
+   | evil-collection-want-unimpaired-p          | t       | Set up unimpaired bindings globally.                              |
 
    For example, if you want to enable Evil in the minibuffer, you'll have to turn it on
    explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.
