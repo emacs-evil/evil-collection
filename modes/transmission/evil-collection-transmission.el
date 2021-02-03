@@ -145,17 +145,9 @@
     "P" 'transmission-set-bandwidth-priority
     "r" 'transmission-move)
 
-  (evil-collection-define-key 'operator 'transmission-info-mode-map
-    ;; Like `eww'.
-    "u" '(menu-item
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                evil-collection-yank-operators)
-                      (setq evil-inhibit-operator t)
-                      #'transmission-copy-magnet))))
-
+  ;; yu, Like `eww'.
+  (evil-collection-define-operator-key 'yank 'transmission-info-mode-map
+    "u" 'transmission-copy-magnet)
 
   (evil-collection-set-readonly-bindings 'transmission-peers-mode-map)
   (evil-set-initial-state 'transmission-peers-mode 'normal)

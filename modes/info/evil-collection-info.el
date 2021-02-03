@@ -113,15 +113,9 @@
     "0" 'evil-digit-argument-or-evil-beginning-of-line
     "gg" 'evil-goto-first-line)
 
-  (evil-collection-define-key 'operator 'Info-mode-map
-    "u" '(menu-item                     ; Like eww.
-          ""
-          nil
-          :filter (lambda (&optional _)
-                    (when (memq evil-this-operator
-                                evil-collection-yank-operators)
-                      (setq evil-inhibit-operator t)
-                      #'Info-copy-current-node-name)))))
+  ;; yu, Like eww.
+  (evil-collection-define-operator-key 'yank 'Info-mode-map
+    "u" 'Info-copy-current-node-name))
 
 (provide 'evil-collection-info)
 ;;; evil-collection-info.el ends here

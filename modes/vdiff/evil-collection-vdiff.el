@@ -30,30 +30,24 @@
 (require 'vdiff nil t)
 (require 'evil-collection)
 
+(defconst evil-collection-vdiff-maps '(vdiff-mode-map
+                                       vdiff-3way-mode-map))
+
 ;;;###autoload
 (defun evil-collection-vdiff-setup ()
   "Set up `evil' bindings for `vdiff-mode'."
-  (dolist (mode '(vdiff-mode vdiff-3way-mode))
-    (evil-define-minor-mode-key 'normal mode
+  (add-hook 'vdiff-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'vdiff-3way-mode-hook 'evil-normalize-keymaps)
+
+  (dolist (keymap evil-collection-vdiff-maps)
+    (evil-collection-define-key 'normal keymap
       "]c" 'vdiff-next-hunk
       "[c" 'vdiff-previous-hunk)
 
     ;; define `do' (diff obtain) and `dp' (diff put) bindings
-    (evil-define-minor-mode-key 'operator mode
-      "o" '(menu-item
-            ""
-            nil
-            :filter (lambda (&optional _)
-                      (when (memq evil-this-operator
-                                  evil-collection-delete-operators)
-                        #'vdiff-receive-changes)))
-      "p" '(menu-item
-            ""
-            nil
-            :filter (lambda (&optional _)
-                      (when (memq evil-this-operator
-                                  evil-collection-delete-operators)
-                        #'vdiff-send-changes))))))
+    (evil-collection-define-operator-key 'delete keymap
+      "o" 'vdiff-receive-changes
+      "p" 'vdiff-send-changes)))
 
 (provide 'evil-collection-vdiff)
 
