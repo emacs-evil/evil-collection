@@ -592,11 +592,11 @@ more.
 
      See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
 
-     - Unintialized mode maps in ~evil-collection-setup-hook~.
-   ~evil-collection-setup-hook~ is ran with a list of keymaps passed into it.
-   Some misconfigured modes may not have yet initialized their keymap at this
-   time so the value of the variable may be nil. In that case, an alternative
-   is to use a mode-hook to do any custom settings.
+   - Unintialized mode maps in ~evil-collection-setup-hook~.
+     ~evil-collection-setup-hook~ is ran with a list of keymaps passed into it.
+     Some misconfigured modes may not have yet initialized their keymap at this
+     time so the value of the variable may be nil. In that case, an alternative
+     is to use a mode-hook to do any custom settings.
 
      #+begin_src emacs-lisp :tangle yes
    (add-hook 'evil-collection-setup-hook
