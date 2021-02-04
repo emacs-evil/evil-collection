@@ -359,7 +359,8 @@ binding in `annalist' as so."
     (while bindings
       (let* ((key (pop bindings))
              (key-with-prefix (concat prefix key))
-             (def
+             (def (pop bindings))
+             (def-with-menu-item
               `(menu-item
                 ""
                 nil
@@ -369,16 +370,21 @@ binding in `annalist' as so."
                          (eq evil-this-operator (key-binding ,remap))
                          (memq evil-this-operator ,operators))
                     (setq evil-inhibit-operator t)
-                    ',(pop bindings))))))
+                    ',def)))))
         (when (or (and whitelist (member key-with-prefix whitelist))
                   (not (member key-with-prefix blacklist)))
           (annalist-record 'evil-collection 'keybindings
-                           (list map-sym 'operator key-with-prefix def)
+                           ;; Record the binding as if it was in 'normal mode
+                           ;; instead of 'operator mode as the user would be in
+                           ;; normal mode when triggering the operator.
+                           (list map-sym 'normal key-with-prefix def)
                            :local (or (eq map-sym 'local)
                                       (local-variable-p map-sym)))
           ;; Use the original key declared when actually setting the binding.
           (push key filtered-bindings)
-          (push def filtered-bindings))))
+          ;; Use the definition attached to the menu-item when setting the
+          ;; binding.
+          (push def-with-menu-item filtered-bindings))))
     (setq filtered-bindings (nreverse filtered-bindings))
     (evil-collection--define-key 'operator map-sym filtered-bindings)))
 
