@@ -261,7 +261,7 @@
   (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
 
   ;; yu
-  (evil-collection-define-operator-key 'mu4e-view-mode-map
+  (evil-collection-define-operator-key 'yank 'mu4e-view-mode-map
     "u" 'mu4e-view-save-url))
 
 
