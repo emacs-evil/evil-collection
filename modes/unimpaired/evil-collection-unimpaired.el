@@ -151,6 +151,8 @@
 (defun evil-collection-unimpaired-setup ()
   "Set up unimpaired-like bindings."
   (global-evil-collection-unimpaired-mode 1)
+  (evil-add-command-properties 'evil-collection-unimpaired-next-error :repeat nil)
+  (evil-add-command-properties 'evil-collection-unimpaired-previous-error :repeat nil)
   (evil-collection-define-key 'normal 'evil-collection-unimpaired-mode-map
     "[b" 'evil-prev-buffer
     "]b" 'evil-next-buffer
