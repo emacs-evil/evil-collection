@@ -422,8 +422,7 @@ The body can be accessed via `lispy-tab-hydra/body'."
                                       (hydra-keyboard-quit)
                                       nil)
                                     nil)
-           (setq prefix-arg current-prefix-arg)))
-  )
+           (setq prefix-arg current-prefix-arg))))
 
 ;; ------------------------------- HYDRA ---------------------------------------
 
