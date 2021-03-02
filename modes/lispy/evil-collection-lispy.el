@@ -45,19 +45,47 @@
 (declare-function lispy-define-key "lispy")
 (declare-function lispy-set-key-theme "lispy")
 
-;; FIXME: Decouple this from `lispyville'.
-(declare-function lispyville-insert-at-beginning-of-list "lispyville")
-(declare-function lispyville-insert-at-end-of-list "lispyville")
+;; ------------------------------- LISPYVILLE ----------------------------------
+;; Copied from `lispyville'.
+;; -> `lispyville-preferred-lispy-state'
+(defcustom evil-collection-lispy-preferred-lispy-state 'insert
+  "The preferred evil state for insertion and using lispy.
+This is used by any command that should enter special to determine the correct
+state."
+  :type '(choice
+          (const :tag "Use insert state to get into special." insert)
+          (const :tag "Use emacs state to get into special." emacs))
+  :group 'evil-collection)
 
-(defun evil-collection-lispy-insert-at-end-of-list ()
-  "Forward list and enter insert state."
-  (interactive)
-  (lispyville-insert-at-end-of-list 1))
+;; -> `lispyville-insert-at-beginning-of-list'
+(evil-define-command evil-collection-lispy-insert-at-beginning-of-list (count)
+  "Enter `evil-collection-lispy-preferred-lispy-state' at the beginning of the current list.
+With COUNT, move backward/out COUNT lists first. This is the lispyville
+equivalent of `evil-cp-insert-at-beginning-of-form' except for lists only."
+  (interactive "<c>")
+  (when (lispy--out-backward (or count 1))
+    (forward-char)
+    (evil-change-state evil-collection-lispy-preferred-lispy-state)))
 
-(defun evil-collection-lispy-insert-at-beginning-of-list ()
-  "Backward list and enter insert state."
-  (interactive)
-  (lispyville-insert-at-beginning-of-list 1))
+;; -> `lispyville-insert-at-end-of-list'
+(evil-define-command evil-collection-lispy-insert-at-end-of-list (count)
+  "Enter `lispyville-preferred-state' at the end of the current list.
+With COUNT, move forward/out COUNT lists first. This is the lispyville
+equivalent of `evil-cp-insert-at-end-of-form' except for lists only."
+  (interactive "<c>")
+  (when (evil-collection-lispy--out-forward (or count 1))
+    (backward-char)
+    (evil-change-state evil-collection-lispy-preferred-lispy-state)))
+
+;; -> `lispyville--out-forward'
+(defun evil-collection-lispy--out-forward (count)
+  "Like `lispyville--out-forward' but don't return nil if move at least once.
+COUNT is passed to `lispy--out-forward'."
+  (let ((orig-pos (point)))
+    (lispy--out-forward count)
+    (not (= (point) orig-pos))))
+
+;; ------------------------------- LISPYVILLE ----------------------------------
 
 (defun evil-collection-lispy-action-then-next-sexp (lispy-action)
   "Return function that triggers LISPY-ACTION and then moves to next sexp."
