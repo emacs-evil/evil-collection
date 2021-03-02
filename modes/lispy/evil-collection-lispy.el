@@ -42,6 +42,31 @@
 (defvar lispy-mode-map-c-digits)
 (defvar lispy-mode-map-oleh)
 (defvar lispy-mode-map)
+(defvar lispy-outline)
+(defvar lispy-outline-header)
+(defvar hydra-curr-body-fn)
+
+(declare-function lispy--out-backward "lispy")
+(declare-function lispy--out-forward "lispy")
+(declare-function hydra-default-pre "lispy")
+(declare-function hydra-keyboard-quit "lispy")
+(declare-function hydra--call-interactively-remap-maybe "lispy")
+(declare-function lispy-knight-down "lispy")
+(declare-function lispy-knight-up "lispy")
+(declare-function lispy-beginning-of-defun "lispy")
+(declare-function lispy-goto "lispy")
+(declare-function lispy-goto-local "lispy")
+(declare-function hydra-idle-message "lispy")
+(declare-function hydra-set-transient-map "lispy")
+(declare-function lispy-tab "lispy")
+(declare-function lispy-shifttab "lispy")
+(declare-function lispy-left-p "lispy")
+(declare-function lispy-right-p "lispy")
+(declare-function lispy-bolp "lispy")
+(declare-function lispy-down "lispy")
+(declare-function lispy-new-copy "lispy")
+(declare-function lispy-delete "lispy")
+(declare-function lispy-delete-backward "lispy")
 (declare-function lispy-define-key "lispy")
 (declare-function lispy-set-key-theme "lispy")
 
@@ -274,6 +299,9 @@ The body can be accessed via `g-knight/body'."
            (hydra-default-pre)
            (let
                ((hydra--ignore nil))
+             ;; Unfortunate, but this ignore has to be manually placed here
+             ;; after macroexpanding.
+             (ignore hydra--ignore)
              (hydra-keyboard-quit)
              (setq hydra-curr-body-fn 'g-knight/body))
            (hydra-idle-message 0.3 g-knight/hint 'g-knight)
@@ -383,6 +411,9 @@ The body can be accessed via `lispy-tab-hydra/body'."
            (hydra-default-pre)
            (let
                ((hydra--ignore nil))
+             ;; Unfortunate, but this ignore has to be manually placed here
+             ;; after macroexpanding.
+             (ignore hydra--ignore)
              (hydra-keyboard-quit)
              (setq hydra-curr-body-fn 'lispy-tab-hydra/body))
            (hydra-idle-message 0.3 lispy-tab-hydra/hint 'lispy-tab-hydra)
