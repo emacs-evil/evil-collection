@@ -23,6 +23,8 @@ lint:
 	-l package-lint.el								\
 	--eval "(advice-add 'package-lint--check-eval-after-load :around 'ignore)" \
 	--eval "(advice-add 'package-lint--check-version-regexp-list :around 'ignore)" \
+	--eval "(advice-add 'package-lint--check-symbol-separators :around 'ignore)" \
+	--eval "(advice-add 'package-lint--check-defs-prefix :around 'ignore)" \
 	-f package-lint-batch-and-exit *.el modes/*/*.el
 
 test: elpa
