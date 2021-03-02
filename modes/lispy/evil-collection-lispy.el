@@ -1,4 +1,4 @@
-;;; evil-collection-lispy.el --- Evil Bindings for Lispy -*- lexical-binding: t; no-byte-compile: t; -*-
+;;; evil-collection-lispy.el --- Evil Bindings for Lispy -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019 James Nguyen
 
@@ -87,6 +87,315 @@ COUNT is passed to `lispy--out-forward'."
 
 ;; ------------------------------- LISPYVILLE ----------------------------------
 
+;; ------------------------------- HYDRA ---------------------------------------
+(when (featurep 'hydra)
+  ;; (defhydra g-knight (:color blue :hint nil :idle .3 :columns 3)
+  ;;   "g knight"
+  ;;   ("j" lispy-knight-down "Down")
+  ;;   ("k" lispy-knight-up "Up")
+  ;;   ("g" lispy-beginning-of-defun "Beginning")
+  ;;   ("d" lispy-goto "Goto")
+  ;;   ("l" lispy-goto-local "Goto Local"))
+
+  ;; Macroexpanded from g-knight hydra.
+  (progn
+    (set
+     (defvar g-knight/params nil "Params of g-knight.")
+     '(nil nil :columns 3 :exit t :foreign-keys nil :hint nil :idle 0.3))
+    (set
+     (defvar g-knight/docstring nil "Docstring of g-knight.")
+     "g knight")
+    (set
+     (defvar g-knight/heads nil "Heads for g-knight.")
+     '(("j" lispy-knight-down "Down" :exit t)
+       ("k" lispy-knight-up "Up" :exit t)
+       ("g" lispy-beginning-of-defun "Beginning" :exit t)
+       ("d" lispy-goto "Goto" :exit t)
+       ("l" lispy-goto-local "Goto Local" :exit t)))
+    (set
+     (defvar g-knight/keymap nil "Keymap for g-knight.")
+     '(keymap
+       (108 . g-knight/lispy-goto-local-and-exit)
+       (100 . g-knight/lispy-goto-and-exit)
+       (103 . g-knight/lispy-beginning-of-defun-and-exit)
+       (107 . g-knight/lispy-knight-up-and-exit)
+       (106 . g-knight/lispy-knight-down-and-exit)
+       (kp-subtract . hydra--negative-argument)
+       (kp-9 . hydra--digit-argument)
+       (kp-8 . hydra--digit-argument)
+       (kp-7 . hydra--digit-argument)
+       (kp-6 . hydra--digit-argument)
+       (kp-5 . hydra--digit-argument)
+       (kp-4 . hydra--digit-argument)
+       (kp-3 . hydra--digit-argument)
+       (kp-2 . hydra--digit-argument)
+       (kp-1 . hydra--digit-argument)
+       (kp-0 . hydra--digit-argument)
+       (57 . hydra--digit-argument)
+       (56 . hydra--digit-argument)
+       (55 . hydra--digit-argument)
+       (54 . hydra--digit-argument)
+       (53 . hydra--digit-argument)
+       (52 . hydra--digit-argument)
+       (51 . hydra--digit-argument)
+       (50 . hydra--digit-argument)
+       (49 . hydra--digit-argument)
+       (48 . hydra--digit-argument)
+       (45 . hydra--negative-argument)
+       (21 . hydra--universal-argument)))
+    (set
+     (defvar g-knight/hint nil "Dynamic hint for g-knight.")
+     '(format
+       #("g knight:
+j: Down       k: Up         g: Beginning
+d: Goto       l: Goto Local" 10 11
+(face hydra-face-blue)
+24 25
+(face hydra-face-blue)
+38 39
+(face hydra-face-blue)
+51 52
+(face hydra-face-blue)
+65 66
+(face hydra-face-blue))))
+    (defun g-knight/lispy-knight-down-and-exit nil "Call the head `lispy-knight-down' in the \"g-knight\" hydra.
+
+The heads for the associated hydra are:
+
+\"j\":    `lispy-knight-down',
+\"k\":    `lispy-knight-up',
+\"g\":    `lispy-beginning-of-defun',
+\"d\":    `lispy-goto',
+\"l\":    `lispy-goto-local'
+
+The body can be accessed via `g-knight/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'g-knight/body)
+           (progn
+             (setq this-command 'lispy-knight-down)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-knight-down))))
+    (defun g-knight/lispy-knight-up-and-exit nil "Call the head `lispy-knight-up' in the \"g-knight\" hydra.
+
+The heads for the associated hydra are:
+
+\"j\":    `lispy-knight-down',
+\"k\":    `lispy-knight-up',
+\"g\":    `lispy-beginning-of-defun',
+\"d\":    `lispy-goto',
+\"l\":    `lispy-goto-local'
+
+The body can be accessed via `g-knight/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'g-knight/body)
+           (progn
+             (setq this-command 'lispy-knight-up)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-knight-up))))
+    (defun g-knight/lispy-beginning-of-defun-and-exit nil "Call the head `lispy-beginning-of-defun' in the \"g-knight\" hydra.
+
+The heads for the associated hydra are:
+
+\"j\":    `lispy-knight-down',
+\"k\":    `lispy-knight-up',
+\"g\":    `lispy-beginning-of-defun',
+\"d\":    `lispy-goto',
+\"l\":    `lispy-goto-local'
+
+The body can be accessed via `g-knight/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'g-knight/body)
+           (progn
+             (setq this-command 'lispy-beginning-of-defun)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-beginning-of-defun))))
+    (defun g-knight/lispy-goto-and-exit nil "Call the head `lispy-goto' in the \"g-knight\" hydra.
+
+The heads for the associated hydra are:
+
+\"j\":    `lispy-knight-down',
+\"k\":    `lispy-knight-up',
+\"g\":    `lispy-beginning-of-defun',
+\"d\":    `lispy-goto',
+\"l\":    `lispy-goto-local'
+
+The body can be accessed via `g-knight/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'g-knight/body)
+           (progn
+             (setq this-command 'lispy-goto)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-goto))))
+    (defun g-knight/lispy-goto-local-and-exit nil "Call the head `lispy-goto-local' in the \"g-knight\" hydra.
+
+The heads for the associated hydra are:
+
+\"j\":    `lispy-knight-down',
+\"k\":    `lispy-knight-up',
+\"g\":    `lispy-beginning-of-defun',
+\"d\":    `lispy-goto',
+\"l\":    `lispy-goto-local'
+
+The body can be accessed via `g-knight/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'g-knight/body)
+           (progn
+             (setq this-command 'lispy-goto-local)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-goto-local))))
+    (defun g-knight/body nil "Call the body in the \"g-knight\" hydra.
+
+The heads for the associated hydra are:
+
+\"j\":    `lispy-knight-down',
+\"k\":    `lispy-knight-up',
+\"g\":    `lispy-beginning-of-defun',
+\"d\":    `lispy-goto',
+\"l\":    `lispy-goto-local'
+
+The body can be accessed via `g-knight/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (let
+               ((hydra--ignore nil))
+             (hydra-keyboard-quit)
+             (setq hydra-curr-body-fn 'g-knight/body))
+           (hydra-idle-message 0.3 g-knight/hint 'g-knight)
+           (hydra-set-transient-map g-knight/keymap
+                                    (lambda nil
+                                      (hydra-keyboard-quit)
+                                      nil)
+                                    nil)
+           (setq prefix-arg current-prefix-arg)))
+
+  ;; (defhydra lispy-tab-hydra (:color blue :hint nil :idle .3)
+  ;;   "Tab"
+  ;;   ("i" lispy-tab "Tab")
+  ;;   ("s" lispy-shifttab "Shifttab"))
+
+  ;; Macroexpanded from lispy-tab-hydra.
+  (progn
+    (set
+     (defvar lispy-tab-hydra/params nil "Params of lispy-tab-hydra.")
+     '(nil nil :exit t :foreign-keys nil :hint nil :idle 0.3))
+    (set
+     (defvar lispy-tab-hydra/docstring nil "Docstring of lispy-tab-hydra.")
+     "Tab")
+    (set
+     (defvar lispy-tab-hydra/heads nil "Heads for lispy-tab-hydra.")
+     '(("i" lispy-tab "Tab" :exit t)
+       ("s" lispy-shifttab "Shifttab" :exit t)))
+    (set
+     (defvar lispy-tab-hydra/keymap nil "Keymap for lispy-tab-hydra.")
+     '(keymap
+       (115 . lispy-tab-hydra/lispy-shifttab-and-exit)
+       (105 . lispy-tab-hydra/lispy-tab-and-exit)
+       (kp-subtract . hydra--negative-argument)
+       (kp-9 . hydra--digit-argument)
+       (kp-8 . hydra--digit-argument)
+       (kp-7 . hydra--digit-argument)
+       (kp-6 . hydra--digit-argument)
+       (kp-5 . hydra--digit-argument)
+       (kp-4 . hydra--digit-argument)
+       (kp-3 . hydra--digit-argument)
+       (kp-2 . hydra--digit-argument)
+       (kp-1 . hydra--digit-argument)
+       (kp-0 . hydra--digit-argument)
+       (57 . hydra--digit-argument)
+       (56 . hydra--digit-argument)
+       (55 . hydra--digit-argument)
+       (54 . hydra--digit-argument)
+       (53 . hydra--digit-argument)
+       (52 . hydra--digit-argument)
+       (51 . hydra--digit-argument)
+       (50 . hydra--digit-argument)
+       (49 . hydra--digit-argument)
+       (48 . hydra--digit-argument)
+       (45 . hydra--negative-argument)
+       (21 . hydra--universal-argument)))
+    (set
+     (defvar lispy-tab-hydra/hint nil "Dynamic hint for lispy-tab-hydra.")
+     '(format
+       #("Tab: [i]: Tab, [s]: Shifttab." 6 7
+         (face hydra-face-blue)
+         16 17
+         (face hydra-face-blue))))
+    (defun lispy-tab-hydra/lispy-tab-and-exit nil "Call the head `lispy-tab' in the \"lispy-tab-hydra\" hydra.
+
+The heads for the associated hydra are:
+
+\"i\":    `lispy-tab',
+\"s\":    `lispy-shifttab'
+
+The body can be accessed via `lispy-tab-hydra/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'lispy-tab-hydra/body)
+           (progn
+             (setq this-command 'lispy-tab)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-tab))))
+    (defun lispy-tab-hydra/lispy-shifttab-and-exit nil "Call the head `lispy-shifttab' in the \"lispy-tab-hydra\" hydra.
+
+The heads for the associated hydra are:
+
+\"i\":    `lispy-tab',
+\"s\":    `lispy-shifttab'
+
+The body can be accessed via `lispy-tab-hydra/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (hydra-keyboard-quit)
+           (setq hydra-curr-body-fn 'lispy-tab-hydra/body)
+           (progn
+             (setq this-command 'lispy-shifttab)
+             (hydra--call-interactively-remap-maybe
+              (function lispy-shifttab))))
+    (defun lispy-tab-hydra/body nil "Call the body in the \"lispy-tab-hydra\" hydra.
+
+The heads for the associated hydra are:
+
+\"i\":    `lispy-tab',
+\"s\":    `lispy-shifttab'
+
+The body can be accessed via `lispy-tab-hydra/body'."
+           (interactive)
+           (require 'hydra)
+           (hydra-default-pre)
+           (let
+               ((hydra--ignore nil))
+             (hydra-keyboard-quit)
+             (setq hydra-curr-body-fn 'lispy-tab-hydra/body))
+           (hydra-idle-message 0.3 lispy-tab-hydra/hint 'lispy-tab-hydra)
+           (hydra-set-transient-map lispy-tab-hydra/keymap
+                                    (lambda nil
+                                      (hydra-keyboard-quit)
+                                      nil)
+                                    nil)
+           (setq prefix-arg current-prefix-arg)))
+  )
+
+;; ------------------------------- HYDRA ---------------------------------------
+
 (defun evil-collection-lispy-action-then-next-sexp (lispy-action)
   "Return function that triggers LISPY-ACTION and then moves to next sexp."
   (defalias (intern (format "%S-then-next-sexp" lispy-action))
@@ -113,19 +422,6 @@ Copy of `noc:lispy-delete'."
         ((lispy-right-p)
          (lispy-new-copy)
          (lispy-delete-backward arg))))
-
-(defhydra g-knight (:color blue :hint nil :idle .3 :columns 3)
-  "g knight"
-  ("j" lispy-knight-down "Down")
-  ("k" lispy-knight-up "Up")
-  ("g" lispy-beginning-of-defun "Beginning")
-  ("d" lispy-goto "Goto")
-  ("l" lispy-goto-local "Goto Local"))
-
-(defhydra lispy-tab-hydra (:color blue :hint nil :idle .3)
-  "Tab"
-  ("i" lispy-tab "Tab")
-  ("s" lispy-shifttab "Shifttab"))
 
 (defvar evil-collection-lispy-mode-map-special
   (let ((map (make-sparse-keymap)))
