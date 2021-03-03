@@ -167,6 +167,15 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
      (t
       (evil-collection-vterm-delete beg line-end type register yank-handler)))))
 
+(evil-define-operator evil-collection-vterm-change (beg end type register yank-handler)
+  (evil-collection-vterm-delete beg end type register yank-handler)
+  (evil-collection-vterm-insert))
+
+(evil-define-operator evil-collection-vterm-change-line (beg end type register yank-handler)
+  :motion evil-end-of-line-or-visual-line
+  (evil-collection-vterm-delete-line beg end type register yank-handler)
+  (evil-collection-vterm-insert))
+
 ;;;###autoload
 (defun evil-collection-vterm-setup ()
   "Set up `evil' bindings for `vterm'."
@@ -214,7 +223,9 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
     (kbd "RET") 'vterm-send-return
     "i" 'evil-collection-vterm-insert
     "I" 'evil-collection-vterm-insert-line
-    "u" 'vterm-undo)
+    "u" 'vterm-undo
+    "c" 'evil-collection-vterm-change
+    "C" 'evil-collection-vterm-change-line)
 
   (evil-collection-define-key 'visual 'vterm-mode-map
     "d" 'evil-collection-vterm-delete
