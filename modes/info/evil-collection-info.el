@@ -76,7 +76,16 @@
     [mouse-2]     'Info-mouse-follow-nearest-node
     [follow-link] 'mouse-face
 
-    ;; TODO: Restore digit arguments?  Use g[n] instead.
+    ;; digit arguments
+    "g1" 'Info-nth-menu-item
+    "g2" 'Info-nth-menu-item
+    "g3" 'Info-nth-menu-item
+    "g4" 'Info-nth-menu-item
+    "g5" 'Info-nth-menu-item
+    "g6" 'Info-nth-menu-item
+    "g7" 'Info-nth-menu-item
+    "g8" 'Info-nth-menu-item
+    "g9" 'Info-nth-menu-item
 
     ;; NOTE: We do NOT search the entire buffer, only the narrowed buffer.
     "n" evil-collection-evil-search-next
