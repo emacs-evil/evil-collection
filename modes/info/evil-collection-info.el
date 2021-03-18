@@ -72,6 +72,10 @@
 
     "gg" 'evil-goto-first-line
 
+    ;; mouse integration
+    [mouse-2]     'Info-mouse-follow-nearest-node
+    [follow-link] 'mouse-face
+
     ;; TODO: Restore digit arguments?  Use g[n] instead.
 
     ;; NOTE: We do NOT search the entire buffer, only the narrowed buffer.
