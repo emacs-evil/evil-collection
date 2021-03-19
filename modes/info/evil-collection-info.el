@@ -75,6 +75,9 @@
     ;; mouse integration
     [mouse-2]     'Info-mouse-follow-nearest-node
     [follow-link] 'mouse-face
+    ;; make mac user happy
+    [double-wheel-left]  'Info-history-back
+    [double-wheel-right] 'Info-history-forward
 
     ;; digit arguments
     "g1" 'Info-nth-menu-item
