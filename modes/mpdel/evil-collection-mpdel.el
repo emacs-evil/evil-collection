@@ -49,8 +49,8 @@
     (evil-set-initial-state mode 'normal))
   (evil-collection-define-key 'normal 'mpdel-core-map
     "p"  'libmpdel-playback-play-pause
-    "{"  'libmpdel-playback-next
-    "}"  'libmpdel-playback-previous
+    "{"  'libmpdel-playback-previous
+    "}"  'libmpdel-playback-next
     "a"  'mpdel-core-add-to-current-playlist
     "A"  'mpdel-core-add-to-stored-playlist
     "r"  'mpdel-core-replace-current-playlist
