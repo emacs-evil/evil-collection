@@ -508,7 +508,8 @@ denotes the original magit key for this command.")
                (flush-lines (concat "^" (regexp-quote comment-start) ".+ = "))
                (dolist (cmd evil-collection-magit-rebase-commands-w-descriptions)
                  (insert
-                  (format (concat comment-start " %-8s %s\n")
+                  (format "%s %-8s %s\n"
+                          comment-start 
                           (if (and (car cmd)
                                    (eq (nth 1 cmd)
                                        (lookup-key aux-map (kbd (car cmd)))))
