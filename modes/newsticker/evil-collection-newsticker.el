@@ -78,6 +78,10 @@
     (kbd "SPC") 'newsticker-treeview-next-page
     "J" 'newsticker-treeview-jump
 
+    ;; If it's not defined, C-j will implicitly converts to RET that shadows the
+    ;; C-j binding.
+    (kbd "RET") 'newsticker-treeview-show-item
+
     ;; mark
     "o" 'newsticker-treeview-mark-item-old
     "O" 'newsticker-treeview-mark-list-items-old
