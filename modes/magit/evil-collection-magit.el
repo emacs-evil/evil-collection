@@ -573,7 +573,7 @@ evil-collection-magit affects.")
      (magit-dispatch "v" "-" magit-reverse)
      (magit-dispatch "k" "x" magit-discard)
      (magit-remote "k" "x" magit-remote-remove)
-     (magit-revert "v" "o" magit-revert-no-commit)
+     (magit-revert "v" "-" magit-revert-no-commit)
      ;; FIXME: how to properly handle a popup with a key that appears twice (in
      ;; `define-transient-command' definition)? Currently we rely on:
      ;; 1. first call to `evil-collection-magit-change-popup-key' changes the first "V"
@@ -581,8 +581,8 @@ evil-collection-magit affects.")
      ;;    definition of `magit-revert'), second call changes the second "V".
      ;; 2. the remapping here are in the same order as in `magit-revert'
      ;;    definition
-     (magit-revert "V" "O" magit-revert-and-commit)
-     (magit-revert "V" "O" magit-sequencer-continue)
+     (magit-revert "V" "_" magit-revert-and-commit)
+     (magit-revert "V" "_" magit-sequencer-continue)
      (magit-tag    "k" "x" magit-tag-delete)))
   "Changes to popup keys")
 
