@@ -252,6 +252,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     ruby-mode
     scroll-lock
     sh-script
+    shell
     ,@(when (>= emacs-major-version 28) '(shortdoc))
     simple
     slime
