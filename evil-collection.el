@@ -166,6 +166,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     elisp-mode
     elisp-refs
     elisp-slime-nav
+    embark
     emms
     epa
     ert
