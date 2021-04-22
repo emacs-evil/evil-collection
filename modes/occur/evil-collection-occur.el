@@ -44,6 +44,7 @@
   (evil-collection-define-key 'normal 'occur-mode-map
     ;; Like `wdired-mode'.
     (kbd "C-x C-q") 'occur-edit-mode
+    "i" 'occur-edit-mode
 
     [mouse-2] 'occur-mode-mouse-goto
     (kbd "C-c C-c") 'occur-mode-goto-occurrence
@@ -65,6 +66,12 @@
   (evil-collection-define-key 'normal 'occur-edit-mode-map
     ;; Like `wdired-mode'.
     (kbd "C-x C-q") 'occur-cease-edit
+
+    ;; Sadly, `occur-edit-mode' has no abort commands supported. ZZ, ZQ and
+    ;; <escape> are same.
+    (kbd "<escape>") 'occur-cease-edit
+    "ZZ" 'occur-cease-edit
+    "ZQ" 'occur-cease-edit
 
     [mouse-2] 'occur-mode-mouse-goto
     (kbd "C-c C-c") 'occur-cease-edit
