@@ -31,6 +31,7 @@
 (require 'reftex-ref nil t)
 (require 'reftex-ref nil t)
 (require 'reftex-cite nil t)
+(require 'reftex-toc nil t)
 
 (defconst evil-collection-reftex-maps '(reftex-select-shared-map
                                         reftex-toc-mode-map))
@@ -69,6 +70,18 @@
  m / M      Mark/Unmark the entry.
  o / O      Create BibTeX file with all marked / unmarked entries.
  X / X      Put all (marked) entries into one/many \\cite commands.")
+
+(setq reftex-toc-help
+      "                      AVAILABLE KEYS IN TOC BUFFER
+                      ============================
+j / k      next-line / previous-line
+TAB        Goto the location and keep the TOC window.
+RET        Goto the location and hide the TOC window (also on mouse-2).
+q / ZZ     Hide/Kill *toc* buffer, return to position of reftex-toc command.
+l          Toggle display of  [l]abels
+f          Toggle follow mode
+r / gr     Reparse the LaTeX document     / Reparse entire LaTeX document.
+x          Switch to TOC of external document (with LaTeX package `xr').")
 
 ;;;###autoload
 (defun evil-collection-reftex-setup ()
@@ -121,6 +134,8 @@
 
   ;; This one is more involved, in reftex-toc.el, line 282 it shows the prompt
   ;; string with the keybinds and I don't see any way of changing it to show evil-like binds.
+  ;;;; Since bindings that are specified in the prompt are the same except for SPC, wouldn't
+  ;;;; it be okay even if you left it be?
   (evil-collection-define-key 'normal 'reftex-toc-mode-map
     "j" 'reftex-toc-next
     "k" 'reftex-toc-previous
