@@ -38,8 +38,12 @@
   (evil-collection-define-key 'normal 'grep-mode-map
     "n" 'evil-search-next
     "\C-j" 'next-error-no-select
-    "\C-k" 'previous-error-no-select))
+    "\C-k" 'previous-error-no-select)
 
+  ;; `wgrep' integration
+  (when (featurep 'wgrep)
+    (evil-collection-define-key 'normal 'grep-mode-map
+      "i" 'wgrep-change-to-wgrep-mode)))
 
 (provide 'evil-collection-grep)
 ;;; evil-collection-grep.el ends here
