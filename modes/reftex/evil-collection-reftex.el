@@ -74,14 +74,20 @@
 (setq reftex-toc-help
       "                      AVAILABLE KEYS IN TOC BUFFER
                       ============================
-j / k      next-line / previous-line
-TAB        Goto the location and keep the TOC window.
-RET        Goto the location and hide the TOC window (also on mouse-2).
-q / ZZ     Hide/Kill *toc* buffer, return to position of reftex-toc command.
-l          Toggle display of  [l]abels
-f          Toggle follow mode
-r / gr     Reparse the LaTeX document     / Reparse entire LaTeX document.
-x          Switch to TOC of external document (with LaTeX package `xr').")
+    j / k      next-line / previous-line
+    go         Show the corresponding location of the LaTeX document.
+    TAB        Goto the location and keep the TOC window.
+    RET        Goto the location and hide the TOC window (also on mouse-2).
+    < / >      Promote / Demote section, or all sections in region.
+    zi         Display Index. With prefix arg, restrict index to current section.
+    q / ZZ     Hide/Kill *toc* buffer, return to position of reftex-toc command.
+    l i c F    Toggle display of  [l]abels,  [i]ndex,  [c]ontext,  [F]ile borders.
+    f          Toggle follow mode
+    gr / gR    Reparse the LaTeX document / Reparse entire LaTeX document.
+    .          In other window, show position from where `reftex-toc' was called.
+    rl         Global search and replace to rename label at point.
+    x          Switch to TOC of external document (with LaTeX package `xr').
+    gs         Jump to a specific section (e.g. '3 gs' goes to section 3).")
 
 ;;;###autoload
 (defun evil-collection-reftex-setup ()
@@ -132,25 +138,35 @@ x          Switch to TOC of external document (with LaTeX package `xr').")
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
 
-  ;; This one is more involved, in reftex-toc.el, line 282 it shows the prompt
+  ;; This one is more involved, in reftex-toc.el, line 267 it shows the prompt
   ;; string with the keybinds and I don't see any way of changing it to show evil-like binds.
-  ;;;; Since bindings that are specified in the prompt are the same except for SPC, wouldn't
-  ;;;; it be okay even if you left it be?
   (evil-collection-define-key 'normal 'reftex-toc-mode-map
     "j" 'reftex-toc-next
     "k" 'reftex-toc-previous
+    "go" 'reftex-toc-view-line
+    "gO" 'reftex-toc-view-line
     (kbd "RET") 'reftex-toc-goto-line-and-hide
     (kbd "<tab>") 'reftex-toc-goto-line
     "g?" 'reftex-toc-show-help
+    "?" 'reftex-toc-show-help
     "q" 'reftex-toc-quit
-    "ZZ" 'reftex-toc-quit
+    "ZZ" 'reftex-toc-quit-and-kill
     "ZQ" 'evil-quit
     "gr" 'reftex-toc-rescan
-    "r" 'reftex-toc-rescan
+    "gR" 'reftex-toc-Rescan
     "l" 'reftex-toc-toggle-labels
-    "?" 'reftex-toc-show-help
+    "i" 'reftex-toc-toggle-index
+    "c" 'reftex-toc-toggle-context
+    "F" 'reftex-toc-toggle-file-boundary
+    "rl" 'reftex-toc-rename-label
+    "zi" 'reftex-toc-display-index
     "x" 'reftex-toc-external
-    ;; (kbd "SPC") 'reftex-toc-view-line
+    "." 'reftex-toc-show-calling-point
+    "gs" 'reftex-toc-jump
+    (kbd "[[") 'reftex-toc-previous-heading
+    (kbd "]]") 'reftex-toc-next-heading
+    (kbd ">") 'reftex-toc-promote
+    (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow))
 
 (provide 'evil-collection-reftex)
