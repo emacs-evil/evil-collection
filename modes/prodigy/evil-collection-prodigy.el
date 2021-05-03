@@ -65,7 +65,7 @@
     "in" 'prodigy-add-name-filter
     "I" 'prodigy-clear-filters
     "Jm" 'prodigy-jump-magit
-    "Jd" 'prodigy-jump-dired
+    "Jd" 'prodigy-jump-file-manager
 
     "gj" 'prodigy-next-with-status
     "gk" 'prodigy-prev-with-status
