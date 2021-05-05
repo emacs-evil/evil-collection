@@ -162,7 +162,7 @@
     "zi" 'reftex-toc-display-index
     "x" 'reftex-toc-external
     "." 'reftex-toc-show-calling-point
-    "gs" 'reftex-toc-jump
+    "J" 'reftex-toc-jump
     (kbd "[[") 'reftex-toc-previous-heading
     (kbd "]]") 'reftex-toc-next-heading
     (kbd ">") 'reftex-toc-promote
