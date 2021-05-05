@@ -30,14 +30,12 @@
 (require 'evil-collection)
 (require 'org-present nil t)
 
-(defvar org-present-mode-map)
-
-(defconst evil-collection-org-present-maps '(org-present-mode-map))
+(defconst evil-collection-org-present-maps '(org-present-mode-keymap))
 
 ;;;###autoload
 (defun evil-collection-org-present-setup ()
   "Set up `evil' bindings for `org-present'."
-  (evil-collection-define-key 'normal 'org-present-mode-map
+  (evil-collection-define-key 'normal 'org-present-mode-keymap
     "j" 'org-present-next
     "k" 'org-present-prev
     "gj" 'org-present-next
