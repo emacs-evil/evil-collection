@@ -65,13 +65,14 @@
                                        magit-submodule-list-mode-map))
 
 (defcustom evil-collection-magit-use-y-for-yank t
-  "When non nil, replace \"y\" for `magit-show-refs-popup' with
-\"yy\" for `evil-collection-magit-yank-whole-line', `ys'
-`magit-copy-section-value', \"yb\" for
-`magit-copy-buffer-revision' and \"yr\" for
-`magit-show-refs-popup'. This keeps \"y\" for
-`magit-show-refs-popup' in the help
-popup (`magit-dispatch-popup'). Default is t."
+  "When non nil (Default is t),
+replace \"y\" for `magit-show-refs' with
+\"yy\" for `evil-collection-magit-yank-whole-line',
+\"ys\" for `magit-copy-section-value',
+\"yb\" for `magit-copy-buffer-revision' and
+\"yr\" for `magit-show-refs'.
+This keeps \"y\" for `magit-show-refs',
+in the help popup (`magit-dispatch')."
   :group 'magit
   :type 'boolean)
 
