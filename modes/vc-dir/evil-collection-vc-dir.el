@@ -36,6 +36,7 @@
 (defun evil-collection-vc-dir-setup ()
   "Set up `evil' bindings for `vc-dir'."
   (evil-set-initial-state 'vc-dir-mode 'normal)
+  (evil-collection-set-readonly-bindings 'vc-dir-mode-map)
   (evil-collection-define-key 'normal 'vc-dir-mode-map
     ;; VC commands
     "c" 'vc-next-action
