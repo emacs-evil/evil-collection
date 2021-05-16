@@ -35,8 +35,8 @@
 (declare-function consult--fontify-all "consult")
 (declare-function consult--in-range-p "consult")
 (declare-function consult--line-with-cursor "consult")
+(declare-function consult--location-candidate "consult")
 (declare-function consult--remove-dups "consult")
-(declare-function consult--add-line-number "consult")
 (declare-function consult--mark-candidates "consult")
 (declare-function consult-mark "consult")
 
@@ -61,19 +61,17 @@ The alist contains (string . position) pairs."
   (unless (evil-collection-consult--evil-mark-ring)
     (user-error "No marks"))
   (consult--fontify-all)
-  (let* ((max-line 0)
-         (candidates))
+  (let* (candidates)
     (save-excursion
       (dolist (marker (evil-collection-consult--evil-mark-ring))
         (let ((pos (marker-position (cdr marker))))
           (when (consult--in-range-p pos)
             (goto-char pos)
-            (let ((line (line-number-at-pos pos consult-line-numbers-widen)))
-              (setq max-line (max line max-line))
-              (push (list (cdr marker) line (format "%s: %s" (char-to-string (car marker))
-                                                    (consult--line-with-cursor (cdr marker))))
-                    candidates))))))
-    (nreverse (consult--remove-dups (consult--add-line-number max-line candidates)))))
+            (push (consult--location-candidate
+                   (format "%s: %s" (char-to-string (car marker)) (consult--line-with-cursor (cdr marker))) (cdr marker)
+                   (line-number-at-pos pos consult-line-numbers-widen))
+                  candidates)))))
+    (nreverse (delete-dups candidates))))
 
 (defun evil-collection-consult-mark ()
   "Jump to an evil marker in the current buffer."
