@@ -40,10 +40,9 @@
   "Keymap for `evil-collection-unimpaired-mode'.")
 
 (define-minor-mode evil-collection-unimpaired-mode
-  ""
-  nil
-  nil
-  evil-collection-unimpaired-mode-map)
+  "Evil port of unimpaired."
+  :lighter " unimpaired"
+  :group 'evil-collection-unimpaired)
 
 ;;;###autoload
 (define-global-minor-mode global-evil-collection-unimpaired-mode
