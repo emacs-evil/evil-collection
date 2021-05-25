@@ -47,7 +47,7 @@
     "gk" 'tide-find-previous-reference
     (kbd "C-j") 'tide-find-next-reference
     (kbd "C-k") 'tide-find-previous-reference
-    (kbd "RET") 'tide-goto-reference
+    (kbd "RET") 'tide-goto-line-reference
     ;; quit
     "q" 'quit-window)
 
