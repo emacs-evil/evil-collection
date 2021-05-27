@@ -87,7 +87,7 @@
     .          In other window, show position from where `reftex-toc' was called.
     rl         Global search and replace to rename label at point.
     x          Switch to TOC of external document (with LaTeX package `xr').
-    gs         Jump to a specific section (e.g. '3 gs' goes to section 3).")
+    J          Jump to a specific section (e.g. '3 J' goes to section 3).")
 
 ;;;###autoload
 (defun evil-collection-reftex-setup ()
