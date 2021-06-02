@@ -61,9 +61,9 @@
     "i" 'transmission-info
 
     "a" 'transmission-add
-    ;; "D" 'transmission-delete ; Useless with `transmission-remove'?
-    "r" 'transmission-move
-    "D" 'transmission-remove
+    "D" 'transmission-delete
+    "r" 'transmission-move ; "r" for "[r]ename"
+    "R" 'transmission-remove
     "x" 'transmission-toggle ; EMMS has "x" for pause.
     "t" 'transmission-trackers-add
     "c" 'transmission-verify ; "c" for "[c]heck".
@@ -71,6 +71,7 @@
     "u" 'transmission-set-upload
     "S" 'transmission-set-ratio ; "S" for "[S]eed"
     "P" 'transmission-set-bandwidth-priority
+    "I" 'transmission-label ; "I" for "[I]nput labels"
 
     ;; mark
     "m" 'transmission-toggle-mark
@@ -142,6 +143,7 @@
     "D" 'transmission-set-torrent-download
     "U" 'transmission-set-torrent-upload
     "S" 'transmission-set-torrent-ratio ; "S" for "[S]eed"
+    "I" 'transmission-label ; "I" for "[I]nput labels"
     "P" 'transmission-set-bandwidth-priority
     "r" 'transmission-move)
 
