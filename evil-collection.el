@@ -148,6 +148,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     deadgrep
     debbugs
     debug
+    devdocs
     dictionary
     diff-mode
     dired
