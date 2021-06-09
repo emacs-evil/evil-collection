@@ -50,7 +50,7 @@
     "gk" 'devdocs-previous-entry
     "gj" 'devdocs-next-entry
 
-    ;; TODO: devdocs-goto-target
+    "g." 'devdocs-goto-target
 
     ;; history
     "L" 'devdocs-go-forward
