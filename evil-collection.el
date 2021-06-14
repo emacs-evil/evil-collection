@@ -388,6 +388,17 @@ binding in `annalist' as so."
     (setq filtered-bindings (nreverse filtered-bindings))
     (evil-collection--define-key 'operator map-sym filtered-bindings)))
 
+(defun evil-collection--filter-states (states)
+  "Filter STATES with respect to `evil-disable-insert-state-bindings'.
+If `evil-disable-insert-state-bindings' is non-nil:
+Return STATES without `insert': if it is `insert' -> nil, list -> list without `insert';
+Else return STATES as-is."
+  (cond
+   ((not evil-disable-insert-state-bindings) states)
+   ((eq 'insert states) nil)
+   ((listp states) (remove 'insert states))
+   (t states)))
+
 (defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
 Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other than the
@@ -397,6 +408,7 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+         (states-to-bind (evil-collection--filter-states state))
          filtered-bindings)
     (while bindings
       (let ((key (pop bindings))
@@ -410,7 +422,10 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
           (push key filtered-bindings)
           (push def filtered-bindings))))
     (setq filtered-bindings (nreverse filtered-bindings))
-    (evil-collection--define-key state map-sym filtered-bindings)))
+    ;; When state is `nil', `evil-define-key*' applies bindings to all states,
+    ;; in that case we must not ignore it
+    (when (or (null state) states-to-bind)
+      (evil-collection--define-key states-to-bind map-sym filtered-bindings))))
 
 (defun evil-collection--define-key (state map-sym bindings)
   "Workhorse function for `evil-collection-define-key'.
