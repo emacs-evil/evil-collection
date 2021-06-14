@@ -263,6 +263,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     tablist
     tabulated-list
     tar-mode
+    telega
     (term term ansi-term multi-term)
     tetris
     ,@(when (>= emacs-major-version 27) '(thread))
