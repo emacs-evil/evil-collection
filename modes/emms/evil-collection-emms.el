@@ -59,7 +59,7 @@ The return value is the yanked text."
   (interactive)
   (emms-with-inhibit-read-only-t
    (goto-char (point-at-bol))
-   (yank)
+   (emms-playlist-mode-yank)
    (emms-playlist-mode-correct-previous-yank)
    (evil-previous-line)
    (evil-beginning-of-line)))
