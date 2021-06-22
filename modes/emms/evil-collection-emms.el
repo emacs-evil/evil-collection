@@ -32,6 +32,7 @@
 
 (declare-function emms-with-inhibit-read-only-t "emms")
 (declare-function emms-playlist-mode-correct-previous-yank "emms-playlist-mode")
+(declare-function emms-playlist-mode-yank "emms-playlist-mode")
 
 (defvar emms-browser-mode-map)
 (defvar emms-playlist-mode-map)
