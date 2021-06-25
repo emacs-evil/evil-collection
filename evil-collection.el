@@ -36,6 +36,7 @@
 (require 'cl-lib)
 (require 'evil)
 (require 'annalist)
+(require 'seq)
 
 (defvar evil-collection-base-dir (file-name-directory load-file-name)
   "Store the directory evil-collection.el was loaded from.")
