@@ -319,7 +319,7 @@ moment.")
        (,states magit-mode-map ,(kbd "S-SPC") magit-diff-show-or-scroll-up   "SPC")
        (,states magit-mode-map ,(kbd "S-DEL") magit-diff-show-or-scroll-down "DEL")
 
-       ((,evil-collection-magit-state) magit-mode-map ,evil-toggle-key evil-emacs-state)
+       ((,evil-collection-magit-state) magit-mode-map ,(kbd evil-toggle-key) evil-emacs-state)
        ((,evil-collection-magit-state) magit-mode-map "<escape>" magit-mode-bury-buffer))
 
      (if (eq evil-search-module 'evil-search)
