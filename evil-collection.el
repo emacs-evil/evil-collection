@@ -410,7 +410,7 @@ binding in `annalist' as so."
   "Return a list states after filtering STATE (a single symbol or list of symbols).
 The return value adheres to `evil-collection-state-passlist' and
 `evil-collection-state-denylist'. When the STATE is `nil', which
-mean all states for `evil-define-key', return `nil'."
+means all states for `evil-define-key', return `nil'."
   (let ((states (if (listp state) state (list state))))
     (seq-difference
      (if evil-collection-state-passlist
