@@ -29,6 +29,16 @@
 (require 'telega nil t)
 (require 'evil-collection)
 
+(defvar telega-prefix-map)
+(defvar telega-filter-map)
+(defvar telega-sort-map)
+(defvar telega-chatbuf-fastnav-map)
+(defvar telega-describe-map)
+(defvar telega-folder-map)
+(defvar telega-voip-map)
+(defvar telega-root-view-map)
+(defvar telega-root-fastnav-map)
+
 (defconst evil-collection-telega-maps '(telega-root-mode-map
                                         telega-chat-mode-map
                                         telega-image-mode-map
@@ -55,13 +65,13 @@
     "j" 'evil-next-line
     "k" 'evil-previous-line
 
-    "ga" 'telega-prefix-map
+    "ga" telega-prefix-map
 
     (kbd "<tab>") 'telega-button-forward
     (kbd "<backtab>") 'telega-button-backward
 
-    "S" 'telega-sort-map
-    "s" 'telega-filter-map
+    "S" telega-sort-map
+    "s" telega-filter-map
     "_" 'telega-filter-undo
     "-" 'telega-filter-redo
 
@@ -73,16 +83,16 @@
     "q" 'bury-buffer
     "Q" 'telega-kill
 
-    "g?" 'telega-describe-map
-    "gO" 'telega-folder-map
-    "gC" 'telega-voip-map
-    "gV" 'telega-root-view-map
-    "J" 'telega-root-fastnav-map
+    "g?" telega-describe-map
+    "gO" telega-folder-map
+    "gC" telega-voip-map
+    "gV" telega-root-view-map
+    "J" telega-root-fastnav-map
 
     "gs" 'telega-view-search)
 
   (evil-collection-define-key 'normal 'telega-chat-mode-map
-    "ga" 'telega-prefix-map
+    "ga" telega-prefix-map
 
     "zz" 'telega-chatbuf-recenter-1
 
@@ -101,21 +111,21 @@
     (kbd "<tab>") 'telega-chatbuf-complete-or-next-link
     (kbd "<backtab>") 'telega-chatbuf-prev-link
 
-    "J" 'telega-chatbuf-fastnav-map
+    "J" telega-chatbuf-fastnav-map
 
     (kbd "RET") 'telega-chatbuf-newline-or-input-send
 
     "q" 'bury-buffer)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
-    "ga" 'telega-prefix-map
+    "ga" telega-prefix-map
 
     "}" 'telega-image-next
     "{" 'telega-image-prev
     "q" 'telega-image-quit)
 
   (evil-collection-define-key 'normal 'telega-webpage-mode-map
-    "ga" 'telega-prefix-map
+    "ga" telega-prefix-map
 
     "gx" 'telega-webpage-browse-url
     "yy" 'telega-webpage-copy-url
