@@ -56,6 +56,7 @@
     ;; filter
     "s" 'elfeed-search-live-filter
     "S" 'elfeed-search-set-filter
+    "c" 'elfeed-search-clear-filter
 
     ;; refresh
     "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
