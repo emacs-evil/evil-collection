@@ -54,18 +54,22 @@
                       evil-markers-alist)
         #'car-less-than-car))
 
-(defun evil-collection-consult--mark-candidates ()
-  "Return alist of lines containing markers.
-The alist contains (string . position) pairs."
+(defun evil-collection-consult--mark-candidates (&optional markers)
+  "Return alist of lines containing markers from `evil-mark-alist'.
+Opional MARKERS should be an alist containing (char . marker) pairs
+as defined in `evil-collection-consult--evil-mark-ring'."
   (consult--forbid-minibuffer)
   (unless (evil-collection-consult--evil-mark-ring)
     (user-error "No marks"))
   (consult--fontify-all)
-  (let* (candidates)
+  (let* ((candidates)
+         (current-buf (current-buffer)))
     (save-excursion
-      (dolist (marker (evil-collection-consult--evil-mark-ring))
-        (let ((pos (marker-position (cdr marker))))
-          (when (consult--in-range-p pos)
+      (dolist (marker (or markers (evil-collection-consult--evil-mark-ring)))
+        (let ((pos (marker-position (cdr marker)))
+              (buf (marker-buffer (cdr marker))))
+          (when (and (eq buf current-buf)
+                     (consult--in-range-p pos))
             (goto-char pos)
             (push (consult--location-candidate
                    (format "%s: %s" (char-to-string (car marker)) (consult--line-with-cursor (cdr marker))) (cdr marker)
