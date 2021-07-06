@@ -58,7 +58,7 @@
 
     "d" 'Info-directory
     "u" 'Info-up
-    "L" 'Info-history
+    "g L" 'Info-history ; "L"
     "s" 'Info-search
     "S" 'Info-search-case-sensitively
     "i" 'Info-index
@@ -84,7 +84,7 @@
     "g9" 'Info-nth-menu-item
 
     ;; goto
-    "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
+    "gG" 'Info-goto-node
     "gm" 'Info-menu
     "gt" 'Info-top-node
     "gT" 'Info-toc
