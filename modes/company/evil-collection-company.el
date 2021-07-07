@@ -36,17 +36,6 @@
   "Evil bindings for `company-mode'."
   :group 'evil-collection)
 
-(defcustom evil-collection-company-use-tng t
-  "Enable company-tng through `company-tng-configure-default'.
-
-This mirrors ycmd's behavior for a completion experience more
-similar to YouCompleteMe.
-
-Note that for changes to take effect, this variable may have to
-be set through custom or before evil-collection loads."
-  :group 'evil-collection-company
-  :type 'boolean)
-
 (defcustom evil-collection-company-supported-states '(insert replace emacs)
   "The `evil-state's which `company' function can be requested."
   :type '(repeat symbol))
@@ -89,11 +78,6 @@ be set through custom or before evil-collection loads."
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous
     (kbd "<escape>") 'company-search-abort)
-
-  ;; Sets up YCMD like behavior.
-  (when evil-collection-company-use-tng
-    (require 'company-tng)
-    (company-tng-mode +1))
 
   ;; Make `company-mode' not show popup when not in supported state
   (advice-add 'company-call-backend

@@ -94,7 +94,6 @@ more.
 
    | Variable                                   | Default | Description                                                       |
    |--------------------------------------------+---------+-------------------------------------------------------------------|
-   | evil-collection-company-use-tng            | t       | Set up autocompletion to be similar to Vim's YouCompleteMe.       |
    | evil-collection-calendar-want-org-bindings | nil     | Set up Org functions in calendar keymap.                          |
    | evil-collection-outline-bind-tab-p         | nil     | Enable <tab>-based bindings in Outline mode.                      |
    | evil-collection-term-sync-state-and-mode-p | t       | Synchronize insert/normal state with char/line-mode in term-mode. |
