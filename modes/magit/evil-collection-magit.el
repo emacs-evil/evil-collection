@@ -368,7 +368,7 @@ moment.")
            ((visual) magit-mode-map "y"   magit-copy-section-value))
        `((,states magit-mode-map "v" set-mark-command)
          (,states magit-mode-map "V" set-mark-command)
-         (,states magit-mode-map "<escape>" evil-collection-magit-maybe-deactivate-mark)))
+         (,states magit-mode-map ,(kbd "<escape>") evil-collection-magit-maybe-deactivate-mark)))
 
      (when evil-collection-magit-use-z-for-folds
        `((,states magit-mode-map "z")
@@ -510,7 +510,7 @@ denotes the original magit key for this command.")
                (dolist (cmd evil-collection-magit-rebase-commands-w-descriptions)
                  (insert
                   (format "%s %-8s %s\n"
-                          comment-start 
+                          comment-start
                           (if (and (car cmd)
                                    (eq (nth 1 cmd)
                                        (lookup-key aux-map (kbd (car cmd)))))
