@@ -1,6 +1,6 @@
 ;;; evil-collection-magit.el --- Evil-based key bindings for magit
 
-;; Copyright (C) 2015-2016 Justin Burkett
+;; Copyright (C) 2015-2016, 2021 Justin Burkett
 
 ;; Author: Justin Burkett <justin@burkett.cc>
 ;; Maintainer: Justin Burkett <justin@burkett.cc>
@@ -120,7 +120,7 @@ When this option is enabled, the stash popup is available on \"Z\"."
 
 (defvar evil-collection-magit-emacs-to-default-state-modes
   '(git-commit-mode)
-  "Modes that should be in the default evil state")
+  "Modes that should be in the default evil state.")
 
 (defvar evil-collection-magit-emacs-to-evil-collection-magit-state-modes
   '(git-rebase-mode
@@ -136,19 +136,19 @@ When this option is enabled, the stash popup is available on \"Z\"."
     magit-stash-mode
     magit-stashes-mode
     magit-status-mode)
-  "Modes that switch from emacs state to `evil-collection-magit-state'")
+  "Modes that switch from Emacs state to `evil-collection-magit-state'.")
 
 (defvar evil-collection-magit-default-to-evil-collection-magit-state-modes
   '(magit-blob-mode
     magit-gitflow-mode)
-  "Modes that switch from default state to `evil-collection-magit-state'")
+  "Modes that switch from default state to `evil-collection-magit-state'.")
 
 (defvar evil-collection-magit-untouched-modes
   ;; TODO do something here
   '(git-popup-mode
     magit-blame-mode
     magit-blame-read-only-mode)
-  "Modes whose evil states are unchanged")
+  "Modes whose evil states are unchanged.")
 
 (defvar evil-collection-magit-ignored-modes
   '(git-commit-major-mode
@@ -174,8 +174,7 @@ When this option is enabled, the stash popup is available on \"Z\"."
     git-gutter+-mode
     git-gutter+-enable-fringe-display-mode
     git-gutter+-enable-default-display-mode)
-  "Currently ignored modes. They are collected here for testing
-purposes.")
+  "Currently ignored modes. They are collected here for testing purposes.")
 
 (defun evil-collection-magit-set-initial-states ()
   "Set the initial state for relevant modes."
@@ -186,8 +185,7 @@ purposes.")
     (evil-set-initial-state mode evil-default-state)))
 
 (defun evil-collection-magit-revert-initial-states ()
-  "Revert the initial state for modes to their values before
-evil-collection-magit was loaded."
+  "Revert the initial state for modes to their values before evil-collection-magit was loaded."
   (dolist (mode (append evil-collection-magit-emacs-to-evil-collection-magit-state-modes
                         evil-collection-magit-emacs-to-default-state-modes))
     (evil-set-initial-state mode 'emacs))
@@ -228,8 +226,7 @@ evil-collection-magit was loaded."
     magit-unmerged-section-map
     magit-status-section-map
     magit-worktree-section-map)
-  "All magit section maps. For testing purposes only at the
-moment.")
+  "All magit section maps. For testing purposes only at the moment.")
 
 ;; Old way of excluding newlines
 ;; (when evil-collection-magit-use-y-for-yank
@@ -325,10 +322,14 @@ moment.")
      (if (eq evil-search-module 'evil-search)
          `((,states magit-mode-map "/" evil-ex-search-forward)
            (,states magit-mode-map "n" evil-ex-search-next)
-           (,states magit-mode-map "N" evil-ex-search-previous))
+           (,states magit-mode-map "N" evil-ex-search-previous)
+           (,states magit-blame-read-only-mode-map "n" evil-ex-search-next)
+           (,states magit-blame-read-only-mode-map "N" evil-ex-search-previous))
        `((,states magit-mode-map "/" evil-search-forward)
          (,states magit-mode-map "n" evil-search-next)
-         (,states magit-mode-map "N" evil-search-previous)))
+         (,states magit-mode-map "N" evil-search-previous)
+         (,states magit-blame-read-only-mode-map "n" evil-search-next)
+         (,states magit-blame-read-only-mode-map "N" evil-search-previous)))
 
      `((,states magit-status-mode-map "gz"  magit-jump-to-stashes)
        (,states magit-status-mode-map "gt"  magit-jump-to-tracked)
@@ -682,10 +683,6 @@ using `evil-collection-magit-toggle-text-mode'"
 (defun evil-collection-magit-setup ()
   "Set up `evil' bindings for `magit'."
 
-  ;; This is to work around an issue described in
-  ;; https://github.com/emacs-evil/evil-collection/issues/108
-  ;; Ideally this file is only temporary and should be removed once
-  ;; #108 is resolved.
   (evil-collection-define-key 'normal 'magit-blame-mode-map
     "q" 'magit-blame-quit)
   (evil-collection-define-key 'normal 'magit-blame-read-only-mode-map
