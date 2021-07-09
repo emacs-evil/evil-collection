@@ -71,8 +71,8 @@
     ;; move
     "[[" 'newsticker-treeview-prev-feed
     "]]" 'newsticker-treeview-next-feed
-    "\C-j" 'newsticker-treeview-next-item
-    "\C-k" 'newsticker-treeview-prev-item
+    (kbd "C-j") 'newsticker-treeview-next-item
+    (kbd "C-k") 'newsticker-treeview-prev-item
     "gj" 'newsticker-treeview-next-new-or-immortal-item
     "gk" 'newsticker-treeview-prev-new-or-immortal-item
     (kbd "SPC") 'newsticker-treeview-next-page
