@@ -30,6 +30,9 @@
 ;;; Code:
 (require 'evil-collection)
 
+;; Externals
+(defvar flycheck-current-errors)
+
 (defgroup evil-collection-unimpaired nil
   "Evil port of unimpaired for `evil-collection'."
   :group 'evil-collection)
@@ -79,6 +82,34 @@
    (:default
     (message "No linting modes are on."))))
 
+(defun evil-collection-unimpaired--flycheck-count-errors ()
+  "Count the number of flycheck errors."
+  (length (delete-dups (mapcar 'flycheck-error-line flycheck-current-errors))))
+
+(defun evil-collection-unimpaired-first-error ()
+  "Go to the first error."
+  (interactive)
+  (cond
+   ((and (bound-and-true-p flycheck-mode)
+         (fboundp 'flycheck-first-error))
+    (flycheck-first-error))
+   ((bound-and-true-p flymake-mode)
+    (message "flymake unsupported."))
+   (:default
+    (message "No linting modes are on."))))
+
+(defun evil-collection-unimpaired-last-error ()
+  "Go to the last error."
+  (interactive)
+  (cond
+   ((and (bound-and-true-p flycheck-mode)
+         (fboundp 'flycheck-first-error))
+    (flycheck-first-error (evil-collection-unimpaired--flycheck-count-errors)))
+   ((bound-and-true-p flymake-mode)
+    (message "flymake unsupported."))
+   (:default
+    (message "No linting modes are on."))))
+
 (defun evil-collection-unimpaired-insert-newline-above (count)
   "Insert COUNT blank line(s) above current line."
   (interactive "p")
@@ -91,7 +122,7 @@
   (save-excursion (dotimes (_ count) (evil-insert-newline-below))))
 
 (defun evil-collection-unimpaired--encode (beg end fn)
-  "Apply FN in range from BEG to END."
+  "Apply FN from BEG to END."
   (save-excursion
     (goto-char beg)
     (let* ((end (if (eq evil-this-type 'line) (1- end) end))
@@ -157,8 +188,14 @@
     "]b" 'evil-next-buffer
     "[e" 'evil-collection-unimpaired-move-text-up
     "]e" 'evil-collection-unimpaired-move-text-down
-    "]l" 'evil-collection-unimpaired-next-error
     "[l" 'evil-collection-unimpaired-previous-error
+    "]l" 'evil-collection-unimpaired-next-error
+    "[L" 'evil-collection-unimpaired-first-error
+    "]L" 'evil-collection-unimpaired-last-error
+    "[q" 'evil-collection-unimpaired-previous-error
+    "]q" 'evil-collection-unimpaired-next-error
+    "[Q" 'evil-collection-unimpaired-first-error
+    "]Q" 'evil-collection-unimpaired-last-error
     (kbd "[ SPC") 'evil-collection-unimpaired-insert-newline-above
     (kbd "] SPC") 'evil-collection-unimpaired-insert-newline-below)
   (evil-collection-define-key 'visual 'evil-collection-unimpaired-mode-map
