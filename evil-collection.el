@@ -272,6 +272,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     timer-list
     transmission
     trashed
+    tuareg
     typescript-mode
     vc-annotate
     vc-dir
