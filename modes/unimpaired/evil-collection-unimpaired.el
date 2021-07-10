@@ -127,6 +127,26 @@
     (forward-line -1))
   (move-beginning-of-line nil))
 
+(defun evil-collection-unimpaired-paste-above ()
+  "Paste above current line with preserving indentation."
+  (interactive)
+  (let ((indent (current-indentation))
+        (column (current-column)))
+    (evil-insert-newline-above)
+    (indent-to indent)
+    (evil-paste-after 1)
+    (move-to-column column)))
+
+(defun evil-collection-unimpaired-paste-below ()
+  "Paste below current line with preserving indentation."
+  (interactive)
+  (let ((indent (current-indentation))
+        (column (current-column)))
+    (evil-insert-newline-below)
+    (indent-to indent)
+    (evil-paste-after 1)
+    (move-to-column column)))
+
 (defun evil-collection-unimpaired-insert-newline-above (count)
   "Insert COUNT blank line(s) above current line."
   (interactive "p")
@@ -215,6 +235,10 @@
     "]Q" 'evil-collection-unimpaired-last-error
     "[n" 'evil-collection-unimpaired-previous-SCM-conflict-marker
     "]n" 'evil-collection-unimpaired-next-SCM-conflict-marker
+    "[p" 'evil-collection-unimpaired-paste-above
+    "]p" 'evil-collection-unimpaired-paste-below
+    "[P" 'evil-collection-unimpaired-paste-above
+    "]P" 'evil-collection-unimpaired-paste-below
     (kbd "[ SPC") 'evil-collection-unimpaired-insert-newline-above
     (kbd "] SPC") 'evil-collection-unimpaired-insert-newline-below)
   (evil-collection-define-key 'visual 'evil-collection-unimpaired-mode-map
