@@ -110,6 +110,23 @@
    (:default
     (message "No linting modes are on."))))
 
+(defconst evil-collection-unimpaired--SCM-conflict-marker "^\\(@@@ .* @@@\\|[<=>]\\{7\\}\\)"
+  "A regexp to match SCM conflict marker.")
+
+(defun evil-collection-unimpaired-previous-SCM-conflict-marker ()
+  "Go to the previous SCM conflict marker or diff/patch hunk."
+  (interactive)
+  (search-backward-regexp evil-collection-unimpaired--SCM-conflict-marker nil t)
+  (move-beginning-of-line nil))
+
+(defun evil-collection-unimpaired-next-SCM-conflict-marker ()
+  "Go to the next SCM conflict marker or diff/patch hunk."
+  (interactive)
+  (forward-line 1)
+  (when (not (search-forward-regexp evil-collection-unimpaired--SCM-conflict-marker nil t))
+    (forward-line -1))
+  (move-beginning-of-line nil))
+
 (defun evil-collection-unimpaired-insert-newline-above (count)
   "Insert COUNT blank line(s) above current line."
   (interactive "p")
@@ -196,11 +213,15 @@
     "]q" 'evil-collection-unimpaired-next-error
     "[Q" 'evil-collection-unimpaired-first-error
     "]Q" 'evil-collection-unimpaired-last-error
+    "[n" 'evil-collection-unimpaired-previous-SCM-conflict-marker
+    "]n" 'evil-collection-unimpaired-next-SCM-conflict-marker
     (kbd "[ SPC") 'evil-collection-unimpaired-insert-newline-above
     (kbd "] SPC") 'evil-collection-unimpaired-insert-newline-below)
   (evil-collection-define-key 'visual 'evil-collection-unimpaired-mode-map
     "[e" 'evil-collection-unimpaired-move-text-up
-    "]e" 'evil-collection-unimpaired-move-text-down)
+    "]e" 'evil-collection-unimpaired-move-text-down
+    "[n" 'evil-collection-unimpaired-previous-SCM-conflict-marker
+    "]n" 'evil-collection-unimpaired-next-SCM-conflict-marker)
   (evil-collection-define-key 'motion 'evil-collection-unimpaired-mode-map
     "[u" 'evil-collection-unimpaired-url-encode
     "]u" 'evil-collection-unimpaired-url-decode))
