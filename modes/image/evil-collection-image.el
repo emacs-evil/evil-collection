@@ -66,6 +66,10 @@
     "H" 'image-transform-fit-to-height
     "W" 'image-transform-fit-to-width
 
+    "+" 'image-increase-size
+    "=" 'image-increase-size
+    "-" 'image-decrease-size
+
     "[[" 'image-previous-file
     "]]" 'image-next-file
     "gk" 'image-previous-file
