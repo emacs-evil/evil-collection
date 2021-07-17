@@ -93,6 +93,7 @@
 
   (evil-collection-define-key 'normal 'telega-chat-mode-map
     "ga" telega-prefix-map
+    "gA" telega-chatbuf-fastnav-map
 
     "zz" 'telega-chatbuf-recenter-1
 
@@ -110,8 +111,6 @@
 
     (kbd "<tab>") 'telega-chatbuf-complete-or-next-link
     (kbd "<backtab>") 'telega-chatbuf-prev-link
-
-    "J" telega-chatbuf-fastnav-map
 
     (kbd "RET") 'telega-chatbuf-newline-or-input-send
 
@@ -162,8 +161,6 @@
     (kbd "DEL") nil
     "*" nil
 
-    "yy" 'telega-msg-copy-text
-    "yl" 'telega-msg-copy-link
     "D" 'telega-msg-delete-marked-or-at-point
     "dd" 'telega-msg-delete-marked-or-at-point
     "i" 'telega-msg-edit
@@ -171,10 +168,12 @@
     "a" 'telega-msg-mark-toggle
     (kbd "<tab>") 'telega-button-forward
     (kbd "<backtab>") 'telega-button-backward
-    "r" 'telega-msg-forward-marked-or-at-point
-    "R" 'telega-msg-reply
+    "R" 'telega-msg-forward-marked-or-at-point
+    "r" 'telega-msg-reply
     "gr" 'telega-msg-open-thread
 
+    "Zy" 'telega-msg-copy-text
+    "Zl" 'telega-msg-copy-link
     "ds" 'telega-msg-ban-sender
     "ZL" 'telega-msg-redisplay
     "P" 'telega-msg-pin-toggle
