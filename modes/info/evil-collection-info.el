@@ -112,23 +112,7 @@
     "gj" 'Info-next
     "gk" 'Info-prev
 
-    "g?" 'Info-summary
-    "?" evil-collection-evil-search-backward)  ; Else this would be `Info-summary'.
-
-  (evil-collection-define-key 'visual 'Info-mode-map
-    "l" 'evil-forward-char
-    "h" 'evil-backward-char
-
-    "w" 'evil-forward-word-begin
-    "b" 'evil-backward-word-begin
-    "e" 'evil-forward-word-end
-
-    "f" 'evil-find-char
-    "t" 'evil-find-char-to
-    "T" 'evil-find-char-to-backward
-
-    "0" 'evil-digit-argument-or-evil-beginning-of-line
-    "gg" 'evil-goto-first-line)
+    "g?" 'Info-summary)
 
   ;; yu, Like eww.
   (evil-collection-define-operator-key 'yank 'Info-mode-map
