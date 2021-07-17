@@ -85,7 +85,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
 (declare-function org-table-align "org-table.el" nil)
 
 (defgroup evil-collection nil
-  "A set of keybindings for Evil mode"
+  "A set of keybindings for Evil mode."
   :group 'evil)
 
 (defcustom evil-collection-setup-minibuffer nil
@@ -422,7 +422,7 @@ means all states for `evil-define-key', return `nil'."
        states)
      evil-collection-state-denylist)))
 
-(defun evil-collection-define-key (state map-sym &rest bindings)
+(cl-defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
 Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other than the
 unquoted keymap required for `evil-define-key*'. This function adds the ability
@@ -431,8 +431,23 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
   (declare (indent defun))
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+         (overriding (assoc map-sym evil-overriding-maps))
          (states-to-bind (evil-collection--filter-states state))
          filtered-bindings)
+    ;; We take account of `evil-overriding-maps' first, as it's defined in evil,
+    ;; not evil-collection.
+    ;;
+    ;; `overriding' is non-nil, and cdr of `overriding' is nil, which means evil
+    ;; shouldn't define any keybindings in that keymap.
+    ;;
+    ;; `overriding' is non-nil, and cdr of `overriding' is non-nil, which means
+    ;; evil shouldn't define keybindings in that keymap in such state.
+    ;;
+    ;; `overriding' is nil, no constraints.
+    (when overriding
+      (if (null (cdr overriding))
+          (cl-return-from evil-collection-define-key)
+        (setq states-to-bind (seq-difference states-to-bind (list (cdr overriding))))))
     (when (or states-to-bind (null state))
       (while bindings
         (let ((key (pop bindings))
