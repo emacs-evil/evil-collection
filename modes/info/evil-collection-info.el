@@ -39,8 +39,6 @@
   (evil-collection-set-readonly-bindings 'Info-mode-map)
   (evil-set-initial-state 'Info-mode 'normal)
   (evil-collection-define-key 'normal 'Info-mode-map
-    "l" 'evil-forward-char
-    "h" 'evil-backward-char
     (kbd "<tab>") 'Info-next-reference
     (kbd "S-<tab>") 'Info-prev-reference
     ;; This exists because <tab> is recognized as C-i on terminals.
@@ -49,7 +47,6 @@
     "g[" 'Info-prev-reference
 
     ;; From evil-integration.el.
-    "0" 'evil-digit-argument-or-evil-beginning-of-line
     (kbd "M-h") 'Info-help              ; "h"
     (kbd "C-t") 'Info-history-back      ; "l"
     (kbd "C-o") 'Info-history-back
@@ -67,11 +64,6 @@
     "i" 'Info-index
     "I" 'Info-virtual-index
     "a" 'info-apropos
-    "w" 'evil-forward-word-begin
-    "b" 'evil-backward-word-begin
-    "e" 'evil-forward-word-end
-
-    "gg" 'evil-goto-first-line
 
     ;; mouse integration
     [mouse-2]     'Info-mouse-follow-nearest-node
@@ -91,20 +83,12 @@
     "g8" 'Info-nth-menu-item
     "g9" 'Info-nth-menu-item
 
-    ;; NOTE: We do NOT search the entire buffer, only the narrowed buffer.
-    "n" evil-collection-evil-search-next
-    "N" evil-collection-evil-search-previous
-
     ;; goto
     "gd" 'Info-goto-node ; TODO: "gd" does not match the rationale of "go to definition". Change?
     "gm" 'Info-menu
-    "m" 'evil-set-marker                ; Else this would be `Info-menu'.
     "gt" 'Info-top-node
-    "t" 'evil-find-char-to              ; Else this would be `Info-top-node'.
     "gT" 'Info-toc
-    "T" 'evil-find-char-to-backward     ; Else this would be `Info-toc'.
     "gf" 'Info-follow-reference
-    "f" 'evil-find-char                 ; Else this would be `Info-follow-reference'.
     ;; TODO: "[" and "]" are Emacs default for fine-grained browsing.
     ;; We usually use "C-j"/"C-k" for that.
     (kbd "C-j") 'Info-forward-node
