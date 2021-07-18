@@ -57,7 +57,7 @@
 
     "d" 'Info-directory
     "u" 'Info-up
-    "g L" 'Info-history ; "L"
+    "gL" 'Info-history ; "L"
     "s" 'Info-search
     "S" 'Info-search-case-sensitively
     "i" 'Info-index
