@@ -36,8 +36,7 @@
 
 (defun evil-collection-evil-mc-clear-keymap (&rest _args)
   "Brute force remove `evil-mc-key-map' from `evil-mode-map-alist'."
-  (evil-collection-when-let*
-      ((evil-mc-map (assq 'evil-mc-mode evil-mode-map-alist)))
+  (when-let ((evil-mc-map (assq 'evil-mc-mode evil-mode-map-alist)))
     (setq evil-mode-map-alist
           (delq evil-mc-map evil-mode-map-alist))))
 

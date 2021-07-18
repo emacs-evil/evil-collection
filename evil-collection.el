@@ -67,23 +67,6 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details."))
 See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
   (require 'evil-integration))
 
-;; Compatibility
-
-(eval-and-compile
-  (with-no-warnings
-    (if (version< emacs-version "26")
-        (progn
-          (defalias 'evil-collection-if-let* #'if-let)
-          (defalias 'evil-collection-when-let* #'when-let)
-          (function-put #'evil-collection-if-let* 'lisp-indent-function 2)
-          (function-put #'evil-collection-when-let* 'lisp-indent-function 1))
-      (defalias 'evil-collection-if-let* #'if-let*)
-      (defalias 'evil-collection-when-let* #'when-let*))))
-
-;; Compatibility
-
-(declare-function org-table-align "org-table.el" nil)
-
 (defgroup evil-collection nil
   "A set of keybindings for Evil mode"
   :group 'evil)
