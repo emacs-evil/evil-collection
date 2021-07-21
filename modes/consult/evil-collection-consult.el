@@ -30,6 +30,7 @@
 (require 'evil-collection)
 (require 'consult nil t)
 (require 'consult-imenu nil t)
+(require 'consult-org nil t)
 
 (defvar consult-line-numbers-widen)
 (declare-function consult--forbid-minibuffer "consult")
@@ -46,6 +47,7 @@
   (evil-set-command-property 'consult-outline :jump t)
   (evil-set-command-property 'consult-mark :jump t)
   (evil-set-command-property 'consult-imenu :jump t)
+  (evil-set-command-property 'consult-org-heading :jump t)
   (evil-set-command-property 'consult-line :jump t))
 
 (defun evil-collection-consult--evil-mark-ring ()
