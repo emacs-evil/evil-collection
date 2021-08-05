@@ -41,7 +41,7 @@
     "\C-k" 'previous-error-no-select)
 
   ;; `wgrep' integration
-  (when (featurep 'wgrep)
+  (when (fboundp 'wgrep-setup)
     (evil-collection-define-key 'normal 'grep-mode-map
       "i" 'wgrep-change-to-wgrep-mode)))
 
