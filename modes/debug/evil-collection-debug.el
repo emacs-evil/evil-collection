@@ -66,7 +66,10 @@
     "p" (if (fboundp 'debugger-toggle-locals)
             'debugger-toggle-locals
           'backtrace-toggle-locals)
-
+    
+    "zo" 'backtrace-multi-line
+    "zc" 'backtrace-single-line
+    
     ;; quit
     "q" 'top-level
     "ZQ" 'evil-quit
