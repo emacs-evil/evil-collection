@@ -159,6 +159,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     eval-sexp-fu
     evil-mc
     eww
+    fanyi
     finder
     flycheck
     flymake
