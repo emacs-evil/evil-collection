@@ -35,6 +35,7 @@
 (defun evil-collection-calendar-setup-org-bindings ()
   "Bind Org functions to Calendar keymap."
   (require 'org)
+  (require 'org-agenda)
   (defvar org-calendar-to-agenda-key)
   (defvar org-agenda-diary-file)
   (defvar org-calendar-insert-diary-entry-key)
