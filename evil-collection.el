@@ -199,6 +199,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     man
     magit
     magit-todos
+    markdown-mode
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
     monky
     mpdel
