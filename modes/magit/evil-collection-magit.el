@@ -563,7 +563,8 @@ evil-collection-magit affects.")
 (defvar evil-collection-magit-popup-changes
   (append
    (when evil-collection-magit-use-z-for-folds
-     '((magit-dispatch "z" "Z" magit-stash)))
+     '((magit-dispatch "Z" "%" magit-worktree)
+       (magit-dispatch "z" "Z" magit-stash)))
    (when evil-collection-magit-want-horizontal-movement
      '((magit-dispatch "L" "\C-l" magit-log-refresh)
        (magit-dispatch "l" "L" magit-log)))
