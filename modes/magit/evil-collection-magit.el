@@ -372,7 +372,8 @@ When this option is enabled, the stash popup is available on \"Z\"."
          (,states magit-mode-map ,(kbd "<escape>") evil-collection-magit-maybe-deactivate-mark)))
 
      (when evil-collection-magit-use-z-for-folds
-       `((,states magit-mode-map "z")
+       `((,states magit-mode-map "Z"    magit-stash)
+         (,states magit-mode-map "z")
          (,states magit-mode-map "z1"   magit-section-show-level-1-all)
          (,states magit-mode-map "z2"   magit-section-show-level-2-all)
          (,states magit-mode-map "z3"   magit-section-show-level-3-all)
