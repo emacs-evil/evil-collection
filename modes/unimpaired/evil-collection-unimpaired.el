@@ -179,6 +179,18 @@
   (ignore count)
   (evil-collection-unimpaired--encode beg end #'url-unhex-string))
 
+(evil-define-operator evil-collection-unimpaired-b64-encode (count &optional beg end)
+  "Encode a base64 string."
+  (interactive "<c><r>")
+  (ignore count)
+  (evil-collection-unimpaired--encode beg end #'base64-encode-string))
+
+(evil-define-operator evil-collection-unimpaired-b64-decode (count &optional beg end)
+  "Decode a base64 string."
+  (interactive "<c><r>")
+  (ignore count)
+  (evil-collection-unimpaired--encode beg end #'base64-decode-string))
+
 ;; https://stackoverflow.com/questions/2423834/move-line-region-up-and-down-in-emacs
 (defun evil-collection-unimpaired--move-text (arg)
   "Move text down if ARG is positive, otherwise move text up."
@@ -248,7 +260,9 @@
     "]n" 'evil-collection-unimpaired-next-SCM-conflict-marker)
   (evil-collection-define-key 'motion 'evil-collection-unimpaired-mode-map
     "[u" 'evil-collection-unimpaired-url-encode
-    "]u" 'evil-collection-unimpaired-url-decode))
+    "]u" 'evil-collection-unimpaired-url-decode
+    "[6" 'evil-collection-unimpaired-b64-encode
+    "]6" 'evil-collection-unimpaired-b64-decode))
 
 (provide 'evil-collection-unimpaired)
 ;;; evil-collection-unimpaired.el ends here
