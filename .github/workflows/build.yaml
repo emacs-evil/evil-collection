@@ -21,7 +21,7 @@ jobs:
     - uses: purcell/setup-emacs@master
       with:
         version: ${{ matrix.emacs_version }}
-    - uses: conao3/setup-cask@master
+    - uses: cask/setup-cask@master
       with:
         version: snapshot
     - run: cask install
