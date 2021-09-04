@@ -38,11 +38,9 @@
   (evil-set-initial-state 'dictionary-mode 'normal)
   (evil-collection-set-readonly-bindings 'dictionary-mode-map)
   (evil-collection-define-key 'normal 'dictionary-mode-map
-    ;; motion
-    (kbd "l") 'evil-forward-char  ; otherwise bound to `dictionary-previous'
-    (kbd "h") 'evil-backward-char ; otherwise bound to `dictionary-help'
-    (kbd "p") 'ignore             ; otherwise bound to `backward-button'
-    (kbd "n") 'evil-search-next   ; otherwise bound to `forward-button'
+    ;; button
+    [tab] 'forward-button
+    [backtab] 'backward-button
     ;; mouse
     [mouse-1] 'link-selected
     ;; misc
