@@ -12,7 +12,7 @@ more.
 
 ** Preliminaries
 
-   1. ~evil-overriding-maps~ is assumed as ~nil~ to reduce redundant ~w~/~W~/~l~
+   1. ~evil-overriding-maps~ is assumed as ~nil~ to reduce redundant ~w/W/l/f/t~
       etc evil bindings. See [[https://github.com/emacs-evil/evil-collection/pull/501][Fixup Info-mode]] for example.
 
 ** Goals
