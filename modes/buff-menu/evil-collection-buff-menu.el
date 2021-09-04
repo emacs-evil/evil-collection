@@ -73,9 +73,6 @@ When called interactively prompt for MARK;  RET remove all marks."
   (evil-set-initial-state 'Buffer-menu-mode 'normal)
 
   (evil-collection-define-key 'normal 'Buffer-menu-mode-map
-    "k" 'evil-previous-line
-    "j" 'evil-next-line
-
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
     "gr" 'revert-buffer
@@ -97,10 +94,6 @@ When called interactively prompt for MARK;  RET remove all marks."
             'evil-collection-buff-menu-Buffer-menu-unmark-all
           'Buffer-menu-unmark-all)
     "m" 'Buffer-menu-mark
-
-    "f" 'evil-find-char
-    "e" 'evil-forward-word-end
-    "b" 'evil-backward-word-begin
 
     "X" 'Buffer-menu-bury
 
