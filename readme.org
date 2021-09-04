@@ -10,6 +10,11 @@ more.
 
 *Warning:* Expect some default bindings to change in the future.
 
+** Preliminaries
+
+   1. ~evil-overriding-maps~ is assumed as ~nil~ to reduce redundant ~w~/~W~/~l~
+      etc evil bindings. See [[https://github.com/emacs-evil/evil-collection/pull/501][Fixup Info-mode]] for example.
+
 ** Goals
 
    1. Reduce context switching: As soon as "moving around" gets hardwired
