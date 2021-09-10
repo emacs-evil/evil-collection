@@ -38,8 +38,8 @@
   (evil-collection-set-readonly-bindings 'fanyi-mode-map)
   (evil-collection-define-key 'normal 'fanyi-mode-map
     ;; tab
-    [tab]     'fanyi-tab
-    [backtab] 'fanyi-backtab
+    [tab]     'forward-button
+    [backtab] 'backward-button
 
     "s" 'fanyi-dwim))
 
