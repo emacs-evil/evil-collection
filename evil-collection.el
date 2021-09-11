@@ -240,6 +240,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     rtags
     ruby-mode
     scroll-lock
+    selectrum
     sh-script
     ,@(when (>= emacs-major-version 28) '(shortdoc))
     simple
