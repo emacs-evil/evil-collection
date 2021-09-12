@@ -50,6 +50,11 @@
     (kbd "C-p") #'comint-previous-input
     (kbd "C-n") #'comint-next-input)
 
+  ;; TODO: What if the user changes `evil-want-C-u-delete' after this is run?
+  (when evil-want-C-u-delete
+    (evil-collection-define-key 'insert 'comint-mode-map
+      (kbd "C-u") #'comint-kill-input))
+
   (evil-collection-define-key 'insert 'comint-mode-map
     (kbd "<up>") #'comint-previous-input
     (kbd "<down>") #'comint-next-input))
