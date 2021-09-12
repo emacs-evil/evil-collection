@@ -114,6 +114,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     apropos
     arc-mode
     auto-package-update
+    beginend
     bm
     bookmark
     (buff-menu "buff-menu")
