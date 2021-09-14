@@ -55,100 +55,96 @@
                                           beginend-notmuch-search-mode-map
                                           beginend-recentf-dialog-mode-map))
 
+
+(defmacro evil-beginend--define-goto-beginning-motion (ec-mode-name)
+  "Macro to define new Evil motion that will use the corresponding
+beginend-goto-beginning function for EC-MODE-NAME when count is not
+provided for the motion; otherwise behave like `evil-goto-first-line'
+if count is provided.
+
+This will also associate the regular Evil `gg' keybinding with the
+newly defined motion."
+  (let ((motion-name (intern (format "evil-beginend-%s-goto-beginning" ec-mode-name)))
+        (beginend-beginning-fn-name (intern (format "beginend-%s-goto-beginning" ec-mode-name)))
+        (beginend-map-name (intern (format "beginend-%s-map" ec-mode-name))))
+    `(progn
+       (declare-function ,beginend-beginning-fn-name "beginend")
+       (evil-define-motion ,motion-name (count)
+         :jump t
+         :type line
+         (if count
+             (evil-goto-first-line count)
+           (,beginend-beginning-fn-name)))
+       (evil-collection-define-key 'normal ',beginend-map-name
+         "gg" ',motion-name))))
+
+(defmacro evil-beginend--define-goto-end-motion (ec-mode-name)
+  "Macro to define new Evil motion that will use the corresponding
+beginend-goto-end function for EC-MODE-NAME when count is not
+provided for the motion; otherwise behave like `evil-goto-line'
+if count is provided.
+
+This will also associate the regular Evil `G' keybinding with the
+newly defined motion."
+  (let ((motion-name (intern (format "evil-beginend-%s-goto-end" ec-mode-name)))
+        (beginend-end-fn-name (intern (format "beginend-%s-goto-end" ec-mode-name)))
+        (beginend-map-name (intern (format "beginend-%s-map" ec-mode-name))))
+    `(progn
+       (declare-function ,beginend-end-fn-name "beginend")
+       (evil-define-motion ,motion-name (count)
+         :jump t
+         :type line
+         (if count
+             (evil-goto-line count)
+           (,beginend-end-fn-name)))
+       (evil-collection-define-key 'normal ',beginend-map-name
+         "G" ',motion-name))))
+
 ;;###autoload
 (defun evil-collection-beginend-setup ()
   "Set up `evil' bindings for `beginend'."
-  (evil-collection-define-key 'normal 'beginend-bs-mode-map
-    "gg" 'beginend-bs-mode-goto-beginning
-    "G" 'beginend-bs-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-rg-mode-map
-    "gg" 'beginend-rg-mode-goto-beginning
-    "G" 'beginend-rg-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-org-mode-map
-    "gg" 'beginend-org-mode-goto-beginning
-    "G" 'beginend-org-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-deft-mode-map
-    "gg" 'beginend-deft-mode-goto-beginning
-    "G" 'beginend-deft-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-prog-mode-map
-    "gg" 'beginend-prog-mode-goto-beginning
-    "G" 'beginend-prog-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-LaTeX-mode-map
-    "gg" 'beginend-LaTeX-mode-goto-beginning
-    "G" 'beginend-LaTeX-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-dired-mode-map
-    "gg" 'beginend-dired-mode-goto-beginning
-    "G" 'beginend-dired-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-latex-mode-map
-    "gg" 'beginend-latex-mode-goto-beginning
-    "G" 'beginend-latex-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-nroam-mode-map
-    "gg" 'beginend-nroam-mode-goto-beginning
-    "G" 'beginend-nroam-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-occur-mode-map
-    "gg" 'beginend-occur-mode-goto-beginning
-    "G" 'beginend-occur-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-vc-dir-mode-map
-    "gg" 'beginend-vc-dir-mode-goto-beginning
-    "G" 'beginend-vc-dir-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-ibuffer-mode-map
-    "gg" 'beginend-ibuffer-mode-goto-beginning
-    "G" 'beginend-ibuffer-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-message-mode-map
-    "gg" 'beginend-message-mode-goto-beginning
-    "G" 'beginend-message-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-outline-mode-map
-    "gg" 'beginend-outline-mode-goto-beginning
-    "G" 'beginend-outline-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-prodigy-mode-map
-    "gg" 'beginend-prodigy-mode-goto-beginning
-    "G" 'beginend-prodigy-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-org-agenda-mode-map
-    "gg" 'beginend-org-agenda-mode-goto-beginning
-    "G" 'beginend-org-agenda-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-compilation-mode-map
-    "gg" 'beginend-compilation-mode-goto-beginning
-    "G" 'beginend-compilation-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-epa-key-mode-map
-    "gg" 'beginend-epa-key-mode-goto-beginning
-    "G" 'beginend-epa-key-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-magit-status-mode-map
-    "gg" 'beginend-magit-status-mode-goto-beginning
-    "G" 'beginend-magit-status-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-elfeed-search-mode-map
-    "gg" 'beginend-elfeed-search-mode-goto-beginning
-    "G" 'beginend-elfeed-search-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-magit-revision-mode-map
-    "gg" 'beginend-magit-revision-mode-goto-beginning
-    "G" 'beginend-magit-revision-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-notmuch-search-mode-map
-    "gg" 'beginend-notmuch-search-mode-goto-beginning
-    "G" 'beginend-notmuch-search-mode-goto-end)
-
-  (evil-collection-define-key 'normal 'beginend-recentf-dialog-mode-map
-    "gg" 'beginend-recentf-dialog-mode-goto-beginning
-    "G" 'beginend-recentf-dialog-mode-goto-end))
+  (evil-beginend--define-goto-beginning-motion "bs-mode")
+  (evil-beginend--define-goto-end-motion "bs-mode")
+  (evil-beginend--define-goto-beginning-motion "rg-mode")
+  (evil-beginend--define-goto-end-motion "rg-mode")
+  (evil-beginend--define-goto-beginning-motion "org-mode")
+  (evil-beginend--define-goto-end-motion "org-mode")
+  (evil-beginend--define-goto-beginning-motion "deft-mode")
+  (evil-beginend--define-goto-end-motion "deft-mode")
+  (evil-beginend--define-goto-beginning-motion "prog-mode")
+  (evil-beginend--define-goto-end-motion "prog-mode")
+  (evil-beginend--define-goto-beginning-motion "LaTeX-mode")
+  (evil-beginend--define-goto-end-motion "LaTeX-mode")
+  (evil-beginend--define-goto-beginning-motion "nroam-mode")
+  (evil-beginend--define-goto-end-motion "nroam-mode")
+  (evil-beginend--define-goto-beginning-motion "occur-mode")
+  (evil-beginend--define-goto-end-motion "occur-mode")
+  (evil-beginend--define-goto-beginning-motion "vc-dir-mode")
+  (evil-beginend--define-goto-end-motion "vc-dir-mode")
+  (evil-beginend--define-goto-beginning-motion "ibuffer-mode")
+  (evil-beginend--define-goto-end-motion "ibuffer-mode")
+  (evil-beginend--define-goto-beginning-motion "message-mode")
+  (evil-beginend--define-goto-end-motion "message-mode")
+  (evil-beginend--define-goto-beginning-motion "outline-mode")
+  (evil-beginend--define-goto-end-motion "outline-mode")
+  (evil-beginend--define-goto-beginning-motion "prodigy-mode")
+  (evil-beginend--define-goto-end-motion "prodigy-mode")
+  (evil-beginend--define-goto-beginning-motion "org-agenda-mode")
+  (evil-beginend--define-goto-end-motion "org-agenda-mode")
+  (evil-beginend--define-goto-beginning-motion "compilation-mode")
+  (evil-beginend--define-goto-end-motion "compilation-mode")
+  (evil-beginend--define-goto-beginning-motion "epa-key-list-mode")
+  (evil-beginend--define-goto-end-motion "epa-key-list-mode")
+  (evil-beginend--define-goto-beginning-motion "magit-status-mode")
+  (evil-beginend--define-goto-end-motion "magit-status-mode")
+  (evil-beginend--define-goto-beginning-motion "elfeed-search-mode")
+  (evil-beginend--define-goto-end-motion "elfeed-search-mode")
+  (evil-beginend--define-goto-beginning-motion "magit-revision-mode")
+  (evil-beginend--define-goto-end-motion "magit-revision-mode")
+  (evil-beginend--define-goto-beginning-motion "notmuch-search-mode")
+  (evil-beginend--define-goto-end-motion "notmuch-search-mode")
+  (evil-beginend--define-goto-beginning-motion "recentf-dialog-mode")
+  (evil-beginend--define-goto-end-motion "recentf-dialog-mode"))
 
 (provide 'evil-collection-beginend)
 ;;; evil-collection-beginend.el ends here
