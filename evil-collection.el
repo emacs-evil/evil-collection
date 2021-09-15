@@ -274,6 +274,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     which-key
     woman
     xref
+    yaml-mode
     youtube-dl
     (ztree ztree-diff)
     xwidget)
