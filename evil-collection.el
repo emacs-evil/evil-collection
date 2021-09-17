@@ -68,7 +68,7 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
   (require 'evil-integration))
 
 (defgroup evil-collection nil
-  "A set of keybindings for Evil mode"
+  "A set of keybindings for Evil mode."
   :group 'evil)
 
 (defcustom evil-collection-setup-minibuffer nil
@@ -210,8 +210,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     newsticker
     notmuch
     nov
-    ;; occur is in replace.el which was built-in before Emacs 26.
-    (occur ,(if (<= emacs-major-version 25) "replace" 'replace))
+    (occur replace)
     omnisharp
     org-present
     zmusic
