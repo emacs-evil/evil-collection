@@ -62,6 +62,11 @@
       (evil-collection-define-key 'normal 'calendar-mode-map
         (kbd key) 'org-agenda-diary-entry))))
 
+;; Otherwise it will load tons of org stuff at startup.
+(defvar evil-collection-calendar-want-org-bindings)
+(when evil-collection-calendar-want-org-bindings
+  (add-hook 'calendar-mode-hook #'evil-collection-calendar-setup-org-bindings))
+
 ;;;###autoload
 (defun evil-collection-calendar-setup ()
   "Set up `evil' bindings for `calendar'."
@@ -135,11 +140,7 @@
     ;; quit
     "q" 'calendar-exit
     "ZQ" 'evil-quit
-    "ZZ" 'calendar-exit)
-
-  (defvar evil-collection-calendar-want-org-bindings)
-  (when evil-collection-calendar-want-org-bindings
-    (evil-collection-calendar-setup-org-bindings)))
+    "ZZ" 'calendar-exit))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here
