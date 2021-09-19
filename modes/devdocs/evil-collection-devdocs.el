@@ -45,10 +45,10 @@
     (kbd "<tab>")       'forward-button
     (kbd "<backtab>")   'backward-button
 
-    "[[" 'devdocs-previous-entry
-    "]]" 'devdocs-next-entry
-    "gk" 'devdocs-previous-entry
-    "gj" 'devdocs-next-entry
+    "[[" 'devdocs-previous-page
+    "]]" 'devdocs-next-page
+    "gk" 'devdocs-previous-page
+    "gj" 'devdocs-next-page
 
     "g." 'devdocs-goto-target
 
