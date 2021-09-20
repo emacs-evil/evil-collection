@@ -71,16 +71,20 @@
     ;; move
     "[[" 'newsticker-treeview-prev-feed
     "]]" 'newsticker-treeview-next-feed
-    (kbd "C-j") 'newsticker-treeview-next-item
-    (kbd "C-k") 'newsticker-treeview-prev-item
+    ;; The items in Newsticker List buffer has a particular keymap by text
+    ;; property, where CR (C-m) and LF (C-j) are bound to
+    ;; `newsticker-treeview-show-item'. According to the keymap precedence page,
+    ;; the text property based keymap has a higher priority.
+    ;;
+    ;; Eval (info "(elisp)Searching Keymaps") if you have interests.
+    ;;
+    ;; Use M-j/M-k instead.
+    (kbd "M-j") 'newsticker-treeview-next-item
+    (kbd "M-k") 'newsticker-treeview-prev-item
     "gj" 'newsticker-treeview-next-new-or-immortal-item
     "gk" 'newsticker-treeview-prev-new-or-immortal-item
     (kbd "SPC") 'newsticker-treeview-next-page
     "J" 'newsticker-treeview-jump
-
-    ;; If it's not defined, C-j will implicitly converts to RET that shadows the
-    ;; C-j binding.
-    (kbd "RET") 'newsticker-treeview-show-item
 
     ;; mark
     "o" 'newsticker-treeview-mark-item-old
