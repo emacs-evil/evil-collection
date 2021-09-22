@@ -113,7 +113,7 @@ newly defined motion."
                (evil-beginend--define-goto-end-motion ,mode-string))))
         evil-collection-beginend-modes)))
 
-;;###autoload
+;;;###autoload
 (defun evil-collection-beginend-setup ()
   "Set up `evil' bindings for `beginend'."
   (evil-beginend--define-mode-motions))
