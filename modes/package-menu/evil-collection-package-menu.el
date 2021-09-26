@@ -36,7 +36,7 @@
 (defun evil-collection-package-menu-setup ()
   "Set up `evil' bindings for `package-menu'."
   (evil-set-initial-state 'package-menu-mode 'normal)
-
+  (evil-collection-set-readonly-bindings 'package-menu-mode-map)
   (evil-collection-define-key 'normal 'package-menu-mode-map
     "i" 'package-menu-mark-install
     "U" 'package-menu-mark-upgrades
@@ -49,11 +49,12 @@
     ;; execute
     "x" 'package-menu-execute
 
-    "g?" 'package-menu-describe-package
+    "g?" 'package-menu-describe-package)
 
-    "q" 'quit-window ;; FIXME: Can macros make sense here?
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+  ;; It's introduced since Emacs 28.
+  (when (fboundp 'package-browse-url)
+    (evil-collection-define-key 'normal 'package-menu-mode-map
+      "B" 'package-browse-url)))
 
 (provide 'evil-collection-package-menu)
 ;;; evil-collection-package-menu.el ends here
