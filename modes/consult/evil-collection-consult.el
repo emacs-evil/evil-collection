@@ -25,12 +25,19 @@
 
 ;;; Commentary:
 ;; Evil bindings for `consult'.
+;;
+;; Since
+;;
+;; `consult-outline'
+;; `consult-mark'
+;; `consult-imenu'
+;; `consult-org-heading'
+;; `consult-line'
+;;
+;; are all autoloaded, no (require 'consult nil t) is needed.
 
 ;;; Code:
 (require 'evil-collection)
-(require 'consult nil t)
-(require 'consult-imenu nil t)
-(require 'consult-org nil t)
 
 (defvar consult-line-numbers-widen)
 (declare-function consult--forbid-minibuffer "consult")
@@ -81,6 +88,7 @@ as defined in `evil-collection-consult--evil-mark-ring'."
                   candidates)))))
     (nreverse (delete-dups candidates))))
 
+;;;###autoload
 (defun evil-collection-consult-mark ()
   "Jump to an evil marker in the current buffer."
   (interactive)
