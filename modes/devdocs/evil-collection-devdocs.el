@@ -53,8 +53,11 @@
     "g." 'devdocs-goto-target
 
     ;; history
-    "L" 'devdocs-go-forward
-    "H" 'devdocs-go-back
+    (kbd "C-p") 'devdocs-go-back
+    (kbd "C-n") 'devdocs-go-forward
+
+    ;; copy
+    "C" 'devdocs-copy-url
 
     ;; search
     "s" 'devdocs-lookup))
