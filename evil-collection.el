@@ -265,6 +265,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     vc-dir
     vc-git
     vdiff
+    vertico
     view
     vlf
     vterm
