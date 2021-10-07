@@ -192,6 +192,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     js2-mode
     leetcode
     lispy
+    lms
     log-edit
     log-view
     lsp-ui-imenu
