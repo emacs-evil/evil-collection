@@ -237,6 +237,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     js2-mode
     leetcode
     lispy
+    lms
     log-edit
     log-view
     lsp-ui-imenu
