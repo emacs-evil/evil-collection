@@ -31,6 +31,9 @@
 ;;;###autoload
 (defun evil-collection-vertico-setup ()
   "Set up `evil' bindings for `vertico'."
+  (evil-collection-define-key nil 'vertico-map
+    (kbd "<escape>") 'minibuffer-keyboard-quit)
+
   (defvar evil-collection-setup-minibuffer)
   (when evil-collection-setup-minibuffer
     (when evil-want-C-u-scroll
