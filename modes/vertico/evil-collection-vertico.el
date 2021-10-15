@@ -32,7 +32,7 @@
 (defun evil-collection-vertico-setup ()
   "Set up `evil' bindings for `vertico'."
   (evil-collection-define-key nil 'vertico-map
-    (kbd "<escape>") 'abort-minibuffers)
+    (kbd "<escape>") 'abort-recursive-edit)
 
   (defvar evil-collection-setup-minibuffer)
   (when evil-collection-setup-minibuffer
