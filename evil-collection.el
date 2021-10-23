@@ -214,7 +214,6 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     (occur replace)
     omnisharp
     org-present
-    zmusic
     osx-dictionary
     outline
     p4
@@ -275,10 +274,11 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     which-key
     woman
     xref
+    xwidget
     yaml-mode
     youtube-dl
-    (ztree ztree-diff)
-    xwidget)
+    zmusic
+    (ztree ztree-diff))
   "List of modes supported by evil-collection. Elements are
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
