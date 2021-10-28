@@ -205,7 +205,6 @@
      "p" mu4e-view-save-attachment
      "P" mu4e-view-save-attachment-multi ; Since mu4e 1.0, -multi is same as normal.
      "O" mu4e-headers-change-sorting
-     "o" mu4e-view-open-attachment
      "A" mu4e-view-mime-part-action ; Since 1.6, uses gnus view by default
      "a" mu4e-view-action
      "J" mu4e~headers-jump-to-maildir
