@@ -213,6 +213,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     nov
     (occur replace)
     omnisharp
+    org
     org-present
     osx-dictionary
     outline
