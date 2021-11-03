@@ -254,6 +254,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     telega
     (term term ansi-term multi-term)
     tetris
+    snake
     ,@(when (>= emacs-major-version 27) '(thread))
     tide
     timer-list
