@@ -1,9 +1,10 @@
-;;; evil-collection-tetris.el --- Bindings for `tetris' -*- lexical-binding: t -*-
+;;; evil-collection-snake.el --- Bindings for `snake' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2021 Farzin Firouzi
 
 ;; Author: Farzin Firouzi
-;; Maintainer: Farzin Firouzi <farzinf@riseup.net>
+;; Maintainer: Farzin Firouzi
+;; Farzin Firouzi <farzinf@riseup.net>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "25.1"))
@@ -50,4 +51,4 @@
     (kbd "<escape>") 'quit-window))
 
 (provide 'evil-collection-snake)
-;;; evil-collection-snake.el ends here
+;;; evil-collection-tetris.el ends here
