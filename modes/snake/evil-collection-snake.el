@@ -30,7 +30,7 @@
 (require 'evil-collection)
 (require 'snake nil t)
 
-(defconst evil-collection-tetris-maps '(snake-mode-map))
+(defconst evil-collection-snake-maps '(snake-mode-map))
 
 ;;;###autoload
 (defun evil-collection-snake-setup ()
@@ -51,4 +51,4 @@
     (kbd "<escape>") 'quit-window))
 
 (provide 'evil-collection-snake)
-;;; evil-collection-tetris.el ends here
+;;; evil-collection-snake.el ends here
