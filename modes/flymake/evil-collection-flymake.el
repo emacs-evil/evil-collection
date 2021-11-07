@@ -39,6 +39,8 @@
   (evil-collection-define-key
     '(normal visual) 'flymake-diagnostics-buffer-mode-map
     "q" 'quit-window
+    (kbd "C-j") 'flymake-goto-next-error
+    (kbd "C-k") 'flymake-goto-prev-error
     (kbd "RET") 'flymake-goto-diagnostic
     (kbd "<S-return>") 'flymake-show-diagnostic
     (kbd "M-RET") 'flymake-show-diagnostic
