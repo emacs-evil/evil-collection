@@ -165,6 +165,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     finder
     flycheck
     flymake
+    forge
     free-keys
     geiser
     ggtags
