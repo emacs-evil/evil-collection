@@ -122,14 +122,11 @@ appropriate in some cases like terminals."
     "C" 'evil-collection-eshell-evil-change-line
     "d" 'evil-collection-eshell-evil-delete
     "D" 'evil-collection-eshell-evil-delete-line)
-  (evil-collection-define-key 'insert 'eshell-mode-map
-    ;; motion
-    (kbd "M-h") 'eshell-backward-argument
-    (kbd "M-l") 'eshell-forward-argument)
-  ;; TODO: What if the user changes `evil-want-C-u-delete' after this is run?
+
   (when evil-want-C-u-delete
     (evil-collection-define-key 'insert 'eshell-mode-map
       (kbd "C-u") 'eshell-kill-input))
+
   (evil-collection-define-key 'visual 'eshell-mode-map
     ;; motion
     ;; TODO: This does not work with `evil-visual-line'.
