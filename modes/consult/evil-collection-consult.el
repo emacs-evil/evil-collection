@@ -48,11 +48,13 @@
 (declare-function consult--remove-dups "consult")
 (declare-function consult--mark-candidates "consult")
 (declare-function consult-mark "consult")
+(declare-function consult-global-mark "consult")
 
 (defun evil-collection-consult-set-bindings ()
   "Set the bindings."
   (evil-set-command-property 'consult-outline :jump t)
   (evil-set-command-property 'consult-mark :jump t)
+  (evil-set-command-property 'consult-global-mark :jump t)
   (evil-set-command-property 'consult-imenu :jump t)
   (evil-set-command-property 'consult-org-heading :jump t)
   (evil-set-command-property 'consult-line :jump t))
@@ -95,6 +97,16 @@ as defined in `evil-collection-consult--evil-mark-ring'."
   (cl-letf (((symbol-function 'consult--mark-candidates)
              #'evil-collection-consult--mark-candidates))
     (consult-mark (evil-collection-consult--evil-mark-ring))))
+
+;;;###autoload
+(defun evil-collection-consult-jump-list ()
+  "Jump to a position in the evil jump list."
+  (interactive)
+  (consult-global-mark (delq nil (mapcar (lambda (jump)
+                                           (let ((mark (car jump)))
+                                             (when (markerp mark)
+                                               mark)))
+                                         (ring-elements (evil--jumps-get-window-jump-list))))))
 
 ;;;###autoload
 (defun evil-collection-consult-setup ()
