@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'snake nil t)
+(require 'snake)
 
 (defconst evil-collection-snake-maps '(snake-mode-map))
 

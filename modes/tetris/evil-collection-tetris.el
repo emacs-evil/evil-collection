@@ -28,7 +28,7 @@
 
 ;;; Code:
 (require 'evil-collection)
-(require 'tetris nil t)
+(require 'tetris)
 
 (defconst evil-collection-tetris-maps '(tetris-mode-map))
 
