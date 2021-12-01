@@ -294,7 +294,6 @@ When this option is enabled, the stash popup is available on \"Z\"."
        (,states magit-mode-map "'"     magit-submodule                "o")
        (,states magit-mode-map "\""    magit-subtree                  "O")
        (,states magit-mode-map "="     magit-diff-less-context        "-")
-       (,states magit-mode-map "@"     forge-dispatch)
        (,states magit-mode-map "j"     evil-next-line)
        (,states magit-mode-map "k"     evil-previous-line)
        (,states magit-mode-map "gg"    evil-goto-first-line)
@@ -600,16 +599,6 @@ evil-collection-magit affects.")
   (unless evil-collection-magit-popup-keys-changed
     (dolist (change evil-collection-magit-popup-changes)
       (apply #'evil-collection-magit-change-popup-key change))
-    (with-eval-after-load 'forge
-      ;; When `forge' is loaded, it maps `forge-dispatch' to ' key which is
-      ;; set for `magit-submodule', wiping it so we add it back after `forge'
-      ;; loads.
-      (transient-append-suffix 'magit-dispatch "M"
-        '("'" "Submodule" magit-submodule))
-      ;; Clear `forge' key and re-add back in as "@".
-      (transient-remove-suffix 'magit-dispatch 'forge-dispatch)
-      (transient-append-suffix 'magit-dispatch "!"
-        '("@" "Forge" forge-dispatch)))
     (setq evil-collection-magit-popup-keys-changed t)))
 
 (defun evil-collection-magit-revert-popups ()

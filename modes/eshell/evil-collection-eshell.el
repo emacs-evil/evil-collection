@@ -1,6 +1,6 @@
 ;;; evil-collection-eshell.el --- Evil bindings for Eshell -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 Pierre Neidhardt
+;; Copyright (C) 2017, 2021 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <mail@ambrevar.xyz>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -51,6 +51,12 @@
   (eshell-interrupt-process)
   (evil-insert 1))
 
+(defun evil-collection-eshell-escape-stay ()
+  "Go back to normal state but don't move cursor backwards.
+Moving cursor backwards is the default Vim behavior but it is not
+appropriate in some cases like terminals."
+  (setq-local evil-move-cursor-back nil))
+
 ;; Taken from Doom Emacs
 (evil-define-operator evil-collection-eshell-evil-change (beg end type register yank-handler delete-func)
   "Like `evil-change' but will not delete/copy the prompt."
@@ -79,7 +85,10 @@
                  type register yank-handler)))
 
 ;; Taken from Doom Emacs
-;; Although the BEG argument doesn't get used in any meaningful way, `evil-define-operator' must access it nonetheless, so putting an underscore in front will make the CI fail.
+;;
+;; Although the BEG argument doesn't get used in any meaningful way,
+;; `evil-define-operator' must access it nonetheless, so putting an underscore
+;; in front will make the CI fail.
 (evil-define-operator evil-collection-eshell-evil-delete-line (beg end type register yank-handler)
   "Change to end of line."
   :motion nil
@@ -87,8 +96,8 @@
   (interactive "<R><x>")
   (evil-collection-eshell-evil-delete (point) end type register yank-handler))
 
-;;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
-;;; need to add bindings to `eshell-first-time-mode-hook'.
+;; `eshell-mode-map' is reset when Eshell is initialized in `eshell-mode'. We
+;; need to add bindings to `eshell-first-time-mode-hook'.
 (defun evil-collection-eshell-setup-keys ()
   "Set up `evil' bindings for `eshell'."
   (evil-collection-define-key 'normal 'eshell-mode-map
@@ -113,14 +122,11 @@
     "C" 'evil-collection-eshell-evil-change-line
     "d" 'evil-collection-eshell-evil-delete
     "D" 'evil-collection-eshell-evil-delete-line)
-  (evil-collection-define-key 'insert 'eshell-mode-map
-    ;; motion
-    (kbd "M-h") 'eshell-backward-argument
-    (kbd "M-l") 'eshell-forward-argument)
-  ;; TODO: What if the user changes `evil-want-C-u-delete' after this is run?
+
   (when evil-want-C-u-delete
     (evil-collection-define-key 'insert 'eshell-mode-map
       (kbd "C-u") 'eshell-kill-input))
+
   (evil-collection-define-key 'visual 'eshell-mode-map
     ;; motion
     ;; TODO: This does not work with `evil-visual-line'.
@@ -137,6 +143,7 @@
 ;;;###autoload
 (defun evil-collection-eshell-setup ()
   "Set up `evil' bindings for `eshell'."
+  (add-hook 'eshell-mode-hook 'evil-collection-eshell-escape-stay)
   (add-hook 'eshell-mode-hook 'evil-collection-eshell-next-prompt-on-insert)
   (add-hook 'eshell-first-time-mode-hook 'evil-collection-eshell-setup-keys))
 
