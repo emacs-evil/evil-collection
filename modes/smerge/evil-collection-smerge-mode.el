@@ -46,8 +46,6 @@
     "gm" 'smerge-keep-mine
     "gc" 'smerge-combine-with-next
     "gr" 'smerge-refine
-    "gb" 'smerge-keep-base
-    )
-  )
+    "gb" 'smerge-keep-base))
 (provide 'evil-collection-smerge-mode)
-;;; evil-collection-smerge-mode-.el ends here
+;;; evil-collection-smerge-mode.el ends here
