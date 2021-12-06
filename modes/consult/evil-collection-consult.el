@@ -92,13 +92,9 @@ as defined in `evil-collection-consult--evil-mark-ring'."
 (defun evil-collection-consult-mark ()
   "Jump to an evil marker in the current buffer."
   (interactive)
-  (unwind-protect
-      (progn
-        (advice-add #'consult--mark-candidates :override
-                    #'evil-collection-consult--mark-candidates)
-        (consult-mark (evil-collection-consult--evil-mark-ring)))
-    (advice-remove #'consult--mark-candidates
-                   #'evil-collection-consult--mark-candidates)))
+  (cl-letf (((symbol-function 'consult--mark-candidates)
+             #'evil-collection-consult--mark-candidates))
+    (consult-mark (evil-collection-consult--evil-mark-ring))))
 
 ;;;###autoload
 (defun evil-collection-consult-setup ()
