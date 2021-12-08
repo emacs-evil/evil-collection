@@ -35,9 +35,9 @@
 (defun evil-collection-smerge-mode-setup ()
   "Setup up 'evil' bindings for 'smerge-mode'."
   (evil-collection-define-key 'normal 'smerge-mode-map
-    "gn" 'smerge-next
+    "gj" 'smerge-next
     "]]" 'smerge-next
-    "gp" 'smerge-prev
+    "gk" 'smerge-prev
     "[[" 'smerge-prev
     "ga" 'smerge-keep-all
     "gu" 'smerge-keep-upper
