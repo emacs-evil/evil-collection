@@ -98,8 +98,8 @@ C-x C-l."
     (kbd "C-]") 'company-etags
     (kbd "C-f") 'company-files
     (kbd "C-o") 'company-capf
-    (kbd "C-s") 'company-ispell
-    )
+    (kbd "C-s") 'company-ispell)
+
   (when evil-want-C-u-scroll
     (evil-collection-define-key nil 'company-active-map
       (kbd "C-u") 'company-previous-page))
