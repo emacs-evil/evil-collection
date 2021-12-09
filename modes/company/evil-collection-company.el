@@ -54,6 +54,35 @@
    (t t)))
 
 ;;;###autoload
+(defun +company/whole-lines (command &optional arg &rest ignored)
+  "`company-mode' completion backend that completes whole-lines, akin to vim's
+C-x C-l."
+  (interactive (list 'interactive))
+  (require 'company)
+  (pcase command
+    (`interactive (company-begin-backend '+company/whole-lines))
+    (`prefix      (company-grab-line "^[\t\s]*\\(.+\\)" 1))
+    (`candidates
+     (all-completions
+      arg
+      (delete-dups
+       (split-string
+        (replace-regexp-in-string
+         "^[\t\s]+" ""
+         (concat (buffer-substring-no-properties (point-min) (line-beginning-position))
+                 (buffer-substring-no-properties (line-end-position) (point-max))))
+        "\\(\r\n\\|[\n\r]\\)" t))))))
+
+;;;###autoload
+(defun +company/dict-or-keywords ()
+  "`company-mode' completion combining `company-dict' and `company-keywords'."
+  (interactive)
+  (require 'company-dict)
+  (require 'company-keywords)
+  (let ((company-backends '((company-keywords company-dict))))
+    (call-interactively #'company-complete)))
+
+;;;###autoload
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
   (evil-collection-define-key nil 'company-active-map
@@ -64,6 +93,13 @@
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous)
 
+  (evil-collection-define-key nil 'company-active-map
+    (kbd "C-l") '+company/whole-lines
+    (kbd "C-]") 'company-etags
+    (kbd "C-f") 'company-files
+    (kbd "C-o") 'company-capf
+    (kbd "C-s") 'company-ispell
+    )
   (when evil-want-C-u-scroll
     (evil-collection-define-key nil 'company-active-map
       (kbd "C-u") 'company-previous-page))
