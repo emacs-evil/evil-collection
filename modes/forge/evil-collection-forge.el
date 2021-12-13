@@ -44,9 +44,15 @@
   :group 'magit
   :type  'symbol)
 
+(defvar forge-add-default-bindings)
+
 ;;;###autoload
 (defun evil-collection-forge-setup ()
   "Set up `evil' bindings for `magit'."
+  (when forge-add-default-bindings
+    (message "Setting `forge-add-default-bindings' to nil in `evil-collection-forge-setup'.
+To suppress this message you can set this variable to nil in your init.el file.")
+    (setq forge-add-default-bindings nil))
   (let ((states (if evil-collection-forge-use-y-for-yank
                     `(,evil-collection-forge-state visual)
                   `(,evil-collection-forge-state))))
