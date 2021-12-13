@@ -31,25 +31,44 @@
 (require 'evil-mc nil t)
 (eval-when-compile (require 'subr-x)) ; `if-let*' and `when-let*'
 
-(defvar evil-mc-map)
-(defconst evil-collection-evil-mc-maps '(evil-mc-mode-map))
-
-(defun evil-collection-evil-mc-clear-keymap (&rest _args)
-  "Brute force remove `evil-mc-key-map' from `evil-mode-map-alist'."
-  (when-let ((evil-mc-map (assq 'evil-mc-mode evil-mode-map-alist)))
-    (setq evil-mode-map-alist
-          (delq evil-mc-map evil-mode-map-alist))))
+(defvar evil-mc-key-map)
+(defvar evil-mc-cursors-map)
+(defconst evil-collection-evil-mc-maps '(evil-mc-key-map evil-mc-cursors-map))
 
 ;;;###autoload
 (defun evil-collection-evil-mc-setup ()
   "Set up `evil' bindings for evil-mc."
-  ;; `evil-mc''s default keybindings conflict with `evil-collection' using the
-  ;; 'gr' prefix. We brute force remove the keymap so that packages will play
-  ;; nice. Open to other suggestions on how to work with `evil-mc'.
-  ;; See https://github.com/emacs-evil/evil-collection/issues/184 for more
-  ;; details.
-  (advice-add 'evil-normalize-keymaps
-              :after 'evil-collection-evil-mc-clear-keymap)
+
+  (setcdr evil-mc-cursors-map nil)
+
+  (define-key evil-mc-cursors-map (kbd "a") 'evil-mc-make-all-cursors)
+  (define-key evil-mc-cursors-map (kbd "q") 'evil-mc-undo-all-cursors)
+  (define-key evil-mc-cursors-map (kbd "u") 'evil-mc-undo-last-added-cursor)
+
+  (define-key evil-mc-cursors-map (kbd "C-p") 'evil-mc-pause-cursors)
+  (define-key evil-mc-cursors-map (kbd "C-r") 'evil-mc-resume-cursors)
+  (define-key evil-mc-cursors-map (kbd "C-m") 'evil-mc-make-cursor-here)
+
+  (define-key evil-mc-cursors-map (kbd "0") 'evil-mc-make-and-goto-first-cursor)
+  (define-key evil-mc-cursors-map (kbd "$") 'evil-mc-make-and-goto-last-cursor)
+
+  (define-key evil-mc-cursors-map (kbd "I") 'evil-mc-make-cursor-in-visual-selection-beg)
+  (define-key evil-mc-cursors-map (kbd "A") 'evil-mc-make-cursor-in-visual-selection-end)
+
+  (define-key evil-mc-cursors-map (kbd "o") 'evil-mc-make-cursor-move-next-line)
+  (define-key evil-mc-cursors-map (kbd "O") 'evil-mc-make-cursor-move-prev-line)
+
+  (define-key evil-mc-cursors-map (kbd "n") 'evil-mc-make-and-goto-next-match)
+  (define-key evil-mc-cursors-map (kbd "N") 'evil-mc-make-and-goto-prev-match)
+  (define-key evil-mc-cursors-map (kbd "C-n") 'evil-mc-skip-and-goto-next-match)
+  (define-key evil-mc-cursors-map (kbd "C-S-n") 'evil-mc-skip-and-goto-prev-match)
+  (define-key evil-mc-cursors-map (kbd "M-n") 'evil-mc-make-and-goto-next-cursor)
+  (define-key evil-mc-cursors-map (kbd "M-N") 'evil-mc-make-and-goto-prev-cursor)
+  (define-key evil-mc-cursors-map (kbd "C-u") 'evil-mc-skip-and-goto-next-cursor)
+  (define-key evil-mc-cursors-map (kbd "C-S-u") 'evil-mc-skip-and-goto-prev-cursor)
+
+  (setcdr evil-mc-key-map nil)
+  (evil-collection-define-key '(normal visual) 'evil-mc-key-map (kbd "g.") evil-mc-cursors-map)
 
   ;; https://github.com/gabesoft/evil-mc/issues/70
   (add-hook 'evil-mc-after-cursors-deleted
