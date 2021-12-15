@@ -41,6 +41,7 @@
   :type '(repeat symbol))
 (defcustom evil-want-company-extended-bindings nil
   "The 'evil-company-extended' keybindings shoould be requested"
+  :type 'boolean
   )
 
 (defvar company-active-map)
