@@ -39,7 +39,7 @@
 (defcustom evil-collection-company-supported-states '(insert replace emacs)
   "The `evil-state's which `company' function can be requested."
   :type '(repeat symbol))
-(defcustom evil-want-company-extended-bindings nil
+(defcustom evil-want-company-extended-keybindings nil
   "The 'evil-company-extended' keybindings shoould be requested"
   :type 'boolean
   )
@@ -88,7 +88,7 @@ C-x C-l."
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous)
 
-  (when evil-want-extended-company-keybindings 
+  (when evil-want-company-extended-keybindings 
     (evil-collection-define-key nil 'company-active-map
       (kbd "C-l") '+company/whole-lines
       (kbd "C-]") 'company-etags
