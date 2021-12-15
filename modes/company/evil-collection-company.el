@@ -39,6 +39,9 @@
 (defcustom evil-collection-company-supported-states '(insert replace emacs)
   "The `evil-state's which `company' function can be requested."
   :type '(repeat symbol))
+(defcustom evil-want-company-extended-bindings nil
+  "The 'evil-company-extended' keybindings shoould be requested"
+  )
 
 (defvar company-active-map)
 (defvar company-search-map)
@@ -74,15 +77,6 @@ C-x C-l."
         "\\(\r\n\\|[\n\r]\\)" t))))))
 
 ;;;###autoload
-(defun +company/dict-or-keywords ()
-  "`company-mode' completion combining `company-dict' and `company-keywords'."
-  (interactive)
-  (require 'company-dict)
-  (require 'company-keywords)
-  (let ((company-backends '((company-keywords company-dict))))
-    (call-interactively #'company-complete)))
-
-;;;###autoload
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
   (evil-collection-define-key nil 'company-active-map
@@ -93,12 +87,13 @@ C-x C-l."
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous)
 
-  (evil-collection-define-key nil 'company-active-map
-    (kbd "C-l") '+company/whole-lines
-    (kbd "C-]") 'company-etags
-    (kbd "C-f") 'company-files
-    (kbd "C-o") 'company-capf
-    (kbd "C-s") 'company-ispell)
+  (when evil-want-extended-company-keybindings 
+    (evil-collection-define-key nil 'company-active-map
+      (kbd "C-l") '+company/whole-lines
+      (kbd "C-]") 'company-etags
+      (kbd "C-f") 'company-files
+      (kbd "C-o") 'company-capf
+      (kbd "C-s") 'company-ispell))
 
   (when evil-want-C-u-scroll
     (evil-collection-define-key nil 'company-active-map
