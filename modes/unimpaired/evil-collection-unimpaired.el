@@ -56,39 +56,32 @@
   "Turn on `evil-collection-unimpaired-mode'."
   (evil-collection-unimpaired-mode 1))
 
-(defun evil-collection-unimpaired-next-error ()
+(evil-define-motion evil-collection-unimpaired-next-error (count)
   "Go to next error."
-  (interactive)
+  :jump t
+  (setq count (or count 1))
   (cond
    ((and (bound-and-true-p flycheck-mode)
          (fboundp 'flycheck-next-error))
-    (flycheck-next-error))
+    (flycheck-next-error count))
    ((and (bound-and-true-p flymake-mode)
          (fboundp 'flymake-goto-next-error))
-    (flymake-goto-next-error))
+    (flymake-goto-next-error count))
    (:default
     (message "No linting modes are on."))))
 
-(defun evil-collection-unimpaired-previous-error ()
+(evil-define-motion evil-collection-unimpaired-previous-error (count)
   "Go to previous error."
-  (interactive)
-  (cond
-   ((and (bound-and-true-p flycheck-mode)
-         (fboundp 'flycheck-previous-error))
-    (flycheck-previous-error))
-   ((and (bound-and-true-p flymake-mode)
-         (fboundp 'flymake-goto-prev-error))
-    (flymake-goto-prev-error))
-   (:default
-    (message "No linting modes are on."))))
+  :jump t
+  (evil-collection-unimpaired-next-error (- (or count 1))))
 
 (defun evil-collection-unimpaired--flycheck-count-errors ()
   "Count the number of flycheck errors."
   (length (delete-dups (mapcar 'flycheck-error-line flycheck-current-errors))))
 
-(defun evil-collection-unimpaired-first-error ()
+(evil-define-motion evil-collection-unimpaired-first-error ()
   "Go to the first error."
-  (interactive)
+  :jump t
   (cond
    ((and (bound-and-true-p flycheck-mode)
          (fboundp 'flycheck-first-error))
@@ -98,9 +91,9 @@
    (:default
     (message "No linting modes are on."))))
 
-(defun evil-collection-unimpaired-last-error ()
+(evil-define-motion evil-collection-unimpaired-last-error ()
   "Go to the last error."
-  (interactive)
+  :jump t
   (cond
    ((and (bound-and-true-p flycheck-mode)
          (fboundp 'flycheck-first-error))
@@ -113,19 +106,24 @@
 (defconst evil-collection-unimpaired--SCM-conflict-marker "^\\(@@@ .* @@@\\|[<=>]\\{7\\}\\)"
   "A regexp to match SCM conflict marker.")
 
-(defun evil-collection-unimpaired-previous-SCM-conflict-marker ()
+(evil-define-motion evil-collection-unimpaired-previous-SCM-conflict-marker (count)
   "Go to the previous SCM conflict marker or diff/patch hunk."
-  (interactive)
-  (search-backward-regexp evil-collection-unimpaired--SCM-conflict-marker nil t)
-  (move-beginning-of-line nil))
+  :jump t
+  (evil-collection-unimpaired-next-SCM-conflict-marker (- (or count 1))))
 
-(defun evil-collection-unimpaired-next-SCM-conflict-marker ()
+(evil-define-motion evil-collection-unimpaired-next-SCM-conflict-marker (count)
   "Go to the next SCM conflict marker or diff/patch hunk."
-  (interactive)
-  (forward-line 1)
-  (when (not (search-forward-regexp evil-collection-unimpaired--SCM-conflict-marker nil t))
-    (forward-line -1))
-  (move-beginning-of-line nil))
+  :jump t
+  (evil-motion-loop (dir (or count 1))
+    (cond
+     ((> dir 0)
+      (forward-line 1)
+      (when (not (search-forward-regexp evil-collection-unimpaired--SCM-conflict-marker nil t))
+        (forward-line -1))
+      (move-beginning-of-line nil))
+     (t
+      (search-backward-regexp evil-collection-unimpaired--SCM-conflict-marker nil t)
+      (move-beginning-of-line nil)))))
 
 (defun evil-collection-unimpaired-paste-above ()
   "Paste above current line with preserving indentation."
@@ -230,8 +228,6 @@
 (defun evil-collection-unimpaired-setup ()
   "Set up unimpaired-like bindings."
   (global-evil-collection-unimpaired-mode 1)
-  (evil-add-command-properties 'evil-collection-unimpaired-next-error :repeat nil)
-  (evil-add-command-properties 'evil-collection-unimpaired-previous-error :repeat nil)
   (evil-collection-define-key 'normal 'evil-collection-unimpaired-mode-map
     "[b" 'evil-prev-buffer
     "]b" 'evil-next-buffer
