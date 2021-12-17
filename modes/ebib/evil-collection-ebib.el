@@ -47,6 +47,7 @@
     "k" 'ebib-prev-entry
     "n" 'ebib-search-next
     "p" 'ebib-yank-entry
+    "gj" 'ebib-jump-to-entry
     "ZQ" 'ebib-quit
     "ZZ" 'ebib-lower
     (kbd "C-u") 'ebib-index-scroll-down
