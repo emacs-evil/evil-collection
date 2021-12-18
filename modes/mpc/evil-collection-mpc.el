@@ -43,8 +43,8 @@
 (defun evil-collection-mpc-mode-setup ()
   "Setup up 'evil' bindings for 'mpc-mode'"
   (evil-collection-define-key 'normal 'mpc-mode-map
-    "j" 'evil-collection-move-mpc-down
-    "k" 'evil-collection-move-mpc-up
+    "C-j" 'evil-collection-move-mpc-down
+    "C-k" 'evil-collection-move-mpc-up
     "t" 'mpc-toggle-play
     "r" 'mpc-toggle-repeat
     "s" 'mpc-toggle-shuffle
