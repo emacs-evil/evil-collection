@@ -49,6 +49,7 @@
     "r" 'mpc-toggle-repeat
     "s" 'mpc-toggle-shuffle
     "c" 'mpc-toggle-consume
+    "p" 'mpc-playlist
     "a" 'mpc-playlist-add
     ">" 'mpc-next
     "<" 'mpc-prev
