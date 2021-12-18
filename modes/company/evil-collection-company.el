@@ -31,6 +31,8 @@
 (require 'evil-collection)
 
 (declare-function company-tng-mode "company-tng")
+(declare-function company-grab-line "company")
+(declare-function company-begin-backend "company")
 
 (defgroup evil-collection-company nil
   "Evil bindings for `company-mode'."
@@ -39,6 +41,9 @@
 (defcustom evil-collection-company-supported-states '(insert replace emacs)
   "The `evil-state's which `company' function can be requested."
   :type '(repeat symbol))
+(defcustom evil-collection-want-company-extended-keybindings nil
+  "The 'evil-company-extended' keybindings shoould be requested"
+  :type 'boolean)
 
 (defvar company-active-map)
 (defvar company-search-map)
@@ -54,6 +59,26 @@
    (t t)))
 
 ;;;###autoload
+(defun evil-collection-company-whole-lines (command &optional arg &rest ignored)
+  "`company-mode' completion backend that completes whole-lines, akin to vim's
+C-x C-l."
+  (interactive (list 'interactive))
+  (require 'company)
+  (pcase command
+    (`interactive (company-begin-backend 'evil-collection-company-whole-lines))
+    (`prefix      (company-grab-line "^[\t\s]*\\(.+\\)" 1))
+    (`candidates
+     (all-completions
+      arg
+      (delete-dups
+       (split-string
+        (replace-regexp-in-string
+         "^[\t\s]+" ""
+         (concat (buffer-substring-no-properties (point-min) (line-beginning-position))
+                 (buffer-substring-no-properties (line-end-position) (point-max))))
+        "\\(\r\n\\|[\n\r]\\)" t))))))
+
+;;;###autoload
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
   (evil-collection-define-key nil 'company-active-map
@@ -63,6 +88,14 @@
     (kbd "C-k") 'company-select-previous-or-abort
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous)
+
+  (when evil-collection-want-company-extended-keybindings 
+    (evil-collection-define-key nil 'company-active-map
+      (kbd "C-l") 'evil-collection-company-whole-lines
+      (kbd "C-]") 'company-etags
+      (kbd "C-f") 'company-files
+      (kbd "C-o") 'company-capf
+      (kbd "C-s") 'company-ispell))
 
   (when evil-want-C-u-scroll
     (evil-collection-define-key nil 'company-active-map
