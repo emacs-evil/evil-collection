@@ -32,13 +32,11 @@
 (defun evil-collection-move-mpc-down ()
   "Move the cursor down along with selecting the element"
   (evil-next-visual-line)
-  (mpc-select)
- )
+  (mpc-select))
 (defun evil-collection-move-mpc-up ()
   "Move the cursor up along with selecting the element"
   (evil-previous-visual-line)
-  (mpc-select)
- )
+  (mpc-select))
 (defconst evil-collection-mpc-mode-maps '(mpc-mode-map))
 
 ;;;###autoload
