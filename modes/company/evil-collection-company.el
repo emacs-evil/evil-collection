@@ -32,6 +32,7 @@
 
 (declare-function company-tng-mode "company-tng")
 (declare-function company-grab-line "company")
+(declare-function company-begin-backend "company")
 
 (defgroup evil-collection-company nil
   "Evil bindings for `company-mode'."
