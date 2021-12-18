@@ -31,6 +31,7 @@
 (require 'evil-collection)
 
 (declare-function company-tng-mode "company-tng")
+(declare-function company-grab-line "company")
 
 (defgroup evil-collection-company nil
   "Evil bindings for `company-mode'."
@@ -39,10 +40,9 @@
 (defcustom evil-collection-company-supported-states '(insert replace emacs)
   "The `evil-state's which `company' function can be requested."
   :type '(repeat symbol))
-(defcustom evil-want-company-extended-keybindings nil
+(defcustom evil-collection-want-company-extended-keybindings nil
   "The 'evil-company-extended' keybindings shoould be requested"
-  :type 'boolean
-  )
+  :type 'boolean)
 
 (defvar company-active-map)
 (defvar company-search-map)
@@ -58,13 +58,13 @@
    (t t)))
 
 ;;;###autoload
-(defun +company/whole-lines (command &optional arg &rest ignored)
+(defun evil-collection-company-whole-lines (command &optional arg &rest ignored)
   "`company-mode' completion backend that completes whole-lines, akin to vim's
 C-x C-l."
   (interactive (list 'interactive))
   (require 'company)
   (pcase command
-    (`interactive (company-begin-backend '+company/whole-lines))
+    (`interactive (company-begin-backend 'evil-collection-company-whole-lines))
     (`prefix      (company-grab-line "^[\t\s]*\\(.+\\)" 1))
     (`candidates
      (all-completions
@@ -88,9 +88,9 @@ C-x C-l."
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous)
 
-  (when evil-want-company-extended-keybindings 
+  (when evil-collection-want-company-extended-keybindings 
     (evil-collection-define-key nil 'company-active-map
-      (kbd "C-l") '+company/whole-lines
+      (kbd "C-l") 'evil-collection-company-whole-lines
       (kbd "C-]") 'company-etags
       (kbd "C-f") 'company-files
       (kbd "C-o") 'company-capf
