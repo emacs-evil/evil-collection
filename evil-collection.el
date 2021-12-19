@@ -155,6 +155,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     elisp-slime-nav
     embark
     emms
+    ,@(when (>= emacs-major-version 29) '(emoji))
     epa
     ert
     eshell
