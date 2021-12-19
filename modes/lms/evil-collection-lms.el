@@ -50,6 +50,33 @@
                                       lms-ui-tracks-list-mode
                                       lms-ui-year-album-artist-list-mode))
 
+(defun evil-collection-lms-ui-track-info-mode-quit ()
+  "Exit lms-ui-track-info-mode."
+  (interactive)
+  (kill-buffer "*LMS: Track Information*")
+  (lms-ui-playing-now-refresh))
+
+(defun evil-collection-lms-ui-players-mode-quit ()
+  "Exit lms-ui-players-mode."
+  (interactive)
+  (kill-buffer (format "*LMS: Players*"))
+  (lms-ui-playing-now-refresh))
+
+(defun evil-collection-lms-ui-playlist-mode-quit ()
+  "Exit lms-ui-playlist-mode."
+  (interactive)
+  (kill-buffer (format "*LMS: Playlist [%d tracks]*" (length lms--ui-pl-tracks)))
+  (lms-ui-playing-now-refresh))
+
+(defun evil-collection-lms-ui-tracks-list-mode-quit ()
+  "Exit lms-ui-tracks-list-mode."
+  (interactive)
+  (kill-buffer)
+  (lms-ui-playing-now-refresh))
+
+(defalias 'evil-collection-lms-ui-year-album-artist-list-mode-quit
+  'evil-collection-lms-ui-tracks-list-mode-quit
+  "Exit lms-ui-tracks-list-mode.")
 
 ;;;###autoload
 (defun evil-collection-lms-setup ()
@@ -99,23 +126,19 @@
     (kbd "<right>") 'lms-ui-track-info-next
     "g?"            'lms-ui-playing-now-help
     "gh"            'lms-ui-playing-now-help
-    "q"             '(lambda () (interactive)
-                       (kill-buffer "*LMS: Track Information*")
-                       (lms-ui-playing-now-refresh)))
+    "q"             'evil-collection-lms-ui-track-info-mode-quit)
 
-    (evil-collection-define-key 'normal 'lms-ui-players-mode-map
-      [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap end-of-defun] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-forward-paragraph] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-next-line] '(lambda () (interactive) (forward-line 1) (when (eobp) (forward-line -1)))
-      (kbd "RET") 'lms-ui-players-select
-      "x" 'lms-ui-players-playpause
-      "t" 'lms-ui-players-toggle-power
-      "g?" 'lms-ui-playing-now-help
-      "gh" 'lms-ui-playing-now-help
-      (kbd "q") '(lambda () (interactive)
-                   (kill-buffer (format "*LMS: Players*"))
-                   (lms-ui-playing-now-refresh)))
+  (evil-collection-define-key 'normal 'lms-ui-players-mode-map
+    [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
+    [remap end-of-defun] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
+    [remap evil-forward-paragraph] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
+    [remap evil-next-line] '(lambda () (interactive) (forward-line 1) (when (eobp) (forward-line -1)))
+    (kbd "RET") 'lms-ui-players-select
+    "x" 'lms-ui-players-playpause
+    "t" 'lms-ui-players-toggle-power
+    "g?" 'lms-ui-playing-now-help
+    "gh" 'lms-ui-playing-now-help
+    "q" 'evil-collection-lms-ui-players-mode-quit)
 
     (evil-collection-define-key 'normal 'lms-ui-playlist-mode-map
       [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
@@ -136,9 +159,7 @@
       "Y"              'lms-ui-playlist-year-albums-list
       "g?"             'lms-ui-playing-now-help
       "gh"             'lms-ui-playing-now-help
-      "q"              '(lambda () (interactive)
-                           (kill-buffer (format "*LMS: Playlist [%d tracks]*" (length lms--ui-pl-tracks)))
-                           (lms-ui-playing-now-refresh)))
+      "q"              'evil-collection-lms-ui-playlist-mode-quit)
 
     (evil-collection-define-key 'normal 'lms-ui-tracks-list-mode-map
       [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
@@ -153,9 +174,7 @@
       "A"         'lms-ui-tl-by-artist
       "g?"        'lms-ui-playing-now-help
       "gh"        'lms-ui-playing-now-help
-      "q"         '(lambda () (interactive)
-                     (kill-buffer)
-                     (lms-ui-playing-now-refresh)))
+      "q"         'evil-collection-lms-ui-tracks-list-mode-quit)
 
 
     (evil-collection-define-key 'normal 'lms-ui-year-album-artist-list-mode-map
@@ -169,9 +188,7 @@
       "p" 'lms-ui-yaal-to-playlist
       "g?" 'lms-ui-playing-now-help
       "gh" 'lms-ui-playing-now-help
-      "q" '(lambda () (interactive)
-             (kill-buffer)
-             (lms-ui-playing-now-refresh))))
+      "q" 'evil-collection-lms-ui-year-album-artist-list-mode-quit))
 
 (provide 'evil-collection-lms)
 ;;; evil-collection-lms.el ends here
