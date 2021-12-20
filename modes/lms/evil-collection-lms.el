@@ -78,6 +78,18 @@
   'evil-collection-lms-ui-tracks-list-mode-quit
   "Exit lms-ui-tracks-list-mode.")
 
+(defun evil-collection-lms-goto-bottom ()
+  "Move the point to the last penultimate line of the current buffer."
+  (goto-char (max-char))
+  (forward-line -1))
+
+(defun evil-collection-lms-next-line ()
+  "Move the point to the next line, except if it is at the end of the buffer."
+  (interactive)
+  (forward-line 1)
+  (when (eobp) (forward-line -1)))
+
+
 ;;;###autoload
 (defun evil-collection-lms-setup ()
   "Set up `evil' bindings for `lms'."
@@ -129,10 +141,10 @@
     "q"             'evil-collection-lms-ui-track-info-mode-quit)
 
   (evil-collection-define-key 'normal 'lms-ui-players-mode-map
-    [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-    [remap end-of-defun] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-    [remap evil-forward-paragraph] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-    [remap evil-next-line] '(lambda () (interactive) (forward-line 1) (when (eobp) (forward-line -1)))
+    [remap evil-goto-line] 'evil-collection-lms-goto-bottom
+    [remap end-of-defun] 'evil-collection-lms-goto-bottom
+    [remap evil-forward-paragraph] 'evil-collection-lms-goto-bottom
+    [remap evil-next-line] 'evil-collection-lms-next-line
     (kbd "RET") 'lms-ui-players-select
     "x" 'lms-ui-players-playpause
     "t" 'lms-ui-players-toggle-power
@@ -141,10 +153,10 @@
     "q" 'evil-collection-lms-ui-players-mode-quit)
 
     (evil-collection-define-key 'normal 'lms-ui-playlist-mode-map
-      [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap end-of-defun] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-forward-paragraph] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-next-line] '(lambda () (interactive) (forward-line 1) (when (eobp) (forward-line -1)))
+    [remap evil-goto-line] 'evil-collection-lms-goto-bottom
+    [remap end-of-defun] 'evil-collection-lms-goto-bottom
+    [remap evil-forward-paragraph] 'evil-collection-lms-goto-bottom
+    [remap evil-next-line] 'evil-collection-lms-next-line
       (kbd "RET")      'lms-ui-playlist-play
       "i"              'lms-ui-playlist-track-info
       "C"              'lms-ui-playlist-jump-to-current
@@ -162,10 +174,10 @@
       "q"              'evil-collection-lms-ui-playlist-mode-quit)
 
     (evil-collection-define-key 'normal 'lms-ui-tracks-list-mode-map
-      [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap end-of-defun] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-forward-paragraph] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-next-line] '(lambda () (interactive) (forward-line 1) (when (eobp) (forward-line -1)))
+    [remap evil-goto-line] 'evil-collection-lms-goto-bottom
+    [remap end-of-defun] 'evil-collection-lms-goto-bottom
+    [remap evil-forward-paragraph] 'evil-collection-lms-goto-bottom
+    [remap evil-next-line] 'evil-collection-lms-next-line
       "i"         'lms-ui-tl-track-info
       (kbd "RET") 'lms-ui-tl-track-info
       "p"         'lms-ui-tl-to-playlist
@@ -178,10 +190,10 @@
 
 
     (evil-collection-define-key 'normal 'lms-ui-year-album-artist-list-mode-map
-      [remap evil-goto-line] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap end-of-defun] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-forward-paragraph] '(lambda () (interactive) (goto-char (max-char)) (forward-line -1))
-      [remap evil-next-line] '(lambda () (interactive) (forward-line 1) (when (eobp) (forward-line -1)))
+    [remap evil-goto-line] 'evil-collection-lms-goto-bottom
+    [remap end-of-defun] 'evil-collection-lms-goto-bottom
+    [remap evil-forward-paragraph] 'evil-collection-lms-goto-bottom
+    [remap evil-next-line] 'evil-collection-lms-next-line
       "Y" 'lms-ui-yaal-by-year
       "A" 'lms-ui-yaal-by-artist
       "a" 'lms-ui-yaal-by-album
