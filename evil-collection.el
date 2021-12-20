@@ -282,7 +282,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     yaml-mode
     youtube-dl
     zmusic
-    (ztree ztree-diff))
+    (ztree ztree-diff ztree-dir))
   "List of modes supported by evil-collection. Elements are
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
