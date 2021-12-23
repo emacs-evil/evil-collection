@@ -34,7 +34,9 @@
 (defvar lms-ui-playlist-mode-map)
 (defvar lms-ui-track-info-mode-map)
 (defvar lms-ui-tracks-list-mode-map)
-(defvar lms--ui-pl-tracks) ;; Prevents 'Reference to free variable' error.
+(defvar lms--ui-pl-tracks)
+
+(declare-function lms-ui-playing-now-refresh "lms")
 
 (defconst evil-collection-lms-maps '(lms-ui-players-mode-map
                                      lms-ui-playing-now-mode-map
