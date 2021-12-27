@@ -189,7 +189,7 @@
     "K" 'notmuch-tag-jump
     (kbd "RET") 'notmuch-tree-show-message
     [mouse-1] 'notmuch-tree-show-message
-    "A" 'notmuch-tree-archive-thread
+    "A" 'notmuch-tree-archive-thread-then-next
     "a" 'notmuch-tree-archive-message-then-next
     "s" 'notmuch-tree-to-tree
     "gj" 'notmuch-tree-next-matching-message
