@@ -30,6 +30,8 @@
 (require 'xwidget)
 (require 'evil-collection)
 
+(declare-function xwidget-window-inside-pixel-height "xwidget")
+
 (defvar evil-collection-xwidget-maps '(xwidget-webkit-mode-map))
 
 (defmacro evil-collection-xwidget-half-page-height ()
