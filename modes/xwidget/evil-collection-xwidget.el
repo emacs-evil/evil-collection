@@ -41,15 +41,15 @@
   "Scroll webkit up by half page."
   (interactive)
   (if (>= emacs-major-version 28)
-      (xwidget-webkit-scroll-up (evil-collection-xwidget-half-page-height))
-    (xwidget-webkit-scroll-up)))
+      (funcall 'xwidget-webkit-scroll-up (evil-collection-xwidget-half-page-height))
+    (funcall 'xwidget-webkit-scroll-up)))
 
 (defun evil-collection-xwidget-webkit-scroll-down-half-page ()
   "Scroll webkit down by half page."
   (interactive)
   (if (>= emacs-major-version 28)
-      (xwidget-webkit-scroll-down (evil-collection-xwidget-half-page-height))
-    (xwidget-webkit-scroll-down)))
+      (funcall 'xwidget-webkit-scroll-down (evil-collection-xwidget-half-page-height))
+    (funcall 'xwidget-webkit-scroll-down)))
 
 ;;;###autoload
 (defun evil-collection-xwidget-setup ()
