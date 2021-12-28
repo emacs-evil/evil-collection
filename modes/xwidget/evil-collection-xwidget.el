@@ -30,8 +30,6 @@
 (require 'xwidget)
 (require 'evil-collection)
 
-(declare-function xwidget-window-inside-pixel-height "xwidget")
-
 (defvar evil-collection-xwidget-maps '(xwidget-webkit-mode-map))
 
 (defmacro evil-collection-xwidget-half-page-height ()
@@ -41,12 +39,16 @@
 (defun evil-collection-xwidget-webkit-scroll-up-half-page ()
   "Scroll webkit up by half page."
   (interactive)
-  (xwidget-webkit-scroll-up (evil-collection-xwidget-half-page-height)))
+  (if (>= emacs-major-version 28)
+      (xwidget-webkit-scroll-up (evil-collection-xwidget-half-page-height))
+    (xwidget-webkit-scroll-up)))
 
 (defun evil-collection-xwidget-webkit-scroll-down-half-page ()
   "Scroll webkit down by half page."
   (interactive)
-  (xwidget-webkit-scroll-down (evil-collection-xwidget-half-page-height)))
+  (if (>= emacs-major-version 28)
+      (xwidget-webkit-scroll-down (evil-collection-xwidget-half-page-height))
+    (xwidget-webkit-scroll-down)))
 
 ;;;###autoload
 (defun evil-collection-xwidget-setup ()
