@@ -34,7 +34,8 @@
 
 (defmacro evil-collection-xwidget-half-page-height ()
   "Return Emacs xwidget half window height in pixel."
-  (/ (xwidget-window-inside-pixel-height (selected-window)) 2))
+  (let ((edges (window-inside-pixel-edges (selected-window))))
+    (/ (- (nth 3 edges) (nth 1 edges)) 2)))
 
 (defun evil-collection-xwidget-webkit-scroll-up-half-page ()
   "Scroll webkit up by half page."
