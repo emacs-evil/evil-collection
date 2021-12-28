@@ -46,6 +46,8 @@
     "gr" 'deadgrep-restart
     (kbd "C-j") 'deadgrep-forward
     (kbd "C-k") 'deadgrep-backward
+    "gj" 'deadgrep-forward
+    "gk" 'deadgrep-backward
     (kbd "TAB") 'deadgrep-toggle-file-results
 
     "i" 'deadgrep-edit-mode
