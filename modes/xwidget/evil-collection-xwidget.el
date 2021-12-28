@@ -1,6 +1,6 @@
 ;;; evil-collection-xwidget.el --- Evil bindings for Xwidget -*- lexical-binding: t -*-
 
-;; Copyright (C) 2020 Ruslan Kamashev
+;; Copyright (C) 2020, 2021 Ruslan Kamashev
 
 ;; Author: Ruslan Kamashev <rynffoll@gmail.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -32,35 +32,61 @@
 
 (defvar evil-collection-xwidget-maps '(xwidget-webkit-mode-map))
 
+(defmacro evil-collection-xwidget-half-page-height ()
+  "Return Emacs xwidget half window height in pixel."
+  (/ (xwidget-window-inside-pixel-height (selected-window)) 2))
+
+(defun evil-collection-xwidget-webkit-scroll-up-half-page ()
+  "Scroll webkit up by half page."
+  (interactive)
+  (xwidget-webkit-scroll-up (evil-collection-xwidget-half-page-height)))
+
+(defun evil-collection-xwidget-webkit-scroll-down-half-page ()
+  "Scroll webkit down by half page."
+  (interactive)
+  (xwidget-webkit-scroll-down (evil-collection-xwidget-half-page-height)))
+
 ;;;###autoload
 (defun evil-collection-xwidget-setup ()
   "Set up `evil' bindings for `xwidget'."
+  (evil-collection-set-readonly-bindings 'xwidget-webkit-mode-map)
   (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
-    "q" 'quit-window
-    "k" 'xwidget-webkit-scroll-down-line
-    "j" 'xwidget-webkit-scroll-up-line
-    "h" 'xwidget-webkit-scroll-backward
-    "l" 'xwidget-webkit-scroll-forward
+    ;; motion
+    ;;
+    ;; d/u are widely used in browser extension vimium.
+    "j"         'xwidget-webkit-scroll-up-line
+    "k"         'xwidget-webkit-scroll-down-line
+    "h"         'xwidget-webkit-scroll-backward
+    "l"         'xwidget-webkit-scroll-forward
     (kbd "C-f") 'xwidget-webkit-scroll-up
     (kbd "C-b") 'xwidget-webkit-scroll-down
-    "+" 'xwidget-webkit-zoom-in
-    "=" 'xwidget-webkit-zoom-in
-    "-" 'xwidget-webkit-zoom-out
-    "R" 'xwidget-webkit-reload
-    "gr" 'xwidget-webkit-reload
-    "H" 'xwidget-webkit-back
-    "L" 'xwidget-webkit-forward
-    "gu" 'xwidget-webkit-browse-url
-    "gg" 'xwidget-webkit-scroll-top
-    "G" 'xwidget-webkit-scroll-bottom
-    "y" 'xwidget-webkit-copy-selection-as-kill)
+    "d"         'evil-collection-xwidget-webkit-scroll-up-half-page
+    "u"         'evil-collection-xwidget-webkit-scroll-down-half-page
+    "gg"        'xwidget-webkit-scroll-top
+    "G"         'xwidget-webkit-scroll-bottom
+    ;; history browsing
+    "H"         'xwidget-webkit-back
+    "L"         'xwidget-webkit-forward
+    "B"         'xwidget-webkit-browse-history
+    ;; zoom
+    "+"         'xwidget-webkit-zoom-in
+    "="         'xwidget-webkit-zoom-in
+    "-"         'xwidget-webkit-zoom-out
+    ;; loading
+    "R"         'xwidget-webkit-reload
+    "gr"        'xwidget-webkit-reload
+    ;; misc
+    (kbd "RET") 'xwidget-webkit-insert-string
+    "A"         'xwidget-webkit-adjust-size-dispatch
+    "gu"        'xwidget-webkit-browse-url
+    "W"         'xwidget-webkit-current-url)
 
   (when evil-want-C-d-scroll
     (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
-      (kbd "C-d") 'xwidget-webkit-scroll-up))
+      (kbd "C-d") 'evil-collection-xwidget-webkit-scroll-up-half-page))
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
-      (kbd "C-u") 'xwidget-webkit-scroll-down)))
+      (kbd "C-u") 'evil-collection-xwidget-webkit-scroll-down-half-page)))
 
 (provide 'evil-collection-xwidget)
 ;;; evil-collection-xwidget.el ends here
