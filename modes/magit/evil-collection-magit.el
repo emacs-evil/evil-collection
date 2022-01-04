@@ -354,7 +354,7 @@ When this option is enabled, the stash popup is available on \"Z\"."
          (,states magit-mode-map "l"    evil-forward-char)))
 
      (when evil-want-C-u-scroll
-       `((,states magit-mode-map "C-u" evil-scroll-up)))
+       `((,states magit-mode-map "\C-u" evil-scroll-up)))
 
      (if evil-collection-magit-use-y-for-yank
          `((,states magit-mode-map "v"    evil-visual-line)
