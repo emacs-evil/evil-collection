@@ -315,8 +315,7 @@ When this option is enabled, the stash popup is available on \"Z\"."
        (,states magit-mode-map ,(kbd "S-SPC") magit-diff-show-or-scroll-up   "SPC")
        (,states magit-mode-map ,(kbd "S-DEL") magit-diff-show-or-scroll-down "DEL")
 
-       ((,evil-collection-magit-state) magit-mode-map ,(kbd evil-toggle-key) evil-emacs-state)
-       ((,evil-collection-magit-state) magit-mode-map ,(kbd "<escape>") magit-mode-bury-buffer))
+       ((,evil-collection-magit-state) magit-mode-map ,(kbd evil-toggle-key) evil-emacs-state))
 
      (if (eq evil-search-module 'evil-search)
          `((,states magit-mode-map "/" evil-ex-search-forward)

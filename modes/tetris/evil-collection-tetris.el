@@ -49,8 +49,7 @@
     "p" 'tetris-pause-game
     "q" 'quit-window
     "ZQ" 'quit-window
-    "ZZ" 'tetris-end-game
-    (kbd "<escape>") 'quit-window))
+    "ZZ" 'tetris-end-game))
 
 (provide 'evil-collection-tetris)
 ;;; evil-collection-tetris.el ends here
