@@ -206,6 +206,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     markdown-mode
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
     monky
+    mpc
     mpdel
     mu4e
     mu4e-conversation
