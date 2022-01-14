@@ -31,13 +31,15 @@
 
 (defconst evil-collection-mpc-mode-maps '(mpc-mode-map))
 
-(defun evil-collection-move-mpc-down ()
+(defun evil-collection-mpc-move-down ()
   "Move the cursor down along with selecting the element."
+  (interactive)
   (evil-next-visual-line)
   (mpc-select))
 
-(defun evil-collection-move-mpc-up ()
+(defun evil-collection-mpc-move-up ()
   "Move the cursor up along with selecting the element."
+  (interactive)
   (evil-previous-visual-line)
   (mpc-select))
 
@@ -45,8 +47,8 @@
 (defun evil-collection-mpc-setup ()
   "Setup up 'evil' bindings for 'mpc-mode'."
   (evil-collection-define-key 'normal 'mpc-mode-map
-    "C-j" 'evil-collection-move-mpc-down
-    "C-k" 'evil-collection-move-mpc-up
+    "C-j" 'evil-collection-mpc-move-down
+    "C-k" 'evil-collection-mpc-move-up
     "t" 'mpc-toggle-play
     "r" 'mpc-toggle-repeat
     "s" 'mpc-toggle-shuffle
