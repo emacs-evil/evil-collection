@@ -29,18 +29,20 @@
 (require 'mpc)
 (require 'evil-collection)
 
+(defconst evil-collection-mpc-mode-maps '(mpc-mode-map))
+
 (defun evil-collection-move-mpc-down ()
   "Move the cursor down along with selecting the element."
   (evil-next-visual-line)
   (mpc-select))
+
 (defun evil-collection-move-mpc-up ()
   "Move the cursor up along with selecting the element."
   (evil-previous-visual-line)
   (mpc-select))
-(defconst evil-collection-mpc-mode-maps '(mpc-mode-map))
 
 ;;;###autoload
-(defun evil-collection-mpc-mode-setup ()
+(defun evil-collection-mpc-setup ()
   "Setup up 'evil' bindings for 'mpc-mode'."
   (evil-collection-define-key 'normal 'mpc-mode-map
     "C-j" 'evil-collection-move-mpc-down
