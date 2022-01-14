@@ -1,5 +1,5 @@
 ;;; evil-collection-mpc.el --- Bindings for `mpc-mode' -*- lexical-binding: t -*-
-;; Copyright (C) 2021 pspiagicw
+;; Copyright (C) 2021, 2022 pspiagicw
 
 ;; Author: pspiagicw <pspiagicw@gmail.com>
 ;; Maintainer: pspiagicw <pspiagicw@gmail.com>
@@ -30,18 +30,18 @@
 (require 'evil-collection)
 
 (defun evil-collection-move-mpc-down ()
-  "Move the cursor down along with selecting the element"
+  "Move the cursor down along with selecting the element."
   (evil-next-visual-line)
   (mpc-select))
 (defun evil-collection-move-mpc-up ()
-  "Move the cursor up along with selecting the element"
+  "Move the cursor up along with selecting the element."
   (evil-previous-visual-line)
   (mpc-select))
 (defconst evil-collection-mpc-mode-maps '(mpc-mode-map))
 
 ;;;###autoload
 (defun evil-collection-mpc-mode-setup ()
-  "Setup up 'evil' bindings for 'mpc-mode'"
+  "Setup up 'evil' bindings for 'mpc-mode'."
   (evil-collection-define-key 'normal 'mpc-mode-map
     "C-j" 'evil-collection-move-mpc-down
     "C-k" 'evil-collection-move-mpc-up
@@ -56,5 +56,5 @@
     "x" 'mpc-play-at-point
     "RET" 'mpc-select))
 
-(provide 'evil-collection-mpc-mode)
+(provide 'evil-collection-mpc)
 ;;; evil-collection-mpc.el ends here
