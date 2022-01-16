@@ -49,7 +49,13 @@
 ;;;###autoload
 (defun evil-collection-forge-setup ()
   "Set up `evil' bindings for `magit'."
-  (when forge-add-default-bindings
+  ;; The latest release tag of forge doesn't include
+  ;; `forge-add-default-bindings' yet, it will throw an error:
+  ;;
+  ;;    void-variable `forge-add-default-bindings'
+  ;;
+  ;; for GNU Guix and MELPA stable users.
+  (when (bound-and-true-p forge-add-default-bindings)
     (message "Setting `forge-add-default-bindings' to nil in `evil-collection-forge-setup'.
 To suppress this message you can set this variable to nil in your init.el file.")
     (setq forge-add-default-bindings nil))
