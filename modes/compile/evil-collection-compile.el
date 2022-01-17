@@ -37,6 +37,7 @@
 (defun evil-collection-compile-setup ()
   "Set up `evil' bindings for `compile'."
   (evil-set-initial-state 'compilation-mode 'normal)
+  (evil-collection-set-readonly-bindings 'compilation-mode-map)
 
   (dolist (keymap evil-collection-compile-maps)
 
