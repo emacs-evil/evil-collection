@@ -285,8 +285,6 @@ When this option is enabled, the stash popup is available on \"Z\"."
        (,states magit-mode-map "gR"    magit-refresh-all              "G")
        (,states magit-mode-map "x"     magit-delete-thing             "k")
        (,states magit-mode-map "X"     magit-file-untrack             "K")
-       (,states magit-mode-map "-"     magit-revert-no-commit         "v")
-       (,states magit-mode-map "_"     magit-revert                   "V")
        (,states magit-mode-map "p"     magit-push                     "P")
        (,states magit-mode-map "o"     magit-reset-quickly            "x")
        (,states magit-mode-map "O"     magit-reset                    "X")
@@ -572,21 +570,9 @@ evil-collection-magit affects.")
      (magit-branch "k" "x" magit-branch-delete)
      (magit-dispatch "o" "'" magit-submodule)
      (magit-dispatch "O" "\"" magit-subtree)
-     (magit-dispatch "V" "_" magit-revert)
      (magit-dispatch "X" "O" magit-reset)
-     (magit-dispatch "v" "-" magit-reverse)
      (magit-dispatch "k" "x" magit-discard)
      (magit-remote "k" "x" magit-remote-remove)
-     (magit-revert "v" "-" magit-revert-no-commit)
-     ;; FIXME: how to properly handle a popup with a key that appears twice (in
-     ;; `define-transient-command' definition)? Currently we rely on:
-     ;; 1. first call to `evil-collection-magit-change-popup-key' changes the first "V"
-     ;;    entry of `magit-revert' (the first entry in `define-transient-command'
-     ;;    definition of `magit-revert'), second call changes the second "V".
-     ;; 2. the remapping here are in the same order as in `magit-revert'
-     ;;    definition
-     (magit-revert "V" "_" magit-revert-and-commit)
-     (magit-revert "V" "_" magit-sequencer-continue)
      (magit-tag    "k" "x" magit-tag-delete)))
   "Changes to popup keys")
 
