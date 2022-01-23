@@ -11,7 +11,6 @@
 
 * Recent Changes (most recent first)
 
-  1. [2019-01-18] Use default =v= and =V= bindings for revert action
   1. [2019-09-04] Don't use =evil-next-visual-line= and
      =evil=previous-visual-line=. See [[https://github.com/emacs-evil/evil-magit/issues/70][Issue #70]].
   1. [2019-06-16] Added =evil-collection-magit-stage-untracked-file-with-intent= at
