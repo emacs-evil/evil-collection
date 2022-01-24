@@ -1,6 +1,6 @@
 ;;; evil-collection-dashboard.el --- Evil bindings for Dashboard  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020 Kisaragi Hiu
+;; Copyright (C) 2020, 2022 Kisaragi Hiu
 
 ;; Author: Kisaragi Hiu <mail@kisaragi-hiu.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
@@ -69,7 +69,6 @@
     ;; (kbd "RET") 'dashboard-return
 
     ;; Other commands
-    "gr" 'dashboard-refresh-buffer
     [tab] 'widget-forward
     [backtab] 'widget-backward
     [down-mouse-1] 'widget-button-click)
