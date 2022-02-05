@@ -29,7 +29,9 @@
 (require 'simple-mpc-vars nil t)
 (require 'evil-collection)
 
-(defconst evil-collection-simple-mpc-mode-maps '(simple-mpc-mode-map))
+(defconst evil-collection-simple-mpc-maps '(simple-mpc-mode-map
+                                            simple-mpc-query-mode-map
+                                            simple-mpc-current-playlist-mode-map))
 
 (defun evil-collection-simple-mpc-set-bindings ()
   "Set up 'evil' bindings for 'simple-mpc-mode', 'simple-mpc-query-mode', and 'simple-mpc-current-playlist-mode'."
