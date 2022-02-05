@@ -68,7 +68,7 @@
          (fboundp 'flymake-goto-next-error))
     (flymake-goto-next-error count))
    (:default
-    (message "No linting modes are on."))))
+    (next-error count))))
 
 (evil-define-motion evil-collection-unimpaired-previous-error (count)
   "Go to previous error."
@@ -89,7 +89,7 @@
    ((bound-and-true-p flymake-mode)
     (message "flymake unsupported."))
    (:default
-    (message "No linting modes are on."))))
+    (first-error))))
 
 (evil-define-motion evil-collection-unimpaired-last-error ()
   "Go to the last error."
@@ -101,7 +101,7 @@
    ((bound-and-true-p flymake-mode)
     (message "flymake unsupported."))
    (:default
-    (message "No linting modes are on."))))
+    (message "No linting modes are on; vanilla errors unsupported."))))
 
 (defconst evil-collection-unimpaired--SCM-conflict-marker "^\\(@@@ .* @@@\\|[<=>]\\{7\\}\\)"
   "A regexp to match SCM conflict marker.")
