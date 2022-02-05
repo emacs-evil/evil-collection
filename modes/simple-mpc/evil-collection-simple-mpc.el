@@ -26,7 +26,6 @@
 
 ;;; Code:
 (require 'simple-mpc nil t)
-(require 'simple-mpc-vars nil t)
 (require 'evil-collection)
 
 (defconst evil-collection-simple-mpc-maps '(simple-mpc-mode-map
@@ -76,6 +75,8 @@
 
     "<return>" 'simple-mpc-query-add-and-play
     (kbd "RET") 'simple-mpc-query-add-and-play))
+
+(defvar simple-mpc-main-buffer-name "*simple-mpc-main*")
 
 (defun evil-collection-simple-mpc-replace-main-view ()
   "Update main view to show keys in use with evil mode."
