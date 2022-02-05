@@ -1,4 +1,4 @@
-;;; evil-collection-mpc.el --- Bindings for `simple-mpc-mode' -*- lexical-binding: t -*-
+;;; evil-collection-mpc.el --- Bindings for `simple-mpc' -*- lexical-binding: t -*-
 ;; Copyright (C) 2022 Joseph Turner
 
 ;; Author: Joseph Turner <joseph@breatheoutbreathe.in>
@@ -22,7 +22,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `simple-mpc-mode'.
+;;; Bindings for `simple-mpc'.
 
 ;;; Code:
 (require 'simple-mpc nil t)
