@@ -26,13 +26,13 @@
 
 ;;; Code:
 (require 'simple-mpc nil t)
+(require 'simple-mpc-vars nil t)
 (require 'evil-collection)
 
 (defconst evil-collection-simple-mpc-mode-maps '(simple-mpc-mode-map))
 
-;;;###autoload
-(defun evil-collection-simple-mpc-setup ()
-  "Setup up 'evil' bindings for 'simple-mpc-mode', 'simple-mpc-query-mode', and 'simple-mpc-current-playlist-mode'."
+(defun evil-collection-simple-mpc-set-bindings ()
+  "Set up 'evil' bindings for 'simple-mpc-mode', 'simple-mpc-query-mode', and 'simple-mpc-current-playlist-mode'."
   (evil-collection-define-key 'normal 'simple-mpc-mode-map
     "p" 'simple-mpc-toggle
     ">" 'simple-mpc-next
@@ -74,6 +74,39 @@
 
     "<return>" 'simple-mpc-query-add-and-play
     (kbd "RET") 'simple-mpc-query-add-and-play))
+
+(defun evil-collection-simple-mpc-replace-main-view ()
+  "Update main view to show keys in use with evil mode."
+  (interactive)
+  (when
+      (string= (buffer-name) simple-mpc-main-buffer-name)
+    (read-only-mode -1)
+    (erase-buffer)
+    (insert (propertize "* simple-mpc *\n\n"
+                        'face 'simple-mpc-main-name)
+            (propertize "   * controls\n" 'face 'simple-mpc-main-headers)
+            "      * [p] toggle\n"
+            "      * [>] next track\n"
+            "      * [<] previous track\n"
+            "      * seek [f]orward\n"
+
+            "      * seek [b]ackward\n"
+            "      * [+] increase volume\n"
+            "      * [-] decrease volume\n"
+            (propertize "\n   * playlist\n" 'face 'simple-mpc-main-headers)
+            "      * view [c]urrent playlist\n"
+            "      * [C]lear current playlist\n"
+            "      * [S]huffle playlist\n"
+            "      * [l]oad playlist\n"
+            "      * [s]earch database\n"
+            (propertize "\n   * misc\n" 'face 'simple-mpc-main-headers)
+            "      * [q]uit")))
+
+;;;###autoload
+(defun evil-collection-simple-mpc-setup ()
+  "Set up simple-mpc bindings and main view."
+  (evil-collection-simple-mpc-set-bindings)
+  (add-hook 'simple-mpc-mode-hook 'evil-collection-simple-mpc-replace-main-view))
 
 (provide 'evil-collection-simple-mpc)
 ;;; evil-collection-simple-mpc.el ends here
