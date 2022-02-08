@@ -38,13 +38,15 @@
   (evil-set-initial-state 'doc-view-mode 'normal)
   (evil-collection-define-key 'normal 'doc-view-mode-map
     "q" 'quit-window
+    [remap evil-next-line] 'doc-view-next-line-or-next-page
+    [remap evil-previous-line] 'doc-view-previous-line-or-previous-page
+    [remap evil-backward-char] 'image-backward-hscroll
+    [remap evil-forward-char] 'image-forward-hscroll
     (kbd "C-j") 'doc-view-next-page
     (kbd "C-k") 'doc-view-previous-page
     "gj" 'doc-view-next-page
     "gk" 'doc-view-previous-page
     (kbd "C-d") 'forward-page
-    "j" 'doc-view-next-line-or-next-page
-    "k" 'doc-view-previous-line-or-previous-page
     (kbd "SPC") 'doc-view-scroll-up-or-next-page
     (kbd "DEL") 'doc-view-scroll-down-or-previous-page
     (kbd "S-SPC") 'doc-view-scroll-down-or-previous-page
