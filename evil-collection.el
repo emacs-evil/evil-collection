@@ -248,6 +248,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     sh-script
     ,@(when (>= emacs-major-version 28) '(shortdoc))
     simple
+    simple-mpc
     slime
     sly
     speedbar
