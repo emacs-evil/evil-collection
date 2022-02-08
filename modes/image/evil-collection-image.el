@@ -41,10 +41,10 @@
     ;; motion
     "gg" 'image-bob
     "G" 'image-eob
-    "h" 'image-backward-hscroll
-    "l" 'image-forward-hscroll
-    "j" 'image-next-line
-    "k" 'image-previous-line
+    [remap evil-forward-char] 'image-forward-hscroll
+    [remap evil-backward-char] 'image-backward-hscroll
+    [remap evil-next-line] 'image-next-line
+    [remap evil-previous-line] 'image-previous-line
     "0" 'image-bol
     "^" 'image-bol
     "$" 'image-eol
