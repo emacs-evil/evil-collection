@@ -88,7 +88,7 @@
     (insert (propertize "* simple-mpc *\n\n"
                         'face 'simple-mpc-main-name)
             (propertize "   * controls\n" 'face 'simple-mpc-main-headers)
-            "      * [p] toggle\n"
+            "      * [p]lay/pause toggle\n"
             "      * [>] next track\n"
             "      * [<] previous track\n"
             "      * seek [f]orward\n"
