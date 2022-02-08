@@ -109,7 +109,9 @@
 (defun evil-collection-simple-mpc-setup ()
   "Set up simple-mpc bindings and main view."
   (evil-collection-simple-mpc-set-bindings)
-  (add-hook 'simple-mpc-mode-hook 'evil-collection-simple-mpc-replace-main-view))
+  (add-hook 'simple-mpc-mode-hook 'evil-collection-simple-mpc-replace-main-view)
+  (add-hook 'simple-mpc-query-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'simple-mpc-current-playlist-mode-hook 'evil-normalize-keymaps))
 
 (provide 'evil-collection-simple-mpc)
 ;;; evil-collection-simple-mpc.el ends here
