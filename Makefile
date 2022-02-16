@@ -8,10 +8,12 @@ ELPA_DIR = \
 	.cask/$(shell $(EMACS) -Q --batch --eval '(princ emacs-version)')/elpa
 
 compile:
-	$(CASK) exec $(EMACS) -Q -batch			\
-	-L .						\
-	--eval '(setq evil-want-integration nil)'	\
-	--eval '(setq byte-compile-error-on-warn t)'	\
+	$(CASK) exec $(EMACS) -Q -batch							\
+	-L .										\
+	--eval "(setq evil-want-integration nil)"					\
+	--eval "(setq evil-want-keybinding nil)"					\
+	--eval "(setq byte-compile-docstring-max-column 200)"				\
+	--eval "(setq byte-compile-error-on-warn t)"					\
 	-f batch-byte-compile *.el modes/*/*.el
 
 lint:
@@ -21,11 +23,11 @@ lint:
 	--eval "(package-initialize)"							\
 	--eval "(package-refresh-contents)"						\
 	-l package-lint.el								\
-	--eval "(advice-add 'package-lint--check-eval-after-load :around 'ignore)" \
-	--eval "(advice-add 'package-lint--check-version-regexp-list :around 'ignore)" \
-	--eval "(advice-add 'package-lint--check-symbol-separators :around 'ignore)" \
-	--eval "(advice-add 'package-lint--check-defs-prefix :around 'ignore)" \
-	--eval "(advice-add 'package-lint--check-provide-form :around 'ignore)" \
+	--eval "(advice-add 'package-lint--check-eval-after-load :around 'ignore)"	\
+	--eval "(advice-add 'package-lint--check-version-regexp-list :around 'ignore)"	\
+	--eval "(advice-add 'package-lint--check-symbol-separators :around 'ignore)"	\
+	--eval "(advice-add 'package-lint--check-defs-prefix :around 'ignore)"		\
+	--eval "(advice-add 'package-lint--check-provide-form :around 'ignore)"		\
 	-f package-lint-batch-and-exit *.el modes/*/*.el
 
 test: elpa
@@ -43,3 +45,7 @@ $(ELPA_DIR): Cask
 	touch $@
 
 .PHONY: compile lint test elpa
+
+# Local Variables:
+# tab-width: 8
+# End:
