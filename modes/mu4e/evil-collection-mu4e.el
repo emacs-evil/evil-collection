@@ -68,8 +68,8 @@
 (require 'evil-collection)
 (require 'mu4e nil t)
 
-(declare-function mu4e~main-action-str "mu4e-main")
-(declare-function mu4e~main-view-queue "mu4e-main")
+(declare-function mu4e--main-action-str "mu4e-main")
+(declare-function mu4e--main-view-queue "mu4e-main")
 (defvar smtpmail-send-queued-mail)
 (defvar smtpmail-queue-dir)
 
@@ -275,9 +275,9 @@
   "The place where to end overriding Basic section.")
 
 (defvar evil-collection-mu4e-new-region-basic
-  (concat (mu4e~main-action-str "\t* [J]ump to some maildir\n" 'mu4e-jump-to-maildir)
-          (mu4e~main-action-str "\t* enter a [s]earch query\n" 'mu4e-search)
-          (mu4e~main-action-str "\t* [C]ompose a new message\n" 'mu4e-compose-new))
+  (concat (mu4e--main-action-str "\t* [J]ump to some maildir\n" 'mu4e-jump-to-maildir)
+          (mu4e--main-action-str "\t* enter a [s]earch query\n" 'mu4e-search)
+          (mu4e--main-action-str "\t* [C]ompose a new message\n" 'mu4e-compose-new))
   "Define the evil-mu4e Basic region.")
 
 (defvar evil-collection-mu4e-begin-region-misc "\n  Misc"
@@ -289,20 +289,20 @@
 (defun evil-collection-mu4e-new-region-misc ()
   "Define the evil-mu4e Misc region."
   (concat
-   (mu4e~main-action-str "\t* [;]Switch focus\n" 'mu4e-context-switch)
-   (mu4e~main-action-str "\t* [u]pdate email & database (Alternatively: gr)\n"
+   (mu4e--main-action-str "\t* [;]Switch focus\n" 'mu4e-context-switch)
+   (mu4e--main-action-str "\t* [u]pdate email & database (Alternatively: gr)\n"
                          'mu4e-update-mail-and-index)
 
    ;; show the queue functions if `smtpmail-queue-dir' is defined
    (if (file-directory-p smtpmail-queue-dir)
-       (mu4e~main-view-queue)
+       (mu4e--main-view-queue)
      "")
    "\n"
 
-   (mu4e~main-action-str "\t* [N]ews\n" 'mu4e-news)
-   (mu4e~main-action-str "\t* [A]bout mu4e\n" 'mu4e-about)
-   (mu4e~main-action-str "\t* [H]elp\n" 'mu4e-display-manual)
-   (mu4e~main-action-str "\t* [q]uit\n" 'mu4e-quit)))
+   (mu4e--main-action-str "\t* [N]ews\n" 'mu4e-news)
+   (mu4e--main-action-str "\t* [A]bout mu4e\n" 'mu4e-about)
+   (mu4e--main-action-str "\t* [H]elp\n" 'mu4e-display-manual)
+   (mu4e--main-action-str "\t* [q]uit\n" 'mu4e-quit)))
 
 (defun evil-collection-mu4e-replace-region (new-region start end)
   "Replace region between START and END with NEW-REGION.
