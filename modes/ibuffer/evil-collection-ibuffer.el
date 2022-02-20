@@ -56,7 +56,7 @@
     (kbd "u") 'ibuffer-unmark-forward
     (kbd "DEL") 'ibuffer-unmark-backward
     (kbd "M-DEL") 'ibuffer-unmark-all
-    (kbd "* *") 'ibuffer-unmark-all
+    (kbd "* *") 'ibuffer-mark-special-buffers
     (kbd "* c") 'ibuffer-change-marks
     (kbd "U") 'ibuffer-unmark-all-marks
     (kbd "* M") 'ibuffer-mark-by-mode
@@ -157,7 +157,7 @@
 
     (kbd "|") 'ibuffer-do-shell-command-pipe
     (kbd "!") 'ibuffer-do-shell-command-file
-    (kbd "t") 'ibuffer-do-toggle-modified
+    (kbd "t") 'ibuffer-toggle-marks
     ;; marked operations
     (kbd "A") 'ibuffer-do-view
     (kbd "D") 'ibuffer-do-delete
