@@ -59,28 +59,23 @@
     "I"  'docker-image-inspect
     "P"  'docker-image-push
     "R"  'docker-image-run
-    "T"  'docker-image-tag-selection)
-
-  (evil-collection-define-key 'normal 'docker-machine-mode-map
-    ";"  'docker-machine-ls
-    "?"  'docker-machine-help
-    "C"  'docker-machine-create
-    "D"  'docker-machine-rm
-    "E"  'docker-machine-env-selection
-    "O"  'docker-machine-stop
-    "R"  'docker-machine-restart
-    "S"  'docker-machine-start)
+    "T"  'docker-image-tag-selection
+    "d"  'docker-image-mark-dangling)
 
   (evil-collection-define-key 'normal 'docker-network-mode-map
     ";"  'docker-network-ls
     "?"  'docker-network-help
-    "D"  'docker-network-rm)
+    "D"  'docker-network-rm
+    "I"  'docker-network-inspect
+    "d"  'docker-network-mark-dangling)
 
   (evil-collection-define-key 'normal 'docker-volume-mode-map
     ";"  'docker-volume-ls
     "?"  'docker-volume-help
     "D"  'docker-volume-rm
-    "d"  'docker-volume-dired-selection))
+    "I"  'docker-volume-inspect
+    "d"  'docker-volume-mark-dangling
+    "f"  'docker-volume-dired-selection))
 
 (provide 'evil-collection-docker)
 
