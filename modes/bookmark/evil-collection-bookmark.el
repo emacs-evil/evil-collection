@@ -1,6 +1,6 @@
 ;;; evil-collection-bookmark.el --- Evil bindings for bookmarks -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2017, 2022 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -36,30 +36,27 @@
 (defun evil-collection-bookmark-setup ()
   "Set up `evil' bindings for `bookmark'."
   (evil-set-initial-state 'bookmark-bmenu-mode 'normal)
-
+  (evil-collection-set-readonly-bindings 'bookmark-bmenu-mode-map)
   (evil-collection-define-key 'normal 'bookmark-bmenu-mode-map
-    "q" 'quit-window
-    "gr" 'revert-buffer
-    "g?" 'describe-mode
+    [remap evil-write] 'bookmark-bmenu-save
 
-    "j" 'next-line
-    "p" 'previous-line
-    "J" 'bookmark-bmenu-this-window
-    "2" 'bookmark-bmenu-2-window
     "1" 'bookmark-bmenu-1-window
-    "x" 'bookmark-bmenu-execute-deletions
+    "2" 'bookmark-bmenu-2-window
+    "5" 'bookmark-bmenu-other-frame
     "d" 'bookmark-bmenu-delete
-    "/" 'bookmark-bmenu-search
+    "x" 'bookmark-bmenu-execute-deletions
+    "s" 'bookmark-bmenu-search
     "r" 'bookmark-bmenu-rename
     "R" 'bookmark-bmenu-relocate
     "L" 'bookmark-bmenu-load
     "t" 'bookmark-bmenu-toggle-filenames
+    "W" 'bookmark-bmenu-locate
+    "D" 'bookmark-bmenu-delete-backwards
+
+    ;; annotation
     "a" 'bookmark-bmenu-show-annotation
     "A" 'bookmark-bmenu-show-all-annotations
-    "s" 'bookmark-bmenu-save
-    "W" 'bookmark-bmenu-locate
     "E" 'bookmark-bmenu-edit-annotation
-    "D" 'bookmark-bmenu-delete-backwards
 
     ;; mark
     "u" 'bookmark-bmenu-unmark
@@ -76,7 +73,6 @@
     (kbd "RET") 'bookmark-bmenu-this-window
     (kbd "S-<return>") 'bookmark-bmenu-other-window
     (kbd "M-<return>") 'bookmark-bmenu-switch-other-window))
-
 
 (provide 'evil-collection-bookmark)
 ;;; evil-collection-bookmark.el ends here
