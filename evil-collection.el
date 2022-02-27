@@ -113,6 +113,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     anaconda-mode
     apropos
     arc-mode
+    atomic-chrome
     auto-package-update
     beginend
     bm
