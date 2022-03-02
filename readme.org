@@ -52,6 +52,10 @@ more.
    or by providing an argument to ~evil-collection-init~:
 
    : (evil-collection-init 'calendar)
+   
+   a list can also be provided to ~evil-collection-init~:
+   
+   : (evil-collection-init '(calendar dired calc ediff))
 
    The list of supported modes is configured by ~evil-collection-mode-list~.
 
