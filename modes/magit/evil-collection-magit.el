@@ -577,9 +577,9 @@ evil-collection-magit affects.")
      (magit-dispatch "k" "x" magit-discard)
      (magit-remote "k" "x" magit-remote-remove)
      ;; FIXME: how to properly handle a popup with a key that appears twice (in
-     ;; `define-transient-command' definition)? Currently we rely on:
+     ;; `transient-define-prefix' definition)? Currently we rely on:
      ;; 1. first call to `evil-collection-magit-change-popup-key' changes the first "V"
-     ;;    entry of `magit-revert' (the first entry in `define-transient-command'
+     ;;    entry of `magit-revert' (the first entry in `transient-define-prefix'
      ;;    definition of `magit-revert'), second call changes the second "V".
      ;; 2. the remapping here are in the same order as in `magit-revert'
      ;;    definition
