@@ -213,9 +213,11 @@ When this option is enabled, the stash popup is available on \"Z\"."
     ;; new ones that I haven't looked at yet
     magit-button-section-map
     magit-commitbuf-section-map
+    magit-diff-section-map
     magit-diffbuf-section-map
     magit-diffstat-section-map
     magit-headers-section-map
+    magit-log-section-map
     magit-message-section-map
     ;; FIXME: deal with new bindings in this one
     magit-module-section-map
