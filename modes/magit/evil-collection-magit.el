@@ -305,6 +305,7 @@ When this option is enabled, the stash popup is available on \"Z\"."
        (,states magit-mode-map "\C-b"   evil-scroll-page-up)
        (,states magit-mode-map ":"     evil-ex)
        (,states magit-mode-map "q"     magit-mode-bury-buffer)
+       ((visual) magit-hunk-section-map "s" magit-stage)
 
        ;; these are to fix the priority of the log mode map and the magit mode map
        ;; FIXME: Conflict between this and revert. Revert seems more important here
