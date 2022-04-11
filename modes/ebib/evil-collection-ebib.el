@@ -69,7 +69,7 @@
     "j" 'ebib-next-field
     "k" 'ebib-prev-field
     "p" 'ebib-yank-field-contents
-    "y" 'ebib-copy-field-contents
+    "y" 'ebib-copy-current-field-contents
     "ZZ" 'ebib-quit-entry-buffer
     "ZQ" 'ebib-quit-entry-buffer))
 
