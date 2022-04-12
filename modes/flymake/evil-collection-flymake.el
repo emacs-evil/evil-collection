@@ -1,6 +1,6 @@
 ;;; evil-collection-flymake.el --- Evil Bindings for Flymake -*- lexical-binding: t -*-
 
-;; Copyright (C) 2018 James Nguyen
+;; Copyright (C) 2018, 2022 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -36,17 +36,15 @@
 ;;;###autoload
 (defun evil-collection-flymake-setup ()
   "Set up `evil' bindings for `flymake'."
-  (evil-collection-define-key
-    '(normal visual) 'flymake-diagnostics-buffer-mode-map
-    "q" 'quit-window
+  (evil-collection-set-readonly-bindings 'flymake-diagnostics-buffer-mode-map)
+  (evil-collection-define-key 'normal 'flymake-diagnostics-buffer-mode-map
     (kbd "C-j") 'flymake-goto-next-error
     (kbd "C-k") 'flymake-goto-prev-error
     (kbd "RET") 'flymake-goto-diagnostic
-    (kbd "<S-return>") 'flymake-show-diagnostic
+    (kbd "S-RET") 'flymake-show-diagnostic
     (kbd "M-RET") 'flymake-show-diagnostic
     (kbd "go") 'flymake-show-diagnostic
-    (kbd "gO") 'flymake-show-diagnostic
-    "." 'flymake-goto-diagnostic))
+    (kbd "gO") 'flymake-show-diagnostic))
 
 (provide 'evil-collection-flymake)
 ;;; evil-collection-flymake.el ends here
