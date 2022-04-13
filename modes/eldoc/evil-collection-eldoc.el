@@ -52,7 +52,9 @@
 (defun evil-collection-eldoc-setup ()
   "Set up `evil' bindings for `eldoc'."
   (evil-collection-define-key 'normal 'evil-collection-eldoc-doc-buffer-mode-map
-    "q" 'quit-window)
+    "q" #'quit-window
+    "ZZ" #'quit-window
+    "ZQ" #'evil-quit)
 
   ;; Enable a separate minor mode so that we can bind keys to it.
   (advice-add 'eldoc-doc-buffer

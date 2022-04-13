@@ -54,7 +54,9 @@
     "[[" 'restclient-jump-prev
     "]]" 'restclient-jump-next)
   (evil-collection-define-key 'normal 'evil-collection-restclient-mode-map
-    "q" 'quit-window)
+    "q" #'quit-window
+    "ZZ" #'quit-window
+    "ZQ" #'evil-quit)
 
   ;; Enable a separate minor mode so that we can bind keys to it.
   (add-hook 'restclient-response-loaded-hook
