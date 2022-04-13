@@ -150,6 +150,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     ediff
     eglot
     explain-pause-mode
+    eldoc
     elfeed
     elisp-mode
     elisp-refs
