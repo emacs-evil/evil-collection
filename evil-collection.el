@@ -127,6 +127,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     company
     compile
     consult
+    corfu
     (custom cus-edit)
     cus-theme
     dashboard
