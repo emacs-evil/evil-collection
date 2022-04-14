@@ -582,6 +582,73 @@ modes in the current buffer."
        nil "^[^.]")))))
   (find-file (evil-collection--mode-file mode "README.org")))
 
+;;;###autoload
+(cl-defun evil-collection-translate-minor-mode-key (states modes
+                                                           &rest translations
+                                                           &key destructive
+                                                           &allow-other-keys)
+  "Similar to `evil-collection-translate-key' but for minor modes."
+
+  "Translate keys in the keymap(s) corresponding to STATES and MODES.
+STATES should be the name of an evil state, a list of states, or nil. MODES
+should be a symbol corresponding to minor-mode to make the translations in or a
+list of minor-mode symbols. TRANSLATIONS corresponds to a list of
+key replacement pairs. For example, specifying \"a\" \"b\" will bind \"a\" to
+\"b\"'s definition in the keymap. Specifying nil as a replacement will unbind a
+key. If DESTRUCTIVE is nil, a backup of the keymap will be stored on the initial
+invocation, and future invocations will always look up keys in the backup
+keymap. When no TRANSLATIONS are given, this function will only create the
+backup keymap without making any translations. On the other hand, if DESTRUCTIVE
+is non-nil, the keymap will be destructively altered without creating a backup.
+For example, calling this function multiple times with \"a\" \"b\" \"b\" \"a\"
+would continue to swap and unswap the definitions of these keys. This means that
+when DESTRUCTIVE is non-nil, all related swaps/cycles should be done in the same
+invocation."
+  (declare (indent defun))
+  (unless (listp modes)
+    (setq modes (list modes)))
+  (unless (and (listp states)
+               (not (null states)))
+    (setq states (list states)))
+  (dolist (mode-symbol modes)
+    (dolist (state states)
+      (evil-collection--translate-minor-mode-key
+       state mode-symbol translations destructive))))
+
+(defun evil-collection--translate-minor-mode-key (state
+                                                  mode-symbol
+                                                  translations
+                                                  destructive)
+  "Helper function for `evil-collection-translate-minor-mode-key'.
+In the minor mode keymap corresponding to STATE and MODE-SYMBOL, make the key
+TRANSLATIONS. When DESTRUCTIVE is non-nil, make the TRANSLATIONS destructively
+without creating/referencing a backup keymap."
+  (let* ((keymap-symbol (intern (format "%S-map" mode-symbol)))
+         (backup-keymap-symbol (intern (format "evil-collection-%s%s-backup-map"
+                                               mode-symbol
+                                               (if state
+                                                   (format "-%s-state" state)
+                                                 ""))))
+         (keymap (symbol-value keymap-symbol))
+         (lookup-keymap (if (and (not destructive)
+                                 (boundp backup-keymap-symbol))
+                            (symbol-value backup-keymap-symbol)
+                          (copy-keymap
+                           (if state
+                               (evil-get-minor-mode-keymap state mode-symbol)
+                               ;; (evil-get-auxiliary-keymap keymap state t t)
+                             keymap))))
+         (maps (cl-loop for (key replacement) on translations by 'cddr
+                        ;; :destructive can be in TRANSLATIONS
+                        unless (keywordp key)
+                        collect key
+                        and collect (when replacement
+                                      (lookup-key lookup-keymap replacement)))))
+    (unless (or destructive
+                (boundp backup-keymap-symbol))
+      (set backup-keymap-symbol lookup-keymap))
+    (apply #'evil-define-minor-mode-key state mode-symbol maps)))
+
 (defun evil-collection--translate-key (state keymap-symbol
                                              translations
                                              destructive)
@@ -664,6 +731,21 @@ should consist of key swaps (e.g. \"a\" \"b\" is equivalent to \"a\" \"b\" \"b\"
                       and unless (keywordp key)
                       collect replacement and collect key))
   `(evil-collection-translate-key ,states ,keymaps ,@args))
+
+;;;###autoload
+(defmacro evil-collection-swap-minor-mode-key (states modes &rest args)
+  "Wrapper around `evil-collection-translate-minor-mode-key' for swapping keys.
+STATES, MODES, and ARGS are passed to
+`evil-collection-translate-minor-mode-key'. ARGS should consist of key swaps
+(e.g. \"a\" \"b\" is equivalent to \"a\" \"b\" \"b\" \"a\"
+with `evil-collection-translate-minor-mode-key') and optionally keyword
+arguments for `evil-collection-translate-minor-mode-key'."
+  (declare (indent defun))
+  (setq args (cl-loop for (key replacement) on args by 'cddr
+                      collect key and collect replacement
+                      and unless (keywordp key)
+                      collect replacement and collect key))
+  `(evil-collection-translate-minor-mode-key ,states ,modes ,@args))
 
 ;;;###autoload
 (defun evil-collection-require (mode &optional noerror)

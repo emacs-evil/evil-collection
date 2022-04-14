@@ -567,6 +567,28 @@ more.
   ":" ";")
    #+end_src
 
+   In some cases, keys are bound through `evil-define-minor-mode-key` and may
+   need to be translated using ~evil-collection-translate-minor-mode-key~ and/or
+   ~evil-collection-swap-minor-mode-key~.
+
+   #+begin_src emacs-lisp
+  (evil-collection-swap-minor-mode-key '(normal motion)
+    '(evil-snipe-local-mode evil-snipe-override-local-mode)
+    "k" "s"
+    ;; Set this to t to make this swap the keys everytime
+    ;; this expression is evaluated.
+    :destructive nil)
+
+  (evil-collection-translate-minor-mode-key
+    '(normal motion)
+    '(evil-snipe-local-mode evil-snipe-override-local-mode)
+    "k" "s"
+    "s" "k"
+    ;; Set this to t to make this swap the keys everytime
+    ;; this expression is evaluated.
+    :destructive nil)
+   #+end_src
+
 ** Third-party packages
 
    Third-party packages are provided by several parties:
