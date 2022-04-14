@@ -611,9 +611,18 @@ invocation."
                (not (null states)))
     (setq states (list states)))
   (dolist (mode-symbol modes)
-    (dolist (state states)
-      (evil-collection--translate-minor-mode-key
-       state mode-symbol translations destructive))))
+    (let ((keymap-symbol (intern (format "%S-map" mode-symbol))))
+      (dolist (state states)
+        (evil-delay `(and (boundp ',keymap-symbol)
+                          (keymapp ,keymap-symbol))
+            `(evil-collection--translate-minor-mode-key
+              ',state
+              ',mode-symbol
+              ',translations
+              ,destructive)
+          'after-load-functions t nil
+          (symbol-name (cl-gensym (format "evil-collection-translate-key-in-%s"
+                                          keymap-symbol))))))))
 
 (defun evil-collection--translate-minor-mode-key (state
                                                   mode-symbol
