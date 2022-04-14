@@ -277,6 +277,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     view
     vlf
     vterm
+    vundo
     w3m
     wdired
     wgrep
