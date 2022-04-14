@@ -646,7 +646,6 @@ without creating/referencing a backup keymap."
                           (copy-keymap
                            (if state
                                (evil-get-minor-mode-keymap state mode-symbol)
-                               ;; (evil-get-auxiliary-keymap keymap state t t)
                              keymap))))
          (maps (cl-loop for (key replacement) on translations by 'cddr
                         ;; :destructive can be in TRANSLATIONS
