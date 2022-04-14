@@ -453,14 +453,14 @@ denotes the original magit key for this command.")
 ;; Need to refresh evil keymaps when blame mode is entered.
 (add-hook 'magit-blame-mode-hook 'evil-normalize-keymaps)
 
-(evil-set-initial-state 'magit-repolist-mode 'motion)
-(evil-collection-define-key 'motion 'magit-repolist-mode-map
+(evil-set-initial-state 'magit-repolist-mode 'normal)
+(evil-collection-define-key 'normal 'magit-repolist-mode-map
   (kbd "RET") 'magit-repolist-status
   (kbd "gr")  'magit-list-repositories)
 (add-hook 'magit-repolist-mode-hook 'evil-normalize-keymaps)
 
-(evil-set-initial-state 'magit-submodule-list-mode 'motion)
-(evil-collection-define-key 'motion 'magit-submodule-list-mode-map
+(evil-set-initial-state 'magit-submodule-list-mode 'normal)
+(evil-collection-define-key 'normal 'magit-submodule-list-mode-map
   (kbd "RET") 'magit-repolist-status
   (kbd "gr")  'magit-list-submodules)
 (add-hook 'magit-submodule-list-mode-hook 'evil-normalize-keymaps)
