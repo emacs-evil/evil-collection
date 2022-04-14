@@ -713,7 +713,19 @@ Then use the above template as an example or, using [[yasnippet][yasnippet]],
 ;;; evil-collection-eldoc.el ends here
 #+end_src
 
-Finally, add eldoc to ~evil-collection--supported-modes~.
+Finally, add ~eldoc~ to ~evil-collection--supported-modes~.
+
+#+begin_src emacs-lisp :tangle yes
+(defvar evil-collection--supported-modes
+  `(
+    ;; ...
+    eldoc
+    ;; ...
+    )
+  "List of modes supported by evil-collection. Elements are
+either target mode symbols or lists which `car' is the mode
+symbol and `cdr' the packages to register.")
+#+end_src
 ** Contributing
 We welcome any additional modes that are not already supported.
 
