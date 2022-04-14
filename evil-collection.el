@@ -204,7 +204,7 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
     kotlin-mode
     macrostep
     man
-    magit
+    (magit magit-repos magit-submodule)
     magit-todos
     markdown-mode
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
