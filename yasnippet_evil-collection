@@ -1,0 +1,45 @@
+# -*- mode: snippet -*-
+# name: yasnippet_evil-collection
+# key: yasnippet_evil-collection
+# --
+;;; ${1:`(file-name-sans-extension (file-name-nondirectory buffer-file-name))`}.el --- Bindings for \`${2:`(string-trim-left (file-name-sans-extension (file-name-nondirectory buffer-file-name)) "evil-collection-")`}'. -*- lexical-binding: t -*-
+
+;; Copyright (C) 2022 James Nguyen
+
+;; Author: James Nguyen <james@jojojames.com>
+;; Maintainer: James Nguyen <james@jojojames.com>
+;; URL: https://github.com/emacs-evil/evil-collection
+;; Version: 0.0.2
+;; Package-Requires: ((emacs "27.1"))
+;; Keywords: evil, emacs, convenience, tools
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;;; Bindings for $2.
+
+;;; Code:
+(require 'evil)
+(require '$2 nil t)
+
+(defvar $2-mode-map)
+(defconst evil-collection-$2-maps '($2-mode-map))
+
+(defun $1-setup ()
+  "Set up `evil' bindings for $2."
+  (evil-collection-define-key 'normal '$2-mode-map
+    $0))
+
+(provide '$1)
+;;; $1.el ends here
