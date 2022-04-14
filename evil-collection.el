@@ -106,6 +106,31 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
   :type 'boolean
   :group 'evil-collection)
 
+(defvar evil-collection--modes-with-delayed-setup
+  `(eshell)
+  "List of modes whose keybinds aren't completely set up after the mode is
+loaded. This can be a problem for cases where we're doing key translations
+using `evil-collection-setup-hook' which would result in an empty keymap.
+
+Normally we run `evil-collection-setup-hook' right away after the mode
+is loaded in `with-eval-after-load' (see `evil-collection-init') but for these
+modes, we skip running that hook and let the corresponding `evil-collection'
+package handle running `evil-collection-setup-hook'.
+
+Elements in this list either match a target mode symbol or the car of a list in
+`evil-collection--supported-modes'.
+
+If `evil-collection-always-run-setup-hook-after-load' is t, this list isn't
+read and `evil-collection-setup-hook' will be ran in the
+`with-eval-after-load' block in `evil-collection-init'.")
+
+(defcustom evil-collection-always-run-setup-hook-after-load nil
+  "Whether to always run `evil-collection-setup-hook' after mode is loaded.
+
+See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
+  :type 'boolean
+  :group 'evil-collection)
+
 (defvar evil-collection--supported-modes
   `(2048-game
     ag
@@ -803,8 +828,10 @@ instead of the modes in `evil-collection-mode-list'."
                  (ignore-errors
                    (symbol-value
                     (intern (format "evil-collection-%s-maps" m))))))
-            (run-hook-with-args 'evil-collection-setup-hook
-                                m mode-keymaps))))))
+            (when (or evil-collection-always-run-setup-hook-after-load
+                      (not (memq m evil-collection--modes-with-delayed-setup)))
+              (run-hook-with-args 'evil-collection-setup-hook
+                                  m mode-keymaps)))))))
   (when evil-collection-want-unimpaired-p
     (evil-collection-require 'unimpaired)
     (evil-collection-unimpaired-setup)))
