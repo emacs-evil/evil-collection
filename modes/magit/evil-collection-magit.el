@@ -54,15 +54,16 @@
 (defvar magit-status-mode-map)
 (defvar magit-submodule-list-mode-map)
 
-(defconst evil-collection-magit-maps '(evil-collection-magit-toggle-text-minor-mode-map
-                                       magit-blame-mode-map
-                                       magit-blame-read-only-mode-map
-                                       magit-blob-mode-map
-                                       magit-log-mode-map
-                                       magit-mode-map
-                                       magit-repolist-mode-map
-                                       magit-status-mode-map
-                                       magit-submodule-list-mode-map))
+(defconst evil-collection-magit-maps
+  '(evil-collection-magit-toggle-text-minor-mode-map
+    magit-log-mode-map ; -> parent: `magit-mode-map'
+    magit-status-mode-map ; -> parent: `magit-mode-map'
+    magit-blame-mode-map
+    magit-blame-read-only-mode-map
+    magit-blob-mode-map
+    magit-submodule-list-mode-map ; -> parent: `magit-repolist-mode-map'
+    magit-repolist-mode-map
+    magit-mode-map))
 
 (defcustom evil-collection-magit-use-y-for-yank t
   "When non nil (Default is t),
