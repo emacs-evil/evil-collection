@@ -664,7 +664,8 @@ For example, if we were to want to add ~evil-collection~ support to ~eldoc~.
   (provide 'eldoc)
 #+end_src
 
-Create a new file under modes/eldoc/ named evil-collection-eldoc.el.
+Create a directory named eldoc under [[modes-directory][modes/]].
+Create a file named evil-collection-eldoc.el under the newly created eldoc directory.
 Then use the above template as an example or, using [[yasnippet][yasnippet]],
 ~yas-expand~ the above template which will result in something like below:
 
@@ -730,3 +731,4 @@ Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Styl
 #+LINK: mu4e https://www.djcbsoftware.nl/code/mu/mu4e.html
 #+LINK: yasnippet https://github.com/joaotavora/yasnippet
 #+LINK: template https://github.com/emacs-evil/evil-collection/blob/master/yasnippet_evil-collection
+#+LINK: modes-directory https://github.com/emacs-evil/evil-collection/tree/master/modes
