@@ -68,7 +68,13 @@
     "gr" 'revert-buffer
     "<" 'help-go-back
     ">" 'help-go-forward
-    "r" 'help-follow))
+    "r" 'help-follow)
+
+  (when (>= emacs-major-version 28)
+    (evil-collection-define-key 'normal 'help-mode-map
+      "s" 'help-view-source
+      "i" 'help-goto-info
+      "c" 'help-customize)))
 
 (provide 'evil-collection-help)
 ;;; evil-collection-help.el ends here
