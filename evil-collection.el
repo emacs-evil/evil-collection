@@ -107,7 +107,8 @@ This will bind additional find-* type commands, e.g. usages, assignments, etc.."
   :group 'evil-collection)
 
 (defvar evil-collection--modes-with-delayed-setup
-  `(eshell)
+  `(emms
+    eshell)
   "List of modes whose keybinds aren't completely set up after the mode is
 loaded. This can be a problem for cases where we're doing key translations
 using `evil-collection-setup-hook' which would result in an empty keymap.
