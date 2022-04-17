@@ -52,6 +52,17 @@ it does not have a mode."
   ;; then it may conflict with other packages' if they do the same.
   (evil-insert 1))
 
+(evil-define-operator evil-collection-change-in-minibuffer
+  (beg end type register yank-handler delete-func)
+  "A version of `evil-change' that won't insert a new line on buffers without one."
+  (interactive "<R><x><y>")
+  ;; If there was no new line before the change, there should be none after.
+  ;; Delete any new line that might have been inserted and ignore an error if
+  ;; one wasn't.
+  (let ((new-inserted (and (eq type 'line) (/= ?\n (char-before end)))))
+    (evil-change beg end type register yank-handler delete-func)
+    (when new-inserted (ignore-errors (delete-char 1)))))
+
 ;;;###autoload
 (defun evil-collection-minibuffer-setup ()
   "Initialize minibuffer for `evil'."
@@ -61,6 +72,7 @@ it does not have a mode."
                  minibuffer-local-completion-map
                  minibuffer-local-must-match-map
                  minibuffer-local-isearch-map))
+    (evil-collection-define-key 'normal map "c" 'evil-collection-change-in-minibuffer)
     (evil-collection-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
     (evil-collection-define-key 'normal map (kbd "RET") 'exit-minibuffer))
 
