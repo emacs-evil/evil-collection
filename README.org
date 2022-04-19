@@ -36,17 +36,27 @@ more.
 - Get the package, either from MELPA:
 
   : M-x package-install RET evil-collection RET
+
   Or clone / download this repository and modify your ~load-path~:
+
   : (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
+
 - Register the bindings, either all at once with
 
   : (evil-collection-init)
+
   or mode-by-mode, for instance:
+
   : (with-eval-after-load 'calendar (evil-collection-calendar-setup))
+
   or by providing an argument to ~evil-collection-init~:
+
   : (evil-collection-init 'calendar)
+
   a list can also be provided to ~evil-collection-init~:
+
   : (evil-collection-init '(calendar dired calc ediff))
+
   The list of supported modes is configured by ~evil-collection-mode-list~.
 
 ~evil-collection~ assumes ~evil-want-keybinding~ is set to ~nil~ and
