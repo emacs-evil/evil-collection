@@ -41,62 +41,62 @@ more.
 
   : (add-to-list 'load-path (expand-file-name "/path/to/evil-collection/" user-emacs-directory))
 
-  - Register the bindings, either all at once with
+- Register the bindings, either all at once with
 
-    : (evil-collection-init)
+  : (evil-collection-init)
 
-    or mode-by-mode, for instance:
+  or mode-by-mode, for instance:
 
-    : (with-eval-after-load 'calendar (evil-collection-calendar-setup))
+  : (with-eval-after-load 'calendar (evil-collection-calendar-setup))
 
-    or by providing an argument to ~evil-collection-init~:
+  or by providing an argument to ~evil-collection-init~:
 
-    : (evil-collection-init 'calendar)
+  : (evil-collection-init 'calendar)
 
-    a list can also be provided to ~evil-collection-init~:
+  a list can also be provided to ~evil-collection-init~:
 
-    : (evil-collection-init '(calendar dired calc ediff))
+  : (evil-collection-init '(calendar dired calc ediff))
 
-    The list of supported modes is configured by ~evil-collection-mode-list~.
+  The list of supported modes is configured by ~evil-collection-mode-list~.
 
-    ~evil-collection~ assumes ~evil-want-keybinding~ is set to nil and
-    ~evil-want-integration~ is set to t before loading ~evil~ and
-    ~evil-collection.~ Note some other packages may load evil (e.g. evil-leader)
-    so bear that in mind when determining when to set the variables.
+~evil-collection~ assumes ~evil-want-keybinding~ is set to ~nil~ and
+~evil-want-integration~ is set to ~t~ before loading ~evil~ and
+~evil-collection~. Note some other packages may load evil (e.g. evil-leader) so
+bear that in mind when determining when to set the variables.
 
-    See https://github.com/emacs-evil/evil-collection/issues/60 and https://github.com/emacs-evil/evil/pull/1087
-    for more details.
+See https://github.com/emacs-evil/evil-collection/issues/60 and https://github.com/emacs-evil/evil/pull/1087
+for more details.
 
-    For example:
+For example:
 
-    #+begin_src emacs-lisp :tangle yes
-      (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-      (setq evil-want-keybinding nil)
-      (require 'evil)
-      (when (require 'evil-collection nil t)
-        (evil-collection-init))
-    #+end_src
+#+begin_src emacs-lisp :tangle yes
+(setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+(setq evil-want-keybinding nil)
+(require 'evil)
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
+#+end_src
 
-    Here's another full TLDR ~use-package~ example.
+Here's another full TLDR ~use-package~ example.
 
-    #+begin_src emacs-lisp :tangle yes
-      (use-package evil
-        :ensure t
-        :init
-        (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-        (setq evil-want-keybinding nil)
-        :config
-        (evil-mode 1))
+#+begin_src emacs-lisp :tangle yes
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
 
-      (use-package evil-collection
-        :after evil
-        :ensure t
-        :config
-        (evil-collection-init))
-    #+end_src
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+#+end_src
 
-    NOTE: If you don't like surprises but still want to use ~evil-collection-init~, setting ~evil-collection-mode-list~ to nil
-    and adding each mode manually might be a better option.
+NOTE: If you don't like surprises but still want to use ~evil-collection-init~, setting ~evil-collection-mode-list~ to nil
+and adding each mode manually might be a better option.
 
 ** Configuration
 
@@ -119,9 +119,9 @@ Some minibuffer-related packages such as Helm rely on this option.
 ~use-package~ example:
 
 #+begin_src emacs-lisp :tangle yes
-  (use-package evil-collection
-    :custom (evil-collection-setup-minibuffer t)
-    :init (evil-collection-init))
+(use-package evil-collection
+  :custom (evil-collection-setup-minibuffer t)
+  :init (evil-collection-init))
 #+end_src
 
 ** Guidelines
@@ -184,7 +184,7 @@ The rules are more-or-less sorted by priority.
    - ~J~
    - =~=
 
-     Any of those keys can be set to be a prefix key.
+   Any of those keys can be set to be a prefix key.
 
 8. Prefix keys: ~g~ and ~z~ are the ubiquitous prefix keys.
 
@@ -197,7 +197,6 @@ The rules are more-or-less sorted by priority.
    - ~.~
 
 10. Ensure terminal compatibility without sacrificing GUI key bindings.
-
     - Tab key
       - Tab key is recognized as ~<tab>~ in GUI and ~TAB~ in terminal.
         ~TAB~ equals ~C-i~.
@@ -269,11 +268,8 @@ with ~<f3>~ and ~<f4>~.
 A good rule of thumb would be:
 
 - Always bind ~q~, ~ZZ~ and ~ZQ~ to the mode specific quitting functions. If there is none,
-
 - Bind ~q~ and ~ZZ~ to ~quit-window~
-
 - Bind ~ZQ~ to ~evil-quit~
-
 - If macros don't make sense in current mode, then ~@~ is available.
 
 *** Refreshing / Reverting (~gr~)
@@ -281,8 +277,9 @@ A good rule of thumb would be:
 - ~gr~ is used for refreshing in [[evilmagit][evil-magit]], [[evilmu4e][evil-mu4e]], and some Spacemacs
   configurations (org-agenda and neotree among others).
 
-  ~C-l~ is traditionally used to refresh the terminal screen.  Since there does
-  not seem to be any existing use of it, we leave the binding free for other uses.
+- ~C-l~ is traditionally used to refresh the terminal screen. Since there does
+  not seem to be any existing use of it, we leave the binding free for other
+  uses.
 
 *** Marking
 
@@ -290,9 +287,9 @@ A good rule of thumb would be:
 modes.
 ='= can still be used as it can jump to other buffers.
 
-- ~m~: Mark or toggle mark, depending on what the mode offers.
-  In visual mode, always mark.
-  With a numeric argument, toggle mark on that many following lines.
+- ~m~: Mark or toggle mark, depending on what the mode offers. In visual mode,
+  always mark. With a numeric argument, toggle mark on that many following
+  lines.
 
 - ~u~: Unmark current selection.
 
@@ -309,16 +306,15 @@ modes.
 
 - ~x~: Execute action on marks.  This mirrors Dired's binding of ~x~.
 
-  If ~*~ is used for marking, then ~#~ is free.
+If ~*~ is used for marking, then ~#~ is free.
 
-  Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
+Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
 
 *** Selecting / Filtering / Narrowing / Searching
 
 - ~s~ and ~S~ seem to be used in some places like [[mu4e][mu4e]].
 
   - ~s~: [s]elect/[s]earch/filter candidates according to a pattern.
-
   - ~S~: Remove filter and select all.
 
 - ~=~ is usually free and its significance is obvious.  It's taken for zooming though.
@@ -400,15 +396,17 @@ When ~evil-collection-want-find-usages-bindings~ is set to t:
 ?
 
 *** REPL (~gz~)
+
 If the mode has a Go To REPL-type command, set it to ~gz~.
+
 *** Zooming (~+~, ~-~, ~=~, ~0~)
 
 - ~+~ and ~-~ have obvious meanings.
-
 - ~0~ has a somewhat intuitive meaning, plus it is next to ~+~ and ~-~ on QWERTY.
-
 - ~=~ is useful as a synonym for ~+~ because it is the unshifted key of ~+~ on QWERTY.
+
 *** Debugging
+
 When debugging is on, debugger keys takes the most precedence.
 
 These keys will be set when there's an available command for them.
@@ -430,17 +428,19 @@ These keys will be set when there's an available command for them.
 - ~J~ : Jump to debugger location
 - ~R~ : Restart
 
-  For debugging outside of debugger being on (e.g. setting initial breakpoints),
-  we use similar keys to [[https://github.com/realgud/realgud][realgud]].
+For debugging outside of debugger being on (e.g. setting initial breakpoints),
+we use similar keys to [[https://github.com/realgud/realgud][realgud]].
 
-  - ~f5~ Start/Continue/Resume Execution
-  - ~S-f5~ Continue Execution
-  - ~Mouse-1~ Toggle Breakpoint
-  - ~f9~ Toggle Breakpoint
-  - ~f10~ Step Over
-  - ~f11~ Step Into
-  - ~S-f11~ Step Out
+- ~f5~ Start/Continue/Resume Execution
+- ~S-f5~ Continue Execution
+- ~Mouse-1~ Toggle Breakpoint
+- ~f9~ Toggle Breakpoint
+- ~f10~ Step Over
+- ~f11~ Step Into
+- ~S-f11~ Step Out
+
 *** Editable Buffers
+
 For buffers where insert-state doesn't make sense but buffer can be edited,
 (e.g. wdired or wgrep), pressing ~i~ will change into editable state.
 
@@ -449,9 +449,13 @@ When this editable state is turned on,
 ~ZQ~ will abort and clear any changes.
 ~ZZ~ will finish and save any changes.
 ~ESC~ will exit editable state.
+
 *** :q/:wq/etc
+
 Modes with commands that can be bound to :q/:wq/etc will have those keys remapped.
+
 ** Key Translation
+
 ~evil-collection-translate-key~ allows binding a key to the definition of
 another key in the same keymap (comparable to how Vim's keybindings work). Its
 arguments are the ~states~ and ~keymaps~ to bind/look up the key(s) in followed
@@ -464,34 +468,36 @@ someone who uses an alternate keyboard layout may want to retain the ~hjkl~
 positions for directional movement in dired, the calendar, etc.
 
 Here's an example for Colemak of making swaps in a single keymap:
+
 #+begin_src emacs-lisp
-  (evil-collection-translate-key nil 'evil-motion-state-map
-    ;; colemak hnei is qwerty hjkl
-    "n" "j"
-    "e" "k"
-    "i" "l"
-    ;; add back nei
-    "j" "e"
-    "k" "n"
-    "l" "i")
+(evil-collection-translate-key nil 'evil-motion-state-map
+  ;; colemak hnei is qwerty hjkl
+  "n" "j"
+  "e" "k"
+  "i" "l"
+  ;; add back nei
+  "j" "e"
+  "k" "n"
+  "l" "i")
 #+end_src
 
 Here's an example of using ~evil-collection-setup-hook~ to cycle the keys for
 all modes in ~evil-collection-mode-list~:
+
 #+begin_src emacs-lisp
-  (defun my-hjkl-rotation (_mode mode-keymaps &rest _rest)
-    (evil-collection-translate-key 'normal mode-keymaps
-      "n" "j"
-      "e" "k"
-      "i" "l"
-      "j" "e"
-      "k" "n"
-      "l" "i"))
+(defun my-hjkl-rotation (_mode mode-keymaps &rest _rest)
+  (evil-collection-translate-key 'normal mode-keymaps
+    "n" "j"
+    "e" "k"
+    "i" "l"
+    "j" "e"
+    "k" "n"
+    "l" "i"))
 
-  ;; called after evil-collection makes its keybindings
-  (add-hook 'evil-collection-setup-hook #'my-hjkl-rotation)
+;; called after evil-collection makes its keybindings
+(add-hook 'evil-collection-setup-hook #'my-hjkl-rotation)
 
-  (evil-collection-init)
+(evil-collection-init)
 #+end_src
 
 A more common use case of ~evil-collection-translate-key~ would be for keeping
@@ -501,41 +507,43 @@ keys that you never want to be overridden, you'll want to give them higher
 priority than other evil keybindings (e.g. those made by ~(evil-define-key
 'normal some-map ...)~). To do this, you can create an "intercept" map and bind
 your prefix keys in it instead of in ~evil-normal-state-map~:
+
 #+begin_src emacs-lisp
-  (defvar my-intercept-mode-map (make-sparse-keymap)
-    "High precedence keymap.")
+(defvar my-intercept-mode-map (make-sparse-keymap)
+  "High precedence keymap.")
 
-  (define-minor-mode my-intercept-mode
-    "Global minor mode for higher precedence evil keybindings."
-    :global t)
+(define-minor-mode my-intercept-mode
+  "Global minor mode for higher precedence evil keybindings."
+  :global t)
 
-  (my-intercept-mode)
+(my-intercept-mode)
 
-  (dolist (state '(normal visual insert))
-    (evil-make-intercept-map
-     ;; NOTE: This requires an evil version from 2018-03-20 or later
-     (evil-get-auxiliary-keymap my-intercept-mode-map state t t)
-     state))
+(dolist (state '(normal visual insert))
+  (evil-make-intercept-map
+   ;; NOTE: This requires an evil version from 2018-03-20 or later
+   (evil-get-auxiliary-keymap my-intercept-mode-map state t t)
+   state))
 
-  (evil-define-key 'normal my-intercept-mode-map
-    (kbd "SPC f") 'find-file)
-  ;; ...
+(evil-define-key 'normal my-intercept-mode-map
+  (kbd "SPC f") 'find-file)
+;; ...
 #+end_src
 
 You can then define replacement keys:
+
 #+begin_src emacs-lisp
-  (defun my-prefix-translations (_mode mode-keymaps &rest _rest)
-    (evil-collection-translate-key 'normal mode-keymaps
-      "C-SPC" "SPC"
-      ;; these need to be unbound first; this needs to be in same statement
-      "[" nil
-      "]" nil
-      "[[" "["
-      "]]" "]"))
+(defun my-prefix-translations (_mode mode-keymaps &rest _rest)
+  (evil-collection-translate-key 'normal mode-keymaps
+    "C-SPC" "SPC"
+    ;; these need to be unbound first; this needs to be in same statement
+    "[" nil
+    "]" nil
+    "[[" "["
+    "]]" "]"))
 
-  (add-hook 'evil-collection-setup-hook #'my-prefix-translations)
+(add-hook 'evil-collection-setup-hook #'my-prefix-translations)
 
-  (evil-collection-init)
+(evil-collection-init)
 #+end_src
 
 By default, the first invocation of ~evil-collection-translate-key~ will make a
@@ -558,13 +566,14 @@ another key that was defined after the first ~evil-collection-translate-key~, so
 
 ~evil-collection-swap-key~ is also provided as a wrapper around
 ~evil-collection-translate-key~ that allows swapping keys:
+
 #+begin_src emacs-lisp
-  (evil-collection-swap-key nil 'evil-motion-state-map
-    ";" ":")
-  ;; is equivalent to
-  (evil-collection-translate-key nil 'evil-motion-state-map
-    ";" ":"
-    ":" ";")
+(evil-collection-swap-key nil 'evil-motion-state-map
+  ";" ":")
+;; is equivalent to
+(evil-collection-translate-key nil 'evil-motion-state-map
+  ";" ":"
+  ":" ";")
 #+end_src
 
 In some cases, keys are bound through `evil-define-minor-mode-key` and may
@@ -572,21 +581,21 @@ need to be translated using ~evil-collection-translate-minor-mode-key~ and/or
 ~evil-collection-swap-minor-mode-key~.
 
 #+begin_src emacs-lisp
-  (evil-collection-swap-minor-mode-key '(normal motion)
-    '(evil-snipe-local-mode evil-snipe-override-local-mode)
-    "k" "s"
-    ;; Set this to t to make this swap the keys everytime
-    ;; this expression is evaluated.
-    :destructive nil)
+(evil-collection-swap-minor-mode-key '(normal motion)
+  '(evil-snipe-local-mode evil-snipe-override-local-mode)
+  "k" "s"
+  ;; Set this to t to make this swap the keys everytime
+  ;; this expression is evaluated.
+  :destructive nil)
 
-  (evil-collection-translate-minor-mode-key
-   '(normal motion)
-   '(evil-snipe-local-mode evil-snipe-override-local-mode)
-   "k" "s"
-   "s" "k"
-   ;; Set this to t to make this swap the keys everytime
-   ;; this expression is evaluated.
-   :destructive nil)
+(evil-collection-translate-minor-mode-key
+ '(normal motion)
+ '(evil-snipe-local-mode evil-snipe-override-local-mode)
+ "k" "s"
+ "s" "k"
+ ;; Set this to t to make this swap the keys everytime
+ ;; this expression is evaluated.
+ :destructive nil)
 #+end_src
 
 ** Third-party packages
@@ -595,10 +604,14 @@ Third-party packages are provided by several parties:
 
 | Major mode | Evil bindings            |
 |------------+--------------------------|
+| ledger     | [[https://github.com/atheriel/evil-ledger][evil-ledger]]              |
 | lispy      | [[https://github.com/noctuid/lispyville][lispyville]] or [[https://github.com/sp3ctum/evil-lispy][evil-lispy]] |
 | org        | [[https://github.com/GuiltyDolphin/org-evil][org-evil]] or [[https://github.com/Somelauw/evil-org-mode][evil-org]]     |
-| markdown   | [[https://github.com/Somelauw/evil-markdown][evil-markdown]]          |
-| ledger     | [[https://github.com/atheriel/evil-ledger][evil-ledger]]              |
+| markdown   | [[https://github.com/Somelauw/evil-markdown][evil-markdown]]            |
+
+Also ~evil-collection~ has minimal support (~TAB~, ~S-TAB~ and
+sentence/paragraph forwarding) for ~markdown~ and ~org~ if you prefer less
+packages installed.
 
 Should you know any suitable package not mentioned in this list, let us know and
 file an issue.
@@ -609,65 +622,70 @@ Other references:
 - [[https://github.com/hlissner/doom-emacs/tree/develop/modules/editor/evil][Doom Emacs]]
 
 ** FAQ
-- Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
 
-  ~evil-collection~ binds over SPC in many packages. To use SPC as a leader
-  key with the [[https://github.com/noctuid/general.el][general]] library:
+*** Making SPC work similarly to [[https://github.com/syl20bnr/spacemacs][spacemacs]].
 
-  #+begin_src emacs-lisp :tangle yes
-    (use-package general
-      :ensure t
-      :init
-      (setq general-override-states '(insert
-                                      emacs
-                                      hybrid
-                                      normal
-                                      visual
-                                      motion
-                                      operator
-                                      replace))
-      :config
-      (general-define-key
-       :states '(normal visual motion)
-       :keymaps 'override
-       "SPC" 'hydra-space/body))
-    ;; Replace 'hydra-space/body with your leader function.
-  #+end_src
+~evil-collection~ binds over SPC in many packages. To use SPC as a leader key
+with the [[https://github.com/noctuid/general.el][general]] library:
 
-  See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
+#+begin_src emacs-lisp :tangle yes
+(use-package general
+  :ensure t
+  :init
+  (setq general-override-states '(insert
+                                  emacs
+                                  hybrid
+                                  normal
+                                  visual
+                                  motion
+                                  operator
+                                  replace))
+  :config
+  (general-define-key
+   :states '(normal visual motion)
+   :keymaps 'override
+   "SPC" 'hydra-space/body))
+;; Replace 'hydra-space/body with your leader function.
+#+end_src
+
+See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other approaches.
 
 - Unintialized mode maps in ~evil-collection-setup-hook~.
   ~evil-collection-setup-hook~ is ran with a list of keymaps passed into it.
   Some misconfigured modes may not have yet initialized their keymap at this
-  time so the value of the variable may be nil. In that case, an alternative
-  is to use a mode-hook to do any custom settings.
+  time so the value of the variable may be nil. In that case, an alternative is
+  to use a mode-hook to do any custom settings.
 
-  #+begin_src emacs-lisp :tangle yes
-    (add-hook 'evil-collection-setup-hook
-              (lambda (_mode keymaps)
-                (add-hook 'ediff-mode-hook
-                          (lambda ()
-                            (... keymaps ...)))))
-  #+end_src
-  View [[https://github.com/emacs-evil/evil-collection/issues/196][196]] for more info.
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'evil-collection-setup-hook
+          (lambda (_mode keymaps)
+            (add-hook 'ediff-mode-hook
+                      (lambda ()
+                        (... keymaps ...)))))
+#+end_src
 
-** Modes left behind
-Some modes might still remain unsupported by this package.  Should you be
-missing your ~<hjkl>~, please feel free to do a pull request.
-** Writing a new binding
+View [[https://github.com/emacs-evil/evil-collection/issues/196][196]] for more info.
+
+*** Modes left behind
+
+Some modes might still remain unsupported by this package. Should you be missing
+your ~<hjkl>~, please feel free to do a pull request.
+
+*** Writing a new binding
+
 This [[template][yasnippet template]] can be used to bootstrap a new binding.
 
 For example, if we were to want to add ~evil-collection~ support to ~eldoc~.
 (e.g.) There is a package that contains:
 
 #+begin_src emacs-lisp :tangle yes
-  (provide 'eldoc)
+(provide 'eldoc)
 #+end_src
 
-Create a directory named eldoc under [[modes-directory][modes/]].
-Create a file named evil-collection-eldoc.el under the newly created eldoc directory.
-Then use the above template as an example or, using [[yasnippet][yasnippet]],
-~yas-expand~ the above template which will result in something like below:
+Create a directory named eldoc under [[modes-directory][modes/]]. Create a file named
+evil-collection-eldoc.el under the newly created eldoc directory. Then use the
+above template as an example or, using [[yasnippet][yasnippet]], ~yas-expand~ the above
+template which will result in something like below:
 
 #+begin_src emacs-lisp :tangle yes
 ;;; evil-collection-eldoc.el --- Bindings for `eldoc'. -*- lexical-binding: t -*-
@@ -726,12 +744,13 @@ Finally, add ~eldoc~ to ~evil-collection--supported-modes~.
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
 #+end_src
+
 ** Contributing
+
 We welcome any additional modes that are not already supported.
 
-All bindings in ~evil-collection~ are open to change so if there's
-a better or more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or
-[[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
+All bindings in ~evil-collection~ are open to change so if there's a better or
+more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
 
 Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
 
