@@ -44,7 +44,7 @@
     "^" 'eww-up-url
     "u" 'eww-up-url
     "U" 'eww-top-url
-    (kbd "<backspace>") 'eww-back-url
+    (kbd "DEL") 'eww-back-url
     "H" 'eww-back-url
     "L" 'eww-forward-url
 

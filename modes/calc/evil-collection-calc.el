@@ -71,7 +71,7 @@
     (kbd "M-m t") 'calc-total-algebraic-mode
     (kbd "<delete>") 'calc-pop
     (kbd "<mouse-2>") 'calc-yank
-    (kbd "<backspace>") 'calc-pop ; was "C-d".
+    (kbd "DEL") 'calc-pop ; was "C-d"
     "d" 'calc-kill                      ; was "C-k"
     "u" 'calc-undo                      ; was "U"
     "X" 'calc-call-last-kbd-macro       ; "@" is already used.

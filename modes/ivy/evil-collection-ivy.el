@@ -102,7 +102,7 @@
       "k" 'ivy-previous-line)
 
     (evil-collection-define-key 'insert 'ivy-minibuffer-map
-      [backspace] 'ivy-backward-delete-char
+      (kbd "DEL") 'ivy-backward-delete-char
       (kbd "C-r") 'ivy-reverse-i-search
       (kbd "C-n") 'ivy-next-line
       (kbd "C-p") 'ivy-previous-line)))

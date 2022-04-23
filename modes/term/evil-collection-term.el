@@ -159,9 +159,9 @@ it is not appropriate in some cases like terminals."
   ;; https://github.com/emacs-evil/evil-collection/issues/235
   (with-eval-after-load 'multi-term
     (evil-collection-define-key 'normal 'term-mode-map
-      (kbd "<M-backspace>") 'term-send-backward-kill-word)
+      (kbd "M-DEL") 'term-send-backward-kill-word)
     (evil-collection-define-key 'insert 'term-raw-map
-      (kbd "<M-backspace>") 'term-send-backward-kill-word)))
+      (kbd "M-DEL") 'term-send-backward-kill-word)))
 
 (provide 'evil-collection-term)
 ;;; evil-collection-term.el ends here
