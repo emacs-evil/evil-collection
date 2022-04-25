@@ -96,6 +96,8 @@
     "gj" 'Info-next
     "gk" 'Info-prev
 
+    "g," 'Info-index-next
+
     "g?" 'Info-summary)
 
   ;; yu, Like eww.
