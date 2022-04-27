@@ -91,6 +91,13 @@ also uses `evil-mode'."
   (vterm-goto-char (vterm--get-end-of-line))
   (call-interactively #'evil-append))
 
+(declare-function vterm-yank "vterm")
+
+(defun evil-collection-vterm-paste-after (&optional arg)
+  (interactive "P")
+  (vterm-goto-char (+ 1 (point)))
+  (call-interactively #'vterm-yank arg))
+
 (evil-define-operator evil-collection-vterm-delete (beg end type register yank-handler)
   "Modification of evil-delete to work in vterm buffer. 
 Delete text from BEG to END with TYPE.
@@ -214,7 +221,8 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
   (evil-collection-define-key 'normal 'vterm-mode-map
     "[[" 'vterm-previous-prompt
     "]]" 'vterm-next-prompt
-    "p" 'vterm-yank
+    "p" 'evil-collection-vterm-paste-after
+    "P" 'vterm-yank
     "a" 'evil-collection-vterm-append
     "A" 'evil-collection-vterm-append-line
     "d" 'evil-collection-vterm-delete
