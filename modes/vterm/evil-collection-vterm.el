@@ -67,6 +67,17 @@ also uses `evil-mode'."
                        "vterm"
                      "emacs"))))
 
+(declare-function vterm-cursor-in-command-buffer-p "vterm")
+(declare-function vterm-beginning-of-line "vterm")
+
+(evil-define-motion evil-collection-vterm-first-non-blank ()
+  "Move the cursor to the first non-blank character
+after the prompt."
+  :type exclusive
+  (if (vterm-cursor-in-command-buffer-p (point))
+      (vterm-beginning-of-line)
+    (evil-first-non-blank)))
+
 (defun evil-collection-vterm-insert ()
   "Insert character before cursor."
   (interactive)
@@ -232,6 +243,7 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
     "D" 'evil-collection-vterm-delete-line
     "x" 'evil-collection-vterm-delete-backward-char
     (kbd "RET") 'vterm-send-return
+    "^" 'evil-collection-vterm-first-non-blank
     "i" 'evil-collection-vterm-insert
     "I" 'evil-collection-vterm-insert-line
     "u" 'vterm-undo
