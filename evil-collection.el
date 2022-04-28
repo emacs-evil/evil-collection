@@ -248,6 +248,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     omnisharp
     org
     org-present
+    org-roam
     osx-dictionary
     outline
     p4
