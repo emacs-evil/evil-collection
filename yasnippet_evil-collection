@@ -30,7 +30,7 @@
 ;;; Bindings for $2.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require '$2 nil t)
 
 (defvar $2-mode-map)

@@ -716,7 +716,7 @@ template which will result in something like below:
 ;;; Bindings for eldoc.
 
 ;;; Code:
-(require 'evil)
+(require 'evil-collection)
 (require 'eldoc nil t)
 
 (defvar eldoc-mode-map)
