@@ -231,6 +231,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     macrostep
     man
     (magit magit-repos magit-submodule)
+    magit-section
     magit-todos
     markdown-mode
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
