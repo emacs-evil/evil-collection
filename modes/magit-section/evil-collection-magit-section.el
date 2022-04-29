@@ -1,4 +1,4 @@
-;;; evil-collection-magit-section.el --- Bindings for `magit-section' -*- lexical-binding: t -*-
+;;; evil-collection-magit-section.el --- Bindings for magit-section -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 James Nguyen
 
