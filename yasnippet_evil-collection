@@ -2,7 +2,7 @@
 # name: yasnippet_evil-collection
 # key: yasnippet_evil-collection
 # --
-;;; ${1:`(file-name-sans-extension (file-name-nondirectory buffer-file-name))`}.el --- Bindings for \`${2:`(string-trim-left (file-name-sans-extension (file-name-nondirectory buffer-file-name)) "evil-collection-")`}'. -*- lexical-binding: t -*-
+;;; ${1:`(file-name-sans-extension (file-name-nondirectory buffer-file-name))`}.el --- Bindings for \`${2:`(string-trim-left (file-name-sans-extension (file-name-nondirectory buffer-file-name)) "evil-collection-")`}' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 James Nguyen
 
