@@ -1,4 +1,4 @@
-;;; evil-collection-org-roam.el --- Bindings for `org-roam'. -*- lexical-binding: t -*-
+;;; evil-collection-org-roam.el --- Bindings for `org-roam' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 James Nguyen
 
