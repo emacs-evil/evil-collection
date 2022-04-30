@@ -50,6 +50,9 @@
       "go" 'compilation-display-error
       (kbd "S-<return>") 'compilation-display-error
 
+      (kbd "TAB") 'compilation-next-error
+      (kbd "S-TAB") 'compilation-previous-error
+
       "gj" 'compilation-next-error
       "gk" 'compilation-previous-error
       (kbd "C-j") 'compilation-next-error
