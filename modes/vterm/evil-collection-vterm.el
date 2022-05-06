@@ -109,6 +109,8 @@ after the prompt."
   (vterm-goto-char (+ 1 (point)))
   (call-interactively #'vterm-yank arg))
 
+(declare-function vterm-reset-cursor-point "vterm")
+
 (evil-define-operator evil-collection-vterm-delete (beg end type register yank-handler)
   "Modification of evil-delete to work in vterm buffer. 
 Delete text from BEG to END with TYPE.
@@ -138,7 +140,7 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
     ;; place cursor on beginning of line
     (when (and (called-interactively-p 'any)
                (eq type 'line))
-      (evil-first-non-blank))))
+      (vterm-reset-cursor-point))))
 
 (evil-define-operator evil-collection-vterm-delete-backward-char (beg end type register)
   "Delete previous character."
