@@ -172,6 +172,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     doc-view
     docker
     ebib
+    ebuku
     edbi
     edebug
     ediff
