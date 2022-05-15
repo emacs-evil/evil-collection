@@ -81,7 +81,7 @@
     "e" 'realgud:cmd-eval-dwim
     "E" 'realgud:cmd-eval-at-point
     "U" 'realgud:cmd-until
-    "H" 'realgud:cmd-until
+    "H" 'realgud:cmd-until-here
     [mouse-2] 'realgud:tooltip-eval
     [left-fringe mouse-1] 'realgud-cmds--mouse-add-remove-bp
     [left-margin mouse-1] 'realgud-cmds--mouse-add-remove-bp
