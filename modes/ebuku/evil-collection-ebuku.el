@@ -1,6 +1,6 @@
 ;;; evil-collection-ebuku.el --- Evil bindings for Ebuku -*- lexical-binding: t -*-
 
-;; Copyright (C) 2020-2021 Alexis
+;; Copyright (C) 2020-2022 Alexis
 
 ;; Author: Alexis <flexibeast@gmail.com>
 ;; Maintainer: Alexis <flexibeast@gmail.com>
@@ -53,6 +53,8 @@
                               "t" 'ebuku-toggle-results-limit
                               (kbd "RET") 'ebuku-open-url
                               "C" 'ebuku-copy-url
+                              "T" 'ebuku-copy-title
+                              "I" 'ebuku-copy-index
                               [mouse-1] 'ebuku-open-url
                               [mouse-2] 'ebuku-open-url))
 
