@@ -455,6 +455,10 @@ Copy of `noc:lispy-delete'."
 
 (defvar evil-collection-lispy-mode-map-special
   (let ((map (make-sparse-keymap)))
+    (lispy-define-key map
+        ";" (evil-collection-lispy-action-then-next-sexp
+             'lispy-comment))
+
     ;; navigation
     (lispy-define-key map "l" 'lispy-right)
     (lispy-define-key map "h" 'lispy-left)
