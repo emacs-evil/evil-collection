@@ -72,12 +72,13 @@ F is the name of function, N is the pixel height."
 (defun evil-collection-xwidget-webkit-search-tabs ()
   "Search tabs (buffers) with 'buffer-name'."
   (interactive)
-  (cl-flet ((is-xwidget-webkit-buffer? (b) (with-current-buffer b
-                                             (equal major-mode 'xwidget-webkit-mode))))
+  (cl-flet ((is-xwidget-webkit-buffer?
+             (b) (with-current-buffer b
+                   (equal major-mode 'xwidget-webkit-mode))))
     (let ((bufs (cl-loop for b in (buffer-list)
                          when (is-xwidget-webkit-buffer? b)
                          collect (buffer-name b))))
-      (switch-to-buffer (completing-read "Go to: " bufs nil t)))))
+      (switch-to-buffer (completing-read "Switch to Tab: " bufs nil t)))))
 
 ;;;###autoload
 (defun evil-collection-xwidget-setup ()
