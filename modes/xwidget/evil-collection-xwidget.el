@@ -60,7 +60,7 @@ F is the name of function, N is the pixel height."
 
 (defun evil-collection-xwidget-webkit-new-tab (url)
   "New tab (new buffer) of URL."
-  (interactive "sxwidget-webkit URL: ")
+  (interactive "s(New Tab) xwidget-webkit URL: ")
   (xwidget-webkit-browse-url url :new-session))
 
 (defun evil-collection-xwidget-webkit-close-tab ()
