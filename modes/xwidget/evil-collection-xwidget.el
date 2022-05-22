@@ -134,6 +134,17 @@ F is the name of function, N is the pixel height."
     "?" 'describe-mode
 
     ;; Evil style
+
+    "<" 'xwidget-webkit-back
+    ">" 'xwidget-webkit-forward
+
+    ;; Additional bindings to browse url.
+    "gu" 'xwidget-webkit-browse-url
+    "J" 'xwidget-webkit-browse-url
+
+    ;; Additional binding to browse tabs.
+    "gt" 'evil-collection-xwidget-webkit-search-tabs
+
     "gr" 'xwidget-webkit-reload
     (kbd "C-f") 'xwidget-webkit-scroll-up
     (kbd "C-b") 'xwidget-webkit-scroll-down
