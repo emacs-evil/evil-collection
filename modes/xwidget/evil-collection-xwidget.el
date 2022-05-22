@@ -33,6 +33,7 @@
 (defvar evil-collection-xwidget-maps '(xwidget-webkit-mode-map))
 
 ;; Silence compile errors
+(declare-function xwidget-webkit-uri "xwidget")
 (declare-function xwidget-window-inside-pixel-height "xwidget")
 
 ;; HACK: elisp byte-opt can't optimize 'format' out, so it's checked at runtime.
