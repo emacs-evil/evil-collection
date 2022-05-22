@@ -83,6 +83,10 @@ F is the name of function, N is the pixel height."
 (defun evil-collection-xwidget-setup ()
   "Set up `evil' bindings for `xwidget'."
   (evil-collection-set-readonly-bindings 'xwidget-webkit-mode-map)
+
+  (evil-collection-define-key 'visual 'xwidget-webkit-mode-map
+    "y" 'xwidget-webkit-copy-selection-as-kill)
+
   (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
     ;; Mimic vimium (a browser extension)
     ;;
