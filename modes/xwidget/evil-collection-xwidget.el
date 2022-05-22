@@ -63,11 +63,25 @@ F is the name of function, N is the pixel height."
   (interactive "s(New Tab) xwidget-webkit URL: ")
   (xwidget-webkit-browse-url url :new-session))
 
+(defvar evil-collection-xwidget-webkit-last-closed-tab-url nil)
 (defun evil-collection-xwidget-webkit-close-tab ()
   "Close tab (kill buffer) without confirmation."
   (interactive)
+  (setq evil-collection-xwidget-webkit-last-closed-tab-url
+        (xwidget-webkit-uri (xwidget-webkit-current-session)))
   (let ((kill-buffer-query-functions nil))
     (kill-this-buffer)))
+
+(defun evil-collection-xwidget-webkit-restore-last-closed-tab ()
+  "Restore last closed tab."
+  (interactive)
+  (if (null evil-collection-xwidget-webkit-last-closed-tab-url)
+      (message "No url to restore.")
+    (message (format "Restoring last closed tab %s"
+              evil-collection-xwidget-webkit-last-closed-tab-url))
+    (xwidget-webkit-browse-url
+     evil-collection-xwidget-webkit-last-closed-tab-url :new-session)
+    (setq evil-collection-xwidget-webkit-last-closed-tab-url nil)))
 
 (defun evil-collection-xwidget-webkit-search-tabs ()
   "Search tabs (buffers) with 'buffer-name'."
@@ -130,6 +144,7 @@ F is the name of function, N is the pixel height."
     ;; Only 'new-tab' and 'close-tab' are supported.
     "t" 'evil-collection-xwidget-webkit-new-tab
     "x" 'evil-collection-xwidget-webkit-close-tab
+    "X" 'evil-collection-xwidget-webkit-restore-last-closed-tab
 
     ;; Miscellaneous
     "?" 'describe-mode
