@@ -102,6 +102,20 @@ When this option is enabled, the stash popup is available on \"Z\"."
   :group 'magit
   :type  'boolean)
 
+(defcustom evil-collection-magit-use-$-for-end-of-line t
+  "When non nil, use \"$\" for `evil-end-of-line'.
+
+Move `magit-process-buffer' to \"`\"."
+  :group 'magit
+  :type 'boolean)
+
+(defcustom evil-collection-magit-use-0-for-beginning-of-line t
+  "When non nil, use \"0\" for `evil-beginning-of-line'.
+
+Move `magit-diff-default-context' to \"~\"."
+  :group 'magit
+  :type 'boolean)
+
 (defcustom evil-collection-magit-state (if evil-collection-magit-use-y-for-yank 'normal 'motion)
   "State to use for most magit buffers."
   :group 'magit
@@ -371,6 +385,14 @@ When this option is enabled, the stash popup is available on \"Z\"."
        `((,states magit-mode-map "v" set-mark-command)
          (,states magit-mode-map "V" set-mark-command)
          (,states magit-mode-map ,(kbd "<escape>") evil-collection-magit-maybe-deactivate-mark)))
+
+     (when evil-collection-magit-use-$-for-end-of-line
+       `((,states magit-mode-map "$" evil-end-of-line)
+         (,states magit-mode-map "`" magit-process-buffer)))
+
+     (when evil-collection-magit-use-0-for-beginning-of-line
+       `((,states magit-mode-map "0" evil-beginning-of-line)
+         (,states magit-mode-map "~" magit-diff-default-context)))
 
      (when evil-collection-magit-use-z-for-folds
        `((,states magit-mode-map "Z"    magit-stash)
