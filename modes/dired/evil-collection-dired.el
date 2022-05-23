@@ -103,9 +103,6 @@
     "*/" 'dired-mark-directories
     "*@" 'dired-mark-symlinks
     "*%" 'dired-mark-files-regexp
-    "*(" 'dired-mark-sexp
-    "*." 'dired-mark-extension
-    "*O" 'dired-mark-omitted
     "*c" 'dired-change-marks
     "*s" 'dired-mark-subdir-files
     "*m" 'dired-mark
@@ -192,6 +189,13 @@
     ";v" 'epa-dired-do-verify
     ";s" 'epa-dired-do-sign
     ";e" 'epa-dired-do-encrypt)
+
+  ;; dired-x commands
+  (with-eval-after-load 'dired-x
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "*(" 'dired-mark-sexp
+      "*." 'dired-mark-extension
+      "*O" 'dired-mark-omitted))
 
   ;; dired-narrow commands
   (with-eval-after-load 'dired-narrow
