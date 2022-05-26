@@ -76,12 +76,12 @@
     "I"  'mpdel-song-play
     "q"  'mpdel-song-quit-window
 
-    "g-s" 'mpdel-song-small-increment
-    "g-n" 'mpdel-song-normal-increment
-    "g-l" 'mpdel-song-large-increment
-    "g+s" 'mpdel-song-small-decrement
-    "g+n" 'mpdel-song-normal-decrement
-    "g+l" 'mpdel-song-large-decrement
+    ">s" 'mpdel-song-small-increment
+    ">n" 'mpdel-song-normal-increment
+    ">l" 'mpdel-song-large-increment
+    "<s" 'mpdel-song-small-decrement
+    "<n" 'mpdel-song-normal-decrement
+    "<l" 'mpdel-song-large-decrement
 
     "gl" 'mpdel-playlist-open
     "("  'mpdel-playlist-move-up
