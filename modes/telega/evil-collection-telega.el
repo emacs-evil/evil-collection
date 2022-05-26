@@ -99,7 +99,7 @@
 
     "^" 'telega-chatbuf-beginning-of-thing
 
-    "g?" 'telega-describe-chatbuf
+    "g?" 'telega-describe-chat
 
     "Za" 'telega-chatbuf-attach
     "Zf" 'telega-chatbuf-attach-media
@@ -179,7 +179,8 @@
     "P" 'telega-msg-pin-toggle
     "ZR" 'telega-msg-resend
     "S" 'telega-msg-save
-    "U" 'telega-chatbuf-unmark-all
+    "u" 'telega-msg-unmark
+    "U" 'telega-chatbuf-msg-marks-toggle
     "=" 'telega-msg-diff-edits
     "s" 'telega-msg-favorite-toggle)
 
