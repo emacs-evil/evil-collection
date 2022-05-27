@@ -43,6 +43,8 @@
     "gk" 'xref-prev-line
     (kbd "C-j") 'xref-next-line
     (kbd "C-k") 'xref-prev-line
+    (kbd "C-n") 'xref-next-line
+    (kbd "C-p") 'xref-prev-line
     "]]" 'xref-next-line
     "[[" 'xref-prev-line
     "r" 'xref-query-replace-in-results
