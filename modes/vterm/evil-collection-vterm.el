@@ -93,7 +93,7 @@ after the prompt."
 (defun evil-collection-vterm-append ()
   "Append character after cursor."
   (interactive)
-  (vterm-goto-char (1+ (point)))
+  (vterm-goto-char (point))
   (call-interactively #'evil-append))
 
 (defun evil-collection-vterm-append-line ()
