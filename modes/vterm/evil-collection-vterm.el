@@ -146,6 +146,12 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
   (interactive "<R><x>")
   (evil-collection-vterm-delete beg end type register))
 
+(evil-define-operator evil-collection-vterm-delete-char (beg end type register)
+  "Delete current character."
+  :motion evil-delete-char
+  (interactive "<R><x>")
+  (evil-collection-vterm-delete beg end type register))
+
 (evil-define-operator evil-collection-vterm-delete-line (beg end type register yank-handler)
   "Modification of evil-delete line to work in vterm bufer. Delete to end of line."
   :motion nil
@@ -249,7 +255,8 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
     "A" 'evil-collection-vterm-append-line
     "d" 'evil-collection-vterm-delete
     "D" 'evil-collection-vterm-delete-line
-    "x" 'evil-collection-vterm-delete-backward-char
+    "x" 'evil-collection-vterm-delete-char
+    "X" 'evil-collection-vterm-delete-backward-char
     (kbd "RET") 'vterm-send-return
     "^" 'evil-collection-vterm-first-non-blank
     "i" 'evil-collection-vterm-insert
