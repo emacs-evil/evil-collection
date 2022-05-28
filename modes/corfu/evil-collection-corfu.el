@@ -43,17 +43,76 @@
   (call-interactively 'corfu-quit)
   (evil-normal-state))
 
+(defcustom evil-collection-corfu-key-themes '(default)
+  "Determines the key theme to be mapped.
+
+This variable should be set before `evil-collection-corfu-setup' is called.
+
+By default, only default is added to this list as the other key themes might
+be too obtrusive.
+
+This key theme variable may be refactored in the future so use with caution."
+  :type
+  '(repeat
+    :tag "Key Themes"
+    (choice
+     (const
+      :tag "Default Theme" default)
+     (const
+      :tag "Tab & Go" tab-n-go)
+     (const
+      :tag "Magic Return" magic-return)
+     (const
+      :tag "Magic Backspace" magic-backspace))))
+
 ;;;###autoload
 (defun evil-collection-corfu-setup ()
   "Set up `evil' bindings for `corfu'."
-  (evil-collection-define-key 'insert 'corfu-map
-    (kbd "C-n") 'corfu-next
-    (kbd "C-p") 'corfu-previous
-    (kbd "C-j") 'corfu-next
-    (kbd "C-k") 'corfu-previous
-    (kbd "M-j") 'corfu-next
-    (kbd "M-k") 'corfu-previous
-    (kbd "<escape>") 'evil-collection-corfu-quit-and-escape)
+  (when (memq 'default evil-collection-corfu-key-themes)
+    (evil-collection-define-key 'insert 'corfu-map
+      (kbd "C-n") 'corfu-next
+      (kbd "C-p") 'corfu-previous
+      (kbd "C-j") 'corfu-next
+      (kbd "C-k") 'corfu-previous
+      (kbd "M-j") 'corfu-next
+      (kbd "M-k") 'corfu-previous
+      (kbd "<escape>") 'evil-collection-corfu-quit-and-escape))
+
+  ;; https://github.com/minad/corfu#tab-and-go-completion
+  (when (memq 'tab-n-go evil-collection-corfu-key-themes)
+    (setq corfu-cycle t
+          corfu-preselect-first nil)
+    (evil-collection-define-key 'insert 'corfu-map
+      "TAB" 'corfu-next
+      [tab] 'corfu-next
+      "S-TAB" 'corfu-previous
+      [backtab] 'corfu-previous))
+
+  (when (memq 'magic-return evil-collection-corfu-key-themes)
+    (defvar evil-collection-corfu-insert-or-next-line
+      `(menu-item "" nil :filter ,(lambda (&optional _)
+                                    (when (>= corfu--index 0)
+                                      #'corfu-insert)))
+      "If we made a selection during `corfu' completion, select it.")
+    ;; FIXME: Not sure why we need to use `define-key' here instead of
+    ;; `evil-collection-define-key';.
+    (when (evil-collection-can-bind-key "RET")
+      (define-key corfu-map (kbd "RET")
+        evil-collection-corfu-insert-or-next-line)))
+
+  (when (memq 'magic-backspace evil-collection-corfu-key-themes)
+    (defvar evil-collection-corfu-cancel-or-backspace
+      `(menu-item "" nil :filter ,(lambda (&optional _)
+                                    (when (>= corfu--index 0)
+                                      #'corfu-reset)))
+      "If we made a selection during `corfu' completion, cancel it.")
+    (evil-collection-define-key 'insert
+      'corfu-map (kbd "DEL") evil-collection-corfu-cancel-or-backspace)
+    (evil-collection-define-key 'insert
+      'corfu-map [backspace] evil-collection-corfu-cancel-or-backspace)
+    (evil-collection-define-key 'insert
+      'corfu-map (kbd "<backspace>") evil-collection-corfu-cancel-or-backspace))
+
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'insert 'corfu-map
       (kbd "C-u") 'corfu-scroll-up))
