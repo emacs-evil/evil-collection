@@ -476,6 +476,13 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
       (setq filtered-bindings (nreverse filtered-bindings))
       (evil-collection--define-key states-to-bind map-sym filtered-bindings))))
 
+(defun evil-collection-can-bind-key (key)
+  "Return whether or not we should bind KEY."
+  (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar 'kbd evil-collection-key-blacklist)))
+    (or (and whitelist (member key whitelist))
+        (not (member key blacklist)))))
+
 (defun evil-collection--define-key (state map-sym bindings)
   "Workhorse function for `evil-collection-define-key'.
 
