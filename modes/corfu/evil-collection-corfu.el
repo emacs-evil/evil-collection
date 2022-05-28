@@ -37,6 +37,12 @@
 
 (defconst evil-collection-corfu-maps '(corfu-map))
 
+(defun evil-collection-corfu-quit-and-escape ()
+  "Call `corfu-quit' and then return to Normal State."
+  (interactive)
+  (call-interactively 'corfu-quit)
+  (evil-normal-state))
+
 ;;;###autoload
 (defun evil-collection-corfu-setup ()
   "Set up `evil' bindings for `corfu'."
@@ -47,7 +53,7 @@
     (kbd "C-k") 'corfu-previous
     (kbd "M-j") 'corfu-next
     (kbd "M-k") 'corfu-previous
-    (kbd "<escape>") 'corfu-quit)
+    (kbd "<escape>") 'evil-collection-corfu-quit-and-escape)
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'insert 'corfu-map
       (kbd "C-u") 'corfu-scroll-up))
