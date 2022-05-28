@@ -744,6 +744,39 @@ Finally, add ~eldoc~ to ~evil-collection--supported-modes~.
 either target mode symbols or lists which `car' is the mode
 symbol and `cdr' the packages to register.")
 #+end_src
+** Submitting Issues
+
+When reproducing issues, you can use this emacs -Q recipe.
+
+#+begin_src emacs-lisp :tangle yes
+(setq user-emacs-directory "~/.emacs.1.d")
+
+(setq package-enable-at-startup nil
+      package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(require 'package)
+(package-initialize)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+#+end_src
 
 ** Contributing
 
