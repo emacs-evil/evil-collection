@@ -34,6 +34,8 @@
   :group 'evil-collection)
 
 (defvar corfu-map)
+(defvar corfu-cycle)
+(defvar corfu-preselect-first)
 
 (defconst evil-collection-corfu-maps '(corfu-map))
 
