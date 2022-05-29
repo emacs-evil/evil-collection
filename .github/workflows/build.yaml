@@ -19,14 +19,24 @@ jobs:
           - 28.1
           - snapshot
     steps:
-    - uses: actions/checkout@v2
     - uses: purcell/setup-emacs@master
       with:
         version: ${{ matrix.emacs_version }}
+
+    - uses: actions/checkout@v2
+
+    - name: Print emacs version
+      run: |
+        emacs --version
+
     - uses: cask/setup-cask@master
       with:
         version: snapshot
+
     - run: cask install
+
     - run: make compile
+
     - run: make lint
+
     - run: make test
