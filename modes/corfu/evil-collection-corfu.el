@@ -36,6 +36,10 @@
 (defvar corfu-map)
 (defvar corfu-cycle)
 (defvar corfu-preselect-first)
+(defvar corfu--index)
+
+(declare-function "corfu-insert" "corfu")
+(declare-function "corfu-reset" "corfu")
 
 (defconst evil-collection-corfu-maps '(corfu-map))
 
@@ -94,7 +98,7 @@ This key theme variable may be refactored in the future so use with caution."
     (defvar evil-collection-corfu-insert-or-next-line
       `(menu-item "" nil :filter ,(lambda (&optional _)
                                     (when (>= corfu--index 0)
-                                      #'corfu-insert)))
+                                      'corfu-insert)))
       "If we made a selection during `corfu' completion, select it.")
     ;; FIXME: Not sure why we need to use `define-key' here instead of
     ;; `evil-collection-define-key';.
@@ -106,7 +110,7 @@ This key theme variable may be refactored in the future so use with caution."
     (defvar evil-collection-corfu-cancel-or-backspace
       `(menu-item "" nil :filter ,(lambda (&optional _)
                                     (when (>= corfu--index 0)
-                                      #'corfu-reset)))
+                                      'corfu-reset)))
       "If we made a selection during `corfu' completion, cancel it.")
     (evil-collection-define-key 'insert
       'corfu-map (kbd "DEL") evil-collection-corfu-cancel-or-backspace)
