@@ -33,10 +33,18 @@
 ;; Some minibuffer-related packages such as Helm rely on this option.
 
 ;;; Code:
+
+;; `evil' requires `seq-into'?
+;; This require on `seq' before loading `evil 'prevents `evil' from erroring
+;; out with the below message on Emacs 29.
+;; Symbol's function definition is void: seq-into
+;; Looks like this error can be traced through evil ->
+;; Look at the commit that moved this line above `evil' to see the error message.
+;; evil -> evil-vars -> read-kbd-macro -> seq-into -> error.
+(require 'seq)
 (require 'cl-lib)
 (require 'evil)
 (require 'annalist)
-(require 'seq)
 
 (defvar evil-collection-base-dir (file-name-directory load-file-name)
   "Store the directory evil-collection.el was loaded from.")
