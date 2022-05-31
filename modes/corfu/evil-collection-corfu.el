@@ -91,7 +91,7 @@ This key theme variable may be refactored in the future so use with caution."
     (evil-collection-define-key 'insert 'corfu-map
       "TAB" 'corfu-next
       [tab] 'corfu-next
-      "S-TAB" 'corfu-previous
+      [S-tab] 'corfu-previous
       [backtab] 'corfu-previous))
 
   (when (memq 'magic-return evil-collection-corfu-key-themes)
