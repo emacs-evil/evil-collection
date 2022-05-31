@@ -401,7 +401,8 @@ This function takes care of checking the whitelist/blacklist against the full
 binding.
 
 For example:
-(evil-collection-define-operator-key 'yank 'pass-mode-map \"f\" 'pass-copy-field)
+(evil-collection-define-operator-key \='yank
+  \='pass-mode-map \"f\" \='pass-copy-field)
 
 This will check \"yf\" against a user's white/blacklist and also record the
 binding in `annalist' as so."
@@ -823,7 +824,7 @@ forwarded to `require'."
 Alternatively, you may register select bindings manually, for
 instance:
 
-  (with-eval-after-load 'calendar
+  (with-eval-after-load \='calendar
     (evil-collection-calendar-setup))
 
 If MODES is specified (as either one mode or a list of modes), use those modes
