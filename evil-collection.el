@@ -41,6 +41,7 @@
 ;; Looks like this error can be traced through evil ->
 ;; Look at the commit that moved this line above `evil' to see the error message.
 ;; evil -> evil-vars -> read-kbd-macro -> seq-into -> error.
+;; https://github.com/emacs-evil/evil/issues/1627
 (require 'seq)
 (require 'cl-lib)
 (require 'evil)
