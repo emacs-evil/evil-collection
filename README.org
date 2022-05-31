@@ -1,7 +1,7 @@
 #+TITLE: Evil Collection
 #+STARTUP: noindent
 
-[[https://github.com/emacs-evil/evil-collection/actions][file:https://github.com/emacs-evil/evil-collection/workflows/build/badge.svg?branch=master]]
+[[https://github.com/emacs-evil/evil-collection/actions][file:https://github.com/emacs-evil/evil-collection/workflows/CI/badge.svg?branch=master]]
 [[https://melpa.org/#/evil-collection][file:https://melpa.org/packages/evil-collection-badge.svg]]
 [[https://stable.melpa.org/#/evil-collection][file:https://stable.melpa.org/packages/evil-collection-badge.svg]]
 
