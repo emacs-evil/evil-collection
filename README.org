@@ -751,7 +751,7 @@ When reproducing issues, you can use this emacs -Q recipe.
 #+begin_src emacs-lisp :tangle yes
 (setq user-emacs-directory "~/.emacs.1.d")
 (setq package-user-dir
-      (format "%selpa/%s/" user-emacs-directory emacs-major-version))
+      (format "%s/elpa/%s/" user-emacs-directory emacs-major-version))
 
 (setq package-enable-at-startup nil
       package-archives
