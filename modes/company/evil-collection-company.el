@@ -42,7 +42,7 @@
   "The `evil-state's which `company' function can be requested."
   :type '(repeat symbol))
 (defcustom evil-collection-want-company-extended-keybindings nil
-  "The 'evil-company-extended' keybindings should be requested"
+  "The \='evil-company-extended' keybindings should be requested"
   :type 'boolean)
 
 (defvar company-active-map)

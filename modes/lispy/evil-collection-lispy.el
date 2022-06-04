@@ -579,10 +579,10 @@ Copy of `noc:lispy-delete'."
 (defun evil-collection-lispy-set-key-theme (theme)
   "Set `lispy-mode-map' for according to THEME.
 THEME is a list of choices: 'special, 'lispy, 'paredit, 'evilcp,
-'c-digits', 'special-evil', 'evil'.
+ \='c-digits', \='special-evil', \='evil'.
 
 This is an exact copy of `lispy-set-key-theme' except with the additions of
-'special-evil' and 'evil' themes."
+ \='special-evil' and \='evil' themes."
   (setq lispy-mode-map
         (make-composed-keymap
          (delq nil
