@@ -45,7 +45,7 @@
 
 ;;;###autoload
 (defun evil-collection-mpc-setup ()
-  "Setup up 'evil' bindings for 'mpc-mode'."
+  "Setup up `evil' bindings for `mpc-mode'."
   (evil-collection-define-key 'normal 'mpc-mode-map
     "C-j" 'evil-collection-mpc-move-down
     "C-k" 'evil-collection-mpc-move-up

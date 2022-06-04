@@ -33,7 +33,12 @@
                                             simple-mpc-current-playlist-mode-map))
 
 (defun evil-collection-simple-mpc-set-bindings ()
-  "Set up 'evil' bindings for 'simple-mpc-mode', 'simple-mpc-query-mode', and 'simple-mpc-current-playlist-mode'."
+  "Set up `evil' bindings for `simple-mpc'.
+
+Other modes that are configured:
+`simple-mpc-mode'
+`simple-mpc-query-mode'
+`simple-mpc-current-playlist-mode'"
   (evil-collection-define-key 'normal 'simple-mpc-mode-map
     "p" 'simple-mpc-toggle
     ">" 'simple-mpc-next

@@ -33,7 +33,7 @@
 
 ;;;###autoload
 (defun evil-collection-smerge-mode-setup ()
-  "Setup up 'evil' bindings for 'smerge-mode'."
+  "Setup up `evil' bindings for `smerge-mode'."
   (evil-collection-define-key 'normal 'smerge-mode-map
     "gj" 'smerge-next
     "]]" 'smerge-next

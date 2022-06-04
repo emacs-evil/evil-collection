@@ -38,7 +38,8 @@
 
 ;; HACK: elisp byte-opt can't optimize 'format' out, so it's checked at runtime.
 (defun evil-collection-xwidget-webkit--scroll-trampoline (f n)
-  "Compatible wrapper for 'xwidget-webkit-scroll-up' and so on.
+  "Compatible wrapper for `xwidget-webkit-scroll-up' and so on.
+
 F is the name of function, N is the pixel height."
   (let ((realf (intern (format "%s" f))))
     (if (>= emacs-major-version 28)
@@ -46,14 +47,14 @@ F is the name of function, N is the pixel height."
       (funcall realf))))
 
 (defun evil-collection-xwidget-webkit-scroll-half-page-up ()
-  "Compatible wrapper for 'xwidget-webkit-scroll-up'."
+  "Compatible wrapper for `xwidget-webkit-scroll-up'."
   (interactive)
   (evil-collection-xwidget-webkit--scroll-trampoline
    "xwidget-webkit-scroll-up"
    (/ (xwidget-window-inside-pixel-height (selected-window)) 2)))
 
 (defun evil-collection-xwidget-webkit-scroll-half-page-down ()
-  "Compatible wrapper for 'xwidget-webkit-scroll-down'."
+  "Compatible wrapper for `xwidget-webkit-scroll-down'."
   (interactive)
   (evil-collection-xwidget-webkit--scroll-trampoline
    "xwidget-webkit-scroll-down"
@@ -85,7 +86,7 @@ F is the name of function, N is the pixel height."
     (setq evil-collection-xwidget-webkit-last-closed-tab-url nil)))
 
 (defun evil-collection-xwidget-webkit-search-tabs ()
-  "Search tabs (buffers) with 'buffer-name'."
+  "Search tabs (buffers) with `buffer-name'."
   (interactive)
   (cl-flet ((is-xwidget-webkit-buffer?
              (b) (with-current-buffer b
@@ -106,7 +107,7 @@ F is the name of function, N is the pixel height."
   (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
     ;; Mimic vimium (a browser extension)
     ;;
-    ;; Since xwidget has no tab concept, 'open-url-new-tab' etc are not
+    ;; Since xwidget has no tab concept, `open-url-new-tab' etc are not
     ;; supported.
     ;;
     ;; TODO: edit-mode, visual-mode
@@ -122,7 +123,7 @@ F is the name of function, N is the pixel height."
     "l" 'xwidget-webkit-scroll-forward
     "r" 'xwidget-webkit-reload
     "yy" 'xwidget-webkit-current-url
-    ;; TODO 'first-text-input', 'open-link-in-current-tab'
+    ;; TODO `first-text-input', `open-link-in-current-tab'
     "gi" 'undefined
     "f" 'undefined
 
@@ -142,7 +143,7 @@ F is the name of function, N is the pixel height."
 
     ;; Manipulating tabs (actually buffers)
     ;;
-    ;; Only 'new-tab' and 'close-tab' are supported.
+    ;; Only `new-tab' and `close-tab' are supported.
     "t" 'evil-collection-xwidget-webkit-new-tab
     "x" 'evil-collection-xwidget-webkit-close-tab
     "X" 'evil-collection-xwidget-webkit-restore-last-closed-tab

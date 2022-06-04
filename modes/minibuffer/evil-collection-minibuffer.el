@@ -41,7 +41,7 @@
 
 This function is meant to be hooked in the minibuffer:
 
-  (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
+  (add-hook \='minibuffer-setup-hook \='evil-collection-minibuffer-insert)
 
 `evil-set-initial-state' can not be used for the minibuffer since
 it does not have a mode."
