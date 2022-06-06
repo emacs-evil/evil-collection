@@ -99,8 +99,8 @@ NOTE: If you don't like surprises but still want to use ~evil-collection-init~, 
 and adding each mode manually might be a better option.
 
 ** Configuration
-
-Modify ~evil-collection-mode-list~ to disable or add any modes that should be evilified by ~evil-collection~.
+Modify ~evil-collection-mode-list~ to disable or add any modes that should be
+evilified by ~evil-collection~.
 
 | Variable                                   | Default | Description                                                       |
 |--------------------------------------------+---------+-------------------------------------------------------------------|
@@ -111,10 +111,11 @@ Modify ~evil-collection-mode-list~ to disable or add any modes that should be ev
 | evil-collection-setup-debugger-keys        | t       | Set up debugger keys for certain modes.                           |
 | evil-collection-want-unimpaired-p          | t       | Set up unimpaired bindings globally.                              |
 | evil-collection-want-find-usages-bindings  | t       | Bind -find references-, etc to various modes.                     |
+| evil-collection-config                     | *       | List of mode specific configurations.                             |
 
-For example, if you want to enable Evil in the minibuffer, you'll have to turn it on
-explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.
-Some minibuffer-related packages such as Helm rely on this option.
+For example, if you want to enable Evil in the minibuffer, you'll have to turn
+it on explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.  Some
+minibuffer-related packages such as Helm rely on this option.
 
 ~use-package~ example:
 
@@ -123,6 +124,10 @@ Some minibuffer-related packages such as Helm rely on this option.
   :custom (evil-collection-setup-minibuffer t)
   :init (evil-collection-init))
 #+end_src
+
+~evil-collection-config~ can also be modified to configure specific modes.
+At the moment, it can be used to defer binding keys to those specific modes
+in order to improve startup time.
 
 ** Guidelines
 
@@ -326,7 +331,8 @@ Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
 - ~o~: Change the sort [o]rder.
 - ~O~: Sort in reverse order.
 
-  There is no real consensus around which key to bind to sorting.  What others do by default:
+  There is no real consensus around which key to bind to sorting.  What others
+  do by default:
 
   - ~package-menu~ uses ~S~.
 
@@ -372,8 +378,8 @@ When ~evil-collection-want-find-usages-bindings~ is set to t:
 
 - ~J~: [[mu4e][mu4e]] has ~j~ and [[evil-mu4e][evil-mu4e]] uses ~J~, so we use ~J~ too.
 
-  Some special modes like [[mu4e][mu4e]] and ibuffer offer to "jump" to a different
-  buffer.  This sometimes depends on the thing at point.
+  Some special modes like [[mu4e][mu4e]] and ibuffer offer to "jump" to a
+  different buffer.  This sometimes depends on the thing at point.
 
   This is not related to Evil jumps like ~C-i~ and ~C-o~, nor to "go to
   definition".
@@ -682,10 +688,10 @@ For example, if we were to want to add ~evil-collection~ support to ~eldoc~.
 (provide 'eldoc)
 #+end_src
 
-Create a directory named eldoc under [[modes-directory][modes/]]. Create a file named
-evil-collection-eldoc.el under the newly created eldoc directory. Then use the
-above template as an example or, using [[yasnippet][yasnippet]], ~yas-expand~ the above
-template which will result in something like below:
+Create a directory named eldoc under [[modes-directory][modes/]]. Create a file
+named evil-collection-eldoc.el under the newly created eldoc directory. Then use
+the above template as an example or, using [[yasnippet][yasnippet]],
+~yas-expand~ the above template which will result in something like below:
 
 #+begin_src emacs-lisp :tangle yes
 ;;; evil-collection-eldoc.el --- Bindings for `eldoc'. -*- lexical-binding: t -*-
@@ -781,15 +787,18 @@ When reproducing issues, you can use this emacs -Q recipe.
 #+end_src
 
 ** Contributing
-
 We welcome any additional modes that are not already supported.
 
 All bindings in ~evil-collection~ are open to change so if there's a better or
-more consistent binding, please [[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or [[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
+more consistent binding, please
+[[https://github.com/emacs-evil/evil-collection/issues][open an issue]] or
+[[https://github.com/emacs-evil/evil-collection/pulls][submit a pull request]].
 
-Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp Style Guide]] for coding conventions.
+Follow [[https://github.com/bbatsov/emacs-lisp-style-guide/][The Emacs Lisp
+Style Guide]] for coding conventions.
 
-[[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erlang/OTP]] has a good read for helpful commit messages.
+[[https://github.com/erlang/otp/wiki/writing-good-commit-messages][Erlang/OTP]]
+has a good read for helpful commit messages.
 
 #+LINK: EMMS https://www.gnu.org/software/emms/
 #+LINK: evilmagit https://github.com/emacs-evil/evil-magit
