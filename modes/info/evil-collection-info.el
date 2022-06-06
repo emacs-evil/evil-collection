@@ -84,6 +84,8 @@
     "g9" 'Info-nth-menu-item
 
     ;; goto
+    "J" 'Info-menu
+
     "gG" 'Info-goto-node
     "gm" 'Info-menu
     "gt" 'Info-top-node
