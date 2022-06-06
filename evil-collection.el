@@ -292,6 +292,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     simple-mpc
     slime
     sly
+    snake
     speedbar
     ,@(when (>= emacs-major-version 27) '(tab-bar))
     tablist
