@@ -352,7 +352,7 @@ this confusing. It will be included if
   :group 'evil-collection)
 
 (defcustom evil-collection-config
-  `((buff-menu :defer t)
+  '((buff-menu :defer t)
     (calc :defer t)
     (comint :defer t)
     (debug :defer t)
@@ -899,8 +899,6 @@ instead of the modes in `evil-collection-mode-list'."
     (evil-collection-require 'unimpaired)
     (evil-collection-unimpaired-setup)))
 
-
-
 (defun evil-collection-setup (&optional modes)
   "Register the Evil bindings for all modes in `evil-collection-mode-list'.
 
@@ -908,7 +906,7 @@ instead of the modes in `evil-collection-mode-list'."
 
 This is a special wrapper over `evil-collection-init' that respects
 configuration from `evil-collection-config'. This function is experimental,
-so don't use if you don't breakages or API changes.
+so don't use if you don't want breakages or API changes.
 
 If MODES is specified (as either one mode or a list of modes), use those modes
 instead of the modes in `evil-collection-mode-list'.
