@@ -350,6 +350,46 @@ this confusing. It will be included if
   :type '(repeat (choice symbol sexp))
   :group 'evil-collection)
 
+(defcustom evil-collection-config
+  `((buff-menu :defer t)
+    (calc :defer t)
+    (comint :defer t)
+    (debug :defer t)
+    (diff-mode :defer t)
+    (dired :defer t)
+    (edebug :defer t)
+    (eldoc :defer t)
+    (elisp-slime-nav :defer t)
+    (help :defer t)
+    (image :defer t)
+    (indent :defer t)
+    (dired :defer t)
+    (info :defer t)
+    (replace :defer t)
+    (occur :defer t)
+    (outline :defer t)
+    (package :defer t)
+    (package-menu :defer t)
+    (process-menu :defer t)
+    (simple :defer t)
+    (tab-bar :defer t)
+    (tabulated-list :defer t)
+    (xref :defer t))
+  "The list of modes with special configuration.
+
+These modes should match entries within `evil-collection-mode-list'.
+
+This variable is consumed only by `evil-collection-setup'.
+
+
+NOTE: The API of this variable may change drastically.
+
+Currently supported keys:
+
+:defer t or TIME in seconds to defer loading mode."
+  :type '(repeat (choice symbol sexp))
+  :group 'evil-collection)
+
 (defcustom evil-collection-key-whitelist '()
   "List of keys that may be used by Evil Collection.
 This is a list of strings that are suitable for input to
@@ -842,6 +882,7 @@ instead of the modes in `evil-collection-mode-list'."
               reqs (cdr mode)))
       (dolist (req reqs)
         (with-eval-after-load req
+          ;; (message (format "Loaded %S..." req))
           (evil-collection-require m)
           (funcall (intern (concat "evil-collection-" (symbol-name m)
                                    "-setup")))
@@ -856,6 +897,58 @@ instead of the modes in `evil-collection-mode-list'."
   (when evil-collection-want-unimpaired-p
     (evil-collection-require 'unimpaired)
     (evil-collection-unimpaired-setup)))
+
+
+
+(defun evil-collection-setup (&optional modes)
+  "Register the Evil bindings for all modes in `evil-collection-mode-list'.
+
+----------------------EXPERIMENTAL------------------------------------------
+
+This is a special wrapper over `evil-collection-init' that respects
+configuration from `evil-collection-config'. This function is experimental,
+so don't use if you don't breakages or API changes.
+
+If MODES is specified (as either one mode or a list of modes), use those modes
+instead of the modes in `evil-collection-mode-list'.
+
+----------------------EXPERIMENTAL------------------------------------------"
+  (if modes
+      (or (listp modes) (setq modes (list modes)))
+    (setq modes evil-collection-mode-list))
+  (let ((configs evil-collection-config)
+        (deferred-modes)
+        (delays))
+    (dolist (config configs)
+      (let ((defer (plist-get (cdr config) :defer)))
+        (when defer
+          (push (car config) deferred-modes)
+          (push defer delays))))
+    (let ((filtered-modes
+           (cl-remove-if
+            (lambda (mode)
+              (let ((filterp nil)
+                    (modes (if (consp mode) mode (list mode))))
+                (dolist (m modes)
+                  (let ((x (memq m deferred-modes)))
+                    (when x
+                      (setf filterp t)
+                      ;; `evil-collection-config' format is slightly different
+                      ;; than `evil-collection-mode-list', so use the mode
+                      ;; entry from the mode list instead.
+                      (setf (car x) mode))))
+                filterp))
+            modes)))
+      (evil-collection-init filtered-modes))
+    (message (format "Deferring: %S" deferred-modes))
+    (dotimes (i (length deferred-modes))
+      (let ((mode (nth i deferred-modes))
+            (delay (nth i delays)))
+        ;; (message (format "Delaying %S..."
+        ;;                  (if (consp mode) (car mode) mode)))
+        (run-with-idle-timer
+         (if (numberp delay) delay 3) nil
+         (apply-partially 'evil-collection-init (list mode)))))))
 
 (defvar evil-collection-delete-operators '(evil-delete
                                            evil-cp-delete
