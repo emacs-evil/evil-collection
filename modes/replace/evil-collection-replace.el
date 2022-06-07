@@ -1,6 +1,6 @@
-;;; evil-collection-occur.el --- Evil bindings for occur -*- lexical-binding: t -*-
+;;; evil-collection-replace.el --- Evil bindings for `replace' -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2022 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -24,20 +24,17 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; Evil bindings for `occur'.
+;; Evil bindings for `replace'.
 
 ;;; Code:
 (require 'evil-collection)
+(require 'replace nil t)
 
-(when (> emacs-major-version 25)
-  ;; Specifying NOERROR pacifies package-lint
-  (require 'replace nil t))
-
-(defconst evil-collection-occur-maps '(occur-mode-map
-                                       occur-edit-mode-map))
+(defconst evil-collection-replace-maps '(occur-mode-map
+                                         occur-edit-mode-map))
 
 ;;;###autoload
-(defun evil-collection-occur-setup ()
+(defun evil-collection-replace-setup ()
   "Set up `evil' bindings for `occur'."
   (evil-set-initial-state 'occur-mode 'normal)
 
@@ -78,5 +75,5 @@
     (kbd "C-o") 'occur-mode-display-occurrence
     (kbd "C-c C-f") 'next-error-follow-minor-mode))
 
-(provide 'evil-collection-occur)
-;;; evil-collection-occur.el ends here
+(provide 'evil-collection-replace)
+;;; evil-collection-replace.el ends here

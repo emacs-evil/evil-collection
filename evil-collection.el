@@ -254,7 +254,6 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     newsticker
     notmuch
     nov
-    (occur replace)
     omnisharp
     org
     org-present
@@ -276,6 +275,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     racket-describe
     realgud
     reftex
+    replace ;; For `occur'.
     restclient
     rg
     ripgrep
@@ -367,7 +367,6 @@ this confusing. It will be included if
     (dired :defer t)
     (info :defer t)
     (replace :defer t)
-    (occur :defer t)
     (outline :defer t)
     (package :defer t)
     (package-menu :defer t)
