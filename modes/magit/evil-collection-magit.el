@@ -6,7 +6,7 @@
 ;; Maintainer: Justin Burkett <justin@burkett.cc>
 ;; James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
-;; Package-Requires: ((emacs "25.1") (evil "1.2.3") (magit "2.6.0"))
+;; Package-Requires: ((emacs "26.3") (evil "1.2.3") (magit "2.6.0"))
 ;; Homepage: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.4.1
 

@@ -4,7 +4,7 @@
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
-;; Package-Requires: ((emacs "25.1") (evil "1.2.3"))
+;; Package-Requires: ((emacs "26.3") (evil "1.2.3"))
 ;; Homepage: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.4.1
 

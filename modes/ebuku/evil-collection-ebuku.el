@@ -6,7 +6,7 @@
 ;; Maintainer: Alexis <flexibeast@gmail.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "25.1"))
+;; Package-Requires: ((emacs "26.3"))
 ;; Keywords: evil, ebuku, tools
 
 ;; This program is free software; you can redistribute it and/or modify

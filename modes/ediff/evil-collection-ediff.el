@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Homepage: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "25.1") (evil "1.2.3"))
+;; Package-Requires: ((emacs "26.3") (evil "1.2.3"))
 ;; Keywords: evil, ediff, tools
 
 ;; This file is free software; you can redistribute it and/or modify
