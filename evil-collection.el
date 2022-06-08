@@ -352,9 +352,12 @@ this confusing. It will be included if
   :group 'evil-collection)
 
 (defcustom evil-collection-config
-  '((buff-menu :defer t)
+  '((evil
+     :debugger t :minibuffer nil :cal-org nil :unimpaired t :usages t)
+    (buff-menu :defer t)
     (calc :defer t)
     (comint :defer t)
+    (corfu :key-themes (default tab-n-go magic-return magic-backspace))
     (debug :defer t)
     (diff-mode :defer t)
     (dired :defer t)
@@ -914,14 +917,30 @@ instead of the modes in `evil-collection-mode-list'.
   (if modes
       (or (listp modes) (setq modes (list modes)))
     (setq modes evil-collection-mode-list))
-  (let ((configs evil-collection-config)
-        (deferred-modes)
-        (delays))
+  (let* ((global (cdr (cl-find-if (lambda (mode)
+                                    (eq (car mode) 'evil))
+                                  evil-collection-config)))
+         (configs (if global
+                      (cl-remove-if
+                       (lambda (mode) (eq (car mode) 'evil))
+                       evil-collection-config)
+                    evil-collection-config))
+         ;; :defer
+         (deferred-modes)
+         (delays)
+         ;; :key-themes
+         (key-theme-modes)
+         (key-themes))
     (dolist (config configs)
-      (let ((defer (plist-get (cdr config) :defer)))
+      (let ((defer (plist-get (cdr config) :defer))
+            (key-theme (plist-get (cdr config) :key-themes))
+            (mode (car config)))
         (when defer
-          (push (car config) deferred-modes)
-          (push defer delays))))
+          (push mode deferred-modes)
+          (push defer delays))
+        (when key-theme
+          (push mode key-theme-modes)
+          (push key-theme key-themes))))
     (let ((filtered-modes
            (cl-remove-if
             (lambda (mode)
@@ -937,6 +956,19 @@ instead of the modes in `evil-collection-mode-list'.
                       (setf (car x) mode))))
                 filterp))
             modes)))
+      (when global
+        (setf
+         evil-collection-setup-minibuffer (plist-get global :minibuffer)
+         evil-collection-setup-debugger-keys (plist-get global :debugger)
+         evil-collection-calendar-want-org-bindings (plist-get global :cal-org)
+         evil-collection-want-unimpaired-p (plist-get global :unimpaired)
+         evil-collection-want-find-usages-bindings (plist-get global :usages)))
+      (dotimes (i (length key-themes))
+        (let ((mode (nth i key-theme-modes))
+              (theme (nth i key-themes))
+              (custom (format "evil-collection-%S-key-themes" mode)))
+          (message (format "Setting up key theme: %S" custom))
+          (setf (symbol-value (intern custom)) theme)))
       (evil-collection-init filtered-modes))
     (message (format "Deferring: %S" deferred-modes))
     (dotimes (i (length deferred-modes))
