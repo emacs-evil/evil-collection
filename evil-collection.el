@@ -151,6 +151,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     atomic-chrome
     auto-package-update
     beginend
+    bluetooth
     bm
     bookmark
     (buff-menu "buff-menu")
