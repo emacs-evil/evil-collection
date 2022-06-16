@@ -360,7 +360,6 @@ this confusing. It will be included if
     (dired :defer t)
     (edebug :defer t)
     (eldoc :defer t)
-    (elisp-slime-nav :defer t)
     (help :defer t)
     (image :defer t)
     (indent :defer t)
