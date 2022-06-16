@@ -694,7 +694,7 @@ the above template as an example or, using [[yasnippet][yasnippet]],
 ~yas-expand~ the above template which will result in something like below:
 
 #+begin_src emacs-lisp :tangle yes
-;;; evil-collection-eldoc.el --- Bindings for `eldoc'. -*- lexical-binding: t -*-
+;;; evil-collection-eldoc.el --- Bindings for `eldoc' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 James Nguyen
 

@@ -1,4 +1,4 @@
-;;; evil-collection-so-long.el --- Bindings for `so-long'. -*- lexical-binding: t -*-
+;;; evil-collection-so-long.el --- Bindings for `so-long' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022 James Nguyen
 
