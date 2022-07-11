@@ -58,6 +58,7 @@
                  consult-imenu
                  consult-org-heading
                  consult-line))
+    (evil-declare-not-repeat cmd)
     (evil-set-command-property cmd :jump t)))
 
 (defun evil-collection-consult--evil-mark-ring ()
