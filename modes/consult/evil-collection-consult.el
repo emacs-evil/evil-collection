@@ -52,12 +52,13 @@
 
 (defun evil-collection-consult-set-bindings ()
   "Set the bindings."
-  (evil-set-command-property 'consult-outline :jump t)
-  (evil-set-command-property 'consult-mark :jump t)
-  (evil-set-command-property 'consult-global-mark :jump t)
-  (evil-set-command-property 'consult-imenu :jump t)
-  (evil-set-command-property 'consult-org-heading :jump t)
-  (evil-set-command-property 'consult-line :jump t))
+  (dolist (cmd '(consult-outline
+                 consult-mark
+                 consult-global-mark
+                 consult-imenu
+                 consult-org-heading
+                 consult-line))
+    (evil-set-command-property cmd :jump t)))
 
 (defun evil-collection-consult--evil-mark-ring ()
   "Return alist of char & marker for evil markers in current buffer."
