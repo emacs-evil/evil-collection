@@ -675,9 +675,9 @@ modes in the current buffer."
                                                            &rest translations
                                                            &key destructive
                                                            &allow-other-keys)
-  "Similar to `evil-collection-translate-key' but for minor modes."
-
   "Translate keys in the keymap(s) corresponding to STATES and MODES.
+
+Similar to `evil-collection-translate-key' but for minor modes.
 STATES should be the name of an evil state, a list of states, or nil. MODES
 should be a symbol corresponding to minor-mode to make the translations in or a
 list of minor-mode symbols. TRANSLATIONS corresponds to a list of
