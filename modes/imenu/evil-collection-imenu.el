@@ -32,6 +32,7 @@
 ;;;###autoload
 (defun evil-collection-imenu-setup ()
   "Set up Evil integration for `imenu'."
+  (evil-declare-not-repeat 'imenu)
   (evil-add-command-properties 'imenu :jump t))
 
 (provide 'evil-collection-imenu)
