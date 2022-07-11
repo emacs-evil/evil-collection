@@ -160,7 +160,7 @@ with older release versions of `mu4e.'"
      "B" mu4e-headers-search-bookmark-edit
      ";" mu4e-context-switch
      ,(kbd "RET") mu4e-headers-view-message
-     "/" mu4e-headers-search-narrow
+     "/" mu4e-search-narrow
      "s" mu4e-headers-search
      "S" mu4e-headers-search-edit
      "x" mu4e-mark-execute-all
