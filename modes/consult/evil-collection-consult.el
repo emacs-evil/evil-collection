@@ -79,14 +79,14 @@ as defined in `evil-collection-consult--evil-mark-ring'."
   (let* ((candidates)
          (current-buf (current-buffer)))
     (save-excursion
-      (dolist (marker (or markers (evil-collection-consult--evil-mark-ring)))
-        (let ((pos (marker-position (cdr marker)))
-              (buf (marker-buffer (cdr marker))))
+      (pcase-dolist (`(,char . ,marker) (or markers (evil-collection-consult--evil-mark-ring)))
+        (let ((pos (marker-position marker))
+              (buf (marker-buffer marker)))
           (when (and (eq buf current-buf)
                      (consult--in-range-p pos))
             (goto-char pos)
             (push (consult--location-candidate
-                   (format "%s: %s" (char-to-string (car marker)) (consult--line-with-cursor (cdr marker))) (cdr marker)
+                   (format "%s: %s" (char-to-string char) (consult--line-with-cursor marker)) marker
                    (line-number-at-pos pos consult-line-numbers-widen))
                   candidates)))))
     (nreverse (delete-dups candidates))))
