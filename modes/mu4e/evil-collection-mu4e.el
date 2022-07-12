@@ -70,6 +70,11 @@
 
 (declare-function mu4e--main-action-str "mu4e-main")
 (declare-function mu4e--main-view-queue "mu4e-main")
+(declare-function mu4e--longest-of-maildirs-and-bookmarks "mu4e-main")
+(declare-function mu4e--longest-of-maildirs-and-bookmarks "mu4e-main")
+(declare-function mu4e--maildirs-with-query "mu4e-folders")
+(defvar mu4e--server-props)
+(defvar mu4e-main-hide-fully-read)
 
 (defun evil-collection-mu4e--main-action-str (&rest args)
   "Wrapper for `mu4e--main-action-str' to maintain compatibility
@@ -306,7 +311,7 @@ with older release versions of `mu4e.'"
   (concat
    (evil-collection-mu4e--main-action-str "\t* [;]Switch focus\n" 'mu4e-context-switch)
    (evil-collection-mu4e--main-action-str "\t* [u]pdate email & database (Alternatively: gr)\n"
-                         'mu4e-update-mail-and-index)
+                                          'mu4e-update-mail-and-index)
 
    ;; show the queue functions if `smtpmail-queue-dir' is defined
    (if (file-directory-p smtpmail-queue-dir)
@@ -318,6 +323,53 @@ with older release versions of `mu4e.'"
    (evil-collection-mu4e--main-action-str "\t* [A]bout mu4e\n" 'mu4e-about)
    (evil-collection-mu4e--main-action-str "\t* [H]elp\n" 'mu4e-display-manual)
    (evil-collection-mu4e--main-action-str "\t* [q]uit\n" 'mu4e-quit)))
+
+(defvar evil-collection-mu4e-begin-region-maildir "\n  Maildirs"
+  "The place where to end overriding Maildirs section.")
+
+(defvar evil-collection-mu4e-end-region-maildir "\n\n  Misc"
+  "The place where to end overriding Maildirs section.")
+
+(defun evil-collection-mu4e-new-region-maildir ()
+  "Define the evil-mu4e Maildirs region."
+  (concat
+   ;; minorly edited version of mu4e--main-bookmarks mu4e-main.el
+   (cl-loop with mds = (mu4e--maildirs-with-query)
+            with longest = (mu4e--longest-of-maildirs-and-bookmarks)
+            with queries = (plist-get mu4e--server-props :queries)
+            for m in mds
+            for key = (string (plist-get m :key))
+            for name = (plist-get m :name)
+            for query = (plist-get m :query)
+            for qcounts = (and (stringp query)
+                               (cl-loop for q in queries
+                                        when (string=
+                                              (decode-coding-string
+                                               (plist-get q :query)
+                                               'utf-8 t)
+                                              query)
+                                        collect q))
+            for unread = (and qcounts (plist-get (car qcounts) :unread))
+            when (not (plist-get m :hide))
+            when (not (and mu4e-main-hide-fully-read (eq unread 0)))
+            concat (concat
+                    ;; menu entry
+                    (evil-collection-mu4e--main-action-str
+                     (concat "\t* [J" key "] " name)
+                     (concat "J" key))
+                    ;; append all/unread numbers, if available.
+                    (if qcounts
+                        (let ((unread (plist-get (car qcounts) :unread))
+                              (count (plist-get (car qcounts) :count)))
+                          (format
+                           "%s (%s/%s)"
+                           (make-string (- longest (string-width name)) ? )
+                           (propertize (number-to-string unread)
+                                       'face 'mu4e-header-key-face)
+                           count))
+                      "")
+                    "\n"))
+   "\n  Misc"))
 
 (defun evil-collection-mu4e-replace-region (new-region start end)
   "Replace region between START and END with NEW-REGION.
@@ -335,14 +387,17 @@ START end END end are regular expressions."
     (delete-region start-point end-point)))
 
 (defun evil-collection-mu4e-update-main-view ()
-  "Update 'Basic' and 'Misc' regions to reflect the new
-keybindings."
+  "Update 'Basic', 'Maildir', and 'Misc' regions to reflect
+the new keybindings."
   (evil-collection-mu4e-replace-region evil-collection-mu4e-new-region-basic
                                        evil-collection-mu4e-begin-region-basic
                                        evil-collection-mu4e-end-region-basic)
   (evil-collection-mu4e-replace-region (evil-collection-mu4e-new-region-misc)
                                        evil-collection-mu4e-begin-region-misc
-                                       evil-collection-mu4e-end-region-misc))
+                                       evil-collection-mu4e-end-region-misc)
+  (evil-collection-mu4e-replace-region (evil-collection-mu4e-new-region-maildir)
+                                       evil-collection-mu4e-begin-region-maildir
+                                       evil-collection-mu4e-end-region-maildir))
 
 
 ;;; Initialize evil-collection-mu4e
