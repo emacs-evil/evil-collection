@@ -220,7 +220,7 @@ with older release versions of `mu4e.'"
      "cf" mu4e-compose-forward
      "cr" mu4e-compose-reply
      "p" mu4e-view-save-attachments
-     "P" mu4e-view-save-attachment-multi ; Since mu4e 1.0, -multi is same as normal.
+     "P" mu4e-view-save-attachments
      "O" mu4e-headers-change-sorting
      "A" mu4e-view-mime-part-action ; Since 1.6, uses gnus view by default
      "a" mu4e-view-action
