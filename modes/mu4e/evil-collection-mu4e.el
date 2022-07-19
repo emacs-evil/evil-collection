@@ -54,7 +54,7 @@
 ;; | Skip duplicates                 | zd        |             |
 ;; | Show log                        | gl        |             |
 ;; | Select other view               | gv        |             |
-;; | Save attachement(s)             | p         | P           |
+;; | Save attachement(s)             | p         |             |
 ;; | Save url                        | yu        |             |
 ;; | Go to url                       | gx        |             |
 ;; | Fetch url                       | gX        |             |
@@ -220,7 +220,6 @@ with older release versions of `mu4e.'"
      "cf" mu4e-compose-forward
      "cr" mu4e-compose-reply
      "p" mu4e-view-save-attachments
-     "P" mu4e-view-save-attachments
      "O" mu4e-headers-change-sorting
      "A" mu4e-view-mime-part-action ; Since 1.6, uses gnus view by default
      "a" mu4e-view-action
