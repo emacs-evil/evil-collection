@@ -127,8 +127,8 @@ with older release versions of `mu4e.'"
      "k" previous-line
      "u" mu4e-update-mail-and-index
      "gr" revert-buffer
-     "b" mu4e-headers-search-bookmark
-     "B" mu4e-headers-search-bookmark-edit
+     "b" mu4e-search-bookmark
+     "B" mu4e-search-bookmark-edit
      "N" mu4e-news
      ";" mu4e-context-switch
      "H" mu4e-display-manual
@@ -138,7 +138,7 @@ with older release versions of `mu4e.'"
      "A" mu4e-about
      "f" smtpmail-send-queued-mail
      "m" mu4e~main-toggle-mail-sending-mode
-     "s" mu4e-headers-search
+     "s" mu4e-search
      "q" mu4e-quit)
 
     (mu4e-headers-mode-map
@@ -155,14 +155,14 @@ with older release versions of `mu4e.'"
      "o" mu4e-headers-change-sorting
      "j" mu4e-headers-next
      "k" mu4e-headers-prev
-     "gr" mu4e-headers-rerun-search
-     "b" mu4e-headers-search-bookmark
-     "B" mu4e-headers-search-bookmark-edit
+     "gr" mu4e-search-rerun
+     "b" mu4e-search-bookmark
+     "B" mu4e-search-bookmark-edit
      ";" mu4e-context-switch
      ,(kbd "RET") mu4e-headers-view-message
      "/" mu4e-search-narrow
-     "s" mu4e-headers-search
-     "S" mu4e-headers-search-edit
+     "s" mu4e-search
+     "S" mu4e-search-edit
      "x" mu4e-mark-execute-all
      "a" mu4e-headers-action
      "*" mu4e-headers-mark-for-something ; TODO: Don't override evil-seach-word-forward?
@@ -259,7 +259,7 @@ with older release versions of `mu4e.'"
            (mu4e-headers-mark-thread nil '(read)))
      ,@(when evil-want-C-u-scroll
          '("\C-u" evil-scroll-up))))
-  ;; TODO: Add mu4e-headers-search-bookmark?
+  ;; TODO: Add mu4e-search-bookmark?
   "All evil-mu4e bindings.")
 
 (defun evil-collection-mu4e-set-bindings ()
