@@ -259,7 +259,6 @@ with older release versions of `mu4e.'"
            (mu4e-headers-mark-thread nil '(read)))
      ,@(when evil-want-C-u-scroll
          '("\C-u" evil-scroll-up))))
-  ;; TODO: Add mu4e-search-bookmark?
   "All evil-mu4e bindings.")
 
 (defun evil-collection-mu4e-set-bindings ()
