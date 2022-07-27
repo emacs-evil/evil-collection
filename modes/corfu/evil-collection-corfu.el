@@ -89,7 +89,7 @@ This key theme variable may be refactored in the future so use with caution."
     (setq corfu-cycle t
           corfu-preselect-first nil)
     (evil-collection-define-key 'insert 'corfu-map
-      "TAB" 'corfu-next
+      (kbd "TAB") 'corfu-next
       [tab] 'corfu-next
       [S-tab] 'corfu-previous
       [backtab] 'corfu-previous))
