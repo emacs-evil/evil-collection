@@ -56,9 +56,12 @@
     "ZZ" #'quit-window
     "ZQ" #'evil-quit)
 
-  ;; Enable a separate minor mode so that we can bind keys to it.
-  (advice-add 'eldoc-doc-buffer
-              :after 'evil-collection-eldoc-setup-doc-buffer-mode))
+  ;; 'special-mode' is used in eldoc since
+  ;; https://github.com/emacs-mirror/emacs/commit/97abe8511a829861f6efb865209ac2dd0e7ae129
+  (when (< emacs-major-version 29)
+    ;; Enable a separate minor mode so that we can bind keys to it.
+    (advice-add 'eldoc-doc-buffer
+                :after 'evil-collection-eldoc-setup-doc-buffer-mode)))
 
 (provide 'evil-collection-eldoc)
 ;;; evil-collection-eldoc.el ends here
