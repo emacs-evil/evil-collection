@@ -37,6 +37,11 @@
   "Evil port of unimpaired for `evil-collection'."
   :group 'evil-collection)
 
+(defcustom evil-collection-unimpaired-want-repeat-mode-integration nil
+  "Whether or not to enable `repeat-mode' integration."
+  :type 'boolean
+  :group 'evil-collection)
+
 (defconst evil-collection-unimpaired-maps '(evil-collection-unimpaired-mode-map))
 
 (defvar evil-collection-unimpaired-mode-map (make-sparse-keymap)
@@ -224,6 +229,41 @@
   (interactive "*p")
   (evil-collection-unimpaired--move-text (- arg)))
 
+;;; 'repeat-mode' integration. Emacs 28+
+(defmacro evil-collection-unimpaired-defvar-keymap (name &rest bindings)
+  "Define NAME a keymap with BINDINGS."
+  (declare (indent 1))
+  (cl-assert (cl-evenp (length bindings)))
+  `(progn
+     (defvar ,name
+       (let ((map (make-sparse-keymap)))
+         map))
+     (evil-collection-define-key nil ',name ,@bindings)))
+
+;; "[b" and "]b"
+(evil-collection-unimpaired-defvar-keymap evil-prev-buffer-repeat-map
+  "b" #'evil-prev-buffer
+  "B" #'evil-next-buffer)
+(evil-collection-unimpaired-defvar-keymap evil-next-buffer-repeat-map
+  "b" #'evil-next-buffer
+  "B" #'evil-prev-buffer)
+
+;; "[e" and "]e"
+(evil-collection-unimpaired-defvar-keymap evil-collection-unimpaired-move-text-up-repeat-map
+  "e" #'evil-collection-unimpaired-move-text-up
+  "E" #'evil-collection-unimpaired-move-text-down)
+(evil-collection-unimpaired-defvar-keymap evil-collection-unimpaired-move-text-down-repeat-map
+  "e" #'evil-collection-unimpaired-move-text-down
+  "E" #'evil-collection-unimpaired-move-text-up)
+
+;; "[q" and "]q"
+(evil-collection-unimpaired-defvar-keymap evil-collection-unimpaired-previous-error-repeat-map
+  "q" #'evil-collection-unimpaired-previous-error
+  "Q" #'evil-collection-unimpaired-next-error)
+(evil-collection-unimpaired-defvar-keymap evil-collection-unimpaired-next-error-repeat-map
+  "q" #'evil-collection-unimpaired-next-error
+  "Q" #'evil-collection-unimpaired-previous-error)
+
 ;;;###autoload
 (defun evil-collection-unimpaired-setup ()
   "Set up unimpaired-like bindings."
@@ -258,7 +298,16 @@
     "[u" 'evil-collection-unimpaired-url-encode
     "]u" 'evil-collection-unimpaired-url-decode
     "[6" 'evil-collection-unimpaired-b64-encode
-    "]6" 'evil-collection-unimpaired-b64-decode))
+    "]6" 'evil-collection-unimpaired-b64-decode)
+
+  (when evil-collection-unimpaired-want-repeat-mode-integration
+    (dolist (cmd '(evil-prev-buffer
+                   evil-next-buffer
+                   evil-collection-unimpaired-move-text-up
+                   evil-collection-unimpaired-move-text-down
+                   evil-collection-unimpaired-previous-error
+                   evil-collection-unimpaired-next-error))
+      (put cmd 'repeat-map (intern (format "%s-repeat-map" cmd))))))
 
 (provide 'evil-collection-unimpaired)
 ;;; evil-collection-unimpaired.el ends here
