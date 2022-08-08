@@ -371,7 +371,7 @@ with older release versions of `mu4e.'"
                            count))
                       "")
                     "\n"))
-   "\n  Misc"))
+(propertize "\n  Misc" 'face 'mu4e-title-face)))
 
 (defun evil-collection-mu4e-replace-region (new-region start end)
   "Replace region between START and END with NEW-REGION.
