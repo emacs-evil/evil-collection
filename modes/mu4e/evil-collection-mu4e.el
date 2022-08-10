@@ -310,7 +310,7 @@ with older release versions of `mu4e.'"
   "Define the evil-mu4e Misc region."
   (concat
    (evil-collection-mu4e--main-action-str "\t* [;]Switch focus\n" 'mu4e-context-switch)
-   (evil-collection-mu4e--main-action-str "\t* [u]pdate email & database (Alternatively: gr)\n"
+   (evil-collection-mu4e--main-action-str "\t* [u]pdate email & database\n"
                                           'mu4e-update-mail-and-index)
 
    ;; show the queue functions if `smtpmail-queue-dir' is defined
