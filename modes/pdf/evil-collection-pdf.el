@@ -30,8 +30,10 @@
 (require 'evil-collection)
 (require 'pdf-tools nil t)
 (require 'pdf-view nil t)
+(require 'pdf-history nil t)
 
 (defconst evil-collection-pdf-maps '(pdf-view-mode-map
+                                     pdf-history-minor-mode-map
                                      pdf-outline-buffer-mode-map
                                      pdf-occur-buffer-mode-map))
 
@@ -40,12 +42,11 @@
 (declare-function pdf-view-goto-page "pdf-view")
 (declare-function pdf-view-previous-line-or-previous-page "pdf-view")
 (declare-function pdf-view-next-line-or-next-page "pdf-view")
+(declare-function pdf-history-forward "pdf-history")
+(declare-function pdf-history-backward "pdf-history")
 
 (defvar pdf-view-mode-map)
-(defvar pdf-outline-buffer-mode-map)
-(defvar pdf-occur-buffer-mode-map)
-
-(defvar pdf-view-mode-map)
+(defvar pdf-history-minor-mode-map)
 (defvar pdf-outline-buffer-mode-map)
 (defvar pdf-occur-buffer-mode-map)
 
@@ -94,6 +95,20 @@ Consider COUNT."
       (pdf-view-first-page)
       (image-bob)
       (image-set-window-hscroll hscroll))))
+
+(defun evil-collection-pdf-jump-forward (&optional count)
+  "Wrap `pdf-history-forward' with `evil'.
+
+Consider COUNT."
+  (interactive "P")
+  (pdf-history-forward (or count 1)))
+
+(defun evil-collection-pdf-jump-backward (&optional count)
+  "Wrap `pdf-history-backward' with `evil'.
+
+Consider COUNT."
+  (interactive "P")
+  (pdf-history-backward (or count 1)))
 
 ;;;###autoload
 (defun evil-collection-pdf-setup ()
@@ -194,6 +209,13 @@ Consider COUNT."
 
   (evil-collection-define-key 'visual 'pdf-view-mode-map
     "y" 'pdf-view-kill-ring-save)
+
+  (evil-collection-inhibit-insert-state 'pdf-history-minor-mode-map)
+  (evil-set-initial-state 'pdf-history-minor-mode 'normal)
+  (evil-collection-define-key 'normal 'pdf-history-minor-mode-map
+    ;; history forward / backward
+    (kbd "C-i") 'evil-collection-pdf-jump-forward
+    (kbd "C-o") 'evil-collection-pdf-jump-backward)
 
   (evil-collection-inhibit-insert-state 'pdf-outline-buffer-mode-map)
   (evil-set-initial-state 'pdf-outline-buffer-mode 'normal)
