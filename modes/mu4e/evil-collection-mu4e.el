@@ -68,29 +68,48 @@
 (require 'evil-collection)
 (require 'mu4e nil t)
 
+(defmacro evil-collection-mu4e-wrap-internal-function (sym)
+  "Define a function named `evil-collection-mu4e--SYM' that will
+invoke either the function `mu4e--SYM' or `mu4e~SYM', depending
+on which one is present."
+  (let* ((name (symbol-name sym))
+         (old (intern (concat "mu4e--" name)))
+         (new (intern (concat "mu4e~" name)))
+         (wrapper (intern (concat "evil-collection-mu4e--" name))))
+    `(defun ,wrapper (&rest args)
+       ,(format "Wrapper for `%s' to maintain compatibility
+with older release versions of `mu4e'." old)
+       (apply (if (fboundp ',new) #',new #',old) args))))
+
 (declare-function mu4e--main-action-str "mu4e-main")
+(evil-collection-mu4e-wrap-internal-function main-action-str)
+
 (declare-function mu4e--main-view-queue "mu4e-main")
+(evil-collection-mu4e-wrap-internal-function main-view-queue)
+
 (declare-function mu4e--longest-of-maildirs-and-bookmarks "mu4e-main")
-(declare-function mu4e--longest-of-maildirs-and-bookmarks "mu4e-main")
+(evil-collection-mu4e-wrap-internal-function longest-of-maildirs-and-bookmarks)
+
 (declare-function mu4e--maildirs-with-query "mu4e-folders")
+(evil-collection-mu4e-wrap-internal-function maildirs-with-query)
+
+(defmacro evil-collection-mu4e-wrap-internal-variable (sym)
+  "Define a function named `evil-collection-mu4e-var--SYM' that
+will return the value of either the variable `mu4e--SYM' or
+`mu4e~SYM', depending on which one is present."
+  (let* ((name (symbol-name sym))
+         (old (intern (concat "mu4e--" name)))
+         (new (intern (concat "mu4e~" name)))
+         (wrapper (intern (concat "evil-collection-mu4e-var--" name))))
+    `(defun ,wrapper ()
+       ,(format "Wrapper for accessing the value of `%s' to maintain
+compatibility with older release versions of `mu4e'." old)
+       (if (boundp ',new) ,new ,old))))
+
 (defvar mu4e--server-props)
+(evil-collection-mu4e-wrap-internal-variable server-props)
+
 (defvar mu4e-main-hide-fully-read)
-
-(defun evil-collection-mu4e--main-action-str (&rest args)
-  "Wrapper for `mu4e--main-action-str' to maintain compatibility
-with older release versions of `mu4e.'"
-  (apply (if (fboundp 'mu4e~main-action-str)
-             #'mu4e~main-action-str
-           #'mu4e--main-action-str)
-         args))
-
-(defun evil-collection-mu4e--main-view-queue (&rest args)
-  "Wrapper for `mu4e--main-view-queue' to maintain compatibility
-with older release versions of `mu4e.'"
-  (apply (if (fboundp 'mu4e~main-view-queue)
-             #'mu4e~main-view-queue
-           #'mu4e--main-view-queue)
-         args))
 
 (defvar smtpmail-send-queued-mail)
 (defvar smtpmail-queue-dir)
@@ -325,7 +344,7 @@ with older release versions of `mu4e.'"
    (evil-collection-mu4e--main-action-str "\t* [q]uit\n" 'mu4e-quit)))
 
 (defvar evil-collection-mu4e-begin-region-maildir "\n  Maildirs"
-  "The place where to end overriding Maildirs section.")
+  "The place where to start overriding Maildirs section.")
 
 (defvar evil-collection-mu4e-end-region-maildir "\n\n  Misc"
   "The place where to end overriding Maildirs section.")
@@ -334,9 +353,9 @@ with older release versions of `mu4e.'"
   "Define the evil-mu4e Maildirs region."
   (concat
    ;; minorly edited version of mu4e--main-bookmarks mu4e-main.el
-   (cl-loop with mds = (mu4e--maildirs-with-query)
-            with longest = (mu4e--longest-of-maildirs-and-bookmarks)
-            with queries = (plist-get mu4e--server-props :queries)
+   (cl-loop with mds = (evil-collection-mu4e--maildirs-with-query)
+            with longest = (evil-collection-mu4e--longest-of-maildirs-and-bookmarks)
+            with queries = (plist-get (evil-collection-mu4e-var--server-props) :queries)
             for m in mds
             for key = (string (plist-get m :key))
             for name = (plist-get m :name)
