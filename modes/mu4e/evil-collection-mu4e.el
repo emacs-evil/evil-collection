@@ -142,7 +142,7 @@ with older release versions of `mu4e.'"
      "x" mu4e-kill-update-mail
      "A" mu4e-about
      "f" smtpmail-send-queued-mail
-     "m" mu4e~main-toggle-mail-sending-mode
+     "m" mu4e--main-toggle-mail-sending-mode
      "s" mu4e-search
      "q" mu4e-quit)
 
@@ -252,7 +252,7 @@ with older release versions of `mu4e.'"
      "-" mu4e-view-mark-for-unflag
      "zr" mu4e-headers-toggle-include-related
      "zt" mu4e-headers-toggle-threading
-     "za" mu4e-view-toggle-hide-cited
+     "za" gnus-article-hide-citation
      "gl" mu4e-show-log
      "s" mu4e-view-search-edit
      "|" mu4e-view-pipe
@@ -295,7 +295,7 @@ with older release versions of `mu4e.'"
   "The place where to end overriding Basic section.")
 
 (defvar evil-collection-mu4e-new-region-basic
-  (concat (evil-collection-mu4e--main-action-str "\t* [J]ump to some maildir\n" 'mu4e-jump-to-maildir)
+  (concat (evil-collection-mu4e--main-action-str "\t* [J]ump to some maildir\n" 'mu4e~headers-jump-to-maildir)
           (evil-collection-mu4e--main-action-str "\t* enter a [s]earch query\n" 'mu4e-search)
           (evil-collection-mu4e--main-action-str "\t* [C]ompose a new message\n" 'mu4e-compose-new))
   "Define the evil-mu4e Basic region.")
