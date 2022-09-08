@@ -36,6 +36,8 @@
   "Set up `evil' bindings for `eglot'."
   (evil-collection-define-key 'normal 'eglot-mode-map
     "gd" 'xref-find-definitions
+    "gD" 'xref-find-definitions-other-window
+    "g5" 'xref-find-definitions-other-frame
     (kbd "C-t") 'xref-pop-marker-stack
     "K" 'eldoc-doc-buffer)
 
