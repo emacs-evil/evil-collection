@@ -237,6 +237,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     lispy
     log-edit
     log-view
+    lsp-mode
     lsp-ui-imenu
     lua-mode
     kotlin-mode
