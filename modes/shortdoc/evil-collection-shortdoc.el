@@ -38,6 +38,8 @@
   "Set up `evil' bindings for `shortdoc'."
   (evil-set-initial-state 'shortdoc-mode 'normal)
   (evil-collection-define-key 'normal 'shortdoc-mode-map
+    (kbd "<tab>") 'forward-button
+    (kbd "<backtab>") 'backward-button
     (kbd "C-k") 'shortdoc-previous
     (kbd "C-j") 'shortdoc-next
     "[[" 'shortdoc-previous-section
