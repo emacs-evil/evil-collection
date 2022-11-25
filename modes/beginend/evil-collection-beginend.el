@@ -52,6 +52,7 @@
                                              epa-key-list-mode
                                              magit-status-mode
                                              elfeed-search-mode
+                                             elfeed-show-mode
                                              magit-revision-mode
                                              notmuch-search-mode
                                              recentf-dialog-mode)))
