@@ -212,6 +212,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     geiser
     ggtags
     git-timemachine
+    gited
     gnus
     go-mode
     grep
