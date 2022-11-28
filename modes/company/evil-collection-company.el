@@ -59,7 +59,7 @@
    (t t)))
 
 ;;;###autoload
-(defun evil-collection-company-whole-lines (command &optional arg &rest ignored)
+(defun evil-collection-company-whole-lines (command &optional arg &rest _ignored)
   "`company-mode' completion backend that completes whole-lines, akin to vim's
 C-x C-l."
   (interactive (list 'interactive))
