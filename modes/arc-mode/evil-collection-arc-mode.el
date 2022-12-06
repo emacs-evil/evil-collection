@@ -58,9 +58,10 @@
     "d" 'archive-flag-deleted
     "r" 'archive-rename-entry
     "x" 'archive-expunge
+    "C" 'archive-copy-file
     "M" 'archive-chmod-entry
+    "O" 'archive-chown-entry
     "P" 'archive-chgrp-entry
-    "C" 'archive-chown-entry
 
     ;; refresh
     "gr" 'revert-buffer
