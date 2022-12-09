@@ -33,6 +33,7 @@
 (declare-function company-tng-mode "company-tng")
 (declare-function company-grab-line "company")
 (declare-function company-begin-backend "company")
+(declare-function company-ensure-emulation-alist "company")
 
 (defgroup evil-collection-company nil
   "Evil bindings for `company-mode'."
@@ -43,6 +44,13 @@
   :type '(repeat symbol))
 (defcustom evil-collection-want-company-extended-keybindings nil
   "The \='evil-company-extended' keybindings should be requested"
+  :type 'boolean)
+
+(defcustom evil-collection-company-enable-keymap-protection t
+  "Prevent evil from breaking company completion keymap.
+When non-nil, prevents evil from overriding `company-active-map'
+after calling `company-doc-buffer'. If disabled, the completion
+keymap will be in a broken state."
   :type 'boolean)
 
 (defvar company-active-map)
@@ -57,6 +65,12 @@
    ((eq command 'prefix)
     (memq evil-state evil-collection-company-supported-states))
    (t t)))
+
+(defun evil-collection-company-protect-keymap ()
+  "Prevent evil from overriding `company-mode' completion keymap."
+  (when (and evil-collection-company-enable-keymap-protection
+             (memq 'company-emulation-alist emulation-mode-map-alists))
+    (company-ensure-emulation-alist)))
 
 ;;;###autoload
 (defun evil-collection-company-whole-lines (command &optional arg &rest _ignored)
@@ -111,6 +125,9 @@ C-x C-l."
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous
     (kbd "<escape>") 'company-search-abort)
+
+  ;; https://github.com/emacs-evil/evil-collection/issues/664
+  (add-hook 'evil-local-mode-hook #'evil-collection-company-protect-keymap)
 
   ;; Make `company-mode' not show popup when not in supported state
   (advice-add 'company-call-backend
