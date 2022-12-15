@@ -31,20 +31,22 @@
 (require 'evil-collection)
 
 (defconst evil-collection-flymake-maps '(flymake-mode-map
-                                         flymake-diagnostics-buffer-mode-map))
+					 flymake-project-diagnostics-mode-map
+					 flymake-diagnostics-buffer-mode-map))
 
 ;;;###autoload
 (defun evil-collection-flymake-setup ()
   "Set up `evil' bindings for `flymake'."
-  (evil-collection-set-readonly-bindings 'flymake-diagnostics-buffer-mode-map)
-  (evil-collection-define-key 'normal 'flymake-diagnostics-buffer-mode-map
-    (kbd "C-j") 'flymake-goto-next-error
-    (kbd "C-k") 'flymake-goto-prev-error
-    (kbd "RET") 'flymake-goto-diagnostic
-    (kbd "S-RET") 'flymake-show-diagnostic
-    (kbd "M-RET") 'flymake-show-diagnostic
-    (kbd "go") 'flymake-show-diagnostic
-    (kbd "gO") 'flymake-show-diagnostic))
+  (dolist (map '(flymake-diagnostics-buffer-mode-map flymake-project-diagnostics-mode-map))
+    (evil-collection-set-readonly-bindings map)
+    (evil-collection-define-key 'normal map
+      (kbd "C-j") 'flymake-goto-next-error
+      (kbd "C-k") 'flymake-goto-prev-error
+      (kbd "RET") 'flymake-goto-diagnostic
+      (kbd "S-RET") 'flymake-show-diagnostic
+      (kbd "M-RET") 'flymake-show-diagnostic
+      (kbd "go") 'flymake-show-diagnostic
+      (kbd "gO") 'flymake-show-diagnostic)))
 
 (provide 'evil-collection-flymake)
 ;;; evil-collection-flymake.el ends here
