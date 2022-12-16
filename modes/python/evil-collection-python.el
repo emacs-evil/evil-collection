@@ -30,7 +30,9 @@
 (require 'evil-collection)
 (require 'python)
 
-(defconst evil-collection-python-maps '(python-mode-map))
+(defconst evil-collection-python-maps '(python-mode-map
+                                        python-ts-mode-map
+                                        python-base-mode-map))
 
 (defun evil-collection-python-set-evil-shift-width ()
   "Set `evil-shift-width' according to `python-indent-offset'."
@@ -39,10 +41,12 @@
 ;;;###autoload
 (defun evil-collection-python-setup ()
   "Set up `evil' bindings for `python'."
-  (add-hook 'python-mode-hook #'evil-collection-python-set-evil-shift-width)
+  (dolist (hook '(python-mode-hook python-ts-mode-hook))
+    (add-hook hook #'evil-collection-python-set-evil-shift-width))
 
-  (evil-collection-define-key 'normal 'python-mode-map
-    "gz" 'python-shell-switch-to-shell))
+  (dolist (kmap evil-collection-python-maps)
+    (evil-collection-define-key 'normal kmap
+      "gz" 'python-shell-switch-to-shell)))
 
 (provide 'evil-collection-python)
 ;;; evil-collection-python.el ends here
