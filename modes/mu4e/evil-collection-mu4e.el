@@ -92,6 +92,24 @@ with older release versions of `mu4e.'"
            #'mu4e--main-view-queue)
          args))
 
+(defun evil-collection-mu4e--main-toggle-mail-sending-mode (&rest args)
+  "Wrapper for `mu4e--main-toggle-mail-sending-mode' to maintain
+compatibility with older release versions of `mu4e.'"
+  (interactive)
+  (apply (if (fboundp 'mu4e~main-toggle-mail-sending-mode)
+             #'mu4e~main-toggle-mail-sending-mode
+           #'mu4e--main-toggle-mail-sending-mode)
+         args))
+
+(defun evil-collection-mu4e-view-quit (&rest args)
+  "Wrapper for `mu4e-view-quit' to maintain compatibility with
+older release versions of `mu4e.'"
+  (interactive)
+  (apply (if (fboundp 'mu4e~view-quit-buffer)
+             #'mu4e~view-quit-buffer
+           #'mu4e-view-quit)
+         args))
+
 (defvar smtpmail-send-queued-mail)
 (defvar smtpmail-queue-dir)
 
@@ -142,7 +160,7 @@ with older release versions of `mu4e.'"
      "x" mu4e-kill-update-mail
      "A" mu4e-about
      "f" smtpmail-send-queued-mail
-     "m" mu4e~main-toggle-mail-sending-mode
+     "m" evil-collection-mu4e--main-toggle-mail-sending-mode
      "s" mu4e-search
      "q" mu4e-quit)
 
@@ -212,7 +230,7 @@ with older release versions of `mu4e.'"
      " " mu4e-view-scroll-up-or-next
      [tab] shr-next-link
      [backtab] shr-previous-link
-     "q" mu4e~view-quit-buffer
+     "q" evil-collection-mu4e-view-quit
      "gx" mu4e-view-go-to-url
      "gX" mu4e-view-fetch-url
      "C" mu4e-compose-new
