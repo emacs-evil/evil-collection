@@ -92,6 +92,14 @@ with older release versions of `mu4e.'"
            #'mu4e--main-view-queue)
          args))
 
+(define-obsolete-function-alias 'mu4e~main-toggle-mail-sending-mode
+  'mu4e--main-toggle-mail-sending-mode "1.7.7"
+  "Toggle sending mail mode, either queued or direct.")
+
+(define-obsolete-function-alias 'mu4e~view-quit-buffer
+  'mu4e-view-quit "1.9.8"
+  "Quit the mu4e-view buffer.")
+
 (defvar smtpmail-send-queued-mail)
 (defvar smtpmail-queue-dir)
 
@@ -142,7 +150,7 @@ with older release versions of `mu4e.'"
      "x" mu4e-kill-update-mail
      "A" mu4e-about
      "f" smtpmail-send-queued-mail
-     "m" mu4e~main-toggle-mail-sending-mode
+     "m" mu4e--main-toggle-mail-sending-mode
      "s" mu4e-search
      "q" mu4e-quit)
 
@@ -212,7 +220,7 @@ with older release versions of `mu4e.'"
      " " mu4e-view-scroll-up-or-next
      [tab] shr-next-link
      [backtab] shr-previous-link
-     "q" mu4e~view-quit-buffer
+     "q" mu4e-view-quit
      "gx" mu4e-view-go-to-url
      "gX" mu4e-view-fetch-url
      "C" mu4e-compose-new
@@ -252,7 +260,7 @@ with older release versions of `mu4e.'"
      "-" mu4e-view-mark-for-unflag
      "zr" mu4e-headers-toggle-include-related
      "zt" mu4e-headers-toggle-threading
-     "za" mu4e-view-toggle-hide-cited
+     "za" gnus-article-hide-citation
      "gl" mu4e-show-log
      "s" mu4e-view-search-edit
      "|" mu4e-view-pipe
