@@ -278,7 +278,8 @@ But don't allow the cursor to move bellow the last prompt line."
     "C" 'evil-collection-vterm-change-line
     "s" 'evil-collection-vterm-substitute
     "S" 'evil-collection-vterm-substitute-line
-    "j" 'evil-collection-vterm-next-line)
+    "j" 'evil-collection-vterm-next-line
+    "G" 'vterm-reset-cursor-point)
 
   (evil-collection-define-key 'visual 'vterm-mode-map
     "d" 'evil-collection-vterm-delete
