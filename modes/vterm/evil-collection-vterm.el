@@ -213,6 +213,16 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
   (interactive "<r><x>")
   (evil-collection-vterm-change beg end 'line register yank-handler))
 
+(evil-define-motion evil-collection-vterm-next-line (count)
+  "Move the cursor COUNT lines down.
+But don't allow the cursor to move bellow the last prompt line."
+  :type line
+  ;; This successfully prevents the `j' button from moving to an empty line
+  ;; bellow the last prompt. However, it still can be bugged for example by
+  ;; going to the one line above the last prompt and doing `10j'.
+  (when (> (count-words (point) (point-max)) 0)
+    (evil-next-line count)))
+
 ;;;###autoload
 (defun evil-collection-vterm-setup ()
   "Set up `evil' bindings for `vterm'."
@@ -267,7 +277,8 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
     "c" 'evil-collection-vterm-change
     "C" 'evil-collection-vterm-change-line
     "s" 'evil-collection-vterm-substitute
-    "S" 'evil-collection-vterm-substitute-line)
+    "S" 'evil-collection-vterm-substitute-line
+    "j" 'evil-collection-vterm-next-line)
 
   (evil-collection-define-key 'visual 'vterm-mode-map
     "d" 'evil-collection-vterm-delete
