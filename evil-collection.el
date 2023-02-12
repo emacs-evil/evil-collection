@@ -159,6 +159,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     calendar
     cider
     cmake-mode
+    color-rg
     comint
     company
     compile
