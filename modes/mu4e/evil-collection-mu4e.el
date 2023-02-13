@@ -387,8 +387,7 @@ START end END end are regular expressions."
     (delete-region start-point end-point)))
 
 (defun evil-collection-mu4e-update-main-view ()
-  "Update 'Basic', 'Maildir', and 'Misc' regions to reflect
-the new keybindings."
+  "Update `Basic', `Maildir', and `Misc' regions to reflect the new keybindings."
   (evil-collection-mu4e-replace-region evil-collection-mu4e-new-region-basic
                                        evil-collection-mu4e-begin-region-basic
                                        evil-collection-mu4e-end-region-basic)
