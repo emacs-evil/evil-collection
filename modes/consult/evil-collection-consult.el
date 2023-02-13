@@ -87,8 +87,10 @@ as defined in `evil-collection-consult--evil-mark-ring'."
                      (consult--in-range-p pos))
             (goto-char pos)
             (push (consult--location-candidate
-                   (format "%s: %s" (char-to-string char) (consult--line-with-cursor marker)) marker
-                   (line-number-at-pos pos consult-line-numbers-widen))
+                   (format "%s: %s" (char-to-string char) (consult--line-with-cursor marker))
+                   marker
+                   (line-number-at-pos pos consult-line-numbers-widen)
+                   marker)
                   candidates)))))
     (nreverse (delete-dups candidates))))
 
