@@ -1,9 +1,9 @@
 ;;; evil-collection-color-rg.el --- Bindings for color-rg -*- lexical-binding: t -*-
 
-;; Copyright (C) 2022 James Nguyen
+;; Copyright (C) 2023 Mumulhl
 
-;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>
+;; Author: Mumulhl <mumu-lhl@tuta.io>
+;; Maintainer: Mumulhl <mumu-lhl@tuta.io>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "26.3"))
@@ -65,7 +65,7 @@
     "r" 'color-rg-replace-all-matches
     "s" 'color-rg-rerun-change-dir
     "u" 'color-rg-unfilter
-    "x" 'color-rg-filter-match-files
-    ))
+    "x" 'color-rg-filter-match-files))
+
 (provide 'evil-collection-color-rg)
 ;;; evil-collection-color-rg.el ends here
