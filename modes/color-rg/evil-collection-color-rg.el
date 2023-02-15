@@ -35,7 +35,7 @@
 ;;;###autoload
 (defun evil-collection-color-rg-setup ()
   "Set up `evil' bindings for color-rg."
-  (evil-collection-define-key 'normal 'color-rg-mode-map
+  (evil-collection-define-key 'normal '(override color-rg-mode-map)
     (kbd "<backtab>") 'color-rg-jump-prev-keyword
     (kbd "<tab>") 'color-rg-jump-next-keyword
     "C" 'color-rg-rerun-toggle-case
