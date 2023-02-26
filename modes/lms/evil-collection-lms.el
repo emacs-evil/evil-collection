@@ -29,6 +29,7 @@
 (require 'lms nil t)
 (require 'evil-collection)
 
+(defvar lms-ui-docs)
 (defvar lms-ui-playing-now-mode-map)
 (defvar lms-ui-players-mode-map)
 (defvar lms-ui-playlist-mode-map)
