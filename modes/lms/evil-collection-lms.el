@@ -34,6 +34,7 @@
 (defvar lms-ui-playlist-mode-map)
 (defvar lms-ui-track-info-mode-map)
 (defvar lms-ui-tracks-list-mode-map)
+(defvar lms--ui-editing-p)
 (defvar lms--ui-pl-tracks)
 
 (declare-function lms-ui-playing-now-refresh "lms")
