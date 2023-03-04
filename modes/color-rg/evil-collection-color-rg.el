@@ -39,7 +39,7 @@
     (kbd "<backtab>") 'color-rg-jump-prev-keyword
     (kbd "<tab>") 'color-rg-jump-next-keyword
     "C" 'color-rg-rerun-toggle-case
-    "C-a" 'color-rg-beginning-of-line
+    (kbd "C-a") 'color-rg-beginning-of-line
     "D" 'color-rg-remove-line-from-results
     "E" 'color-rg-rerun-change-exclude-files
     "F" 'color-rg-filter-mismatch-results
