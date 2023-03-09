@@ -23,7 +23,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for elpaca.
+;;; Bindings for `elpaca'.
 
 ;;; Code:
 (require 'evil-collection)
