@@ -117,7 +117,7 @@ If this is nil, match original `elpaca' behavior."
         (kbd "F") 'elpaca-ui-mark-fetch ;; f -> F
         (kbd "L") 'elpaca-log ;; l -> L
         ;; The original is on t but T is also a movement key as well as a
-        ;; key bound to a filter. S is still an open key though and has
+        ;; key bound to a filter. S is still an open key though and
         ;; matches [S]tatus.
         ;; t -> S
         (kbd "S") 'elpaca-status)
