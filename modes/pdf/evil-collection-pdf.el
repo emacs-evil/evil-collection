@@ -50,32 +50,6 @@
 (defvar pdf-outline-buffer-mode-map)
 (defvar pdf-occur-buffer-mode-map)
 
-;; TODO: The following 2 functions are workarounds for
-;; 'pdf-view-next-line-or-next-page' and
-;; 'pdf-view-previous-line-or-previous-page' not playing well with
-;; EVIL. The root cause should be found and fixed instead.
-;; See https://github.com/emacs-evil/evil-collection/pull/137 for
-;; details.
-(defun evil-collection-pdf-view-next-line-or-next-page (&optional count)
-  "Wrap `pdf-view-next-line-or-next-page' with `evil'.
-
-Consider COUNT."
-  (interactive "P")
-  (if count
-      (dotimes (_ count nil)
-	(pdf-view-next-line-or-next-page 1))
-    (pdf-view-next-line-or-next-page 1)))
-
-(defun evil-collection-pdf-view-previous-line-or-previous-page (&optional count)
-  "Wrap `pdf-view-previous-line-or-previous-page' with `evil'.
-
-Consider COUNT."
-  (interactive "P")
-  (if count
-      (dotimes (_ count nil)
-	(pdf-view-previous-line-or-previous-page 1))
-    (pdf-view-previous-line-or-previous-page 1)))
-
 (defun evil-collection-pdf-view-goto-page (&optional page)
   "`evil' wrapper around `pdf-view-last-page'."
   (interactive "P")
@@ -118,8 +92,8 @@ Consider COUNT."
   (evil-collection-define-key 'normal 'pdf-view-mode-map
     ;; motion
     (kbd "RET") 'image-next-line
-    "j" 'evil-collection-pdf-view-next-line-or-next-page
-    "k" 'evil-collection-pdf-view-previous-line-or-previous-page
+    "j" 'pdf-view-next-line-or-next-page
+    "k" 'pdf-view-previous-line-or-previous-page
     (kbd "SPC") 'pdf-view-scroll-up-or-next-page
     (kbd "S-SPC") 'pdf-view-scroll-down-or-previous-page
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
@@ -133,8 +107,8 @@ Consider COUNT."
     "gk" 'pdf-view-previous-page-command
     (kbd "<next>") 'forward-page
     (kbd "<prior>") 'backward-page
-    (kbd "<down>") 'evil-collection-pdf-view-next-line-or-next-page
-    (kbd "<up>") 'evil-collection-pdf-view-previous-line-or-previous-page
+    (kbd "<down>") 'pdf-view-next-line-or-next-page
+    (kbd "<up>") 'pdf-view-previous-line-or-previous-page
     "gg" 'evil-collection-pdf-view-goto-first-page
     "G" 'evil-collection-pdf-view-goto-page
 
