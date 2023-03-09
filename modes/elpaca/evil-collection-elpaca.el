@@ -32,7 +32,7 @@
 
 (defvar elpaca-info-mode-map)
 (defvar elpaca-ui-mode-map)
-(declare-function "elpaca-defsearch" "elpaca-ui")
+(declare-function elpaca-defsearch "elpaca-ui")
 
 (defconst evil-collection-elpaca-maps '(elpaca-info-mode-map
                                         elpaca-ui-mode-map))
