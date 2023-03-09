@@ -1,4 +1,4 @@
-;;; evil-collection-elpaca.el --- Bindings for `elpaca'. -*- lexical-binding: t -*-
+;;; evil-collection-elpaca.el --- Bindings for `elpaca' -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2023 James Nguyen
 
