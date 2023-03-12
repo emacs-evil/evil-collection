@@ -61,6 +61,19 @@ If this is nil, match original `elpaca' behavior."
   :group 'evil-collection
   :type 'boolean)
 
+(defun evil-collection-elpaca-ui-visit-build-dir ()
+  "Visit package's build-dir."
+  (interactive)
+  (elpaca-ui-visit 'build))
+
+(defmacro evil-collection-elpaca-defsearch (name query)
+  "Return search command with NAME for QUERY."
+  (declare (indent 1) (debug t))
+  `(defun ,(intern (format "elpaca-ui-search-%s" name)) ()
+     ,(format "Search for %S" query)
+     (interactive)
+     (elpaca-ui-search ,query)))
+
 (defun evil-collection-elpaca-setup ()
   "Set up `evil' bindings for elpaca."
   (evil-collection-define-key 'normal 'elpaca-info-mode-map
@@ -82,7 +95,10 @@ If this is nil, match original `elpaca' behavior."
     (kbd "m") 'elpaca-manager
     (kbd "r") 'elpaca-ui-mark-rebuild
     (kbd "s") 'elpaca-ui-search
-    (kbd "x") 'elpaca-ui-execute-marks)
+    (kbd "x") 'elpaca-ui-execute-marks
+    (kbd "+") 'elpaca-ui-show-hidden-rows
+    (kbd "=") 'elpaca-ui-show-hidden-rows
+    (kbd "gb") 'evil-collection-elpaca-ui-visit-build-dir)
 
   (if evil-collection-elpaca-want-u-unmark
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
@@ -101,27 +117,31 @@ If this is nil, match original `elpaca' behavior."
 
   (if evil-collection-elpaca-want-g-filters
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
-        (kbd "gI") (elpaca-defsearch 'installed "#unique #installed")
-        (kbd "gM") (elpaca-defsearch 'marked   "#unique #marked")
-        (kbd "gO") (elpaca-defsearch 'orphaned "#unique #orphan")
-        (kbd "gT") (elpaca-defsearch 'tried "#unique #installed !#declared"))
+        (kbd "gI")
+        (evil-collection-elpaca-defsearch installed "#unique #installed")
+        (kbd "gM")
+        (evil-collection-elpaca-defsearch marked   "#unique #marked")
+        (kbd "gO")
+        (evil-collection-elpaca-defsearch orphaned "#unique #orphan")
+        (kbd "gT")
+        (evil-collection-elpaca-defsearch tried "#unique #installed !#declared"))
     (evil-collection-define-key 'normal 'elpaca-ui-mode-map
-      (kbd "I") (elpaca-defsearch 'installed "#unique #installed")
-      (kbd "M") (elpaca-defsearch 'marked   "#unique #marked")
-      (kbd "O") (elpaca-defsearch 'orphaned "#unique #orphan")
-      (kbd "T") (elpaca-defsearch 'tried "#unique #installed !#declared")))
+      (kbd "I")
+      (evil-collection-elpaca-defsearch installed "#unique #installed")
+      (kbd "M")
+      (evil-collection-elpaca-defsearch marked   "#unique #marked")
+      (kbd "O")
+      (evil-collection-elpaca-defsearch orphaned "#unique #orphan")
+      (kbd "T")
+      (evil-collection-elpaca-defsearch tried "#unique #installed !#declared")))
 
   (if evil-collection-elpaca-want-movement
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
         (kbd "B") 'elpaca-ui-browse-package ;; b -> B
         (kbd "F") 'elpaca-ui-mark-fetch ;; f -> F
         (kbd "L") 'elpaca-log ;; l -> L
-        ;; The original is on t but T is also a movement key as well as a
-        ;; key bound to a filter. S is still an open key though and
-        ;; matches [S]tatus.
-        ;; t -> S
-        (kbd "S") 'elpaca-status)
-
+        (kbd "gs") 'elpaca-status ;; t -> gs + gS
+        (kbd "gS") 'elpaca-status)
     (evil-collection-define-key 'normal 'elpaca-ui-mode-map
       (kbd "b") 'elpaca-ui-browse-package
       (kbd "f") 'elpaca-ui-mark-fetch
