@@ -92,15 +92,12 @@ If this is nil, match original `elpaca' behavior."
       (kbd "U") 'elpaca-ui-unmark
       (kbd "u") 'elpaca-ui-mark-update))
 
-  (let ((elpaca-visit-fn (if (fboundp 'elpaca-ui-visit)
-                             'elpaca-ui-visit
-                           'elpaca-visit)))
-    (if evil-collection-elpaca-want-v
-        (evil-collection-define-key 'normal 'elpaca-ui-mode-map
-          (kbd "gv") elpaca-visit-fn
-          (kbd "gd") elpaca-visit-fn)
+  (if evil-collection-elpaca-want-v
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
-        (kbd "v") elpaca-visit-fn)))
+        (kbd "gv") 'elpaca-ui-visit
+        (kbd "gd") 'elpaca-ui-visit)
+    (evil-collection-define-key 'normal 'elpaca-ui-mode-map
+      (kbd "v") 'elpaca-ui-visit))
 
   (if evil-collection-elpaca-want-g-filters
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
