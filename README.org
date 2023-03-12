@@ -112,6 +112,10 @@ evilified by ~evil-collection~.
 | evil-collection-want-unimpaired-p          | t       | Set up unimpaired bindings globally.                              |
 | evil-collection-want-find-usages-bindings  | t       | Bind -find references-, etc to various modes.                     |
 | evil-collection-config                     | *       | List of mode specific configurations.                             |
+| evil-collection-key-whitelist              | nil     | List of keys Evil Collection is allowed to bind to.               |
+| evil-collection-key-blacklist              | nil     | List of keys Evil Collection is not allowed to bind to.           |
+| evil-collection-state-passlist             | nil     | List of Evil States Evil Collection is allowed to bind to.        |
+| evil-collection-state-denylist             | nil     | List of Evil States Evil Collection is not allowed to bind to.    |
 
 For example, if you want to enable Evil in the minibuffer, you'll have to turn
 it on explicitly by customizing ~evil-collection-setup-minibuffer~ to ~t~.  Some
@@ -671,7 +675,15 @@ See [[https://github.com/noctuid/evil-guide][noctuid's evil guide]] for other ap
 #+end_src
 
 View [[https://github.com/emacs-evil/evil-collection/issues/196][196]] for more info.
+*** Don't allow Evil-Collection to bind some keys.
+Look into ~evil-collection-key-whitelist~ and ~evil-collection-key-blacklist~.
 
+For example:
+
+#+begin_src emacs-lisp :tangle yes
+;; Don't allow Evil Collection to bind to gfu and gfp.
+(setq evil-collection-key-blacklist '("gfu" "gfp"))
+#+end_src
 *** Modes left behind
 
 Some modes might still remain unsupported by this package. Should you be missing
