@@ -40,6 +40,15 @@
 
 (defvar vterm--process)
 
+(defcustom evil-collection-vterm-prompt-line-continuation t
+  "Make movements within prompt behave like it was one line.
+This option becomes relevant when the command in prompt is so long that it wraps
+to multiple lines. If the value is `t', movements such as `h', `l', `^', `$',
+etc allows to move between lines (like it would be in any other terminal
+emulator outside of Emacs or in Vterm without Evil)."
+  :type 'boolean
+  :group 'vterm)
+
 (defun evil-collection-vterm-escape-stay ()
   "Go back to normal state but don't move cursor backwards.
 Moving cursor backwards is the default vim behavior but
@@ -74,9 +83,17 @@ also uses `evil-mode'."
   "Move the cursor to the first non-blank character
 after the prompt."
   :type exclusive
-  (if (vterm-cursor-in-command-buffer-p (point))
+  (if (and evil-collection-vterm-prompt-line-continuation
+           (vterm-cursor-in-command-buffer-p (point)))
       (vterm-beginning-of-line)
     (evil-first-non-blank)))
+
+(evil-define-motion evil-collection-vterm-end-of-line (count)
+  "Move the cursor to the end of the current line."
+  :type inclusive
+  (if evil-collection-vterm-prompt-line-continuation
+      (vterm-end-of-line)
+    (evil-end-of-line count)))
 
 (defun evil-collection-vterm-insert ()
   "Insert character before cursor."
@@ -223,6 +240,28 @@ But don't allow the cursor to move bellow the last prompt line."
   (when (> (count-words (point) (point-max)) 0)
     (evil-next-line count)))
 
+(evil-define-motion evil-collection-vterm-forward-char
+  (count &optional crosslines noerror)
+  "Move cursor to the right by COUNT characters, bypassing line wraps."
+  :type exclusive
+  (if (and evil-collection-vterm-prompt-line-continuation
+           (get-text-property (1+ (point)) 'vterm-line-wrap))
+      (forward-char 2)
+    (evil-forward-char count crosslines noerror)))
+
+(evil-define-motion evil-collection-vterm-backward-char
+  (count &optional crosslines noerror)
+  "Move cursor to the left by COUNT characters, bypassing line wraps."
+  :type exclusive
+  ;; Check if one character to the left is a vterm's line wrap.
+  ;; The `bobp' part is a special case for the first row and first character
+  ;; of the buffer - `evil-backward-char' would throw an error otherwise.
+  (if (and evil-collection-vterm-prompt-line-continuation
+           (get-text-property (1- (point)) 'vterm-line-wrap)
+           (not (bobp)))
+      (forward-char -1)
+    (evil-backward-char count crosslines noerror)))
+
 ;;;###autoload
 (defun evil-collection-vterm-setup ()
   "Set up `evil' bindings for `vterm'."
@@ -265,12 +304,10 @@ But don't allow the cursor to move bellow the last prompt line."
     "P" 'vterm-yank
     "a" 'evil-collection-vterm-append
     "A" 'evil-collection-vterm-append-line
-    "d" 'evil-collection-vterm-delete
     "D" 'evil-collection-vterm-delete-line
     "x" 'evil-collection-vterm-delete-char
     "X" 'evil-collection-vterm-delete-backward-char
     (kbd "RET") 'vterm-send-return
-    "^" 'evil-collection-vterm-first-non-blank
     "i" 'evil-collection-vterm-insert
     "I" 'evil-collection-vterm-insert-line
     "u" 'vterm-undo
@@ -282,8 +319,15 @@ But don't allow the cursor to move bellow the last prompt line."
     "G" 'vterm-reset-cursor-point)
 
   (evil-collection-define-key 'visual 'vterm-mode-map
+    "x" 'evil-collection-vterm-delete-backward-char)
+
+  (evil-collection-define-key '(normal visual) 'vterm-mode-map
     "d" 'evil-collection-vterm-delete
-    "x" 'evil-collection-vterm-delete-backward-char))
+    "l" 'evil-collection-vterm-forward-char
+    "h" 'evil-collection-vterm-backward-char
+    "$" 'evil-collection-vterm-end-of-line
+    "^" 'evil-collection-vterm-first-non-blank))
+
 
 (provide 'evil-collection-vterm)
 ;;; evil-collection-vterm.el ends here
