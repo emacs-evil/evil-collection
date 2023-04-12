@@ -744,7 +744,7 @@ without creating/referencing a backup keymap."
                         unless (keywordp key)
                         collect key
                         and collect (when replacement
-                                      (lookup-key lookup-keymap replacement)))))
+                                      (evil-lookup-key lookup-keymap replacement)))))
     (unless (or destructive
                 (boundp backup-keymap-symbol))
       (set backup-keymap-symbol lookup-keymap))
@@ -775,7 +775,7 @@ without creating/referencing a backup keymap."
                         unless (keywordp key)
                         collect key
                         and collect (when replacement
-                                      (lookup-key lookup-keymap replacement)))))
+                                      (evil-lookup-key lookup-keymap replacement)))))
     (unless (or destructive
                 (boundp backup-keymap-symbol))
       (set backup-keymap-symbol lookup-keymap))
