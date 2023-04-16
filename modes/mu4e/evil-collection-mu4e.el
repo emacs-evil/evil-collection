@@ -101,6 +101,10 @@
     "Set initial state in `mu4e-compose-mode' to \='insert."
     (evil-set-initial-state 'mu4e-compose-mode 'insert))
 
+  (defun evil-collection-mu4e-mark-thread-as-read ()
+      (interactive)
+      (mu4e-headers-mark-thread nil '(read)))
+
   (defvar evil-collection-mu4e-mode-map-bindings
     `((mu4e-main-mode-map
        "J" mu4e~headers-jump-to-maildir
@@ -172,9 +176,7 @@
        "zd" mu4e-headers-toggle-skip-duplicates
        "gl" mu4e-show-log
        "gv" mu4e-select-other-view
-       "T" (lambda ()
-             (interactive)
-             (mu4e-headers-mark-thread nil '(read))))
+       "T"  evil-collection-mu4e-mark-thread-as-read)
 
       (mu4e-compose-mode-map
        "gg" mu4e-compose-goto-top
@@ -238,9 +240,6 @@
        "." mu4e-view-raw-message
        ,(kbd "C--") mu4e-headers-split-view-shrink
        ,(kbd "C-+") mu4e-headers-split-view-grow
-       "T" (lambda ()
-             (interactive)
-             (mu4e-headers-mark-thread nil '(read)))
        ,@(when evil-want-C-u-scroll
            '("\C-u" evil-scroll-up))))
     "All evil-mu4e bindings.")
