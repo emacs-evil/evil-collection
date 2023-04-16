@@ -167,6 +167,8 @@
        "-" mu4e-headers-mark-for-unflag
        "[[" mu4e-headers-prev-unread
        "]]" mu4e-headers-next-unread
+       "}" mu4e-headers-next-thread
+       "{" mu4e-headers-prev-thread
        "gk" mu4e-headers-prev-unread
        "gj" mu4e-headers-next-unread
        "\C-j" mu4e-headers-next
