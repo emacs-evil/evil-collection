@@ -40,11 +40,17 @@
 
 (defvar vterm--process)
 
+(defcustom evil-collection-vterm-move-cursor-back nil
+  "Whether the cursor is moved backwards when exiting insert state."
+  :type 'boolean
+  :group 'vterm)
+
 (defun evil-collection-vterm-escape-stay ()
   "Go back to normal state but don't move cursor backwards.
 Moving cursor backwards is the default vim behavior but
 it is not appropriate in some cases like terminals."
-  (setq-local evil-move-cursor-back nil))
+  (setq-local evil-move-cursor-back
+              evil-collection-vterm-move-cursor-back))
 
 (defvar-local evil-collection-vterm-send-escape-to-vterm-p nil
   "Track whether or not we send ESC to `vterm' or `emacs'.")
