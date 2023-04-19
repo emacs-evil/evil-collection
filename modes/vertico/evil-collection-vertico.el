@@ -38,13 +38,13 @@
   (when evil-collection-setup-minibuffer
     (when evil-want-C-u-scroll
       (evil-collection-define-key 'normal 'vertico-map
-        (kbd "C-u") 'vertico-scroll-up)
+        (kbd "C-u") 'vertico-scroll-down)
       (unless evil-want-C-u-delete
         (evil-collection-define-key 'insert 'vertico-map
-          (kbd "C-u") 'vertico-scroll-up)))
+          (kbd "C-u") 'vertico-scroll-down)))
     (when evil-want-C-d-scroll
       (evil-collection-define-key 'normal 'vertico-map
-        (kbd "C-d") 'vertico-scroll-down))
+        (kbd "C-d") 'vertico-scroll-up))
 
     (evil-collection-define-key 'normal 'vertico-map
       "gj" 'vertico-next-group
