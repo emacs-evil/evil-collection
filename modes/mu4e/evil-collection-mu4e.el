@@ -76,7 +76,7 @@
 ;; continue supporting loading 1.8 code because mu4e has a C-dependency and is
 ;; often installed from linux distro package repositories, and therefore can be
 ;; severely out-of-date.
-(if (and (boundp mu4e-mu-version)       ; avoid evil-collection unit-tests failing from unbound variable
+(if (and (boundp 'mu4e-mu-version)       ; avoid evil-collection unit-tests failing from unbound variable
          (version< mu4e-mu-version "1.9"))
     (require 'evil-collection-mu4e
              (expand-file-name "modes/mu4e/evil-collection-mu4e-1.8" evil-collection-base-dir))
