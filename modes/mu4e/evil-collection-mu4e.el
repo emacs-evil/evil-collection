@@ -68,7 +68,15 @@
 (require 'evil-collection)
 (require 'mu4e nil t)
 
-(if (and (boundp mu4e-mu-version)
+;; Load compatibility code for Mu4e versions 1.8 or older.
+;; Mu4e version 1.10 introduced a new backwards-incompatible interface. In
+;; addition to new function names and some functions hidden in menus, 1.10
+;; reduces what we need to implement in evil-collection because it dynamically
+;; adapts the keys in the mu4e menu-buffer to the actually bound keys. We
+;; continue supporting loading 1.8 code because mu4e has a C-dependency and is
+;; often installed from linux distro package repositories, and therefore can be
+;; severely out-of-date.
+(if (and (boundp mu4e-mu-version)       ; avoid evil-collection unit-tests failing from unbound variable
          (version< mu4e-mu-version "1.9"))
     (require 'evil-collection-mu4e
              (expand-file-name "modes/mu4e/evil-collection-mu4e-1.8" evil-collection-base-dir))
@@ -206,7 +214,7 @@
        "cr" mu4e-compose-reply
        "p" mu4e-view-save-attachments
        "O" mu4e-headers-change-sorting
-       "A" mu4e-view-mime-part-action ; Since 1.6, uses gnus view by default
+       "A" mu4e-view-mime-part-action   ; Since 1.6, uses gnus view by default
        "a" mu4e-view-action
        "J" mu4e~headers-jump-to-maildir
        "[[" mu4e-view-headers-prev-unread
@@ -217,7 +225,7 @@
        "\C-k" mu4e-view-headers-prev
        "x" mu4e-view-marked-execute
        "&" mu4e-view-mark-custom
-       "*" mu4e-view-mark-for-something   ; TODO: Don't override "*".
+       "*" mu4e-view-mark-for-something ; TODO: Don't override "*".
        "m" mu4e-view-mark-for-move
        "r" mu4e-view-mark-for-refile
        "D" mu4e-view-mark-for-delete
