@@ -68,7 +68,8 @@
 (require 'evil-collection)
 (require 'mu4e nil t)
 
-(if (version< mu4e-mu-version "1.9")
+(if (and (boundp mu4e-mu-version)
+         (version< mu4e-mu-version "1.9"))
     (require 'evil-collection-mu4e
              (expand-file-name "modes/mu4e/evil-collection-mu4e-1.8" evil-collection-base-dir))
 
