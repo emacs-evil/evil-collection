@@ -68,6 +68,11 @@
 (require 'evil-collection)
 (require 'mu4e nil t)
 
+(defvar mu4e-mu-version)
+(declare-function evil-collection-mu4e-set-bindings "evil-collection-mu4e")
+(declare-function evil-collection-mu4e-set-state "evil-collection-mu4e")
+(declare-function mu4e-headers-mark-thread "mu4e-headers")
+
 (if (version< mu4e-mu-version "1.10")
     (require 'evil-collection-mu4e
              (expand-file-name "modes/mu4e/evil-collection-mu4e-1.8" evil-collection-base-dir))
