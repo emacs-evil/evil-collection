@@ -142,7 +142,7 @@ with older release versions of `mu4e.'"
      "x" mu4e-kill-update-mail
      "A" mu4e-about
      "f" smtpmail-send-queued-mail
-     "m" mu4e~main-toggle-mail-sending-mode
+     "m" mu4e--main-toggle-mail-sending-mode
      "s" mu4e-search
      "q" mu4e-quit)
 
