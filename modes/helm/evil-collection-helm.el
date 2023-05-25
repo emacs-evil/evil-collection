@@ -75,9 +75,9 @@
         (overlay-put ov 'face (let ((bg-color (face-background 'default nil)))
                                 `(:background ,bg-color :foreground ,bg-color)))
         (setq-local cursor-type nil
-                    evil-emacs-state-cursor '(nil +evil-emacs-cursor-fn)
-                    evil-normal-state-cursor '(nil +evil-default-cursor-fn)
-                    evil-insert-state-cursor '(nil +evil-default-cursor-fn))))))
+                    evil-emacs-state-cursor nil
+                    evil-normal-state-cursor nil
+                    evil-insert-state-cursor nil)))))
 
 (defun evil-collection-helm--set-prompt-display (pos)
   (let (beg state region-active m)
