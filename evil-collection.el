@@ -190,6 +190,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     ediff
     eglot
     elpaca
+    ement
     explain-pause-mode
     eldoc
     elfeed
