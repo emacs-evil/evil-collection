@@ -51,6 +51,12 @@
     "f"  'docker-container-open
     "r"  'docker-container-rename-selection)
 
+  (evil-collection-define-key 'normal 'docker-context-mode-map
+    "?"  'docker-context-help
+    "D"  'docker-context-rm
+    "I"  'docker-context-inspect
+    "X"  'docker-context-use)
+
   (evil-collection-define-key 'normal 'docker-image-mode-map
     ";"  'docker-image-ls
     "?"  'docker-image-help
