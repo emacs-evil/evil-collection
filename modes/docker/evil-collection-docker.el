@@ -26,6 +26,7 @@
 (require 'evil-collection)
 
 (defconst evil-collection-docker-maps '(docker-container-mode-map
+					docker-context-mode-map
                                         docker-image-mode-map
                                         docker-machine-mode-map
                                         docker-network-mode-map
