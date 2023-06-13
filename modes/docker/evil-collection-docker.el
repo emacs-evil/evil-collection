@@ -26,6 +26,7 @@
 (require 'evil-collection)
 
 (defconst evil-collection-docker-maps '(docker-container-mode-map
+					docker-context-mode-map
                                         docker-image-mode-map
                                         docker-machine-mode-map
                                         docker-network-mode-map
@@ -50,6 +51,12 @@
     "d"  'docker-container-diff
     "f"  'docker-container-open
     "r"  'docker-container-rename-selection)
+
+  (evil-collection-define-key 'normal 'docker-context-mode-map
+    "?"  'docker-context-help
+    "D"  'docker-context-rm
+    "I"  'docker-context-inspect
+    "X"  'docker-context-use)
 
   (evil-collection-define-key 'normal 'docker-image-mode-map
     ";"  'docker-image-ls
