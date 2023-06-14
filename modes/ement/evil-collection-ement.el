@@ -70,7 +70,7 @@
   (evil-collection-define-key '(normal motion) 'ement-room-mode-map
     (kbd "<")  'ement-room-transient
     (kbd "<return>")   'ement-room-send-message
-    (kbd "RET")        'ement-rooom-send-message
+    (kbd "RET")        'ement-room-send-message
     (kbd "M-RET")      'ement-room-compose-message
     (kbd "<M-return>") 'ement-room-compose-message
     (kbd "a")  'ement-room-send-message
