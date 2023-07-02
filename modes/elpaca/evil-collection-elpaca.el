@@ -93,7 +93,7 @@ If this is nil, match original `elpaca' behavior."
     (kbd "gr") 'elpaca-ui-search-refresh
     (kbd "c") 'elpaca-ui-copy
     (kbd "d") 'elpaca-ui-mark-delete
-    (kbd "i") 'elpaca-ui-mark-install
+    (kbd "i") 'elpaca-ui-mark-try
     (kbd "m") 'elpaca-manager
     (kbd "r") 'elpaca-ui-mark-rebuild
     (kbd "s") 'elpaca-ui-search
