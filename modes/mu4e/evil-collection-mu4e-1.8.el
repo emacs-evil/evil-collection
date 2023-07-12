@@ -125,7 +125,7 @@ with older release versions of `mu4e.'"
 ;;; Define bindings
 
 ;; TODO: Inhibit insert-state functions as per Evil Collection.
-(defvar evil-collection-mu4e-mode-map-bindings
+(defvar evil-collection-mu4e-mode-normal-map-bindings
   `((mu4e-main-mode-map
      "J" mu4e~headers-jump-to-maildir
      "j" next-line
@@ -264,18 +264,37 @@ with older release versions of `mu4e.'"
            (mu4e-headers-mark-thread nil '(read)))
      ,@(when evil-want-C-u-scroll
          '("\C-u" evil-scroll-up))))
-  "All evil-mu4e bindings.")
+  "All evil-mu4e bindings for evil normal mode.")
+
+  (defvar evil-collection-mu4e-mode-visual-map-bindings
+    `((mu4e-headers-mode-map
+       "*" mu4e-headers-mark-for-something
+       "A" mu4e-headers-mark-for-action
+       "m" mu4e-headers-mark-for-move
+       "r" mu4e-headers-mark-for-refile
+       "D" mu4e-headers-mark-for-delete
+       "d" mu4e-headers-mark-for-trash
+       "=" mu4e-headers-mark-for-untrash
+       "u" mu4e-headers-mark-for-unmark
+       "?" mu4e-headers-mark-for-unread
+       "!" mu4e-headers-mark-for-read
+       "+" mu4e-headers-mark-for-flag
+       "-" mu4e-headers-mark-for-unflag)
+
+      (mu4e-compose-mode-map
+       "gg" 'mu4e-compose-goto-top
+       "G" 'mu4e-compose-goto-bottom))
+    "All evil-mu4e bindings for evil visual mode.")
 
 (defun evil-collection-mu4e-set-bindings ()
   "Set the bindings."
   ;; WARNING: With lexical binding, lambdas from `mapc' and `dolist' become
   ;; closures in which we must use `evil-define-key*' instead of
   ;; `evil-define-key'.
-  (dolist (binding evil-collection-mu4e-mode-map-bindings)
+  (dolist (binding evil-collection-mu4e-mode-normal-map-bindings)
     (apply #'evil-collection-define-key 'normal binding))
-  (evil-collection-define-key 'visual 'mu4e-compose-mode-map
-    "gg" 'mu4e-compose-goto-top
-    "G" 'mu4e-compose-goto-bottom)
+  (dolist (binding evil-collection-mu4e-mode-visual-map-bindings)
+    (apply #'evil-collection-define-key 'visual binding))
   (evil-set-command-property 'mu4e-compose-goto-bottom :keep-visual t)
   (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
 
