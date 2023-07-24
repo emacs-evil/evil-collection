@@ -35,7 +35,7 @@
 
 (defun evil-collection-lua-mode-set-evil-shift-width ()
   "Set `evil-shift-width' according to `lua-indent-level'."
-  (setq evil-shift-width lua-indent-level))
+  (setq-local evil-shift-width lua-indent-level))
 
 ;;;###autoload
 (defun evil-collection-lua-mode-setup ()

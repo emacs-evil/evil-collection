@@ -31,7 +31,7 @@
 (defvar yaml-indent-offset)
 (defun evil-collection-yaml-mode-set-evil-shift-width ()
   "Set `evil-shift-width' according to `yaml-indent-offset'."
-  (setq evil-shift-width yaml-indent-offset))
+  (setq-local evil-shift-width yaml-indent-offset))
 
 ;;;###autoload
 (defun evil-collection-yaml-mode-setup ()
