@@ -43,7 +43,7 @@
 (declare-function consult--forbid-minibuffer "consult")
 (declare-function consult--fontify-all "consult")
 (declare-function consult--in-range-p "consult")
-(declare-function consult--line-with-cursor "consult")
+(declare-function consult--line-with-mark "consult")
 (declare-function consult--location-candidate "consult")
 (declare-function consult--remove-dups "consult")
 (declare-function consult--mark-candidates "consult")
@@ -87,7 +87,7 @@ as defined in `evil-collection-consult--evil-mark-ring'."
                      (consult--in-range-p pos))
             (goto-char pos)
             (push (consult--location-candidate
-                   (format "%s: %s" (char-to-string char) (consult--line-with-cursor marker))
+                   (format "%s: %s" (char-to-string char) (consult--line-with-mark marker))
                    marker
                    (line-number-at-pos pos consult-line-numbers-widen)
                    marker)
