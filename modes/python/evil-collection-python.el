@@ -36,7 +36,7 @@
 
 (defun evil-collection-python-set-evil-shift-width ()
   "Set `evil-shift-width' according to `python-indent-offset'."
-  (setq evil-shift-width python-indent-offset))
+  (setq-local evil-shift-width python-indent-offset))
 
 ;;;###autoload
 (defun evil-collection-python-setup ()

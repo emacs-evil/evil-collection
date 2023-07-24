@@ -34,7 +34,7 @@
 
 (defun evil-collection-sh-script-set-evil-shift-width ()
   "Set `evil-shift-width' according to `sh-basic-offset'."
-  (setq evil-shift-width sh-basic-offset))
+  (setq-local evil-shift-width sh-basic-offset))
 
 ;;;###autoload
 (defun evil-collection-sh-script-setup ()
