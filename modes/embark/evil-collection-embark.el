@@ -43,12 +43,7 @@
     "a" 'embark-act
     "A" 'embark-act-all
     "E" 'embark-export                   ;; was e
-    "m" 'embark-collect-mark
-    "T" 'embark-collect-zebra-minor-mode ;; was z
-    "t" 'embark-collect-toggle-marks
-    "u" 'embark-collect-unmark
-    "U" 'embark-collect-unmark-all
-    (kbd "M-q") 'embark-collect-toggle-view
+    "m" 'embark-select
     (kbd "M-a") 'embark-collect-direct-action-minor-mode
 
     "gr" 'revert-buffer))
