@@ -41,6 +41,7 @@
   :type 'boolean)
 
 (defconst evil-collection-ement-maps '(ement-describe-room-mode-map
+                                       ement-directory-mode-map
                                        ement-room-list-mode-map
                                        ement-room-mode-map))
 
@@ -62,8 +63,16 @@
   (evil-collection-define-key 'normal 'ement-describe-room-mode-map
     (kbd "q") 'quit-window)
 
+  (evil-collection-define-key 'normal 'ement-directory-mode-map
+    (kbd "RET")      'ement-directory-RET
+    (kbd "<return>") 'ement-directory-RET
+    (kbd "s")        'ement-directory-search
+    (kbd "q")        'quit-window)
+
   (evil-collection-define-key 'normal 'ement-room-list-mode-map
     (kbd "d")     'ement-room-list-kill-buffer
+    (kbd "x")     'ement-room-leave
+    (kbd "X")     'ement-forget-room
     (kbd "RET")   'ement-room-list-RET
     (kbd "<return>") 'ement-room-list-RET)
 
