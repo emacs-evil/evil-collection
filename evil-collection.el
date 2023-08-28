@@ -227,7 +227,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     hg-histedit
     hungry-delete
     ibuffer
-    image
+    (image image-mode)
     image-dired
     image+
     imenu
