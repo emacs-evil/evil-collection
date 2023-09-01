@@ -72,6 +72,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 
 (evil-collection-cider-make-debug-command "next"
                                           "continue"
+                                          "continue-all"
                                           "out"
                                           "quit"
                                           "eval"
@@ -102,6 +103,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "b" 'cider-debug-defun-at-point
       "n" 'evil-collection-cider-debug-next
       "c" 'evil-collection-cider-debug-continue
+      "C" 'evil-collection-cider-debug-continue-all
       "o" 'evil-collection-cider-debug-out
       "q" 'evil-collection-cider-debug-quit
       "e" 'evil-collection-cider-debug-eval
