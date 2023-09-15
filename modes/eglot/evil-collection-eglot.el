@@ -34,6 +34,7 @@
 ;;;###autoload
 (defun evil-collection-eglot-setup ()
   "Set up `evil' bindings for `eglot'."
+  (add-hook 'eglot-managed-mode-hook 'evil-normalize-keymaps)
   (evil-collection-define-key 'normal 'eglot-mode-map
     "gd" 'xref-find-definitions
     "gD" 'xref-find-definitions-other-window
