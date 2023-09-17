@@ -676,6 +676,16 @@ modes in the current buffer."
        nil "^[^.]")))))
   (find-file (evil-collection--mode-file mode "README.org")))
 
+(defun evil-collection--delay (condition form hook &optional append local name)
+  "Execute FORM when CONDITION becomes true, checking with HOOK.
+NAME specifies the name of the entry added to HOOK.  If APPEND is
+non-nil, the entry is appended to the hook.  If LOCAL is non-nil,
+the buffer-local value of HOOK is modified.
+
+This is a backport of `evil-delay' without the deprecation notice to deal with CI until migration can be done.
+Ref: https://github.com/emacs-evil/evil-collection/issues/750"
+  (eval `(evil-with-delay ,condition (,hook ,append ,local ,name) ,form) t))
+
 ;;;###autoload
 (cl-defun evil-collection-translate-minor-mode-key (states modes
                                                            &rest translations
@@ -707,16 +717,22 @@ invocation."
   (dolist (mode-symbol modes)
     (let ((keymap-symbol (intern (format "%S-map" mode-symbol))))
       (dolist (state states)
-        (evil-with-delay `(and (boundp ',keymap-symbol)
-                               (keymapp ,keymap-symbol))
-            `(after-load-functions
+        (let ((hook-name
+               (symbol-name
+                (cl-gensym
+                 (format "evil-collection-translate-key-in-%s" keymap-symbol)))))
+          (evil-collection--delay `(and (boundp ',keymap-symbol)
+                                       (keymapp ,keymap-symbol))
+              `(evil-collection--translate-minor-mode-key
+                 ',state
+                 ',mode-symbol
+                 ',translations
+                 ,destructive)
+              'after-load-functions
               t
               nil
-              (symbol-name
-               (cl-gensym
-                (format "evil-collection-translate-key-in-%s" ,keymap-symbol))))
-          (evil-collection--translate-minor-mode-key state mode-symbol
-                                                     translations destructive))))))
+              hook-name))))))
+
 
 (defun evil-collection--translate-minor-mode-key (state
                                                   mode-symbol
@@ -812,16 +828,22 @@ invocation."
     (setq states (list states)))
   (dolist (keymap-symbol keymaps)
     (dolist (state states)
-      (evil-with-delay `(and (boundp ',keymap-symbol)
-                             (keymapp ,keymap-symbol))
-          `(after-load-functions
-            t
-            nil
-            (symbol-name
-             (cl-gensym
-              (format "evil-collection-translate-key-in-%s" ,keymap-symbol))))
-        (evil-collection--translate-key state keymap-symbol
-                                        translations destructive)))))
+      (let ((hook-name
+             (symbol-name
+              (cl-gensym
+               (format "evil-collection-translate-key-in-%s" keymap-symbol)))))
+        (evil-collection--delay `(and (boundp ',keymap-symbol)
+                                      (keymapp ,keymap-symbol))
+            `(evil-collection--translate-key
+               ',state
+               ',keymap-symbol
+               ',translations
+               ,destructive)
+            'after-load-functions
+             t
+             nil
+             hook-name)))))
+
 
 ;;;###autoload
 (defmacro evil-collection-swap-key (states keymaps &rest args)
