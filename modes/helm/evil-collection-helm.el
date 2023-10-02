@@ -42,9 +42,11 @@
 (defvar helm-find-files-map)
 (defvar helm-generic-files-map)
 (defvar helm-buffer-map)
-(defvar helm-moccur-map)
+(defvar helm-occur-map)
 (defvar helm-grep-map)
 (defvar helm-read-file-map)
+(defvar helm-occur-mode-map)
+(defvar helm-grep-mode-map)
 (defvar helm-echo-input-in-header-line)
 (defvar helm--prompt)
 (defvar helm--action-prompt)
@@ -58,7 +60,7 @@
                                       helm-read-file-map
                                       helm-generic-files-map
                                       helm-buffer-map
-                                      helm-moccur-map
+                                      helm-occur-map
                                       helm-grep-map))
 
 ;; From https://github.com/emacs-helm/helm/issues/362.
@@ -138,8 +140,8 @@
     (kbd "S-<return>") 'helm-buffer-switch-other-window
     (kbd "M-<return>") 'display-buffer)
 
-  (evil-collection-define-key '(insert normal) 'helm-moccur-map
-    (kbd "S-<return>") 'helm-moccur-run-goto-line-ow)
+  (evil-collection-define-key '(insert normal) 'helm-occur-map
+    (kbd "S-<return>") 'helm-occur-run-goto-line-ow)
 
   (evil-collection-define-key '(insert normal) 'helm-grep-map
     (kbd "S-<return>") 'helm-grep-run-other-window-action)
@@ -155,8 +157,8 @@
     "D" 'helm-buffer-run-kill-persistent ; Ivy has "D".
     )
 
-  (evil-collection-define-key 'normal 'helm-moccur-map
-    "go" 'helm-moccur-run-goto-line-ow)
+  (evil-collection-define-key 'normal 'helm-occur-map
+    "go" 'helm-occur-run-goto-line-ow)
 
   (evil-collection-define-key 'normal 'helm-grep-map
     "go" 'helm-grep-run-other-window-action)
@@ -208,7 +210,29 @@
     "yp" 'helm-yank-selection
     "yP" 'helm-copy-to-buffer
     "yy" 'helm-kill-selection-and-quit
-    (kbd "SPC") 'helm-toggle-visible-mark))
+    (kbd "SPC") 'helm-toggle-visible-mark)
+
+  (evil-collection-define-key 'normal 'helm-occur-mode-map
+    (kbd "RET") 'helm-occur-mode-goto-line
+    (kbd "C-o") 'helm-occur-mode-goto-line-ow
+    (kbd "M-n") 'helm-occur-mode-goto-line-ow-forward
+    (kbd "M-p") 'helm-occur-mode-goto-line-ow-backward
+    "go"        'helm-occur-mode-goto-line-ow
+    "gj"        'helm-occur-mode-goto-line-ow-forward
+    "gk"        'helm-occur-mode-goto-line-ow-backward
+    (kbd "M-N") 'helm-gm-next-file
+    (kbd "M-P") 'helm-gm-precedent-file)
+
+  (evil-collection-define-key 'normal 'helm-grep-mode-map
+    (kbd "RET") 'helm-grep-mode-jump
+    (kbd "C-o") 'helm-grep-mode-jump-other-window
+    (kbd "M-n") 'helm-grep-mode-jump-other-window-forward
+    (kbd "M-p") 'helm-grep-mode-jump-other-window-backward
+    "go"        'helm-grep-mode-jump-other-window
+    "gj"        'helm-grep-mode-jump-other-window-forward
+    "gk"        'helm-grep-mode-jump-other-window-backward
+    (kbd "M-N") 'helm-gm-next-file
+    (kbd "M-P") 'helm-gm-precedent-file))
 
 (provide 'evil-collection-helm)
 ;;; evil-collection-helm.el ends here
