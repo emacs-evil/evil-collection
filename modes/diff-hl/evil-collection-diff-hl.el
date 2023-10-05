@@ -68,7 +68,8 @@
     "p" 'diff-hl-show-hunk-previous
     "n" 'diff-hl-show-hunk-next
     "c" 'diff-hl-show-hunk-copy-original-text
-    "r" 'diff-hl-show-hunk-revert-hunk))
+    "r" 'diff-hl-show-hunk-revert-hunk
+    "S" 'diff-hl-show-hunk-stage-hunk))
 
 (provide 'evil-collection-diff-hl)
 ;;; evil-collection-diff-hl.el ends here
