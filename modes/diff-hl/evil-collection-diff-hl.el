@@ -42,7 +42,7 @@
 ;;; Code:
 (require 'evil-collection)
 
-(defconst evil-collection-diff-hl-maps '(diff-hl-show-hunk--inline-popup-map
+(defconst evil-collection-diff-hl-maps '(diff-hl-show-hunk-map
                                          diff-hl-inline-popup-transient-mode-map))
 
 ;;;###autoload
@@ -63,7 +63,7 @@
 
   ;; Actually `diff-hl-inline-popup-transient-mode-map' will inherit it by
   ;; `set-keymap-parent'.
-  (evil-collection-define-key 'normal 'diff-hl-show-hunk--inline-popup-map
+  (evil-collection-define-key 'normal 'diff-hl-show-hunk-map
     ;; Keep it the same as the overlay shows.
     "p" 'diff-hl-show-hunk-previous
     "n" 'diff-hl-show-hunk-next
