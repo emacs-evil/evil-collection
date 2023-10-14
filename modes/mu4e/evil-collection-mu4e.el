@@ -178,6 +178,7 @@
        "gj" mu4e-headers-next-unread
        "\C-j" mu4e-headers-next
        "\C-k" mu4e-headers-prev
+       "t" mu4e-headers-toggle-property
        "zr" mu4e-headers-toggle-include-related
        "zt" mu4e-headers-toggle-threading
        "zd" mu4e-headers-toggle-skip-duplicates
