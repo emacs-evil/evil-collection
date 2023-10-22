@@ -74,13 +74,16 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                                           "continue"
                                           "continue-all"
                                           "out"
+                                          "force-out"
                                           "quit"
                                           "eval"
                                           "inject"
                                           "inspect"
+                                          "inspect-prompt"
                                           "locals"
                                           "in"
-                                          "stacktrace")
+                                          "stacktrace"
+                                          "trace")
 
 ;;;###autoload
 (defun evil-collection-cider-setup ()
@@ -105,12 +108,15 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "c" 'evil-collection-cider-debug-continue
       "C" 'evil-collection-cider-debug-continue-all
       "o" 'evil-collection-cider-debug-out
+      "O" 'evil-collection-cider-debug-force-out
       "q" 'evil-collection-cider-debug-quit
       "e" 'evil-collection-cider-debug-eval
       "J" 'evil-collection-cider-debug-inject
       "I" 'evil-collection-cider-debug-in
       "p" 'evil-collection-cider-debug-inspect
+      "P" 'evil-collection-cider-debug-inspect-prompt
       "s" 'evil-collection-cider-debug-stacktrace
+      "t" 'evil-collection-cider-debug-trace
       "L" 'evil-collection-cider-debug-locals
       "H" 'cider-debug-move-here))
 
