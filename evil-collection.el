@@ -155,6 +155,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     bm
     bookmark
     (buff-menu "buff-menu")
+    bufler
     calc
     calendar
     cider
