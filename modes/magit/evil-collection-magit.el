@@ -1,4 +1,4 @@
-;;; evil-collection-magit.el --- Evil-based key bindings for magit
+;;; evil-collection-magit.el --- Evil-based key bindings for magit  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015-2016, 2021 Justin Burkett
 

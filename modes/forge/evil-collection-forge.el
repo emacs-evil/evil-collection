@@ -1,4 +1,4 @@
-;;; evil-collection-forge.el --- Evil-based key bindings for forge
+;;; evil-collection-forge.el --- Evil-based key bindings for forge  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021 James Nguyen
 
