@@ -50,7 +50,7 @@
     "r"   'bufler-list-buffer-name-workspace
     "D"   'bufler-list-buffer-kill
     "w"   'bufler-list-buffer-save
-    "RET" 'bufler-list-buffer-switch
+    (kbd "RET") 'bufler-list-buffer-switch
     "J"   'bufler-list-buffer-peek))
 
 (provide 'evil-collection-bufler)
