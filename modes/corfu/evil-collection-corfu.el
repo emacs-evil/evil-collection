@@ -126,7 +126,7 @@ This key theme variable may be refactored in the future so use with caution."
     (evil-collection-define-key 'insert 'corfu-map
       (kbd "C-d") 'corfu-scroll-down))
 
-  (advice-add 'corfu--setup :after 'evil-normalize-keymaps)
+  (advice-add 'corfu--setup :after (lambda (&rest _) (evil-normalize-keymaps)))
   (advice-add 'corfu--teardown :after 'evil-normalize-keymaps))
 
 (provide 'evil-collection-corfu)
