@@ -177,7 +177,7 @@ Consider COUNT."
   (when evil-want-C-d-scroll
     (evil-collection-define-key 'normal 'pdf-view-mode-map
       (kbd "C-d") 'pdf-view-scroll-up-or-next-page))
-  (when evil-want-C-d-scroll
+  (when evil-want-C-u-scroll
     (evil-collection-define-key 'normal 'pdf-view-mode-map
       (kbd "C-u") 'pdf-view-scroll-down-or-previous-page))
 
