@@ -75,6 +75,7 @@ also uses `evil-mode'."
 
 (declare-function vterm-cursor-in-command-buffer-p "vterm")
 (declare-function vterm-beginning-of-line "vterm")
+(declare-function vterm-insert "vterm")
 
 (evil-define-motion evil-collection-vterm-first-non-blank ()
   "Move the cursor to the first non-blank character
@@ -199,6 +200,14 @@ Save in REGISTER or in the kill-ring with YANK-HANDLER."
      (t
       (evil-collection-vterm-delete beg line-end type register yank-handler)))))
 
+(evil-define-operator evil-collection-vterm-replace (beg end type register yank-handler)
+  :motion evil-forward-char
+  (interactive "<R>")
+  (let ((replacement (make-string (- end beg) (read-char))))
+    (evil-collection-vterm-delete beg end type register yank-handler)
+    (vterm-insert replacement)
+    (vterm-goto-char (1- end))))
+
 (evil-define-operator evil-collection-vterm-change (beg end type register yank-handler)
   (evil-collection-vterm-delete beg end type register yank-handler)
   (evil-collection-vterm-insert))
@@ -280,6 +289,7 @@ But don't allow the cursor to move bellow the last prompt line."
     "i" 'evil-collection-vterm-insert
     "I" 'evil-collection-vterm-insert-line
     "u" 'vterm-undo
+    "r" 'evil-collection-vterm-replace
     "c" 'evil-collection-vterm-change
     "C" 'evil-collection-vterm-change-line
     "s" 'evil-collection-vterm-substitute
