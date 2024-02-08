@@ -100,14 +100,14 @@ after the prompt."
 (defun evil-collection-vterm-append ()
   "Append character after cursor."
   (interactive)
-  (vterm-goto-char (point))
-  (call-interactively #'evil-append))
+  (vterm-goto-char (1+ (point)))
+  (call-interactively #'evil-insert))
 
 (defun evil-collection-vterm-append-line ()
   "Append character at end-of-line."
   (interactive)
   (vterm-goto-char (vterm--get-end-of-line))
-  (call-interactively #'evil-append))
+  (call-interactively #'evil-insert))
 
 (declare-function vterm-yank "vterm")
 
