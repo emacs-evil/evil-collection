@@ -121,10 +121,10 @@ This key theme variable may be refactored in the future so use with caution."
 
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'insert 'corfu-map
-      (kbd "C-u") 'corfu-scroll-up))
+      (kbd "C-d") 'corfu-scroll-up))
   (when evil-want-C-d-scroll
     (evil-collection-define-key 'insert 'corfu-map
-      (kbd "C-d") 'corfu-scroll-down))
+      (kbd "C-u") 'corfu-scroll-down))
 
   (advice-add 'corfu--setup :after (lambda (&rest _) (evil-normalize-keymaps)))
   (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps))))
