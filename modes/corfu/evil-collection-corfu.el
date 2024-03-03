@@ -82,6 +82,8 @@ This key theme variable may be refactored in the future so use with caution."
       (kbd "C-k") 'corfu-previous
       (kbd "M-j") 'corfu-next
       (kbd "M-k") 'corfu-previous
+      (kbd "<down>") 'corfu-next
+      (kbd "<up>") 'corfu-previous
       (kbd "<escape>") 'evil-collection-corfu-quit-and-escape))
 
   ;; https://github.com/minad/corfu#tab-and-go-completion
