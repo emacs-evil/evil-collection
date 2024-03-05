@@ -1,6 +1,6 @@
 ;;; evil-collection-cider.el --- Evil bindings for Cider -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2017, 2024 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -30,6 +30,8 @@
 (require 'cl-lib)
 (require 'cider nil t)
 (require 'evil-collection)
+
+(defvar cider-use-xref)
 
 (declare-function cider-debug-mode-send-reply "cider-debug")
 
