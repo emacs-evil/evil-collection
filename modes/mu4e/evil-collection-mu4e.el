@@ -93,6 +93,31 @@
       (evil-set-initial-state mode 'normal))
     (evil-set-initial-state 'mu4e-compose-mode 'insert))
 
+  ;; These functions were removed from mu4e 1.12.0, specifically this commit:
+  ;; https://github.com/djcb/mu/commit/85bfe763362b95935a3967f6585e14b3f9890a70
+  (when (version<= "1.12.0" mu4e-mu-version)
+    (defun mu4e-compose-goto-top ()
+      "Go to the beginning of the message or buffer.
+Go to the beginning of the message or, if already there, go to the
+beginning of the buffer."
+      (interactive)
+      (let ((old-position (point)))
+        (message-goto-body)
+        (when (= (point) old-position)
+          (goto-char (point-min)))))
+
+    (defun mu4e-compose-goto-bottom ()
+      "Go to the end of the message or buffer.
+Go to the end of the message (before signature) or, if already there, go to the
+end of the buffer."
+      (interactive)
+      (let ((old-position (point))
+            (message-position (save-excursion (message-goto-body) (point))))
+        (goto-char (point-max))
+        (when (re-search-backward message-signature-separator message-position t)
+          (forward-line -1))
+        (when (= (point) old-position)
+          (goto-char (point-max))))))
 
   ;; When using org-mu4e, the above leads to an annoying behaviour, because
   ;; switching from message body to header activates mu4e-compose-mode, thus
