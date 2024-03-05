@@ -105,10 +105,10 @@ If this is nil, match original `elpaca' behavior."
   (if evil-collection-elpaca-want-u-unmark
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
         (kbd "u") 'elpaca-ui-unmark
-        (kbd "U") 'elpaca-ui-mark-update)
+        (kbd "U") 'elpaca-ui-mark-merge)
     (evil-collection-define-key 'normal 'elpaca-ui-mode-map
       (kbd "U") 'elpaca-ui-unmark
-      (kbd "u") 'elpaca-ui-mark-update))
+      (kbd "u") 'elpaca-ui-mark-merge))
 
   (if evil-collection-elpaca-want-v
       (evil-collection-define-key 'normal 'elpaca-ui-mode-map
