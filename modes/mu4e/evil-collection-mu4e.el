@@ -82,7 +82,8 @@
                                         mu4e-headers-mode-map
                                         mu4e-view-mode-map
                                         mu4e-compose-mode-map
-                                        mu4e-search-minor-mode-map))
+                                        mu4e-search-minor-mode-map
+                                        mu4e-thread-mode-map))
 
   (defun evil-collection-mu4e-set-state ()
     "Set the appropriate initial state of all mu4e modes."
@@ -222,6 +223,12 @@ end of the buffer."
       (mu4e-search-minor-mode-map
        "J" mu4e-search-maildir)
 
+      (mu4e-thread-mode-map
+       [S-left] mu4e-thread-goto-root
+       [tab] mu4e-thread-fold-toggle
+       [C-tab] mu4e-thread-fold-toggle-goto-next
+       [backtab] mu4e-thread-fold-toggle-all)
+
       (mu4e-view-mode-map
        " " mu4e-view-scroll-up-or-next
        [tab] shr-next-link
@@ -322,6 +329,8 @@ If `mu4e-main-mode' is in `evil-state-motion-modes', initialization
 is already done earlier."
     (evil-collection-mu4e-set-state)
     (evil-collection-mu4e-set-bindings))
+
+  (add-hook 'mu4e-thread-mode-hook #'evil-normalize-keymaps)
 
   (provide 'evil-collection-mu4e))
 ;;; evil-collection-mu4e.el ends here
