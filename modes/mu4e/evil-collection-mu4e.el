@@ -142,6 +142,8 @@
        "ce" mu4e-compose-edit
        "cf" mu4e-compose-forward
        "cr" mu4e-compose-reply
+       "cw" mu4e-compose-wide-reply
+       "W" mu4e-compose-wide-reply
        "o" mu4e-headers-change-sorting
        "j" mu4e-headers-next
        "k" mu4e-headers-prev
@@ -212,6 +214,7 @@
        "ce" mu4e-compose-edit
        "cf" mu4e-compose-forward
        "cr" mu4e-compose-reply
+       "cw" mu4e-compose-wide-reply
        "p" mu4e-view-save-attachments
        "O" mu4e-headers-change-sorting
        "A" mu4e-view-mime-part-action ; Since 1.6, uses gnus view by default
