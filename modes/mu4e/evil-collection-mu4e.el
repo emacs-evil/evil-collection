@@ -300,8 +300,8 @@ end of the buffer."
        "-" mu4e-headers-mark-for-unflag)
 
       (mu4e-compose-mode-map
-       "gg" 'mu4e-compose-goto-top
-       "G" 'mu4e-compose-goto-bottom))
+       "gg" mu4e-compose-goto-top
+       "G" mu4e-compose-goto-bottom))
     "All evil-mu4e bindings for evil visual mode.")
 
   (defun evil-collection-mu4e-set-bindings ()
