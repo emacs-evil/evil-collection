@@ -47,12 +47,10 @@
 ;;;###autoload
 (defun evil-collection-magit-todos-setup ()
   "Set up `evil' bindings for `magit-todos'."
-  ;; magit-todos binds jT which prevents evil users from stepping into the section
-  (evil-collection-define-key nil 'magit-todos-section-map
-    "j" nil)
-
-  (evil-collection-define-key nil 'magit-todos-item-section-map
-    "j" nil)
+  ;; magit-todos binds jT and k which prevents evil users from stepping into the section
+  (dolist (key '("j" "k"))
+    (evil-collection-define-key nil 'magit-todos-section-map key nil)
+    (evil-collection-define-key nil 'magit-todos-item-section-map key nil))
 
   ;; No need to tell me that jT isn't bound
   (advice-add 'magit-todos-mode :around 'evil-collection-magit-todos-supress-warning)
