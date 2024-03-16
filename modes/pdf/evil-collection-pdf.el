@@ -98,6 +98,18 @@ Consider COUNT."
      (or reg ?\")
      (mapconcat #'identity txt nil))))
 
+(defun evil-collection-pdf-disable-visual-mode ()
+  "Don't enter visual-mode when the mark is activated.
+Rationale: pdf-view allows using the region to select text within the pdf,
+but evil-mode does not know how to do this. It selects entire pdf images
+instead, which is useless and counterintuitive."
+  (add-hook 'evil-local-mode-hook
+            (lambda () (remove-hook
+                        'activate-mark-hook
+                        'evil-visual-activate-hook
+                        t))
+            nil t))
+
 ;;;###autoload
 (defun evil-collection-pdf-setup ()
   "Set up `evil' bindings for `pdf-view'."
@@ -195,7 +207,9 @@ Consider COUNT."
     (evil-collection-define-key 'normal 'pdf-view-mode-map
       (kbd "C-u") 'pdf-view-scroll-down-or-previous-page))
 
-  (evil-collection-define-key 'visual 'pdf-view-mode-map
+  (add-hook 'pdf-view-mode-hook #'evil-collection-pdf-disable-visual-mode)
+
+  (evil-collection-define-key 'normal 'pdf-view-mode-map
     "y" 'evil-collection-pdf-yank)
 
   (evil-collection-inhibit-insert-state 'pdf-history-minor-mode-map)
