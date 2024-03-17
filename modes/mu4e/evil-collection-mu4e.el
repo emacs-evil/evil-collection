@@ -96,7 +96,9 @@
 
   ;; These functions were removed from mu4e 1.12.0, specifically this commit:
   ;; https://github.com/djcb/mu/commit/85bfe763362b95935a3967f6585e14b3f9890a70
-  (when (version<= "1.12.0" mu4e-mu-version)
+  ;; They were also re-added in version 1.12.2.
+  (when (and (version<= "1.12.0" mu4e-mu-version)
+             (version< mu4e-mu-version "1.12.2"))
     (defun mu4e-compose-goto-top ()
       "Go to the beginning of the message or buffer.
 Go to the beginning of the message or, if already there, go to the
@@ -133,8 +135,8 @@ end of the buffer."
     (evil-set-initial-state 'mu4e-compose-mode 'insert))
 
   (defun evil-collection-mu4e-mark-thread-as-read ()
-      (interactive)
-      (mu4e-headers-mark-thread nil '(read)))
+    (interactive)
+    (mu4e-headers-mark-thread nil '(read)))
 
   (defvar evil-collection-mu4e-mode-normal-map-bindings
     `((mu4e-main-mode-map
@@ -250,7 +252,7 @@ end of the buffer."
        "cw" mu4e-compose-wide-reply
        "p" mu4e-view-save-attachments
        "O" mu4e-headers-change-sorting
-       "A" mu4e-view-mime-part-action ; Since 1.6, uses gnus view by default
+       "A" mu4e-view-mime-part-action   ; Since 1.6, uses gnus view by default
        "a" mu4e-view-action
        "J" mu4e~headers-jump-to-maildir
        "[[" mu4e-view-headers-prev-unread
@@ -261,7 +263,7 @@ end of the buffer."
        "\C-k" mu4e-view-headers-prev
        "x" mu4e-view-marked-execute
        "&" mu4e-view-mark-custom
-       "*" mu4e-view-mark-for-something   ; TODO: Don't override "*".
+       "*" mu4e-view-mark-for-something ; TODO: Don't override "*".
        "m" mu4e-view-mark-for-move
        "r" mu4e-view-mark-for-refile
        "D" mu4e-view-mark-for-delete
