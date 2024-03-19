@@ -256,6 +256,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     monky
     mpc
     mpdel
+    mpdired
     mu4e
     mu4e-conversation
     neotree
