@@ -38,8 +38,9 @@
 (defvar corfu-preselect-first)
 (defvar corfu--index)
 
-(declare-function "corfu-insert" "corfu")
-(declare-function "corfu-reset" "corfu")
+(declare-function corfu-insert "corfu")
+(declare-function corfu-reset "corfu")
+(declare-function corfu-quit "corfu")
 
 (defconst evil-collection-corfu-maps '(corfu-map))
 
@@ -48,6 +49,23 @@
   (interactive)
   (call-interactively 'corfu-quit)
   (evil-normal-state))
+
+;; https://github.com/minad/corfu/pull/169
+;; https://github.com/minad/corfu/pull/225
+(defun evil-collection-corfu-unread-this-command-keys ()
+  (when (> (length (this-command-keys)) 0)
+    (setq unread-command-events (nconc
+                                  (listify-key-sequence (this-command-keys))
+                                  unread-command-events))
+    (clear-this-command-keys t)))
+
+(defun evil-collection-corfu-insert-exact ()
+  "Insert current candidate with the `exact' status.
+Quit if no candidate is selected."
+  (interactive)
+  (if (>= corfu--index 0)
+      (corfu--insert 'exact)
+    (corfu-quit)))
 
 (defcustom evil-collection-corfu-key-themes '(default)
   "Determines the key theme to be mapped.
@@ -135,7 +153,25 @@ This key theme variable may be refactored in the future so use with caution."
   (advice-add 'corfu--setup :after (lambda (&rest _) (evil-normalize-keymaps)))
   (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps)))
   (advice-add 'corfu--continue-p
-              :before-while (lambda (&rest _) (memq evil-state evil-collection-corfu-supported-states))))
+              :before-while (lambda (&rest _) (memq evil-state evil-collection-corfu-supported-states)))
+
+  (cl-defmethod corfu--insert :around (status)
+    (if (or (eq this-command 'evil-collection-corfu-insert-exact)
+            (not (eq status 'exact)))
+        (cl-call-next-method)
+      (evil-collection-corfu-unread-this-command-keys)
+      (setq this-command 'evil-collection-corfu-insert-exact)))
+
+  (mapc #'evil-declare-ignore-repeat
+        '(corfu-next
+          corfu-previous
+          corfu-first
+          corfu-last))
+
+  (mapc #'evil-declare-change-repeat
+        '(evil-collection-corfu-insert-exact
+          corfu-insert
+          corfu-complete)))
 
 (provide 'evil-collection-corfu)
 ;;; evil-collection-corfu.el ends here
