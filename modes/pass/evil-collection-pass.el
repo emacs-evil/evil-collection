@@ -32,7 +32,7 @@
 
 (defvar pass-mode-map)
 
-(declare-function "pass--display-keybinding" "pass")
+(declare-function pass--display-keybinding "pass")
 
 (defconst evil-collection-pass-maps '(pass-mode-map))
 
