@@ -35,7 +35,7 @@
 
 (defvar corfu-map)
 (defvar corfu-cycle)
-(defvar corfu-preselect-first)
+(defvar corfu-preselect)
 (defvar corfu--index)
 
 (declare-function corfu-insert "corfu")
@@ -111,7 +111,7 @@ This key theme variable may be refactored in the future so use with caution."
   ;; https://github.com/minad/corfu#tab-and-go-completion
   (when (memq 'tab-n-go evil-collection-corfu-key-themes)
     (setq corfu-cycle t
-          corfu-preselect-first nil)
+          corfu-preselect 'prompt)
     (evil-collection-define-key 'insert 'corfu-map
       (kbd "TAB") 'corfu-next
       [tab] 'corfu-next
