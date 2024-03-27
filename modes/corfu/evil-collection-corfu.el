@@ -35,11 +35,12 @@
 
 (defvar corfu-map)
 (defvar corfu-cycle)
-(defvar corfu-preselect-first)
+(defvar corfu-preselect)
 (defvar corfu--index)
 
-(declare-function "corfu-insert" "corfu")
-(declare-function "corfu-reset" "corfu")
+(declare-function corfu-insert "corfu")
+(declare-function corfu-reset "corfu")
+(declare-function corfu-quit "corfu")
 
 (defconst evil-collection-corfu-maps '(corfu-map))
 
@@ -48,6 +49,23 @@
   (interactive)
   (call-interactively 'corfu-quit)
   (evil-normal-state))
+
+;; https://github.com/minad/corfu/pull/169
+;; https://github.com/minad/corfu/pull/225
+(defun evil-collection-corfu-unread-this-command-keys ()
+  (when (> (length (this-command-keys)) 0)
+    (setq unread-command-events (nconc
+                                  (listify-key-sequence (this-command-keys))
+                                  unread-command-events))
+    (clear-this-command-keys t)))
+
+(defun evil-collection-corfu-insert-exact ()
+  "Insert current candidate with the `exact' status.
+Quit if no candidate is selected."
+  (interactive)
+  (if (>= corfu--index 0)
+      (corfu--insert 'exact)
+    (corfu-quit)))
 
 (defcustom evil-collection-corfu-key-themes '(default)
   "Determines the key theme to be mapped.
@@ -89,7 +107,7 @@ This key theme variable may be refactored in the future so use with caution."
   ;; https://github.com/minad/corfu#tab-and-go-completion
   (when (memq 'tab-n-go evil-collection-corfu-key-themes)
     (setq corfu-cycle t
-          corfu-preselect-first nil)
+          corfu-preselect 'prompt)
     (evil-collection-define-key 'insert 'corfu-map
       (kbd "TAB") 'corfu-next
       [tab] 'corfu-next
@@ -129,7 +147,25 @@ This key theme variable may be refactored in the future so use with caution."
       (kbd "C-u") 'corfu-scroll-down))
 
   (advice-add 'corfu--setup :after (lambda (&rest _) (evil-normalize-keymaps)))
-  (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps))))
+  (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps)))
+
+  (cl-defmethod corfu--insert :around (status)
+    (if (or (eq this-command 'evil-collection-corfu-insert-exact)
+            (not (eq status 'exact)))
+        (cl-call-next-method)
+      (evil-collection-corfu-unread-this-command-keys)
+      (setq this-command 'evil-collection-corfu-insert-exact)))
+
+  (mapc #'evil-declare-ignore-repeat
+        '(corfu-next
+          corfu-previous
+          corfu-first
+          corfu-last))
+
+  (mapc #'evil-declare-change-repeat
+        '(evil-collection-corfu-insert-exact
+          corfu-insert
+          corfu-complete)))
 
 (provide 'evil-collection-corfu)
 ;;; evil-collection-corfu.el ends here
