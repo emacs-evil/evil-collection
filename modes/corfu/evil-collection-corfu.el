@@ -135,8 +135,7 @@ This key theme variable may be refactored in the future so use with caution."
   (advice-add 'corfu--setup :after (lambda (&rest _) (evil-normalize-keymaps)))
   (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps)))
   (advice-add 'corfu--continue-p
-              :before-while (lambda (&rest _) (memq evil-state evil-collection-corfu-supported-states)))
-  )
+              :before-while (lambda (&rest _) (memq evil-state evil-collection-corfu-supported-states))))
 
 (provide 'evil-collection-corfu)
 ;;; evil-collection-corfu.el ends here
