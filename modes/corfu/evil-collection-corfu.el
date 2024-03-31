@@ -71,6 +71,10 @@ This key theme variable may be refactored in the future so use with caution."
      (const
       :tag "Magic Backspace" magic-backspace))))
 
+(defcustom evil-collection-corfu-supported-states '(insert replace emacs)
+  "The `evil-state's which `corfu' function can be requested."
+  :type '(repeat symbol))
+
 ;;;###autoload
 (defun evil-collection-corfu-setup ()
   "Set up `evil' bindings for `corfu'."
@@ -129,7 +133,10 @@ This key theme variable may be refactored in the future so use with caution."
       (kbd "C-u") 'corfu-scroll-down))
 
   (advice-add 'corfu--setup :after (lambda (&rest _) (evil-normalize-keymaps)))
-  (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps))))
+  (advice-add 'corfu--teardown :after (lambda (&rest _) (evil-normalize-keymaps)))
+  (advice-add 'corfu--continue-p
+              :before-while (lambda (&rest _) (memq evil-state evil-collection-corfu-supported-states)))
+  )
 
 (provide 'evil-collection-corfu)
 ;;; evil-collection-corfu.el ends here
