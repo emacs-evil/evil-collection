@@ -89,7 +89,7 @@ This key theme variable may be refactored in the future so use with caution."
      (const
       :tag "Magic Backspace" magic-backspace))))
 
-(defcustom evil-collection-corfu-supported-states '(insert replace emacs)
+(defcustom evil-collection-corfu-supported-states '(insert replace emacs nil)
   "The `evil-state's which `corfu' function can be requested."
   :type '(repeat symbol))
 
