@@ -66,6 +66,7 @@
 ;;; Code:
 
 (require 'evil-collection)
+(require 'message)
 (require 'mu4e nil t)
 
 (defvar mu4e-mu-version)
