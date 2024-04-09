@@ -200,7 +200,8 @@ Move `magit-diff-default-context' to \"~\"."
     (evil-set-initial-state mode evil-default-state)))
 
 (defun evil-collection-magit-revert-initial-states ()
-  "Revert the initial state for modes to their values before evil-collection-magit was loaded."
+  "Revert the initial state for modes to their values before
+evil-collection-magit was loaded."
   (dolist (mode (append evil-collection-magit-emacs-to-evil-collection-magit-state-modes
                         evil-collection-magit-emacs-to-default-state-modes))
     (evil-set-initial-state mode 'emacs))
@@ -635,9 +636,9 @@ evil-collection-magit affects.")
 ;;;###autoload
 (defun evil-collection-magit-init ()
   "This function completes the setup of evil-collection-magit. It is called
-automatically when evil-collection-magit-setup is called.. The only reason to use
-this function is if you've called `evil-collection-magit-revert' and wish to
-go back to evil-collection-magit behavior."
+automatically when evil-collection-magit-setup is called.. The only reason to
+use this function is if you've called `evil-collection-magit-revert' and wish
+to go back to evil-collection-magit behavior."
   (interactive)
   (evil-collection-magit-adjust-section-bindings)
   (evil-collection-magit-adjust-popups)
