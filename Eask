@@ -6,6 +6,7 @@
 (keywords "evil" "tools")
 
 (package-file "evil-collection.el")
+(files "modes/*/*.el")
 
 (script "test" "echo \"Error: no test specified\" && exit 1")
 
