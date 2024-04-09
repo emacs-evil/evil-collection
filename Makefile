@@ -5,8 +5,6 @@ compile:
 
 install:
 	$(EASK) install-deps --dev
-	$(EASK) package
-	$(EASK) install
 
 lint:
 	$(EASK) lint package
