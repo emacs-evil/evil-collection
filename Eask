@@ -34,6 +34,7 @@
 
 (add-hook 'eask-before-lint/package-hook
            (lambda (&rest _)
+             (advice-add 'package-lint--error-at-bol :around 'ignore)  ; ignore headers
              (advice-add 'package-lint--check-eval-after-load :around 'ignore)
              (advice-add 'package-lint--check-version-regexp-list :around 'ignore)
              (advice-add 'package-lint--check-symbol-separators :around 'ignore)
