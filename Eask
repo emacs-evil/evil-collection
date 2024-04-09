@@ -6,7 +6,7 @@
 (keywords "evil" "tools")
 
 (package-file "evil-collection.el")
-(files "modes/*/*.el")
+(files "modes/*/*.el" '(:exclude "modes/magit/*.el"))
 
 (script "test" "echo \"Error: no test specified\" && exit 1")
 
