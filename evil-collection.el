@@ -684,7 +684,8 @@ NAME specifies the name of the entry added to HOOK.  If APPEND is
 non-nil, the entry is appended to the hook.  If LOCAL is non-nil,
 the buffer-local value of HOOK is modified.
 
-This is a backport of `evil-delay' without the deprecation notice to deal with CI until migration can be done.
+This is a backport of `evil-delay' without the deprecation notice to deal with
+CI until migration can be done.
 Ref: https://github.com/emacs-evil/evil-collection/issues/750"
   (eval `(evil-with-delay ,condition (,hook ,append ,local ,name) ,form) t))
 
