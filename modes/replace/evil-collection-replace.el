@@ -58,6 +58,7 @@
     (kbd "C-k") 'previous-error-no-select
     "r" 'occur-rename-buffer
     "c" 'clone-buffer
+    "q" 'quit-window
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
 
   (evil-collection-define-key 'normal 'occur-edit-mode-map
