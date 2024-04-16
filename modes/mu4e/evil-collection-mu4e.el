@@ -236,8 +236,8 @@ end of the buffer."
 
       (mu4e-view-mode-map
        " " mu4e-view-scroll-up-or-next
-       [tab] shr-next-link
-       [backtab] shr-previous-link
+       [tab] forward-button
+       [backtab] backward-button
        "q" mu4e-view-quit
        "gx" mu4e-view-go-to-url
        "gX" mu4e-view-fetch-url
