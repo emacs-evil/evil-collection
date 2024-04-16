@@ -238,6 +238,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     info
     ivy
     js2-mode
+    ,@(when (>= emacs-major-version 30) '(kmacro))
     leetcode
     lispy
     lms
