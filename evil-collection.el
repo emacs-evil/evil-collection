@@ -184,6 +184,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     distel
     doc-view
     docker
+    eat
     ebib
     ebuku
     edbi
