@@ -222,8 +222,8 @@ end of the buffer."
        "G" mu4e-compose-goto-bottom
        "ZD" message-dont-send
        "ZF" mml-attach-file
-       "ZQ" mu4e-message-kill-buffer
-       "ZZ" message-send-and-exit)
+       "ZQ" ,(function-get 'mu4e-user-agent 'abortfunc)
+       "ZZ" ,(function-get 'mu4e-user-agent 'sendfunc))
 
       (mu4e-search-minor-mode-map
        "J" mu4e-search-maildir)
