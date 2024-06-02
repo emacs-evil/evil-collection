@@ -50,14 +50,15 @@
     "k"         'mpdired-previous-line
     (kbd "RET") 'mpdired-enter
     "^"         'mpdired-goto-parent
+    "."         'mpdired-goto-current-song
     "o"         'mpdired-toggle-view
-    "g r"       'mpdired-update
-    "g R"       'mpdired-db-update
+    "gr"        'mpdired-update
+    "gR"        'mpdired-db-update
     "J"         'mpdired-next-internal
     "K"         'mpdired-previous-internal
     "a"         'mpdired-add
     "d"         'mpdired-flag-at-point
-    "x"         'mpdired-flagged-delete
+    "x"         'mpdired-execute
     "D"         'mpdired-delete
     "p"         'mpdired-pause-internal
     (kbd "SPC") 'mpdired-pause-internal
@@ -76,7 +77,9 @@
     "t"         'mpdired-toggle-marks
     "T"         'mpdired-previous-unmark
     "%d"        'mpdired-flag-files-regexp
-    "%m"        'mpdired-mark-files-regexp))
+    "%m"        'mpdired-mark-files-regexp
+    "%i"        'mpdired-put-order-at-point
+    "%r"        'mpdired-put-order-at-point))
 
 (provide 'evil-collection-mpdired)
 ;;; evil-collection-mpdired.el ends here
