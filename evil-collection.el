@@ -167,6 +167,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     consult
     corfu
     crdt
+    (csv "csv-mode")
     (custom cus-edit)
     cus-theme
     dashboard
