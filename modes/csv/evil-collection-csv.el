@@ -37,8 +37,7 @@
   "Set up `evil' bindings for csv."
   (evil-collection-define-key 'normal 'csv-mode-map
     [tab] 'csv-tab-command
-    [backtab] 'csv-backtab-command
-    ))
+    [backtab] 'csv-backtab-command))
 
 (provide 'evil-collection-csv)
 ;;; evil-collection-csv.el ends here
