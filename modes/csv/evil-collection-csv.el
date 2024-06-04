@@ -1,6 +1,6 @@
 ;;; evil-collection-csv.el --- Bindings for `csv' -*- lexical-binding: t -*-
 
-;; Copyright (C) 2022 James Nguyen
+;; Copyright (C) 2024 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
