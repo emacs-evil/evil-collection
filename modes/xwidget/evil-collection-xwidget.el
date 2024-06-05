@@ -1,6 +1,6 @@
 ;;; evil-collection-xwidget.el --- Evil bindings for Xwidget -*- lexical-binding: t -*-
 
-;; Copyright (C) 2020, 2022 Ruslan Kamashev
+;; Copyright (C) 2020, 2022, 2024 Ruslan Kamashev
 
 ;; Author: Ruslan Kamashev <rynffoll@gmail.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -72,7 +72,7 @@ F is the name of function, N is the pixel height."
   (setq evil-collection-xwidget-webkit-last-closed-tab-url
         (xwidget-webkit-uri (xwidget-webkit-current-session)))
   (let ((kill-buffer-query-functions nil))
-    (kill-this-buffer)))
+    (kill-current-buffer)))
 
 (defun evil-collection-xwidget-webkit-restore-last-closed-tab ()
   "Restore last closed tab."

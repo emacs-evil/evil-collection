@@ -1,6 +1,6 @@
 ;;; evil-collection-pdf.el --- Evil bindings for pdf-tools  -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 Pierre Neidhardt
+;; Copyright (C) 2017, 2024 Pierre Neidhardt
 
 ;; Author: Pierre Neidhardt <mail@ambrevar.xyz>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -195,8 +195,8 @@ instead, which is useless and counterintuitive."
 
     ;; quit
     "q" 'quit-window
-    "Q" 'kill-this-buffer
-    "ZQ" 'kill-this-buffer
+    "Q" 'kill-current-buffer
+    "ZQ" 'kill-current-buffer
     "ZZ" 'quit-window)
 
 

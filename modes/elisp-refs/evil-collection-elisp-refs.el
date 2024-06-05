@@ -1,6 +1,6 @@
 ;;; evil-collection-elisp-refs.el --- Evil bindings for Elisp Refs -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2017, 2024 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -46,7 +46,7 @@
     (kbd "RET") 'elisp-refs-visit-match
 
     ;; quit
-    "q" 'kill-this-buffer))
+    "q" 'kill-current-buffer))
 
 (provide 'evil-collection-elisp-refs)
 ;;; evil-collection-elisp-refs.el ends here
