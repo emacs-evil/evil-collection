@@ -251,7 +251,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     kotlin-mode
     macrostep
     man
-    (magit magit-repos magit-submodule)
+    (magit magit-submodule) ;; See https://github.com/emacs-evil/evil-collection/issues/637
     magit-section
     magit-todos
     markdown-mode
