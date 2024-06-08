@@ -50,7 +50,6 @@
 (defvar magit-process-mode-map)
 (defvar magit-reflog-mode-map)
 (defvar magit-refs-mode-map)
-(defvar magit-repolist-mode-map)
 (defvar magit-status-mode-map)
 (defvar magit-submodule-list-mode-map)
 
@@ -62,7 +61,6 @@
     magit-blame-read-only-mode-map
     magit-blob-mode-map
     magit-submodule-list-mode-map ; -> parent: `magit-repolist-mode-map'
-    magit-repolist-mode-map
     magit-mode-map))
 
 (defcustom evil-collection-magit-use-y-for-yank t
@@ -475,15 +473,6 @@ denotes the original magit key for this command.")
 
 ;; Need to refresh evil keymaps when blame mode is entered.
 (add-hook 'magit-blame-mode-hook 'evil-normalize-keymaps)
-
-(evil-set-initial-state 'magit-repolist-mode 'normal)
-(evil-collection-define-key 'normal 'magit-repolist-mode-map
-  "m" 'magit-repolist-mark
-  "u" 'magit-repolist-unmark
-  "f" 'magit-repolist-fetch
-  (kbd "RET") 'magit-repolist-status
-  (kbd "gr")  'magit-list-repositories)
-(add-hook 'magit-repolist-mode-hook 'evil-normalize-keymaps)
 
 (evil-set-initial-state 'magit-submodule-list-mode 'normal)
 (evil-collection-define-key 'normal 'magit-submodule-list-mode-map
