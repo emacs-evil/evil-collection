@@ -252,6 +252,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     macrostep
     man
     (magit magit-submodule) ;; See https://github.com/emacs-evil/evil-collection/issues/637
+    magit-repos
     magit-section
     magit-todos
     markdown-mode
