@@ -36,6 +36,10 @@
 (declare-function notmuch-search-tag "notmuch")
 (declare-function notmuch-tree-tag "notmuch-tree")
 
+(declare-function widget-field-at "wid-edit")
+(declare-function widget-field-activate "wid-edit")
+(declare-function widget-button-press "wid-edit")
+
 ;; Since all the other maps in `evil-collection-notmuch-maps`
 ;; have notmuch-common-keymap as parent
 ;; https://git.notmuchmail.org/git?p=notmuch;a=blob;f=emacs/notmuch-hello.el;h=fa31694ff0f79a7f2781849394390a673f75aade;hb=HEAD#l651
@@ -103,8 +107,9 @@
 
 (defun evil-collection-notmuch-hello-ret ()
   (interactive)
-  (evil-execute-in-emacs-state)
-  (call-interactively (key-binding (kbd "RET"))))
+  (if (widget-field-at (point))
+      (call-interactively #'widget-field-activate)
+    (call-interactively #'widget-button-press)))
 
 ;;;###autoload
 (defun evil-collection-notmuch-setup ()
