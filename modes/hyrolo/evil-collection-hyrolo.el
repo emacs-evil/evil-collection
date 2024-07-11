@@ -7,8 +7,8 @@
 (require 'evil-collection)
 (require 'hyperbole nil t)
 
-(defvar eldoc-mode-map)
-(defconst evil-collection-eldoc-maps '(hyrolo-mode-map))
+(defvar hyrolo-mode-map)
+(defconst evil-collection-hyrolo-maps '(hyrolo-mode-map))
 
 (defun evil-collection-hyrolo-setup ()
   "Set up `evil' bindings for hyrolo."
