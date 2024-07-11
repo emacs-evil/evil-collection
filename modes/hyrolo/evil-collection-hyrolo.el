@@ -15,13 +15,12 @@
   (evil-collection-define-key 'normal 'hyrolo-mode-map
     (kbd "[[") #'hyrolo-to-previous-loc
     (kbd "]]") #'hyrolo-to-next-loc
-    (kbd "C-j") #'hyrolo-to-previous-loc
-    (kbd "C-k") #'hyrolo-to-next-loc
-    (kbd "gj") #'hyrolo-to-previous-loc
-    (kbd "gk") #'hyrolo-to-next-loc
+    (kbd "C-k") #'hyrolo-to-previous-loc
+    (kbd "C-j") #'hyrolo-to-next-loc
+    (kbd "gk") #'hyrolo-to-previous-loc
+    (kbd "gj") #'hyrolo-to-next-loc
     (kbd "zo") #'hyrolo-outline-show-all
-    (kbd "zc") #'hyrolo-overview
-    ))
+    (kbd "zc") #'hyrolo-overview))
 
 (provide 'evil-collection-hyrolo)
 ;;; evil-collection-hyrolo.el ends here
