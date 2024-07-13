@@ -103,6 +103,13 @@ current file instead."
 
     "q" 'quit-window
 
+    "a" 'diff-apply-hunk
+    "*" 'diff-refine-hunk
+    "D" 'diff-file-kill
+    "d" 'diff-hunk-kill
+    "s" 'diff-split-hunk
+    "c" 'diff-test-hunk
+
     "\\" 'read-only-mode) ; magit has "\"
 
   (evil-collection-define-key 'motion 'diff-mode-map
@@ -119,17 +126,10 @@ current file instead."
     (kbd "RET") 'diff-goto-source
     "A" 'diff-add-change-log-entries-other-window
 
-    "a" 'diff-apply-hunk
-    "*" 'diff-refine-hunk
-    "D" 'diff-file-kill
-    "d" 'diff-hunk-kill
-
     "ge" 'diff-ediff-patch
     "i" 'next-error-follow-minor-mode
     "o" 'evil-collection-diff-toggle-restrict-view
     "~" 'diff-reverse-direction
-    "s" 'diff-split-hunk
-    "c" 'diff-test-hunk
     "x" 'evil-collection-diff-toggle-context-unified
     "#" 'diff-ignore-whitespace-hunk
 
