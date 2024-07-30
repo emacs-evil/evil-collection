@@ -67,6 +67,7 @@
     "d" 'vundo-diff
     "m" 'vundo-diff-mark
     "u" 'vundo-diff-unmark
+    "w" 'vundo-next-root
     "q" 'vundo-quit
     "ZZ" 'vundo-quit
     "ZQ" 'vundo-quit))
