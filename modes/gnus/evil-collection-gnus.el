@@ -122,6 +122,7 @@ Note that there is no gnus-common-mode-map")
     "z/"        'gnus-summary-limit-map
     "zt"        'gnus-summary-toggle-header
     "x"         'gnus-summary-limit-to-unread
+    "gX"        'gnus-summary-browse-url
 
     ;; Finding the parent
     "^"         'gnus-summary-refer-parent-article
