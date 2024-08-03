@@ -629,7 +629,7 @@ file an issue.
 Other references:
 
 - [[https://github.com/syl20bnr/spacemacs/blob/master/doc/CONVENTIONS.org#key-bindings-conventions][Spacemacs]]
-- [[https://github.com/hlissner/doom-emacs/tree/develop/modules/editor/evil][Doom Emacs]]
+- [[https://github.com/doomemacs/doomemacs/tree/master/modules/editor/evil][Doom Emacs]]
 
 ** FAQ
 
