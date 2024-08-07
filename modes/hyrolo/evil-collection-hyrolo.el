@@ -20,7 +20,8 @@
     (kbd "gk") #'hyrolo-to-previous-loc
     (kbd "gj") #'hyrolo-to-next-loc
     (kbd "zo") #'hyrolo-outline-show-all
-    (kbd "zc") #'hyrolo-overview))
+    (kbd "zc") #'hyrolo-overview)
+  (evil-set-initial-state 'hyrolo-mode 'normal))
 
 (provide 'evil-collection-hyrolo)
 ;;; evil-collection-hyrolo.el ends here
