@@ -10,6 +10,11 @@
 (defvar hyrolo-mode-map)
 (defconst evil-collection-hyrolo-maps '(hyrolo-mode-map))
 
+(declare-function hyrolo-to-previous-loc "hyrolo")
+(declare-function hyrolo-to-next-loc "hyrolo")
+(declare-function hyrolo-overview "hyrolo")
+(declare-function hyrolo-outline-show-all "hyrolo")
+
 (defun evil-collection-hyrolo-setup ()
   "Set up `evil' bindings for hyrolo."
   (evil-collection-define-key 'normal 'hyrolo-mode-map
