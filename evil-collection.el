@@ -229,6 +229,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     helpful
     hg-histedit
     hungry-delete
+    hyrolo
     ibuffer
     (image image-mode)
     image-dired
