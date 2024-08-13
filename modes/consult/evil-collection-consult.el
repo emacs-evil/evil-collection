@@ -1,6 +1,6 @@
 ;;; evil-collection-consult.el --- Evil bindings for consult -*- lexical-binding: t -*-
 
-;; Copyright (C) 2017 James Nguyen
+;; Copyright (C) 2017, 2024 James Nguyen
 
 ;; Author: James Nguyen <james@jojojames.com>
 ;; Maintainer: James Nguyen <james@jojojames.com>
@@ -30,8 +30,10 @@
 ;;
 ;; `consult-outline'
 ;; `consult-mark'
+;; `consult-global-mark'
 ;; `consult-imenu'
 ;; `consult-org-heading'
+;; `consult-org-agenda'
 ;; `consult-line'
 ;;
 ;; are all autoloaded, no (require 'consult nil t) is needed.
@@ -57,6 +59,7 @@
                  consult-global-mark
                  consult-imenu
                  consult-org-heading
+                 consult-org-agenda
                  consult-line))
     (evil-declare-not-repeat cmd)
     (evil-set-command-property cmd :jump t)))
