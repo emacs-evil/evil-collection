@@ -29,6 +29,9 @@
 (require 'evil-collection)
 (require 'dape nil t)
 
+(defvar dape-info-scope-mode-map)
+(defvar dape-info-watch-mode-map)
+
 (defconst evil-collection-dape-maps '(dape-info-watch-edit-mode-map
                                       dape-info-scope-mode-map
                                       dape-info-watch-mode-map))
