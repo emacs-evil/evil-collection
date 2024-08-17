@@ -79,7 +79,7 @@
     "%d"        'mpdired-flag-files-regexp
     "%m"        'mpdired-mark-files-regexp
     "%i"        'mpdired-put-order-at-point
-    "%r"        'mpdired-put-order-at-point))
+    "%r"        'mpdired-reset-order-index))
 
 (provide 'evil-collection-mpdired)
 ;;; evil-collection-mpdired.el ends here
