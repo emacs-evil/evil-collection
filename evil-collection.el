@@ -170,6 +170,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     (csv "csv-mode")
     (custom cus-edit)
     cus-theme
+    dape
     dashboard
     daemons
     deadgrep
