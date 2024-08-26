@@ -69,7 +69,6 @@
 (require 'message)
 (require 'mu4e nil t)
 
-(defvar mu4e-mu-version)
 (declare-function evil-collection-mu4e-set-bindings "evil-collection-mu4e")
 (declare-function evil-collection-mu4e-set-state "evil-collection-mu4e")
 (declare-function mu4e-headers-mark-thread "mu4e-headers")
