@@ -53,10 +53,8 @@
 (declare-function org-calendar-backward-month "org")
 (declare-function org-calendar-forward-year "org")
 (declare-function org-calendar-backward-year "org")
-<<<<<<< HEAD
+
 (declare-function org-defkey "org")
-=======
->>>>>>> 34dfa7a (added date movement)
 
 ;;;###autoload
 (defun evil-collection-org-setup ()
@@ -83,16 +81,7 @@
   (evil-collection-define-key 'normal 'org-capture-mode-map
     "ZZ" 'org-capture-finalize
     "ZQ" 'org-capture-kill
-    "ZR" 'org-capture-refile)
-
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-l") #'org-calendar-forward-day)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-h") #'org-calendar-backward-day)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-j") #'org-calendar-forward-week)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-k") #'org-calendar-backward-week)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-L") #'org-calendar-forward-month)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-H") #'org-calendar-backward-month)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-J") #'org-calendar-forward-year)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-K") #'org-calendar-backward-year))
+    "ZR" 'org-capture-refile))
 
 (provide 'evil-collection-org)
 ;;; evil-collection-org.el ends here
