@@ -31,13 +31,22 @@
 ;;; Code:
 (require 'evil-collection)
 
-(defconst evil-collection-org-maps '(org-mode-map))
+(defconst evil-collection-org-maps '(org-mode-map org-read-date-minibuffer-local-map))
 
 (declare-function org-shifttab "org")
 (declare-function org-backward-paragraph "org")
 (declare-function org-forward-paragraph "org")
 (declare-function org-backward-sentence "org")
 (declare-function org-forward-sentence "org")
+
+(declare-function org-calendar-forward-day "org")
+(declare-function org-calendar-backward-day "org")
+(declare-function org-calendar-forward-week "org")
+(declare-function org-calendar-backward-week "org")
+(declare-function org-calendar-forward-month "org")
+(declare-function org-calendar-backward-month "org")
+(declare-function org-calendar-forward-year "org")
+(declare-function org-calendar-backward-year "org")
 
 ;;;###autoload
 (defun evil-collection-org-setup ()
@@ -50,7 +59,16 @@
     "{" 'org-backward-paragraph
     "}" 'org-forward-paragraph
     "(" 'org-backward-sentence
-    ")" 'org-forward-sentence))
+    ")" 'org-forward-sentence)
+
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-l") #'org-calendar-forward-day)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-h") #'org-calendar-backward-day)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-j") #'org-calendar-forward-week)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-k") #'org-calendar-backward-week)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-L") #'org-calendar-forward-month)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-H") #'org-calendar-backward-month)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-J") #'org-calendar-forward-year)
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-K") #'org-calendar-backward-year))
 
 (provide 'evil-collection-org)
 ;;; evil-collection-org.el ends here
