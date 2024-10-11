@@ -31,13 +31,17 @@
 ;;; Code:
 (require 'evil-collection)
 
-(defconst evil-collection-org-maps '(org-mode-map))
+(defconst evil-collection-org-maps '(org-mode-map
+                                     org-capture-mode-map))
 
 (declare-function org-shifttab "org")
 (declare-function org-backward-paragraph "org")
 (declare-function org-forward-paragraph "org")
 (declare-function org-backward-sentence "org")
 (declare-function org-forward-sentence "org")
+(declare-function org-capture-finalize "org-capture")
+(declare-function org-capture-kill "org-capture")
+(declare-function org-capture-refile "org-capture")
 
 ;;;###autoload
 (defun evil-collection-org-setup ()
@@ -50,7 +54,12 @@
     "{" 'org-backward-paragraph
     "}" 'org-forward-paragraph
     "(" 'org-backward-sentence
-    ")" 'org-forward-sentence))
+    ")" 'org-forward-sentence)
+
+  (evil-collection-define-key 'normal 'org-capture-mode-map
+    "ZZ" 'org-capture-finalize
+    "ZQ" 'org-capture-kill
+    "ZR" 'org-capture-refile))
 
 (provide 'evil-collection-org)
 ;;; evil-collection-org.el ends here
