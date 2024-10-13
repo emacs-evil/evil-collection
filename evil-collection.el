@@ -337,6 +337,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     wdired
     wgrep
     which-key
+    with-editor
     woman
     xref
     xwidget

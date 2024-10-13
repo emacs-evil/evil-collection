@@ -32,14 +32,18 @@
 (require 'evil-collection)
 (require 'org nil t)
 
-
-(defconst evil-collection-org-maps '(org-mode-map org-read-date-minibuffer-local-map))
+(defconst evil-collection-org-maps '(org-mode-map
+                                     org-read-date-minibuffer-local-map
+                                     org-capture-mode-map))
 
 (declare-function org-shifttab "org")
 (declare-function org-backward-paragraph "org")
 (declare-function org-forward-paragraph "org")
 (declare-function org-backward-sentence "org")
 (declare-function org-forward-sentence "org")
+(declare-function org-capture-finalize "org-capture")
+(declare-function org-capture-kill "org-capture")
+(declare-function org-capture-refile "org-capture")
 
 (declare-function org-calendar-forward-day "org")
 (declare-function org-calendar-backward-day "org")
@@ -71,7 +75,12 @@
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-L") #'org-calendar-forward-month)
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-H") #'org-calendar-backward-month)
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-J") #'org-calendar-forward-year)
-  (org-defkey org-read-date-minibuffer-local-map (kbd "M-K") #'org-calendar-backward-year))
+  (org-defkey org-read-date-minibuffer-local-map (kbd "M-K") #'org-calendar-backward-year)
+
+  (evil-collection-define-key 'normal 'org-capture-mode-map
+    "ZZ" 'org-capture-finalize
+    "ZQ" 'org-capture-kill
+    "ZR" 'org-capture-refile))
 
 (provide 'evil-collection-org)
 ;;; evil-collection-org.el ends here
