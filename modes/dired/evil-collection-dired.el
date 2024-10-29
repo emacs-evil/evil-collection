@@ -190,6 +190,10 @@
     ";s" 'epa-dired-do-sign
     ";e" 'epa-dired-do-encrypt)
 
+  (when (>= emacs-major-version 30)
+    (evil-collection-define-key 'normal 'dired-mode-map
+      "E" 'dired-do-open))
+
   ;; dired-x commands
   (with-eval-after-load 'dired-x
     (evil-collection-define-key 'normal 'dired-mode-map
