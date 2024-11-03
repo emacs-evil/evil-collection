@@ -231,6 +231,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     help
     helpful
     hg-histedit
+    hs-minor-mode
     hungry-delete
     hyrolo
     ibuffer
