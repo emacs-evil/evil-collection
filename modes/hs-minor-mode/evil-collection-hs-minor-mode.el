@@ -31,10 +31,13 @@
 (require 'hs-minor-mode nil t)
 
 (declare-function hs-hide-level "hideshow")
+(defvar hs-minor-mode-map)
+(defconst evil-collection-hs-minor-mode-maps '(hs-minor-mode-map))
 
 ;;;###autoload
 (defun evil-collection-hs-minor-mode-setup ()
   "Set up `evil' bindings for `hs-minor-mode'."
+  (evil-set-initial-state 'hs-minor-mode 'normal)
   (evil-collection-define-key 'normal 'hs-minor-mode-map
     "zL" 'hs-hide-level))
 
