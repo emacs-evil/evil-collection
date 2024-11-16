@@ -46,7 +46,9 @@
   "Set up `evil' bindings for `vlf'."
   (evil-set-initial-state 'vlf-mode 'normal)
 
-  (evil-collection-define-key 'normal 'vlf-mode-map
+  (add-hook 'vlf-mode-hook #'evil-normalize-keymaps)
+
+  (evil-collection-define-key 'normal 'vlf-prefix-map
     "gj" 'vlf-next-batch
     "gk" 'vlf-prev-batch
     (kbd "C-j") 'vlf-next-batch
