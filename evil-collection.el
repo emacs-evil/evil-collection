@@ -308,6 +308,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     simple-mpc
     slime
     sly
+    smerge-mode
     snake
     so-long
     speedbar
