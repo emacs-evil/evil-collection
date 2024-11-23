@@ -82,14 +82,81 @@ current file instead."
       (widen)
     (diff-restrict-view arg)))
 
-;;;###autoload
-(defun evil-collection-diff-mode-setup ()
-  "Set up `evil' bindings for `diff-mode'."
+(defcustom evil-collection-diff-mode-want-minor-mode t
+  "Whether to bind keys to a `evil-collection' created minor mode.
 
-  ;; Don't switch to read-only/motion state by default as this can interfere
-  ;; with other modes which require a writable buffer, e.g. magit.
-  (evil-set-initial-state 'diff-mode 'normal)
+When this is enabled, disable bootstrap related to setting up keys for motion,
+binding keys to a minor mode created by `evil-collection' instead."
+  :type 'boolean
+  :group 'evil-collection)
 
+(defcustom evil-collection-diff-mode-want-g-bindings t
+  "Whether to bind to g prefix instead of single letter bindings.
+
+Only applies to `evil-collection-diff-mode-want-minor-mode' is t."
+  :type 'boolean
+  :group 'evil-collection)
+
+(defvar evil-collection-diff-mode-map (make-sparse-keymap))
+
+(define-minor-mode evil-collection-diff-mode
+  "A minor mode to attach to `diff-mode' results"
+  :group 'evil-collection-diff-mode
+  :keymap evil-collection-diff-mode-map
+  :lighter nil)
+
+(defun evil-collection-diff-mode-turn-on ()
+  "Turn on `evil-collection-diff-mode' and normalize keymaps."
+  (evil-collection-diff-mode)
+  (evil-normalize-keymaps))
+
+(defun evil-collection-diff-mode-setup-on-minor-mode ()
+  "Set up bindings on `evil-collection-diff-mode'."
+  (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
+    (kbd "[[") 'diff-file-prev
+    (kbd "]]") 'diff-file-next
+    (kbd "C-j") 'diff-hunk-next
+    (kbd "C-k") 'diff-hunk-prev
+    "gj" 'diff-hunk-next
+    "gk" 'diff-hunk-prev
+    "ge" 'diff-ediff-patch
+    "q" 'quit-window
+    "\\" 'read-only-mode
+    (kbd "RET") 'diff-goto-source)
+
+  (if evil-collection-diff-mode-want-g-bindings
+      (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
+        "gA" 'diff-add-change-log-entries-other-window
+        "ga" 'diff-apply-hunk
+        "g*" 'diff-refine-hunk
+        "gX" 'diff-file-kill
+        "gx" 'diff-hunk-kill
+        "gi" 'next-error-follow-minor-mode
+        "go" 'evil-collection-diff-toggle-restrict-view
+        "g~" 'diff-reverse-direction
+        "gs" 'diff-split-hunk
+        "gc" 'diff-test-hunk
+        "g%" 'evil-collection-diff-toggle-context-unified
+        "g#" 'diff-ignore-whitespace-hunk)
+    (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
+      "A" 'diff-add-change-log-entries-other-window
+      "a" 'diff-apply-hunk
+      "*" 'diff-refine-hunk
+      "D" 'diff-file-kill
+      "d" 'diff-hunk-kill
+      "i" 'next-error-follow-minor-mode
+      "o" 'evil-collection-diff-toggle-restrict-view
+      "~" 'diff-reverse-direction
+      "s" 'diff-split-hunk
+      "c" 'diff-test-hunk
+      "x" 'evil-collection-diff-toggle-context-unified
+      "#" 'diff-ignore-whitespace-hunk))
+
+  ;; Enable a separate minor mode so that we can bind keys to it.
+  (add-hook 'diff-mode-hook 'evil-collection-diff-mode))
+
+(defun evil-collection-diff-mode-setup-on-motion-state ()
+  "Set up keys with motion state."
   (evil-collection-define-key 'normal 'diff-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
@@ -133,15 +200,27 @@ current file instead."
     "x" 'evil-collection-diff-toggle-context-unified
     "#" 'diff-ignore-whitespace-hunk
 
-    "\\" 'read-only-mode)) ; magit has "\"
+    "\\" 'read-only-mode) ; magit has "\"
+  )
 
+;;;###autoload
+(defun evil-collection-diff-mode-setup ()
+  "Set up `evil' bindings for `diff-mode'."
+  ;; Don't switch to read-only/motion state by default as this can interfere
+  ;; with other modes which require a writable buffer, e.g. magit.
+  (evil-set-initial-state 'diff-mode 'normal)
 
+  (if evil-collection-diff-mode-want-minor-mode
+      (evil-collection-diff-mode-setup-on-minor-mode)
+    (evil-collection-diff-mode-setup-on-motion-state)))
 
-(add-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)
+(unless evil-collection-diff-mode-want-minor-mode
+  (add-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup))
 
 (defun evil-collection-diff-unload-function ()
   "For `unload-feature'."
-  (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup))
+  (unless evil-collection-diff-mode-want-minor-mode
+    (remove-hook 'diff-mode-hook 'evil-collection-diff-toggle-setup)))
 
 (provide 'evil-collection-diff-mode)
 ;;; evil-collection-diff-mode.el ends here
