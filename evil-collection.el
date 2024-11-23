@@ -222,6 +222,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     gited
     gnus
     go-mode
+    gptel
     grep
     guix
     hackernews
