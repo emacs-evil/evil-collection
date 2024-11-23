@@ -28,6 +28,11 @@
 (require 'evil-collection)
 (require 'vertico nil t)
 
+(defcustom evil-collection-vertico-want-want-C-u-in-insert nil
+  "When non nil, C-u may be bound in insert state."
+  :group 'evil-collection
+  :type 'boolean)
+
 ;;;###autoload
 (defun evil-collection-vertico-setup ()
   "Set up `evil' bindings for `vertico'."
@@ -38,7 +43,8 @@
   (when evil-collection-setup-minibuffer
     (when evil-want-C-u-scroll
       (evil-collection-define-key 'normal 'vertico-map
-        (kbd "C-u") 'vertico-scroll-down)
+        (kbd "C-u") 'vertico-scroll-down))
+    (when evil-collection-vertico-want-want-C-u-in-insert
       (unless evil-want-C-u-delete
         (evil-collection-define-key 'insert 'vertico-map
           (kbd "C-u") 'vertico-scroll-down)))
