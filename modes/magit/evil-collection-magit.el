@@ -583,7 +583,7 @@ evil-collection-magit affects.")
      '((magit-dispatch "Z" "%" magit-worktree)
        (magit-dispatch "z" "Z" magit-stash)))
    (when evil-collection-magit-want-horizontal-movement
-     '((magit-dispatch "L" "^L" magit-log-refresh)
+     '((magit-dispatch "L" "C-l" magit-log-refresh)
        (magit-dispatch "l" "L" magit-log)))
    '((magit-branch "x" "X" magit-branch-reset)
      (magit-branch "k" "x" magit-branch-delete)
