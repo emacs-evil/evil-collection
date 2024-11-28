@@ -161,16 +161,16 @@
     (kbd "DEL") nil
     "*" nil
 
-    "D" 'telega-msg-delete-marked-or-at-point
-    "dd" 'telega-msg-delete-marked-or-at-point
+    "D" 'telega-msg-delete-dwim
+    "dd" 'telega-msg-delete-dwim
     "i" 'telega-msg-edit
     "g?" 'telega-describe-message
     "a" 'telega-msg-mark-toggle
     (kbd "<tab>") 'telega-button-forward
     (kbd "<backtab>") 'telega-button-backward
-    "R" 'telega-msg-forward-marked-or-at-point
+    "R" 'telega-msg-forward-dwim
     "r" 'telega-msg-reply
-    "gr" 'telega-msg-open-thread
+    "gr" 'telega-msg-open-thread-or-topic
 
     "Zy" 'telega-msg-copy-text
     "Zl" 'telega-msg-copy-link
