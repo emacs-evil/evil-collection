@@ -143,7 +143,7 @@ The return value is the yanked text."
 
 
     "C" 'emms-browser-clear-playlist
-    "D" 'emms-browser-delete-files
+    "D" 'emms-browser-remove-tracks
     "d" 'emms-browser-view-in-dired
     ;; "d" does the same, keep "gd" for consistency.
     "gd" 'emms-browser-view-in-dired)
