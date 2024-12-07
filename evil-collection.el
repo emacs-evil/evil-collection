@@ -285,6 +285,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     (process-menu simple)
     prodigy
     profiler
+    p-search
     python
     quickrun
     racer
