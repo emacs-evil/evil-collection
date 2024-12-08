@@ -66,8 +66,8 @@
     "P" 'p-search-add-prior
     "+" 'p-search-increase-preview-size
     "-" 'p-search-decrease-preview-size
-    "<tab>" 'p-search-toggle-section
-    "<return>" 'p-search-find-document
+    (kbd "<tab>") 'p-search-toggle-section
+    (kbd "<return>") 'p-search-find-document
     "gv" 'p-search-view-document
     "go" 'p-search-view-document
     (kbd "C-o") 'p-search-display-document
