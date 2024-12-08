@@ -34,7 +34,7 @@
 
 (defconst evil-collection-dashboard-maps '(dashboard-mode-map))
 
-(defun evil-collection-dashboard-setup-jump-commands ()
+(defun evil-collection-dashboard-setup-jump-commands (&rest _)
   "Set up bindings for jump commands in Dashboard."
   (evil-collection-define-key 'normal 'dashboard-mode-map
     "r" (symbol-function (lookup-key dashboard-mode-map "r")) ; recents
