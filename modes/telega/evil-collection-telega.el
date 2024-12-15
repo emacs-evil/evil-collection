@@ -114,7 +114,7 @@
 
     (kbd "RET") 'telega-chatbuf-newline-or-input-send
 
-    "q" 'bury-buffer)
+    "q" 'quit-window)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
     "ga" telega-prefix-map
