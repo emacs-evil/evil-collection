@@ -163,7 +163,7 @@
 
   (when evil-collection-want-find-usages-bindings
     (evil-collection-define-key 'normal 'slime-mode-map
-      "gr" 'slime-who-references))
+      "gr" 'slime-edit-uses))
 
   (evil-collection-define-key 'normal 'slime-popup-buffer-mode-map
     ;; quit
