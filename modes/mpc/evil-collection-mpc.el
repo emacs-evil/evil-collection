@@ -47,18 +47,28 @@
 (defun evil-collection-mpc-setup ()
   "Setup up `evil' bindings for `mpc-mode'."
   (evil-collection-define-key 'normal 'mpc-mode-map
-    "C-j" 'evil-collection-mpc-move-down
-    "C-k" 'evil-collection-mpc-move-up
-    "t" 'mpc-toggle-play
-    "r" 'mpc-toggle-repeat
-    "s" 'mpc-toggle-shuffle
-    "c" 'mpc-toggle-consume
-    "p" 'mpc-playlist
-    "a" 'mpc-playlist-add
-    ">" 'mpc-next
-    "<" 'mpc-prev
-    "x" 'mpc-play-at-point
-    "RET" 'mpc-select))
+    (kbd "C-j")        'evil-collection-mpc-move-down
+    (kbd "C-k")        'evil-collection-mpc-move-up
+    "t"                'mpc-toggle-play
+    "r"                'mpc-toggle-repeat
+    "s"                'mpc-toggle-shuffle
+    "c"                'mpc-toggle-consume
+    "gp"               'mpc-playlist
+    "a"                'mpc-playlist-add
+    "J"                'mpc-next
+    "K"                'mpc-prev
+    "x"                'mpc-play-at-point
+    (kbd "RET")        'mpc-select
+    (kbd "S-<return>") 'mpc-select-toggle
+    "go"               'mpc-goto-playing-song
+    "gd"               'mpc-describe-song
+    "p"                'mpc-pause
+    "gs"               'mpc-seek-current
+    "gb"               'mpc-tagbrowser
+    "g/"               'mpc-songs-search
+    "gR"               'mpc-update
+    "gr"               'mpc-current-refresh
+    "q"                'mpc-quit))
 
 (provide 'evil-collection-mpc)
 ;;; evil-collection-mpc.el ends here
