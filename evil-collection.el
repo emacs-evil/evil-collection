@@ -328,6 +328,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     trashed
     tuareg
     typescript-mode
+    ultra-scroll
     vc-annotate
     vc-dir
     vc-git
