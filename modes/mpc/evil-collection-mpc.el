@@ -50,6 +50,7 @@
     (kbd "C-j")        'evil-collection-mpc-move-down
     (kbd "C-k")        'evil-collection-mpc-move-up
     "t"                'mpc-toggle-play
+    "T"                'mpc-stop
     "r"                'mpc-toggle-repeat
     "s"                'mpc-toggle-shuffle
     "c"                'mpc-toggle-consume
@@ -58,16 +59,21 @@
     "J"                'mpc-next
     "K"                'mpc-prev
     "x"                'mpc-play-at-point
+    "X"                'mpc-play
     (kbd "RET")        'mpc-select
     (kbd "S-<return>") 'mpc-select-toggle
+    (kbd "C-<return>") 'mpc-select-extend
     "go"               'mpc-goto-playing-song
     "gd"               'mpc-describe-song
     "p"                'mpc-pause
+    "P"                'mpc-resume
     "gs"               'mpc-seek-current
     "gb"               'mpc-tagbrowser
     "g/"               'mpc-songs-search
+    "g_"               'mpc-songs-kill-search
+    "gd"               'mpc-songs-jump-to
     "gR"               'mpc-update
-    "gr"               'mpc-current-refresh
+    "D"                'mpc-playlist-delete
     "q"                'mpc-quit))
 
 (provide 'evil-collection-mpc)
