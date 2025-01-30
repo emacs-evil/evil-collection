@@ -29,7 +29,9 @@
 (require 'evil-collection)
 (require 'gptel nil t)
 
-(defconst evil-collection-gptel-maps '(gptel-mode-map))
+
+(defconst evil-collection-gptel-maps
+  '(gptel-mode-map gptel-context-buffer-mode-map))
 
 (defcustom evil-collection-gptel-want-ret-to-send t
   "When non nil, RET sends query to LLM."
@@ -60,7 +62,17 @@
     (when evil-collection-gptel-want-shift-ret-to-send
       (evil-collection-define-key '(normal visual) 'gptel-mode-map
         (kbd "S-RET") 'gptel-send
-        (kbd "<S-return>") 'gptel-send))))
+        (kbd "<S-return>") 'gptel-send)))
+
+  (with-eval-after-load 'gptel-context
+    (evil-collection-define-key 'normal 'gptel-context-buffer-mode-map
+      "j" 'gptel-context-next
+      "k" 'gptel-context-previous
+      "d" 'gptel-context-flag-deletion
+      "q" 'gptel-context-quit
+      "ZQ" 'gptel-context-quit
+      "ZZ" 'gptel-context-confirm
+      "RET" 'gptel-context-visit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here
