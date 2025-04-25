@@ -53,6 +53,8 @@
         (kbd "C-d") 'vertico-scroll-up))
 
     (evil-collection-define-key 'normal 'vertico-map
+      "gg" 'vertico-first
+      "G" 'vertico-last
       "gj" 'vertico-next-group
       "gk" 'vertico-previous-group
       "j" 'vertico-next
