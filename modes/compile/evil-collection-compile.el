@@ -48,6 +48,8 @@
       (kbd "RET") 'compile-goto-error
 
       "go" 'compilation-display-error
+      (kbd "M-RET") 'compilation-display-error
+      (kbd "M-<return>") 'compilation-display-error
       (kbd "S-<return>") 'compilation-display-error
 
       (kbd "TAB") 'compilation-next-error
