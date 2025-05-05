@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "evil-collection"
          "0.0.2"
          "A set of keybindings for Evil mode")
