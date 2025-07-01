@@ -292,6 +292,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     quickrun
     racer
     racket-describe
+    reader
     realgud
     reftex
     replace ;; For `occur'.
