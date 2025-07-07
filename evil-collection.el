@@ -736,7 +736,7 @@ invocation."
       (dolist (state states)
         (let ((hook-name
                (symbol-name
-                (cl-gensym
+                (gensym
                  (format "evil-collection-translate-key-in-%s" keymap-symbol)))))
           (evil-collection--delay `(and (boundp ',keymap-symbol)
                                        (keymapp ,keymap-symbol))
@@ -847,7 +847,7 @@ invocation."
     (dolist (state states)
       (let ((hook-name
              (symbol-name
-              (cl-gensym
+              (gensym
                (format "evil-collection-translate-key-in-%s" keymap-symbol)))))
         (evil-collection--delay `(and (boundp ',keymap-symbol)
                                       (keymapp ,keymap-symbol))
