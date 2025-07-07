@@ -53,7 +53,7 @@
   :group 'evil-collection-unimpaired)
 
 ;;;###autoload
-(define-global-minor-mode global-evil-collection-unimpaired-mode
+(define-globalized-minor-mode global-evil-collection-unimpaired-mode
   evil-collection-unimpaired-mode evil-collection-unimpaired-mode-on
   :group 'evil-collection-unimpaired)
 
