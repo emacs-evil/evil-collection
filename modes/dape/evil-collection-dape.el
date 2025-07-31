@@ -5,7 +5,7 @@
 ;; Author: Daniel Pettersson <daniel@dpettersson.net>
 ;; Maintainer: Daniel Pettersson <daniel@dpettersson.net>
 ;; URL: https://github.com/emacs-evil/evil-collection
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Package-Requires: ((emacs "26.3"))
 ;; Keywords: evil, emacs, tools, dape
 
@@ -31,22 +31,39 @@
 
 (defvar dape-info-scope-mode-map)
 (defvar dape-info-watch-mode-map)
+(defvar dape-info-stack-mode-map)
+(defvar dape-info-sources-mode-map)
+(defvar dape-info-modules-mode-map)
+(defvar dape-info-breakpoints-mode-map)
+(defvar dape-info-threads-mode-map)
 
-(defconst evil-collection-dape-maps '(dape-info-watch-edit-mode-map
-                                      dape-info-scope-mode-map
-                                      dape-info-watch-mode-map))
+(defconst evil-collection-dape--info-mode-maps '(dape-info-scope-mode-map
+                                                 dape-info-watch-mode-map
+                                                 dape-info-stack-mode-map
+                                                 dape-info-sources-mode-map
+                                                 dape-info-modules-mode-map
+                                                 dape-info-breakpoints-mode-map
+                                                 dape-info-threads-mode-map))
+
+(defconst evil-collection-dape-maps `(dape-info-watch-edit-mode-map
+                                      dape-memory-mode-map
+                                      . ,evil-collection-dape--info-mode-maps))
 
 ;;;###autoload
 (defun evil-collection-dape-setup ()
   "Set up `evil' bindings for `dape'."
-  (evil-make-overriding-map dape-info-scope-mode-map)
-  (evil-make-overriding-map dape-info-watch-mode-map)
+  (dolist (map-symbol evil-collection-dape--info-mode-maps)
+    (evil-make-overriding-map (symbol-value map-symbol)))
 
   (evil-collection-define-key 'normal 'dape-info-watch-mode-map
     "i" 'dape-info-watch-edit-mode)
 
   (evil-collection-define-key nil 'dape-info-watch-edit-mode-map
     [remap evil-write] 'dape-info-watch-finish-edit)
+
+  (evil-collection-define-key 'normal 'dape-memory-mode-map
+    [remap evil-write] 'save-buffer
+    "ZZ" 'save-buffer)
 
   (evil-collection-define-key 'normal 'dape-info-watch-edit-mode-map
     "ZQ" 'dape-info-watch-abort-changes
