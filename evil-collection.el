@@ -278,6 +278,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     org-roam
     osx-dictionary
     outline
+    ovpn-mode
     p4
     (package-menu package)
     pass
