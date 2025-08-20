@@ -40,6 +40,15 @@
     "n" 'ovpn-mode-start-vpn-with-namespace
     "q" 'ovpn-mode-stop-vpn
     "r" 'ovpn-mode-restart-vpn
+    "i" 'ovpn-mode-info-vpn
+    "$" 'ovpn-mode-buffer-vpn
+    "o" 'ovpn-mode-edit-vpn
+    "~" 'ovpn-mode-dir-filter
+    "d" 'ovpn-mode-dir-set
+    "a" 'ovpn-mode-active
+    "J" 'ovpn-mode-ipv6-linux-toggle
+    "T" 'ovpn-mode-spawn-term-in-namespace
+    "B" 'ovpn-mode-spawn-browser-in-namespace
     "ZZ" 'quit-window
     "ZQ" 'evil-quit))
 
