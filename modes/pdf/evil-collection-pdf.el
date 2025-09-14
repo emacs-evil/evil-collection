@@ -169,7 +169,7 @@ instead, which is useless and counterintuitive."
     (kbd "<M-down-mouse-1>") 'pdf-view-mouse-set-region-rectangle
     (kbd "<down-mouse-1>")  'pdf-view-mouse-set-region
 
-    (kbd "C-c C-c") 'docview-mode
+    (kbd "C-c C-c") 'doc-view-mode
     (kbd "C-c <tab>") 'pdf-view-extract-region-image
 
     "sb" 'pdf-view-set-slice-from-bounding-box
