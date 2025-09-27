@@ -1,10 +1,10 @@
 ;;; evil-collection-hs-minor-mode --- Bindings for `hs-minor-mode'  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2024 Julian Hoch
+;; Copyright (C) 2025 Julian Hoch
 
 ;; Author: Julian Hoch <julianhoch@web.de>
 ;; Maintainer: Julian Hoch <julianhoch@web.de>
-;; Created: 2024-11-03
+;; Created: 2025-09-27
 ;; Keywords: evil, emacs, tools
 ;; URL: https://github.com/emacs-evil/evil-collection
 
@@ -24,22 +24,22 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Bindings for `hs-minor-mode'.
+;;; Bindings for `hideshow'.
 
 ;;; Code:
 (require 'evil-collection)
-(require 'hs-minor-mode nil t)
+(require 'hideshow nil t)
 
 (declare-function hs-hide-level "hideshow")
 (defvar hs-minor-mode-map)
-(defconst evil-collection-hs-minor-mode-maps '(hs-minor-mode-map))
+(defconst evil-collection-hideshow-maps '(hs-minor-mode-map))
 
 ;;;###autoload
-(defun evil-collection-hs-minor-mode-setup ()
-  "Set up `evil' bindings for `hs-minor-mode'."
+(defun evil-collection-hideshow-setup ()
+  "Set up `evil' bindings for `hideshow'."
   (evil-set-initial-state 'hs-minor-mode 'normal)
   (evil-collection-define-key 'normal 'hs-minor-mode-map
     "zL" 'hs-hide-level))
 
-(provide 'evil-collection-hs-minor-mode)
-;;; evil-collection-hs-minor-mode.el ends here
+(provide 'evil-collection-hideshow)
+;;; evil-collection-hideshow.el ends here
