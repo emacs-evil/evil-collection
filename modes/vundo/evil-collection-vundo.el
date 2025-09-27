@@ -37,12 +37,29 @@
 
 (defconst evil-collection-vundo-maps '(vundo-mode-map))
 
+(defun evil-collection-vundo--hide-evil-cursor ()
+  "Hide the evil cursor."
+  (setq-local evil-default-cursor    '(nil))
+  (setq-local evil-motion-state-cursor nil)
+  (setq-local evil-visual-state-cursor nil)
+  (setq-local evil-normal-state-cursor nil)
+  (setq-local evil-insert-state-cursor nil)
+  (setq-local evil-emacs-state-cursor  nil))
+
+(defun evil-collection-vundo--disable-hl-line-mode ()
+  "Disable `hl-line-mode'."
+  (setq-local global-hl-line-mode nil))
+
 ;;;###autoload
 (defun evil-collection-vundo-setup ()
   "Set up `evil' bindings for `vundo'."
   (add-hook 'vundo-mode-hook #'evil-normalize-keymaps)
   ;; `vundo' defaults to emacs state.
   (add-hook 'vundo-mode-hook #'evil-normal-state)
+  ;; hide evil cursor
+  (add-hook 'vundo-mode-hook #'evil-collection-vundo--hide-evil-cursor)
+  ;; disable hl-line-mode
+  (add-hook 'vundo-mode-hook #'evil-collection-vundo--disable-hl-line-mode)
 
   (evil-collection-define-key 'normal 'vundo-mode-map
     [remap evil-backward-char] 'vundo-backward
