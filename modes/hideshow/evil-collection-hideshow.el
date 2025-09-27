@@ -1,4 +1,4 @@
-;;; evil-collection-hs-minor-mode --- Bindings for `hs-minor-mode'  -*- lexical-binding: t; -*-
+;;; evil-collection-hideshow --- Bindings for `hideshow'  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025 Julian Hoch
 
