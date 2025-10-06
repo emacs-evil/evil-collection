@@ -181,6 +181,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     dictionary
     diff-hl
     diff-mode
+    difftastic
     dired
     dired-sidebar
     disk-usage
