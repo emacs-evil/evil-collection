@@ -471,8 +471,10 @@ denotes the original magit key for this command.")
 (eval-after-load 'magit-gh-pulls
   `(evil-make-overriding-map magit-gh-pulls-mode-map ',evil-collection-magit-state))
 
-;; Need to refresh evil keymaps when blame mode is entered.
+;; Need to refresh evil keymaps when blame/blob mode is entered.
 (add-hook 'magit-blame-mode-hook 'evil-normalize-keymaps)
+(add-hook 'magit-blob-mode-hook 'evil-normalize-keymaps)
+
 
 (evil-set-initial-state 'magit-submodule-list-mode 'normal)
 (evil-collection-define-key 'normal 'magit-submodule-list-mode-map
