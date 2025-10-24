@@ -25,7 +25,6 @@
 ;;; Code:
 (require 'evil-collection)
 (require 'yaml-mode nil t)
-(require 'yaml-ts-mode nil t)
 
 (defconst evil-collection-yaml-mode-maps nil)
 
@@ -37,8 +36,7 @@
 ;;;###autoload
 (defun evil-collection-yaml-mode-setup ()
   "Set up `evil' bindings for `yaml'."
-  (dolist (hook '(yaml-mode-hook yaml-ts-mode-hook))
-    (add-hook hook #'evil-collection-yaml-mode-set-evil-shift-width)))
+  (add-hook 'yaml-mode-hook #'evil-collection-yaml-mode-set-evil-shift-width))
 
 (provide 'evil-collection-yaml-mode)
 ;;; evil-collection-yaml-mode.el ends here

@@ -351,7 +351,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     woman
     xref
     xwidget
-    (yaml-mode ,@(when (>= emacs-major-version 29) '(yaml-ts-mode)))
+    yaml-mode
     youtube-dl
     zmusic
     (ztree ztree-diff ztree-dir))
