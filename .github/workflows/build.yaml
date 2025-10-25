@@ -1,4 +1,4 @@
-name: CI
+name: evil-collection builds
 
 on:
   workflow_dispatch:
