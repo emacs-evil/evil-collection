@@ -29,12 +29,12 @@
 ;; keybindings are defined:
 ;;
 ;; General commands:
-;; | Commmand                 | evil-mu4e | Alternative |
-;; |--------------------------+-----------+-------------|
-;; | Jump to maildir          | J         |             |
-;; | Update                   | u         |             |
-;; | Compose message          | cc        | C           |
-;; | Kill update mail process | x         |             |
+;; | Commmand                 | evil-mu4e |
+;; |--------------------------+-----------|
+;; | Jump to maildir          | J         |
+;; | Update                   | u         |
+;; | Compose message          | C         |
+;; | Kill update mail process | x         |
 
 ;; Commands for header-mode and view-mode:
 ;; | Command                         | evil-mu4e | Alternative |
@@ -42,7 +42,7 @@
 ;; | Next message                    | C-j       |             |
 ;; | Previous message                | C-k       |             |
 ;; | Mark the current thread as read | T         |             |
-;; | Compose message                 | cc        | C           |
+;; | Compose message                 | C         |             |
 ;; | Compose edit**                  | ce        | E           |
 ;; | Compose forward**               | cf        | F           |
 ;; | Compose reply                   | cr        | R           |
@@ -152,13 +152,13 @@ end of the buffer."
        ";" mu4e-context-switch
        "H" mu4e-display-manual
        "C" mu4e-compose-new
-       "cc" mu4e-compose-new
        "x" mu4e-kill-update-mail
        "A" mu4e-about
        "f" smtpmail-send-queued-mail
        "m" mu4e--main-toggle-mail-sending-mode
        "s" mu4e-search
-       "q" mu4e-quit)
+       "q" mu4e-quit
+       "c" mu4e-search-query)
 
       (mu4e-headers-mode-map
        "q" mu4e~headers-quit-buffer
@@ -167,7 +167,6 @@ end of the buffer."
        "E" mu4e-compose-edit
        "F" mu4e-compose-forward
        "R" mu4e-compose-reply
-       "cc" mu4e-compose-new
        "ce" mu4e-compose-edit
        "cf" mu4e-compose-forward
        "cr" mu4e-compose-reply
@@ -215,7 +214,8 @@ end of the buffer."
        "zd" mu4e-headers-toggle-skip-duplicates
        "gl" mu4e-show-log
        "gv" mu4e-select-other-view
-       "T"  evil-collection-mu4e-mark-thread-as-read)
+       "T"  evil-collection-mu4e-mark-thread-as-read
+       "c" mu4e-search-query)
 
       (mu4e-compose-mode-map
        "gg" mu4e-compose-goto-top
@@ -246,7 +246,6 @@ end of the buffer."
        ;; "E"               mu4e-compose-edit
        ;; "F"               mu4e-compose-forward
        "R" mu4e-compose-reply
-       "cc" mu4e-compose-new
        "ce" mu4e-compose-edit
        "cf" mu4e-compose-forward
        "cr" mu4e-compose-reply
