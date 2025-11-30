@@ -79,7 +79,6 @@ as defined in `evil-collection-consult--evil-mark-ring'."
   (consult--forbid-minibuffer)
   (unless (evil-collection-consult--evil-mark-ring)
     (user-error "No marks"))
-  (consult--fontify-all)
   (let* ((candidates)
          (current-buf (current-buffer)))
     (save-excursion
