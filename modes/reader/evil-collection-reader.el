@@ -145,7 +145,15 @@
 
     "<f5>" #'reader-presentation-mode
     "o" #'reader-outline-show
-    "Q" #'reader-close-doc))
+    "Q" #'reader-close-doc)
+
+  (evil-collection-define-key 'normal 'reader-outline-mode-map
+    "p" #'previous-line
+    "n" #'next-line
+    "o" #'reader-outline-select-doc-window
+    "q" #'quit-window
+    "RET" #'reader-outline-visit-page
+    "M-RET" #'reader-outline-visit-page))
 
 (provide 'evil-collection-reader)
 ;;; evil-collection-reader.el ends here
