@@ -105,47 +105,47 @@
     "S-<wheel-up>" #'reader-mwheel-scroll-left
     "S-<wheel-down>" #'reader-mwheel-scroll-right
 
-    "C-b"      #'reader-scroll-up-screen
-    "C-f"      #'reader-scroll-down-screen
+    "C-b" #'reader-scroll-up-screen
+    "C-f" #'reader-scroll-down-screen
     [remap scroll-down-command] #'reader-scroll-up-screen
     [remap scroll-up-command] #'reader-scroll-down-screen
 
-    "SPC"     #'reader-scroll-down-or-next-page
-    "DEL"     #'reader-scroll-up-or-prev-page
-    "S-SPC"   #'reader-scroll-up-or-prev-page
+    "SPC" #'reader-scroll-down-or-next-page
+    "DEL" #'reader-scroll-up-or-prev-page
+    "S-SPC" #'reader-scroll-up-or-prev-page
 
-    "l"     #'reader-scroll-right
-    "h"     #'reader-scroll-left
+    "l" #'reader-scroll-right
+    "h" #'reader-scroll-left
     [remap forward-char] #'reader-scroll-right
     [remap backward-char] #'reader-scroll-left
 
-    "$"     #'reader-scroll-right-most
-    "^"     #'reader-scroll-left-most
+    "$" #'reader-scroll-right-most
+    "^" #'reader-scroll-left-most
     [remap move-end-of-line] #'reader-scroll-right-most
     [remap move-beginning-of-line] #'reader-scroll-left-most
 
     "gg" #'evil-collection-reader-goto-first-page
-    "G"  #'evil-collection-reader-goto-page
+    "G" #'evil-collection-reader-goto-page
     [remap beginning-of-buffer] #'reader-first-page
     [remap end-of-buffer] #'reader-last-page
     [remap goto-line] #'reader-goto-page
 
     ;; "0" #'evil-collections-reader-reset-zoom
-    "="       #'reader-enlarge-size
-    "+"       #'reader-enlarge-size
+    "=" #'reader-enlarge-size
+    "+" #'reader-enlarge-size
     "C-<wheel-up>" #'reader-mwheel-enlarge-size
-    "-"       #'reader-shrink-size
+    "-" #'reader-shrink-size
     "C-<wheel-down>" #'reader-mwheel-shrink-size
 
-    "H"       #'reader-fit-to-height
-    "W"       #'reader-fit-to-width
+    "H" #'reader-fit-to-height
+    "W" #'reader-fit-to-width
 
-    "r"       #'reader-rotate-clockwise
-    "R"       #'reader-rotate-counter-clockwise
+    "r" #'reader-rotate-clockwise
+    "R" #'reader-rotate-counter-clockwise
 
-    "<f5>"    #'reader-presentation-mode
-    "o"       #'reader-outline-show
-    "Q"       #'reader-close-doc))
+    "<f5>" #'reader-presentation-mode
+    "o" #'reader-outline-show
+    "Q" #'reader-close-doc))
 
 (provide 'evil-collection-reader)
 ;;; evil-collection-reader.el ends here
