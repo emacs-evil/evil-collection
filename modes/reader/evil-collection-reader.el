@@ -47,10 +47,10 @@
 (declare-function reader-scroll-right-most "reader")
 (declare-function reader-scroll-left "reader")
 (declare-function reader-scroll-right "reader")
-(declare-function reader-scroll-up-screenful-or-prev-page "reader")
-(declare-function reader-scroll-down-screenful-or-next-page "reader")
-(declare-function reader-scroll-down-screenful "reader")
-(declare-function reader-scroll-up-screenful "reader")
+(declare-function reader-scroll-up-or-prev-page "reader")
+(declare-function reader-scroll-down-or-next-page "reader")
+(declare-function reader-scroll-down-screen "reader")
+(declare-function reader-scroll-up-screen "reader")
 (declare-function reader-mwheel-scroll-right "reader")
 (declare-function reader-mwheel-scroll-left "reader")
 (declare-function reader-mwheel-scroll-down "reader")
@@ -107,14 +107,14 @@
     "S-<wheel-up>" #'reader-mwheel-scroll-left
     "S-<wheel-down>" #'reader-mwheel-scroll-right
 
-    "C-b"      #'reader-scroll-up-screenful
-    "C-f"      #'reader-scroll-down-screenful
-    "<remap> <scroll-down-command>" #'reader-scroll-up-screenful
-    "<remap> <scroll-up-command>" #'reader-scroll-down-screenful
+    "C-b"      #'reader-scroll-up-screen
+    "C-f"      #'reader-scroll-down-screen
+    "<remap> <scroll-down-command>" #'reader-scroll-up-screen
+    "<remap> <scroll-up-command>" #'reader-scroll-down-screen
 
-    "SPC"     #'reader-scroll-down-screenful-or-next-page
-    "DEL"     #'reader-scroll-up-screenful-or-prev-page
-    "S-SPC"   #'reader-scroll-up-screenful-or-prev-page
+    "SPC"     #'reader-scroll-down-or-next-page
+    "DEL"     #'reader-scroll-up-or-prev-page
+    "S-SPC"   #'reader-scroll-up-or-prev-page
 
     "l"     #'reader-scroll-right
     "h"     #'reader-scroll-left
