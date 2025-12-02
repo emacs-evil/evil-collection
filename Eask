@@ -27,6 +27,9 @@
 
 (setq network-security-level 'low)  ; see https://github.com/jcs090218/setup-emacs-windows/issues/156#issuecomment-932956432
 
+;; Workaround for https://github.com/magit/magit/issues/5489
+(setq magit-credential-cache-daemon-socket nil)
+
 (add-hook 'eask-before-compile-hook
            (lambda (&rest _)
              (setq evil-want-integration nil)
