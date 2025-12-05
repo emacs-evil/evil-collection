@@ -60,6 +60,9 @@
 (declare-function reader-previous-page "reader")
 (declare-function reader-next-page "reader")
 
+(declare-function reader-outline-visit-page "reader")
+(declare-function reader-outline-select-doc-window "reader")
+
 (defvar reader-mode-map)
 (defvar reader-outline-mode-map)
 
