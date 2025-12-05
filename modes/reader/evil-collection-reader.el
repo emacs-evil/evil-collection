@@ -47,10 +47,10 @@
 (declare-function reader-scroll-right-most "reader")
 (declare-function reader-scroll-left "reader")
 (declare-function reader-scroll-right "reader")
-(declare-function reader-scroll-up-screenful-or-prev-page "reader")
-(declare-function reader-scroll-down-screenful-or-next-page "reader")
-(declare-function reader-scroll-down-screenful "reader")
-(declare-function reader-scroll-up-screenful "reader")
+(declare-function reader-scroll-up-or-prev-page "reader")
+(declare-function reader-scroll-down-or-next-page "reader")
+(declare-function reader-scroll-down-screen "reader")
+(declare-function reader-scroll-up-screen "reader")
 (declare-function reader-mwheel-scroll-right "reader")
 (declare-function reader-mwheel-scroll-left "reader")
 (declare-function reader-mwheel-scroll-down "reader")
@@ -59,6 +59,9 @@
 (declare-function reader-scroll-up-or-prev-page "reader")
 (declare-function reader-previous-page "reader")
 (declare-function reader-next-page "reader")
+
+(declare-function reader-outline-visit-page "reader")
+(declare-function reader-outline-select-doc-window "reader")
 
 (defvar reader-mode-map)
 (defvar reader-outline-mode-map)
@@ -81,73 +84,79 @@
 (defconst evil-collection-reader-maps
   '(reader-mode-map reader-outline-mode-map))
 
-(defconst evil-collection-reader-modes
-  '(reader-mode-map reader-outline-mode))
-
 ;;;###autoload
 (defun evil-collection-reader-setup ()
   "Set up `evil' bindings for `reader'."
   (evil-collection-set-readonly-bindings 'reader-mode-map)
 
-  (dolist (mode evil-collection-reader-modes)
-    (evil-set-initial-state mode 'normal))
+  ;; Refresh reader-mode bindings
+  (add-hook 'reader-mode-hook #'evil-normalize-keymaps)
+  (add-hook 'reader-outline-mode-hook #'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'reader-mode-map
     "n" #'reader-next-page
     "p" #'reader-previous-page
     "k" #'reader-scroll-up-or-prev-page
     "j" #'reader-scroll-down-or-next-page
-    "<remap> <next>" #'reader-scroll-down-or-next-page
-    "<remap> <prior>" #'reader-scroll-up-or-prev-page
-    "<remap> <evil-next-line>" #'reader-scroll-down-or-next-page
-    "<remap> <evil-previous-line>" #'reader-scroll-up-or-prev-page
+    [remap next] #'reader-scroll-down-or-next-page
+    [remap previous] #'reader-scroll-up-or-prev-page
+    [remap evil-next-line] #'reader-scroll-down-or-next-page
+    [remap evil-previous-line] #'reader-scroll-up-or-prev-page
 
     "<wheel-up>" #'reader-mwheel-scroll-up
     "<wheel-down>" #'reader-mwheel-scroll-down
     "S-<wheel-up>" #'reader-mwheel-scroll-left
     "S-<wheel-down>" #'reader-mwheel-scroll-right
 
-    "C-b"      #'reader-scroll-up-screenful
-    "C-f"      #'reader-scroll-down-screenful
-    "<remap> <scroll-down-command>" #'reader-scroll-up-screenful
-    "<remap> <scroll-up-command>" #'reader-scroll-down-screenful
+    "C-b" #'reader-scroll-up-screen
+    "C-f" #'reader-scroll-down-screen
+    [remap scroll-down-command] #'reader-scroll-up-screen
+    [remap scroll-up-command] #'reader-scroll-down-screen
 
-    "SPC"     #'reader-scroll-down-screenful-or-next-page
-    "DEL"     #'reader-scroll-up-screenful-or-prev-page
-    "S-SPC"   #'reader-scroll-up-screenful-or-prev-page
+    "SPC" #'reader-scroll-down-or-next-page
+    "DEL" #'reader-scroll-up-or-prev-page
+    "S-SPC" #'reader-scroll-up-or-prev-page
 
-    "l"     #'reader-scroll-right
-    "h"     #'reader-scroll-left
-    "<remap> <forward-char>" #'reader-scroll-right
-    "<remap> <backward-char>" #'reader-scroll-left
+    "l" #'reader-scroll-right
+    "h" #'reader-scroll-left
+    [remap forward-char] #'reader-scroll-right
+    [remap backward-char] #'reader-scroll-left
 
-    "$"     #'reader-scroll-right-most
-    "^"     #'reader-scroll-left-most
-    "<remap> <move-end-of-line>" #'reader-scroll-right-most
-    "<remap> <move-beginning-of-line>" #'reader-scroll-left-most
+    "$" #'reader-scroll-right-most
+    "^" #'reader-scroll-left-most
+    [remap move-end-of-line] #'reader-scroll-right-most
+    [remap move-beginning-of-line] #'reader-scroll-left-most
 
     "gg" #'evil-collection-reader-goto-first-page
-    "G"  #'evil-collection-reader-goto-page
-    "<remap> <beginning-of-buffer>" #'reader-first-page
-    "<remap> <end-of-buffer>" #'reader-last-page
-    "<remap> <goto-line>"   #'reader-goto-page
+    "G" #'evil-collection-reader-goto-page
+    [remap beginning-of-buffer] #'reader-first-page
+    [remap end-of-buffer] #'reader-last-page
+    [remap goto-line] #'reader-goto-page
 
     ;; "0" #'evil-collections-reader-reset-zoom
-    "="       #'reader-enlarge-size
-    "+"       #'reader-enlarge-size
+    "=" #'reader-enlarge-size
+    "+" #'reader-enlarge-size
     "C-<wheel-up>" #'reader-mwheel-enlarge-size
-    "-"       #'reader-shrink-size
+    "-" #'reader-shrink-size
     "C-<wheel-down>" #'reader-mwheel-shrink-size
 
-    "H"       #'reader-fit-to-height
-    "W"       #'reader-fit-to-width
+    "H" #'reader-fit-to-height
+    "W" #'reader-fit-to-width
 
-    "r"       #'reader-rotate-clockwise
-    "R"       #'reader-rotate-counter-clockwise
+    "r" #'reader-rotate-clockwise
+    "R" #'reader-rotate-counter-clockwise
 
-    "<f5>"    #'reader-presentation-mode
-    "o"       #'reader-outline-show
-    "Q"       #'reader-close-doc))
+    "<f5>" #'reader-presentation-mode
+    "o" #'reader-outline-show
+    "Q" #'reader-close-doc)
+
+  (evil-collection-define-key 'normal 'reader-outline-mode-map
+    "p" #'previous-line
+    "n" #'next-line
+    "o" #'reader-outline-select-doc-window
+    "q" #'quit-window
+    "RET" #'reader-outline-visit-page
+    "M-RET" #'reader-outline-visit-page))
 
 (provide 'evil-collection-reader)
 ;;; evil-collection-reader.el ends here
