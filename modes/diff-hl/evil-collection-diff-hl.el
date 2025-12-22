@@ -27,10 +27,10 @@
 ;; Evil bindings for diff-hl.
 ;;
 ;; All functions used below are autoloaded except for
-;; `diff-hl-inline-popup--popup-down' et al commands.
+;; `diff-hl-show-hunk-inline--popup-down' et al commands.
 ;;
 ;; When users invoke `diff-hl-show-hunk' (it invokes
-;; `diff-hl-show-hunk-function' under the hood), `diff-hl-inline-popup.el' or
+;; `diff-hl-show-hunk-function' under the hood), `diff-hl-show-hunk-inline.el' or
 ;; `diff-hl-show-hunk-posframe.el' will be loaded eventually.
 ;;
 ;; So there is no
@@ -43,25 +43,25 @@
 (require 'evil-collection)
 
 (defconst evil-collection-diff-hl-maps '(diff-hl-show-hunk-map
-                                         diff-hl-inline-popup-transient-mode-map))
+                                         diff-hl-show-hunk-inline-transient-mode-map))
 
 ;;;###autoload
 (defun evil-collection-diff-hl-setup()
   "Set up `evil' bindings for `diff-hl'."
-  (add-hook 'diff-hl-inline-popup-transient-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'diff-hl-show-hunk-inline-transient-mode-hook 'evil-normalize-keymaps)
 
-  (evil-collection-define-key 'normal 'diff-hl-inline-popup-transient-mode-map
+  (evil-collection-define-key 'normal 'diff-hl-show-hunk-inline-transient-mode-map
     ;; quit
-    "q" 'diff-hl-inline-popup-hide
-    (kbd "<escape>") 'diff-hl-inline-popup-hide
+    "q" 'diff-hl-show-hunk-inline-hide
+    (kbd "<escape>") 'diff-hl-show-hunk-inline-hide
 
     ;; motion
-    "j" 'diff-hl-inline-popup--popup-down
-    "k" 'diff-hl-inline-popup--popup-up
-    (kbd "C-f") 'diff-hl-inline-popup--popup-pagedown
-    (kbd "C-b") 'diff-hl-inline-popup--popup-pageup)
+    "j" 'diff-hl-show-hunk-inline--popup-down
+    "k" 'diff-hl-show-hunk-inline--popup-up
+    (kbd "C-f") 'diff-hl-show-hunk-inline--popup-pagedown
+    (kbd "C-b") 'diff-hl-show-hunk-inline--popup-pageup)
 
-  ;; Actually `diff-hl-inline-popup-transient-mode-map' will inherit it by
+  ;; Actually `diff-hl-show-hunk-inline-transient-mode-map' will inherit it by
   ;; `set-keymap-parent'.
   (evil-collection-define-key 'normal 'diff-hl-show-hunk-map
     ;; Keep it the same as the overlay shows.
