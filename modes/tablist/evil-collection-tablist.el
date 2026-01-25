@@ -35,32 +35,30 @@
 (defun evil-collection-tablist-setup ()
   "Set up `evil' bindings for `tablist'."
 
-  (evil-collection-define-key 'normal 'tablist-mode-map
-    (kbd "RET") 'tablist-find-entry
-    "d" 'tablist-flag-forward
-    "f" 'tablist-find-entry
-    "X" 'tablist-do-delete
-    "C" 'tablist-do-copy
-    "R" 'tablist-do-rename
-    "x" 'tablist-do-flagged-delete)
+  (let ((common-bindings
+         (list
+          "U"  'tablist-unmark-all-marks
+          "g%" tablist-mode-regexp-map
+          "g*" tablist-mode-mark-map
+          "g/" tablist-mode-filter-map
+          "gr" 'tablist-revert
+          "K"  'tablist-do-kill-lines
+          "m"  'tablist-mark-forward
+          "S"  'tablist-sort
+          "t"  'tablist-toggle-marks
+          "u"  'tablist-unmark-forward)))
 
-  (evil-collection-define-key 'normal 'tablist-minor-mode-map
-    "<"  'tablist-shrink-column
-    ">"  'tablist-enlarge-column
-    "U"  'tablist-unmark-all-marks
-    "\t" 'tablist-forward-column
-    "g%" tablist-mode-regexp-map
-    "g*" tablist-mode-mark-map
-    "g/" tablist-mode-filter-map
-    "gr" 'tablist-revert
-    "K"  'tablist-do-kill-lines
-    "m"  'tablist-mark-forward
-    "q"  'tablist-quit
-    "s"  'tablist-sort
-    "t"  'tablist-toggle-marks
-    "u"  'tablist-unmark-forward
-    (kbd "TAB") 'tablist-forward-column
-    [backtab] 'tablist-backward-column))
+    (apply #'evil-collection-define-key 'normal 'tablist-mode-map
+           (kbd "RET") 'tablist-find-entry
+           "d" 'tablist-flag-forward
+           "f" 'tablist-find-entry
+           "X" 'tablist-do-delete
+           "x" 'tablist-do-flagged-delete
+           common-bindings)
+    
+    (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
+           "q" 'tablist-quit
+           common-bindings)))
 
 (provide 'evil-collection-tablist)
 ;;; evil-collection-tablist.el ends here
