@@ -263,10 +263,10 @@ evil-collection-magit was loaded."
 (defun evil-collection-magit--filter-args-visual-expand-region (arglist)
   ;; pretend that the command has the :exclude-newline property by rewriting the
   ;; EXCLUDE-NEWLINE arg to this function
-  (cons (and (bound-and-true-p evil-collection-magit-in-visual-pre-command)
-             (null (car arglist))
-             (eq (evil-visual-type) 'line)
-             (derived-mode-p 'magit-mode))
+  (cons (or (car arglist)
+            (and (bound-and-true-p evil-collection-magit-in-visual-pre-command)
+                 (eq (evil-visual-type) 'line)
+                 (derived-mode-p 'magit-mode)))
         ;; shouldn't be necessary, but this will prevent it from failing if an
         ;; arg is added.
         (cdr arglist)))
