@@ -36,7 +36,9 @@
   "Set up `evil' bindings for message."
   (evil-collection-define-key 'normal 'message-mode-map
     "ZZ" 'message-send-and-exit
-    "ZQ" 'message-kill-buffer))
+    "ZQ" 'message-kill-buffer
+    "ZD" 'message-dont-send
+    "ZF" 'mml-attach-file))
 
 (provide 'evil-collection-message)
 ;;; evil-collection-message.el ends here
