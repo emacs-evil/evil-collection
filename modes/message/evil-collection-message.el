@@ -1,12 +1,12 @@
 ;;; evil-collection-message.el --- Bindings for `message' -*- lexical-binding: t -*-
 
-;; Copyright (C) 2022 James Nguyen
+;; Copyright (C) 2026 jessy836
 
-;; Author: James Nguyen <james@jojojames.com>
-;; Maintainer: James Nguyen <james@jojojames.com>
+;; Author: jessy836 <netocenusa@gmail.com>
+;; Maintainer: jessy836 <netocenusa@gmail.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
-;; Version: 0.0.2
-;; Package-Requires: ((emacs "27.1"))
+;; Version: 0.0.1
+;; Package-Requires: ((emacs "26.3"))
 ;; Keywords: evil, emacs, convenience, tools
 
 ;; This program is free software; you can redistribute it and/or modify
