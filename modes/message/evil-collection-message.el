@@ -33,7 +33,7 @@
 (defconst evil-collection-message-maps '(message-mode-map))
 
 (defun evil-collection-message-setup ()
-  "Set up `evil' bindings for message."
+  "Set up `evil' bindings for `message-mode'."
   (evil-set-initial-state 'message-mode 'insert)
   (evil-collection-define-key 'normal 'message-mode-map
     "ZZ" 'message-send-and-exit
