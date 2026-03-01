@@ -32,6 +32,7 @@
 (defvar message-mode-map)
 (defconst evil-collection-message-maps '(message-mode-map))
 
+;;;###autoload
 (defun evil-collection-message-setup ()
   "Set up `evil' bindings for `message-mode'."
   (evil-set-initial-state 'message-mode 'insert)
