@@ -262,6 +262,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
     magit-section
     magit-todos
     markdown-mode
+    message
     minesweeper
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
     monky
