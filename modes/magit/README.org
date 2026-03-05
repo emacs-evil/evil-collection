@@ -134,7 +134,7 @@
   | reset                  | =x/X=   | =o/O=                  |                       |               |          |
   | show-refs              | =y=     |                        | =yr= (=y= in popup)   |               |          |
   | cherry                 | =Y=     |                        |                       |               |          |
-  | worktree               | =Z=     |                        |                       |               | =%=      |
+  | worktree               | =Z/%=   |                        |                       |               | =%=      |
   | stash                  | =z/Z=   |                        |                       |               | =Z=      |
   | git-cmd                | =:=     | =¦=                    |                       |               |          |
   | run                    | =!=     |                        |                       |               |          |
