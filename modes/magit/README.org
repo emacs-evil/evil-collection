@@ -115,11 +115,11 @@
   | merge                  | =m=     |                        |                       |               |          |
   | remote                 | =M=     |                        |                       |               |          |
   | next section           | =n=     | =C-j=                  |                       |               |          |
-  | next section sibling   | =M-n=   | =gj= or =]=            |                       |               |          |
+  | next section sibling   | =M-n=   | =M-j=, =gj=, or =]=    |                       |               |          |
   | submodule              | =o=     | '                      |                       |               |          |
   | subtree                | =O=     | "                      |                       |               |          |
   | prev section           | =p=     | =C-k=                  |                       |               |          |
-  | prev section sibling   | =M-p=   | =gk= or =[=            |                       |               |          |
+  | prev section sibling   | =M-p=   | =M-k=, =gk=, or =[=    |                       |               |          |
   | push                   | =P=     | =P= or =p=             |                       |               |          |
   | quit                   | =q=     | =q= or =ESC=           |                       |               |          |
   | rebase                 | =r=     |                        |                       |               |          |
