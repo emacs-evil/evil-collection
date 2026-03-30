@@ -37,10 +37,10 @@
 (defun evil-collection-dashboard-setup-jump-commands (&rest _)
   "Set up bindings for jump commands in Dashboard."
   (evil-collection-define-key 'normal 'dashboard-mode-map
-    "r" (symbol-function (lookup-key dashboard-mode-map "r")) ; recents
-    "m" (symbol-function (lookup-key dashboard-mode-map "m")) ; bookmarks
-    "p" (symbol-function (lookup-key dashboard-mode-map "p")) ; projects
-    "a" (symbol-function (lookup-key dashboard-mode-map "a")) ; agenda
+    "r" (lookup-key dashboard-mode-map "r") ; recents
+    "m" (lookup-key dashboard-mode-map "m") ; bookmarks
+    "p" (lookup-key dashboard-mode-map "p") ; projects
+    "a" (lookup-key dashboard-mode-map "a") ; agenda
     ;; - Dashboard inserts shortcut hints in its buffer, so it's
     ;; hard to differ from the default.
     ;;
