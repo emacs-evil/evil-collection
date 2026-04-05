@@ -108,8 +108,6 @@ appropriate in some cases like terminals."
     (kbd "C-j") 'eshell-next-prompt
     "gk" 'eshell-previous-prompt
     "gj" 'eshell-next-prompt
-    "0" 'eshell-bol
-    "^" 'eshell-bol
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument
 
@@ -123,6 +121,11 @@ appropriate in some cases like terminals."
     "d" 'evil-collection-eshell-evil-delete
     "D" 'evil-collection-eshell-evil-delete-line)
 
+  (when (< emacs-major-version 30)
+    (evil-collection-define-key 'normal 'eshell-mode-map
+      "0" 'eshell-bol
+      "^" 'eshell-bol))
+
   (when evil-want-C-u-delete
     (evil-collection-define-key 'insert 'eshell-mode-map
       (kbd "C-u") 'eshell-kill-input))
@@ -135,9 +138,12 @@ appropriate in some cases like terminals."
     (kbd "C-k") 'eshell-previous-prompt
     (kbd "C-j") 'eshell-next-prompt
     "gk" 'eshell-previous-prompt
-    "gj" 'eshell-next-prompt
-    "0" 'eshell-bol
-    "^" 'eshell-bol)
+    "gj" 'eshell-next-prompt)
+
+  (when (< emacs-major-version 30)
+    (evil-collection-define-key 'visual 'eshell-mode-map
+      "0" 'eshell-bol
+      "^" 'eshell-bol))
 
   (evil-normalize-keymaps)
   (unless evil-collection-always-run-setup-hook-after-load
