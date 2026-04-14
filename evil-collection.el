@@ -144,6 +144,7 @@ See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
 (defvar evil-collection--supported-modes
   `(2048-game
     ag
+    agent-shell
     alchemist
     anaconda-mode
     apropos
