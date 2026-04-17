@@ -31,6 +31,8 @@
 
 (defconst evil-collection-agent-shell-maps '(agent-shell-mode-map))
 
+(defvar agent-shell-mode-map)
+
 ;;;###autoload
 (defun evil-collection-agent-shell-setup ()
   "Set up `evil' bindings for `agent-shell'."
