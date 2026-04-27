@@ -534,6 +534,26 @@ means all states for `evil-define-key', return nil."
        states)
      evil-collection-state-denylist)))
 
+(defun evil-collection--keys-conflict (key-a key-b)
+  "Return t if KEY-A and KEY-B conflict.
+Keys conflict if they're equal or if one is a prefix of the other."
+  (setq key-a (vconcat key-a)
+        key-b (vconcat key-b))
+  (let ((len (min (length key-a) (length key-b))))
+    (equal (substring key-a 0 len) (substring key-b 0 len))))
+
+(defsubst evil-collection--can-bind-key (key whitelist blacklist)
+  "Return t if KEY can be bound.
+Return nil if KEY conflicts with a key in BLACKLIST and is not
+a member of WHITELIST.
+
+Both WHITELIST and BLACKLIST must be lists of keys in Emacs'
+internal key representation (i.e., after calling `kbd' on the key
+description."
+  (or (member key whitelist)
+      (not (cl-member key blacklist
+                      :test #'evil-collection--keys-conflict))))
+
 (defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.
 Unlike `evil-define-key*' MAP-SYM should be a quoted keymap other than the
@@ -549,8 +569,7 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
       (while bindings
         (let ((key (pop bindings))
               (def (pop bindings)))
-          (when (or (and whitelist (member key whitelist))
-                    (not (member key blacklist)))
+          (when (evil-collection--can-bind-key key whitelist blacklist)
             (annalist-record 'evil-collection 'keybindings
                              (list map-sym state key def)
                              :local (or (eq map-sym 'local)
@@ -564,8 +583,7 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
   "Return whether or not we should bind KEY."
   (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
          (blacklist (mapcar 'kbd evil-collection-key-blacklist)))
-    (or (and whitelist (member key whitelist))
-        (not (member key blacklist)))))
+    (evil-collection--can-bind-key key whitelist blacklist)))
 
 (defun evil-collection--define-key (state map-sym bindings)
   "Workhorse function for `evil-collection-define-key'.
