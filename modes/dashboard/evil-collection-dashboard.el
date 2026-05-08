@@ -48,7 +48,7 @@
     ;; added it would have to choose between the widget and losing
     ;; `evil-forward-word-end'. That's probably still better than
     ;; having a shortcut hint that isn't correct.
-    "e" (symbol-function (lookup-key dashboard-mode-map "e")))) ; registers
+    "e" (lookup-key dashboard-mode-map "e"))) ; registers
 
 ;;;###autoload
 (defun evil-collection-dashboard-setup ()
