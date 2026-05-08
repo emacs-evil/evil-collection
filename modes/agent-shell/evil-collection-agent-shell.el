@@ -147,7 +147,7 @@ KEY is a string passed to `kbd'."
   (evil-collection-define-key 'normal 'agent-shell-mode-map
     (kbd "TAB") 'agent-shell-next-item
     "<backtab>" 'agent-shell-previous-item
-    "C-<tab>" 'agent-shell-cycle-session-mode)
+    (kbd "C-<tab>") 'agent-shell-cycle-session-mode)
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-mode-map
