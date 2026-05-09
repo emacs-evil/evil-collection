@@ -35,8 +35,8 @@
 (defvar elfeed-tree-mode-map)
 
 (defconst evil-collection-elfeed-maps '(elfeed-search-mode-map
-					elfeed-show-mode-map
-					elfeed-tree-mode-map)
+                                        elfeed-show-mode-map
+                                        elfeed-tree-mode-map))
 
 ;;;###autoload
 (defun evil-collection-elfeed-setup ()
@@ -112,13 +112,13 @@
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map
-    "u" 'elfeed-show-yank))
+    "u" 'elfeed-show-yank)
 
   (evil-collection-set-readonly-bindings 'elfeed-tree-mode-map)
   (evil-set-initial-state 'elfeed-tree-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-tree-mode-map
     ;; open
-    (kbd "RET") 'elfeed-tree-show)
+    (kbd "RET") 'elfeed-tree-show))
 
 (provide 'evil-collection-elfeed)
 ;;; evil-collection-elfeed.el ends here
