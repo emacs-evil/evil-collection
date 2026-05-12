@@ -45,7 +45,8 @@
       (kbd "RET") 'eca-chat--key-pressed-return)
     (evil-collection-define-key newline-state 'eca-chat-mode-map
       (kbd "<return>") 'eca-chat--key-pressed-newline
-      (kbd "RET") 'eca-chat--key-pressed-newline))
+      (kbd "RET") 'eca-chat--key-pressed-newline
+      (kbd "C-<return>") 'eca-chat--key-pressed-return))
 
   (evil-collection-define-key 'insert 'eca-chat-mode-map
     (kbd "S-<return>") 'eca-chat--key-pressed-newline)
