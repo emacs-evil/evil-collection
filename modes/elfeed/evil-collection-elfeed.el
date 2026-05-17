@@ -118,7 +118,7 @@
   (evil-set-initial-state 'elfeed-tree-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-tree-mode-map
     ;; open
-    (kbd "RET") 'elfeed-tree-show))
+    (kbd "RET") 'elfeed-tree-search))
 
 (provide 'evil-collection-elfeed)
 ;;; evil-collection-elfeed.el ends here
