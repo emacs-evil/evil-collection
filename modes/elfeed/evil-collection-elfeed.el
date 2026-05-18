@@ -62,12 +62,27 @@
 
     ;; refresh
     "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
-    "gr" 'elfeed-search-update--force
+    "gr" 'revert-buffer
 
-    ;; quit
-    "q" 'elfeed-search-quit-window
-    "ZQ" 'elfeed-search-quit-window
-    "ZZ" 'elfeed-search-quit-window)
+    ;; quit -- `q'/`ZZ' default to `quit-window' via
+    ;; `evil-collection-set-readonly-bindings'.
+    "ZQ" 'quit-window)
+
+  ;; Refresh fallback for elfeed before commit 518e5bd3, where
+  ;; `revert-buffer-function' is not wired up.
+  (unless (fboundp 'elfeed-search--update-force)
+    (evil-collection-define-key 'normal 'elfeed-search-mode-map
+      "gr" 'elfeed-search-update--force))
+
+  ;; Quit fallback for elfeed before commit 2ef14c92, where
+  ;; `quit-window-hook' does not run `elfeed-db-save'.
+  (when (and (fboundp 'elfeed-search-quit-window)
+             (not (eq (indirect-function 'elfeed-search-quit-window)
+                      (symbol-function 'quit-window))))
+    (evil-collection-define-key 'normal 'elfeed-search-mode-map
+      "q" 'elfeed-search-quit-window
+      "ZQ" 'elfeed-search-quit-window
+      "ZZ" 'elfeed-search-quit-window))
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
