@@ -30,6 +30,18 @@
 (require 'notmuch nil t)
 (require 'evil-collection)
 
+(defcustom evil-collection-notmuch-delete-tag "deleted"
+  "Tag toggled by the delete bindings (`d') in notmuch modes.
+
+Defaults to \"deleted\" for backwards compatibility with the self-hosted
+notmuch convention where a cron job removes files matching `tag:deleted'.
+
+Set to \"trash\" when syncing with services that map a Trash tag/label
+back to the server (e.g. lieer/Gmail's TRASH label, or an IMAP setup
+that moves trashed messages out of the inbox)."
+  :type 'string
+  :group 'evil-collection-notmuch)
+
 (declare-function notmuch-show-get-tags "notmuch-show")
 (declare-function notmuch-show-tag "notmuch-show")
 (declare-function notmuch-search-get-tags "notmuch")
@@ -66,19 +78,19 @@
     (funcall next)))
 
 (defun evil-collection-notmuch-show-toggle-delete ()
-  "Toggle deleted tag for message."
+  "Toggle `evil-collection-notmuch-delete-tag' for message."
   (interactive)
-  (evil-collection-notmuch-toggle-tag "deleted" "show"))
+  (evil-collection-notmuch-toggle-tag evil-collection-notmuch-delete-tag "show"))
 
 (defun evil-collection-notmuch-tree-toggle-delete ()
-  "Toggle deleted tag for message."
+  "Toggle `evil-collection-notmuch-delete-tag' for message."
   (interactive)
-  (evil-collection-notmuch-toggle-tag "deleted" "tree"))
+  (evil-collection-notmuch-toggle-tag evil-collection-notmuch-delete-tag "tree"))
 
 (defun evil-collection-notmuch-search-toggle-delete ()
-  "Toggle deleted tag for message."
+  "Toggle `evil-collection-notmuch-delete-tag' for message."
   (interactive)
-  (evil-collection-notmuch-toggle-tag "deleted" "search" 'notmuch-search-next-thread))
+  (evil-collection-notmuch-toggle-tag evil-collection-notmuch-delete-tag "search" 'notmuch-search-next-thread))
 
 (defun evil-collection-notmuch-tree-toggle-unread ()
   "Toggle unread tag for message."
