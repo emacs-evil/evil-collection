@@ -42,12 +42,6 @@
     (kbd "SPC") 'View-scroll-page-forward
     (kbd "S-SPC") 'View-scroll-page-backward
 
-    ;; zoom
-    "+" 'text-scale-increase
-    "=" 'text-scale-increase
-    "0" 'text-scale-adjust              ; TODO: Conflicts with `evil-beginning-of-line'.
-    "-" 'text-scale-decrease
-
     ;; refresh
     (kbd "gr") 'revert-buffer))
 
