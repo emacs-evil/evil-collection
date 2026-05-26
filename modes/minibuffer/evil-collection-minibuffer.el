@@ -34,6 +34,7 @@
                                             minibuffer-local-completion-map
                                             minibuffer-local-must-match-map
                                             minibuffer-local-isearch-map
+                                            evil-ex-search-keymap
                                             evil-ex-completion-map))
 
 (defun evil-collection-minibuffer-insert ()
