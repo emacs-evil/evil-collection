@@ -259,6 +259,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     hungry-delete
     hyrolo
     ibuffer
+    ielm
     (image image-mode)
     image-dired
     image+
