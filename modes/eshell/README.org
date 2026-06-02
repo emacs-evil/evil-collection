@@ -1,0 +1,36 @@
+* eshell
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/eshell/index.html][Eshell]].
+
+** Key bindings
+
+   Normal-state bindings added to =eshell-mode-map=.
+
+   | Command                                           | Original  | Evil              |
+   |---------------------------------------------------+-----------+-------------------|
+   | =eshell-previous-prompt=                          | =C-c C-p= | =[[=, =gk=, =C-k= |
+   | =eshell-next-prompt=                              | =C-c C-n= | =]]=, =gj=, =C-j= |
+   | =eshell-backward-argument=                        | =C-c C-b= | =M-h=             |
+   | =eshell-forward-argument=                         | =C-c C-f= | =M-l=             |
+   | =eshell-previous-matching-input-from-input=       | =C-c M-p= | =C-p=             |
+   | =eshell-next-matching-input-from-input=           | =C-c M-n= | =C-n=             |
+   | =eshell-bol= (Emacs < 30)                         | =C-a=     | =0=, =^=          |
+   | =eshell-kill-input= (when =evil-want-C-u-delete=) | =C-c C-u= | =C-u= (insert)    |
+
+   =RET= sends input in the state named by =evil-collection-repl-submit-state=,
+   and inserts a newline in the complementary state.
+
+** New commands
+
+   | Command                                    | Key       |                                         |
+   |--------------------------------------------+-----------+-----------------------------------------|
+   | =evil-collection-eshell-interrupt-process= | =C-c C-c= | interrupt process, then enter insert    |
+   | =evil-collection-eshell-evil-change=       | =c=       | change, never touches prompt or history |
+   | =evil-collection-eshell-evil-change-line=  | =C=       | change to end-of-line                   |
+   | =evil-collection-eshell-evil-delete=       | =d=       | delete, never touches prompt or history |
+   | =evil-collection-eshell-evil-delete-line=  | =D=       | delete to end-of-line                   |
+
+** Notes
+
+   - On entering insert/replace state, point jumps to the next prompt.
+   - On entering normal state, point stays put (no Vim-style backward step).

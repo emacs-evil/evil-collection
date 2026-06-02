@@ -1,0 +1,55 @@
+* vterm
+
+  Evil bindings for [[https://github.com/akermu/emacs-libvterm][vterm]].
+
+  Initial state is =insert=. Normal state adds the bindings below and uses
+  vterm-aware operators that respect the prompt boundary.
+
+** Key bindings (normal state)
+
+   | Command                                  | Original    | Evil       |
+   |------------------------------------------+-------------+------------|
+   | =vterm-previous-prompt=                  | =C-c C-p=   | =[[=       |
+   | =vterm-next-prompt=                      | =C-c C-n=   | =]]=       |
+   | =vterm-yank= (paste before)              | =C-y=       | =P=        |
+   | =evil-collection-vterm-paste-after=      | n/a         | =p=        |
+   | =evil-collection-vterm-insert=           | n/a         | =i=        |
+   | =evil-collection-vterm-insert-line=      | n/a         | =I=        |
+   | =evil-collection-vterm-append=           | n/a         | =a=        |
+   | =evil-collection-vterm-append-line=      | n/a         | =A=        |
+   | =evil-collection-vterm-first-non-blank=  | n/a         | =^=        |
+   | =vterm-undo=                             | n/a         | =u=        |
+   | =vterm-reset-cursor-point=               | =C-c C-r=   | =G=        |
+
+   =RET= sends to the terminal in the state named by =evil-collection-repl-submit-state=.
+
+** Insert state
+
+   To preserve terminal control sequences, the following are forwarded raw to
+   the terminal via =vterm--self-insert=: =C-a=, =C-b=, =C-d=, =C-e=, =C-f=,
+   =C-k=, =C-l=, =C-n=, =C-o=, =C-p=, =C-q=, =C-r=, =C-s=, =C-t=, =C-u=, =C-v=,
+   =C-w=, =C-y=, =C-z=. =C-c= (prefix) and =C-h= (help) are not forwarded.
+
+   =<delete>= → =vterm-send-delete=.
+
+** New commands
+
+   | Command                                       | Key                                 |                                              |
+   |-----------------------------------------------+-------------------------------------+----------------------------------------------|
+   | =evil-collection-vterm-delete=                | =d=                                 | delete operator, clamped to current line     |
+   | =evil-collection-vterm-delete-line=           | =D=                                 | delete to end-of-line                        |
+   | =evil-collection-vterm-delete-char=           | =x=                                 | delete forward char                          |
+   | =evil-collection-vterm-delete-backward-char=  | =X=                                 | delete backward char                         |
+   | =evil-collection-vterm-change=                | =c=                                 | change operator                              |
+   | =evil-collection-vterm-change-line=           | =C=                                 | change to end-of-line                        |
+   | =evil-collection-vterm-substitute=            | =s=                                 |                                              |
+   | =evil-collection-vterm-substitute-line=       | =S=                                 |                                              |
+   | =evil-collection-vterm-replace=               | =r=                                 |                                              |
+   | =evil-collection-vterm-next-line=             | =j=                                 | won't move below last prompt line            |
+   | =evil-collection-vterm-toggle-send-escape=    | =C-c C-z=                           | toggle whether =ESC= goes to vterm or evil   |
+
+** Customization
+
+   | Variable                                  | Default | Purpose                                                 |
+   |-------------------------------------------+---------+---------------------------------------------------------|
+   | =evil-collection-vterm-move-cursor-back=  | =nil=   | Move cursor back one column when leaving insert state.  |

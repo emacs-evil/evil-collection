@@ -1,0 +1,40 @@
+* dired
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html][Dired]].
+
+** Key bindings
+
+   | Command                        | Original        | Evil            |
+   |--------------------------------+-----------------+-----------------|
+   | =dired-next-line=              | =n=, =SPC=      | =j=, =SPC=      |
+   | =dired-previous-line=          | =p=, =S-SPC=    | =k=, =S-SPC=    |
+   | =dired-find-file=              | =f=, =RET=, =e= | =gf=, =RET=     |
+   | =dired-find-file-other-window= | =o=             | =gO=            |
+   | =dired-view-file=              | =v=             | =go=            |
+   | =revert-buffer=                | =g=             | =gr=            |
+   | =dired-summary=                | =?=, =h=        | =g?=            |
+   | =dired-show-file-type=         | =y=             | =gy=            |
+   | =dired-copy-filename-as-kill=  | =w=             | =Y=             |
+   | =dired-do-kill-lines=          | =k=             | =K=             |
+   | =dired-do-chgrp=               | =G=             | =gG=            |
+   | =dired-hide-subdir=            | =$=             | =g$=            |
+   | =dired-next-dirline=           | =>=             | =gj=, =]]=, =>= |
+   | =dired-prev-dirline=           | =<=             | =gk=, =[[=, =<= |
+   | =dired-up-directory=           | =^=             | =^=, =-=        |
+   | =dired-sort-toggle-or-edit=    | =s=             | =o=             |
+   | =dired-do-redisplay=           | =l=             | =r=             |
+   | =dired-find-alternate-file=    | =a=             | =a=             |
+   | =quit-window=                  | =q=             | =q=             |
+
+   Uppercase operator keys (=A=, =B=, =C=, =D=, =H=, =L=, =M=, =O=, =P=, =Q=,
+   =R=, =S=, =T=, =U=, =W=, =X=, =Z=) and marking/flagging keys (=+=, =&=,
+   =!=, =%=, =*=, =~=, =#=, =.=, ===) keep their default dired bindings.
+
+   On Emacs 30+: =E= → =dired-do-open=.
+
+** Integrations
+
+   - [[https://github.com/Fuco1/dired-hacks][dired-narrow]]: =s= → =dired-narrow-regexp=.
+   - [[https://github.com/Fuco1/dired-hacks][dired-subtree]]: =TAB= toggle, =gh= / =gl= up/down, =M-j= / =M-k= sibling navigation.
+   - [[https://github.com/Fuco1/dired-hacks][dired-filter]]: =*= → =dired-filter-mark-map=, =g/= → =dired-filter-map=.
+   - dired-x: =*(=, =*.=, =*O= for sexp / extension / omitted marking.
