@@ -30,9 +30,21 @@
 (require 'evil-collection)
 (require 'eat nil t)
 
-(defconst evil-collection-eat-maps '(eat-mode-map eat-line-mode-map))
+(defconst evil-collection-eat-maps '(eat-mode-map
+                                     eat-line-mode-map
+                                     eat-semi-char-mode-map
+                                     eat-char-mode-map
+                                     eat-eshell-semi-char-mode-map
+                                     eat-eshell-char-mode-map))
 
+;; The map symbols below are only referenced inside quoted lists in this
+;; file, so the byte-compiler does not actually require these declarations.
+;; Defining them keeps certain linters happy.
 (defvar eat-line-mode-map)
+(defvar eat-semi-char-mode-map)
+(defvar eat-char-mode-map)
+(defvar eat-eshell-semi-char-mode-map)
+(defvar eat-eshell-char-mode-map)
 
 (defvar-local evil-collection-eat-send-escape-to-eat-p nil
   "Track whether or not we send ESC to `eat' or `emacs'.")
@@ -95,7 +107,18 @@ SSH-accessed Emacs that also uses `evil-mode'."
     (kbd "C-w") 'eat-self-input
     (kbd "C-y") 'eat-self-input
     (kbd "C-z") 'eat-self-input
-    (kbd "<delete>") 'eat-self-input))
+    (kbd "<delete>") 'eat-self-input)
+
+  ;; Paste bindings: in a terminal, "paste before/after" is meaningless because
+  ;; the cursor position is controlled by the running program. Bind both `p'
+  ;; and `P' to `eat-yank' so the kill-ring is sent as terminal input.
+  (dolist (map '(eat-semi-char-mode-map
+                 eat-char-mode-map
+                 eat-eshell-semi-char-mode-map
+                 eat-eshell-char-mode-map))
+    (evil-collection-define-key 'normal map
+      (kbd "p") 'eat-yank
+      (kbd "P") 'eat-yank)))
 
 (provide 'evil-collection-eat)
 ;;; evil-collection-eat.el ends here
