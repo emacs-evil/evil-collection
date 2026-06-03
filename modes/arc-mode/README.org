@@ -1,0 +1,30 @@
+* arc-mode
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/File-Archives.html][arc-mode]] (archive file browser).
+
+  =arc-mode= and =archive-mode= start in normal state.
+
+** Key bindings
+
+   | Command                        | Original        | Evil                         |
+   |--------------------------------+-----------------+------------------------------|
+   | =archive-next-line=            | =n=, =C-n=      | =j=, =C-j=, =gj=, =n=, =C-n= |
+   | =archive-previous-line=        | =p=, =C-p=      | =k=, =C-k=, =gk=, =p=, =C-p= |
+   | =beginning-of-buffer=          | =<=             | =gg=, =<=                    |
+   | =end-of-buffer=                | =>=             | =G=, =>=                     |
+   | =archive-extract=              | =RET=, =e=, =f= | =RET=                        |
+   | =archive-extract-other-window= | =o=             | =go=, =S-RET=                |
+   | =archive-view=                 | =v=             | =M-RET=                      |
+   | =archive-alternate-display=    | =a=             | =a=                          |
+   | =archive-flag-deleted=         | =d=, =C-d=      | =d=, =C-d=                   |
+   | =archive-rename-entry=         | =r=             | =r=                          |
+   | =archive-expunge=              | =x=             | =x=                          |
+   | =archive-copy-file=            | =C=             | =C=                          |
+   | =archive-chmod-entry=          | =M=             | =M=                          |
+   | =archive-chown-entry=          | =O=             | =O=                          |
+   | =archive-chgrp-entry=          | =G=             | =P=                          |
+   | =archive-mark=                 | =m=             | =m=                          |
+   | =archive-unflag=               | =u=             | =u=                          |
+   | =archive-unmark-all-files=     | =M-DEL=         | =U=, =M-DEL=                 |
+   | =revert-buffer=                | =g=             | =gr=                         |
+   | =quit-window=                  | =q=             | =q=                          |

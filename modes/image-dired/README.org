@@ -1,0 +1,31 @@
+* image-dired
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Image_002dDired.html][image-dired-thumbnail-mode]].
+
+** Key bindings
+
+   | Command                                           | Original  | Evil      |
+   |---------------------------------------------------+-----------+-----------|
+   | =image-dired-backward-image=                      | =<left>=  | =h=       |
+   | =image-dired-forward-image=                       | =<right>= | =l=       |
+   | =image-dired-next-line=                           | =<down>=  | =j=       |
+   | =image-dired-previous-line=                       | =<up>=    | =k=       |
+   | =image-dired-display-next-thumbnail-original=     | =SPC=     | =SPC=     |
+   | =image-dired-display-previous-thumbnail-original= | =DEL=     | =S-SPC=   |
+   | =image-dired-display-thumbnail-original-image=    | =RET=     | =RET=     |
+   | =image-dired-comment-thumbnail=                   | =c=       | =c=       |
+   | =image-dired-thumbnail-set-image-description=     | =D=       | =d=       |
+   | =image-dired-mark-thumb-original-file=            | =m=       | =m=       |
+   | =image-dired-unmark-thumb-original-file=          | =u=       | =u=       |
+   | =image-dired-delete-char=                         | =C-d=     | =D=       |
+   | =image-dired-rotate-thumbnail-right=              | n/a       | =r=       |
+   | =image-dired-rotate-thumbnail-left=               | n/a       | =R=       |
+   | =image-dired-rotate-original-left=                | =L=       | =<=       |
+   | =image-dired-rotate-original-right=               | =R=       | =>=       |
+   | =image-dired-tag-thumbnail=                       | =t t=     | =tt=      |
+   | =image-dired-tag-thumbnail-remove=                | =t r=     | =tr=      |
+   | =image-dired-line-up=                             | =g f=     | =ff=      |
+   | =image-dired-line-up-dynamic=                     | =g g=     | =fd=      |
+   | =image-dired-line-up-interactive=                 | =g i=     | =fi=      |
+   | =quit-window=                                     | =q=       | =q=, =ZZ= |
+   | =evil-quit=                                       | n/a       | =ZQ=      |

@@ -1,0 +1,164 @@
+* cider
+
+  Evil bindings for [[https://github.com/clojure-emacs/cider][CIDER]].
+
+  The bulk of CIDER's commands live under the =C-c= prefix in =cider-mode-map=
+  -- those are left alone. Evil only adds vim-style navigation, doc lookup and
+  the debugger keys.
+
+** cider-mode-map
+
+   | Command                          | Original      | Evil      |
+   |----------------------------------+---------------+-----------|
+   | =cider-switch-to-repl-buffer=    | =C-c C-z=     | =gz=      |
+   | =cider-find-resource=            | =C-c M-.=     | =gf=      |
+   | =cider-doc=                      | =C-c C-d C-d= | =K=       |
+   | =cider-find-var=                 | =M-.=         | =gd=  ([[#xref][†]]) |
+   | =cider-pop-back=                 | =M-,=         | =C-t= ([[#xref][†]]) |
+   | =cider-browse-instrumented-defs= | n/a           | =<f6>=    |
+   | =cider-debug-defun-at-point=     | =C-u C-M-x=   | =<f9>=    |
+
+   The =<f6>= / =<f9>= bindings only fire when
+   =evil-collection-setup-debugger-keys= is non-nil.
+
+** cider-repl-mode-map
+
+   | Command                               | Original      | Evil                                         |
+   |---------------------------------------+---------------+----------------------------------------------|
+   | =cider-switch-to-last-clojure-buffer= | =C-c C-z=     | =gz=                                         |
+   | =cider-refresh=                       | =C-c M-n r=   | =gr=                                         |
+   | =cider-find-resource=                 | =C-c M-.=     | =gf=                                         |
+   | =cider-doc=                           | =C-c C-d C-d= | =K=                                          |
+   | =cider-find-var=                      | =M-.=         | =gd=  ([[#xref][†]])                                    |
+   | =cider-pop-back=                      | =M-,=         | =C-t= ([[#xref][†]])                                    |
+   | =cider-repl-return=                   | =RET=         | =RET= in =evil-collection-repl-submit-state= |
+   | =newline=                             | =C-j=         | =RET= in the opposite state                  |
+
+   See =evil-collection-repl-submit-state= (normal or insert) for which state
+   submits.
+
+** cider-repl-history-mode-map
+
+   | Command                                | Original | Evil              |
+   |----------------------------------------+----------+-------------------|
+   | =cider-repl-history-previous=          | =p=      | =C-k=, =gk=, =[[= |
+   | =cider-repl-history-forward=           | =n=      | =C-j=, =gj=, =]]= |
+   | =cider-repl-history-insert-and-quit=   | =RET=    | =RET=             |
+   | =cider-repl-history-update=            | =g=      | =gr=              |
+   | =cider-repl-history-quit=              | =q=      | =q=               |
+   | =cider-repl-history-undo-other-window= | =U=      | =u=               |
+
+** cider-test-report-mode-map
+
+   | Command                            | Original   | Evil               |
+   |------------------------------------+------------+--------------------|
+   | =cider-test-commands-map=          | n/a        | =C-c ,=, =C-c C-t= |
+   | =cider-test-previous-result=       | n/a        | =M-p=, =<backtab>= |
+   | =cider-test-next-result=           | =TAB=      | =M-n=, =<tab>=     |
+   | =cider-test-jump=                  | =t=, =RET= | =gd=, =t=, =RET=   |
+   | =cider-test-ediff=                 | =d=        | =d=                |
+   | =cider-test-stacktrace=            | =e=        | =e=                |
+   | =cider-test-rerun-failed-tests=    | =f=        | =f=                |
+   | =cider-test-run-ns-tests=          | =n=        | =n=                |
+   | =cider-test-run-loaded-tests=      | =l=        | =L=                |
+   | =cider-test-run-project-tests=     | =p=        | =p=                |
+   | =cider-test-run-test=              | =g=        | =gr=               |
+   | =cider-popup-buffer-quit-function= | n/a        | =q=                |
+
+** cider-macroexpansion-mode-map
+
+   | Command                                    | Original | Evil        |
+   |--------------------------------------------+----------+-------------|
+   | =cider-popup-buffer-quit-function=         | n/a      | =q=         |
+   | =cider-macroexpand-again=                  | =g=      | =r=         |
+   | =cider-doc=                                | =d=      | =K=         |
+   | =cider-javadoc=                            | =j=      | =J=         |
+   | =cider-find-var= / =xref-find-definitions= | =.=      | =.=         |
+   | =cider-macroexpand-1-inplace=              | =m=      | =m=         |
+   | =cider-macroexpand-all-inplace=            | =a=      | =a=         |
+   | =cider-macroexpand-undo=                   | =u=      | =u=, =undo= |
+
+** cider-connections-buffer-mode-map
+
+   | Command                              | Original | Evil  |
+   |--------------------------------------+----------+-------|
+   | =cider-connections-make-default=     | n/a      | =d=   |
+   | =cider-connection-browser=           | n/a      | =c=   |
+   | =cider-connections-close-connection= | n/a      | =x=   |
+   | =cider-connections-goto-connection=  | n/a      | =RET= |
+   | =describe-mode=                      | n/a      | =g?=  |
+
+** cider-stacktrace-mode-map
+
+   Initial evil state is forced to normal.
+
+   | Command                                | Original | Evil              |
+   |----------------------------------------+----------+-------------------|
+   | =cider-stacktrace-previous-cause=      | n/a      | =C-k=, =gk=, =[[= |
+   | =cider-stacktrace-next-cause=          | n/a      | =C-j=, =gj=, =]]= |
+   | =cider-stacktrace-jump=                | n/a      | =gd=              |
+   | =cider-popup-buffer-quit-function=     | =q=      | =q=               |
+   | =cider-stacktrace-toggle-java=         | =j=      | =J=               |
+   | =cider-stacktrace-toggle-clj=          | =c=      | =C=               |
+   | =cider-stacktrace-toggle-repl=         | =r=      | =R=               |
+   | =cider-stacktrace-toggle-tooling=      | =t=      | =T=               |
+   | =cider-stacktrace-toggle-duplicates=   | =d=      | =D=               |
+   | =cider-stacktrace-show-only-project=   | =p=      | =P=               |
+   | =cider-stacktrace-toggle-all=          | =a=      | =A=               |
+   | =cider-stacktrace-cycle-cause-1..5=    | =1..5=   | =1..5=            |
+   | =cider-stacktrace-cycle-all-causes=    | =0=      | =0=, =<backtab>=  |
+   | =cider-stacktrace-cycle-current-cause= | =TAB=    | =TAB=             |
+
+** cider-inspector-mode-map
+
+   | Command                                       | Original     | Evil         |
+   |-----------------------------------------------+--------------+--------------|
+   | =quit-window=                                 | n/a          | =q=          |
+   | =cider-inspector-operate-on-point=            | =RET=        | =RET=        |
+   | =cider-inspector-pop=                         | =l=          | =L=          |
+   | =cider-inspector-refresh=                     | =g=          | =gr=         |
+   | =cider-inspector-next-page=                   | =SPC=        | =C-j=, =SPC= |
+   | =cider-inspector-prev-page=                   | =S-SPC=      | =C-k=        |
+   | =cider-inspector-set-page-size=               | =s=          | =s=          |
+   | =cider-inspector-next-inspectable-object=     | =n=, =TAB=   | =]]=, =gj=   |
+   | =cider-inspector-previous-inspectable-object= | =p=, =S-TAB= | =[[=, =gk=   |
+
+** cider--debug-mode-map
+
+   Only active when =evil-collection-setup-debugger-keys= is non-nil. Each key
+   sends a reply through =cider-debug-mode-send-reply=.
+
+   | Command                                      | Reply             | Evil |
+   |----------------------------------------------+-------------------+------|
+   | =cider-debug-defun-at-point=                 | (re-instrument)   | =b=  |
+   | =evil-collection-cider-debug-continue=       | =:continue=       | =c=  |
+   | =evil-collection-cider-debug-continue-all=   | =:continue-all=   | =C=  |
+   | =evil-collection-cider-debug-next=           | =:next=           | =n=  |
+   | =evil-collection-cider-debug-in=             | =:in=             | =I=  |
+   | =evil-collection-cider-debug-out=            | =:out=            | =o=  |
+   | =evil-collection-cider-debug-force-out=      | =:force-out=      | =O=  |
+   | =cider-debug-move-here=                      | (move here)       | =H=  |
+   | =evil-collection-cider-debug-eval=           | =:eval=           | =e=  |
+   | =evil-collection-cider-debug-inspect=        | =:inspect=        | =p=  |
+   | =evil-collection-cider-debug-inspect-prompt= | =:inspect-prompt= | =P=  |
+   | =evil-collection-cider-debug-locals=         | =:locals=         | =L=  |
+   | =evil-collection-cider-debug-inject=         | =:inject=         | =J=  |
+   | =evil-collection-cider-debug-stacktrace=     | =:stacktrace=     | =s=  |
+   | =evil-collection-cider-debug-trace=          | =:trace=          | =t=  |
+   | =evil-collection-cider-debug-quit=           | =:quit=           | =q=  |
+
+** New commands
+
+   | Command                           | Purpose                                                                                              |
+   |-----------------------------------+------------------------------------------------------------------------------------------------------|
+   | =evil-collection-cider-debug-*=   | One per cider-debug reply keyword (see =cider--debug-mode-map=).                                     |
+   | =evil-collection-cider-last-sexp= | Advice for =cider-eval-last-sexp= so the last sexp ends at point when =evil-move-beyond-eol= is nil. |
+
+** Xref fallbacks
+   :PROPERTIES:
+   :CUSTOM_ID: xref
+   :END:
+
+   =gd= / =C-t= are only bound when =cider-use-xref= is nil. With xref enabled
+   the user already has =M-.= / =M-,= going through =xref-find-definitions= and
+   nothing extra is added.

@@ -1,0 +1,19 @@
+* wgrep
+
+  Evil bindings for [[https://github.com/mhayashi1120/Emacs-wgrep][wgrep]] (writable grep buffers).
+
+  Upstream only binds finish / abort / toggle commands under =C-c= and
+  =C-x= prefixes. evil-collection layers the usual evil quit-and-save
+  bindings on top and remaps =evil-write= to finish the edit.
+
+** Key bindings
+
+   | Command                      | Original                        | Evil       |
+   |------------------------------+---------------------------------+------------|
+   | =wgrep-finish-edit=          | =C-c C-c=, =C-c C-e=, =C-x C-s= | =ZZ=, =:w= |
+   | =wgrep-abort-changes=        | =C-c C-k=                       | =ZQ=       |
+   | =wgrep-exit=                 | =C-x C-q=                       | =<escape>= |
+   | =wgrep-mark-deletion=        | =C-c C-d=                       | =C-c C-d=  |
+   | =wgrep-remove-change=        | =C-c C-r=                       | =C-c C-r=  |
+   | =wgrep-remove-all-change=    | =C-c C-u=                       | =C-c C-u=  |
+   | =wgrep-toggle-readonly-area= | =C-c C-p=                       | =C-c C-p=  |

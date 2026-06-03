@@ -1,0 +1,27 @@
+* tar-mode
+
+  Evil bindings for =tar-mode=, the built-in tar archive browser.
+
+** Key bindings
+
+   | Command                        | Original                    | Evil               |
+   |--------------------------------+-----------------------------+--------------------|
+   | =tar-next-line=                | =n=, =SPC=, =C-n=, =<down>= | =j=, =gj=, =C-j=   |
+   | =tar-previous-line=            | =p=, =C-p=, =<up>=          | =k=, =gk=, =C-k=   |
+   | =beginning-of-buffer=          | n/a                         | =gg=               |
+   | =end-of-buffer=                | n/a                         | =G=                |
+   | =tar-extract=                  | =RET=, =e=, =f=             | =RET=              |
+   | =tar-extract-other-window=     | =o=, =E=                    | =go=, =S-<return>= |
+   | =tar-view=                     | =v=                         | =gO=, =M-<return>= |
+   | =tar-flag-deleted=             | =d=, =C-d=                  | =d=                |
+   | =tar-rename-entry=             | =R=                         | =r=                |
+   | =tar-expunge=                  | =x=                         | =x=                |
+   | =tar-chmod-entry=              | =M=                         | =M=                |
+   | =tar-chgrp-entry=              | =G=                         | =P=                |
+   | =tar-chown-entry=              | =O=                         | =O=                |
+   | =revert-buffer=                | =g=                         | =gr=               |
+   | =tar-new-entry=                | =I=                         | =I=                |
+   | =tar-copy=                     | =C=                         | =C=                |
+   | =tar-unflag=                   | =u=                         | =u=                |
+   | =tar-clear-modification-flags= | n/a                         | =U=                |
+   | =quit-window=                  | n/a                         | =q=                |

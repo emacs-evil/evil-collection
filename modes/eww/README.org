@@ -1,0 +1,61 @@
+* eww
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/eww/index.html][EWW]] (Emacs Web Wowser).
+
+** eww-mode-map
+
+   | Command                            | Original   | Evil               |
+   |------------------------------------+------------+--------------------|
+   | =eww-up-url=                       | =u=        | =^=, =u=           |
+   | =eww-top-url=                      | =t=        | =U=                |
+   | =eww-back-url=                     | =l=, =DEL= | =H=, =DEL=         |
+   | =eww-forward-url=                  | =r=        | =L=                |
+   | =eww-view-source=                  | =v=        | =gf=               |
+   | =eww-browse-with-external-browser= | =&=        | =&=, =S-RET=, =go= |
+   | =url-cookie-list=                  | =C=        | =gc=               |
+   | =eww-toggle-paragraph-direction=   | =D=        | =zd=               |
+   | =eww-set-character-encoding=       | =E=        | =ze=               |
+   | =eww-toggle-fonts=                 | =F=        | =zf=               |
+   | =eww-download=                     | =d=        | =d=                |
+   | =eww-add-bookmark=                 | =b=        | =m=                |
+   | =eww-readable=                     | =R=        | =R=, =r=           |
+   | =eww-next-url=                     | =n=        | =]]=, =gj=         |
+   | =eww-previous-url=                 | =p=        | =[[=, =gk=         |
+   | =eww=                              | =G=        | =o=                |
+   | =scroll-up-command=                | n/a        | =SPC=              |
+   | =scroll-down-command=              | n/a        | =S-SPC=            |
+   | =shr-next-link=                    | =TAB=      | =TAB=              |
+   | =shr-previous-link=                | =S-TAB=    | =S-TAB=            |
+   | =eww-list-bookmarks=               | =B=        | =gb=               |
+   | =eww-list-histories=               | =H=        | =gh=               |
+   | =eww-list-buffers=                 | =S=        | =gt=               |
+   | =eww-reload=                       | =g=        | =gr=               |
+   | =eww-copy-page-url= (=y= operator) | =w=        | =yu=               |
+   | =quit-window=                      | n/a        | =q=, =ZQ=, =ZZ=    |
+
+** eww-history-mode-map
+
+   | Command              | Original | Evil  |
+   |----------------------+----------+-------|
+   | =eww-history-browse= | =RET=    | =RET= |
+   | =revert-buffer=      | n/a      | =gr=  |
+
+** eww-buffers-mode-map
+
+   | Command                    | Original | Evil       |
+   |----------------------------+----------+------------|
+   | =eww-buffer-kill=          | =D=      | =D=        |
+   | =eww-buffer-select=        | =RET=    | =RET=      |
+   | =eww-buffer-show-next=     | n/a      | =]]=, =gj= |
+   | =eww-buffer-show-previous= | n/a      | =[[=, =gk= |
+   | =revert-buffer=            | n/a      | =gr=       |
+
+** eww-bookmark-mode-map
+
+   | Command                            | Original | Evil  |
+   |------------------------------------+----------+-------|
+   | =eww-bookmark-kill=                | =D=      | =D=   |
+   | =eww-bookmark-yank=                | =P=      | =P=   |
+   | =eww-bookmark-browse=              | =RET=    | =RET= |
+   | =revert-buffer=                    | n/a      | =gr=  |
+   | =eww-copy-page-url= (=y= operator) | n/a      | =yu=  |

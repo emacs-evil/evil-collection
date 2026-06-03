@@ -1,0 +1,17 @@
+* with-editor
+
+  Evil bindings for [[https://github.com/magit/with-editor][with-editor]], used for editing git commit messages
+  and similar =$EDITOR= sessions inside Emacs.
+
+  Upstream already remaps =evil-quit=, =evil-save-and-close= and
+  =evil-save-modified-and-close= to =with-editor-cancel= /
+  =with-editor-finish=, so =:q=, =:wq= and =ZZ=/=ZQ= work out of the box.
+  evil-collection adds explicit normal-state =ZQ= and =ZZ= so they are
+  not subject to evil's save-modified semantics.
+
+** with-editor-mode-map (normal state)
+
+   | Command              | Original  | Evil |
+   |----------------------+-----------+------|
+   | =with-editor-cancel= | =C-c C-k= | =ZQ= |
+   | =with-editor-finish= | =C-c C-c= | =ZZ= |

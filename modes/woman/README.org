@@ -1,0 +1,13 @@
+* woman
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/woman/index.html][WoMan]] (manpage viewer, no external tools).
+
+** Key bindings
+
+   | Command                    | Original | Evil |
+   |----------------------------+----------+------|
+   | =WoMan-next-manpage=       | =n=      | =]]= |
+   | =WoMan-previous-manpage=   | =p=      | =[[= |
+   | =woman-reformat-last-file= | =R=      | =gr= |
+
+   Standard motion / quit bindings are inherited from =evil-collection-man=.

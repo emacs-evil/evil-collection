@@ -1,0 +1,33 @@
+* proced
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Processes.html][proced]].
+
+** Key bindings
+
+   | Command                     | Original | Evil     |
+   |-----------------------------+----------+----------|
+   | =proced-refine=             | =RET=    | =RET=    |
+   | =proced-mark=               | =m=, =d= | =m=      |
+   | =proced-mark-all=           | =M=      | =*=, =M= |
+   | =proced-unmark-all=         | =U=      | =U=      |
+   | =proced-toggle-marks=       | =t=      | =~=      |
+   | =proced-mark-children=      | =C=      | =c=, =C= |
+   | =proced-mark-parents=       | =P=      | =p=, =P= |
+   | =proced-unmark-backward=    | =DEL=    | =DEL=    |
+   | =evil-scroll-down=          | n/a      | =SPC=    |
+   | =evil-scroll-up=            | n/a      | =S-SPC=  |
+   | =proced-toggle-tree=        | =T=      | =zt=     |
+   | =proced-undo=               | n/a      | =u=      |
+   | =proced-omit-processes=     | =o=      | =O=      |
+   | =proced-send-signal=        | =k=, =x= | =x=      |
+   | =proced-filter-interactive= | =f=      | =s=      |
+   | =proced-format-interactive= | =F=      | =S=      |
+   | =proced-sort-start=         | =s s=    | =oo=     |
+   | =proced-sort-interactive=   | =s S=    | =oO=     |
+   | =proced-sort-pcpu=          | =s c=    | =oc=     |
+   | =proced-sort-pmem=          | =s m=    | =om=     |
+   | =proced-sort-pid=           | =s p=    | =op=     |
+   | =proced-sort-time=          | =s t=    | =ot=     |
+   | =proced-sort-user=          | =s u=    | =ou=     |
+   | =proced-renice=             | =r=      | =r=      |
+   | =revert-buffer=             | n/a      | =gr=     |

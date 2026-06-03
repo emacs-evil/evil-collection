@@ -1,0 +1,40 @@
+* vertico
+
+  Evil bindings for [[https://github.com/minad/vertico][vertico]].
+
+  Bindings only take effect when =evil-collection-setup-minibuffer= is non-nil
+  (excluding the global =<escape>= → =abort-recursive-edit=).
+
+** Key bindings
+
+*** vertico-map (normal state)
+
+    | Command                  | Original        | Evil       |
+    |--------------------------+-----------------+------------|
+    | =abort-recursive-edit=   | =C-g=           | =<escape>= |
+    | =vertico-first=          | =M-<=           | =gg=       |
+    | =vertico-last=           | =M->=           | =G=        |
+    | =vertico-next=           | =<down>=, =C-n= | =j=        |
+    | =vertico-previous=       | =<up>=, =C-p=   | =k=        |
+    | =vertico-next-group=     | =M-}=           | =gj=       |
+    | =vertico-previous-group= | =M-{=           | =gk=       |
+    | =vertico-scroll-down=    | =M-v=           | =C-u=      |
+    | =vertico-scroll-up=      | =C-v=           | =C-d=      |
+
+    =C-u= is gated on =evil-want-C-u-scroll=; =C-d= on =evil-want-C-d-scroll=.
+
+*** vertico-map (insert state)
+
+    | Command            | Original | Evil  |
+    |--------------------+----------+-------|
+    | =vertico-next=     | =C-n=    | =C-n= |
+    | =vertico-previous= | =C-p=    | =C-p= |
+
+    With =evil-collection-vertico-want-want-C-u-in-insert= and
+    =evil-want-C-u-delete= unset, =C-u= → =vertico-scroll-down= in insert state.
+
+** Customization
+
+   | Variable                                          | Default | Purpose                             |
+   |---------------------------------------------------+---------+-------------------------------------|
+   | =evil-collection-vertico-want-want-C-u-in-insert= | =nil=   | Allow =C-u= scroll in insert state. |

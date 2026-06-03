@@ -1,0 +1,20 @@
+* tabulated-list
+
+  Evil bindings for =tabulated-list-mode=, the parent mode behind package menu, process list, bookmark list, and many other list-based buffers.
+
+** Key bindings
+
+   =n= and =p= are unbound so they fall through to evil motion. The default
+   =g= (revert) and =S= (sort) are kept; column commands move under the =g=
+   prefix.
+
+   | Command                                | Original    | Evil |
+   |----------------------------------------+-------------+------|
+   | =tabulated-list-sort=                  | =S=         | =S=  |
+   | =tabulated-list-narrow-current-column= | ={=         | ={=  |
+   | =tabulated-list-widen-current-column=  | =}=         | =}=  |
+   | =tabulated-list-next-column=           | =M-<right>= | =gl= |
+   | =tabulated-list-previous-column=       | =M-<left>=  | =gh= |
+   | =quit-window=                          | =q=         | =q=  |
+   | =next-line= (unbound)                  | =n=         | n/a  |
+   | =previous-line= (unbound)              | =p=         | n/a  |

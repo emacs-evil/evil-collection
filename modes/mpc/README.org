@@ -1,0 +1,44 @@
+* mpc
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Music.html][mpc-mode]], the Emacs front-end to the Music Player Daemon.
+
+** Key bindings
+
+   Bindings applied to =mpc-mode-map=.
+
+   | Command                         | Original | Evil         |
+   |---------------------------------+----------+--------------|
+   | =evil-collection-mpc-move-down= | n/a      | =C-j=        |
+   | =evil-collection-mpc-move-up=   | n/a      | =C-k=        |
+   | =mpc-toggle-play=               | =s=      | =t=          |
+   | =mpc-stop=                      | n/a      | =T=          |
+   | =mpc-toggle-repeat=             | n/a      | =r=          |
+   | =mpc-toggle-shuffle=            | n/a      | =s=          |
+   | =mpc-toggle-consume=            | n/a      | =c=          |
+   | =mpc-playlist=                  | n/a      | =gp=         |
+   | =mpc-playlist-add=              | n/a      | =a=          |
+   | =mpc-next=                      | =>=      | =J=          |
+   | =mpc-prev=                      | =<=      | =K=          |
+   | =mpc-play-at-point=             | n/a      | =x=          |
+   | =mpc-play=                      | n/a      | =X=          |
+   | =mpc-select=                    | =RET=    | =RET=        |
+   | =mpc-select-toggle=             | =S-RET=  | =S-<return>= |
+   | =mpc-select-extend=             | n/a      | =C-<return>= |
+   | =mpc-goto-playing-song=         | =o=      | =go=         |
+   | =mpc-describe-song=             | n/a      | =gd=         |
+   | =mpc-pause=                     | =p=      | =p=          |
+   | =mpc-resume=                    | n/a      | =P=          |
+   | =mpc-seek-current=              | =g=      | =gs=         |
+   | =mpc-tagbrowser=                | n/a      | =gb=         |
+   | =mpc-songs-search=              | n/a      | =g/=         |
+   | =mpc-songs-kill-search=         | n/a      | =g_=         |
+   | =mpc-update=                    | n/a      | =gR=         |
+   | =mpc-playlist-delete=           | n/a      | =D=          |
+   | =mpc-quit=                      | =q=      | =q=          |
+
+** New commands
+
+   | Command                         | Key   |                                        |
+   |---------------------------------+-------+----------------------------------------|
+   | =evil-collection-mpc-move-down= | =C-j= | move cursor down and call =mpc-select= |
+   | =evil-collection-mpc-move-up=   | =C-k= | move cursor up and call =mpc-select=   |

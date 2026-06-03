@@ -1,0 +1,30 @@
+* cus-theme
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html][cus-theme]] (=M-x customize-themes=, =M-x customize-create-theme=).
+
+  Both =custom-theme-choose-mode= and =custom-new-theme-mode= start in
+  normal state.
+
+** Key bindings
+
+*** custom-theme-choose-mode-map
+
+    | Command                 | Original     | Evil                            |
+    |-------------------------+--------------+---------------------------------|
+    | =widget-forward=        | =TAB=, =n=   | =gj=, =]]=, =C-j=, =TAB=, =n=   |
+    | =widget-backward=       | =S-TAB=, =p= | =gk=, =[[=, =C-k=, =S-TAB=, =p= |
+    | =custom-describe-theme= | =?=          | =K=                             |
+    | =widget-button-press=   | =RET=        | =RET=                           |
+    | =quit-window=           | =q=          | =q=                             |
+    | =revert-buffer=         | =g=          | =g=                             |
+
+*** custom-new-theme-mode-map
+
+    | Command               | Original     | Evil                            |
+    |-----------------------+--------------+---------------------------------|
+    | =widget-forward=      | =TAB=, =n=   | =gj=, =]]=, =C-j=, =TAB=, =n=   |
+    | =widget-backward=     | =S-TAB=, =p= | =gk=, =[[=, =C-k=, =S-TAB=, =p= |
+    | =Custom-buffer-done=  | =q=          | =q=, =ZZ=                       |
+    | =evil-quit=           | n/a          | =ZQ=                            |
+    | =widget-button-press= | =RET=        | =RET=                           |
+    | =revert-buffer=       | =g=          | =g=                             |

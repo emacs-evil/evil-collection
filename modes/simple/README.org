@@ -1,0 +1,23 @@
+* simple
+
+  Evil bindings for =special-mode-map=, the base keymap shared by many
+  read-only Emacs buffers.
+
+** Key bindings
+
+   Applies =evil-collection-set-readonly-bindings= to =special-mode-map=
+   (standard motion / quit bindings for read-only buffers), then layers:
+
+   | Command         | Original | Evil |
+   |-----------------+----------+------|
+   | =revert-buffer= | =g=      | =gr= |
+
+   The following upstream single-letter bindings are unset so they do not
+   shadow evil normal-state keys:
+
+   | Key | Was upstream     |
+   |-----+------------------|
+   | =g= | =revert-buffer=  |
+   | =h= | =describe-mode=  |
+   | =?= | =describe-mode=  |
+   | =0= | =digit-argument= |

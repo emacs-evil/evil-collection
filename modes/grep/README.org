@@ -1,0 +1,15 @@
+* grep
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Grep-Searching.html][grep]].
+
+** Key bindings
+
+   | Command                    | Original | Evil  |
+   |----------------------------+----------+-------|
+   | =evil-search-next=         | n/a      | =n=   |
+   | =next-error-no-select=     | =n=      | =C-j= |
+   | =previous-error-no-select= | =p=      | =C-k= |
+
+** Integrations
+
+   - wgrep: =i= → =wgrep-change-to-wgrep-mode= when =wgrep= is available.

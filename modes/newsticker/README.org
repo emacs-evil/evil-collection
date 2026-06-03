@@ -1,0 +1,56 @@
+* newsticker
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/newsticker/index.html][newsticker]], the built-in RSS / Atom reader.
+
+** Key bindings
+
+*** newsticker-mode-map (plainview)
+
+    | Command                                     | Original | Evil |
+    |---------------------------------------------+----------+------|
+    | =newsticker-previous-feed=                  | =F=      | =gk= |
+    | =newsticker-next-feed=                      | =f=      | =gj= |
+    | =newsticker-mark-item-at-point-as-read=     | =o=      | =r=  |
+    | =newsticker-mark-item-at-point-as-immortal= | =i=      | =i=  |
+    | =newsticker-show-old-items=                 | =s O=    | =o=  |
+    | =newsticker-hide-old-items=                 | =h O=    | =O=  |
+    | =newsticker-buffer-force-update=            | =U=      | =gr= |
+    | =newsticker-get-all-news=                   | =G=      | =gR= |
+    | =newsticker-close-buffer=                   | =q=      | =q=  |
+
+*** newsticker-treeview-mode-map
+
+    | Command                                         | Original     | Evil         |
+    |-------------------------------------------------+--------------+--------------|
+    | =newsticker-treeview-prev-feed=                 | =F=          | =[[=         |
+    | =newsticker-treeview-next-feed=                 | =f=          | =]]=         |
+    | =newsticker-treeview-next-item=                 | =n=          | =M-j=        |
+    | =newsticker-treeview-prev-item=                 | =p=          | =M-k=        |
+    | =newsticker-treeview-next-new-or-immortal-item= | =N=          | =gj=         |
+    | =newsticker-treeview-prev-new-or-immortal-item= | =P=          | =gk=         |
+    | =newsticker-treeview-next-page=                 | =SPC=        | =SPC=        |
+    | =newsticker-treeview-jump=                      | =j=          | =J=          |
+    | =newsticker-treeview-mark-item-old=             | =o=          | =o=          |
+    | =newsticker-treeview-mark-list-items-old=       | =O=          | =O=          |
+    | =newsticker-treeview-toggle-item-immortal=      | =i=          | =i=          |
+    | =newsticker-treeview-browse-url-item=           | =b=          | =b=          |
+    | =newsticker-treeview-browse-url=                | =v=          | =B=          |
+    | =newsticker-group-add-group=                    | =M-a=        | =A=          |
+    | =newsticker-group-delete-group=                 | =M-d=        | =D=          |
+    | =newsticker-group-rename-group=                 | =M-r=        | =R=          |
+    | =newsticker-treeview-save=                      | =s=          | =S=          |
+    | =newsticker-group-move-feed=                    | =M-m=        | =M-m=        |
+    | =newsticker-group-shift-feed-down=              | =M-<down>=   | =M-<down>=   |
+    | =newsticker-group-shift-feed-up=                | =M-<up>=     | =M-<up>=     |
+    | =newsticker-group-shift-group-down=             | =M-S-<down>= | =M-S-<down>= |
+    | =newsticker-group-shift-group-up=               | =M-S-<up>=   | =M-S-<up>=   |
+    | =newsticker-treeview-update=                    | =u=          | =gr=         |
+    | =newsticker-get-all-news=                       | =G=          | =gR=         |
+    | =newsticker-treeview-quit=                      | =q=          | =q=          |
+
+** Notes
+
+   - In the treeview list buffer, =C-m= / =C-j= are bound to
+     =newsticker-treeview-show-item= via text-property keymap, which has higher
+     precedence than the major-mode map. Use =M-j= / =M-k= for next / previous
+     item navigation.

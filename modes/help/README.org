@@ -1,0 +1,23 @@
+* help
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Help-Mode.html][help-mode]].
+
+** Key bindings
+
+   | Command               | Original       | Evil                 |
+   |-----------------------+----------------+----------------------|
+   | =scroll-up-command=   | =SPC=          | =SPC=, =C-f=         |
+   | =scroll-down-command= | =S-SPC=, =DEL= | =S-SPC=, =C-b=       |
+   | =forward-button=      | =TAB=          | =TAB=, =g TAB=, =g]= |
+   | =backward-button=     | =S-TAB=        | =S-TAB=, =g[=        |
+   | =help-go-back=        | =l=            | =C-o=, =<=           |
+   | =help-go-forward=     | =r=            | =C-i=, =>=           |
+   | =push-button=         | n/a            | =go=, =gO=           |
+   | =describe-mode=       | =h=, =?=       | =g?=                 |
+   | =revert-buffer=       | =g=            | =gr=                 |
+   | =help-follow=         | n/a            | =r=                  |
+   | =help-view-source=    | =s=            | =s=                  |
+   | =help-goto-info=      | =i=            | =i=                  |
+   | =help-customize=      | =c=            | =c=                  |
+
+   The last three require Emacs 28+.

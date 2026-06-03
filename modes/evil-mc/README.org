@@ -1,0 +1,49 @@
+* evil-mc
+
+  Evil bindings for [[https://github.com/gabesoft/evil-mc][evil-mc]], multiple cursors for evil.
+
+  Upstream installs its cursors map under =gr= on top of the normal/visual
+  state. evil-collection clears both =evil-mc-key-map= and
+  =evil-mc-cursors-map= and re-installs the cursors map under =g.= so =gr=
+  stays free for =xref-find-references=.
+
+** Key bindings
+
+*** evil-mc-key-map
+
+    | Command               | Original | Evil |
+    |-----------------------+----------+------|
+    | =evil-mc-cursors-map= | =gr=     | =g.= |
+
+*** evil-mc-cursors-map
+
+    Prefix is =g.= in normal/visual state.
+
+    | Command                                       | Original | Evil    |
+    |-----------------------------------------------+----------+---------|
+    | =evil-mc-make-all-cursors=                    | =m=      | =a=     |
+    | =evil-mc-undo-all-cursors=                    | =q=      | =q=     |
+    | =evil-mc-undo-last-added-cursor=              | =u=      | =u=     |
+    | =evil-mc-pause-cursors=                       | =s=      | =C-p=   |
+    | =evil-mc-resume-cursors=                      | =r=      | =C-r=   |
+    | =evil-mc-make-cursor-here=                    | =h=      | =C-m=   |
+    | =evil-mc-make-and-goto-first-cursor=          | =f=      | =0=     |
+    | =evil-mc-make-and-goto-last-cursor=           | =l=      | =$=     |
+    | =evil-mc-make-cursor-in-visual-selection-beg= | =I=      | =I=     |
+    | =evil-mc-make-cursor-in-visual-selection-end= | =A=      | =A=     |
+    | =evil-mc-make-cursor-move-next-line=          | =j=      | =o=     |
+    | =evil-mc-make-cursor-move-prev-line=          | =k=      | =O=     |
+    | =evil-mc-make-and-goto-next-match=            | =n=      | =n=     |
+    | =evil-mc-make-and-goto-prev-match=            | =N=      | =N=     |
+    | =evil-mc-skip-and-goto-next-match=            | =n=      | =C-n=   |
+    | =evil-mc-skip-and-goto-prev-match=            | =p=      | =C-S-n= |
+    | =evil-mc-make-and-goto-next-cursor=           | =M-n=    | =M-n=   |
+    | =evil-mc-make-and-goto-prev-cursor=           | =M-p=    | =M-N=   |
+    | =evil-mc-skip-and-goto-next-cursor=           | =N=      | =C-u=   |
+    | =evil-mc-skip-and-goto-prev-cursor=           | =P=      | =C-S-u= |
+
+** Notes
+
+   A hook on =evil-mc-after-cursors-deleted= sets
+   =evil-was-yanked-without-register= so paste after cursor deletion does
+   not clobber the unnamed register (see upstream issue #70).

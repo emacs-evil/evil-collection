@@ -1,0 +1,47 @@
+* magit-section
+
+  Evil bindings for [[https://github.com/magit/magit][magit-section]], the foldable section UI used by magit, forge,
+  and several other packages.
+
+** Key bindings
+
+   | Command                          | Original  | Evil      |
+   |----------------------------------+-----------+-----------|
+   | =magit-section-toggle=           | =TAB=     | =TAB=     |
+   | =magit-section-cycle=            | =C-<tab>= | =C-<tab>= |
+   | =magit-section-cycle=            | =M-<tab>= | =M-<tab>= |
+   | =magit-section-cycle-global=     | =backtab= | =backtab= |
+   | =magit-section-up=               | =^=       | =gh=      |
+   | =magit-section-backward=         | =p=       | =C-k=     |
+   | =magit-section-forward=          | =n=       | =C-j=     |
+   | =magit-section-backward-sibling= | =M-p=     | =gk=, =[= |
+   | =magit-section-forward-sibling=  | =M-n=     | =gj=, =]= |
+   | =magit-section-show-level-1=     | =1=       | =1=       |
+   | =magit-section-show-level-2=     | =2=       | =2=       |
+   | =magit-section-show-level-3=     | =3=       | =3=       |
+   | =magit-section-show-level-4=     | =4=       | =4=       |
+   | =magit-section-show-level-1-all= | =M-1=     | =M-1=     |
+   | =magit-section-show-level-2-all= | =M-2=     | =M-2=     |
+   | =magit-section-show-level-3-all= | =M-3=     | =M-3=     |
+   | =magit-section-show-level-4-all= | =M-4=     | =M-4=     |
+
+   When =evil-collection-magit-section-use-z-for-folds= is non-nil, the
+   following vim-style fold bindings replace the =M-<digit>= variants:
+
+   | Command                          | Evil |
+   |----------------------------------+------|
+   | =magit-section-show-level-1-all= | =z1= |
+   | =magit-section-show-level-2-all= | =z2= |
+   | =magit-section-show-level-3-all= | =z3= |
+   | =magit-section-show-level-4-all= | =z4= |
+   | =magit-section-show-level-4-all= | =zr= |
+   | =magit-section-toggle=           | =za= |
+   | =magit-section-show=             | =zo= |
+   | =magit-section-show-children=    | =zO= |
+   | =magit-section-hide=             | =zc= |
+   | =magit-section-hide-children=    | =zC= |
+
+** Customization
+
+   - =evil-collection-magit-section-use-z-for-folds= - When non-nil, use =z= as
+     a prefix for vim-style fold commands. The stash popup then moves to =Z=.

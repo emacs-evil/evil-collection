@@ -1,0 +1,17 @@
+* python
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Python.html][python-mode]].
+
+** Key bindings
+
+   Applied to =python-mode-map=, =python-ts-mode-map=, and
+   =python-base-mode-map= in normal state.
+
+   | Command                        | Original  | Evil |
+   |--------------------------------+-----------+------|
+   | =python-shell-switch-to-shell= | =C-c C-z= | =gz= |
+
+** Notes
+
+   - =evil-shift-width= is set to =python-indent-offset= on
+     =python-mode-hook= and =python-ts-mode-hook=.

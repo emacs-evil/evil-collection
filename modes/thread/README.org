@@ -1,0 +1,14 @@
+* thread
+
+  Evil bindings for =thread-list-mode=, the built-in =M-x list-threads= buffer.
+
+** Key bindings
+
+   Inherits the standard =tabulated-list-mode= bindings (=S=, ={=, =}=, =gh=,
+   =gl=, =q=). evil-collection only rebinds the thread-specific actions.
+
+   | Command                         | Original | Evil |
+   |---------------------------------+----------+------|
+   | =thread-list-pop-to-backtrace=  | =b=      | =B=  |
+   | =thread-list-send-quit-signal=  | =s q=    | =Q=  |
+   | =thread-list-send-error-signal= | =s e=    | =E=  |

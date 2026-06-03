@@ -1,0 +1,16 @@
+* eval-sexp-fu
+
+  Evil compatibility for [[https://github.com/hchbaw/eval-sexp-fu.el][eval-sexp-fu]]. No key bindings.
+
+  When =evil-move-beyond-eol= is nil, the setup advises
+  =ad-Advice-eval-last-sexp= so that =eval-last-sexp= treats the sexp under
+  point as ending at point (rather than one character earlier as evil's
+  normal-state cursor positioning would imply). This makes =C-x C-e= and
+  related commands work the way they do in evil's insert/emacs states.
+
+** New commands
+
+   - =evil-collection-eval-sexp-fu-bounds-of-thing-at-point-sexp= - Advice
+     wrapper that fixes the sexp bounds in evil normal/motion state.
+   - =evil-collection-eval-sexp-fu-advise-bounds-of-thing-at-point= - Wraps
+     the advice around a single call to =eval-last-sexp=.

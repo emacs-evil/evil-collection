@@ -1,0 +1,22 @@
+* ag
+
+  Evil bindings for [[https://github.com/Wilfred/ag.el][ag]] search result buffers.
+
+  Initial state for =ag-mode= is forced to =normal= so the buffer can be
+  edited with [[https://github.com/mhayashi1120/Emacs-wgrep][wgrep]].
+
+** Key bindings
+
+   Applied in =normal= and =visual= states.
+
+   | Command                      | Original | Evil              |
+   |------------------------------+----------+-------------------|
+   | =evil-previous-line=         |          | =k=               |
+   | =evil-backward-char=         |          | =h=               |
+   | =recompile=                  | =g=      | =gr=              |
+   | =compilation-next-error=     | =n=      | =gj=, =C-j=, =]]= |
+   | =compilation-previous-error= | =p=      | =gk=, =C-k=, =[[= |
+   | =evil-search-backward=       |          | =?=               |
+   | =evil-search-forward=        |          | =/=               |
+   | =evil-search-next=           |          | =n=               |
+   | =evil-search-previous=       |          | =N=               |

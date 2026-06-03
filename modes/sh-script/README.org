@@ -1,0 +1,15 @@
+* sh-script
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Shell.html][sh-script]] (=sh-mode=).
+
+** Key bindings
+
+   Added to =sh-mode-map= in normal state.
+
+   | Command         | Original | Evil |
+   |-----------------+----------+------|
+   | =sh-show-shell= | n/a      | =gz= |
+
+** Notes
+
+   - =evil-shift-width= is set to =sh-basic-offset= on =sh-mode-hook=.

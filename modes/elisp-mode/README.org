@@ -1,0 +1,23 @@
+* elisp-mode
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs Lisp]] editing (=emacs-lisp-mode= and
+  =emacs-lisp-compilation-mode=).
+
+** Key bindings
+
+   | Command                                               | Original | Evil |
+   |-------------------------------------------------------+----------+------|
+   | =evil-collection-elisp-mode-ielm-repl= (=elisp-mode=) | n/a      | =gz= |
+   | =emacs-lisp-compilation-recompile=                    | n/a      | =gr= |
+   | =xref-find-references= (when find-usages enabled)     | =M-?=    | =gr= |
+
+   In the =*Help*= printed-value overlay (=eval-print-last-sexp= output), =RET=
+   in normal/motion state calls =elisp-last-sexp-toggle-display=; in insert
+   state =RET= falls through to the global binding.
+
+** Notes
+
+   - =elisp--eval-last-sexp= is advised so its output ends at point in
+     normal/motion state when =evil-move-beyond-eol= is nil.
+   - =last-sexp-setup-props= is overridden to install an evil-aware =C-m=
+     handler on the printed-value text properties.

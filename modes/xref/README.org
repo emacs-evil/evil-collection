@@ -1,0 +1,26 @@
+* xref
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html][xref]].
+
+** xref--xref-buffer-mode-map
+
+   | Command                          | Original | Evil                     |
+   |----------------------------------+----------+--------------------------|
+   | =xref-next-line=                 | =n=, =.= | =gj=, =C-j=, =C-n=, =]]= |
+   | =xref-prev-line=                 | =p=, =,= | =gk=, =C-k=, =C-p=, =[[= |
+   | #ERROR                           | =N=      | =]]=                     |
+   | =xref-prev-group= (Emacs 28+)    | =P=      | =[[=                     |
+   | =xref-query-replace-in-results=  | =r=      | =r=, =Q=                 |
+   | =xref-goto-xref=                 | =RET=    | =RET=                    |
+   | =xref-quit-and-goto-xref=        | =TAB=    | =S-RET=                  |
+   | =xref-show-location-at-point=    | =C-o=    | =o=, =go=                |
+   | =xref-revert-buffer= (Emacs 27+) | n/a      | =gr=                     |
+   #+TBLFM: $1=xref-next-group= (Emacs 28+)
+
+** xref--transient-buffer-mode-map
+
+   (Emacs 27+)
+
+   | Command                   | Original     | Evil  |
+   |---------------------------+--------------+-------|
+   | =xref-quit-and-goto-xref= | =RET=, =TAB= | =RET= |

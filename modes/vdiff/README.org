@@ -1,0 +1,18 @@
+* vdiff
+
+  Evil bindings for [[https://github.com/justbur/emacs-vdiff][vdiff]], a vimdiff-style diff/merge interface.
+
+  Applied to both =vdiff-mode-map= and =vdiff-3way-mode-map=.
+
+** Key bindings
+
+   | Command                 | Original | Evil |
+   |-------------------------+----------+------|
+   | =vdiff-next-hunk=       | (varies) | =]c= |
+   | =vdiff-previous-hunk=   | (varies) | =[c= |
+   | =vdiff-receive-changes= | =do=     | =do= |
+   | =vdiff-send-changes=    | =dp=     | =dp= |
+
+   =do= / =dp= are installed as evil operator-keys via
+   =evil-collection-define-operator-key= so they compose with motions like
+   vim's =do= (diff obtain) and =dp= (diff put).

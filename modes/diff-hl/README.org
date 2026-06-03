@@ -1,0 +1,29 @@
+* diff-hl
+
+  Evil bindings for [[https://github.com/dgutov/diff-hl][diff-hl]]'s show-hunk popup and inline overlay.
+
+  Also adds =evil-normalize-keymaps= to
+  =diff-hl-show-hunk-inline-transient-mode-hook= so the bindings take
+  effect when the transient mode toggles on.
+
+** Key bindings
+
+*** diff-hl-show-hunk-map
+
+    | Command                                | Original | Evil |
+    |----------------------------------------+----------+------|
+    | =diff-hl-show-hunk-previous=           | =p=, ={= | =p=  |
+    | =diff-hl-show-hunk-next=               | =n=, =}= | =n=  |
+    | =diff-hl-show-hunk-copy-original-text= | =c=      | =c=  |
+    | =diff-hl-show-hunk-revert-hunk=        | =r=      | =r=  |
+    | =diff-hl-show-hunk-stage-hunk=         | =S=      | =S=  |
+
+*** diff-hl-show-hunk-inline-transient-mode-map
+
+    | Command                                    | Original          | Evil       |
+    |--------------------------------------------+-------------------+------------|
+    | =diff-hl-show-hunk-inline-hide=            | =q=, =C-g=, =ESC= | =q=, =ESC= |
+    | =diff-hl-show-hunk-inline--popup-down=     | =<down>=, =C-n=   | =j=        |
+    | =diff-hl-show-hunk-inline--popup-up=       | =<up>=, =C-p=     | =k=        |
+    | =diff-hl-show-hunk-inline--popup-pagedown= | =<next>=, =C-v=   | =C-f=      |
+    | =diff-hl-show-hunk-inline--popup-pageup=   | =<prior>=, =M-v=  | =C-b=      |

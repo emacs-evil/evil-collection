@@ -1,0 +1,13 @@
+* cmake-mode
+
+  Evil setup for [[https://gitlab.kitware.com/cmake/cmake][cmake-mode]]. No key
+  rebindings -- only =evil-shift-width= is aligned to =cmake-tab-width=.
+
+** New commands
+
+   | Command                                           | Purpose                                              |
+   |---------------------------------------------------+------------------------------------------------------|
+   | =evil-collection-cmake-mode-set-evil-shift-width= | Buffer-local =evil-shift-width= = =cmake-tab-width=. |
+
+   Hooked to =cmake-mode-hook= so =>=, =<= and friends indent by the same width
+   cmake-mode uses.

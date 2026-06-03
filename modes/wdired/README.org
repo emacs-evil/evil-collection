@@ -1,0 +1,14 @@
+* wdired
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Wdired.html][Wdired]] (writable Dired).
+
+** Key bindings
+
+   | Command                | Original  | Evil       |
+   |------------------------+-----------+------------|
+   | =wdired-finish-edit=   | =C-c C-c= | =ZZ=, =:w= |
+   | =wdired-abort-changes= | =C-c C-k= | =ZQ=       |
+   | =wdired-exit=          | =C-x C-q= | =<escape>= |
+
+   =wdired-finish-edit= is also bound to =[remap evil-write]= so =:w= commits
+   the rename. Initial state in wdired-mode is normal.

@@ -1,0 +1,34 @@
+* replace
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html][occur]] and =occur-edit-mode=.
+
+** Key bindings
+
+*** occur-mode-map
+
+    Initial state: normal.
+
+    | Command                                   | Original  | Evil             |
+    |-------------------------------------------+-----------+------------------|
+    | =occur-edit-mode=                         | =e=       | =i=, =C-x C-q=   |
+    | =occur-mode-goto-occurrence=              | =RET=     | =RET=, =C-c C-c= |
+    | =occur-mode-goto-occurrence-other-window= | =o=       | =go=, =S-RET=    |
+    | =occur-mode-display-occurrence=           | =C-o=     | =M-RET=          |
+    | =next-error-no-select=                    | =n=       | =gj=, =C-j=      |
+    | =previous-error-no-select=                | =p=       | =gk=, =C-k=      |
+    | =occur-rename-buffer=                     | =r=       | =r=              |
+    | =clone-buffer=                            | =c=       | =c=              |
+    | =next-error-follow-minor-mode=            | =C-c C-f= | =C-c C-f=        |
+    | =occur-mode-mouse-goto=                   | =mouse-2= | =mouse-2=        |
+
+*** occur-edit-mode-map
+
+    | Command                         | Original  | Evil                                         |
+    |---------------------------------+-----------+----------------------------------------------|
+    | =occur-cease-edit=              | =C-c C-c= | =C-x C-q=, =<escape>=, =ZZ=, =ZQ=, =C-c C-c= |
+    | =occur-mode-display-occurrence= | =C-c C-o= | =C-o=                                        |
+    | =next-error-follow-minor-mode=  | =C-c C-f= | =C-c C-f=                                    |
+    | =occur-mode-mouse-goto=         | =mouse-2= | =mouse-2=                                    |
+
+    Note: =occur-edit-mode= has no abort command; =ZZ=, =ZQ= and =<escape>=
+    all commit the edit.

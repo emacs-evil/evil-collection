@@ -1,0 +1,12 @@
+* popup
+
+  Evil bindings for [[https://github.com/auto-complete/popup-el][popup.el]] menus.
+
+** Key bindings
+
+*** popup-menu-keymap
+
+    | Command          | Original | Evil  |
+    |------------------+----------+-------|
+    | =popup-next=     | =C-n=    | =C-j= |
+    | =popup-previous= | =C-p=    | =C-k= |

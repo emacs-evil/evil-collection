@@ -1,0 +1,137 @@
+* agent-shell
+
+  Evil bindings for [[https://github.com/xenodium/agent-shell][agent-shell]] -- a
+  comint-based chat REPL with permission prompts, a side viewport and a diff
+  buffer.
+
+** agent-shell-mode-map
+
+   Upstream's =n= / =p= top-level bindings are unset so they don't intercept
+   keystrokes in insert state; in insert they self-insert.
+
+*** Permission dispatch (normal state)
+
+    Only active when =evil-collection-agent-shell-want-permission-bindings= is
+    non-nil. Each key falls through to its default evil command unless a
+    pending permission button is visible.
+
+    | Command                                               | Action           | Evil |
+    |-------------------------------------------------------+------------------+------|
+    | =evil-collection-agent-shell-permission-view-diff=    | view diff =v=    | =v=  |
+    | =evil-collection-agent-shell-permission-allow-once=   | allow =y=        | =y=  |
+    | =evil-collection-agent-shell-permission-reject-once=  | reject =C-c C-c= | =n=  |
+    | =evil-collection-agent-shell-permission-allow-always= | always allow =!= | =!=  |
+
+*** Navigation (normal state)
+
+    | Command                          | Original | Evil        |
+    |----------------------------------+----------+-------------|
+    | =agent-shell-next-item=          | =n=      | =TAB=       |
+    | =agent-shell-previous-item=      | =p=      | =<backtab>= |
+    | =agent-shell-cycle-session-mode= | n/a      | =C-<tab>=   |
+
+*** g-prefix (only when =evil-collection-want-g-bindings=)
+
+    | Command                          | Evil |
+    |----------------------------------+------|
+    | =agent-shell-cycle-session-mode= | =gs= |
+    | =agent-shell-interrupt=          | =gx= |
+    | =agent-shell-set-session-mode=   | =gm= |
+    | =agent-shell-set-session-model=  | =gv= |
+    | =agent-shell-other-buffer=       | =go= |
+    | =agent-shell-yank-dwim=          | =gp= |
+    | =agent-shell-reload=             | =gr= |
+    | =agent-shell-restart=            | =gR= |
+    | =agent-shell-fork=               | =gF= |
+    | =agent-shell-copy-session-id=    | =gy= |
+    | =agent-shell-prompt-compose=     | =gc= |
+    | =agent-shell-queue-request=      | =gq= |
+    | =agent-shell-open-transcript=    | =gt= |
+
+** agent-shell-viewport-edit-mode-map
+
+   The viewport's compose buffer. Standard save/quit verbs become send/cancel.
+
+   | Command                                  | Original  | Evil                           |
+   |------------------------------------------+-----------+--------------------------------|
+   | =agent-shell-viewport-compose-send=      | =C-c C-c= | =:w=, =:wq=, =ZZ=, =RET= remap |
+   | =agent-shell-viewport-compose-cancel=    | =C-c C-k= | =:q=, =ZQ=                     |
+   | =agent-shell-viewport-previous-history=  | n/a       | =M-k=                          |
+   | =agent-shell-viewport-next-history=      | n/a       | =M-j=                          |
+   | =agent-shell-viewport-compose-peek-last= | n/a       | =C-o=                          |
+
+   When =evil-collection-want-g-bindings= is non-nil:
+
+   | Command                                  | Evil |
+   |------------------------------------------+------|
+   | =agent-shell-viewport-compose-help-menu= | =g?= |
+   | =agent-shell-cycle-session-mode=         | =gs= |
+   | =agent-shell-viewport-set-session-mode=  | =gm= |
+   | =agent-shell-viewport-set-session-model= | =gv= |
+   | =agent-shell-other-buffer=               | =go= |
+   | =agent-shell-yank-dwim=                  | =gp= |
+   | =agent-shell-viewport-search-history=    | =g/= |
+   | =agent-shell-viewport-copy-session-id=   | =gy= |
+   | =agent-shell-viewport-open-transcript=   | =gt= |
+
+** agent-shell-viewport-view-mode-map
+
+   Read-only viewport. =RET= / =:w= / =ZZ= all interrupt the agent; =:q= /
+   =ZQ= bury.
+
+   | Command                              | Original  | Evil                    |
+   |--------------------------------------+-----------+-------------------------|
+   | =agent-shell-viewport-interrupt=     | =C-c C-c= | =RET=, =:w=, =ZZ= remap |
+   | =bury-buffer=                        | =q=       | =q=, =ZQ=, =:q= remap   |
+   | =agent-shell-viewport-next-item=     | =n=       | =TAB=, =gj=             |
+   | =agent-shell-viewport-previous-item= | =p=       | =<backtab>=, =gk=       |
+   | =agent-shell-viewport-next-page=     | =f=       | =C-j=                   |
+   | =agent-shell-viewport-previous-page= | =b=       | =C-k=                   |
+
+   When =evil-collection-want-g-bindings= is non-nil:
+
+   | Command                                   | Evil         |
+   |-------------------------------------------+--------------|
+   | =agent-shell-viewport-reply-1..9=         | =g1= .. =g9= |
+   | =agent-shell-viewport-cycle-session-mode= | =gs=         |
+   | =agent-shell-viewport-set-session-model=  | =gv=         |
+   | =agent-shell-other-buffer=                | =go=         |
+   | =agent-shell-viewport-set-session-mode=   | =gm=         |
+   | =agent-shell-viewport-help-menu=          | =g?=         |
+   | =agent-shell-viewport-reply=              | =gr=         |
+   | =agent-shell-viewport-reply-yes=          | =gy=         |
+   | =agent-shell-viewport-reply-more=         | =gM=         |
+   | =agent-shell-viewport-reply-again=        | =ga=         |
+   | =agent-shell-viewport-reply-continue=     | =gc=         |
+   | =agent-shell-viewport-edit=               | =ge=         |
+   | =agent-shell-viewport-fork=               | =gF=         |
+   | =agent-shell-viewport-copy-session-id=    | =gY=         |
+   | =agent-shell-viewport-open-transcript=    | =gt=         |
+   | =agent-shell-viewport-refresh=            | =gz=         |
+
+** agent-shell-diff-mode-map
+
+   | Command                       | Original | Evil (=g-bindings=) | Evil (no =g-bindings=) |
+   |-------------------------------+----------+---------------------+------------------------|
+   | =agent-shell-diff-open-file=  | =f=      | =gf=                | =f=                    |
+   | =agent-shell-diff-accept-all= | =y=      | =gy=                | =y=                    |
+   | =agent-shell-diff-reject-all= | =n=      | =gn=                | =n=                    |
+   | =kill-current-buffer=         | n/a      | =q=                 | =q=                    |
+
+** New commands
+
+   | Command                                               | Purpose                                            |
+   |-------------------------------------------------------+----------------------------------------------------|
+   | =evil-collection-agent-shell-permission-allow-once=   | Press =y= on the latest pending permission button. |
+   | =evil-collection-agent-shell-permission-reject-once=  | Send =C-c C-c= to it.                              |
+   | =evil-collection-agent-shell-permission-allow-always= | Press =!=.                                         |
+   | =evil-collection-agent-shell-permission-view-diff=    | Press =v=.                                         |
+
+   Each only fires when a pending permission button is visible -- otherwise the
+   keymap entry resolves to nil via a =:filter= and evil's default takes over.
+
+** Customization
+
+   | Variable                                               | Default | Purpose                                               |
+   |--------------------------------------------------------+---------+-------------------------------------------------------|
+   | =evil-collection-agent-shell-want-permission-bindings= | =t=     | Bind =y= / =n= / =!= / =v= for the dispatchers above. |

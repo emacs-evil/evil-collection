@@ -145,26 +145,26 @@
 
 ** New Commands
 
-   | Command                     | EM w/o yank opt          | EM w/ yank opt (default) | w/ horiz move |
-   |-----------------------------+--------------------------+--------------------------+---------------|
-   | evil-goto-line              | =G=                      |                          |               |
-   | evil-next-visual-line       | =j=                      |                          |               |
-   | evil-previous-visual-line   | =k=                      |                          |               |
-   | evil-backward-char          | under =M-x=              |                          | =h=           |
-   | evil-forward-char           | under =M-x=              |                          | =l=           |
-   | evil-search-next            | =n=                      |                          |               |
-   | evil-search-previous        | =N=                      |                          |               |
-   | set-mark-command            | =v= or =V=               | =C-SPC=                  |               |
-   | evil-visual-line            | under =M-x=              | =v= or =V=               |               |
-   | evil-ex                     | =:=                      |                          |               |
-   | evil-search-forward         | =/=                      |                          |               |
-   | evil-scroll-page-up         | =C-b=                    |                          |               |
-   | evil-scroll-down            | =C-d=                    |                          |               |
-   | evil-scroll-page-down       | =C-f=                    |                          |               |
-   | evil-scroll-up              | =C-u= (if =C-u= scrolls) |                          |               |
-   | evil-emacs-state            | =C-z=                    |                          |               |
-   | evil-yank-line              | under =M-x=              | =yy=                     |               |
-   | evil-window-map             | under =M-x=              | =C-w=                    |               |
+   | Command                                | EM w/o yank opt          | EM w/ yank opt (default) | w/ horiz move |
+   |----------------------------------------+--------------------------+--------------------------+---------------|
+   | evil-goto-line                         | =G=                      |                          |               |
+   | evil-next-visual-line                  | =j=                      |                          |               |
+   | evil-previous-visual-line              | =k=                      |                          |               |
+   | evil-backward-char                     | under =M-x=              |                          | =h=           |
+   | evil-forward-char                      | under =M-x=              |                          | =l=           |
+   | evil-search-next                       | =n=                      |                          |               |
+   | evil-search-previous                   | =N=                      |                          |               |
+   | set-mark-command                       | =v= or =V=               | =C-SPC=                  |               |
+   | evil-visual-line                       | under =M-x=              | =v= or =V=               |               |
+   | evil-ex                                | =:=                      |                          |               |
+   | evil-search-forward                    | =/=                      |                          |               |
+   | evil-scroll-page-up                    | =C-b=                    |                          |               |
+   | evil-scroll-down                       | =C-d=                    |                          |               |
+   | evil-scroll-page-down                  | =C-f=                    |                          |               |
+   | evil-scroll-up                         | =C-u= (if =C-u= scrolls) |                          |               |
+   | evil-emacs-state                       | =C-z=                    |                          |               |
+   | evil-yank-line                         | under =M-x=              | =yy=                     |               |
+   | evil-window-map                        | under =M-x=              | =C-w=                    |               |
    | evil-collection-magit-toggle-text-mode | =C-t/\=                  |                          |               |
 
 

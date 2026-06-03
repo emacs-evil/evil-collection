@@ -1,0 +1,18 @@
+* tetris
+
+  Evil bindings for =tetris=, the built-in implementation of the falling-blocks game.
+
+** Key bindings
+
+   | Command              | Original  | Evil            |
+   |----------------------+-----------+-----------------|
+   | =tetris-move-left=   | =<left>=  | =h=             |
+   | =tetris-move-right=  | =<right>= | =l=             |
+   | =tetris-rotate-next= | n/a       | =k=             |
+   | =tetris-rotate-prev= | =<up>=    | =K=             |
+   | =tetris-move-down=   | =<down>=  | =j=             |
+   | =tetris-move-bottom= | =SPC=     | =J=, =G=, =TAB= |
+   | =tetris-start-game=  | =n=       | =gr=            |
+   | =tetris-pause-game=  | =p=       | =p=             |
+   | =tetris-end-game=    | =q=       | =ZZ=            |
+   | =quit-window=        | n/a       | =q=, =ZQ=       |

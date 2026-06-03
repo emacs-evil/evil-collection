@@ -1,0 +1,26 @@
+* consult
+
+  Evil bindings for [[https://github.com/minad/consult][consult]].
+
+  No keymap is rebound. Setup marks a small set of jump-style commands as
+  non-repeatable and registers them as evil jumps so =C-o= / =C-i= work after
+  selection.
+
+** Jump commands
+
+   The following are declared with =:jump t= and =evil-declare-not-repeat=:
+
+   - =consult-outline=
+   - =consult-mark=
+   - =consult-global-mark=
+   - =consult-imenu=
+   - =consult-org-heading=
+   - =consult-org-agenda=
+   - =consult-line=
+
+** New commands
+
+   | Command                             | Purpose                                                       |
+   |-------------------------------------+---------------------------------------------------------------|
+   | =evil-collection-consult-mark=      | =consult-mark= over evil's per-buffer marker ring.            |
+   | =evil-collection-consult-jump-list= | =consult-global-mark= over the evil jump list of this window. |

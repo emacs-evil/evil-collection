@@ -1,0 +1,42 @@
+* doc-view
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Document-View.html][doc-view]] (PDF / PS / DVI viewer).
+
+  =doc-view-mode= starts in normal state.
+
+** Key bindings
+
+   | Command                                   | Original       | Evil                                |
+   |-------------------------------------------+----------------+-------------------------------------|
+   | =doc-view-next-line-or-next-page=         | =C-n=, =down=  | =j= (remap)                         |
+   | =doc-view-previous-line-or-previous-page= | =C-p=, =up=    | =k= (remap)                         |
+   | =image-forward-hscroll=                   | n/a            | =l= (remap)                         |
+   | =image-backward-hscroll=                  | n/a            | =h= (remap)                         |
+   | =doc-view-next-page=                      | =n=            | =gj=, =C-j=, =n=                    |
+   | =doc-view-previous-page=                  | =p=            | =gk=, =C-k=, =p=                    |
+   | =doc-view-first-page=                     | =M-<=          | =gg=                                |
+   | =doc-view-last-page=                      | =M->=          | =G=                                 |
+   | =doc-view-goto-page=                      | =M-g M-g=      | =J=                                 |
+   | =doc-view-scroll-up-or-next-page=         | =SPC=          | =SPC=                               |
+   | =doc-view-scroll-down-or-previous-page=   | =DEL=, =S-SPC= | =DEL=, =S-SPC=                      |
+   | =forward-page=                            | =next=         | =C-d=                               |
+   | =backward-page=                           | =prior=        | =C-u= (when =evil-want-C-u-scroll=) |
+   | =image-next-line=                         | =RET=          | =RET=                               |
+   | =doc-view-enlarge=                        | =+=, ===       | =+=, ===                            |
+   | =doc-view-shrink=                         | =-=            | =-=                                 |
+   | =doc-view-scale-reset=                    | =0=            | =0=                                 |
+   | =doc-view-fit-width-to-window=            | =W=            | =W=                                 |
+   | =doc-view-fit-height-to-window=           | =H=            | =H=                                 |
+   | =doc-view-fit-page-to-window=             | =P=            | =P=                                 |
+   | =doc-view-kill-proc=                      | =K=            | =X=                                 |
+   | =doc-view-set-slice=                      | =c s=          | =s s=                               |
+   | =doc-view-set-slice-using-mouse=          | =c m=          | =s m=                               |
+   | =doc-view-set-slice-from-bounding-box=    | =c b=          | =s b=                               |
+   | =doc-view-reset-slice=                    | =c r=          | =s r=                               |
+   | =doc-view-search=                         | =C-s=, =find=  | =/=                                 |
+   | =doc-view-search-backward=                | =C-r=          | =?=                                 |
+   | =doc-view-show-tooltip=                   | =C-t=          | =C-t=                               |
+   | =doc-view-toggle-display=                 | =C-c C-c=      | =C-c C-c=                           |
+   | =doc-view-open-text=                      | =C-c C-t=      | =C-c C-t=                           |
+   | =doc-view-revert-buffer=                  | n/a            | =gr=                                |
+   | =quit-window=                             | n/a            | =q=                                 |

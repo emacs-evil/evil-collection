@@ -1,0 +1,43 @@
+* xwidget
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Embedded-WebKit-Widgets.html][xwidget-webkit]], modeled after vimium.
+
+** Key bindings
+
+   Standard read-only motion / quit bindings come from
+   =evil-collection-set-readonly-bindings=.
+
+   | Command                                          | Original | Evil           |
+   |--------------------------------------------------+----------+----------------|
+   | =xwidget-webkit-scroll-up-line=                  | =C-n=    | =j=            |
+   | =xwidget-webkit-scroll-down-line=                | =C-p=    | =k=            |
+   | =xwidget-webkit-scroll-top=                      | =M-<=    | =gg=           |
+   | =xwidget-webkit-scroll-bottom=                   | =M->=    | =G=            |
+   | =xwidget-webkit-scroll-backward=                 | =B=      | =h=            |
+   | =xwidget-webkit-scroll-forward=                  | =F=      | =l=            |
+   | =xwidget-webkit-scroll-up=                       | =SPC=    | =C-f=          |
+   | =xwidget-webkit-scroll-down=                     | =S-SPC=  | =C-b=          |
+   | =xwidget-webkit-back=                            | =r=      | =H=, =<=       |
+   | =xwidget-webkit-forward=                         | =R=      | =L=, =>=       |
+   | =xwidget-webkit-reload=                          | =g=      | =r=, =gr=      |
+   | =xwidget-webkit-current-url=                     | =u=      | =yy=           |
+   | =xwidget-webkit-browse-url=                      | =a=      | =o=, =gu=, =J= |
+   | =xwidget-webkit-copy-selection-as-kill= (visual) | =w=      | =y=            |
+   | =xwidget-webkit-insert-string=                   | =i=      | =RET=          |
+   | =xwidget-webkit-zoom-in=                         | =+=      | =+=, ===       |
+   | =xwidget-webkit-zoom-out=                        | =-=      | =-=            |
+   | =describe-mode=                                  | =C-h m=  | =?=            |
+
+** New commands
+
+   | Command                                                  | Key       | Notes                          |
+   |----------------------------------------------------------+-----------+--------------------------------|
+   | =evil-collection-xwidget-webkit-scroll-half-page-up=     | =d=       | half-page down (vim semantics) |
+   | =evil-collection-xwidget-webkit-scroll-half-page-down=   | =u=       | half-page up (vim semantics)   |
+   | =evil-collection-xwidget-webkit-new-tab=                 | =t=       | prompt URL in new buffer       |
+   | =evil-collection-xwidget-webkit-close-tab=               | =x=       | kill current buffer            |
+   | =evil-collection-xwidget-webkit-restore-last-closed-tab= | =X=       | reopen last closed             |
+   | =evil-collection-xwidget-webkit-search-tabs=             | =T=, =gt= | switch via =completing-read=   |
+
+   When =evil-want-C-d-scroll= / =evil-want-C-u-scroll= are non-nil, =C-d= and
+   =C-u= scroll the page.

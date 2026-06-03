@@ -1,0 +1,29 @@
+* dape
+
+  Evil bindings for [[https://github.com/svaante/dape][dape]] (Debug Adapter
+  Protocol for Emacs).
+
+  The =dape-info-*= mode maps are marked as overriding so dape's single-letter
+  commands still win in normal state.
+
+** dape-info-watch-mode-map
+
+   | Command                     | Original | Evil |
+   |-----------------------------+----------+------|
+   | =dape-info-watch-edit-mode= | n/a      | =i=  |
+
+   Underlying upstream keys (=e=, =m=, ===, =W=, =b= for scope ops) remain
+   reachable through the overriding map.
+
+** dape-info-watch-edit-mode-map
+
+   | Command                         | Original  | Evil                   |
+   |---------------------------------+-----------+------------------------|
+   | =dape-info-watch-finish-edit=   | =C-c C-c= | =ZZ=, =<escape>=, =:w= |
+   | =dape-info-watch-abort-changes= | =C-c C-k= | =ZQ=                   |
+
+** dape-memory-mode-map
+
+   | Command       | Original  | Evil       |
+   |---------------+-----------+------------|
+   | =save-buffer= | =C-x C-s= | =ZZ=, =:w= |

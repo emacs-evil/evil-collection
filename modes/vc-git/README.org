@@ -1,0 +1,16 @@
+* vc-git
+
+  Evil bindings for the vc-git log view (=vc-git-log-view-mode=).
+
+** Key bindings
+
+   | Command                         | Original | Evil  |
+   |---------------------------------+----------+-------|
+   | =quit-window=                   | =q=      | =q=   |
+   | =log-view-diff=                 | ===, =d= | =d=   |
+   | =log-view-diff-changeset=       | =D=      | =D=   |
+   | =log-view-msg-next=             | =n=      | =C-j= |
+   | =log-view-msg-prev=             | =p=      | =C-k= |
+   | =log-view-toggle-entry-display= | =RET=    | =TAB= |
+
+   Initial state for =vc-git-log-view-mode= is normal.

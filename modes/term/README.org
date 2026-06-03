@@ -1,0 +1,55 @@
+* term
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Terminal-emulator.html][term]] and =ansi-term=, also usable with =multi-term=.
+
+  Insert state corresponds to =term-char-mode=, normal state to =term-line-mode=.
+  When =evil-collection-term-sync-state-and-mode-p= is non-nil the mode and
+  state switch in lockstep.
+
+** Key bindings
+
+*** term-raw-map (insert state)
+
+    Restores raw passthrough for control characters evil otherwise intercepts.
+
+    | Command                         | Original  | Evil                                                                                                                                |
+    |---------------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------------------|
+    | =term-send-raw=                 | (default) | =C-a=, =C-b=, =C-d=, =C-e=, =C-f=, =C-k=, =C-l=, =C-n=, =C-o=, =C-p=, =C-q=, =C-r=, =C-s=, =C-t=, =C-u=, =C-v=, =C-w=, =C-y=, =C-z= |
+    | =evil-collection-term-send-tab= | n/a       | =<tab>=                                                                                                                             |
+    | =term-send-eof=                 | =C-c C-d= | =C-c C-d=                                                                                                                           |
+    | =term-stop-subjob=              | =C-c C-z= | =C-c C-z=                                                                                                                           |
+
+*** term-mode-map (normal state)
+
+    | Command                                 | Original  | Evil                                           |
+    |-----------------------------------------+-----------+------------------------------------------------|
+    | =evil-collection-term-char-mode-insert= | n/a       | =C-c C-k=                                      |
+    | =term-paste=                            | =C-c C-y= | =p=                                            |
+    | =term-previous-prompt=                  | =C-c C-p= | =[[=, =C-k=, =gk=                              |
+    | =term-next-prompt=                      | =C-c C-n= | =]]=, =C-j=, =gj=                              |
+    | =term-bol=                              | =C-a=     | =^=                                            |
+    | =term-show-maximum-output=              | =M-> =    | =$=                                            |
+    | =term-send-input=                       | =RET=     | =RET= (in =evil-collection-repl-submit-state=) |
+
+** New commands
+
+   | Command                                              | Description                                               |
+   |------------------------------------------------------+-----------------------------------------------------------|
+   | =evil-collection-term-char-mode-insert=              | switch to =term-char-mode= and insert state               |
+   | =evil-collection-term-send-tab=                      | send a literal TAB through =term-send-raw-string=         |
+   | =evil-collection-term-escape-stay=                   | hook that disables backwards cursor on normal-state entry |
+   | =evil-collection-term-sync-state-and-mode=           | hook that ties insert/normal to char/line mode            |
+   | =evil-collection-term-switch-to-char-mode-on-insert= | default sync function                                     |
+   | =evil-collection-term-char-mode-entry-function=      | alternative sync function that only flips at the prompt   |
+
+** Customization
+
+   | Variable                                     | Default                                              |
+   |----------------------------------------------+------------------------------------------------------|
+   | =evil-collection-term-sync-state-and-mode-p= | =t=                                                  |
+   | =evil-collection-term-sync-state-function=   | =evil-collection-term-switch-to-char-mode-on-insert= |
+
+** Integrations
+
+   - =multi-term=: =M-DEL= sends =term-send-backward-kill-word= in both
+     normal state on =term-mode-map= and insert state on =term-raw-map=.

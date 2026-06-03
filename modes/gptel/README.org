@@ -1,0 +1,47 @@
+* gptel
+
+  Evil bindings for [[https://github.com/karthink/gptel][gptel]].
+
+  =RET= submission follows =evil-collection-repl-submit-state=: in the submit
+  state, =RET= sends; in the other state (insert when submit is normal, normal
+  when submit is insert), =RET= inserts a newline. =S-RET= behavior is
+  controlled by two customs.
+
+** Key bindings
+
+*** gptel-mode-map
+
+    Upstream only binds =C-c RET= to =gptel-send=; =RET= itself is unchanged
+    on the buffer's major mode. Evil-collection layers state-aware =RET= /
+    =S-RET= behavior on top.
+
+    | Command      | Original  | Evil                                                             |
+    |--------------+-----------+------------------------------------------------------------------|
+    | =gptel-send= | =C-c RET= | =C-c RET=                                                        |
+    | =gptel-send= | n/a       | =RET=, =<return>= in submit state                                |
+    | =newline=    | n/a       | =S-RET=, =S-<return>= in submit state; all four in newline state |
+    | =gptel-menu= | n/a       | =S-RET=, =<S-return>= in normal / visual (default)               |
+    | =gptel-send= | =C-c RET= | =S-RET=, =<S-return>= in normal / visual (when menu custom nil)  |
+
+*** gptel-context-buffer-mode-map (normal state)
+
+    | Command                       | Original  | Evil      |
+    |-------------------------------+-----------+-----------|
+    | =gptel-context-next=          | =n=       | =j=       |
+    | =gptel-context-previous=      | =p=       | =k=       |
+    | =gptel-context-flag-deletion= | =d=       | =d=       |
+    | =gptel-context-quit=          | =C-c C-k= | =q=, =ZQ= |
+    | =gptel-context-confirm=       | =C-c C-c= | =ZZ=      |
+    | =gptel-context-visit=         | =RET=     | =RET=     |
+
+** Customization
+
+   | Variable                                       | Default | Purpose                                                                     |
+   |------------------------------------------------+---------+-----------------------------------------------------------------------------|
+   | =evil-collection-gptel-want-shift-ret-to-send= | =t=     | Bind =S-RET= in normal / visual to =gptel-send=.                            |
+   | =evil-collection-gptel-want-shift-ret-menu=    | =t=     | Bind =S-RET= in normal / visual to =gptel-menu=. Wins over the send custom. |
+
+** Integrations
+
+   =gptel-context=: bindings for the context buffer (above) are wired via
+   =with-eval-after-load 'gptel-context=.

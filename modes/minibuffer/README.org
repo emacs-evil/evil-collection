@@ -1,0 +1,47 @@
+* minibuffer
+
+  Evil bindings for the minibuffer and =evil-ex= prompt.
+
+  The minibuffer has no major mode, so the package hooks =minibuffer-setup-hook=
+  to enter insert state on open.
+
+** Affected keymaps
+
+   - =minibuffer-local-map=
+   - =minibuffer-local-ns-map=
+   - =minibuffer-local-completion-map=
+   - =minibuffer-local-must-match-map=
+   - =minibuffer-local-isearch-map=
+   - =evil-ex-search-keymap=
+   - =evil-ex-completion-map=
+
+** Key bindings
+
+   Normal-state bindings added to every map above.
+
+   | Command                                | Key        |
+   |----------------------------------------+------------|
+   | =evil-collection-change-in-minibuffer= | =c=        |
+   | =abort-recursive-edit=                 | =<escape>= |
+   | =exit-minibuffer=                      | =RET=      |
+
+   Extra bindings on =evil-ex-completion-map= for history navigation:
+
+   | Command                             | State  | Key        |
+   |-------------------------------------+--------+------------|
+   | =previous-complete-history-element= | insert | =C-p=      |
+   | =next-complete-history-element=     | insert | =C-n=      |
+   | =previous-history-element=          | normal | =C-p=      |
+   | =next-history-element=              | normal | =C-n=      |
+   | =abort-recursive-edit=              | normal | =<escape>= |
+
+** New commands
+
+   | Command                                | Key |                                                                                      |
+   |----------------------------------------+-----+--------------------------------------------------------------------------------------|
+   | =evil-collection-change-in-minibuffer= | =c= | =evil-change= variant that avoids inserting a stray newline when the buffer had none |
+
+** Notes
+
+   - =evil-echo-state= is locally disabled so the minibuffer prompt is not
+     overwritten by the state indicator.

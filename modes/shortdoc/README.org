@@ -1,0 +1,20 @@
+* shortdoc
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Documentation-Groups.html][shortdoc]].
+
+** Key bindings
+
+   Bindings added to =shortdoc-mode-map= in normal state (initial state:
+   normal).
+
+   | Command                     | Original       | Evil        |
+   |-----------------------------+----------------+-------------|
+   | =forward-button=            | n/a            | =TAB=       |
+   | =backward-button=           | n/a            | =<backtab>= |
+   | =shortdoc-next=             | =n=            | =C-j=       |
+   | =shortdoc-previous=         | =p=            | =C-k=       |
+   | =shortdoc-next-section=     | =N=, =C-c C-n= | =]]=        |
+   | =shortdoc-previous-section= | =P=, =C-c C-p= | =[[=        |
+
+   The upstream =n=, =p=, =N=, =P=, =w= keys keep their bindings so they
+   remain available alongside the evil-friendly additions.

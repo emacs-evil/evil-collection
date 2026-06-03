@@ -1,0 +1,51 @@
+* ivy
+
+  Evil bindings for [[https://github.com/abo-abo/swiper][ivy]].
+
+** Key bindings
+
+*** ivy-minibuffer-map
+
+    Minibuffer bindings only take effect when =evil-collection-setup-minibuffer=
+    is non-nil (the global =<escape>= → =minibuffer-keyboard-quit= always applies).
+
+    | Command                    | Original | Evil                         |
+    |----------------------------+----------+------------------------------|
+    | =minibuffer-keyboard-quit= | =C-g=    | =<escape>= (any)             |
+    | =abort-recursive-edit=     | n/a      | =<escape>= (normal)          |
+    | =exit-minibuffer=          | =RET=    | =RET= (normal)               |
+    | =ivy-done=                 | =RET=    | =C-m= (normal)               |
+    | =ivy-next-line=            | =C-n=    | =j= (normal), =C-n= (insert) |
+    | =ivy-previous-line=        | =C-p=    | =k= (normal), =C-p= (insert) |
+    | =ivy-backward-delete-char= | =DEL=    | =DEL= (insert)               |
+    | =ivy-reverse-i-search=     | =C-r=    | =C-r= (insert)               |
+
+*** ivy-occur-mode-map (normal state)
+
+    | Command                      | Original   | Evil      |
+    |------------------------------+------------+-----------|
+    | =ivy-occur-next-line=        | =n=        | =j=       |
+    | =ivy-occur-previous-line=    | =p=        | =k=       |
+    | =evil-backward-char=         | n/a        | =h=       |
+    | =evil-forward-char=          | n/a        | =l=       |
+    | =evil-goto-first-line=       | n/a        | =gg=      |
+    | =ivy-occur-press=            | =RET=, =f= | =gf=      |
+    | =ivy-occur-press-and-switch= | =o=        | =RET=     |
+    | =ivy-occur-read-action=      | =M-o=      | =ga=      |
+    | =ivy-occur-dispatch=         | =C-c C-o=  | =go=      |
+    | =ivy-occur-toggle-calling=   | =C-c C-p=  | =gc=      |
+    | =ivy-occur-revert-buffer=    | =g=        | =gr=      |
+    | =ivy-occur-click=            | =mouse-1=  | =mouse-1= |
+    | =quit-window=                | =q=        | =q=       |
+
+*** ivy-occur-grep-mode-map (normal state)
+
+    Inherits the above plus:
+
+    | Command                                    | Original  | Evil                                |
+    |--------------------------------------------+-----------+-------------------------------------|
+    | =ivy-occur-delete-candidate=               | =C-d=     | =d=, =gd=                           |
+    | =ivy-occur-delete-candidate=               | =C-d=     | =D= (when =evil-want-C-d-scroll=)   |
+    | =evil-scroll-down=                         | n/a       | =C-d= (when =evil-want-C-d-scroll=) |
+    | =ivy-wgrep-change-to-wgrep-mode=           | =C-x C-q= | =i=, =C-x C-q=                      |
+    | =evil-digit-argument-or-beginning-of-line= | n/a       | =0=                                 |

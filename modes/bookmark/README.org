@@ -1,0 +1,36 @@
+* bookmark
+
+  Evil bindings for the bookmark list (=bookmark-bmenu-mode=).
+
+  Standard motion / quit bindings come from =evil-collection-set-readonly-bindings=
+  and are not repeated below.
+
+** Key bindings
+
+   | Command                               | Original        | Evil                         |
+   |---------------------------------------+-----------------+------------------------------|
+   | =bookmark-bmenu-this-window=          | =RET=, =f=, =j= | =RET=                        |
+   | =bookmark-bmenu-other-window=         | =o=             | =o=, =go=, =S-RET=           |
+   | =bookmark-bmenu-switch-other-window=  | =C-o=           | =gO=, =M-RET=                |
+   | =bookmark-bmenu-select=               | =v=             | =o= (see above; =v= unbound) |
+   | =bookmark-bmenu-1-window=             | =1=             | =1=                          |
+   | =bookmark-bmenu-2-window=             | =2=             | =2=                          |
+   | =bookmark-bmenu-other-frame=          | =5=             | =5=                          |
+   | =bookmark-bmenu-delete=               | =d=, =k=        | =d=                          |
+   | =bookmark-bmenu-delete-backwards=     | =C-d=           | =D=                          |
+   | =bookmark-bmenu-execute-deletions=    | =x=             | =x=                          |
+   | =bookmark-bmenu-search=               | =/=             | =s= (=s= also via custom)    |
+   | =bookmark-bmenu-rename=               | =r=             | =r=                          |
+   | =bookmark-bmenu-relocate=             | =R=             | =R=                          |
+   | =bookmark-bmenu-load=                 | =l=             | =L=                          |
+   | =bookmark-bmenu-save=                 | =s=             | =s=, remap of =evil-write=   |
+   | =bookmark-bmenu-toggle-filenames=     | =t=             | =t=                          |
+   | =bookmark-bmenu-locate=               | =w=             | =W=                          |
+   | =bookmark-bmenu-show-annotation=      | =a=             | =a=                          |
+   | =bookmark-bmenu-show-all-annotations= | =A=             | =A=                          |
+   | =bookmark-bmenu-edit-annotation=      | =e=             | =E=                          |
+   | =bookmark-bmenu-mark=                 | =m=             | =m=                          |
+   | =bookmark-bmenu-mark-all=             | =M=             | =M=                          |
+   | =bookmark-bmenu-unmark=               | =u=             | =u=                          |
+   | =bookmark-bmenu-unmark-all=           | =U=             | =U=                          |
+   | =bookmark-bmenu-backup-unmark=        | =DEL=           | =DEL=                        |

@@ -1,0 +1,22 @@
+* man
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Man-Page.html][Man]].
+
+** Key bindings
+
+   | Command                       | Original       | Evil            |
+   |-------------------------------+----------------+-----------------|
+   | =scroll-up-command=           | =SPC=          | =SPC=           |
+   | =scroll-down-command=         | =DEL=, =S-SPC= | =S-SPC=         |
+   | =forward-button=              | =TAB=          | =TAB=           |
+   | =backward-button=             | =S-TAB=        | =S-TAB=         |
+   | =Man-next-manpage=            | =M-n=          | =]]=, =gj=      |
+   | =Man-previous-manpage=        | =M-p=          | =[[=, =gk=      |
+   | =Man-next-section=            | =n=            | =C-j=           |
+   | =Man-previous-section=        | =p=            | =C-k=           |
+   | =man=                         | =m=            | =gm=            |
+   | =Man-goto-section=            | =g=            | =gd=            |
+   | =Man-follow-manual-reference= | =r=            | =gR=            |
+   | =Man-goto-see-also-section=   | =s=            | =gs=            |
+   | =Man-update-manpage=          | =u=            | =gr=            |
+   | =quit-window=                 | =q=            | =q=, =ZQ=, =ZZ= |

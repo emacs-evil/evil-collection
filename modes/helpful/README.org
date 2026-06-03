@@ -1,0 +1,19 @@
+* helpful
+
+  Evil bindings for [[https://github.com/Wilfred/helpful][helpful]].
+
+  Standard motion / quit bindings come from =evil-collection-set-readonly-bindings=
+  and are not repeated below.
+
+** Key bindings
+
+*** helpful-mode-map (normal state)
+
+    | Command                   | Original    | Evil        |
+    |---------------------------+-------------+-------------|
+    | =forward-button=          | =TAB=, =n=  | =<tab>=     |
+    | =backward-button=         | =<backtab>= | =<backtab>= |
+    | =helpful-visit-reference= | =RET=       | =RET=       |
+    | =push-button=             | n/a         | =go=, =gO=  |
+    | =describe-mode=           | n/a         | =g?=        |
+    | =helpful-update=          | =g=         | =gr=        |

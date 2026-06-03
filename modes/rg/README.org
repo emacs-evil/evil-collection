@@ -1,0 +1,47 @@
+* rg
+
+  Evil bindings for [[https://github.com/dajva/rg.el][rg.el]] (ripgrep) result buffers.
+
+  Initial state for =rg-mode= is forced to =normal=. Bindings cover
+  =normal=, =motion=, and =visual= states so that evil motion overrides
+  conflicting single-letter rg commands.
+
+** Key bindings
+
+*** normal state
+
+    | Command                        | Original  | Evil        |
+    |--------------------------------+-----------+-------------|
+    | =rg-rerun-toggle-case=         | =c=       | =c=         |
+    | =rg-rerun-change-dir=          | =d=       | =d=         |
+    | =rg-rerun-change-files=        | =f=       | =f=         |
+    | =rg-rerun-toggle-ignore=       | =i=       | =I=         |
+    | =rg-rerun-change-regexp=       | =r=       | =r=         |
+    | =rg-rerun-change-literal=      | =t=       | =t=         |
+    | =rg-save-search=               | =s=       | =s=         |
+    | =rg-save-search-as-name=       | =S=       | =S=         |
+    | =rg-menu=                      | =m=       | =m=         |
+    | =wgrep-change-to-wgrep-mode=   | =e=       | =i=         |
+    | =next-error-follow-minor-mode= | =C-c C-f= | =F=         |
+    | =rg-list-searches=             | =L=       | =L=         |
+    | =rg-back-history=              | =C-c <=   | =C-p=       |
+    | =rg-forward-history=           | =C-c >=   | =C-n=       |
+    | =rg-prev-file=                 | =M-P=     | ={=         |
+    | =rg-next-file=                 | =M-N=     | =}=         |
+    | =previous-error-no-select=     | =p=       | =gk=, =C-k= |
+    | =next-error-no-select=         | =n=       | =gj=, =C-j= |
+    | =evil-forward-word-end=        |           | =e=         |
+    | =evil-forward-char=            |           | =l=         |
+    | =evil-forward-word-begin=      |           | =w=         |
+    | =evil-goto-first-line=         |           | =gg=        |
+    | =rg-recompile=                 | =g=       | =gr=        |
+    | =quit-window=                  |           | =q=         |
+
+*** motion / visual states
+
+    | Command                   | Evil |
+    |---------------------------+------|
+    | =evil-forward-word-end=   | =e=  |
+    | =evil-forward-char=       | =l=  |
+    | =evil-forward-word-begin= | =w=  |
+    | =evil-goto-first-line=    | =gg= |

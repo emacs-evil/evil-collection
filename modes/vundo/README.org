@@ -1,0 +1,31 @@
+* vundo
+
+  Evil bindings for [[https://github.com/casouri/vundo][vundo]], visual undo tree.
+
+  Upstream defaults to emacs state; evil-collection forces normal state on
+  entry, hides the evil cursor, and disables =hl-line-mode= locally.
+
+** Key bindings
+
+   | Command             | Original     | Evil                           |
+   |---------------------+--------------+--------------------------------|
+   | =vundo-forward=     | =f=, =right= | =l=, =C-f=, =right=            |
+   | =vundo-backward=    | =b=, =left=  | =h=, =C-b=, =left=, =DEL=      |
+   | =vundo-next=        | =n=          | =j=, =C-n=, =C-j=, =M-j=       |
+   | =vundo-previous=    | =p=          | =k=, =C-p=, =C-k=, =M-k=       |
+   | =vundo-stem-root=   | =a=          | =H= (evil-window-top remap)    |
+   | =vundo-stem-end=    | =e=          | =L= (evil-window-bottom remap) |
+   | =vundo-next-root=   | =w=          | =w=                            |
+   | =vundo-confirm=     | =RET=        | =RET=, =ZZ=                    |
+   | =vundo-quit=        | =q=, =C-g=   | =q=, =ZQ=                      |
+   | =vundo-diff=        | =d=          | =d=                            |
+   | =vundo-diff-mark=   | =m=          | =m=                            |
+   | =vundo-diff-unmark= | =u=          | =u=                            |
+   | =vundo--inspect=    | =i=          | =i=                            |
+   | =vundo--debug=      | =D=          | =D=                            |
+
+   Direction keys are wired via =[remap]= against the corresponding evil
+   motion command (=evil-backward-char=, =evil-forward-char=, etc.) so they
+   follow any user rebinding of those motions. =vundo-goto-last-saved= (=l=
+   upstream) and =vundo-goto-next-saved= (=r= upstream) are shadowed by the
+   evil motion remaps; call them via =M-x= if needed.

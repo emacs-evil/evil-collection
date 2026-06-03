@@ -1,0 +1,17 @@
+* log-edit
+
+  Evil bindings for =log-edit-mode=, the VC commit-message buffer.
+
+** Key bindings
+
+   | Command                     | Original  | Evil              |
+   |-----------------------------+-----------+-------------------|
+   | =log-edit-done=             | =C-c C-c= | =ZZ= (remap)      |
+   | =log-edit-kill-buffer=      | =C-c C-k= | =ZQ= (remap)      |
+   | =log-edit-mode-help=        | =C-c ?=   | =g?=              |
+   | =log-edit-next-comment=     | =M-n=     | =]]=, =gj=, =C-j= |
+   | =log-edit-previous-comment= | =M-p=     | =[[=, =gk=        |
+   | =quit-window=               | n/a       | =ZZ=, =ZQ=        |
+
+   The remaps target =evil-save-and-close=, =evil-save-modified-and-close=,
+   and =evil-quit= so =:wq= / =:q= behave correctly.

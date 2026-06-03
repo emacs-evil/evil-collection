@@ -1,0 +1,274 @@
+* gnus
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/gnus/index.html][Gnus]]. Initial state is normal in every gnus mode below,
+  insert state is inhibited, and =zz= is bound to =gnus-recenter= everywhere.
+  Each map keeps the bulk of its upstream alphabetic prefixes (=A=, =B=, =G=,
+  =M=, =S=, =W=, =X=, =Y=, =Z=, =/=, etc.); the tables below cover only what
+  evil-collection relocates or adds.
+
+** Key bindings
+
+*** gnus-summary-mode-map
+
+    | Command                                       | Original       | Evil           |
+    |-----------------------------------------------+----------------+----------------|
+    | =gnus-summary-exit=                           | =q=            | =q=, =ZZ=      |
+    | =gnus-summary-exit-no-update=                 | =Q=            | =Q=, =ZQ=      |
+    | =gnus-summary-help-map=                       | =H=            | =g?=           |
+    | =gnus-summary-widget-forward=                 | n/a            | =TAB=          |
+    | =gnus-summary-widget-backward=                | n/a            | =<backtab>=    |
+    | =gnus-summary-next-page=                      | =SPC=          | =SPC=          |
+    | =gnus-summary-prev-page=                      | =DEL=, =S-SPC= | =DEL=, =S-SPC= |
+    | =gnus-summary-scroll-up=                      | =RET=          | =RET=          |
+    | =gnus-summary-prev-unread-article=            | =p=            | =gk=, =[[=     |
+    | =gnus-summary-next-unread-article=            | =n=            | =gj=, =]]=     |
+    | =gnus-summary-prev-thread=                    | =M-b=          | ={=            |
+    | =gnus-summary-next-thread=                    | =M-f=          | =}=            |
+    | =gnus-summary-prev-article=                   | =P=            | =C-k=          |
+    | =gnus-summary-next-article=                   | =N=            | =C-j=          |
+    | =gnus-summary-mark-as-processable=            | =#=            | =m=            |
+    | =gnus-uu-mark-buffer=                         | (M H b)        | =M=            |
+    | =gnus-summary-unmark-as-processable=          | =M-#=          | =u=            |
+    | =gnus-summary-unmark-all-processable=         | (M H U)        | =U=            |
+    | =gnus-uu-mark-by-regexp=                      | (M P r)        | =%=            |
+    | =gnus-summary-mail-other-window=              | =m=            | =C=, =cc=      |
+    | =gnus-summary-news-other-window=              | (S i)          | =ci=           |
+    | =gnus-summary-followup=                       | =f=            | =f=, =cf=      |
+    | =gnus-summary-followup-with-original=         | =F=            | =F=, =cF=      |
+    | =gnus-summary-reply=                          | =r=            | =r=, =cr=      |
+    | =gnus-summary-reply-with-original=            | =R=            | =R=, =cR=      |
+    | =gnus-summary-very-wide-reply=                | (S W)          | =cw=           |
+    | =gnus-summary-very-wide-reply-with-original=  | (S W)          | =cW=           |
+    | =gnus-summary-mail-forward=                   | =C-c C-f=      | =C-c C-f=      |
+    | =gnus-summary-first-unread-article=           | (G f)          | =.=            |
+    | =gnus-summary-best-unread-article=            | (G b)          | =,=            |
+    | =gnus-summary-mark-as-read-forward=           | =d=            | =!=            |
+    | =gnus-summary-tick-article-forward=           | =u=, =!=       | ===            |
+    | =gnus-summary-goto-article=                   | =j=            | =J=            |
+    | =gnus-summary-rescan-group=                   | =M-g=          | =gr=           |
+    | =gnus-summary-edit-article=                   | =e=            | =e=            |
+    | =gnus-summary-mark-as-expirable=              | =E=            | =E=            |
+    | =gnus-summary-limit-map=                      | =/=            | =z/=           |
+    | =gnus-summary-toggle-header=                  | =t=            | =zt=           |
+    | =gnus-summary-limit-to-unread=                | =x=            | =x=            |
+    | =gnus-summary-browse-url=                     | =w=            | =gX=           |
+    | =gnus-summary-refer-parent-article=           | =^=            | =^=            |
+    | =gnus-summary-refer-article=                  | =M-^=          | =M-^=          |
+    | =gnus-summary-kill-thread=                    | (T K)          | =Tk=           |
+    | =gnus-summary-lower-thread=                   | =M-l=          | =Tl=           |
+    | =gnus-summary-raise-thread=                   | (T I)          | =Ti=           |
+    | =gnus-uu-mark-thread=                         | (T #)          | =Tm=           |
+    | =gnus-uu-unmark-thread=                       | (T M-#)        | =Tu=           |
+    | =gnus-summary-toggle-threads=                 | =M-t=          | =TT=           |
+    | =gnus-summary-show-thread=                    | =M-s=          | =Ts=, =zo=     |
+    | =gnus-summary-hide-thread=                    | =M-h=          | =Th=, =zc=     |
+    | =gnus-summary-show-all-threads=               | (T S)          | =TS=           |
+    | =gnus-summary-hide-all-threads=               | (T H)          | =TH=           |
+    | =gnus-summary-rethread-current=               | (T t)          | =Tt=           |
+    | =gnus-summary-reparent-thread=                | (T ^)          | =T^=           |
+    | =gnus-summary-reparent-children=              | (T M-^)        | =T M-^=        |
+    | =gnus-summary-next-thread=                    | =M-f=          | =Tn=           |
+    | =gnus-summary-prev-thread=                    | =M-b=          | =Tp=           |
+    | =gnus-summary-down-thread=                    | (T d)          | =Td=           |
+    | =gnus-summary-up-thread=                      | (T u)          | =Ta=           |
+    | =gnus-summary-top-thread=                     | (T o)          | =To=           |
+    | =gnus-summary-search-article-forward=         | =M-s=          | =M-s=          |
+    | =gnus-summary-search-article-backward=        | =M-r=          | =M-r=          |
+    | =gnus-summary-repeat-search-article-forward=  | =M-S=          | =M-S=          |
+    | =gnus-summary-repeat-search-article-backward= | =M-R=          | =M-R=          |
+    | =gnus-summary-execute-command=                | =&=            | =&=            |
+    | =gnus-summary-universal-argument=             | =M-&=          | =M-&=          |
+    | =gnus-cache-enter-article=                    | =*=            | =*=            |
+    | =gnus-cache-remove-article=                   | =M-*=          | =M-*=          |
+    | =gnus-summary-increase-score=                 | =I=            | =I=            |
+    | =gnus-summary-lower-score=                    | =L=            | =L=            |
+
+    Grouped relocations:
+
+    - Sort (=o= prefix): =oa= author, =oc= chars, =od= date, =oi= score, =ol=
+      lines, =omd= most-recent-date, =omm= marks, =omn= most-recent-number,
+      =on= number, =oo= original, =or= random, =os= subject, =ot= recipient.
+    - Save (=O= prefix, was upstream =O=): =Oo= article, =Om= mail, =Or= rmail,
+      =Of= file, =OF= write-article-file, =Ob= body-file, =Oh= folder, =Ov= vm,
+      =Op= pipe-output, =OP= muttprint. =gnus-summary-pipe-output= is also on
+      the literal pipe key.
+    - Decode (=X= prefix): =Xu/XU/Xvu/XvU= uu, =Xs/XS/Xvs/XvS= unshar,
+      =Xp/XP/Xvp/XvP= postscript, =Xo= save, =Xb= binhex, =XY= yenc.
+    - Mail-group ops (=B= prefix): =Be= expire, =BE= expire-now, =Bd= delete,
+      =Bm= move, =Bc= copy, =Bb= crosspost, =Bi= import, =BI= create, =Br=
+      respool, =Bw= edit, =Bq= respool-query, =Bt= respool-trace, =Bp=
+      article-posted-p.
+
+*** gnus-article-mode-map
+
+    Motion-state additions:
+
+    | Command                                 | Original | Evil |
+    |-----------------------------------------+----------+------|
+    | =gnus-article-followup-with-original=   | =F=      | =F=  |
+    | =gnus-article-reply-with-original=      | =R=      | =R=  |
+    | =gnus-article-wide-reply-with-original= | =W=      | =W=  |
+
+    Normal-state:
+
+    | Command                                 | Original       | Evil                 |
+    |-----------------------------------------+----------------+----------------------|
+    | =evil-window-delete=                    | n/a            | =q=, =Q=, =ZZ=, =ZQ= |
+    | =forward-button=                        | =TAB=          | =TAB=                |
+    | =backward-button=                       | =<backtab>=    | =<backtab>=          |
+    | =gnus-article-goto-next-page=           | =SPC=          | =SPC=                |
+    | =gnus-article-goto-prev-page=           | =DEL=, =S-SPC= | =DEL=, =S-SPC=       |
+    | =gnus-summary-reply=                    | =r=            | =r=, =cr=            |
+    | =gnus-article-reply-with-original=      | =R=            | =R=                  |
+    | =gnus-article-mail=                     | =C-c m=        | =C=, =cc=            |
+    | =gnus-summary-reply-with-original=      | n/a            | =cR=                 |
+    | =gnus-summary-followup=                 | n/a            | =cf=                 |
+    | =gnus-summary-followup-with-original=   | n/a            | =cF=                 |
+    | =gnus-summary-very-wide-reply=          | n/a            | =cw=                 |
+    | =gnus-article-wide-reply-with-original= | n/a            | =cW=                 |
+    | =gnus-summary-mail-forward=             | =C-c C-f=      | =C-c C-f=            |
+    | =gnus-article-refer-article=            | =C-c ^=        | =C-]=                |
+    | =gnus-article-show-summary=             | =h=, =s=       | =s=                  |
+    | =gnus-summary-show-article=             | =g=            | =gr=                 |
+    | =gnus-summary-browse-url=               | n/a            | =gX=                 |
+
+    Washing commands move under the =zw= prefix:
+
+    | Command                                   | Original | Evil   |
+    |-------------------------------------------+----------+--------|
+    | =gnus-summary-stop-page-breaking=         | =W l=    | =zwl=  |
+    | =gnus-summary-caesar-message=             | =W r=    | =zwr=  |
+    | =gnus-summary-morse-message=              | =W m=    | =zwm=  |
+    | =gnus-summary-idna-message=               | =W i=    | =zwi=  |
+    | =gnus-summary-toggle-header=              | =t=      | =zwt=  |
+    | =gnus-summary-verbose-headers=            | =W v=    | =zwv=  |
+    | =gnus-article-treat-overstrike=           | =W o=    | =zwo=  |
+    | =gnus-article-treat-smartquotes=          | =W d=    | =zwd=  |
+    | =gnus-article-treat-non-ascii=            | =W U=    | =zwu=  |
+    | =gnus-article-outlook-deuglify-article=   | =W Y f=  | =zwyf= |
+    | =gnus-article-outlook-unwrap-lines=       | =W Y u=  | =zwyu= |
+    | =gnus-article-outlook-repair-attribution= | =W Y a=  | =zwya= |
+    | =gnus-article-outlook-rearrange-citation= | =W Y c=  | =zwyc= |
+    | =gnus-article-fill-cited-article=         | =W w=    | =zww=  |
+    | =gnus-article-fill-long-lines=            | =W Q=    | =zwq=  |
+    | =gnus-article-capitalize-sentences=       | =W C=    | =zwc=  |
+    | =gnus-article-de-base64-unreadable=       | =W 6=    | =zw6=  |
+    | =gnus-article-decode-HZ=                  | =W Z=    | =zwz=  |
+    | =gnus-article-treat-ansi-sequences=       | =W A=    | =zwa=  |
+    | =gnus-article-add-buttons=                | =W b=    | =zwb=  |
+    | =gnus-article-add-buttons-to-head=        | =W B=    | =zwB=  |
+    | =gnus-article-verify-x-pgp-sig=           | =W p=    | =zwp=  |
+    | =gnus-summary-force-verify-and-decrypt=   | =W s=    | =zws=  |
+
+*** gnus-group-mode-map
+
+    | Command                                  | Original    | Evil       |
+    |------------------------------------------+-------------+------------|
+    | =gnus-group-exit=                        | =q=         | =q=, =ZZ=  |
+    | =gnus-group-quit=                        | =Q=         | =Q=, =ZQ=  |
+    | =gnus-group-prev-unread-group=           | =p=         | =gk=, =[[= |
+    | =gnus-group-next-unread-group=           | =n=         | =gj=, =]]= |
+    | =gnus-group-next-group=                  | =N=         | =C-j=      |
+    | =gnus-group-prev-group=                  | =P=         | =C-k=      |
+    | =gnus-group-mail=                        | =m=         | =C=, =cc=  |
+    | =gnus-group-news=                        | =i=         | =ci=       |
+    | =gnus-group-first-unread-group=          | =.=         | =.=        |
+    | =gnus-group-best-unread-group=           | =,=         | =,=        |
+    | =gnus-activate-all-groups=               | =M-g M-a=   | =A=        |
+    | =gnus-group-browse-foreign-server=       | =B=         | =B=        |
+    | =gnus-group-edit-group=                  | =M-e=       | =E=        |
+    | =gnus-group-find-new-groups=             | =F=         | =F=        |
+    | =gnus-group-jump-to-group=               | =j=         | =J=        |
+    | =gnus-group-rename-group=                | (G r)       | =R=        |
+    | =gnus-group-expunge-group=               | (G x)       | =X=        |
+    | =gnus-group-select-group=                | =RET=       | =RET=      |
+    | =gnus-group-read-group=                  | =SPC=       | =SPC=      |
+    | =gnus-group-get-new-news-this-group=     | =g=         | =gr=       |
+    | =gnus-group-get-new-news=                | =g=         | =gR=       |
+    | =gnus-group-unsubscribe-current-group=   | =u=         | =gu=       |
+    | =gnus-group-unsubscribe-group=           | =U=         | =gU=       |
+    | =gnus-group-catchup-current=             | =c=         | =gc=       |
+    | =gnus-group-catchup-current-all=         | =C=         | =gC=       |
+    | =gnus-group-expire-articles=             | =C-c M-x=   | =ge=       |
+    | =gnus-group-expire-all-groups=           | =C-c M-C-x= | =gE=       |
+    | =gnus-group-set-current-level=           | (G S l)     | =gl=       |
+    | =gnus-group-kill-group=                  | =C-k=       | =dd=, =D=  |
+    | =gnus-group-yank-group=                  | =C-y=       | =p=, =P=   |
+    | =gnus-group-mark-group=                  | =#=         | =m=        |
+    | =gnus-group-unmark-group=                | =M-#=       | =u=        |
+    | =gnus-group-unmark-all-groups=           | (M U)       | =U=        |
+    | =gnus-group-mark-buffer=                 | (M b)       | =M=, =*=   |
+    | =gnus-group-mark-regexp=                 | (M r)       | =%=        |
+    | =gnus-group-apropos=                     | =C-c M-a=   | =s=        |
+    | =gnus-group-description-apropos=         | =C-c M-A=   | =S=        |
+    | =gnus-group-read-ephemeral-search-group= | n/a         | =M-s=      |
+    | =gnus-group-enter-server-mode=           | =^=         | =^=        |
+    | =gnus-group-prev-unread-group=           | =DEL=       | =DEL=      |
+    | =gnus-group-help-map=                    | =H=         | =g?=       |
+
+    Grouped relocations:
+
+    - Sort (=o= prefix): =oa= alphabet, =ol= level, =om= method, =on=
+      real-name, =or= rank, =os= sort, =ou= unread, =ov= score.
+    - List (=L= prefix, was upstream =A=): =L!= ticked, =L/= limit-map, =L?=
+      dormant, =La= active, =Lc= cached, =Lf= flush-map, =Lk= killed, =Ll=
+      level, =Lm= matching, =LM= all-matching, =Lp= plus-map, =Ls= groups,
+      =Lu= all-groups, =Lz= zombies.
+    - Topic (=T= prefix): =Tn= create, =Tj= jump, =Tr= rename, =Td= delete;
+      =zo= / =zc= show/hide topic. Topic sort under =To{a,u,l,v,r,m,e,s}=.
+
+*** gnus-server-mode-map
+
+    | Command                                    | Original | Evil                 |
+    |--------------------------------------------+----------+----------------------|
+    | =gnus-server-exit=                         | =q=      | =q=, =Q=, =ZZ=, =ZQ= |
+    | =gnus-server-read-server=                  | =RET=    | =RET=                |
+    | =gnus-server-read-server-in-server-buffer= | =SPC=    | =SPC=                |
+    | =gnus-server-close-server=                 | =C=      | =C=                  |
+    | =gnus-server-deny-server=                  | =D=      | =D=                  |
+    | =gnus-group-make-nnir-group=               | =G=      | =G=                  |
+    | =gnus-server-set-cloud-method-server=      | =I=      | =I=                  |
+    | =gnus-server-offline-server=               | =L=      | =L=                  |
+    | =gnus-server-open-server=                  | =O=      | =O=                  |
+    | =gnus-server-remove-denials=               | =R=      | =R=                  |
+    | =gnus-server-show-server=                  | =S=      | =S=                  |
+    | =gnus-server-add-server=                   | =a=      | =a=                  |
+    | =gnus-server-copy-server=                  | =c=      | =y=                  |
+    | =gnus-server-edit-server=                  | =e=      | =e=                  |
+    | =gnus-server-regenerate-server=            | =g=      | =gr=                 |
+    | =gnus-server-toggle-cloud-server=          | =i=      | =i=                  |
+    | =gnus-server-kill-server=                  | =k=      | =d=                  |
+    | =gnus-server-list-servers=                 | =l=      | =L=                  |
+    | =gnus-server-scan-server=                  | =s=      | =s=                  |
+    | =gnus-server-yank-server=                  | =y=      | =p=                  |
+    | =gnus-server-compact-server=               | =z=      | =c=                  |
+    | =gnus-server-close-all-servers=            | =M-c=    | =M-c=                |
+    | =gnus-server-open-all-servers=             | =M-o=    | =M-o=                |
+
+*** gnus-browse-mode-map
+
+    | Command                                 | Original | Evil                 |
+    |-----------------------------------------+----------+----------------------|
+    | =gnus-browse-exit=                      | =q=, =l= | =q=, =Q=, =ZZ=, =ZQ= |
+    | =gnus-browse-unsubscribe-current-group= | =u=      | =u=                  |
+    | =gnus-browse-read-group=                | =SPC=    | =SPC=                |
+    | =gnus-browse-select-group=              | =RET=    | =RET=                |
+
+*** gnus-bookmark-bmenu-mode-map
+
+    | Command                                    | Original | Evil                 |
+    |--------------------------------------------+----------+----------------------|
+    | =quit-window=                              | =q=      | =q=, =Q=, =ZZ=, =ZQ= |
+    | =gnus-bookmark-bmenu-mark=                 | =m=      | =m=                  |
+    | =gnus-bookmark-bmenu-unmark=               | =u=      | =u=                  |
+    | =gnus-bookmark-bmenu-backup-unmark=        | =DEL=    | =DEL=                |
+    | =gnus-bookmark-bmenu-delete=               | =d=, =k= | =d=                  |
+    | =gnus-bookmark-bmenu-execute-deletions=    | =x=      | =x=                  |
+    | =gnus-bookmark-bmenu-select=               | =RET=    | =RET=                |
+    | =gnus-bookmark-bmenu-load=                 | =l=      | =L=                  |
+    | =gnus-bookmark-bmenu-save=                 | =s=      | =s=                  |
+    | =gnus-bookmark-bmenu-toggle-infos=         | =t=      | =t=                  |
+    | =gnus-bookmark-bmenu-show-details=         | =a=      | =a=                  |
+    | =gnus-bookmark-bmenu-show-all-annotations= | n/a      | =A=                  |
+    | =gnus-bookmark-bmenu-edit-annotation=      | n/a      | =E=                  |
+    | =gnus-bookmark-bmenu-rename=               | n/a      | =R=                  |

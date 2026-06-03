@@ -1,0 +1,12 @@
+* js2-mode
+
+  Evil compatibility for [[https://github.com/mooz/js2-mode][js2-mode]]. No key bindings.
+
+  Adds a hook to =js2-mode-hook= and =js2-jsx-mode-hook= that sets the
+  buffer-local =evil-shift-width= to match =js-indent-level=, so =>>= and
+  =<<= indent by the same amount js2-mode does.
+
+** New commands
+
+   - =evil-collection-js2-set-evil-shift-width= - Sync =evil-shift-width=
+     with =js-indent-level= in the current buffer.

@@ -57,34 +57,34 @@
 
 ** notmuch-tree-mode-map
 
-   | Command                                            | Original | Evil          |
-   |----------------------------------------------------+----------+---------------|
-   | =notmuch-tree-next-matching-message=               | =n=      | =gj=          |
-   | =notmuch-tree-prev-matching-message=               | =p=      | =gk=          |
-   | =notmuch-tree-next-message=                        | =N=      | =]]=          |
-   | =notmuch-tree-prev-message=                        | =P=      | =[[=          |
-   | =notmuch-tree-next-thread=                         | =M-n=    | =C-j=         |
-   | =notmuch-tree-prev-thread=                         | =M-p=    | =C-k=         |
-   | =notmuch-tree-archive-message-then-next=           | =a=      | =a=           |
-   | =notmuch-tree-archive-thread-then-next=            | =A=      | =A=           |
-   | =notmuch-tree-archive-thread-then-exit=            | =X=      | (default)     |
-   | =notmuch-tree-archive-message-then-next-or-exit=   | =x=      | (default)     |
-   | =notmuch-show-reply-sender=                        | =r=      | =cr=          |
-   | =notmuch-show-reply=                               | =R=      | =cR=          |
-   | =notmuch-tree-filter=                              | =l=      | (default)     |
-   | =notmuch-tree-to-tree=                             | =z=      | =s=           |
-   | =notmuch-search-from-tree-current-query=           | =S=      | =zv=          |
-   | =notmuch-show-save-attachments=                    | =w=      | (default)     |
-   | =notmuch-tag-jump=                                 | =k=      | =K=           |
-   | =notmuch-tree-tag-thread=                          | =*=      | =*=           |
-   | =notmuch-tree-add-tag=                             | =+=      | =+=           |
-   | =notmuch-tree-remove-tag=                          | =-=      | =-=           |
-   | =notmuch-tree-show-message=                        | =RET=    | =RET=         |
-   | =notmuch-tree-resume-message=                      | =e=      | =e=           |
-   | =notmuch-show-pipe-message=                        | =\vert=  | =\vert=       |
-   | =evil-collection-notmuch-tree-toggle-delete=       | n/a      | =d=           |
-   | =evil-collection-notmuch-tree-toggle-unread=       | n/a      | =!=           |
-   | =evil-collection-notmuch-tree-toggle-flagged=      | n/a      | ===           |
+   | Command                                          | Original | Evil      |
+   |--------------------------------------------------+----------+-----------|
+   | =notmuch-tree-next-matching-message=             | =n=      | =gj=      |
+   | =notmuch-tree-prev-matching-message=             | =p=      | =gk=      |
+   | =notmuch-tree-next-message=                      | =N=      | =]]=      |
+   | =notmuch-tree-prev-message=                      | =P=      | =[[=      |
+   | =notmuch-tree-next-thread=                       | =M-n=    | =C-j=     |
+   | =notmuch-tree-prev-thread=                       | =M-p=    | =C-k=     |
+   | =notmuch-tree-archive-message-then-next=         | =a=      | =a=       |
+   | =notmuch-tree-archive-thread-then-next=          | =A=      | =A=       |
+   | =notmuch-tree-archive-thread-then-exit=          | =X=      | (default) |
+   | =notmuch-tree-archive-message-then-next-or-exit= | =x=      | (default) |
+   | =notmuch-show-reply-sender=                      | =r=      | =cr=      |
+   | =notmuch-show-reply=                             | =R=      | =cR=      |
+   | =notmuch-tree-filter=                            | =l=      | (default) |
+   | =notmuch-tree-to-tree=                           | =z=      | =s=       |
+   | =notmuch-search-from-tree-current-query=         | =S=      | =zv=      |
+   | =notmuch-show-save-attachments=                  | =w=      | (default) |
+   | =notmuch-tag-jump=                               | =k=      | =K=       |
+   | =notmuch-tree-tag-thread=                        | =*=      | =*=       |
+   | =notmuch-tree-add-tag=                           | =+=      | =+=       |
+   | =notmuch-tree-remove-tag=                        | =-=      | =-=       |
+   | =notmuch-tree-show-message=                      | =RET=    | =RET=     |
+   | =notmuch-tree-resume-message=                    | =e=      | =e=       |
+   | =notmuch-show-pipe-message=                      | =\vert=  | =\vert=   |
+   | =evil-collection-notmuch-tree-toggle-delete=     | n/a      | =d=       |
+   | =evil-collection-notmuch-tree-toggle-unread=     | n/a      | =!=       |
+   | =evil-collection-notmuch-tree-toggle-flagged=    | n/a      | ===       |
 
 ** notmuch-search-mode-map
 
@@ -137,6 +137,6 @@
 
 ** Customization
 
-   | Variable                              | Default     | Purpose                                                       |
-   |---------------------------------------+-------------+---------------------------------------------------------------|
-   | =evil-collection-notmuch-delete-tag=  | ="deleted"= | Tag toggled by =d=. Set to ="trash"= for lieer/Gmail-style sync. |
+   | Variable                             | Default     | Purpose                                                          |
+   |--------------------------------------+-------------+------------------------------------------------------------------|
+   | =evil-collection-notmuch-delete-tag= | ="deleted"= | Tag toggled by =d=. Set to ="trash"= for lieer/Gmail-style sync. |

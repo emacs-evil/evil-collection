@@ -1,0 +1,20 @@
+* git-timemachine
+
+  Evil bindings for [[https://codeberg.org/pidu/git-timemachine][git-timemachine]].
+
+  Bindings are installed on =git-timemachine-mode= as minor-mode keys so
+  they apply in =normal= state in any buffer where the minor mode is
+  active.
+
+** Key bindings
+
+   | Command                                     | Original | Evil  |
+   |---------------------------------------------+----------+-------|
+   | =git-timemachine-show-previous-revision=    | =p=      | =C-k= |
+   | =git-timemachine-show-next-revision=        | =n=      | =C-j= |
+   | =git-timemachine-quit=                      | =q=      | =q=   |
+   | =git-timemachine-show-nth-revision=         | =g=      | =gtg= |
+   | =git-timemachine-show-revision-fuzzy=       | =t=      | =gtt= |
+   | =git-timemachine-kill-abbreviated-revision= | =w=      | =gty= |
+   | =git-timemachine-kill-revision=             | =W=      | =gtY= |
+   | =git-timemachine-blame=                     | =b=      | =gtb= |

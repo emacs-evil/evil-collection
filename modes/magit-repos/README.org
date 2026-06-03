@@ -1,0 +1,17 @@
+* magit-repos
+
+  Evil bindings for [[https://magit.vc/][magit-repos]] (=magit-list-repositories=).
+
+  Initial state for =magit-repolist-mode= is set to =normal=.
+
+** Key bindings
+
+*** magit-repolist-mode-map (normal state)
+
+    | Command                   | Original | Evil  |
+    |---------------------------+----------+-------|
+    | =magit-repolist-mark=     | =m=      | =m=   |
+    | =magit-repolist-unmark=   | =u=      | =u=   |
+    | =magit-repolist-fetch=    | =f=      | =f=   |
+    | =magit-repolist-status=   | =RET=    | =RET= |
+    | =magit-list-repositories= | =g=      | =gr=  |

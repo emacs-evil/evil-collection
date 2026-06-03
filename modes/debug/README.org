@@ -1,0 +1,26 @@
+* debug
+
+  Evil bindings for the Elisp debugger (=debugger-mode=).
+
+** Key bindings
+
+   | Command                                              | Original | Evil      |
+   |------------------------------------------------------+----------+-----------|
+   | =debug-help-follow= / =backtrace-help-follow-symbol= | =RET=    | =RET=     |
+   | =forward-button=                                     | =TAB=    | =TAB=     |
+   | =backward-button=                                    | =S-TAB=  | =S-TAB=   |
+   | =next-line=                                          | n/a      | =SPC=     |
+   | =debugger-continue=                                  | =c=      | =c=       |
+   | =debugger-step-through=                              | =d=      | =d=       |
+   | =debugger-jump=                                      | =j=      | =J=       |
+   | =debugger-eval-expression=                           | =e=      | =x=, =E=  |
+   | =debugger-record-expression=                         | =R=      | =R=       |
+   | =debugger-return-value=                              | =r=      | =r=       |
+   | =debugger-frame=                                     | =b=      | =gb=      |
+   | =debugger-frame-clear=                               | =u=      | =u=       |
+   | =debugger-list-functions=                            | =l=      | =gl=      |
+   | =debugger-toggle-locals= / =backtrace-toggle-locals= | =v=      | =L=, =p=  |
+   | =backtrace-multi-line=                               | =+=      | =zo=      |
+   | =backtrace-single-line=                              | =-=      | =zc=      |
+   | =top-level=                                          | =q=      | =q=, =ZZ= |
+   | =evil-quit=                                          | n/a      | =ZQ=      |

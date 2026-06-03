@@ -1,0 +1,35 @@
+* buff-menu
+
+  Evil bindings for the buffer list (=Buffer-menu-mode=).
+
+** Key bindings
+
+   | Command                              | Original        | Evil               |
+   |--------------------------------------+-----------------+--------------------|
+   | =Buffer-menu-this-window=            | =RET=, =f=, =e= | =RET=, =go=, =C-m= |
+   | =Buffer-menu-other-window=           | =o=             | =gO=               |
+   | =Buffer-menu-select=                 | =v=             | =gv=               |
+   | =Buffer-menu-view=                   | =V=             | =gV=               |
+   | =Buffer-menu-delete=                 | =d=, =k=        | =d=, =C-k=         |
+   | =Buffer-menu-delete-backwards=       | =C-d=           | =C-d=              |
+   | =Buffer-menu-execute=                | =x=             | =x=                |
+   | =Buffer-menu-save=                   | =s=             | =s=                |
+   | =Buffer-menu-bury=                   | =b=             | =X=                |
+   | =Buffer-menu-mark=                   | =m=             | =m=                |
+   | =Buffer-menu-unmark=                 | =u=             | =u=                |
+   | =Buffer-menu-unmark-all=             | =U=             | =U=                |
+   | =Buffer-menu-backup-unmark=          | =DEL=           | =DEL=              |
+   | =Buffer-menu-not-modified=           | =~=             | =~=                |
+   | =Buffer-menu-toggle-read-only=       | =%=             | =%=                |
+   | =Buffer-menu-toggle-files-only=      | =T=             | =T=                |
+   | =Buffer-menu-visit-tags-table=       | =t=             | =t=                |
+   | =tabulated-list-sort=                | =S=             | =o=                |
+   | =revert-buffer=                      | =g=             | =gr=               |
+   | =evil-visual-char=                   | n/a             | =v=                |
+   | =quit-window=                        | =q=             | =q=, =ZZ=          |
+   | =evil-quit=                          | n/a             | =ZQ=               |
+   | =Buffer-menu-1-window=               | =1=             | =1=                |
+   | =Buffer-menu-2-window=               | =2=             | =2=                |
+   | =Buffer-menu-isearch-buffers=        | =M-s a C-s=     | =M-s a C-s=        |
+   | =Buffer-menu-isearch-buffers-regexp= | =M-s a M-C-s=   | =M-s a M-C-s=      |
+   | =Buffer-menu-multi-occur=            | =M-s a C-o=     | =M-s a C-o=        |

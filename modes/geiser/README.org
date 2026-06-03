@@ -1,0 +1,62 @@
+* geiser
+
+  Evil bindings for [[https://www.nongnu.org/geiser/][Geiser]] (Scheme).
+
+  Sets initial state to =normal= for =geiser-debug-mode= and
+  =geiser-doc-mode=. When =evil-move-beyond-eol= is nil, advises
+  =geiser-eval-last-sexp= and =geiser-eval-last-sexp-and-print= so the
+  last sexp is taken with point treated as one past EOL in normal/motion
+  state.
+
+** Key bindings
+
+*** geiser-mode-map
+
+    | Command                                | Original      | Evil  |
+    |----------------------------------------+---------------+-------|
+    | =geiser-edit-symbol-at-point=          | =M-.=         | =gd=  |
+    | =geiser-pop-symbol-stack=              | =M-,=         | =C-t= |
+    | =geiser-mode-switch-to-repl=           | =C-c C-z=     | =gz=  |
+    | =geiser-mode-switch-to-repl-and-enter= | =C-c C-a=     | =gZ=  |
+    | =geiser-doc-symbol-at-point=           | =C-c C-d C-d= | =K=   |
+
+*** geiser-repl-mode-map
+
+    | Command                           | Original      | Evil                                |
+    |-----------------------------------+---------------+-------------------------------------|
+    | =geiser-edit-symbol-at-point=     | =M-.=         | =gd=                                |
+    | =geiser-pop-symbol-stack=         | =M-,=         | =C-t=                               |
+    | =geiser-repl-next-prompt=         | =C-c C-n=     | =gj=, =C-j=, =]]=                   |
+    | =geiser-repl-previous-prompt=     | =C-c C-p=     | =gk=, =C-k=, =[[=                   |
+    | =geiser-doc-symbol-at-point=      | =C-c C-d C-d= | =K=                                 |
+    | =geiser-repl-maybe-send=          | =RET=         | =RET= (submit state)                |
+    | =geiser-repl--newline-and-indent= | =C-j=         | =S-<return>=, =RET= (newline state) |
+
+    Whether =RET= submits depends on =evil-collection-repl-submit-state=:
+    in =insert= (default) =RET= submits, =S-<return>= inserts a newline;
+    in =normal=, =RET= inserts a newline in insert state and submits in
+    normal state.
+
+*** geiser-doc-mode-map
+
+    | Command                       | Original     | Evil                 |
+    |-------------------------------+--------------+----------------------|
+    | =forward-button=              | =TAB=, =n=   | =TAB=, =gj=, =C-j=   |
+    | =backward-button=             | =S-TAB=, =p= | =S-TAB=, =gk=, =C-k= |
+    | =geiser-edit-symbol-at-point= | =.=          | =gd=                 |
+    | =geiser-pop-symbol-stack=     | =M-,=        | =C-t=                |
+    | =geiser-doc-refresh=          | =g=, =r=     | =gr=                 |
+    | =View-quit=                   | =q= (View)   | =q=                  |
+    | =geiser-doc-switch-to-repl=   | =z=          | =gz=                 |
+    | =geiser-doc-next=             | =f=          | =>=                  |
+    | =geiser-doc-previous=         | =b=          | =<=                  |
+    | =geiser-doc-next-section=     | =N=          | =]]=                 |
+    | =geiser-doc-previous-section= | =P=          | =[[=                 |
+    | =geiser-doc-kill-page=        | =k=          | =x=                  |
+    | =geiser-doc-clean-history=    | =c=          | =X=                  |
+
+*** geiser-debug-mode-map
+
+    | Command       | Original | Evil |
+    |---------------+----------+------|
+    | =quit-window= |          | =q=  |

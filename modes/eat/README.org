@@ -1,0 +1,37 @@
+* eat
+
+  Evil bindings for [[https://codeberg.org/akib/emacs-eat][eat]], the Emulate A Terminal package.
+
+  Initial state for =eat-mode= is =insert=. The same =C-*= keys that vterm
+  forwards raw to the terminal are bound to =eat-self-input= here so that
+  shells and TUIs receive them instead of evil-insert-state.
+
+** Key bindings
+
+*** eat-mode-map
+
+    | Command                                  | Original | Evil      |
+    |------------------------------------------+----------+-----------|
+    | =evil-collection-eat-toggle-send-escape= | n/a      | =C-c C-z= |
+
+    The following keys are forwarded raw to the terminal via =eat-self-input=
+    in insert state: =C-a=, =C-b=, =C-d=, =C-e=, =C-f=, =C-k=, =C-l=, =C-n=,
+    =C-o=, =C-p=, =C-q=, =C-r=, =C-s=, =C-t=, =C-u=, =C-v=, =C-w=, =C-y=,
+    =C-z=, =<delete>=. =C-c= (prefix) and =C-h= (help) are not forwarded.
+
+*** eat-line-mode-map
+
+    =RET=, =C-m= and =[return]= send input to the terminal in the state
+    named by =evil-collection-repl-submit-state=, and insert a newline in
+    the opposite state.
+
+    | Command               | Original | State                               |
+    |-----------------------+----------+-------------------------------------|
+    | =eat-line-send-input= | =RET=    | =evil-collection-repl-submit-state= |
+    | =newline=             | n/a      | opposite of submit state            |
+
+** New commands
+
+   | Command                                  | Purpose                                           |
+   |------------------------------------------+---------------------------------------------------|
+   | =evil-collection-eat-toggle-send-escape= | Toggle whether =ESC= goes to eat or back to evil. |

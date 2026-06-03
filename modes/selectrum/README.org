@@ -1,0 +1,43 @@
+* selectrum
+
+  Evil bindings for [[https://github.com/radian-software/selectrum][selectrum]], the incremental narrowing UI for the minibuffer.
+
+  Bindings are installed only when =evil-collection-setup-minibuffer= is
+  non-nil.
+
+** Key bindings
+
+*** selectrum-minibuffer-map (insert and normal)
+
+    | Command                              | Original | Evil    |
+    |--------------------------------------+----------+---------|
+    | =selectrum-previous-page=            | =M-v=    | =C-b=   |
+    | =selectrum-next-page=                | =C-v=    | =C-f=   |
+    | =selectrum-submit-exact-input=       | =C-j=    | =M-RET= |
+    | =selectrum-select-current-candidate= | =RET=    | =RET=   |
+    | =selectrum-previous-page=            | =M-v=    | =C-u=   |
+    | =selectrum-next-page=                | =C-v=    | =C-d=   |
+
+    =C-u= and =C-d= are added only when =evil-want-C-u-scroll= and
+    =evil-want-C-d-scroll= respectively are non-nil.
+
+*** selectrum-minibuffer-map (insert)
+
+    | Command                        | Original | Evil  |
+    |--------------------------------+----------+-------|
+    | =selectrum-next-candidate=     | =C-n=    | =C-j= |
+    | =selectrum-previous-candidate= | =C-p=    | =C-k= |
+    | =selectrum-next-candidate=     | =C-n=    | =C-n= |
+    | =selectrum-previous-candidate= | =C-p=    | =C-p= |
+
+*** selectrum-minibuffer-map (normal)
+
+    | Command                        | Original | Evil |
+    |--------------------------------+----------+------|
+    | =selectrum-next-candidate=     | n/a      | =j=  |
+    | =selectrum-previous-candidate= | n/a      | =k=  |
+    | =selectrum-next-group=         | =C-q n=  | =gj= |
+    | =selectrum-previous-group=     | =C-q p=  | =gk= |
+    | =selectrum-goto-beginning=     | =M-<=    | =gg= |
+    | =selectrum-goto-end=           | =M->=    | =G=  |
+    | =selectrum-kill-ring-save=     | =M-w=    | =gy= |

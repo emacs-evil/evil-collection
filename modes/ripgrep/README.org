@@ -1,0 +1,14 @@
+* ripgrep
+
+  Evil bindings for [[https://github.com/nlamirault/ripgrep.el][ripgrep.el]] search result buffers.
+
+** Key bindings
+
+   | Command                      | Original  | Evil        |
+   |------------------------------+-----------+-------------|
+   | =evil-search-next=           |           | =n=         |
+   | =previous-error-no-select=   | =p=       | =gk=, =C-k= |
+   | =next-error-no-select=       | =n=       | =gj=, =C-j= |
+   | =compilation-previous-file=  | ={=       | ={=         |
+   | =compilation-next-file=      | =}=       | =}=         |
+   | =wgrep-change-to-wgrep-mode= | =C-c C-p= | =i=         |

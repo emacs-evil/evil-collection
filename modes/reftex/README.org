@@ -1,0 +1,75 @@
+* reftex
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/reftex/index.html][reftex-mode]].
+
+** Key bindings
+
+*** reftex-select-shared-map
+
+    Used by =reftex-select-label-mode= and =reftex-select-bib-mode= (initial
+    state: normal).
+
+    | Command                                  | Original | Evil              |
+    |------------------------------------------+----------+-------------------|
+    | =reftex-select-next=                     | =n=      | =j=               |
+    | =reftex-select-previous=                 | =p=      | =k=               |
+    | =reftex-select-next-heading=             | n/a      | =]]=, =gj=, =C-j= |
+    | =reftex-select-previous-heading=         | n/a      | =[[=, =gk=, =C-k= |
+    | =reftex-select-accept=                   | =RET=    | =RET=             |
+    | =reftex-select-callback=                 | =SPC=    | =go=              |
+    | =reftex-select-show-insertion-point=     | =.=      | =gO=              |
+    | =reftex-select-read-label=               | n/a      | =TAB=             |
+    | =reftex-select-quit=                     | =q=      | =q=, =ZZ=         |
+    | =evil-quit=                              | n/a      | =ZQ=              |
+    | =reftex-select-help=                     | =?=      | =g?=              |
+    | =reftex-select-jump=                     | n/a      | =J=               |
+    | =reftex-select-cycle-ref-style-forward=  | n/a      | =r=               |
+    | =reftex-select-cycle-ref-style-backward= | n/a      | =R=               |
+    | =reftex-select-mark=                     | n/a      | =m=               |
+    | =reftex-select-unmark=                   | n/a      | =u=               |
+
+    The keys =gr=, =c=, =s=, =x=, =X=, =S=, =o=, =O= dispatch back to
+    reftex's underlying =throw= protocol so the original selection actions
+    (rescan, reuse, switch label type, ref grouping, external xr, BibTeX
+    export) still work.
+
+*** reftex-toc-mode-map
+
+    Initial state: normal.
+
+    | Command                           | Original  | Evil       |
+    |-----------------------------------+-----------+------------|
+    | =reftex-toc-next=                 | =n=       | =j=        |
+    | =reftex-toc-previous=             | =p=       | =k=        |
+    | =reftex-toc-view-line=            | =SPC=     | =go=, =gO= |
+    | =reftex-toc-goto-line-and-hide=   | =RET=     | =RET=      |
+    | =reftex-toc-goto-line=            | =TAB=     | =TAB=      |
+    | =reftex-toc-show-help=            | =?=       | =g?=, =?=  |
+    | =reftex-toc-quit=                 | =q=       | =q=        |
+    | =reftex-toc-quit-and-kill=        | =k=       | =ZZ=       |
+    | =evil-quit=                       | n/a       | =ZQ=       |
+    | =reftex-toc-rescan=               | =r=       | =gr=       |
+    | =reftex-toc-Rescan=               | =R=       | =gR=       |
+    | =reftex-toc-toggle-labels=        | =l=       | =l=        |
+    | =reftex-toc-toggle-index=         | =i=       | =i=        |
+    | =reftex-toc-toggle-context=       | =c=       | =c=        |
+    | =reftex-toc-toggle-file-boundary= | =F=       | =F=        |
+    | =reftex-toc-rename-label=         | =M-%=     | =rl=       |
+    | =reftex-toc-display-index=        | =C-c >=   | =zi=       |
+    | =reftex-toc-external=             | =x=       | =x=        |
+    | =reftex-toc-show-calling-point=   | =.=       | =.=        |
+    | =reftex-toc-jump=                 | =z=       | =J=        |
+    | =reftex-toc-previous-heading=     | =C-c C-p= | =[[=       |
+    | =reftex-toc-next-heading=         | =C-c C-n= | =]]=       |
+    | =reftex-toc-promote=              | =<=       | =>=        |
+    | =reftex-toc-demote=               | =>=       | =<=        |
+    | =reftex-toc-toggle-follow=        | =f=       | =f=        |
+
+    Note: =>= and =<= are swapped relative to upstream so that =>= promotes
+    and =<= demotes; this matches the visual outline-shift direction.
+
+** Notes
+
+   - =reftex-select-label-prompt=, =reftex-citation-prompt=,
+     =reftex-select-label-help=, =reftex-citation-help=, and
+     =reftex-toc-help= are rewritten to advertise the evil keys.

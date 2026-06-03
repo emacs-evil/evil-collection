@@ -1,0 +1,52 @@
+* calc
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/calc/index.html][calc]].
+
+  Standard motion / quit bindings come from =evil-collection-set-readonly-bindings=
+  and are not repeated below. Calc's =calc-ext= prefix maps (=V=, =Y=, =Z=, =a=,
+  =b=, =c=, =f=, =g=, =m=, =r=, =s=, =t=, =v=) are kept on their original keys;
+  prefixes that conflict with evil motions are relocated.
+
+** Key bindings
+
+   | Command                     | Original                 | Evil                      |
+   |-----------------------------+--------------------------+---------------------------|
+   | =calc-enter=                | =RET=                    | =RET=, =SPC=              |
+   | =calc-over=                 | =C-j=                    | =S-RET=                   |
+   | =calc-roll-down=            | =TAB=                    | =TAB=                     |
+   | =calc-roll-up=              | =M-TAB=                  | =C-M-i=                   |
+   | =calc-pop=                  | =DEL=, =<delete>=, =C-d= | =DEL=, =<delete>=         |
+   | =calc-pop-above=            | =M-DEL=, =M-d=           | =M-DEL=, =C-M-d=          |
+   | =calc-kill=                 | =C-k=                    | =d=                       |
+   | =calc-kill-region= (visual) | =C-w=                    | =d=                       |
+   | =calc-yank=                 | =C-y=                    | =pp=                      |
+   | =calc-copy-to-buffer=       | =y=                      | =pP=                      |
+   | =calc-copy-as-kill=         | =M-k=                    | =M-k=                     |
+   | =calc-copy-region-as-kill=  | =M-w=                    | =M-w=                     |
+   | =calc-undo=                 | =U=                      | =u=                       |
+   | =calc-redo=                 | =D=                      | =D= (via prefix relocate) |
+   | =calc-precision=            | =p=                      | =C-p=                     |
+   | =calc-call-last-kbd-macro=  | =X=                      | =X=                       |
+   | =calc-help=                 | =?=                      | =?=                       |
+   | =calc-info=                 | =i=                      | =i=                       |
+   | =calc-quit=                 | =q=                      | =q=                       |
+   | =calc-last-args=            | =M-RET=                  | =M-RET=                   |
+   | =calc-percent=              | =M-%=                    | =M-%=                     |
+   | =calc-transpose-lines=      | =C-x C-t=                | =C-x C-t=                 |
+   | =calc-total-algebraic-mode= | =m t=                    | =M-m t=                   |
+
+** Relocated prefix maps
+
+   Calc prefixes are moved off keys that conflict with evil motion or operators:
+
+   | Original prefix | Evil prefix |
+   |-----------------+-------------|
+   | =d=             | =D=         |
+   | =j=             | =zj=        |
+   | =k=             | =zk=        |
+   | =l=             | =zl=        |
+   | =u=             | =U=         |
+   | =z=             | =zz=        |
+
+   All operator / digit / symbol keys (=+=, =-=, =*=, =/=, digits, =A=–=T=, =[[=,
+   =]]=, etc.) keep their default calc bindings.

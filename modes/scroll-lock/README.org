@@ -1,0 +1,24 @@
+* scroll-lock
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Scrolling.html][scroll-lock-mode]].
+
+** Key bindings
+
+   Standard evil motions are remapped to scroll-lock equivalents so the
+   cursor stays fixed while the buffer scrolls.
+
+   | Command                                          | Remaps from               |
+   |--------------------------------------------------+---------------------------|
+   | =evil-collection-scroll-lock-next-line=          | =evil-next-line=          |
+   | =evil-collection-scroll-lock-previous-line=      | =evil-previous-line=      |
+   | =evil-collection-scroll-lock-forward-paragraph=  | =evil-forward-paragraph=  |
+   | =evil-collection-scroll-lock-backward-paragraph= | =evil-backward-paragraph= |
+
+** New commands
+
+   | Command                                          |                                    |
+   |--------------------------------------------------+------------------------------------|
+   | =evil-collection-scroll-lock-next-line=          | line-wise scroll down, point fixed |
+   | =evil-collection-scroll-lock-previous-line=      | line-wise scroll up, point fixed   |
+   | =evil-collection-scroll-lock-forward-paragraph=  | paragraph scroll down (=:jump t=)  |
+   | =evil-collection-scroll-lock-backward-paragraph= | paragraph scroll up (=:jump t=)    |

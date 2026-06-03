@@ -1,0 +1,15 @@
+* flymake
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/flymake/index.html][Flymake]].
+
+** Key bindings
+
+   Applied to both =flymake-diagnostics-buffer-mode-map= and
+   =flymake-project-diagnostics-mode-map=.
+
+   | Command                   | Original | Evil                         |
+   |---------------------------+----------+------------------------------|
+   | =flymake-goto-next-error= | n/a      | =C-j=                        |
+   | =flymake-goto-prev-error= | n/a      | =C-k=                        |
+   | =flymake-goto-diagnostic= | =RET=    | =RET=                        |
+   | =flymake-show-diagnostic= | =SPC=    | =S-RET=, =M-RET=, =go=, =gO= |

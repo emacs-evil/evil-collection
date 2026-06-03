@@ -1,0 +1,15 @@
+* yaml-mode
+
+  Evil setup for [[https://github.com/yoshiki/yaml-mode][yaml-mode]].
+
+  No keys are rebound. =evil-shift-width= is set buffer-locally to
+  =yaml-indent-offset= so that =>>= / =<<= produce indentation that
+  matches yaml-mode's own electric keys.
+
+** New commands
+
+   | Command                                          | Purpose                                         |
+   |--------------------------------------------------+-------------------------------------------------|
+   | =evil-collection-yaml-mode-set-evil-shift-width= | Set =evil-shift-width= to =yaml-indent-offset=. |
+
+   Installed on =yaml-mode-hook=.

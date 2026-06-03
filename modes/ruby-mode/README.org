@@ -1,0 +1,9 @@
+* ruby-mode
+
+  Evil support for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Misc-for-Programmers.html][ruby-mode]].
+
+** Notes
+
+   No key bindings are added. =evil-shift-width= is set to
+   =ruby-indent-level= on =ruby-mode-hook= so that =>>= / =<<= reindent by
+   the same amount as ruby-mode itself.

@@ -1,0 +1,16 @@
+* snake
+
+  Evil bindings for =snake=, the built-in implementation of the classic arcade game.
+
+** Key bindings
+
+   | Command            | Original         | Evil      |
+   |--------------------+------------------+-----------|
+   | =snake-move-left=  | =<left>=, =C-b=  | =h=       |
+   | =snake-move-right= | =<right>=, =C-f= | =l=       |
+   | =snake-move-down=  | =<down>=, =C-n=  | =j=       |
+   | =snake-move-up=    | =<up>=, =C-p=    | =k=       |
+   | =snake-start-game= | =n=              | =gr=      |
+   | =snake-pause-game= | =p=              | =p=       |
+   | =snake-end-game=   | =q=              | =ZZ=      |
+   | =quit-window=      | n/a              | =q=, =ZQ= |

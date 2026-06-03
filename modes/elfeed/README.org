@@ -7,22 +7,22 @@
 
 ** elfeed-search-mode-map
 
-   | Command                          | Original | Evil                                |
-   |----------------------------------+----------+-------------------------------------|
-   | =elfeed-search-show-entry=       | =RET=    | =RET=                               |
-   | =elfeed-search-browse-url=       | =b=      | =S-RET=, =go=                       |
-   | =elfeed-search-yank=             | =y=      | =y=                                 |
-   | =elfeed-search-live-filter=      | =s=      | =s=                                 |
-   | =elfeed-search-set-filter=       | =S=      | =S=                                 |
-   | =elfeed-search-clear-filter=     | =c=      | =c=                                 |
-   | =elfeed-search-fetch=            | =G=      | =gR=                                |
-   | =revert-buffer=                  | =g=      | =gr=                                |
-   | =elfeed-search-tag-all=          | =+=      | =+=                                 |
-   | =elfeed-search-untag-all=        | =-=      | =-=                                 |
-   | =elfeed-search-tag-all-unread=   | =u=      | =U=                                 |
-   | =elfeed-search-untag-all-unread= | =r=      | =u=                                 |
-   | =scroll-up-command=              | n/a      | =SPC=                               |
-   | =scroll-down-command=            | n/a      | =S-SPC=                             |
+   | Command                          | Original | Evil                |
+   |----------------------------------+----------+---------------------|
+   | =elfeed-search-show-entry=       | =RET=    | =RET=               |
+   | =elfeed-search-browse-url=       | =b=      | =S-RET=, =go=       |
+   | =elfeed-search-yank=             | =y=      | =y=                 |
+   | =elfeed-search-live-filter=      | =s=      | =s=                 |
+   | =elfeed-search-set-filter=       | =S=      | =S=                 |
+   | =elfeed-search-clear-filter=     | =c=      | =c=                 |
+   | =elfeed-search-fetch=            | =G=      | =gR=                |
+   | =revert-buffer=                  | =g=      | =gr=                |
+   | =elfeed-search-tag-all=          | =+=      | =+=                 |
+   | =elfeed-search-untag-all=        | =-=      | =-=                 |
+   | =elfeed-search-tag-all-unread=   | =u=      | =U=                 |
+   | =elfeed-search-untag-all-unread= | =r=      | =u=                 |
+   | =scroll-up-command=              | n/a      | =SPC=               |
+   | =scroll-down-command=            | n/a      | =S-SPC=             |
    | =elfeed-search-quit-window=      | =q=      | =q=, =ZQ=, =ZZ= ([[#fallbacks][†]]) |
 
 ** elfeed-show-mode-map

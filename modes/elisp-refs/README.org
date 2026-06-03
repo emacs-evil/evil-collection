@@ -1,0 +1,12 @@
+* elisp-refs
+
+  Evil bindings for [[https://github.com/Wilfred/elisp-refs][elisp-refs]].
+
+** Key bindings
+
+   | Command                  | Original     | Evil                 |
+   |--------------------------+--------------+----------------------|
+   | =elisp-refs-next-match=  | =n=, =TAB=   | =TAB=, =C-j=, =gj=   |
+   | =elisp-refs-prev-match=  | =p=, =S-TAB= | =S-TAB=, =C-k=, =gk= |
+   | =elisp-refs-visit-match= | =RET=        | =RET=                |
+   | =kill-current-buffer=    | n/a          | =q=                  |

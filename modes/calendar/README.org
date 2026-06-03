@@ -1,0 +1,63 @@
+* calendar
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Calendar_002fDiary.html][calendar]].
+
+** Key bindings
+
+   | Command                              | Original       | Evil                |
+   |--------------------------------------+----------------+---------------------|
+   | =calendar-backward-day=              | =C-b=, =left=  | =h=                 |
+   | =calendar-forward-day=               | =C-f=, =right= | =l=                 |
+   | =calendar-backward-week=             | =C-p=, =up=    | =k=                 |
+   | =calendar-forward-week=              | =C-n=, =down=  | =j=                 |
+   | =calendar-beginning-of-week=         | =C-a=          | =0=, =^=            |
+   | =calendar-end-of-week=               | =C-e=          | =$=                 |
+   | =calendar-beginning-of-month=        | =M-a=          | =(=                 |
+   | =calendar-end-of-month=              | =M-e=          | =)=                 |
+   | =calendar-backward-month=            | =M-{=          | ={=, =C-k=, =gk=    |
+   | =calendar-forward-month=             | =M-}=          | =}=, =C-j=, =gj=    |
+   | =calendar-backward-year=             | =C-x [=        | =[[=                |
+   | =calendar-forward-year=              | =C-x ]=        | =]]=                |
+   | =calendar-beginning-of-year=         | =M-<=          | =M-<=               |
+   | =calendar-end-of-year=               | =M->=          | =M->=               |
+   | =calendar-scroll-right=              | =>=, =C-x <=   | =<=                 |
+   | =calendar-scroll-left=               | =<=, =C-x >=   | =>=                 |
+   | =calendar-scroll-right-three-months= | =M-v=, =prior= | =C-b=               |
+   | =calendar-scroll-left-three-months=  | =C-v=, =next=  | =C-f=               |
+   | =scroll-other-window=                | =SPC=          | =SPC=               |
+   | =scroll-other-window-down=           | =S-SPC=, =DEL= | =S-SPC=, =<delete>= |
+   | =calendar-set-mark=                  | =C-SPC=        | =v=                 |
+   | =calendar-goto-today=                | =.=            | =.=                 |
+   | =calendar-other-month=               | =o=            | =o=, =gD=           |
+   | =calendar-goto-date=                 | =g d=          | =gd=                |
+   | =diary-view-entries=                 | =d=            | =d=                 |
+   | =diary-view-other-diary-entries=     | =D=            | =D=                 |
+   | =diary-mark-entries=                 | =m=            | =m=                 |
+   | =diary-show-all-entries=             | =s=            | =s=                 |
+   | =appt-add=                           | =A a=          | =Aa=                |
+   | =appt-delete=                        | =A d=          | =Ad=                |
+   | =calendar-unmark=                    | =u=            | =u=                 |
+   | =calendar-mark-holidays=             | =x=            | =x=                 |
+   | =calendar-list-holidays=             | =a=            | =a=, =gh=           |
+   | =calendar-cursor-holidays=           | =h=            | =r=                 |
+   | =calendar-lunar-phases=              | =M=            | =gm=                |
+   | =calendar-sunrise-sunset=            | =S=            | =gs=                |
+   | =org-calendar-goto-agenda=           | n/a            | =gc=                |
+   | =calendar-redraw=                    | =C-c C-l=      | =gr=                |
+   | =calendar-goto-info-node=            | =?=            | =?=, =g?=           |
+   | =calendar-count-days-region=         | =M-==          | =M-==               |
+   | =calendar-exit=                      | =q=            | =q=, =ZZ=           |
+   | =evil-quit=                          | n/a            | =ZQ=                |
+
+** Org integration
+
+   When =evil-collection-calendar-want-org-bindings= is non-nil, the key named by
+   =org-calendar-to-agenda-key= (default =c=) is bound to =org-calendar-goto-agenda=,
+   and =org-calendar-insert-diary-entry-key= (default =i=) to =org-agenda-diary-entry=
+   when =org-agenda-diary-file= is set.
+
+** Customization
+
+   | Variable                                     | Default | Purpose                                     |
+   |----------------------------------------------+---------+---------------------------------------------|
+   | =evil-collection-calendar-want-org-bindings= | =nil=   | Install =org-calendar-*= bindings on entry. |

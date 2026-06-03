@@ -1,0 +1,61 @@
+* speedbar
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/speedbar/index.html][speedbar]], the everything browser sidebar.
+
+** Key bindings
+
+*** speedbar-mode-map
+
+    | Command                                  | Original   | Evil  |
+    |------------------------------------------+------------+-------|
+    | =speedbar-next=                          | =n=        | =j=   |
+    | =speedbar-prev=                          | =p=        | =k=   |
+    | =evil-goto-first-line=                   | n/a        | =gg=  |
+    | =evil-goto-line=                         | n/a        | =G=   |
+    | =speedbar-refresh=                       | =g=        | =gr=  |
+    | =speedbar-edit-line=                     | =RET=, =e= | =RET= |
+    | =speedbar-toggle-line-expansion=         | =SPC=      | =TAB= |
+    | =speedbar-expand-line=                   | =+=        | =zo=  |
+    | =speedbar-expand-line-descendants=       | =[=        | =zO=  |
+    | =speedbar-contract-line=                 | =-=        | =zc=  |
+    | =speedbar-contract-line-descendants=     | =]=        | =zC=  |
+    | =speedbar-toggle-show-all-files=         | n/a        | =a=   |
+    | =speedbar-toggle-updates=                | =t=        | =t=   |
+    | =speedbar-toggle-images=                 | n/a        | =i=   |
+    | =speedbar-toggle-sorting=                | n/a        | =o=   |
+    | =speedbar-restricted-next=               | =M-n=      | =M-j= |
+    | =speedbar-restricted-prev=               | =M-p=      | =M-k= |
+    | =speedbar-forward-list=                  | =M-C-n=    | =]]=  |
+    | =speedbar-backward-list=                 | =M-C-p=    | =[[=  |
+    | =switch-to-quick-buffers=                | =b=        | =b=   |
+    | =switch-to-files=                        | =f=        | =f=   |
+    | =speedbar-change-initial-expansion-list= | n/a        | =J=   |
+
+*** speedbar-file-key-map
+
+    | Command                       | Original | Evil     |
+    |-------------------------------+----------+----------|
+    | =speedbar-item-byte-compile=  | =B=      | =B=      |
+    | =speedbar-item-copy=          | =C=      | =C=      |
+    | =speedbar-item-delete=        | =D=      | =D=      |
+    | =speedbar-item-info=          | =I=      | =I=      |
+    | =speedbar-item-object-delete= | =O=      | =K=      |
+    | =speedbar-item-load=          | =L=      | =L=      |
+    | =speedbar-item-rename=        | =R=      | =R=      |
+    | =speedbar-create-directory=   | =M=      | =+=      |
+    | =speedbar-up-directory=       | =U=      | =^=, =-= |
+
+*** speedbar-buffers-key-map
+
+    | Command                         | Original | Evil |
+    |---------------------------------+----------+------|
+    | =speedbar-buffer-kill-buffer=   | =k=      | =K=  |
+    | =speedbar-buffer-revert-buffer= | =r=      | =gr= |
+
+** New commands
+
+   | Command                                                      | Key          |
+   |--------------------------------------------------------------+--------------|
+   | =evil-collection-speedbar-switch-to-previous-expansion-list= | =C-p=, =C-n= |
+   | =evil-collection-speedbar-switch-to-quick-buffers=           | =b=          |
+   | =evil-collection-speedbar-switch-to-files=                   | =f=          |

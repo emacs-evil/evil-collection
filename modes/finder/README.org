@@ -1,0 +1,13 @@
+* finder
+
+  Evil bindings for =finder-mode= (the package-keyword browser opened by
+  =M-x finder-by-keyword=).
+
+** Key bindings
+
+   | Command                | Original   | Evil         |
+   |------------------------+------------+--------------|
+   | =finder-select=        | =RET=, =f= | =RET=, =SPC= |
+   | =finder-list-keywords= | =d=        | =d=          |
+   | =finder-summary=       | =?=        | =s=          |
+   | =finder-exit=          | =q=        | =q=          |

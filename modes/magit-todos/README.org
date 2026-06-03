@@ -1,0 +1,32 @@
+* magit-todos
+
+  Evil bindings for [[https://github.com/alphapapa/magit-todos][magit-todos]].
+
+  Setup clears =j= and =k= on the todos section maps (older =magit-todos=
+  versions bound them, blocking evil's vertical motion through todos
+  sections) and adds a jump key on =magit-status=.
+
+** Key bindings
+
+*** magit-todos-section-map / magit-todos-item-section-map
+
+    | Key | Original                           | Evil    |
+    |-----+------------------------------------+---------|
+    | =j= | =magit-todos-...= (older versions) | unbound |
+    | =k= | =magit-todos-...= (older versions) | unbound |
+
+    The current upstream uses =B= / =b= on these maps (branch list set
+    commit / toggle); those are untouched.
+
+*** magit-status-mode-map (normal state)
+
+    | Command                     | Original | Evil |
+    |-----------------------------+----------+------|
+    | =magit-todos-jump-to-todos= | =j T=    | =gT= |
+
+    Bound only when =magit-todos-mode= is enabled.
+
+** Notes
+
+   =magit-todos-mode= emits a warning about the =jT= key when these
+   rebindings take effect. Setup advises the mode to silence that warning.

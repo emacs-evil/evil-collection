@@ -1,0 +1,19 @@
+* embark
+
+  Evil bindings for [[https://github.com/oantolin/embark][embark]]. Only
+  =embark-collect-mode-map= is touched -- the embark action keymaps
+  (=embark-general-map=, =embark-file-map=, ...) are left alone so embark's own
+  prefix UI keeps working.
+
+** embark-collect-mode-map
+
+   Initial state is forced to normal.
+
+   | Command                                   | Original | Evil  |
+   |-------------------------------------------+----------+-------|
+   | =embark-act=                              | =a=      | =a=   |
+   | =embark-act-all=                          | =A=      | =A=   |
+   | =embark-export=                           | =E=      | =E=   |
+   | =embark-select=                           | n/a      | =m=   |
+   | =embark-collect-direct-action-minor-mode= | =M-a=    | =M-a= |
+   | =revert-buffer=                           | =g=      | =gr=  |

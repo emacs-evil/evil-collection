@@ -1,0 +1,12 @@
+* timer-list
+
+  Evil bindings for =timer-list-mode=, the built-in =M-x list-timers= buffer.
+
+** Key bindings
+
+   Inherits the standard =tabulated-list-mode= bindings (=S=, ={=, =}=, =gh=,
+   =gl=, =q=).
+
+   | Command             | Original | Evil |
+   |---------------------+----------+------|
+   | =timer-list-cancel= | =c=      | =C=  |

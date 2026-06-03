@@ -1,0 +1,22 @@
+* package-menu
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Package-Menu.html][package-menu-mode]].
+
+  Standard read-only motion bindings are installed via
+  =evil-collection-set-readonly-bindings=.
+
+** Key bindings
+
+   | Command                          | Original | Evil |
+   |----------------------------------+----------+------|
+   | =package-menu-mark-install=      | =i=      | =i=  |
+   | =package-menu-mark-upgrades=     | =U=      | =U=  |
+   | =package-menu-mark-delete=       | =d=      | =d=  |
+   | =package-menu-mark-unmark=       | =u=      | =u=  |
+   | =package-menu-execute=           | =x=      | =x=  |
+   | =package-menu-describe-package=  | =RET=    | =g?= |
+   | =revert-buffer=                  | =g=, =r= | =gr= |
+   | =package-browse-url= (Emacs 28+) | =w=      | =B=  |
+
+   The =/=-prefixed filter commands, =H= (hide), =(= (toggle-hiding), =~=, =b=
+   (report-bug), =S= (sort), and other defaults remain at their upstream keys.

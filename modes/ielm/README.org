@@ -1,0 +1,22 @@
+* ielm
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Interaction.html][IELM]] (Inferior Emacs Lisp Mode).
+
+  Initial state is =insert=. =RET= sends input in the state named by
+  =evil-collection-repl-submit-state=.
+
+** Key bindings
+
+   | Command       | Original | Evil                 |
+   |---------------+----------+----------------------|
+   | =ielm-return= | =RET=    | =RET= (submit state) |
+
+** Customization
+
+   | Variable                                | Default | Purpose                                                |
+   |-----------------------------------------+---------+--------------------------------------------------------|
+   | =evil-collection-ielm-move-cursor-back= | =nil=   | Move cursor back one column when leaving insert state. |
+
+** Notes
+
+   - On entering normal state, point stays put (no Vim-style backward step).

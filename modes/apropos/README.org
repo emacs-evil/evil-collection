@@ -1,0 +1,15 @@
+* apropos
+
+  Evil bindings for =apropos-mode=.
+
+** Key bindings
+
+   | Command           | Original | Evil      |
+   |-------------------+----------+-----------|
+   | =apropos-follow=  | =RET=    | =RET=     |
+   | =forward-button=  | =TAB=    | =TAB=     |
+   | =backward-button= | =S-TAB=  | =S-TAB=   |
+   | =describe-mode=   | =h=, =?= | =g?=      |
+   | =revert-buffer=   | =g=      | =gr=      |
+   | =quit-window=     | =q=      | =q=, =ZZ= |
+   | =evil-quit=       | n/a      | =ZQ=      |

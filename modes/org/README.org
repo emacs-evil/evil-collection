@@ -1,0 +1,46 @@
+* org
+
+  Basic Evil bindings for [[https://orgmode.org/][org-mode]]. Not intended to supersede
+  [[https://github.com/Somelauw/evil-org-mode][evil-org-mode]] — only a handful of
+  overrides that align Org with Evil motion idioms.
+
+** Key bindings
+
+*** org-mode-map (normal)
+
+    | Command        | Original | Evil      |
+    |----------------+----------+-----------|
+    | =org-cycle=    | =TAB=    | =<tab>=   |
+    | =org-shifttab= | =S-TAB=  | =<S-tab>= |
+
+*** org-mode-map (motion)
+
+    | Command                  | Original | Evil |
+    |--------------------------+----------+------|
+    | =org-backward-paragraph= | n/a      | ={=  |
+    | =org-forward-paragraph=  | n/a      | =}=  |
+    | =org-backward-sentence=  | n/a      | =(=  |
+    | =org-forward-sentence=   | n/a      | =)=  |
+
+*** org-capture-mode-map (normal)
+
+    | Command                | Original  | Evil |
+    |------------------------+-----------+------|
+    | =org-capture-finalize= | =C-c C-c= | =ZZ= |
+    | =org-capture-kill=     | =C-c C-k= | =ZQ= |
+    | =org-capture-refile=   | =C-c C-w= | =ZR= |
+
+*** org-read-date-minibuffer-local-map
+
+    Calendar navigation in the date prompt:
+
+    | Command                       | Key   |
+    |-------------------------------+-------|
+    | =org-calendar-backward-day=   | =M-h= |
+    | =org-calendar-forward-day=    | =M-l= |
+    | =org-calendar-backward-week=  | =M-k= |
+    | =org-calendar-forward-week=   | =M-j= |
+    | =org-calendar-backward-month= | =M-H= |
+    | =org-calendar-forward-month=  | =M-L= |
+    | =org-calendar-backward-year=  | =M-K= |
+    | =org-calendar-forward-year=   | =M-J= |

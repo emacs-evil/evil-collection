@@ -1,0 +1,11 @@
+* hideshow
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Hideshow.html][hideshow]] (=hs-minor-mode=). Standard fold operations
+  (=zo=, =zc=, =zr=, =zm=, =zR=, =zM=, =za=) are provided by evil itself via
+  =evil-fold-list=; this module adds the missing level-hide binding.
+
+** Key bindings
+
+   | Command         | Original    | Evil |
+   |-----------------+-------------+------|
+   | =hs-hide-level= | =C-c @ C-l= | =zL= |

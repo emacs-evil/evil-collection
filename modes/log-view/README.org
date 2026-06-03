@@ -1,0 +1,20 @@
+* log-view
+
+  Evil bindings for =log-view-mode= (VC log buffers for git, hg, svn, etc.).
+
+** Key bindings
+
+   | Command                          | Original     | Evil            |
+   |----------------------------------+--------------+-----------------|
+   | =log-view-toggle-entry-display=  | =RET=, =TAB= | =TAB=           |
+   | =log-view-diff=                  | =d=, ===     | =RET=, =d=, === |
+   | =log-view-diff-changeset=        | =D=          | =D=             |
+   | =log-view-toggle-mark-entry=     | =m=          | =m=             |
+   | =log-view-modify-change-comment= | =e=          | =c=             |
+   | =log-view-annotate-version=      | =a=          | =a=             |
+   | =log-view-find-revision=         | =f=          | =F=             |
+   | =log-view-msg-next=              | =n=, =TAB=   | =gj=, =]]=      |
+   | =log-view-msg-prev=              | =p=          | =gk=, =[[=      |
+   | =log-view-file-next=             | n/a          | =C-j=           |
+   | =log-view-file-prev=             | n/a          | =C-k=           |
+   | =quit-window=                    | =q=          | =q=             |

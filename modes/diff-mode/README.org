@@ -1,0 +1,66 @@
+* diff-mode
+
+  Evil bindings for =diff-mode=. By default they are installed on a dedicated
+  minor mode (=evil-collection-diff-mode=) attached to every =diff-mode= buffer,
+  so normal/insert states keep working for editing. Set
+  =evil-collection-diff-mode-want-minor-mode= to =nil= to instead bind on
+  =diff-mode-map= and have read-only / motion state toggle together.
+
+** Key bindings (minor-mode setup, default)
+
+   Active in normal state.
+
+   | Command            | Original  | Evil        |
+   |--------------------+-----------+-------------|
+   | =diff-goto-source= | =C-c C-c= | =RET=       |
+   | =diff-file-prev=   | =M-{=     | =[[=        |
+   | =diff-file-next=   | =M-}=     | =]]=        |
+   | =diff-hunk-prev=   | =M-p=     | =gk=, =C-k= |
+   | =diff-hunk-next=   | =M-n=     | =gj=, =C-j= |
+   | =diff-ediff-patch= | =C-c C-e= | =ge=        |
+   | =read-only-mode=   | n/a       | =\=         |
+   | =quit-window=      | n/a       | =q=         |
+
+   With =evil-collection-want-g-bindings= (the default), edit commands sit under
+   =g=:
+
+   | Command                                       | Original  | Evil |
+   |-----------------------------------------------+-----------+------|
+   | =diff-apply-hunk=                             | =C-c C-a= | =ga= |
+   | =diff-refine-hunk=                            | =C-c C-b= | =g*= |
+   | =diff-hunk-kill=                              | =C-c C-k= | =gx= |
+   | =diff-file-kill=                              | =C-c M-k= | =gX= |
+   | =diff-split-hunk=                             | =C-c C-s= | =gs= |
+   | =diff-test-hunk=                              | =C-c C-t= | =gc= |
+   | =diff-reverse-direction=                      | =C-c C-r= | =g~= |
+   | =diff-ignore-whitespace-hunk=                 | =C-c C-w= | =g#= |
+   | =diff-add-change-log-entries-other-window=    | =C-x 4 A= | =gA= |
+   | =evil-collection-diff-toggle-context-unified= | n/a       | =g%= |
+   | =evil-collection-diff-toggle-restrict-view=   | =C-c C-n= | =go= |
+   | =next-error-follow-minor-mode=                | =C-c C-f= | =gi= |
+
+   Without =evil-collection-want-g-bindings=, the commands above land on their
+   single-letter equivalents (=a=, =*=, =d=, =D=, =s=, =c=, =~=, =#=, =A=, =x=,
+   =o=, =i=) instead.
+
+** Motion-state setup (when =evil-collection-diff-mode-want-minor-mode= is nil)
+
+   Same set of commands, but they go on =diff-mode-map= directly in normal and
+   motion states. A hook (=evil-collection-diff-toggle-setup=) flips state
+   whenever the buffer's read-only flag changes — read-only buffers enter motion
+   state, writable buffers normal state. Toggle this hook per-buffer with =M-x
+   evil-collection-diff-toggle-setup=.
+
+** New commands
+
+   | Command                                       | Key  |                                                  |
+   |-----------------------------------------------+------+--------------------------------------------------|
+   | =evil-collection-diff-toggle-context-unified= | =g%= | Toggle context <-> unified view.                 |
+   | =evil-collection-diff-toggle-restrict-view=   | =go= | Toggle =diff-restrict-view=; widens if narrowed. |
+   | =evil-collection-diff-toggle-setup=           | n/a  | Toggle the read-only state hook in the buffer.   |
+
+** Customization
+
+   | Variable                                    | Default | Purpose                                                                    |
+   |---------------------------------------------+---------+----------------------------------------------------------------------------|
+   | =evil-collection-diff-mode-want-minor-mode= | =t=     | Bind on =evil-collection-diff-mode= minor mode instead of =diff-mode-map=. |

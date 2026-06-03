@@ -1,0 +1,17 @@
+* scheme
+
+  Evil bindings for =scheme-mode=.
+
+** Key bindings
+
+   Added to =scheme-mode-map= in normal state.
+
+   | Command                       | Original | Evil |
+   |-------------------------------+----------+------|
+   | =evil-collection-scheme-repl= | n/a      | =gz= |
+
+** New commands
+
+   | Command                       | Key  |                                                |
+   |-------------------------------+------+------------------------------------------------|
+   | =evil-collection-scheme-repl= | =gz= | pop to =*scheme*= buffer and call =run-scheme= |

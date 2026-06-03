@@ -1,0 +1,34 @@
+* epa
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/epa/index.html][EasyPG Assistant]] (=epa-key-list-mode=, =epa-key-mode=,
+  =epa-info-mode=).
+
+** Key bindings
+
+*** epa-key-list-mode-map
+
+    | Command            | Original | Evil  |
+    |--------------------+----------+-------|
+    | =widget-forward=   | =TAB=    | =TAB= |
+    | =revert-buffer=    | =g=      | =gr=  |
+    | =epa-exit-buffer=  | =q=      | =q=   |
+    | =quit-window=      | n/a      | =ZZ=  |
+    | =evil-quit=        | n/a      | =ZQ=  |
+    | =epa-decrypt-file= | =d=      | =E=   |
+    | =epa-delete-keys=  | =r=      | =d=   |
+    | =epa-verify-file=  | =v=      | =V=   |
+    | =epa-mark-key=     | =m=      | =m=   |
+    | =epa-unmark-key=   | =u=      | =u=   |
+    | =epa-sign-file=    | =s=      | =s=   |
+    | =epa-encrypt-file= | =e=      | =e=   |
+    | =epa-import-keys=  | =i=      | =i=   |
+    | =epa-export-keys=  | =o=      | =o=   |
+
+*** epa-key-mode-map / epa-info-mode-map
+
+    | Command           | Original | Evil       |
+    |-------------------+----------+------------|
+    | =epa-exit-buffer= | =q=      | =q=        |
+    | =delete-window=   | n/a      | =q= (info) |
+    | =quit-window=     | n/a      | =ZZ=       |
+    | =evil-quit=       | n/a      | =ZQ=       |

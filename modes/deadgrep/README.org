@@ -1,0 +1,24 @@
+* deadgrep
+
+  Evil bindings for [[https://github.com/Wilfred/deadgrep][deadgrep]].
+
+** deadgrep-mode-map
+
+   | Command                              | Original  | Evil          |
+   |--------------------------------------+-----------+---------------|
+   | =deadgrep-visit-result=              | =RET=     | =RET=         |
+   | =deadgrep-visit-result-other-window= | =o=       | =S-RET=, =go= |
+   | =deadgrep-forward-match=             | =n=       | =C-j=, =gj=   |
+   | =deadgrep-backward-match=            | =p=       | =C-k=, =gk=   |
+   | =deadgrep-toggle-file-results=       | =TAB=     | =TAB=         |
+   | =deadgrep-restart=                   | =g=       | =gr=          |
+   | =deadgrep-edit-mode=                 | =C-x C-q= | =i=           |
+   | =quit-window=                        | n/a       | =q=, =ZZ=     |
+   | =evil-quit=                          | n/a       | =ZQ=          |
+
+** deadgrep-edit-mode-map
+
+   | Command                 | Original  | Evil       |
+   |-------------------------+-----------+------------|
+   | =deadgrep-visit-result= | =RET=     | =RET=      |
+   | =deadgrep-mode=         | =C-c C-c= | =<escape>= |

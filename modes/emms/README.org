@@ -1,0 +1,131 @@
+* emms
+
+  Evil bindings for [[https://www.gnu.org/software/emms/][EMMS]].
+
+** emms-browser-mode-map
+
+   Insert state is inhibited; the browser is forced into normal state.
+
+   | Command                                    | Original    | Evil              |
+   |--------------------------------------------+-------------+-------------------|
+   | =emms-pause=                               | =P=         | =x=               |
+   | =emms-stop=                                | =s=         | =X=               |
+   | =emms-random=                              | =r=         | =r=               |
+   | =emms-seek-backward=                       | =<=         | =<=               |
+   | =emms-seek-forward=                        | =>=         | =>=               |
+   | =emms-browser-add-tracks=                  | =RET=       | =RET=             |
+   | =emms-browser-add-tracks-and-play=         | =C-RET=     | =C-RET=           |
+   | =emms-volume-raise=                        | =+=         | =+=, ===          |
+   | =emms-volume-lower=                        | =-=         | =-=               |
+   | =emms-playlist-mode-undo=                  | =C-/=       | =u=               |
+   | =emms-browser-prev-non-track=              | =<backtab>= | =[[=, =C-k=, =gk= |
+   | =emms-browser-next-non-track=              | n/a         | =]]=, =C-j=, =gj= |
+   | =emms-browser-toggle-subitems-recursively= | n/a         | =TAB=, =S-TAB=    |
+   | =emms-browser-move-up-level=               | =^=         | =^=               |
+   | =emms-browser-toggle-subitems=             | =SPC=       | =SPC=             |
+   | =emms-browser-collapse-all=                | =1=         | =g1=, =zm=, =zc=  |
+   | =emms-browser-expand-to-level-2=           | =2=         | =g2=              |
+   | =emms-browser-expand-to-level-3=           | =3=         | =g3=              |
+   | =emms-browser-expand-to-level-4=           | =4=         | =g4=              |
+   | =emms-browser-expand-all=                  | =E=         | =g0=, =zr=        |
+   | =emms-browser-expand-one-level=            | n/a         | =zo=              |
+   | =emms-browse-by-artist=                    | =b 1=       | =ga=              |
+   | =emms-browse-by-album=                     | =b 2=       | =gA=              |
+   | =emms-browse-by-genre=                     | =b 3=       | =gb=              |
+   | =emms-browse-by-year=                      | =b 4=       | =gy=              |
+   | =emms-browse-by-composer=                  | =b 5=       | =gc=              |
+   | =emms-browse-by-performer=                 | =b 6=       | =gp=              |
+   | =emms-isearch-buffer=                      | =/=         | =/=               |
+   | =isearch-repeat-forward=                   | n/a         | =n=               |
+   | =isearch-repeat-backward=                  | n/a         | =N=               |
+   | =emms-browser-clear-playlist=              | =C=         | =C=               |
+   | =emms-browser-delete-files=                | =D=         | (default)         |
+   | =emms-browser-remove-tracks=               | n/a         | =D=               |
+   | =emms-browser-view-in-dired=               | =d=         | =d=, =gd=         |
+   | (parent =W= prefix)                        | =W=         | =g=               |
+   | (parent =s= prefix)                        | =s=         | =s=               |
+
+** emms-playlist-mode-map
+
+   Initial evil state is normal.
+
+   | Command                                                   | Original   | Evil        |
+   |-----------------------------------------------------------+------------+-------------|
+   | =emms-pause=                                              | =P=        | =x=         |
+   | =emms-stop=                                               | =s=        | =X=         |
+   | =emms-random=                                             | =r=        | =r=         |
+   | =emms-seek-backward=                                      | =<=        | =<=         |
+   | =emms-seek-forward=                                       | =>=        | =>=         |
+   | =emms-next=                                               | =n=        | =C-j=, =gj= |
+   | =emms-previous=                                           | =p=        | =C-k=, =gk= |
+   | =emms-playlist-mode-play-smart=                           | =RET=      | =RET=       |
+   | =emms-volume-raise=                                       | =+=        | =+=, ===    |
+   | =emms-volume-lower=                                       | =-=        | =-=         |
+   | =emms-playlist-mode-undo=                                 | =C-/=      | =u=         |
+   | =emms-playlist-mode-first=                                | =M-<=      | =gg=        |
+   | =emms-playlist-mode-last=                                 | =M->=      | =G=         |
+   | =emms-playlist-mode-next=                                 | =M-n=      | =]]=        |
+   | =emms-playlist-mode-previous=                             | =M-p=      | =[[=        |
+   | =emms-playlist-mode-kill-track=                           | =C-k=, =D= | =D=         |
+   | =emms-playlist-clear=                                     | =C=        | =C=         |
+   | =evil-collection-emms-playlist-mode-insert-newline-above= | n/a        | =O=         |
+   | =evil-collection-emms-playlist-mode-insert-newline-below= | n/a        | =o=         |
+   | =evil-collection-emms-playlist-mode-paste-before=         | n/a        | =P=         |
+   | =evil-collection-emms-playlist-mode-paste-after=          | n/a        | =p=         |
+   | =emms-tag-editor-edit=                                    | n/a        | =ze=        |
+   | =emms-tag-editor-rename=                                  | n/a        | =R=         |
+   | =emms-playlist-mode-center-current=                       | =c=        | =.=         |
+   | =emms-playlist-mode-goto-dired-at-point=                  | =d=        | =d=, =gd=   |
+   | =emms-show=                                               | =f=        | =zs=        |
+   | =emms-playlist-mode-add-contents=                         | =a=        | =a=         |
+   | =emms-playlist-set-playlist-buffer=                       | =b=        | =zp=        |
+   | (parent =S= sort prefix)                                  | =S=        | =S=         |
+   | (parent =/= filter prefix)                                | =/=        | =s=         |
+   | =emms-playlist-mode-yank-pop=                             | =M-y=      | =M-y=       |
+   | =emms-playlist-mode-kill= (visual)                        | =C-w=      | =D=         |
+
+** emms-browser-search-mode-map
+
+   | Command                    | Original | Evil |
+   |----------------------------+----------+------|
+   | =emms-browser-kill-search= | n/a      | =q=  |
+
+** emms-metaplaylist-mode-map
+
+   Initial evil state is normal.
+
+   | Command                                 | Original | Evil  |
+   |-----------------------------------------+----------+-------|
+   | =emms-metaplaylist-mode-goto-current=   | =RET=    | =RET= |
+   | =emms-metaplaylist-mode-set-active=     | =SPC=    | =SPC= |
+   | =emms-metaplaylist-mode-update=         | =g=      | =gr=  |
+   | =emms-metaplaylist-mode-new-buffer=     | =C=      | =C=   |
+   | =emms-metaplaylist-mode-center-current= | =c=      | =.=   |
+   | =emms-metaplaylist-mode-kill-buffer=    | =C-k=    | =D=   |
+   | =kill-current-buffer=                   | =q=      | =q=   |
+
+** emms-stream-mode-map
+
+   Initial evil state is normal.
+
+   | Command                             | Original | Evil     |
+   |-------------------------------------+----------+----------|
+   | =emms-stream-play=                  | =RET=    | =RET=    |
+   | =emms-stream-next-line=             | =n=      | =j=      |
+   | =emms-stream-previous-line=         | =p=      | =k=      |
+   | =emms-stream-yank-bookmark=         | =y=      | =y=      |
+   | =emms-stream-kill-bookmark=         | =k=      | =d=      |
+   | =emms-stream-edit-bookmark=         | =e=      | =c=, =r= |
+   | =emms-stream-info-bookmark=         | =i=      | =i=      |
+   | =emms-stream-save-bookmarks-file=   | =s=      | =s=      |
+   | =emms-stream-toggle-default-action= | =t=      | =x=      |
+   | =emms-stream-quit=                  | =q=      | =q=      |
+
+** New commands
+
+   | Command                                                   | Purpose                                                       |
+   |-----------------------------------------------------------+---------------------------------------------------------------|
+   | =evil-collection-emms-playlist-mode-insert-newline-above= | =O= equivalent that respects =emms-with-inhibit-read-only-t=. |
+   | =evil-collection-emms-playlist-mode-insert-newline-below= | =o= variant.                                                  |
+   | =evil-collection-emms-playlist-mode-paste-before=         | =P= -- yank playlist items before point.                      |
+   | =evil-collection-emms-playlist-mode-paste-after=          | =p= -- yank playlist items after point.                       |

@@ -1,0 +1,39 @@
+* outline
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Outline-Mode.html][outline-mode]].
+
+  Folding sticks to Evil's =z= namespace, augmenting the defaults =zO=, =za=,
+  =zc=, =zm=, =zo=, =zr= with outline-specific commands.
+
+** Key bindings
+
+   Bindings applied to =outline-mode-map= in normal state.
+
+   | Command                            | Original  | Evil               |
+   |------------------------------------+-----------+--------------------|
+   | =outline-hide-body=                | =C-c C-t= | =zB=               |
+   | =outline-hide-entry=               | =C-c C-c= | =zE=               |
+   | =outline-show-entry=               | =C-c C-e= | =ze=               |
+   | =outline-hide-leaves=              | =C-c C-l= | =zl=               |
+   | =outline-show-branches=            | =C-c C-k= | =zK=               |
+   | =outline-show-children=            | =C-c TAB= | =zk=               |
+   | =outline-hide-other=               | =C-c C-o= | =zp=               |
+   | =outline-up-heading=               | =C-c C-u= | =zu=               |
+   | =outline-previous-visible-heading= | =C-c C-p= | =[[=               |
+   | =outline-next-visible-heading=     | =C-c C-n= | =]]=               |
+   | =outline-backward-same-level=      | =C-c C-b= | =C-k=, =gk=        |
+   | =outline-forward-same-level=       | =C-c C-f= | =C-j=, =gj=        |
+   | =outline-promote=                  | =C-c C-<= | =M-h=              |
+   | =outline-demote=                   | =C-c C->= | =M-l=              |
+   | =outline-move-subtree-up=          | =C-c C-^= | =M-k=              |
+   | =outline-move-subtree-down=        | =C-c C-v= | =M-j=              |
+   | =outline-insert-heading=           | =C-c RET= | =M-<return>=       |
+   | =outline-show-all=                 | =C-c C-a= | =<backtab>= (opt.) |
+   | =outline-toggle-children=          | =C-c TAB= | =<tab>= (opt.)     |
+
+** Customization
+
+   | Variable                                         | Default | Purpose                                                                                    |
+   |--------------------------------------------------+---------+--------------------------------------------------------------------------------------------|
+   | =evil-collection-outline-bind-tab-p=             | =nil=   | Bind =<tab>= / =<backtab>= to outline cycling (off by default to avoid clashing with Org). |
+   | =evil-collection-outline-enable-in-minor-mode-p= | =t=     | Inherit the same bindings in =outline-minor-mode= via auxiliary keymap parenting.          |

@@ -1,0 +1,22 @@
+* kmacro
+
+  Evil bindings for the [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macros.html][kmacro]] menu.
+
+** Key bindings
+
+   Bindings applied to =kmacro-menu-mode-map=. Initial state is normal.
+
+   | Command                         | Original | Evil  |
+   |---------------------------------+----------+-------|
+   | =kmacro-menu-edit-column=       | =RET=    | =RET= |
+   | =kmacro-menu-edit-position=     | =#=      | =#=   |
+   | =kmacro-menu-edit-counter=      | =c=      | =c=   |
+   | =kmacro-menu-edit-format=       | =f=      | =f=   |
+   | =kmacro-menu-edit-keys=         | =e=      | =e=   |
+   | =kmacro-menu-flag-for-deletion= | =d=      | =d=   |
+   | =kmacro-menu-mark=              | =m=      | =m=   |
+   | =kmacro-menu-unmark=            | =u=      | =u=   |
+   | =kmacro-menu-unmark-all=        | =U=      | =U=   |
+   | =kmacro-menu-do-flagged-delete= | =x=      | =x=   |
+   | =kmacro-menu-do-copy=           | =C=      | =C=   |
+   | =kmacro-menu-do-delete=         | =D=      | =D=   |

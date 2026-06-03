@@ -1,0 +1,25 @@
+* profiler
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Profiling.html][profiler]].
+
+** Key bindings
+
+   Bindings added to =profiler-report-mode-map= in normal state.
+
+   | Command                                    | Original   | Evil                |
+   |--------------------------------------------+------------+---------------------|
+   | =profiler-report-next-entry=               | =n=        | =j=                 |
+   | =profiler-report-previous-entry=           | =p=        | =k=                 |
+   | =profiler-report-toggle-entry=             | =RET=, =i= | =TAB=               |
+   | =profiler-report-find-entry=               | =f=, =j=   | =RET=               |
+   | =profiler-report-describe-entry=           | =d=        | =i=                 |
+   | =profiler-report-render-calltree=          | =C=        | =c=                 |
+   | =profiler-report-render-reversed-calltree= | =B=        | =C=                 |
+   | =profiler-report-ascending-sort=           | =A=        | =o=                 |
+   | =profiler-report-descending-sort=          | =D=        | =O=                 |
+   | =profiler-report-compare-profile=          | ===        | ===                 |
+   | =scroll-up-command=                        | n/a        | =SPC=               |
+   | =scroll-down-command=                      | n/a        | =S-SPC=, =<delete>= |
+   | =revert-buffer=                            | n/a        | =gr=                |
+   | =quit-window=                              | n/a        | =q=, =ZZ=           |
+   | =evil-quit=                                | n/a        | =ZQ=                |

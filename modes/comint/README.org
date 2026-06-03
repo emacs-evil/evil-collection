@@ -1,0 +1,29 @@
+* comint
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Comint.html][comint-mode]], the base mode for many Emacs shells and
+  REPLs (shell, inferior-lisp, sql, python, etc.). Bindings here propagate to
+  every derived mode that does not override them.
+
+** Key bindings
+
+   Normal-state additions to =comint-mode-map=:
+
+   | Command                  | Original  | Evil                                |
+   |--------------------------+-----------+-------------------------------------|
+   | =comint-next-prompt=     | =C-c C-n= | =C-j=, =gj=, =]]=                   |
+   | =comint-previous-prompt= | =C-c C-p= | =C-k=, =gk=, =[[=                   |
+   | =comint-previous-input=  | =M-p=     | =C-p=                               |
+   | =comint-next-input=      | =M-n=     | =C-n=                               |
+   | =evil-scroll-down=       | n/a       | =C-d= (when =evil-want-C-d-scroll=) |
+
+   Insert state:
+
+   | Command                 | Original  | Evil                                |
+   |-------------------------+-----------+-------------------------------------|
+   | =comint-previous-input= | =M-p=     | =<up>=                              |
+   | =comint-next-input=     | =M-n=     | =<down>=                            |
+   | =comint-kill-input=     | =C-c C-u= | =C-u= (when =evil-want-C-u-delete=) |
+
+   =RET= sends input in the state named by =evil-collection-repl-submit-state=
+   and inserts a newline in the complementary state (both =RET= and =C-m= /
+   =[return]= are wired).

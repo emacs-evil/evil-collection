@@ -1,0 +1,53 @@
+* edebug
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Edebug.html][Edebug]].
+
+** Key bindings
+
+   Bindings live in =edebug-mode-map=. Edebug overlays the source while a form
+   is instrumented; evil-collection sets the initial state to normal and frees
+   =g=, =G=, and =h= as prefixes.
+
+   | Command                             | Original  | Evil            |
+   |-------------------------------------+-----------+-----------------|
+   | =edebug-step-mode=                  | =SPC=     | =s=, =C-c C-s=  |
+   | =edebug-next-mode=                  | =n=       | =n=, =C-c C-n=  |
+   | =edebug-go-mode=                    | =g=       | =go=, =C-c C-c= |
+   | =edebug-Go-nonstop-mode=            | =G=       | =gO=            |
+   | =edebug-trace-mode=                 | =t=       | =t=             |
+   | =edebug-Trace-fast-mode=            | =T=       | =T=             |
+   | =edebug-continue-mode=              | =c=       | =c=             |
+   | =edebug-Continue-fast-mode=         | =C=       | =C=             |
+   | =edebug-forward-sexp=               | =f=       | =f=             |
+   | =edebug-step-in=                    | =i=       | =i=             |
+   | =edebug-step-out=                   | =o=       | =o=             |
+   | =edebug-goto-here=                  | =h=       | =H=             |
+   | =edebug-instrument-callee=          | =I=       | =I=             |
+   | =edebug-stop=                       | =S=       | =S=             |
+   | =top-level=                         | =q=       | =q=             |
+   | =edebug-top-level-nonstop=          | =Q=       | =Q=             |
+   | =abort-recursive-edit=              | =a=       | =a=             |
+   | =edebug-set-breakpoint=             | =b=       | =b=, =C-x SPC=  |
+   | =edebug-unset-breakpoint=           | =u=       | =u=, =C-c C-d=  |
+   | =edebug-next-breakpoint=            | =B=       | =B=             |
+   | =edebug-set-conditional-breakpoint= | =x=       | =x=             |
+   | =edebug-set-global-break-condition= | =X=       | =X=             |
+   | =edebug-previous-result=            | =r=       | =r=             |
+   | =edebug-eval-expression=            | =e=       | =e=             |
+   | =edebug-eval-last-sexp=             | =C-x C-e= | =C-x C-e=       |
+   | =edebug-visit-eval-list=            | =E=       | =EL=            |
+   | =edebug-where=                      | =w=       | =WW=, =C-c C-l= |
+   | =edebug-bounce-point=               | =p=       | =p=             |
+   | =edebug-view-outside=               | =v=, =P=  | =P=             |
+   | =edebug-toggle-save-windows=        | =W=       | =WS=            |
+   | =edebug-help=                       | =?=       | =g?=            |
+   | =edebug-backtrace=                  | =d=       | =d=             |
+   | =edebug-temp-display-freq-count=    | ===       | ===             |
+   | =negative-argument=                 | =-=       | =-=             |
+
+** Integrations
+
+   - edebug-x: in =edebug-x-instrumented-function-list-mode-map=, =RET= jumps to
+     the function, =E= evaluates, =Q= clears data, =q= quits. In
+     =edebug-x-breakpoint-list-mode-map=, =RET= visits the breakpoint, =x= kills
+     it, =Q= clears data, =q= quits.

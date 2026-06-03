@@ -1,0 +1,18 @@
+* lua-mode
+
+  Evil bindings for [[https://github.com/immerrr/lua-mode][lua-mode]].
+
+** Key bindings
+
+   | Command                    | Original  | Evil |
+   |----------------------------+-----------+------|
+   | =lua-search-documentation= | =C-c C-f= | =K=  |
+   | =run-lua=                  |           | =gz= |
+
+   Also installs a hook that sets =evil-shift-width= to =lua-indent-level=
+   in =lua-mode= buffers.
+
+** New commands
+
+   - =evil-collection-lua-mode-set-evil-shift-width= — sync
+     =evil-shift-width= with =lua-indent-level= (added to =lua-mode-hook=).

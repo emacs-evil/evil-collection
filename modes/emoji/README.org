@@ -1,0 +1,13 @@
+* emoji
+
+  Evil bindings for =emoji-list-mode= (the buffer produced by =M-x emoji-list=).
+
+** Key bindings
+
+   Read-only motion/quit bindings come from =evil-collection-set-readonly-bindings=
+   and are not repeated below.
+
+   | Command             | Original | Evil  |
+   |---------------------+----------+-------|
+   | =emoji-list-select= | =RET=    | =RET= |
+   | =emoji-list-help=   | =h=      | =gh=  |

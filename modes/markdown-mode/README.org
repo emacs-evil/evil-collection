@@ -1,0 +1,14 @@
+* markdown-mode
+
+  Basic evil bindings for [[https://github.com/jrblevin/markdown-mode][markdown-mode]]. Not intended to supersede
+  [[https://github.com/Somelauw/evil-markdown][evil-markdown]].
+
+** Key bindings (normal state)
+
+   | Command                       | Original    | Evil        |
+   |-------------------------------+-------------+-------------|
+   | =markdown-backward-paragraph= | =M-{=       | ={=         |
+   | =markdown-forward-paragraph=  | =M-}=       | =}=         |
+   | =markdown-cycle=              | =TAB=       | =TAB=       |
+   | =markdown-shifttab=           | =<backtab>= | =<backtab>= |
+   | =markdown-do=                 | =C-c C-d=   | =RET=       |

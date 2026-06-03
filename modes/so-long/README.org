@@ -1,0 +1,22 @@
+* so-long
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/So-Long.html][so-long]], which mitigates performance problems in buffers with very long lines.
+
+** Key bindings
+
+   Normal and visual state bindings added to =so-long-mode-map=. The defaults
+   make motion respect visual lines, matching how so-long buffers are usually
+   read.
+
+   | Command                               | Original | Evil      |
+   |---------------------------------------+----------+-----------|
+   | =evil-next-visual-line=               | n/a      | =j=       |
+   | =evil-previous-visual-line=           | n/a      | =k=       |
+   | =evil-next-line=                      | n/a      | =gj=      |
+   | =evil-previous-line=                  | n/a      | =gk=      |
+   | =evil-beginning-of-visual-line=       | n/a      | =0=, =g0= |
+   | =evil-end-of-visual-line=             | n/a      | =$=       |
+   | =evil-end-of-line=                    | n/a      | =g$=      |
+   | =evil-first-non-blank-of-visual-line= | n/a      | =^=       |
+   | =evil-first-non-blank=                | n/a      | =g^=      |
+   | =end-of-buffer=                       | n/a      | =G=       |

@@ -1,0 +1,140 @@
+* lispy
+
+  Evil bindings for [[https://github.com/abo-abo/lispy][lispy]], the short-key mode for editing s-expressions.
+
+  Installs two additional themes into =lispy-set-key-theme=: ='special-evil'
+  and ='evil'. The setup function applies both, advising
+  =lispy-set-key-theme= so the original themes (=special=, =paredit=, etc.)
+  are bypassed in favour of the evil-flavored variants.
+
+** Key bindings
+
+*** Special state (point on a paren)
+
+    Lispy's "special" state is rebound to mirror vim motions. Keys come from
+    =evil-collection-lispy-mode-map-special=.
+
+    | Command                                             | Original (lispy) | Evil     |
+    |-----------------------------------------------------+------------------+----------|
+    | =lispy-right=                                       | =l=              | =l=      |
+    | =lispy-left=                                        | =h=              | =h=      |
+    | =lispy-down=                                        | =j=              | =j=      |
+    | =lispy-up=                                          | =k=              | =k=      |
+    | =lispy-different=                                   | =o=              | =o=      |
+    | =lispy-ace-paren=                                   | =f=              | =f=      |
+    | =lispy-flow=                                        | =n=              | =n=      |
+    | =lispy-ace-char=                                    | =t=              | =t=      |
+    | =lispy-teleport=                                    | =T=              | =T=      |
+    | =lispy-new-copy=                                    | =y=              | =y=      |
+    | =lispy-paste=                                       | =P=              | =p=      |
+    | =lispy-eval-other-window=                           | =P=              | =P=      |
+    | =lispy-mark-list=                                   | =v=              | =v=      |
+    | =lispy-view=                                        | =V=              | =z=      |
+    | =lispy-x=                                           | =x=              | =q=      |
+    | =lispy-other-mode=                                  | =Q=              | =Q=      |
+    | =lispy-occur=                                       | =/=              | =/=      |
+    | =lispy-splice=                                      | =/=              | =x=      |
+    | =lispy-comment=                                     | =;=              | =;=      |
+    | =evil-collection-lispy-delete=                      | n/a              | =d=      |
+    | =lispy-join=                                        | =+=              | =+=, =J= |
+    | =lispy-describe=                                    | =h=              | =K=      |
+    | =lispy-outline-goto-child=                          | =L=              | =L=      |
+    | =lispy-slurp-or-barf-right=                         | =>=              | =>=      |
+    | =lispy-slurp-or-barf-left=                          | =<=              | =<=      |
+    | =lispy-raise=                                       | =r=              | =r=      |
+    | =lispy-raise-some=                                  | =R=              | =R=      |
+    | =lispy-convolute=                                   | =C=              | =C=      |
+    | =lispy-convolute-left=                              | =X=              | =X=      |
+    | =lispy-move-up=                                     | =w=              | =w=      |
+    | =lispy-move-down=                                   | =s=              | =s=      |
+    | =lispy-oneline=                                     | =O=              | =O=      |
+    | =lispy-alt-multiline=                               | =M=              | =M=      |
+    | =lispy-stringify=                                   | =S=              | =S=      |
+    | =lispy-ace-symbol=                                  | =a=              | =a=      |
+    | =lispy-ace-symbol-replace=                          | =H=              | =H=      |
+    | =lispy-eval=                                        | =e=              | =e=      |
+    | =lispy-eval-and-insert=                             | =E=              | =E=      |
+    | =end-of-defun=                                      | n/a              | =G=      |
+    | =g-knight/body=                                     | n/a              | =g=      |
+    | =evil-collection-lispy-insert-at-end-of-list=       | n/a              | =A=      |
+    | =evil-collection-lispy-insert-at-beginning-of-list= | n/a              | =I=      |
+    | =lispy-follow=                                      | =F=              | =F=      |
+    | =pop-tag-mark=                                      | =D=              | =D=      |
+    | =lispy-underscore=                                  | =_=              | =_=      |
+    | =lispy-space=                                       | =SPC=            | =SPC=    |
+    | =lispy-tab-hydra/body=                              | n/a              | =TAB=    |
+    | =lispy-narrow=                                      | =N=              | =N=      |
+    | =lispy-widen=                                       | =W=              | =W=      |
+    | =lispy-clone=                                       | =c=              | =c=      |
+    | =lispy-undo=                                        | =u=              | =u=      |
+    | =lispy-back=                                        | =b=              | =b=      |
+    | =lispy-ediff-regions=                               | =B=              | =B=      |
+    | =lispy-edebug-stop=                                 | =Z=              | =Z=      |
+    | =lispy-visit=                                       | =V=              | =V=      |
+    | =lispy-ace-subword=                                 | =-=              | =-=      |
+    | =lispy-repeat=                                      | =.=              | =.=      |
+    | =lispy-tilde=                                       | =~=              | =~=      |
+    | =lispy-forward=                                     | =]=              | =]=      |
+    | =lispy-backward=                                    | =[=              | =[=      |
+    | =lispy-brackets=                                    | ={=              | ={=      |
+    | =lispy-outline-next=                                | =J=              | =C-J=    |
+    | =lispy-outline-prev=                                | =K=              | =C-K=    |
+    | =lispy-splice-sexp-killing-backward=                | =^=              | =^=      |
+    | =lispy-splice-sexp-killing-forward=                 | =$=              | =$=      |
+    | =lispy-move-down=                                   | =M-j=            | =M-j=    |
+    | =lispy-move-up=                                     | =M-k=            | =M-k=    |
+
+*** Evil normal state
+
+    These bindings live in =evil-collection-lispy-mode-map= and are active in
+    evil normal state.
+
+    | Command                              | Original   | Evil         |
+    |--------------------------------------+------------+--------------|
+    | =lispy-left=                         | =C-M-u=    | =M-n=        |
+    | =lispy-kill-word=                    | =M-d=      | =M-d=        |
+    | =lispy-backward-kill-word=           | =M-DEL=    | =M-DEL=      |
+    | =lispy-parens=                       | =(=        | =(=          |
+    | =lispy-comment=                      | =;=        | =;=          |
+    | =lispy-goto-symbol=                  | =M-.=      | =gd=         |
+    | =pop-tag-mark=                       | =M-,=      | =C-t=        |
+    | =lispy-wrap-round=                   | =M-(=      | =M-(=, =M-)= |
+    | =lispy-wrap-braces=                  | =M-{=      | =M-{=, =M-}= |
+    | =lispy-splice=                       | =M-s=      | =M-s=        |
+    | =lispy-splice-sexp-killing-backward= | =M-<up>=   | =M-<up>=     |
+    | =lispy-splice-sexp-killing-forward=  | =M-<down>= | =M-<down>=   |
+    | =lispy-raise-sexp=                   | =M-r=      | =M-r=        |
+    | =lispy-raise-some=                   | =M-R=      | =M-R=        |
+    | =lispy-convolute-sexp=               | =M-C=      | =M-C=        |
+    | =lispy-split=                        | =M-S=      | =M-S=        |
+    | =lispy-join=                         | =M-J=      | =M-J=        |
+    | =lispy-forward=                      | =C-M-n=    | =]=          |
+    | =lispy-backward=                     | =C-M-p=    | =[=          |
+    | =lispy-slurp-or-barf-left=           | n/a        | =<=          |
+    | =lispy-slurp-or-barf-right=          | n/a        | =>=          |
+    | =lispy-new-copy=                     | =M-y=      | =M-y=        |
+    | =lispy-open-line=                    | =C-RET=    | =C-RET=      |
+    | =lispy-meta-return=                  | =M-RET=    | =M-RET=      |
+    | =lispy-move-up=                      | =M-k=      | =M-k=        |
+    | =lispy-move-down=                    | =M-j=      | =M-j=        |
+    | =lispy-string-oneline=               | =M-o=      | =M-o=        |
+    | =lispy-clone=                        | =M-p=      | =M-p=        |
+    | =evil-collection-lispy-delete=       | n/a        | =M-d=        |
+
+** New commands
+
+   | Command                                             | Notes                                            |
+   |-----------------------------------------------------+--------------------------------------------------|
+   | =evil-collection-lispy-insert-at-beginning-of-list= | Enter insert/emacs state at start of list (=I=). |
+   | =evil-collection-lispy-insert-at-end-of-list=       | Enter insert/emacs state at end of list (=A=).   |
+   | =evil-collection-lispy-delete=                      | Copy and delete the current sexp.                |
+   | =evil-collection-lispy-action-then-next-sexp=       | Helper to wrap a lispy action with =lispy-down=. |
+   | =evil-collection-lispy--out-forward=                | Helper around =lispy--out-forward=.              |
+   | =evil-collection-lispy-set-key-theme=               | Replacement for =lispy-set-key-theme= adding the |
+   |                                                     | ='special-evil' and ='evil' themes.              |
+
+** Customization
+
+   - =evil-collection-lispy-preferred-lispy-state= - The evil state
+     (=insert= or =emacs=) entered by =A= and =I= for using lispy. Defaults
+     to =insert=.

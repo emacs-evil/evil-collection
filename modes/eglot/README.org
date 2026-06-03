@@ -1,0 +1,19 @@
+* eglot
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/eglot/index.html][eglot]], the built-in LSP client.
+
+** Key bindings (normal state)
+
+   | Command                              | Original  | Evil  |
+   |--------------------------------------+-----------+-------|
+   | =xref-find-definitions=              | =M-.=     | =gd=  |
+   | =xref-find-definitions-other-window= | =C-x 4 .= | =gD=  |
+   | =xref-find-definitions-other-frame=  | =C-x 5 .= | =g5=  |
+   | =xref-pop-marker-stack=              | =M-,=     | =C-t= |
+   | =eldoc-doc-buffer=                   | n/a       | =K=   |
+   | =xref-find-references=               | =M-?=     | =gr=  |
+
+   =gr= is only bound when =evil-collection-want-find-usages-bindings= is non-nil.
+
+   =eglot-managed-mode-hook= adds =evil-normalize-keymaps= so the bindings
+   activate as soon as eglot manages a buffer.

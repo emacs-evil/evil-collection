@@ -1,0 +1,18 @@
+* process-menu
+
+  Evil bindings for =process-menu-mode= (=M-x list-processes=).
+
+  Read-only motion / quit bindings come from
+  =evil-collection-set-readonly-bindings= and are not repeated below.
+
+** Key bindings
+
+   | Command                       | Original | Evil    |
+   |-------------------------------+----------+---------|
+   | =process-menu-delete-process= | =d=      | =D=     |
+   | =tabulated-list-sort=         | =S=      | =S=     |
+   | =forward-button=              | n/a      | =TAB=   |
+   | =backward-button=             | n/a      | =S-TAB= |
+   | =evil-scroll-down=            | n/a      | =SPC=   |
+   | =evil-scroll-up=              | n/a      | =S-SPC= |
+   | =revert-buffer=               | n/a      | =gr=    |

@@ -1,0 +1,20 @@
+* difftastic
+
+  Evil bindings for [[https://github.com/pkryger/difftastic.el][difftastic]] result buffers.
+
+** Key bindings
+
+   | Command                               | Original            | Evil        |
+   |---------------------------------------+---------------------+-------------|
+   | =difftastic-previous-file=            | =P=, =M-p=          | =[[=        |
+   | =difftastic-next-file=                | =N=, =M-n=          | =]]=        |
+   | =difftastic-next-chunk=               | =n=                 | =C-j=, =gj= |
+   | =difftastic-previous-chunk=           | =p=                 | =C-k=, =gk= |
+   | =difftastic-hide-chunk=               |                     | =zc=        |
+   | =difftastic-show-chunk=               |                     | =zo=        |
+   | =difftastic-toggle-chunk=             | =TAB=               | =TAB=       |
+   | =difftastic-diff-visit-file=          | =RET=               | =RET=       |
+   | =difftastic-diff-visit-worktree-file= | =C-<return>=, =C-j= | =o=         |
+   | =difftastic-rerun=                    | =g=                 | =gr=        |
+   | =difftastic-leave=                    | =c=, =e=            | =q=         |
+   | =difftastic-quit=                     | =q=                 | =ZQ=        |

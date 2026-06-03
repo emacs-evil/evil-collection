@@ -1,0 +1,13 @@
+* macrostep
+
+  Evil bindings for [[https://github.com/emacsorphanage/macrostep][macrostep]], the interactive macro expander.
+
+** Key bindings
+
+   | Command                  | Original     | Evil        |
+   |--------------------------+--------------+-------------|
+   | =macrostep-expand=       | =e=          | =e=         |
+   | =macrostep-collapse=     | =c=          | =u=         |
+   | =macrostep-collapse-all= | =C-c C-c=    | =q=         |
+   | =macrostep-next-macro=   | =n=, =TAB=   | =gj=, =C-j= |
+   | =macrostep-prev-macro=   | =p=, =M-TAB= | =gk=, =C-k= |

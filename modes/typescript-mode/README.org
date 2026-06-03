@@ -1,0 +1,13 @@
+* typescript-mode
+
+  Evil integration for [[https://github.com/emacs-typescript/typescript.el][typescript-mode]].
+
+  No key bindings are added. The setup installs a hook that sets
+  =evil-shift-width= to =typescript-indent-level= in =typescript-mode=
+  buffers so that evil shift operators match the mode's indentation.
+
+** New commands
+
+   - =evil-collection-typescript-mode-set-evil-shift-width= — sync
+     =evil-shift-width= with =typescript-indent-level= (added to
+     =typescript-mode-hook=).

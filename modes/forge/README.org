@@ -1,0 +1,44 @@
+* forge
+
+  Evil bindings for [[https://github.com/magit/forge][forge]].
+
+  Setup disables =forge-add-default-bindings= (which would clobber evil keys
+  on magit maps), then rebinds forge dispatch and remaps =magit-browse-thing=
+  on the relevant magit section maps. The state used is controlled by
+  =evil-collection-forge-state=.
+
+** Key bindings
+
+*** magit-mode-map
+
+    | Command          | Original | Evil |
+    |------------------+----------+------|
+    | =forge-dispatch= | (none)   | =@=  |
+
+*** magit-commit-section-map / magit-remote-section-map / magit-branch-section-map
+
+    | Command                                                 | Original | Evil                            |
+    |---------------------------------------------------------+----------+---------------------------------|
+    | =forge-browse-dwim= / =forge-browse-remote= / =-branch= | n/a      | (remap of =magit-browse-thing=) |
+    | =forge-visit-topic=                                     | n/a      | =C-c C-v= (commit / branch)     |
+
+** Transient extensions
+
+   The following are appended to magit transients:
+
+   | Transient           | Suffix                                    |
+   |---------------------+-------------------------------------------|
+   | =magit-dispatch=    | =@= Forge                                 |
+   | =magit-fetch=       | =n= forge topics, =N= forge notifications |
+   | =magit-pull=        | =n= forge topics, =N= forge notifications |
+   | =magit-branch=      | =f= pull-request, =F= from pull-request   |
+   | =magit-worktree=    | =n= pull-request worktree                 |
+   | =magit-status-jump= | =Np= pull-requests, =Ni= issues           |
+   | =magit-merge=       | =M= Merge using API                       |
+
+** Customization
+
+   | Variable                               | Default              | Purpose                                           |
+   |----------------------------------------+----------------------+---------------------------------------------------|
+   | =evil-collection-forge-use-y-for-yank= | =t=                  | Keep =y= as yank; also adds visual state.         |
+   | =evil-collection-forge-state=          | =normal= or =motion= | Evil state used for forge bindings on magit maps. |

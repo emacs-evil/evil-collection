@@ -1,0 +1,18 @@
+* flycheck
+
+  Evil bindings for the [[https://www.flycheck.org/][flycheck]] error list.
+
+  Initial state for =flycheck-error-list-mode= is =normal=.
+
+** flycheck-error-list-mode-map (normal state)
+
+   | Command                              | Original | Evil              |
+   |--------------------------------------+----------+-------------------|
+   | =flycheck-error-list-next-error=     | =n=      | =gj=, =C-j=, =]]= |
+   | =flycheck-error-list-previous-error= | =p=      | =gk=, =C-k=, =[[= |
+   | =flycheck-error-list-check-source=   | =g=      | =gr=              |
+   | =flycheck-error-list-set-filter=     | =f=      | =s=               |
+   | =flycheck-error-list-reset-filter=   | =F=      | =S=               |
+   | =flycheck-error-list-explain-error=  | =e=      | =x=               |
+   | =flycheck-error-list-goto-error=     | =RET=    | =RET=             |
+   | =quit-window=                        | =q=      | =q=               |

@@ -1,0 +1,11 @@
+* imenu
+
+  Evil integration for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Imenu.html][imenu]]. No keymap is touched; the setup only marks
+  =imenu= as a non-repeatable jump command for evil's jump list and dot-repeat
+  machinery.
+
+** Notes
+
+   - =imenu= is declared with =evil-declare-not-repeat=.
+   - =imenu= is given the =:jump t= command property so it integrates with
+     =C-o= / =C-i= and =evil-set-jump=.

@@ -1,0 +1,60 @@
+* ibuffer
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Ibuffer.html][IBuffer]].
+
+** Key bindings
+
+   Most marking, filtering, and operate-on-marked commands keep their default
+   ibuffer keys. The table below covers what evil-collection relocates.
+
+   | Command                                      | Original        | Evil                                       |
+   |----------------------------------------------+-----------------+--------------------------------------------|
+   | =ibuffer-forward-line=                       | =n=             | (default)                                  |
+   | =ibuffer-backward-line=                      | =p=             | (default)                                  |
+   | =ibuffer-forward-line= (g-prefix)            | n/a             | =gj=                                       |
+   | =ibuffer-backward-line= (g-prefix)           | n/a             | =gk=                                       |
+   | =ibuffer-update=                             | =g=             | =gr=                                       |
+   | =ibuffer-redisplay=                          | =l=             | =gR=                                       |
+   | =ibuffer-jump-to-buffer=                     | =j=, =M-g=      | =J=, =M-g=                                 |
+   | =ibuffer-visit-buffer=                       | =RET=, =e=, =f= | =RET=                                      |
+   | =ibuffer-visit-buffer-other-window=          | =o=             | =go=                                       |
+   | =ibuffer-visit-buffer-other-window-noselect= | =C-o=           | =C-o=                                      |
+   | =ibuffer-visit-buffer-1-window=              | =M-o=           | =M-o=                                      |
+   | =ibuffer-do-view=                            | =A=, =v=        | =A=, =gv=                                  |
+   | =ibuffer-do-view-horizontally=               | =C-x v=         | =gV=                                       |
+   | =ibuffer-mark-forward=                       | =m=             | =m=                                        |
+   | =ibuffer-unmark-forward=                     | =u=             | =u=                                        |
+   | =ibuffer-unmark-backward=                    | =DEL=           | =DEL=                                      |
+   | =ibuffer-toggle-marks=                       | =t=             | =t=, =~=                                   |
+   | =ibuffer-unmark-all-marks=                   | =U=             | =U=                                        |
+   | =ibuffer-unmark-all=                         | =M-DEL=         | =M-DEL=                                    |
+   | =ibuffer-mark-for-delete=                    | =d=             | =d=                                        |
+   | =ibuffer-mark-for-delete-backwards=          | =C-d=           | =C-d= (when =evil-want-C-d-scroll= is nil) |
+   | =ibuffer-do-kill-on-deletion-marks=          | =x=             | =x=                                        |
+   | =ibuffer-do-kill-lines=                      | =k=             | =K=                                        |
+   | =ibuffer-bury-buffer=                        | =b=             | =X=                                        |
+   | =ibuffer-kill-line=                          | =C-k=           | =gx=                                       |
+   | =ibuffer-yank=                               | =C-y=           | =C-y=                                      |
+   | =ibuffer-copy-filename-as-kill=              | =w=             | =yf=                                       |
+   | =ibuffer-copy-buffername-as-kill=            | =B=             | =yb=                                       |
+   | =ibuffer-diff-with-file=                     | ===             | ===                                        |
+   | =ibuffer-toggle-sorting-mode=                | =,=             | =,=                                        |
+   | =ibuffer-invert-sorting=                     | =s i=           | =o i=                                      |
+   | =ibuffer-do-sort-by-alphabetic=              | =s a=           | =o a=                                      |
+   | =ibuffer-do-sort-by-recency=                 | =s v=           | =o v=                                      |
+   | =ibuffer-do-sort-by-size=                    | =s s=           | =o s=                                      |
+   | =ibuffer-do-sort-by-filename/process=        | =s f=           | =o f=                                      |
+   | =ibuffer-do-sort-by-major-mode=              | =s m=           | =o m=                                      |
+   | =ibuffer-forward-filter-group=               | =M-n=, =TAB=    | =C-j=, =M-n=, =]]=, =TAB=                  |
+   | =ibuffer-backward-filter-group=              | =M-p=, =S-TAB=  | =C-k=, =M-p=, =[[=, =S-TAB=                |
+   | =ibuffer-jump-to-filter-group=               | =M-j=           | =M-j=                                      |
+   | =ibuffer-forward-next-marked=                | =M-}=           | =}=, =M-}=                                 |
+   | =ibuffer-backwards-next-marked=              | =M-{=           | ={=, =M-{=                                 |
+   | =ibuffer-switch-format=                      | =`=             | =`=                                        |
+   | =ibuffer-add-to-tmp-show=                    | =+=             | =+=                                        |
+   | =ibuffer-add-to-tmp-hide=                    | =-=             | =-=                                        |
+   | =quit-window=                                | =q=             | =q=, =ZZ=, =ZQ=                            |
+
+   Operate-on-marked uppercase keys (=D=, =E=, =F=, =H=, =I=, =M=, =N=, =O=,
+   =P=, =Q=, =R=, =S=, =T=, =V=, =W=), the =% =, =* =, =s = (filter) and
+   =/ = prefixes keep their default ibuffer behavior.

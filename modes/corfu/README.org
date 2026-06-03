@@ -1,0 +1,54 @@
+* corfu
+
+  Evil bindings for [[https://github.com/minad/corfu][corfu]] in-buffer completion.
+
+  Bindings apply in =insert= state on =corfu-map= and are gated by
+  =evil-collection-corfu-key-themes=. Only =default= is enabled out of the box.
+
+** Key bindings
+
+*** default theme
+
+    | Command                                 | Original | Evil                                |
+    |-----------------------------------------+----------+-------------------------------------|
+    | =corfu-next=                            | =<down>= | =C-n=, =C-j=, =M-j=, =<down>=       |
+    | =corfu-previous=                        | =<up>=   | =C-p=, =C-k=, =M-k=, =<up>=         |
+    | =corfu-insert=                          | =RET=    | =RET=                               |
+    | =corfu-complete=                        | =TAB=    | =TAB=                               |
+    | =corfu-quit=                            | =C-g=    | =C-g=                               |
+    | =evil-collection-corfu-quit-and-escape= | n/a      | =<escape>=                          |
+    | =corfu-scroll-up=                       | n/a      | =C-d= (when =evil-want-C-u-scroll=) |
+    | =corfu-scroll-down=                     | n/a      | =C-u= (when =evil-want-C-d-scroll=) |
+
+*** tab-n-go theme
+
+    Also sets =corfu-cycle= to =t= and =corfu-preselect= to =prompt=.
+
+    | Command          | Original | Evil               |
+    |------------------+----------+--------------------|
+    | =corfu-next=     | n/a      | =TAB=              |
+    | =corfu-previous= | n/a      | =S-TAB=, =backtab= |
+
+*** magic-return theme
+
+    =RET= / =<return>= insert the candidate when one is selected, otherwise
+    fall through to the buffer's default newline.
+
+*** magic-backspace theme
+
+    =DEL= / =<backspace>= reset the selection when one is active, otherwise
+    fall through.
+
+** New commands
+
+   | Command                                 | Purpose                                                  |
+   |-----------------------------------------+----------------------------------------------------------|
+   | =evil-collection-corfu-quit-and-escape= | =corfu-quit= then =evil-normal-state=.                   |
+   | =evil-collection-corfu-insert-exact=    | Insert current candidate with =exact= status, else quit. |
+
+** Customization
+
+   | Variable                                 | Default                      | Purpose                                                               |
+   |------------------------------------------+------------------------------+-----------------------------------------------------------------------|
+   | =evil-collection-corfu-key-themes=       | =(default)=                  | Themes from =default=, =tab-n-go=, =magic-return=, =magic-backspace=. |
+   | =evil-collection-corfu-supported-states= | =(insert replace emacs nil)= | Evil states in which =corfu= is allowed to run.                       |

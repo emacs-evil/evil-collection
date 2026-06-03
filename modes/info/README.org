@@ -1,0 +1,40 @@
+* info
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][Info]].
+
+  Uses normal state instead of motion state and rebinds movement to standard
+  evil keys.
+
+** Key bindings
+
+   | Command                                      | Original       | Evil                 |
+   |----------------------------------------------+----------------+----------------------|
+   | =Info-next-reference=                        | =TAB=          | =TAB=, =g TAB=, =g]= |
+   | =Info-prev-reference=                        | =S-TAB=        | =S-TAB=, =g[=        |
+   | =Info-help=                                  | =h=            | =M-h=                |
+   | =Info-history-back=                          | =l=            | =C-t=, =C-o=         |
+   | =Info-history-forward=                       | =r=            | =C-i=                |
+   | =Info-scroll-up=                             | =SPC=          | =SPC=                |
+   | =Info-scroll-down=                           | =DEL=, =S-SPC= | =DEL=                |
+   | =Info-follow-nearest-node=                   | =RET=          | =RET=, =C-]=         |
+   | =Info-directory=                             | =d=            | =d=                  |
+   | =Info-up=                                    | =^=, =u=       | =u=                  |
+   | =Info-history=                               | =L=            | =gL=                 |
+   | =Info-search=                                | =s=            | =s=                  |
+   | =Info-search-case-sensitively=               | =S=            | =S=                  |
+   | =Info-index=                                 | =i=            | =i=                  |
+   | =Info-virtual-index=                         | =I=            | =I=                  |
+   | =info-apropos=                               | n/a            | =a=                  |
+   | =Info-nth-menu-item=                         | =1..9=         | =g1..g9=             |
+   | =Info-menu=                                  | =m=            | =J=, =gm=            |
+   | =Info-goto-node=                             | =g=            | =gG=                 |
+   | =Info-top-node=                              | =t=, =<=       | =gt=                 |
+   | =Info-toc=                                   | =T=            | =gT=                 |
+   | =Info-follow-reference=                      | =f=            | =gf=                 |
+   | =Info-forward-node=                          | =]=            | =C-j=                |
+   | =Info-backward-node=                         | =[=            | =C-k=                |
+   | =Info-next=                                  | =n=            | =gj=                 |
+   | =Info-prev=                                  | =p=            | =gk=                 |
+   | =Info-index-next=                            | =,=            | =g,=                 |
+   | =Info-summary=                               | =?=            | =g?=                 |
+   | =Info-copy-current-node-name= (=y= operator) | =c=, =w=       | =yu=                 |

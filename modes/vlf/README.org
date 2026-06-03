@@ -1,0 +1,46 @@
+* vlf
+
+  Evil bindings for [[https://github.com/m00natic/vlfi][vlf]] (View Large Files). Bindings are added to
+  =vlf-prefix-map= (the =C-c C-v= prefix).
+
+** Key bindings
+
+   Always installed:
+
+   | Command                                   | Original | Evil              |
+   |-------------------------------------------+----------+-------------------|
+   | =vlf-next-batch=                          | =n=      | =gj=, =C-j=, =]]= |
+   | =vlf-prev-batch=                          | =p=      | =gk=, =C-k=, =[[= |
+   | =vlf-change-batch-size=                   | =+=      | =+=               |
+   | =evil-collection-vlf-decrease-batch-size= | =-=      | =-=               |
+   | =vlf-next-batch-from-point=               | =SPC=    | ===               |
+   | =vlf-revert=                              | =g=      | =gr=              |
+   | =vlf-query-replace=                       | =%=      | =g%=              |
+   | =vlf-occur=                               | =o=      | =go=              |
+
+   When =evil-collection-want-g-bindings= is non-nil:
+
+   | Command                  | Original | Evil |
+   |--------------------------+----------+------|
+   | =vlf-re-search-forward=  | =s=      | =g/= |
+   | =vlf-re-search-backward= | =r=      | =g?= |
+   | =vlf-jump-to-chunk=      | =j=      | =gJ= |
+   | =vlf-ediff-buffers=      | =e=      | =gE= |
+   | =vlf-goto-line=          | =l=      | =g:= |
+   | =vlf-toggle-follow=      | =f=      | =gF= |
+
+   When =evil-collection-want-g-bindings= is nil:
+
+   | Command                  | Original | Evil |
+   |--------------------------+----------+------|
+   | =vlf-re-search-forward=  | =s=      | =s=  |
+   | =vlf-re-search-backward= | =r=      | =S=  |
+   | =vlf-jump-to-chunk=      | =j=      | =J=  |
+   | =vlf-ediff-buffers=      | =e=      | =E=  |
+   | =vlf-goto-line=          | =l=      | =L=  |
+   | =vlf-toggle-follow=      | =f=      | =F=  |
+
+** New commands
+
+   - =evil-collection-vlf-decrease-batch-size= - Halve the vlf batch size
+     (mirror of =vlf-change-batch-size= with a prefix arg), bound to =-=.

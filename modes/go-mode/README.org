@@ -1,0 +1,19 @@
+* go-mode
+
+  Evil bindings for [[https://github.com/dominikh/go-mode.el][go-mode]] and =godoc-mode=.
+
+** Key bindings
+
+*** go-mode-map
+
+    | Command          | Original  | Evil |
+    |------------------+-----------+------|
+    | =godef-jump=     | =C-c C-j= | =gd= |
+    | =godef-describe= | =C-c C-d= | =K=  |
+
+*** godoc-mode-map
+
+    | Command         | Original | Evil |
+    |-----------------+----------+------|
+    | =quit-window=   | =q=      | =q=  |
+    | =describe-mode= | =h m=    | =g?= |

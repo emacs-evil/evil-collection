@@ -1,0 +1,17 @@
+* which-key
+
+  Evil bindings for [[https://github.com/justbur/emacs-which-key][which-key]] paging popup.
+
+  Only =which-key-C-h-map= (the paging popup invoked from inside a prefix)
+  is modified; the global which-key triggers themselves are untouched.
+
+** Key bindings
+
+   | Command                              | Original   | Evil       |
+   |--------------------------------------+------------+------------|
+   | =which-key-abort=                    | =a=, =C-a= | =q=        |
+   | =which-key-show-next-page-cycle=     | =n=, =C-n= | =j=, =C-n= |
+   | =which-key-show-previous-page-cycle= | =p=, =C-p= | =k=, =C-p= |
+   | =which-key-show-standard-help=       | =h=, =C-h= | =?=, =C-h= |
+   | =which-key-undo-key=                 | =u=, =C-u= | =u=, =C-u= |
+   | =which-key-toggle-docstrings=        | =d=, =C-d= | =d=, =C-d= |

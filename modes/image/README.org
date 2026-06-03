@@ -1,0 +1,36 @@
+* image
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Image-Mode.html][image-mode]].
+
+** Key bindings
+
+   | Command                            | Original         | Evil                |
+   |------------------------------------+------------------+---------------------|
+   | =image-bob=                        | =<=              | =gg=                |
+   | =image-eob=                        | =>=              | =G=                 |
+   | =image-forward-hscroll=            | =C-f=, =<right>= | =l=                 |
+   | =image-backward-hscroll=           | =C-b=, =<left>=  | =h=                 |
+   | =image-next-line=                  | =C-n=, =<down>=  | =j=                 |
+   | =image-previous-line=              | =C-p=, =<up>=    | =k=                 |
+   | =image-bol=                        | =C-a=            | =0=, =^=            |
+   | =image-eol=                        | =C-e=            | =$=                 |
+   | =image-scroll-up=                  | =SPC=            | =SPC=, =C-d=        |
+   | =image-scroll-down=                | =S-SPC=, =DEL=   | =S-SPC=, =<delete>= |
+   | =image-scroll-down= (=C-u-scroll=) | n/a              | =C-u=               |
+   | =image-toggle-animation=           | =RET=            | =RET=               |
+   | =image-reset-speed=                | =a 0=            | =a0=                |
+   | =image-reverse-speed=              | =a r=            | =ar=                |
+   | =image-goto-frame=                 | =F=              | =F=                 |
+   | =image-previous-frame=             | =b=              | =,=                 |
+   | =image-next-frame=                 | =f=              | =.=, =;=            |
+   | =image-decrease-speed=             | n/a              | ={=                 |
+   | =image-increase-speed=             | n/a              | =}=                 |
+   | =image-transform-fit-to-height=    | =s h=            | =H=                 |
+   | =image-transform-fit-to-width=     | =s i=            | =W=                 |
+   | =image-increase-size=              | =i +=            | =+=, ===            |
+   | =image-decrease-size=              | =i -=            | =-=                 |
+   | =image-previous-file=              | =p=              | =[[=, =gk=, =C-k=   |
+   | =image-next-file=                  | =n=              | =]]=, =gj=, =C-j=   |
+   | =image-toggle-display=             | =C-c C-c=        | =C-c C-c=           |
+   | =quit-window=                      | =q=              | =q=, =ZZ=           |
+   | =evil-quit=                        | n/a              | =ZQ=                |

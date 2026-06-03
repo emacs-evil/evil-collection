@@ -1,0 +1,18 @@
+* message
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/message/index.html][message-mode]], the Gnus / mail composition buffer.
+
+  Initial state is insert. Normal-state =Z= bindings provide quick send / kill
+  without leaving the keyboard home row.
+
+** Key bindings
+
+   | Command                 | Original  | Evil |
+   |-------------------------+-----------+------|
+   | =message-send-and-exit= | =C-c C-c= | =ZZ= |
+   | =message-kill-buffer=   | =C-c C-k= | =ZQ= |
+   | =message-dont-send=     | =C-c C-d= | =ZD= |
+   | =mml-attach-file=       | =C-c C-a= | =ZF= |
+
+   All other =C-c= prefix bindings (goto-field, insert-signature, attach, etc.)
+   remain at their upstream keys.

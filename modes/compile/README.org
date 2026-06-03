@@ -1,0 +1,18 @@
+* compile
+
+  Evil bindings for =compilation-mode= and =compilation-minor-mode=.
+
+  Standard motion / quit bindings come from =evil-collection-set-readonly-bindings=
+  and are not repeated below.
+
+** Key bindings
+
+   | Command                      | Original         | Evil                   |
+   |------------------------------+------------------+------------------------|
+   | =compile-goto-error=         | =RET=, =C-c C-c= | =RET=                  |
+   | =compilation-display-error=  | =C-o=            | =go=, =M-RET=, =S-RET= |
+   | =compilation-next-error=     | =M-n=            | =TAB=, =gj=, =C-j=     |
+   | =compilation-previous-error= | =M-p=            | =S-TAB=, =gk=, =C-k=   |
+   | =compilation-next-file=      | =M-}=            | =]]=                   |
+   | =compilation-previous-file=  | =M-{=            | =[[=                   |
+   | =recompile=                  | =g=              | =gr=                   |

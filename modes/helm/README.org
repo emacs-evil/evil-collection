@@ -1,0 +1,107 @@
+* helm
+
+  Evil bindings for [[https://emacs-helm.github.io/helm/][helm]].
+
+  =M-= modifiers are preferred over =C-= so the help prefix (=C-h=) is left
+  alone. =h= and =l= are reserved for minibuffer editing in =helm-find-files=
+  and =helm-read-file-map=.
+
+** Key bindings
+
+*** helm-map (insert and normal state unless noted)
+
+    | Command                          | Original | Evil         |
+    |----------------------------------+----------+--------------|
+    | =helm-previous-source=           | =C-o=    | =M-[=        |
+    | =helm-next-source=               | =C-o=    | =M-]=, =C-o= |
+    | =helm-execute-persistent-action= | =C-j=    | =M-l=        |
+    | =helm-next-line=                 | =C-n=    | =M-j=, =C-n= |
+    | =helm-previous-line=             | =C-p=    | =M-k=, =C-p= |
+    | =helm-next-page=                 | =C-v=    | =C-f=, =C-v= |
+    | =helm-previous-page=             | =M-v=    | =C-b=, =M-v= |
+    | =helm-maybe-exit-minibuffer=     | =RET=    | =RET=        |
+
+*** helm-map (normal state only)
+
+    | Command                        | Original  | Evil                                |
+    |--------------------------------+-----------+-------------------------------------|
+    | =helm-select-action=           | =TAB=     | =<tab>=                             |
+    | =helm-previous-source=         | =C-o=     | =[[=, =gk=                          |
+    | =helm-next-source=             | =C-o=     | =]]=, =gj=                          |
+    | =helm-prev-visible-mark=       | =M-(=     | =(=                                 |
+    | =helm-next-visible-mark=       | =M-)=     | =)=                                 |
+    | =helm-next-line=               | =C-n=     | =j=                                 |
+    | =helm-previous-line=           | =C-p=     | =k=                                 |
+    | =helm-beginning-of-buffer=     | =M-<=     | =gg=                                |
+    | =helm-end-of-buffer=           | =M->=     | =G=                                 |
+    | =helm-quit-and-find-file=      | =C-x C-f= | =/=                                 |
+    | =helm-refresh=                 | =C-c C-u= | =gr=                                |
+    | =helm-yank-selection=          | =C-c C-y= | =yp=                                |
+    | =helm-copy-to-buffer=          | n/a       | =yP=                                |
+    | =helm-kill-selection-and-quit= | =C-c C-k= | =yy=                                |
+    | =helm-toggle-visible-mark=     | =C-SPC=   | =SPC=                               |
+    | =helm-previous-page=           | =M-v=     | =C-u= (when =evil-want-C-u-scroll=) |
+    | =helm-next-page=               | =C-v=     | =C-d= (when =evil-want-C-d-scroll=) |
+
+*** helm-find-files-map / helm-read-file-map
+
+    | Command                           | State          | Original | Evil         |
+    |-----------------------------------+----------------+----------+--------------|
+    | =helm-ff-run-switch-other-window= | normal         | =C-c o=  | =go=         |
+    | =helm-ff-run-switch-other-window= | insert, normal | =C-c o=  | =S-<return>= |
+    | =helm-ff-run-find-sh-command=     | normal         | =C-c /=  | =/=          |
+    | =helm-find-files-up-one-level=    | insert, normal | =C-l=    | =M-h=        |
+
+*** helm-find-files-map (normal state)
+
+    | Command                            | Original | Evil |
+    |------------------------------------+----------+------|
+    | =helm-ff-run-ediff-file=           | =C-c =   | ===  |
+    | =helm-ff-run-query-replace-regexp= | =M-%=    | =%=  |
+    | =helm-ff-run-delete-file=          | =M-D=    | =D=  |
+
+*** helm-generic-files-map
+
+    | Command                           | State          | Original | Evil         |
+    |-----------------------------------+----------------+----------+--------------|
+    | =helm-ff-run-switch-other-window= | insert, normal | =C-c o=  | =S-<return>= |
+    | =helm-ff-run-switch-other-window= | normal         | =C-c o=  | =go=         |
+
+*** helm-buffer-map
+
+    | Command                                | State          | Original | Evil         |
+    |----------------------------------------+----------------+----------+--------------|
+    | =helm-buffer-switch-other-window=      | insert, normal | =C-c o=  | =S-<return>= |
+    | =display-buffer=                       | insert, normal | n/a      | =M-<return>= |
+    | =helm-buffer-switch-other-window=      | normal         | =C-c o=  | =go=         |
+    | =display-buffer=                       | normal         | n/a      | =gO=         |
+    | =helm-buffer-run-ediff=                | normal         | =C-c =   | ===          |
+    | =helm-buffer-run-query-replace-regexp= | normal         | =M-%=    | =%=          |
+    | =helm-buffer-run-kill-persistent=      | normal         | =C-c d=  | =D=          |
+
+*** helm-occur-map / helm-grep-map
+
+    | Command                                                             | State          | Original | Evil         |
+    |---------------------------------------------------------------------+----------------+----------+--------------|
+    | =helm-occur-run-goto-line-ow= / =helm-grep-run-other-window-action= | insert, normal | =C-c o=  | =S-<return>= |
+    | same as above                                                       | normal         | =C-c o=  | =go=         |
+
+*** helm-occur-mode-map / helm-grep-mode-map (normal state)
+
+    | Command                                             | Original | Evil        |
+    |-----------------------------------------------------+----------+-------------|
+    | =helm-occur-mode-goto-line= / =helm-grep-mode-jump= | =RET=    | =RET=       |
+    | =...-goto-line-ow= / =...-jump-other-window=        | =C-o=    | =C-o=, =go= |
+    | =...-forward= variant                               | =M-n=    | =M-n=, =gj= |
+    | =...-backward= variant                              | =M-p=    | =M-p=, =gk= |
+    | =helm-gm-next-file=                                 | =M-N=    | =M-N=       |
+    | =helm-gm-precedent-file=                            | =M-P=    | =M-P=       |
+
+** Notes
+
+   - =helm-minibuffer-history-key= is set to =M-p= via =custom-set-variables=.
+   - =helm-default-prompt-display-function= is set so the evil cursor renders
+     correctly in helm's header line when =helm-echo-input-in-header-line= is
+     non-nil.
+   - =evil-collection-helm-hide-minibuffer-maybe= is added to
+     =helm-minibuffer-set-up-hook= to hide the minibuffer cursor in that case.

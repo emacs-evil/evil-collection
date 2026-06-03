@@ -1,0 +1,16 @@
+* custom
+
+  Evil bindings for the Customize interface (=Custom-mode=).
+
+** Key bindings
+
+   | Command               | Original                | Evil                                  |
+   |-----------------------+-------------------------+---------------------------------------|
+   | =Custom-newline=      | =RET=                   | =RET=                                 |
+   | =widget-forward=      | =TAB=, =n=              | =TAB=, =]]=, =gj=, =C-j=              |
+   | =widget-backward=     | =S-TAB=, =backtab=, =p= | =S-TAB=, =backtab=, =[[=, =gk=, =C-k= |
+   | =scroll-up-command=   | =SPC=                   | =SPC=                                 |
+   | =scroll-down-command= | =S-SPC=, =DEL=          | =S-SPC=, =<delete>=                   |
+   | =Custom-goto-parent=  | =u=                     | =^=, =<=, =C-o=                       |
+   | =Custom-buffer-done=  | =q=                     | =q=, =ZZ=                             |
+   | =evil-quit=           | n/a                     | =ZQ=                                  |

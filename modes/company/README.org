@@ -1,0 +1,51 @@
+* company
+
+  Evil bindings for [[https://github.com/company-mode/company-mode][company-mode]].
+  Bindings are installed without an explicit state so they apply whenever the
+  company overlay is active.
+
+** company-active-map
+
+   | Command                            | Original | Evil                                |
+   |------------------------------------+----------+-------------------------------------|
+   | =company-select-next-or-abort=     | =C-n=    | =C-n=, =C-j=                        |
+   | =company-select-previous-or-abort= | =C-p=    | =C-p=, =C-k=                        |
+   | =company-select-next=              | n/a      | =M-j=                               |
+   | =company-select-previous=          | n/a      | =M-k=                               |
+   | =company-previous-page=            | =M-<=    | =C-u= (when =evil-want-C-u-scroll=) |
+   | =company-next-page=                | =M->=    | =C-d= (when =evil-want-C-d-scroll=) |
+
+   With =evil-collection-want-company-extended-keybindings= (vim's =C-x ...=
+   completion family):
+
+   | Command                               | Evil  |
+   |---------------------------------------+-------|
+   | =evil-collection-company-whole-lines= | =C-l= |
+   | =company-etags=                       | =C-]= |
+   | =company-files=                       | =C-f= |
+   | =company-capf=                        | =C-o= |
+   | =company-ispell=                      | =C-s= |
+
+** company-search-map
+
+   | Command                            | Original | Evil       |
+   |------------------------------------+----------+------------|
+   | =company-select-next-or-abort=     | =C-n=    | =C-j=      |
+   | =company-select-previous-or-abort= | =C-p=    | =C-k=      |
+   | =company-select-next=              | n/a      | =M-j=      |
+   | =company-select-previous=          | n/a      | =M-k=      |
+   | =company-search-abort=             | =C-g=    | =<escape>= |
+
+** New commands
+
+   | Command                               | Purpose                                        |
+   |---------------------------------------+------------------------------------------------|
+   | =evil-collection-company-whole-lines= | Whole-line completion backend (vim =C-x C-l=). |
+
+** Customization
+
+   | Variable                                            | Default                  | Purpose                                                                                          |
+   |-----------------------------------------------------+--------------------------+--------------------------------------------------------------------------------------------------|
+   | =evil-collection-company-supported-states=          | =(insert replace emacs)= | Evil states in which company is allowed to pop up.                                               |
+   | =evil-collection-want-company-extended-keybindings= | =nil=                    | Enable the vim-style =C-x= completion bindings above.                                            |
+   | =evil-collection-company-enable-keymap-protection=  | =t=                      | Re-install =company-active-map= after =company-doc-buffer= et al. so evil does not eat the keys. |

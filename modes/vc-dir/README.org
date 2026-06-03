@@ -1,0 +1,47 @@
+* vc-dir
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/VC-Directory-Mode.html][vc-dir]] (=C-x v d=).
+
+** Key bindings
+
+   Standard read-only motion / quit bindings come from
+   =evil-collection-set-readonly-bindings=.
+
+   | Command                          | Original      | Evil              |
+   |----------------------------------+---------------+-------------------|
+   | =vc-next-action=                 | =v=           | =c=               |
+   | =vc-diff=                        | ===           | =d=, =TAB=        |
+   | =vc-root-diff=                   | =D=           | =D=, =S-TAB=      |
+   | =vc-register=                    | =i=           | =R=, =s=          |
+   | =vc-update=                      | =+=           | =gu=, =F=         |
+   | =revert-buffer=                  | =g=           | =gr=              |
+   | =vc-push=                        | =P=           | =p=, =P=          |
+   | =vc-print-log=                   | =l=           | =Lf=, =Ll=        |
+   | =vc-print-root-log=              | =L=           | =Lr=, =LL=        |
+   | =vc-log-incoming=                | =Ii=          | =Li=              |
+   | =vc-log-outgoing=                | =Io=          | =Lo=              |
+   | =vc-revert=                      | =N=           | =x=               |
+   | =vc-annotate=                    | =A=           | =b=               |
+   | =vc-dir-mark=                    | =m=           | =m=               |
+   | =vc-dir-mark-all-files=          | =M m=         | =M=               |
+   | =vc-dir-unmark=                  | =u=           | =u=               |
+   | =vc-dir-unmark-all-files=        | =M u=         | =U=               |
+   | =vc-dir-next-directory=          | =M-n=         | =]]=, =gj=, =C-j= |
+   | =vc-dir-previous-directory=      | =M-p=         | =[[=, =gk=, =C-k= |
+   | =vc-dir-find-file=               | =f=, =RET=    | =gf=, =RET=       |
+   | =vc-dir-find-file-other-window=  | =o=           | =go=, =S-RET=     |
+   | =vc-dir-display-file=            | =SPC=         | =gO=, =M-RET=     |
+   | =vc-dir-kill-dir-status-process= | =C-c C-c=     | =C-c C-c=         |
+   | =vc-dir-toggle-mark=             | =SPC=         | =t=               |
+   | =vc-dir-hide-up-to-date=         | =x=           | =(=, =o=          |
+   | =vc-dir-kill-line=               | =k=           | =X=               |
+   | =vc-dir-search=                  | =S=           | =S=               |
+   | =vc-dir-query-replace-regexp=    | =Q=           | =Q=               |
+   | =vc-dir-isearch=                 | =M-s a C-s=   | =M-s a C-s=       |
+   | =vc-dir-isearch-regexp=          | =M-s a M-C-s= | =M-s a M-C-s=     |
+   | =vc-dir-ignore=                  | =G=           | =i=               |
+   | =vc-create-tag=                  | =B c=         | =Bc=              |
+   | =vc-print-branch-log=            | =B l=         | =Bl=              |
+   | =vc-retrieve-tag=                | =B s=         | =Bs=              |
+
+   Initial state is normal.

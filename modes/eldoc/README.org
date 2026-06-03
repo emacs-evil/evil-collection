@@ -1,0 +1,19 @@
+* eldoc
+
+  Evil bindings for the buffer popped by =eldoc-doc-buffer=.
+
+** Key bindings
+
+   Applied via =evil-collection-eldoc-doc-buffer-mode=, a minor mode attached
+   to the =*eldoc*= buffer.
+
+   | Command       | Original | Evil      |
+   |---------------+----------+-----------|
+   | =quit-window= | =q=      | =q=, =ZZ= |
+   | =evil-quit=   | n/a      | =ZQ=      |
+
+** Notes
+
+   On Emacs < 29, the minor mode is attached via advice on =eldoc-doc-buffer=.
+   On Emacs 29+, eldoc buffers derive from =special-mode=, which
+   evil-collection covers separately.

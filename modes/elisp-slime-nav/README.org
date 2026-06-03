@@ -1,0 +1,11 @@
+* elisp-slime-nav
+
+  Evil bindings for [[https://github.com/purcell/elisp-slime-nav][elisp-slime-nav]].
+
+** Key bindings
+
+   | Command                                         | Original                    | Evil  |
+   |-------------------------------------------------+-----------------------------+-------|
+   | =elisp-slime-nav-find-elisp-thing-at-point=     | =M-.=                       | =gd=  |
+   | =pop-tag-mark=                                  | =M-,=                       | =C-t= |
+   | =elisp-slime-nav-describe-elisp-thing-at-point= | =C-c C-d C-d= / =C-c C-d d= | =K=   |

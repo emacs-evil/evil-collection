@@ -1,0 +1,24 @@
+* ert
+
+  Evil bindings for =ert-results-mode=.
+
+** Key bindings
+
+   | Command                                               | Original | Evil              |
+   |-------------------------------------------------------+----------+-------------------|
+   | =ert-results-next-test=                               | =n=      | =gj=, =]]=, =C-j= |
+   | =ert-results-previous-test=                           | =p=      | =gk=, =[[=, =C-k= |
+   | =ert-results-jump-between-summary-and-result=         | =j=      | =J=               |
+   | =ert-results-toggle-printer-limits-for-test-at-point= | =L=      | =L=               |
+   | =ert-results-rerun-all-tests=                         | =R=      | =gr=, =R=         |
+   | =ert-results-rerun-test-at-point=                     | =r=      | =r=               |
+   | =ert-results-rerun-test-at-point-debugging-errors=    | =d=      | =d=               |
+   | =ert-results-find-test-at-point-other-window=         | =.=      | =.=, =gd=         |
+   | =ert-results-pop-to-backtrace-for-test-at-point=      | =b=      | =B=               |
+   | =ert-results-pop-to-messages-for-test-at-point=       | =m=      | =M=               |
+   | =ert-results-pop-to-should-forms-for-test-at-point=   | =l=      | =s=               |
+   | =ert-results-describe-test-at-point=                  | =h=      | =K=, =g?=         |
+   | =ert-results-pop-to-timings=                          | =T=      | =T=               |
+   | =ert-delete-test=                                     | =D=      | =x=               |
+   | =evil-next-line= / =evil-previous-line=               | n/a      | =j= / =k=         |
+   | =evil-backward-char= / =evil-forward-char=            | n/a      | =h= / =l=         |

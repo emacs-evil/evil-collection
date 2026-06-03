@@ -1,0 +1,15 @@
+* tab-bar
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Tab-Bars.html][tab-bar]]. Only =tab-switcher-mode-map= (the =M-x tab-switcher= list) is touched; the global =tab-bar-mode= itself has no buffer-local map to rebind.
+
+** Key bindings
+
+   | Command                  | Original        | Evil            |
+   |--------------------------+-----------------+-----------------|
+   | =tab-switcher-next-line= | =n=, =SPC=      | =j=, =gj=       |
+   | =tab-switcher-prev-line= | =p=             | =k=, =gk=       |
+   | =tab-switcher-delete=    | =d=, =k=, =C-k= | =d=             |
+   | =tab-switcher-select=    | =RET=           | =RET=           |
+   | =tab-switcher-unmark=    | =u=             | =u=             |
+   | =tab-switcher-execute=   | =x=             | =x=             |
+   | =quit-window=            | =q=             | =q=, =ZZ=, =ZQ= |

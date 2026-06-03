@@ -1,0 +1,23 @@
+* vc-annotate
+
+  Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Old-Revisions.html][vc-annotate]] (=C-x v g=), Emacs' built-in
+  blame view.
+
+** Key bindings
+
+   | Command                                            | Original | Evil              |
+   |----------------------------------------------------+----------+-------------------|
+   | =quit-window=                                      | =q=      | =q=               |
+   | =vc-annotate-revision-previous-to-line=            | =P=      | =a=               |
+   | =vc-annotate-show-diff-revision-at-line=           | ===      | =d=, ===          |
+   | =vc-annotate-show-changeset-diff-revision-at-line= | =D=      | =D=               |
+   | =vc-annotate-find-revision-at-line=                | =f=      | =F=               |
+   | =vc-annotate-revision-at-line=                     | =J=      | =J=               |
+   | =vc-annotate-show-log-revision-at-line=            | =l=      | =L=               |
+   | =vc-annotate-next-revision=                        | =n=      | =gj=, =]]=, =C-j= |
+   | =vc-annotate-prev-revision=                        | =p=      | =gk=, =[[=, =C-k= |
+   | =vc-annotate-working-revision=                     | =w=      | =W=               |
+   | =vc-annotate-toggle-annotation-visibility=         | =A=      | =A=               |
+   | =vc-annotate-goto-line=                            | =RET=    | =RET=             |
+
+   Initial state is normal.

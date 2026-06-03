@@ -1,0 +1,15 @@
+* indent
+
+  Evil bindings for the transient =indent-rigidly-map= used after
+  =indent-rigidly= (=C-x TAB=).
+
+** Key bindings
+
+   | Command                            | Original    | Evil |
+   |------------------------------------+-------------+------|
+   | =indent-rigidly-left=              | =<left>=    | =h=  |
+   | =indent-rigidly-right=             | =<right>=   | =l=  |
+   | =indent-rigidly-left-to-tab-stop=  | =S-<left>=  | =H=  |
+   | =indent-rigidly-right-to-tab-stop= | =S-<right>= | =L=  |
+
+   The arrow-key bindings remain available alongside the hjkl additions.
