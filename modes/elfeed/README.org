@@ -1,0 +1,64 @@
+* elfeed
+
+  Evil bindings for [[https://github.com/skeeto/elfeed][elfeed]].
+
+  Standard motion / quit bindings (=gg=, =G=, =j=, =k=, =q=, =ZZ=, =ZQ=) come
+  from =evil-collection-set-readonly-bindings= and are not repeated below.
+
+** elfeed-search-mode-map
+
+   | Command                          | Original | Evil                                |
+   |----------------------------------+----------+-------------------------------------|
+   | =elfeed-search-show-entry=       | =RET=    | =RET=                               |
+   | =elfeed-search-browse-url=       | =b=      | =S-RET=, =go=                       |
+   | =elfeed-search-yank=             | =y=      | =y=                                 |
+   | =elfeed-search-live-filter=      | =s=      | =s=                                 |
+   | =elfeed-search-set-filter=       | =S=      | =S=                                 |
+   | =elfeed-search-clear-filter=     | =c=      | =c=                                 |
+   | =elfeed-search-fetch=            | =G=      | =gR=                                |
+   | =revert-buffer=                  | =g=      | =gr=                                |
+   | =elfeed-search-tag-all=          | =+=      | =+=                                 |
+   | =elfeed-search-untag-all=        | =-=      | =-=                                 |
+   | =elfeed-search-tag-all-unread=   | =u=      | =U=                                 |
+   | =elfeed-search-untag-all-unread= | =r=      | =u=                                 |
+   | =scroll-up-command=              | n/a      | =SPC=                               |
+   | =scroll-down-command=            | n/a      | =S-SPC=                             |
+   | =elfeed-search-quit-window=      | =q=      | =q=, =ZQ=, =ZZ= ([[#fallbacks][†]]) |
+
+** elfeed-show-mode-map
+
+   | Command                                 | Original | Evil              |
+   |-----------------------------------------+----------+-------------------|
+   | =elfeed-show-visit=                     | =b=      | =S-RET=, =go=     |
+   | =elfeed-show-yank=                      | =y=      | =yu=              |
+   | =elfeed-show-next=                      | =n=      | =]]=, =gj=, =C-j= |
+   | =elfeed-show-prev=                      | =p=      | =[[=, =gk=, =C-k= |
+   | =elfeed-show-refresh=                   | n/a      | =gr=              |
+   | =elfeed-show-new-live-search=           | =s=      | =s=               |
+   | =elfeed-show-tag=                       | =+=      | =+=               |
+   | =elfeed-show-untag=                     | =-=      | =-=               |
+   | =elfeed-show-play-enclosure=            | =P=      | =P=               |
+   | =elfeed-show-add-enclosure-to-playlist= | =A=      | =A=               |
+   | =elfeed-show-save-enclosure=            | =d=      | =d=               |
+   | =elfeed-show-next-link=                 | =TAB=    | =TAB=             |
+   | =scroll-up-command=                     | =SPC=    | =SPC=             |
+   | =scroll-down-command=                   | =S-SPC=  | =S-SPC=           |
+   | =elfeed-kill-buffer=                    | =q=      | =q=, =ZQ=, =ZZ=   |
+
+** elfeed-tree-mode-map
+
+   | Command              | Original | Evil  |
+   |----------------------+----------+-------|
+   | =elfeed-tree-search= | =RET=    | =RET= |
+
+** Fallbacks
+   :PROPERTIES:
+   :CUSTOM_ID: fallbacks
+   :END:
+
+   Two version-compat fallbacks fire only when running older elfeed:
+
+   - Before elfeed commit =518e5bd3= (no =revert-buffer-function=), =gr= calls
+     =elfeed-search-update--force= instead of =revert-buffer=.
+   - Before elfeed commit =2ef14c92= (no =quit-window-hook= save), =q=, =ZQ=,
+     =ZZ= use =elfeed-search-quit-window= to persist the db on exit.
