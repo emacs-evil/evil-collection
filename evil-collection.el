@@ -301,6 +301,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     nov
     omnisharp
     org
+    org-agenda
     org-present
     org-roam
     osx-dictionary
