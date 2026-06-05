@@ -241,6 +241,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     flymake
     forge
     free-keys
+    fzfa
     geiser
     ggtags
     git-timemachine

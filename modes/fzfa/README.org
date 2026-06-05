@@ -1,0 +1,19 @@
+* fzfa
+
+  Evil bindings for [[https://github.com/jojojames/fzfa][fzfa]].
+
+  No keymap is rebound. Setup marks fzfa's jump-style commands as
+  non-repeatable and registers them as evil jumps so =C-o= / =C-i= work after
+  selection.
+
+** Jump commands
+
+   The commands in =evil-collection-fzfa-jump-commands= are declared with
+   =:jump t= and =evil-declare-not-repeat=. This includes buffer-local jumps
+   (e.g. =fzfa-swiper=, =fzfa-imenu=, =fzfa-mark=, =fzfa-outline=,
+   =fzfa-evil-marks=) and cross-buffer / file jumps (e.g. =fzfa-buffer=,
+   =fzfa-recent-file=, =fzfa-find=, =fzfa-grep=, =fzfa-project-find-file=,
+   =fzfa-evil-jumps=, =fzfa-org-heading=, =fzfa-info=, etc.).
+
+   Non-jumping commands like =fzfa-yank-pop=, =fzfa-register=, =fzfa-M-x= and
+   the various history pickers are intentionally excluded.
