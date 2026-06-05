@@ -76,7 +76,7 @@
       "q" 'gptel-context-quit
       "ZQ" 'gptel-context-quit
       "ZZ" 'gptel-context-confirm
-      "RET" 'gptel-context-visit)))
+      (kbd "RET") 'gptel-context-visit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here
