@@ -1,0 +1,44 @@
+* fj
+
+  Evil bindings for [[https://codeberg.org/martianh/fj.el][fj.el]], an Emacs client for Forgejo instances such as Codeberg.
+
+** Key bindings
+
+   The bindings add Evil-state alternatives for common fj.el actions while
+   leaving fj.el's own non-Evil keymaps intact.
+
+   | Command                  | Original  | Evil              |
+   |--------------------------+-----------+-------------------|
+   | =fj-switch-to-buffer=    | =/=       | =gb=              |
+   | =fj-view-reload=         | =g=       | =gr=              |
+   | =fj-item-next=           | =n=       | =]]=, =gj=, =C-j= |
+   | =fj-item-prev=           | =p=       | =[[=, =gk=, =C-k= |
+   | =fj-next-page=           | =.=       | =>=               |
+   | =fj-prev-page=           | =,=       | =<=               |
+   | =fj-tl-browse-entry=     | =B=       | =go=              |
+   | =fj-browse-view=         | =b=       | =go=              |
+   | =imenu=                  | =j=       | =gm=              |
+   | =fj-repo-copy-clone-url= | =u=, =L=  | =yc=              |
+   | =fj-copy-item-url=       | =C=       | =yu=              |
+   | =fj-item-comment=        | =C=, =c=  | =c=               |
+   | =fj-create-issue=        | =c=       | =C=               |
+   | =fj-repo-search=         | =s=       | =g/=              |
+   | =fj-list-issues-search=  | =s=       | =g/=              |
+   | =fj-repo-readme=         | =r=       | =r=               |
+   | =fj-item-edit=           | =e=       | =e=               |
+   | =fj-item-close=          | =k=       | =x=               |
+   | =fj-item-reopen=         | =o=       | =u=               |
+   | =fj-item-delete=         | =K=       | =X=               |
+   | =fj-item-edit-title=     | =t=       | =E=               |
+   | =fj-item-label-add=      | =l=       | =al=              |
+   | =fj-add-reaction=        | =r=       | =ar=              |
+   | =fj-view-pull-diff=      | =D=       | =gd=              |
+   | =fj-repo-commit-log=     | =L=       | =gL=              |
+   | =fj-merge-pull=          | =M=       | =gM=              |
+   | =fj-item-view-more=      | =>=       | =>=               |
+   | =fj-compose-send=        | =C-c C-c= | =ZZ=              |
+   | =fj-compose-cancel=      | =C-c C-k= | =ZQ=              |
+
+   Repo, issue, notification, commit, and user views start in normal state.
+   Compose buffers start in insert state and use normal-state =ZZ=/=ZQ= for
+   submit/cancel, matching other editable buffers in Evil Collection.

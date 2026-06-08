@@ -246,6 +246,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     finder
     flycheck
     flymake
+    fj
     forge
     free-keys
     fzfa
