@@ -8,7 +8,7 @@
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.2
-;; Package-Requires: ((emacs "26.3") (evil "1.2.13") (annalist "1.0"))
+;; Package-Requires: ((emacs "26.3") (evil "1.2.13"))
 ;; Keywords: evil, tools
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -45,7 +45,14 @@
 (require 'seq)
 (require 'cl-lib)
 (require 'evil)
-(require 'annalist)
+;; `annalist' is optional; only used to record and describe bindings via
+;; `evil-collection-describe-bindings'. Install it to enable that feature.
+(require 'annalist nil t)
+
+(declare-function annalist-record "annalist")
+(declare-function annalist-describe "annalist")
+(declare-function annalist-define-view "annalist")
+(declare-function annalist-string-< "annalist")
 
 (defvar evil-collection-base-dir (file-name-directory load-file-name)
   "Store the directory evil-collection.el was loaded from.")
@@ -538,13 +545,14 @@ binding in `annalist' as so."
                     ',def)))))
         (when (or (and whitelist (member key-with-prefix whitelist))
                   (not (member key-with-prefix blacklist)))
-          (annalist-record 'evil-collection 'keybindings
-                           ;; Record the binding as if it was in 'normal mode
-                           ;; instead of 'operator mode as the user would be in
-                           ;; normal mode when triggering the operator.
-                           (list map-sym 'normal key-with-prefix def)
-                           :local (or (eq map-sym 'local)
-                                      (local-variable-p map-sym)))
+          (when (featurep 'annalist)
+            (annalist-record 'evil-collection 'keybindings
+                             ;; Record the binding as if it was in 'normal mode
+                             ;; instead of 'operator mode as the user would be
+                             ;; in normal mode when triggering the operator.
+                             (list map-sym 'normal key-with-prefix def)
+                             :local (or (eq map-sym 'local)
+                                        (local-variable-p map-sym))))
           ;; Use the original key declared when actually setting the binding.
           (push key filtered-bindings)
           ;; Use the definition attached to the menu-item when setting the
@@ -601,10 +609,11 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
         (let ((key (pop bindings))
               (def (pop bindings)))
           (when (evil-collection--can-bind-key key whitelist blacklist)
-            (annalist-record 'evil-collection 'keybindings
-                             (list map-sym state key def)
-                             :local (or (eq map-sym 'local)
-                                        (local-variable-p map-sym)))
+            (when (featurep 'annalist)
+              (annalist-record 'evil-collection 'keybindings
+                               (list map-sym state key def)
+                               :local (or (eq map-sym 'local)
+                                          (local-variable-p map-sym))))
             (push key filtered-bindings)
             (push def filtered-bindings))))
       (setq filtered-bindings (nreverse filtered-bindings))
@@ -696,22 +705,28 @@ overriden."
         (string-lessp a-state b-state)
       (string-lessp a-key b-key))))
 
-(annalist-define-view 'keybindings 'evil-collection-valid
-  (list (list 'keymap :sort #'annalist-string-<)
-        (list 'state :sort #'annalist-string-<))
-  :inherit 'valid)
+(with-eval-after-load 'annalist
+  (annalist-define-view 'keybindings 'evil-collection-valid
+    (list (list 'keymap :sort #'annalist-string-<)
+          (list 'state :sort #'annalist-string-<))
+    :inherit 'valid)
 
-(annalist-define-view 'keybindings 'evil-collection-active
-  (list (list 'keymap :sort #'annalist-string-<)
-        (list 'state :sort #'annalist-string-<))
-  :inherit 'active)
+  (annalist-define-view 'keybindings 'evil-collection-active
+    (list (list 'keymap :sort #'annalist-string-<)
+          (list 'state :sort #'annalist-string-<))
+    :inherit 'active))
 
 (defun evil-collection-describe-bindings (&optional arg)
   "Print bindings made by Evil Collection to separate buffer.
 
 With non-nil ARG, restrict to bindings corresponding to active
-modes in the current buffer."
+modes in the current buffer.
+
+Requires the optional `annalist' package."
   (interactive "P")
+  (unless (require 'annalist nil t)
+    (user-error
+     "`evil-collection-describe-bindings' requires the `annalist' package"))
   (annalist-describe 'evil-collection 'keybindings
                      (if arg
                          'evil-collection-active
