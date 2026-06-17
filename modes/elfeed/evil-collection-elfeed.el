@@ -121,9 +121,9 @@
     "gr" 'elfeed-show-refresh
 
     ;; quit
-    "q" 'elfeed-kill-buffer
-    "ZQ" 'elfeed-kill-buffer
-    "ZZ" 'elfeed-kill-buffer)
+    "q" 'kill-current-buffer
+    "ZQ" 'kill-current-buffer
+    "ZZ" 'kill-current-buffer)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map
