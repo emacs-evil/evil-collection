@@ -43,7 +43,7 @@
    | =elfeed-show-next-link=                 | =TAB=    | =TAB=             |
    | =scroll-up-command=                     | =SPC=    | =SPC=             |
    | =scroll-down-command=                   | =S-SPC=  | =S-SPC=           |
-   | =elfeed-kill-buffer=                    | =q=      | =q=, =ZQ=, =ZZ=   |
+   | =kill-current-buffer=                   | =q=      | =q=, =ZQ=, =ZZ=   |
 
 ** elfeed-tree-mode-map
 
