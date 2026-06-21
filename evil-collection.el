@@ -546,42 +546,18 @@ New customization should use
     (find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings)
                  :state normal
                  :key "gr")
-    (find-definition :enabled t
-                     :state normal
-                     :key "gd")
-    (pop-definition :enabled t
-                    :state normal
-                    :key "C-t")
-    (lookup-doc :enabled t
-                :state normal
-                :key "K")
-    (goto-repl :enabled t
-               :state normal
-               :key "gz")
-    (find-file :enabled t
-               :state normal
-               :key "gf")
-    (quit :enabled t
-          :state normal
-          :key "q")
-    (describe-mode :enabled t
-                   :state normal
-                   :key "g?")
-    (refresh :enabled t
-             :state normal
-             :key "gr")
-    (refresh-all :enabled t
-                 :state normal
-                 :key "gR")
-    (action :enabled t
-            :state normal
-            :key ("RET" "<return>"))
-    (action-other :enabled t
-                  :state normal
-                  :key ("S-<return>" "S-RET" "go"))
-    (action-stay :enabled t
-                 :state normal
-                 :key ("M-<return>" "M-RET" "gO"))
+    (find-definition :enabled t :state normal :key "gd")
+    (pop-definition :enabled t :state normal :key "C-t")
+    (lookup-doc :enabled t :state normal :key "K")
+    (goto-repl :enabled t :state normal :key "gz")
+    (find-file :enabled t :state normal :key "gf")
+    (quit :enabled t :state normal :key "q")
+    (describe-mode :enabled t :state normal :key "g?")
+    (refresh :enabled t :state normal :key "gr")
+    (refresh-all :enabled t :state normal :key "gR")
+    (action :enabled t :state normal :key ("RET" "<return>"))
+    (action-other :enabled t :state normal :key ("S-<return>" "S-RET" "go"))
+    (action-stay :enabled t :state normal :key ("M-<return>" "M-RET" "gO"))
     (debug-continue    :enabled ,(lambda () evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("c" "<f5>"))
@@ -612,66 +588,26 @@ New customization should use
     (debug-frame-down  :enabled ,(lambda () evil-collection-setup-debugger-keys)
                        :state normal
                        :key ">")
-    (next-button :enabled t
-                 :state normal
-                 :key ("<tab>" "TAB"))
-    (previous-button :enabled t
-                     :state normal
-                     :key ("<backtab>" "<S-tab>"))
-    (cycle-next :enabled t
-                :state normal
-                :key ("<tab>" "TAB"))
-    (cycle-previous :enabled t
-                    :state normal
-                    :key ("<backtab>" "<S-tab>"))
-    (section-toggle :enabled t
-                    :state normal
-                    :key ("<tab>" "TAB"))
-    (next-item :enabled t
-               :state normal
-               :key "gj")
-    (prev-item :enabled t
-               :state normal
-               :key "gk")
-    (next-section :enabled t
-                  :state normal
-                  :key ("]]"))
-    (prev-section :enabled t
-                  :state normal
-                  :key ("[["))
-    (next-section-2 :enabled t
-                    :state normal
-                    :key "C-j")
-    (prev-section-2 :enabled t
-                    :state normal
-                    :key "C-k")
-    (scroll-down :enabled t
-                 :state normal
-                 :key "SPC")
-    (scroll-up :enabled t
-               :state normal
-               :key ("S-SPC" "S-<space>"))
-    (mark :enabled t
-          :state normal
-          :key "m")
-    (mark-all :enabled t
-              :state normal
-              :key "M")
-    (unmark :enabled t
-            :state normal
-            :key "u")
-    (unmark-all :enabled t
-                :state normal
-                :key "U")
-    (mark-delete :enabled t
-                 :state normal
-                 :key "d")
-    (execute-marks :enabled t
-                   :state normal
-                   :key "x")
-    (delete :enabled t
-            :state normal
-            :key "d"))
+    (next-button :enabled t :state normal :key ("<tab>" "TAB"))
+    (previous-button :enabled t :state normal :key ("<backtab>" "<S-tab>"))
+    (cycle-next :enabled t :state normal :key ("<tab>" "TAB"))
+    (cycle-previous :enabled t :state normal :key ("<backtab>" "<S-tab>"))
+    (section-toggle :enabled t :state normal :key ("<tab>" "TAB"))
+    (next-item :enabled t :state normal :key "gj")
+    (prev-item :enabled t :state normal :key "gk")
+    (next-section :enabled t :state normal :key ("]]"))
+    (prev-section :enabled t :state normal :key ("[["))
+    (next-section-2 :enabled t :state normal :key "C-j")
+    (prev-section-2 :enabled t :state normal :key "C-k")
+    (scroll-down :enabled t :state normal :key "SPC")
+    (scroll-up :enabled t :state normal :key ("S-SPC" "S-<space>"))
+    (mark :enabled t :state normal :key "m")
+    (mark-all :enabled t :state normal :key "M")
+    (unmark :enabled t :state normal :key "u")
+    (unmark-all :enabled t :state normal :key "U")
+    (mark-delete :enabled t :state normal :key "d")
+    (execute-marks :enabled t :state normal :key "x")
+    (delete :enabled t :state normal :key "d"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:
