@@ -588,6 +588,21 @@ New customization should use
     (debug-breakpoint  :enabled ,(lambda () evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("b" "<f9>"))
+    (debug-eval        :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key "e")
+    (debug-locals      :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key "L")
+    (debug-restart     :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key "R")
+    (debug-frame-up    :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key "<")
+    (debug-frame-down  :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key ">")
     (next-item :enabled t
                :state normal
                :key "gj")

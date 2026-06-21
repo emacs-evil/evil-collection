@@ -75,7 +75,6 @@
 
     ;; evaluation
     "r" 'edebug-previous-result
-    "e" 'edebug-eval-expression
     (kbd "C-x C-e") 'edebug-eval-last-sexp
     "EL" 'edebug-visit-eval-list
 
@@ -109,6 +108,7 @@
   (evil-collection-bind 'debug-step-into  'edebug-mode-map 'edebug-step-in)
   (evil-collection-bind 'debug-step-out   'edebug-mode-map 'edebug-step-out)
   (evil-collection-bind 'debug-breakpoint 'edebug-mode-map 'edebug-set-breakpoint)
+  (evil-collection-bind 'debug-eval       'edebug-mode-map 'edebug-eval-expression)
 
   (with-eval-after-load 'edebug-x
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map

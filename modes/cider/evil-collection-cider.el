@@ -107,10 +107,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "C" 'evil-collection-cider-debug-continue-all
       "O" 'evil-collection-cider-debug-force-out
       "H" 'cider-debug-move-here
-      "e" 'evil-collection-cider-debug-eval
       "p" 'evil-collection-cider-debug-inspect
       "P" 'evil-collection-cider-debug-inspect-prompt
-      "L" 'evil-collection-cider-debug-locals
       "J" 'evil-collection-cider-debug-inject
       "S" 'evil-collection-cider-debug-stacktrace
       "t" 'evil-collection-cider-debug-trace)
@@ -122,6 +120,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
   (evil-collection-bind 'debug-step-out   'cider--debug-mode-map 'evil-collection-cider-debug-out)
   (evil-collection-bind 'debug-breakpoint 'cider--debug-mode-map 'cider-debug-defun-at-point)
   (evil-collection-bind 'debug-breakpoint 'cider-mode-map 'cider-debug-defun-at-point)
+  (evil-collection-bind 'debug-eval       'cider--debug-mode-map 'evil-collection-cider-debug-eval)
+  (evil-collection-bind 'debug-locals     'cider--debug-mode-map 'evil-collection-cider-debug-locals)
 
   (evil-collection-bind 'lookup-doc 'cider-mode-map 'cider-doc)
   (evil-collection-bind 'goto-repl  'cider-mode-map 'cider-switch-to-repl-buffer)

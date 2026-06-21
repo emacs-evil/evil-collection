@@ -93,7 +93,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     [follow-link] 'mouse-face
     "\C-i" 'sly-db-cycle
     "S" 'sly-db-show-frame-source
-    "e" 'sly-db-eval-in-frame
     "d" 'sly-db-pprint-eval-in-frame
     "D" 'sly-db-disassemble
     "gi" 'sly-db-inspect-in-frame
@@ -103,7 +102,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "G" 'sly-db-end-of-backtrace
     "t" 'sly-db-toggle-details
     "I" 'sly-db-invoke-restart-by-name
-    "R" 'sly-db-return-from-frame
     "a" 'sly-db-abort
     "A" 'sly-db-break-with-system-debugger
     "B" 'sly-db-break-with-default-debugger
@@ -120,12 +118,8 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "7" 'sly-db-invoke-restart-7
     "8" 'sly-db-invoke-restart-8
     "9" 'sly-db-invoke-restart-9)
-  (evil-collection-bind 'next-item        'sly-db-mode-map 'sly-db-down)
-  (evil-collection-bind 'prev-item        'sly-db-mode-map 'sly-db-up)
   (evil-collection-bind 'next-section     'sly-db-mode-map 'sly-db-details-down)
   (evil-collection-bind 'prev-section     'sly-db-mode-map 'sly-db-details-up)
-  (evil-collection-bind 'next-section-2   'sly-db-mode-map 'sly-db-down)
-  (evil-collection-bind 'prev-section-2   'sly-db-mode-map 'sly-db-up)
   (evil-collection-bind 'quit             'sly-db-mode-map 'sly-db-quit)
   (evil-collection-bind 'describe-mode    'sly-db-mode-map 'describe-mode)
   (evil-collection-bind 'refresh          'sly-db-mode-map 'sly-db-restart-frame)
@@ -134,6 +128,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-bind 'debug-step-into  'sly-db-mode-map 'sly-db-step)
   (evil-collection-bind 'debug-step-out   'sly-db-mode-map 'sly-db-out)
   (evil-collection-bind 'debug-breakpoint 'sly-db-mode-map 'sly-db-break-on-return)
+  (evil-collection-bind 'debug-eval       'sly-db-mode-map 'sly-db-eval-in-frame)
+  (evil-collection-bind 'debug-restart    'sly-db-mode-map 'sly-db-return-from-frame)
+  (evil-collection-bind 'debug-frame-up   'sly-db-mode-map 'sly-db-up)
+  (evil-collection-bind 'debug-frame-down 'sly-db-mode-map 'sly-db-down)
 
   (evil-collection-define-key 'normal 'sly-inspector-mode-map
     [mouse-6] 'sly-inspector-pop

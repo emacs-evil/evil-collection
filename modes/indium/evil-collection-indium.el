@@ -42,19 +42,19 @@
   "Set up `evil' bindings for `indium'."
   (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'indium-debugger-mode-map
-      "L" 'indium-debugger-locals
       "S" 'indium-debugger-stack-frames
-      "H" 'indium-debugger-here
-      "e" 'indium-debugger-evaluate
-      ">" 'indium-debugger-next-frame
-      "<" 'indium-debugger-previous-frame)
+      "H" 'indium-debugger-here)
     (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps))
 
-  (evil-collection-bind 'quit            'indium-debugger-mode-map 'indium-debugger-resume)
-  (evil-collection-bind 'debug-continue  'indium-debugger-mode-map 'indium-debugger-resume)
-  (evil-collection-bind 'debug-step-over 'indium-debugger-mode-map 'indium-debugger-step-over)
-  (evil-collection-bind 'debug-step-into 'indium-debugger-mode-map 'indium-debugger-step-into)
-  (evil-collection-bind 'debug-step-out  'indium-debugger-mode-map 'indium-debugger-step-out)
+  (evil-collection-bind 'quit             'indium-debugger-mode-map 'indium-debugger-resume)
+  (evil-collection-bind 'debug-continue   'indium-debugger-mode-map 'indium-debugger-resume)
+  (evil-collection-bind 'debug-step-over  'indium-debugger-mode-map 'indium-debugger-step-over)
+  (evil-collection-bind 'debug-step-into  'indium-debugger-mode-map 'indium-debugger-step-into)
+  (evil-collection-bind 'debug-step-out   'indium-debugger-mode-map 'indium-debugger-step-out)
+  (evil-collection-bind 'debug-eval       'indium-debugger-mode-map 'indium-debugger-evaluate)
+  (evil-collection-bind 'debug-locals     'indium-debugger-mode-map 'indium-debugger-locals)
+  (evil-collection-bind 'debug-frame-up   'indium-debugger-mode-map 'indium-debugger-previous-frame)
+  (evil-collection-bind 'debug-frame-down 'indium-debugger-mode-map 'indium-debugger-next-frame)
 
   (evil-collection-define-key 'normal 'indium-inspector-mode-map
     (kbd "RET") 'indium-follow-link

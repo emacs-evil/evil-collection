@@ -59,13 +59,10 @@
     "gb" 'debugger-frame
     "r" 'debugger-return-value
     "u" 'debugger-frame-clear
-    "L" (if (fboundp 'debugger-toggle-locals)
-            'debugger-toggle-locals
-          'backtrace-toggle-locals)
     "p" (if (fboundp 'debugger-toggle-locals)
             'debugger-toggle-locals
           'backtrace-toggle-locals)
-    
+
     "zo" 'backtrace-multi-line
     "zc" 'backtrace-single-line
     
@@ -73,7 +70,12 @@
     "ZQ" 'evil-quit
     "ZZ" 'top-level)
   (evil-collection-bind 'quit            'debugger-mode-map 'top-level)
-  (evil-collection-bind 'debug-continue  'debugger-mode-map 'debugger-continue))
+  (evil-collection-bind 'debug-continue  'debugger-mode-map 'debugger-continue)
+  (evil-collection-bind 'debug-eval      'debugger-mode-map 'debugger-eval-expression)
+  (evil-collection-bind 'debug-locals    'debugger-mode-map
+                        (if (fboundp 'debugger-toggle-locals)
+                            'debugger-toggle-locals
+                          'backtrace-toggle-locals)))
 
 (provide 'evil-collection-debug)
 ;;; evil-collection-debug.el ends here

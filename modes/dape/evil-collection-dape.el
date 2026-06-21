@@ -144,7 +144,8 @@
     (evil-collection-bind 'debug-step-over  map-symbol 'dape-next)
     (evil-collection-bind 'debug-step-into  map-symbol 'dape-step-in)
     (evil-collection-bind 'debug-step-out   map-symbol 'dape-step-out)
-    (evil-collection-bind 'debug-breakpoint map-symbol 'dape-breakpoint-toggle)))
+    (evil-collection-bind 'debug-breakpoint map-symbol 'dape-breakpoint-toggle)
+    (evil-collection-bind 'debug-restart    map-symbol 'dape-restart)))
 
 (provide 'evil-collection-dape)
 ;;; evil-collection-dape.el ends here

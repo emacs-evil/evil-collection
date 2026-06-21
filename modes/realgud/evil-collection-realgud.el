@@ -72,21 +72,17 @@
     "8" 'realgud:goto-loc-hist-8
     "9" 'realgud:goto-loc-hist-9
     "J" 'realgud:cmd-jump
-    "e" 'realgud:cmd-eval-dwim
     "E" 'realgud:cmd-eval-at-point
     "U" 'realgud:cmd-until
     "H" 'realgud:cmd-until-here
     [mouse-2] 'realgud:tooltip-eval
     [left-fringe mouse-1] 'realgud-cmds--mouse-add-remove-bp
     [left-margin mouse-1] 'realgud-cmds--mouse-add-remove-bp
-    ">" 'realgud:cmd-newer-frame
-    "<" 'realgud:cmd-older-frame
     "d" 'realgud:cmd-newer-frame
     "u" 'realgud:cmd-older-frame
     "gR" 'realgud-recenter-arrow ;; FIXME: Hmnn!
     "C" 'realgud-window-cmd-undisturb-src
     "S" 'realgud-window-src-undisturb-cmd
-    "R" 'realgud:cmd-restart
     "!" 'realgud:cmd-shell)
 
   (evil-collection-bind 'describe-mode    'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
@@ -95,6 +91,10 @@
   (evil-collection-bind 'debug-step-over  'realgud:shortkey-mode-map 'realgud:cmd-next)
   (evil-collection-bind 'debug-step-into  'realgud:shortkey-mode-map 'realgud:cmd-step)
   (evil-collection-bind 'debug-breakpoint 'realgud:shortkey-mode-map 'realgud:cmd-break)
+  (evil-collection-bind 'debug-eval       'realgud:shortkey-mode-map 'realgud:cmd-eval-dwim)
+  (evil-collection-bind 'debug-restart    'realgud:shortkey-mode-map 'realgud:cmd-restart)
+  (evil-collection-bind 'debug-frame-up   'realgud:shortkey-mode-map 'realgud:cmd-older-frame)
+  (evil-collection-bind 'debug-frame-down 'realgud:shortkey-mode-map 'realgud:cmd-newer-frame)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 
