@@ -46,8 +46,8 @@
   (evil-set-initial-state 'free-keys-mode 'normal)
   (evil-collection-define-key 'normal 'free-keys-mode-map
     "c" 'free-keys-change-buffer
-    "p" 'free-keys-set-prefix
-    "q" 'quit-window))
+    "p" 'free-keys-set-prefix)
+  (evil-collection-theme-bind 'quit 'free-keys-mode-map 'quit-window))
 
 (provide 'evil-collection-free-keys)
 ;;; evil-collection-free-keys.el ends here

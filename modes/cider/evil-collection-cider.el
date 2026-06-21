@@ -119,8 +119,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "L" 'evil-collection-cider-debug-locals
       "J" 'evil-collection-cider-debug-inject
       "s" 'evil-collection-cider-debug-stacktrace
-      "t" 'evil-collection-cider-debug-trace
-      "q" 'evil-collection-cider-debug-quit))
+      "t" 'evil-collection-cider-debug-trace)
+    (evil-collection-theme-bind 'quit 'cider--debug-mode-map 'evil-collection-cider-debug-quit))
 
   (evil-collection-theme-bind 'lookup-doc 'cider-mode-map 'cider-doc)
   (evil-collection-theme-bind 'goto-repl  'cider-mode-map 'cider-switch-to-repl-buffer)
@@ -156,8 +156,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 
     (kbd "RET") 'cider-repl-history-insert-and-quit
     "gr" 'cider-repl-history-update
-    "q" 'cider-repl-history-quit
     "u" 'cider-repl-history-undo-other-window)
+  (evil-collection-theme-bind 'quit 'cider-repl-history-mode-map 'cider-repl-history-quit)
 
   (evil-collection-define-key 'normal 'cider-test-report-mode-map
     (kbd "C-c ,") 'cider-test-commands-map
@@ -178,15 +178,12 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "n" 'cider-test-run-ns-tests
     "L" 'cider-test-run-loaded-tests
     "p" 'cider-test-run-project-tests
-    "gr" 'cider-test-run-test
-    "q" 'cider-popup-buffer-quit-function)
+    "gr" 'cider-test-run-test)
+  (evil-collection-theme-bind 'quit 'cider-test-report-mode-map 'cider-popup-buffer-quit-function)
 
   (evil-collection-theme-bind 'lookup-doc 'cider-macroexpansion-mode-map 'cider-doc)
 
   (evil-collection-define-key 'normal 'cider-macroexpansion-mode-map
-    ;; quit
-    "q" 'cider-popup-buffer-quit-function
-
     "r" 'cider-macroexpand-again
     "J" 'cider-javadoc
     "." (if cider-use-xref 'xref-find-definitions 'cider-find-var)
@@ -194,6 +191,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "a" 'cider-macroexpand-all-inplace
     "u" 'cider-macroexpand-undo
     [remap undo] 'cider-macroexpand-undo)
+  (evil-collection-theme-bind 'quit 'cider-macroexpansion-mode-map 'cider-popup-buffer-quit-function)
 
   (evil-collection-define-key 'normal 'cider-connections-buffer-mode-map
     "d" 'cider-connections-make-default
@@ -211,7 +209,6 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "[[") 'cider-stacktrace-previous-cause
     (kbd "]]") 'cider-stacktrace-next-cause
     "gd" 'cider-stacktrace-jump
-    "q" 'cider-popup-buffer-quit-function
     "J" 'cider-stacktrace-toggle-java
     "C" 'cider-stacktrace-toggle-clj
     "R" 'cider-stacktrace-toggle-repl
@@ -227,10 +224,10 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "0" 'cider-stacktrace-cycle-all-causes
     (kbd "TAB") 'cider-stacktrace-cycle-current-cause
     [backtab] 'cider-stacktrace-cycle-all-causes)
+  (evil-collection-theme-bind 'quit 'cider-stacktrace-mode-map 'cider-popup-buffer-quit-function)
 
   (add-hook 'cider-inspector-mode-hook #'evil-normalize-keymaps)
   (evil-collection-define-key 'normal 'cider-inspector-mode-map
-    "q" 'quit-window
     (kbd "RET") 'cider-inspector-operate-on-point
     [mouse-1] 'cider-inspector-operate-on-click
     "L" 'cider-inspector-pop
@@ -243,7 +240,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "]]") 'cider-inspector-next-inspectable-object
     (kbd "[[") 'cider-inspector-previous-inspectable-object
     "gj" 'cider-inspector-next-inspectable-object
-    "gk" 'cider-inspector-previous-inspectable-object))
+    "gk" 'cider-inspector-previous-inspectable-object)
+  (evil-collection-theme-bind 'quit 'cider-inspector-mode-map 'quit-window))
 
 (provide 'evil-collection-cider)
 ;;; evil-collection-cider.el ends here

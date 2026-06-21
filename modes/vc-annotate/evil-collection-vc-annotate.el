@@ -36,8 +36,8 @@
 (defun evil-collection-vc-annotate-setup ()
   "Set up `evil' bindings for `vc-annotate'."
   (evil-set-initial-state 'vc-annotate-mode 'normal)
+  (evil-collection-theme-bind 'quit 'vc-annotate-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'vc-annotate-mode-map
-    "q" 'quit-window
     "a" 'vc-annotate-revision-previous-to-line
     "d" 'vc-annotate-show-diff-revision-at-line
     "=" 'vc-annotate-show-diff-revision-at-line

@@ -550,7 +550,10 @@ New customization should use
                :key "gz")
     (find-file :enabled t
                :state normal
-               :key "gf"))
+               :key "gf")
+    (quit :enabled t
+          :state normal
+          :key "q"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

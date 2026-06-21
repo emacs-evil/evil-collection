@@ -73,8 +73,8 @@
     "g_"               'mpc-songs-kill-search
     "gd"               'mpc-songs-jump-to
     "gR"               'mpc-update
-    "D"                'mpc-playlist-delete
-    "q"                'mpc-quit))
+    "D"                'mpc-playlist-delete)
+  (evil-collection-theme-bind 'quit 'mpc-mode-map 'mpc-quit))
 
 (provide 'evil-collection-mpc)
 ;;; evil-collection-mpc.el ends here

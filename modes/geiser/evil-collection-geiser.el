@@ -57,8 +57,7 @@
   (evil-set-initial-state 'geiser-debug-mode 'normal)
   (evil-set-initial-state 'geiser-doc-mode 'normal)
 
-  (evil-collection-define-key 'normal 'geiser-debug-mode-map
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'geiser-debug-mode-map 'quit-window)
 
   (evil-collection-theme-bind 'find-definition 'geiser-doc-mode-map 'geiser-edit-symbol-at-point)
   (evil-collection-theme-bind 'pop-definition  'geiser-doc-mode-map 'geiser-pop-symbol-stack)
@@ -69,7 +68,6 @@
     (kbd "<tab>") 'forward-button
     (kbd "<S-tab>") 'backward-button
     "gr" 'geiser-doc-refresh
-    "q" 'View-quit
     ">" 'geiser-doc-next
     "<" 'geiser-doc-previous
     "gj" 'forward-button
@@ -80,6 +78,7 @@
     "[[" 'geiser-doc-previous-section
     "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
+  (evil-collection-theme-bind 'quit 'geiser-doc-mode-map 'View-quit)
 
   (evil-collection-theme-bind 'repl-submit        'geiser-repl-mode-map 'geiser-repl-maybe-send)
   (evil-collection-theme-bind 'repl-newline       'geiser-repl-mode-map 'geiser-repl--newline-and-indent)

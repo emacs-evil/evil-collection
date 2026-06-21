@@ -95,8 +95,8 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "r" 'pass-rename
     "R" 'pass-rename
     "o" 'pass-otp-options
-    (kbd "RET") 'pass-view
-    "q" 'pass-quit))
+    (kbd "RET") 'pass-view)
+  (evil-collection-theme-bind 'quit 'pass-mode-map 'pass-quit))
 
 (provide 'evil-collection-pass)
 ;;; evil-collection-pass.el ends here

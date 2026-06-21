@@ -39,8 +39,8 @@
   "Set up `evil' bindings for `leetcode'."
   (evil-collection-define-key 'normal 'leetcode--problems-mode-map
     (kbd "RET") 'leetcode-show-current-problem
-    "gr" 'leetcode-problems-refresh
-    "q" 'quit-window))
+    "gr" 'leetcode-problems-refresh)
+  (evil-collection-theme-bind 'quit 'leetcode--problems-mode-map 'quit-window))
 
 (provide 'evil-collection-leetcode)
 ;;; evil-collection-leetcode.el ends here

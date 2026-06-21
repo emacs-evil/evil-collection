@@ -70,10 +70,8 @@
     "l" 'evil-forward-char        ;; shadows rg-list-searches
     "w" 'evil-forward-word-begin  ;; shadows wgrep-change-to-wgrep-mode
     "gg" 'evil-goto-first-line
-    "gr" 'rg-recompile
-
-    ;; quit
-    "q" 'quit-window)
+    "gr" 'rg-recompile)
+  (evil-collection-theme-bind 'quit 'rg-mode-map 'quit-window)
 
   (evil-collection-define-key 'motion 'rg-mode-map
     "e" 'evil-forward-word-end    ;; shadows wgrep-change-to-wgrep-mode

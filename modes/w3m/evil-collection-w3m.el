@@ -72,9 +72,9 @@
     "gR" 'w3m-reload-all-pages
 
     ;; quit
-    "q" 'w3m-close-window
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'w3m-mode-map 'w3m-close-window)
 
   (evil-collection-define-operator-key 'yank 'w3m-mode-map
     ;; yt

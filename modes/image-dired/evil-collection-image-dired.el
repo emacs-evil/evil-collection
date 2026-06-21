@@ -66,9 +66,9 @@
     "fi" 'image-dired-line-up-interactive
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'image-dired-thumbnail-mode-map 'quit-window))
 
 (provide 'evil-collection-image-dired)
 ;;; evil-collection-image-dired.el ends here

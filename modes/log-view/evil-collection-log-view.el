@@ -41,8 +41,8 @@
   (evil-set-initial-state 'vc-git-log-view-mode 'normal)
   (evil-set-initial-state 'vc-svn-log-view-mode 'normal)
 
+  (evil-collection-theme-bind 'quit 'log-view-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'log-view-mode-map
-    "q" 'quit-window
     (kbd "TAB") 'log-view-toggle-entry-display
     "m" 'log-view-toggle-mark-entry
     "c" 'log-view-modify-change-comment

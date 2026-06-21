@@ -58,9 +58,9 @@
     (kbd "C-k") 'widget-backward
 
     ;; quit
-    "q" 'Custom-buffer-done
     "ZQ" 'evil-quit
-    "ZZ" 'Custom-buffer-done))
+    "ZZ" 'Custom-buffer-done)
+  (evil-collection-theme-bind 'quit 'custom-new-theme-mode-map 'Custom-buffer-done))
 
 (provide 'evil-collection-cus-theme)
 ;;; evil-collection-cus-theme.el ends here

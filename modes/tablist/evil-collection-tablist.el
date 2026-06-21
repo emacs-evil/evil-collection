@@ -57,8 +57,8 @@
            common-bindings)
     
     (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
-           "q" 'tablist-quit
-           common-bindings)))
+           common-bindings)
+    (evil-collection-theme-bind 'quit 'tablist-minor-mode-map 'tablist-quit)))
 
 (provide 'evil-collection-tablist)
 ;;; evil-collection-tablist.el ends here

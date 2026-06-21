@@ -36,8 +36,8 @@
 (defun evil-collection-doc-view-setup ()
   "Set up `evil' bindings for `doc-view'."
   (evil-set-initial-state 'doc-view-mode 'normal)
+  (evil-collection-theme-bind 'quit 'doc-view-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'doc-view-mode-map
-    "q" 'quit-window
     [remap evil-next-line] 'doc-view-next-line-or-next-page
     [remap evil-previous-line] 'doc-view-previous-line-or-previous-page
     [remap evil-backward-char] 'image-backward-hscroll

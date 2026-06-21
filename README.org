@@ -249,6 +249,13 @@ To disable a key theme.
       '((find-file :key "gF")))     ;; or :enabled nil to disable
 #+end_src
 
+*** Quit
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((quit :key "Q")))     ;; or :enabled nil to disable
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

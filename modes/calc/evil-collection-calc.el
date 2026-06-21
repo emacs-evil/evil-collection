@@ -160,10 +160,8 @@
     "t" (lookup-key calc-mode-map (kbd "t"))
     "U" (lookup-key calc-mode-map (kbd "u"))
     "v" (lookup-key calc-mode-map (kbd "v"))
-    "zz" (lookup-key calc-mode-map (kbd "z"))
-
-    ;; quit
-    "q" 'calc-quit)
+    "zz" (lookup-key calc-mode-map (kbd "z")))
+  (evil-collection-theme-bind 'quit 'calc-mode-map 'calc-quit)
 
   (evil-collection-define-key 'visual 'calc-mode-map
     "d" 'calc-kill-region))

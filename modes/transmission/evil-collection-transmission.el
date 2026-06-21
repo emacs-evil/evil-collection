@@ -82,9 +82,9 @@
     "gr" 'revert-buffer
 
     ;; quit
-    "q" 'transmission-quit
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
+  (evil-collection-theme-bind 'quit 'transmission-mode-map 'transmission-quit)
 
   (evil-collection-inhibit-insert-state 'transmission-files-mode-map)
   (evil-set-initial-state 'transmission-files-mode 'normal)
@@ -123,9 +123,9 @@
     "gx" 'transmission-browse-url-of-file ; See mu4e.
 
     ;; quit
-    "q" 'transmission-quit
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
+  (evil-collection-theme-bind 'quit 'transmission-files-mode-map 'transmission-quit)
 
   (evil-collection-define-key 'visual 'transmission-files-mode-map
     "r" 'transmission-move

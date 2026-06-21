@@ -198,8 +198,8 @@ KEY is a string passed to `kbd'."
     "gj" 'agent-shell-viewport-next-item
     "gk" 'agent-shell-viewport-previous-item
     (kbd "C-j") 'agent-shell-viewport-next-page
-    (kbd "C-k") 'agent-shell-viewport-previous-page
-    "q" 'bury-buffer)
+    (kbd "C-k") 'agent-shell-viewport-previous-page)
+  (evil-collection-theme-bind 'quit 'agent-shell-viewport-view-mode-map 'bury-buffer)
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-viewport-view-mode-map
@@ -229,8 +229,7 @@ KEY is a string passed to `kbd'."
       "gt" 'agent-shell-viewport-open-transcript
       "gz" 'agent-shell-viewport-refresh))
 
-  (evil-collection-define-key 'normal 'agent-shell-diff-mode-map
-    "q" #'kill-current-buffer)
+  (evil-collection-theme-bind 'quit 'agent-shell-diff-mode-map #'kill-current-buffer)
 
   (evil-collection-theme-bind 'find-file 'agent-shell-diff-mode-map 'agent-shell-diff-open-file)
 

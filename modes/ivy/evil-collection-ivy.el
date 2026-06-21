@@ -53,10 +53,8 @@
     "gc" 'ivy-occur-toggle-calling
 
     ;; refresh
-    "gr" 'ivy-occur-revert-buffer
-
-    ;; quit
-    "q" 'quit-window)
+    "gr" 'ivy-occur-revert-buffer)
+  (evil-collection-theme-bind 'quit 'ivy-occur-mode-map 'quit-window)
 
   (evil-collection-theme-bind 'find-file 'ivy-occur-mode-map 'ivy-occur-press)
 
@@ -87,10 +85,8 @@
     "go" 'ivy-occur-dispatch
     "gc" 'ivy-occur-toggle-calling
 
-    "0" 'evil-digit-argument-or-evil-beginning-of-line
-
-    ;; quit
-    "q" 'quit-window)
+    "0" 'evil-digit-argument-or-evil-beginning-of-line)
+  (evil-collection-theme-bind 'quit 'ivy-occur-grep-mode-map 'quit-window)
 
   (evil-collection-theme-bind 'find-file 'ivy-occur-grep-mode-map 'ivy-occur-press)
 

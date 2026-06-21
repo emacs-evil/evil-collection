@@ -52,7 +52,6 @@
 
   (evil-collection-define-key 'normal 'diff-hl-show-hunk-inline-transient-mode-map
     ;; quit
-    "q" 'diff-hl-show-hunk-inline-hide
     (kbd "<escape>") 'diff-hl-show-hunk-inline-hide
 
     ;; motion
@@ -60,6 +59,7 @@
     "k" 'diff-hl-show-hunk-inline--popup-up
     (kbd "C-f") 'diff-hl-show-hunk-inline--popup-pagedown
     (kbd "C-b") 'diff-hl-show-hunk-inline--popup-pageup)
+  (evil-collection-theme-bind 'quit 'diff-hl-show-hunk-inline-transient-mode-map 'diff-hl-show-hunk-inline-hide)
 
   ;; Actually `diff-hl-show-hunk-inline-transient-mode-map' will inherit it by
   ;; `set-keymap-parent'.

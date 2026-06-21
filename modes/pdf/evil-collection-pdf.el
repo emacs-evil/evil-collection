@@ -194,10 +194,10 @@ instead, which is useless and counterintuitive."
     "o" 'pdf-outline
 
     ;; quit
-    "q" 'quit-window
     "Q" 'kill-current-buffer
     "ZQ" 'kill-current-buffer
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'pdf-view-mode-map 'quit-window)
 
 
   (when evil-want-C-d-scroll
@@ -241,9 +241,9 @@ instead, which is useless and counterintuitive."
 
     ;; quit
     (kbd "C-w q") 'pdf-outline-quit-and-kill ; TODO: Do we need to set this? I think not.
-    "q" 'quit-window
     "ZQ" 'quit-window
     "ZZ" 'pdf-outline-quit-and-kill)
+  (evil-collection-theme-bind 'quit 'pdf-outline-buffer-mode-map 'quit-window)
 
   (evil-collection-inhibit-insert-state 'pdf-occur-buffer-mode-map)
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
@@ -312,9 +312,9 @@ instead, which is useless and counterintuitive."
     "/z" 'tablist-suspend-filter
 
     ;; quit
-    "q" 'tablist-quit
     "ZQ" 'tablist-quit
-    "ZZ" 'tablist-quit))
+    "ZZ" 'tablist-quit)
+  (evil-collection-theme-bind 'quit 'pdf-occur-buffer-mode-map 'tablist-quit))
 
 (provide 'evil-collection-pdf)
 ;;; evil-collection-pdf.el ends here

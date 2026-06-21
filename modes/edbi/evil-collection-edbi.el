@@ -95,14 +95,14 @@ default bindings."
     "gr" 'ctbl:action-update-buffer
 
     ;; quit
-    "q" 'edbi:dbview-query-result-quit-command
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'edbi:dbview-query-result-keymap 'edbi:dbview-query-result-quit-command)
 
   (evil-collection-define-key 'normal 'edbi:sql-mode-map
-    "q" 'edbi:dbview-query-editor-quit-command
     (kbd "C-n") 'edbi:dbview-query-editor-history-forward-command
-    (kbd "C-p") 'edbi:dbview-query-editor-history-back-command))
+    (kbd "C-p") 'edbi:dbview-query-editor-history-back-command)
+  (evil-collection-theme-bind 'quit 'edbi:sql-mode-map 'edbi:dbview-query-editor-quit-command))
 
 (provide 'evil-collection-edbi)
 ;;; evil-collection-edbi.el ends here

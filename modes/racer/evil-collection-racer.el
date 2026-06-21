@@ -40,8 +40,7 @@
   (evil-collection-theme-bind 'pop-definition  'racer-mode-map 'pop-tag-mark)
   (evil-collection-theme-bind 'lookup-doc      'racer-mode-map 'racer-describe)
 
-  (evil-collection-define-key 'normal 'racer-help-mode-map
-    "q" 'quit-window))
+  (evil-collection-theme-bind 'quit 'racer-help-mode-map 'quit-window))
 
 (provide 'evil-collection-racer)
 ;;; evil-collection-racer.el ends here

@@ -47,8 +47,8 @@
     "{" 'tabulated-list-narrow-current-column
     "}" 'tabulated-list-widen-current-column
     "gl" 'tabulated-list-next-column
-    "gh" 'tabulated-list-previous-column
-    "q" 'quit-window))
+    "gh" 'tabulated-list-previous-column)
+  (evil-collection-theme-bind 'quit 'tabulated-list-mode-map 'quit-window))
 
 (provide 'evil-collection-tabulated-list)
 ;;; evil-collection-tabulated-list.el ends here

@@ -80,9 +80,9 @@
     (kbd "C-c C-c") 'image-toggle-display
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'image-mode-map 'quit-window)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll

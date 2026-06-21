@@ -53,25 +53,25 @@ Other modes that are configured:
     "+" 'simple-mpc-increase-volume
     "-" 'simple-mpc-decrease-volume
 
-    "q" 'simple-mpc-quit
     "ZQ" 'simple-mpc-quit
     "ZZ" 'simple-mpc-quit)
+  (evil-collection-theme-bind 'quit 'simple-mpc-mode-map 'simple-mpc-quit)
 
   (evil-collection-define-key 'normal 'simple-mpc-current-playlist-mode-map
     "x" 'simple-mpc-delete
     "d" 'simple-mpc-delete
 
-    "q" 'simple-mpc-current-playlist-quit
     "ZQ" 'simple-mpc-current-playlist-quit
     "ZZ" 'simple-mpc-current-playlist-quit
 
     "<return>" 'simple-mpc-play-current-line
     (kbd "RET") 'simple-mpc-play-current-line)
+  (evil-collection-theme-bind 'quit 'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
 
+  (evil-collection-theme-bind 'quit 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
   (evil-collection-define-key 'normal 'simple-mpc-query-mode-map
     "o" 'simple-mpc-query-sort
 
-    "q" 'simple-mpc-query-quit
     "ZQ" 'simple-mpc-query-quit
     "ZZ" 'simple-mpc-query-quit
 

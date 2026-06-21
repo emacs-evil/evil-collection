@@ -48,16 +48,15 @@
       "c" 'indium-debugger-resume
       "L" 'indium-debugger-locals
       "s" 'indium-debugger-stack-frames
-      "q" 'indium-debugger-resume
       "H" 'indium-debugger-here
       "e" 'indium-debugger-evaluate
       ">" 'indium-debugger-next-frame
       "<" 'indium-debugger-previous-frame)
+    (evil-collection-theme-bind 'quit 'indium-debugger-mode-map 'indium-debugger-resume)
 
     (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps))
 
   (evil-collection-define-key 'normal 'indium-inspector-mode-map
-    "q" 'quit-window
     (kbd "RET") 'indium-follow-link
     [mouse-1] 'indium-follow-link
     "L" 'indium-inspector-pop
@@ -68,14 +67,14 @@
     (kbd "C-k") 'indium-inspector-previous-reference
     [tab] 'indium-inspector-next-reference
     [backtab] 'indium-inspector-previous-reference)
+  (evil-collection-theme-bind 'quit 'indium-inspector-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'indium-debugger-locals-mode-map
-    "q" 'quit-window
     "L" nil
     "gr" nil)
+  (evil-collection-theme-bind 'quit 'indium-debugger-locals-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'indium-debugger-frames-mode-map
-    "q" 'quit-window
     [return] 'indium-follow-link
     (kbd "RET") 'indium-follow-link
     (kbd "gj") 'indium-debugger-frames-next-frame
@@ -84,6 +83,7 @@
     (kbd "C-k") 'indium-debugger-frames-previous-frame
     [tab] 'indium-debugger-frames-next-frame
     [backtab] 'indium-debugger-frames-previous-frame)
+  (evil-collection-theme-bind 'quit 'indium-debugger-frames-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'indium-interaction-mode-map
     "gr" 'indium-update-script-source)

@@ -50,8 +50,8 @@
 
   (evil-collection-define-key 'normal 'crdt-read-settings-map
     (kbd "RET") 'exit-recursive-edit
-    "q" 'abort-recursive-edit
-    "ZZ" 'exit-recursive-edit))
+    "ZZ" 'exit-recursive-edit)
+  (evil-collection-theme-bind 'quit 'crdt-read-settings-map 'abort-recursive-edit))
 
 (provide 'evil-collection-crdt)
 ;;; evil-collection-crdt.el ends here

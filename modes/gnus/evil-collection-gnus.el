@@ -59,11 +59,11 @@ Note that there is no gnus-common-mode-map")
       (apply #'evil-collection-define-key 'normal map
              evil-collection-gnus-common-normal-bindings)))
 
+  (evil-collection-theme-bind 'quit 'gnus-summary-mode-map 'gnus-summary-exit)
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
     "ZQ"        'gnus-summary-exit-no-update
-    "q"         'gnus-summary-exit
     "ZZ"        'gnus-summary-exit
 
     "g?"        'gnus-summary-help-map
@@ -236,11 +236,11 @@ Note that there is no gnus-common-mode-map")
     "F"         'gnus-article-followup-with-original
     "R"         'gnus-article-reply-with-original
     "W"         'gnus-article-wide-reply-with-original)
+  (evil-collection-theme-bind 'quit 'gnus-article-mode-map 'evil-window-delete)
   (evil-collection-define-key 'normal 'gnus-article-mode-map
     ;; quit
     "Q"         'evil-window-delete
     "ZQ"        'evil-window-delete
-    "q"         'evil-window-delete
     "ZZ"        'evil-window-delete
 
     ;; Movement
@@ -309,11 +309,11 @@ Note that there is no gnus-common-mode-map")
     "gr"        'gnus-summary-show-article
     "gX"        'gnus-summary-browse-url)
 
+  (evil-collection-theme-bind 'quit 'gnus-group-mode-map 'gnus-group-exit)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
     "Q"         'gnus-group-quit
     "ZQ"        'gnus-group-quit
-    "q"         'gnus-group-exit
     "ZZ"        'gnus-group-exit
 
     ;; Movement
@@ -421,11 +421,11 @@ Note that there is no gnus-common-mode-map")
     [mouse-2]   'gnus-mouse-pick-group
     "g?"        'gnus-group-help-map)
 
+  (evil-collection-theme-bind 'quit 'gnus-server-mode-map 'gnus-server-exit)
   (evil-collection-define-key 'normal 'gnus-server-mode-map
     ;; quit
     "Q"         'gnus-server-exit
     "ZQ"        'gnus-server-exit
-    "q"         'gnus-server-exit
     "ZZ"        'gnus-server-exit
 
     (kbd "RET") 'gnus-server-read-server
@@ -451,22 +451,22 @@ Note that there is no gnus-common-mode-map")
     "M-c"       'gnus-server-close-all-servers
     "M-o"       'gnus-server-open-all-servers)
 
+  (evil-collection-theme-bind 'quit 'gnus-browse-mode-map 'gnus-browse-exit)
   (evil-collection-define-key 'normal 'gnus-browse-mode-map
     ;; quit
     "Q"         'gnus-browse-exit
     "ZQ"        'gnus-browse-exit
-    "q"         'gnus-browse-exit
     "ZZ"        'gnus-browse-exit
 
     "u" 'gnus-browse-unsubscribe-current-group
     (kbd "SPC") 'gnus-browse-read-group
     (kbd "RET") 'gnus-browse-select-group)
 
+  (evil-collection-theme-bind 'quit 'gnus-bookmark-bmenu-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'gnus-bookmark-bmenu-mode-map
     ;; quit
     "Q"         'quit-window
     "ZQ"        'quit-window
-    "q"         'quit-window
     "ZZ"        'quit-window
 
     ;; mark and execution

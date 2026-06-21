@@ -39,8 +39,8 @@
     (kbd "RET") 'imenu-list-goto-entry
     (kbd "TAB") 'hs-toggle-hiding
     "d" 'imenu-list-display-entry
-    "gr" 'imenu-list-refresh
-    "q" 'imenu-list-quit-window))
+    "gr" 'imenu-list-refresh)
+  (evil-collection-theme-bind 'quit 'imenu-list-major-mode-map 'imenu-list-quit-window))
 
 
 (provide 'evil-collection-imenu-list)

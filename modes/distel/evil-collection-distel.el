@@ -53,8 +53,8 @@
       )
 
     (evil-collection-define-key 'normal 'edb-monitor-mode-map
-      (kbd "RET") 'edb-attach-command
-      "q" 'erl-bury-viewer)
+      (kbd "RET") 'edb-attach-command)
+    (evil-collection-theme-bind 'quit 'edb-monitor-mode-map 'erl-bury-viewer)
 
     (evil-collection-define-key 'normal 'edb-variables-mode-map
       (kbd "RET") 'edb-show-variable)
@@ -66,9 +66,9 @@
       "U" 'edb-attach-up
       "D" 'edb-attach-down
       "H" 'edb-attach-finish
-      "q" 'erl-quit-viewer
       "g?" 'edb-attach-help
-      "b" 'edb-toggle-breakpoint))
+      "b" 'edb-toggle-breakpoint)
+    (evil-collection-theme-bind 'quit 'edb-attach-mode-map 'erl-quit-viewer))
 
   (evil-collection-theme-bind 'find-usages 'erlang-extended-mode-map 'erl-who-calls)
 

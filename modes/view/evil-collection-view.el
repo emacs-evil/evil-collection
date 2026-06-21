@@ -38,12 +38,12 @@
   (add-hook 'view-mode-hook 'evil-normalize-keymaps)
   (evil-set-initial-state 'view-mode 'normal)
   (evil-collection-define-key 'normal 'view-mode-map
-    "q" 'View-quit
     (kbd "SPC") 'View-scroll-page-forward
     (kbd "S-SPC") 'View-scroll-page-backward
 
     ;; refresh
-    (kbd "gr") 'revert-buffer))
+    (kbd "gr") 'revert-buffer)
+  (evil-collection-theme-bind 'quit 'view-mode-map 'View-quit))
 
 (provide 'evil-collection-view)
 ;;; evil-collection-view.el ends here

@@ -74,7 +74,6 @@
     "go" 'mpdel-song-open
     "gr" 'mpdel-song-refresh
     "I"  'mpdel-song-play
-    "q"  'mpdel-song-quit-window
 
     ">s" 'mpdel-song-small-increment
     ">n" 'mpdel-song-normal-increment
@@ -88,6 +87,7 @@
     ")"  'mpdel-playlist-move-down
     "w"  'mpdel-playlist-save
     "P"  'mpdel-playlist-play)
+  (evil-collection-theme-bind 'quit 'mpdel-core-map 'mpdel-song-quit-window)
 
   (evil-collection-define-key 'normal 'mpdel-tablist-mode-map
     "D" 'tablist-do-delete))

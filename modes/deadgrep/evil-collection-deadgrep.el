@@ -56,9 +56,9 @@
     ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
 
     ;; Quit
-    "q" 'quit-window
     "ZZ" 'quit-window
-    "ZQ" 'evil-quit))
+    "ZQ" 'evil-quit)
+  (evil-collection-theme-bind 'quit 'deadgrep-mode-map 'quit-window))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here

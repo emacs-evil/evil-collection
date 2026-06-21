@@ -46,18 +46,16 @@
     "gk" 'tide-find-previous-reference
     (kbd "C-j") 'tide-find-next-reference
     (kbd "C-k") 'tide-find-previous-reference
-    (kbd "RET") 'tide-goto-line-reference
-    ;; quit
-    "q" 'quit-window)
+    (kbd "RET") 'tide-goto-line-reference)
+  (evil-collection-theme-bind 'quit 'tide-references-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'tide-project-errors-mode-map
     "gj" 'tide-find-next-error
     "gk" 'tide-find-previous-error
     (kbd "C-j") 'tide-find-next-error
     (kbd "C-k") 'tide-find-previous-error
-    (kbd "RET") 'tide-goto-error
-    ;; quit
-    (kbd "q") 'quit-window))
+    (kbd "RET") 'tide-goto-error)
+  (evil-collection-theme-bind 'quit 'tide-project-errors-mode-map 'quit-window))
 
 (provide 'evil-collection-tide)
 ;;; evil-collection-tide.el ends here

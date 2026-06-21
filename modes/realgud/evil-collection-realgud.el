@@ -45,7 +45,6 @@
     "T" 'realgud:cmd-backtrace
     "f" 'realgud:cmd-finish
     "n" 'realgud:cmd-next
-    "q" 'realgud:cmd-quit
     "Q" 'realgud:cmd-kill
     "r" 'realgud:cmd-restart
     "R" 'realgud:cmd-restart
@@ -63,6 +62,7 @@
     ;; (evil-collection-define-key nil map [M-S-down]  'realgud-track-hist-newest)
     ;; (evil-collection-define-key nil map [M-S-up]    'realgud-track-hist-oldest)
     )
+  (evil-collection-theme-bind 'quit 'realgud:shortkey-mode-map 'realgud:cmd-quit)
 
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     (kbd "C-x C-q") 'realgud-short-key-mode

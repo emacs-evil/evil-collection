@@ -72,10 +72,8 @@
 
     ;; mark
     "u" 'tar-unflag
-    "U" 'tar-clear-modification-flags
-
-    ;; quit
-    "q" 'quit-window))
+    "U" 'tar-clear-modification-flags)
+  (evil-collection-theme-bind 'quit 'tar-mode-map 'quit-window))
 
 (provide 'evil-collection-tar-mode)
 ;;; evil-collection-tar-mode.el ends here

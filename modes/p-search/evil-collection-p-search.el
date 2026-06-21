@@ -72,14 +72,14 @@
     "go" 'p-search-view-document
     (kbd "C-o") 'p-search-display-document
     "gO" 'p-search-display-document
-    "q" 'p-search-quit
     ;; (keymap-set map "C-o" #'p-search-display-file)
     ;; (keymap-set map "1" #'p-search-show-level-1)
     ;; (keymap-set map "2" #'p-search-show-level-2)
     ;; (keymap-set map "3" #'p-search-show-level-3)
     "Jg" 'p-search-jump-candidate-generators
     "Jp" 'p-search-jump-priors
-    "Jr" 'p-search-jump-results))
+    "Jr" 'p-search-jump-results)
+  (evil-collection-theme-bind 'quit 'evil-collection-p-search-mode-map 'p-search-quit))
 
 (provide 'evil-collection-p-search)
 ;;; evil-collection-p-search.el ends here

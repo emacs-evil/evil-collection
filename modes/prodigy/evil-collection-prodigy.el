@@ -36,10 +36,8 @@
 ;;;###autoload
 (defun evil-collection-prodigy-setup ()
   "Set up `evil' bindings for `prodigy'."
+  (evil-collection-theme-bind 'quit 'prodigy-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'prodigy-mode-map
-    ;; quit
-    "q" 'quit-window
-
     "j" 'prodigy-next
     "k" 'prodigy-prev
     "gg" 'prodigy-first
