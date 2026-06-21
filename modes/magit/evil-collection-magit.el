@@ -425,7 +425,13 @@ ORIG-KEY is only used for testing purposes, and
 denotes the original magit key for this command.")
 
 (dolist (binding evil-collection-magit-mode-map-bindings)
-  (when binding
+  ;; Skip single `[' / `]' on `magit-mode-map' when unimpaired is on so
+  ;; those keys remain free as unimpaired prefixes; the `magit-section'
+  ;; theme bindings cover sibling motion via `[[' / `]]'.
+  (when (and binding
+             (not (and evil-collection-want-unimpaired-p
+                       (eq (nth 1 binding) 'magit-mode-map)
+                       (member (nth 2 binding) '("[" "]")))))
     (dolist (state (nth 0 binding))
       (evil-collection-define-key
         state (nth 1 binding) (nth 2 binding) (nth 3 binding)))))

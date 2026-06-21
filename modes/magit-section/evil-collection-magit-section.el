@@ -76,16 +76,19 @@ When this option is enabled, the stash popup is available on \"Z\"."
     ;; [backtab] is the most portable binding for Shift+Tab.
     [backtab]   'magit-section-cycle-global
     "gh" 'magit-section-up
-    "[" 'magit-section-backward-sibling
-    "]" 'magit-section-forward-sibling
     (kbd "1") 'magit-section-show-level-1
     (kbd "2") 'magit-section-show-level-2
     (kbd "3") 'magit-section-show-level-3
     (kbd "4") 'magit-section-show-level-4)
+  (if evil-collection-want-unimpaired-p
+      (progn
+        (evil-collection-bind 'next-section 'magit-section-mode-map 'magit-section-forward-sibling)
+        (evil-collection-bind 'prev-section 'magit-section-mode-map 'magit-section-backward-sibling))
+    (evil-collection-define-key 'normal 'magit-section-mode-map
+      "[" 'magit-section-backward-sibling
+      "]" 'magit-section-forward-sibling))
   (evil-collection-bind 'next-item    'magit-section-mode-map 'magit-section-forward-sibling)
   (evil-collection-bind 'prev-item    'magit-section-mode-map 'magit-section-backward-sibling)
-  ;; `[' and `]' are complete sibling-motion keys above, so `[[' and `]]' cannot
-  ;; be installed as prefixes in this map.  Use the C-j/C-k section tier.
   (evil-collection-bind 'next-section-2 'magit-section-mode-map 'magit-section-forward)
   (evil-collection-bind 'prev-section-2 'magit-section-mode-map 'magit-section-backward))
 
