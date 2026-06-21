@@ -40,13 +40,13 @@
     (kbd "RET") 'apropos-follow
     (kbd "TAB") 'forward-button
     (kbd "S-TAB") 'backward-button
-    "g?" 'describe-mode
     "gr" 'revert-buffer
 
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'apropos-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit          'apropos-mode-map 'quit-window)
+  (evil-collection-theme-bind 'describe-mode 'apropos-mode-map 'describe-mode))
 
 (provide 'evil-collection-apropos)
 ;;; evil-collection-apropos.el ends here

@@ -111,7 +111,6 @@
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "ZZ" 'reftex-select-quit
     "ZQ" 'evil-quit
-    "g?" 'reftex-select-help
     "c" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 108))
     "J" 'reftex-select-jump ;; weird binding, using default
@@ -135,7 +134,8 @@
     ;; mark
     "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
     "u" 'reftex-select-unmark)
-  (evil-collection-theme-bind 'quit 'reftex-select-shared-map 'reftex-select-quit)
+  (evil-collection-theme-bind 'quit          'reftex-select-shared-map 'reftex-select-quit)
+  (evil-collection-theme-bind 'describe-mode 'reftex-select-shared-map 'reftex-select-help)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
 
@@ -148,7 +148,6 @@
     "gO" 'reftex-toc-view-line
     (kbd "RET") 'reftex-toc-goto-line-and-hide
     (kbd "<tab>") 'reftex-toc-goto-line
-    "g?" 'reftex-toc-show-help
     "?" 'reftex-toc-show-help
     "ZZ" 'reftex-toc-quit-and-kill
     "ZQ" 'evil-quit
@@ -168,7 +167,8 @@
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
-  (evil-collection-theme-bind 'quit 'reftex-toc-mode-map 'reftex-toc-quit))
+  (evil-collection-theme-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)
+  (evil-collection-theme-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here

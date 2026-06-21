@@ -41,8 +41,9 @@
     [remap evil-save-modified-and-close] 'log-edit-done
     [remap evil-quit] 'log-edit-kill-buffer)
 
+  (evil-collection-theme-bind 'describe-mode 'log-edit-mode-map 'log-edit-mode-help)
+
   (evil-collection-define-key 'normal 'log-edit-mode-map
-    "g?" 'log-edit-mode-help
     "]]" 'log-edit-next-comment
     "[[" 'log-edit-previous-comment
     "gj" 'log-edit-next-comment

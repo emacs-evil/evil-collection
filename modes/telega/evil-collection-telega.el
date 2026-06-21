@@ -99,8 +99,6 @@
 
     "^" 'telega-chatbuf-beginning-of-thing
 
-    "g?" 'telega-describe-chat
-
     "Za" 'telega-chatbuf-attach
     "Zf" 'telega-chatbuf-attach-media
     "Zv" 'telega-chatbuf-attach-clipboard
@@ -111,7 +109,8 @@
 
     (kbd "<tab>") 'telega-chatbuf-complete-or-next-link
     (kbd "<backtab>") 'telega-chatbuf-prev-link)
-  (evil-collection-theme-bind 'quit 'telega-chat-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit          'telega-chat-mode-map 'quit-window)
+  (evil-collection-theme-bind 'describe-mode 'telega-chat-mode-map 'telega-describe-chat)
 
   (evil-collection-theme-bind 'repl-submit        'telega-chat-mode-map 'telega-chatbuf-newline-or-input-send)
   (evil-collection-theme-bind 'repl-newline       'telega-chat-mode-map 'newline)

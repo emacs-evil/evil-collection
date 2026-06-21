@@ -43,8 +43,6 @@
 
     "gr" 'youtube-dl-list-redisplay
 
-    "g?" 'describe-mode
-
     "p" 'youtube-dl-list-toggle-pause
     "s" 'youtube-dl-list-toggle-slow
     "S" 'youtube-dl-list-toggle-slow-all
@@ -61,7 +59,9 @@
     "gj" 'youtube-dl-list-priority-down
     "gk" 'youtube-dl-list-priority-up
     (kbd "C-j") 'youtube-dl-list-priority-down
-    (kbd "C-k") 'youtube-dl-list-priority-up))
+    (kbd "C-k") 'youtube-dl-list-priority-up)
+
+  (evil-collection-theme-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode))
 
 (provide 'evil-collection-youtube-dl)
 ;;; evil-collection-youtube-dl.el ends here

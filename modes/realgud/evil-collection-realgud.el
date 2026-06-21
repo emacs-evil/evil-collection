@@ -91,11 +91,12 @@
     "u" 'realgud:cmd-older-frame
     "gR" 'realgud-recenter-arrow ;; FIXME: Hmnn!
     "C" 'realgud-window-cmd-undisturb-src
-    "g?" 'realgud:cmdbuf-info-describe
     "S" 'realgud-window-src-undisturb-cmd
     "R" 'realgud:cmd-restart
     "gr" 'realgud:cmd-restart
     "!" 'realgud:cmd-shell)
+
+  (evil-collection-theme-bind 'describe-mode 'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 

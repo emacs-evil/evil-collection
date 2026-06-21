@@ -97,15 +97,14 @@
     "gj" 'Info-next
     "gk" 'Info-prev
 
-    "g," 'Info-index-next
-
-    "g?" 'Info-summary)
+    "g," 'Info-index-next)
 
   ;; yu, Like eww.
   (evil-collection-define-operator-key 'yank 'Info-mode-map
     "u" 'Info-copy-current-node-name)
 
-  (evil-collection-theme-bind 'find-file 'Info-mode-map 'Info-follow-reference))
+  (evil-collection-theme-bind 'find-file     'Info-mode-map 'Info-follow-reference)
+  (evil-collection-theme-bind 'describe-mode 'Info-mode-map 'Info-summary))
 
 (provide 'evil-collection-info)
 ;;; evil-collection-info.el ends here

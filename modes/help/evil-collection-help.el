@@ -64,11 +64,12 @@
     "go" 'push-button
     "gO" 'push-button
 
-    "g?" 'describe-mode
     "gr" 'revert-buffer
     "<" 'help-go-back
     ">" 'help-go-forward
     "r" 'help-follow)
+
+  (evil-collection-theme-bind 'describe-mode 'help-mode-map 'describe-mode)
 
   (when (>= emacs-major-version 28)
     (evil-collection-define-key 'normal 'help-mode-map

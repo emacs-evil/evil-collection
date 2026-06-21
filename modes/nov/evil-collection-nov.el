@@ -41,7 +41,6 @@
     "gr" 'nov-render-document
     "s" 'nov-view-source
     "S" 'nov-view-content-source
-    "g?" 'nov-display-metadata
     "gj" 'nov-next-document
     (kbd "C-j") 'nov-next-document
     (kbd "M-j") 'nov-next-document
@@ -61,7 +60,9 @@
     (kbd "<backtab>") 'shr-previous-link
     (kbd "SPC") 'nov-scroll-up
     (kbd "S-SPC") 'nov-scroll-down
-    (kbd "DEL") 'nov-scroll-down))
+    (kbd "DEL") 'nov-scroll-down)
+
+  (evil-collection-theme-bind 'describe-mode 'nov-mode-map 'nov-display-metadata))
 
 (provide 'evil-collection-nov)
 ;;; evil-collection-nov.el ends here

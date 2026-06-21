@@ -166,10 +166,10 @@
     [remap read-only-mode] 'dired-toggle-read-only
     ;; `toggle-read-only' is an obsolete alias for `read-only-mode'
     [remap toggle-read-only] 'dired-toggle-read-only
-    "g?" 'dired-summary
     (kbd "<delete>") 'dired-unmark-backward)
 
-  (evil-collection-theme-bind 'find-file 'dired-mode-map 'dired-find-file)
+  (evil-collection-theme-bind 'find-file     'dired-mode-map 'dired-find-file)
+  (evil-collection-theme-bind 'describe-mode 'dired-mode-map 'dired-summary)
 
   (evil-collection-define-key 'normal 'dired-mode-map
     [remap undo] 'dired-undo

@@ -47,8 +47,9 @@
     "go" 'push-button
     "gO" 'push-button
 
-    "g?" 'describe-mode
-    "gr" 'helpful-update))
+    "gr" 'helpful-update)
+
+  (evil-collection-theme-bind 'describe-mode 'helpful-mode-map 'describe-mode))
 
 (provide 'evil-collection-helpful)
 ;;; evil-collection-helpful.el ends here

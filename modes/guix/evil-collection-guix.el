@@ -73,10 +73,10 @@
         (kbd "C-o") 'bui-history-back
         (kbd "C-i") 'bui-history-forward
 
-        "g?" 'bui-show-hint
         "gr" 'revert-buffer
         "gR" 'bui-redisplay)
-     (evil-collection-theme-bind 'goto-repl ',map 'guix-switch-to-repl)))
+     (evil-collection-theme-bind 'goto-repl      ',map 'guix-switch-to-repl)
+     (evil-collection-theme-bind 'describe-mode  ',map 'bui-show-hint)))
 
 ;;;###autoload
 (defun evil-collection-guix-setup ()
