@@ -82,8 +82,9 @@ SSH-accessed Emacs that also uses `evil-mode'."
       (kbd "\C-m") #'newline
       [return] #'newline))
 
-  (evil-collection-define-key '(normal insert) 'eat-mode-map
-    (kbd "C-c C-z") 'evil-collection-eat-toggle-send-escape)
+  (evil-collection-theme-bind 'term-toggle-escape
+                              'eat-mode-map
+                              'evil-collection-eat-toggle-send-escape)
 
   ;; `Evil' has some "C-" bindings in insert state that shadow the `eat' terminal
   ;; bindings. Do not send "C-c" (prefix key) nor "C-h" (help prefix) as raw input.

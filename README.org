@@ -133,6 +133,77 @@ minibuffer-related packages such as Helm rely on this option.
 At the moment, it can be used to defer binding keys to those specific modes
 in order to improve startup time.
 
+** Key Themes
+
+Some set of common keybindings can be configured. Look at
+~evil-collection-theme-defaults~ for the existing list.
+
+For example, ~vterm~, ~eat~ and ~ghostel~ all need a way to send toggle sending
+ESC to Emacs or the underlying binary.
+
+To customize, override with ~completion-category-overrides~.
+
+Each entry has the form ~(ID . PLIST)~ with these properties:
+
+| Property   | Accepts                            | Notes                                                     |
+|------------+------------------------------------+-----------------------------------------------------------|
+| ~:enabled~ | ~t~, ~nil~, or a function          | Missing is treated as ~t~. Functions are called with no args. |
+| ~:state~   | symbol or list of symbols          | Evil states. Singular form (e.g. ~normal~) is allowed.    |
+| ~:key~     | key string or list of key strings  | Strings suitable for ~kbd~. Singular form is allowed.     |
+
+
+#+begin_src emacs-lisp :tangle yes
+(term-toggle-escape :enabled t
+                    :state (normal insert)
+                    :key "C-c C-z")
+#+end_src
+
+ ~vterm~, ~eat~, and ~evil-ghostel~ will then bind their respective
+"toggle ESC routing" command to ~normal~ and ~insert~ state bounded to the key
+C-c C-z.
+
+*** Overrides merge per-property
+
+An override only replaces properties it explicitly sets; anything it leaves out
+falls through to the defaults. So this:
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((term-toggle-escape :state normal)))
+#+end_src
+
+restricts the toggle to ~normal~ state while leaving ~:enabled~ and ~:key~.
+
+*** Rebinding and disabling
+
+Rebind a feature across every mode that uses it:
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((term-toggle-escape :key "C-c j")))
+#+end_src
+
+Or supply multiple keys:
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((term-toggle-escape :key ("C-c C-z" "C-c j"))))
+#+end_src
+
+To disable a key theme.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((term-toggle-escape :enabled nil)))
+#+end_src
+
+~:enabled~ can also take a predicate.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      `((find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings))))
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard
