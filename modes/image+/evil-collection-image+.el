@@ -36,10 +36,7 @@
 (defun evil-collection-image+-setup ()
   "Set up `evil' bindings for `image+'."
   (evil-collection-define-key 'normal 'image-mode-map
-    ;; zoom
-    "+" 'imagex-sticky-zoom-in
-    "=" 'imagex-sticky-zoom-in
-    "-" 'imagex-sticky-zoom-out
+    ;; `+'/`='/`-' come from the theme; keep `O' inline as synonym for reset.
     "O" 'imagex-sticky-restore-original
 
     "M" 'imagex-sticky-maximize
@@ -48,7 +45,11 @@
     "r" 'imagex-sticky-rotate-right
     "R" 'imagex-sticky-rotate-left
     "<" 'imagex-sticky-rotate-left ; like sxiv
-    ">" 'imagex-sticky-rotate-right)) ; like sxiv
+    ">" 'imagex-sticky-rotate-right) ; like sxiv
+  (evil-collection-bind 'image-mode-map
+                        'zoom-in    'imagex-sticky-zoom-in
+                        'zoom-out   'imagex-sticky-zoom-out
+                        'zoom-reset 'imagex-sticky-restore-original))
 
 (provide 'evil-collection-image+)
 ;;; evil-collection-image+.el ends here

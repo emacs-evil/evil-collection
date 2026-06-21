@@ -63,12 +63,10 @@
     "H" 'image-transform-fit-to-height
     "W" 'image-transform-fit-to-width
 
-    "+" 'image-increase-size
-    "=" 'image-increase-size
-    "-" 'image-decrease-size
-
     (kbd "C-c C-c") 'image-toggle-display)
   (evil-collection-bind 'image-mode-map
+                        'zoom-in 'image-increase-size
+                        'zoom-out 'image-decrease-size
                         'scroll-down 'image-scroll-up
                         'scroll-up 'image-scroll-down
                         'action 'image-toggle-animation

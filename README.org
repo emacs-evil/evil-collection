@@ -398,6 +398,17 @@ Three semantics share the ~<tab>~ / ~<backtab>~ pair:
         (scroll-up   :state normal :key ("S-SPC" "S-<space>"))))
 #+end_src
 
+*** Zoom (+ / - / 0)
+
+Increase, decrease, and reset zoom/scale.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((zoom-in    :state normal :key ("+" "="))
+        (zoom-out   :state normal :key "-")
+        (zoom-reset :state normal :key "0")))
+#+end_src
+
 *** History / Completion (C-n / C-p)
 
 Vim uses ~C-n~ / ~C-p~ in several "next/previous in some sequence" contexts.
