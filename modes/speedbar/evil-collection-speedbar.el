@@ -61,7 +61,6 @@
     "G"  'evil-goto-line
 
     ;; Basic tree features
-    (kbd "RET") 'speedbar-edit-line
     (kbd "TAB") 'speedbar-toggle-line-expansion
 
     ;; Fold
@@ -101,6 +100,7 @@
   (evil-collection-define-key 'normal 'speedbar-buffers-key-map
     ;; Buffer specific keybindings
     "K" 'speedbar-buffer-kill-buffer)
+  (evil-collection-bind 'action       'speedbar-mode-map 'speedbar-edit-line)
   (evil-collection-bind 'next-item    'speedbar-mode-map 'speedbar-forward-list)
   (evil-collection-bind 'prev-item    'speedbar-mode-map 'speedbar-backward-list)
   (evil-collection-bind 'next-section 'speedbar-mode-map 'speedbar-forward-list)

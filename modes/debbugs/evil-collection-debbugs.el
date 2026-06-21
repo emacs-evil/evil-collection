@@ -43,7 +43,6 @@
     (kbd "<backtab>") 'backward-button
     (kbd "SPC") 'scroll-up-command
 
-    (kbd "RET") 'debbugs-gnu-select-report
     "c" 'debbugs-gnu-send-control-message
     "d" 'debbugs-gnu-display-status
 
@@ -71,6 +70,7 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-bind 'action        'debbugs-gnu-mode-map 'debbugs-gnu-select-report)
   (evil-collection-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
   (evil-collection-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual)
   (evil-collection-bind 'refresh       'debbugs-gnu-mode-map 'debbugs-gnu-rescan))

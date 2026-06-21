@@ -77,9 +77,9 @@
 
   (evil-collection-define-key 'normal 'fj-generic-map
     "gb" 'fj-switch-to-buffer
-    "go" 'fj-browse-view
     (kbd "<tab>") 'fj-next-tab-item
     (kbd "<backtab>") 'fj-prev-tab-item)
+  (evil-collection-bind 'action-other 'fj-generic-map 'fj-browse-view)
   (evil-collection-bind 'next-item    'fj-generic-map 'fj-item-next)
   (evil-collection-bind 'prev-item    'fj-generic-map 'fj-item-prev)
   (evil-collection-bind 'next-section 'fj-generic-map 'fj-item-next)
@@ -87,28 +87,27 @@
 
   (evil-collection-define-key 'normal 'fj-generic-tl-map
     "gb" 'fj-switch-to-buffer
-    "go" 'fj-tl-browse-entry
     "gm" 'imenu
     ">" 'fj-next-page
     "<" 'fj-prev-page
     (kbd "<tab>") 'fj-next-tab-item
     (kbd "<backtab>") 'fj-prev-tab-item)
+  (evil-collection-bind 'action-other 'fj-generic-tl-map 'fj-tl-browse-entry)
   (evil-collection-bind 'refresh 'fj-generic-map    'fj-view-reload)
   (evil-collection-bind 'refresh 'fj-generic-tl-map 'fj-view-reload)
 
   (evil-collection-define-key 'normal 'fj-repo-tl-map
-    (kbd "RET") 'fj-repo-list-issues
-    (kbd "M-RET") 'fj-repo-list-pulls
     "C" 'fj-create-issue
     "r" 'fj-repo-readme
     "g/" 'fj-repo-search
-    "gm" 'imenu
-    "go" 'fj-tl-browse-entry)
+    "gm" 'imenu)
+  (evil-collection-bind 'action       'fj-repo-tl-map 'fj-repo-list-issues)
+  (evil-collection-bind 'action-other 'fj-repo-tl-map 'fj-tl-browse-entry)
+  (evil-collection-bind 'action-stay  'fj-repo-tl-map 'fj-repo-list-pulls)
   (evil-collection-define-operator-key 'yank 'fj-repo-tl-map
     "c" 'fj-repo-copy-clone-url)
 
   (evil-collection-define-key 'normal 'fj-issue-tl-mode-map
-    (kbd "RET") 'fj-issues-tl-view
     "c" 'fj-item-comment
     "C" 'fj-create-issue
     "e" 'fj-item-edit
@@ -119,8 +118,9 @@
     "u" 'fj-item-reopen
     "al" 'fj-item-label-add
     "gL" 'fj-repo-commit-log
-    "gm" 'imenu
-    "go" 'fj-tl-browse-entry)
+    "gm" 'imenu)
+  (evil-collection-bind 'action       'fj-issue-tl-mode-map 'fj-issues-tl-view)
+  (evil-collection-bind 'action-other 'fj-issue-tl-mode-map 'fj-tl-browse-entry)
   (evil-collection-define-operator-key 'yank 'fj-issue-tl-mode-map
     "c" 'fj-repo-copy-clone-url
     "u" 'fj-copy-item-url)

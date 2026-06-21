@@ -218,11 +218,6 @@ instead, which is useless and counterintuitive."
   (evil-collection-inhibit-insert-state 'pdf-outline-buffer-mode-map)
   (evil-set-initial-state 'pdf-outline-buffer-mode 'normal)
   (evil-collection-define-key 'normal 'pdf-outline-buffer-mode-map
-    ;; open
-    (kbd "RET") 'pdf-outline-follow-link-and-quit
-    (kbd "S-<return>") 'pdf-outline-follow-link
-    (kbd "M-<return>") 'pdf-outline-display-link
-    "go" 'pdf-outline-follow-link
     "." 'pdf-outline-move-to-current-page
     (kbd "SPC") 'pdf-outline-select-pdf-window
 
@@ -239,14 +234,14 @@ instead, which is useless and counterintuitive."
     (kbd "C-w q") 'pdf-outline-quit-and-kill ; TODO: Do we need to set this? I think not.
     "ZQ" 'quit-window
     "ZZ" 'pdf-outline-quit-and-kill)
+  (evil-collection-bind 'action       'pdf-outline-buffer-mode-map 'pdf-outline-follow-link-and-quit)
+  (evil-collection-bind 'action-other 'pdf-outline-buffer-mode-map 'pdf-outline-follow-link)
+  (evil-collection-bind 'action-stay  'pdf-outline-buffer-mode-map 'pdf-outline-display-link)
   (evil-collection-bind 'quit 'pdf-outline-buffer-mode-map 'quit-window)
 
   (evil-collection-inhibit-insert-state 'pdf-occur-buffer-mode-map)
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
   (evil-collection-define-key 'normal 'pdf-occur-buffer-mode-map
-    ;; open
-    (kbd "RET") 'pdf-occur-goto-occurrence
-    (kbd "S-<return>") 'pdf-occur-view-occurrence
     (kbd "SPC") 'pdf-occur-view-occurrence
     "gd" 'pdf-occur-goto-occurrence
     "gD" 'pdf-occur-view-occurrence
@@ -310,6 +305,8 @@ instead, which is useless and counterintuitive."
     ;; quit
     "ZQ" 'tablist-quit
     "ZZ" 'tablist-quit)
+  (evil-collection-bind 'action       'pdf-occur-buffer-mode-map 'pdf-occur-goto-occurrence)
+  (evil-collection-bind 'action-other 'pdf-occur-buffer-mode-map 'pdf-occur-view-occurrence)
   (evil-collection-bind 'quit 'pdf-occur-buffer-mode-map 'tablist-quit))
 
 (provide 'evil-collection-pdf)

@@ -41,8 +41,8 @@
   (evil-collection-define-key 'normal 'flycheck-error-list-mode-map
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
-    "x" 'flycheck-error-list-explain-error
-    (kbd "RET") 'flycheck-error-list-goto-error)
+    "x" 'flycheck-error-list-explain-error)
+  (evil-collection-bind 'action       'flycheck-error-list-mode-map 'flycheck-error-list-goto-error)
   (evil-collection-bind 'next-item    'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
   (evil-collection-bind 'prev-item    'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
   (evil-collection-bind 'next-section 'flycheck-error-list-mode-map 'flycheck-error-list-next-error)

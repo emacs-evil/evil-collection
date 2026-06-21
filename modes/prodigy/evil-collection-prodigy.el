@@ -55,7 +55,6 @@
     "S" 'prodigy-stop
 
     "`" 'prodigy-display-process
-    (kbd "RET") 'prodigy-browse
     "it" 'prodigy-add-tag-filter
     "in" 'prodigy-add-name-filter
     "I" 'prodigy-clear-filters
@@ -63,6 +62,7 @@
     "Jd" 'prodigy-jump-file-manager
 
     (kbd "Y") 'prodigy-copy-cmd)
+  (evil-collection-bind 'action       'prodigy-mode-map 'prodigy-browse)
   (evil-collection-bind 'next-item    'prodigy-mode-map 'prodigy-next-with-status)
   (evil-collection-bind 'prev-item    'prodigy-mode-map 'prodigy-prev-with-status)
   (evil-collection-bind 'next-section 'prodigy-mode-map 'prodigy-next-with-status)

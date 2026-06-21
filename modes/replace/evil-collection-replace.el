@@ -46,15 +46,12 @@
     [mouse-2] 'occur-mode-mouse-goto
     (kbd "C-c C-c") 'occur-mode-goto-occurrence
 
-    ;; open
-    (kbd "RET") 'occur-mode-goto-occurrence
-    (kbd "S-<return>") 'occur-mode-goto-occurrence-other-window
-    (kbd "M-<return>") 'occur-mode-display-occurrence
-    "go" 'occur-mode-goto-occurrence-other-window
-
     "r" 'occur-rename-buffer
     "c" 'clone-buffer
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
+  (evil-collection-bind 'action       'occur-mode-map 'occur-mode-goto-occurrence)
+  (evil-collection-bind 'action-other 'occur-mode-map 'occur-mode-goto-occurrence-other-window)
+  (evil-collection-bind 'action-stay  'occur-mode-map 'occur-mode-display-occurrence)
   (evil-collection-bind 'next-item    'occur-mode-map 'next-error-no-select)
   (evil-collection-bind 'prev-item    'occur-mode-map 'previous-error-no-select)
   (evil-collection-bind 'next-section 'occur-mode-map 'next-error-no-select)

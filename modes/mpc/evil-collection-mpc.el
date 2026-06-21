@@ -62,10 +62,6 @@
     "K"                'mpc-prev
     "x"                'mpc-play-at-point
     "X"                'mpc-play
-    (kbd "RET")        'mpc-select
-    (kbd "S-<return>") 'mpc-select-toggle
-    (kbd "C-<return>") 'mpc-select-extend
-    "go"               'mpc-goto-playing-song
     "gd"               'mpc-describe-song
     "p"                'mpc-pause
     "P"                'mpc-resume
@@ -75,6 +71,13 @@
     "g_"               'mpc-songs-kill-search
     "gd"               'mpc-songs-jump-to
     "D"                'mpc-playlist-delete)
+  ;; Bind action keys before restoring `go' to `mpc-goto-playing-song'.
+  (evil-collection-bind 'action       'mpc-mode-map 'mpc-select)
+  (evil-collection-bind 'action-other 'mpc-mode-map 'mpc-select-toggle)
+  (evil-collection-bind 'action-stay  'mpc-mode-map 'mpc-select-extend)
+  (evil-collection-define-key 'normal 'mpc-mode-map
+    (kbd "C-<return>") 'mpc-select-extend
+    "go" 'mpc-goto-playing-song)
   (evil-collection-bind 'quit        'mpc-mode-map 'mpc-quit)
   (evil-collection-bind 'refresh-all 'mpc-mode-map 'mpc-update))
 

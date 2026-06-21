@@ -146,8 +146,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (evil-collection-bind 'pop-definition  'cider-repl-mode-map 'cider-pop-back))
 
   (evil-collection-define-key '(normal visual) 'cider-repl-history-mode-map
-    (kbd "RET") 'cider-repl-history-insert-and-quit
     "u" 'cider-repl-history-undo-other-window)
+  (evil-collection-bind 'action       'cider-repl-history-mode-map 'cider-repl-history-insert-and-quit)
   (evil-collection-bind 'next-item    'cider-repl-history-mode-map 'cider-repl-history-forward)
   (evil-collection-bind 'prev-item    'cider-repl-history-mode-map 'cider-repl-history-previous)
   (evil-collection-bind 'next-section 'cider-repl-history-mode-map 'cider-repl-history-forward)
@@ -166,7 +166,6 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 
     (kbd "<backtab>") 'cider-test-previous-result
     (kbd "<tab>") 'cider-test-next-result
-    (kbd "RET") 'cider-test-jump
     "t" 'cider-test-jump
     "d" 'cider-test-ediff
     "e" 'cider-test-stacktrace
@@ -174,6 +173,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "n" 'cider-test-run-ns-tests
     "L" 'cider-test-run-loaded-tests
     "p" 'cider-test-run-project-tests)
+  (evil-collection-bind 'action  'cider-test-report-mode-map 'cider-test-jump)
   (evil-collection-bind 'quit    'cider-test-report-mode-map 'cider-popup-buffer-quit-function)
   (evil-collection-bind 'refresh 'cider-test-report-mode-map 'cider-test-run-test)
 
@@ -192,8 +192,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
   (evil-collection-define-key 'normal 'cider-connections-buffer-mode-map
     "d" 'cider-connections-make-default
     "c" 'cider-connection-browser
-    "x" 'cider-connections-close-connection
-    (kbd "RET") 'cider-connections-goto-connection)
+    "x" 'cider-connections-close-connection)
+  (evil-collection-bind 'action        'cider-connections-buffer-mode-map 'cider-connections-goto-connection)
   (evil-collection-bind 'describe-mode 'cider-connections-buffer-mode-map 'describe-mode)
 
   (evil-set-initial-state 'cider-stacktrace-mode 'normal)
@@ -228,11 +228,11 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
   (evil-collection-bind 'next-section-2 'cider-inspector-mode-map 'cider-inspector-next-page)
   (evil-collection-bind 'prev-section-2 'cider-inspector-mode-map 'cider-inspector-prev-page)
   (evil-collection-define-key 'normal 'cider-inspector-mode-map
-    (kbd "RET") 'cider-inspector-operate-on-point
     [mouse-1] 'cider-inspector-operate-on-click
     "L" 'cider-inspector-pop
     " " 'cider-inspector-next-page
     "s" 'cider-inspector-set-page-size)
+  (evil-collection-bind 'action  'cider-inspector-mode-map 'cider-inspector-operate-on-point)
   (evil-collection-bind 'quit    'cider-inspector-mode-map 'quit-window)
   (evil-collection-bind 'refresh 'cider-inspector-mode-map 'cider-inspector-refresh))
 

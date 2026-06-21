@@ -50,8 +50,8 @@
     "r"   'bufler-list-buffer-name-workspace
     "D"   'bufler-list-buffer-kill
     "w"   'bufler-list-buffer-save
-    (kbd "RET") 'bufler-list-buffer-switch
-    "J"   'bufler-list-buffer-peek))
+    "J"   'bufler-list-buffer-peek)
+  (evil-collection-bind 'action 'bufler-list-mode-map 'bufler-list-buffer-switch))
 
 (provide 'evil-collection-bufler)
 ;;; evil-collection-bufler.el ends here

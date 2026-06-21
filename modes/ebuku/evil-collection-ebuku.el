@@ -51,12 +51,12 @@
                               "*" 'ebuku-show-all
                               "-" 'ebuku-toggle-results-limit
                               "t" 'ebuku-toggle-results-limit
-                              (kbd "RET") 'ebuku-open-url
                               "C" 'ebuku-copy-url
                               "T" 'ebuku-copy-title
                               "I" 'ebuku-copy-index
                               [mouse-1] 'ebuku-open-url
-                              [mouse-2] 'ebuku-open-url))
+                              [mouse-2] 'ebuku-open-url)
+  (evil-collection-bind 'action 'ebuku-mode-map 'ebuku-open-url))
 
 
 (provide 'evil-collection-ebuku)

@@ -74,8 +74,8 @@
   (evil-collection-bind 'find-definition 'slime-parent-map 'slime-edit-definition)
   (evil-collection-bind 'pop-definition  'slime-parent-map 'slime-pop-find-definition-stack)
 
+  (evil-collection-bind 'action 'sldb-mode-map 'sldb-default-action)
   (evil-collection-define-key 'normal 'sldb-mode-map
-    (kbd "RET") 'sldb-default-action
     [mouse-2]  'sldb-default-action/mouse
     [follow-link] 'mouse-face
     "\C-i" 'sldb-cycle
@@ -120,8 +120,8 @@
   (evil-collection-bind 'debug-frame-up   'sldb-mode-map 'sldb-up)
   (evil-collection-bind 'debug-frame-down 'sldb-mode-map 'sldb-down)
 
+  (evil-collection-bind 'action 'slime-inspector-mode-map 'slime-inspector-operate-on-point)
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
-    (kbd "RET") 'slime-inspector-operate-on-point
     [mouse-1] 'slime-inspector-operate-on-click
     [mouse-2] 'slime-inspector-operate-on-click
     [mouse-6] 'slime-inspector-pop
@@ -168,10 +168,10 @@
   (evil-collection-bind 'refresh 'slime-thread-control-mode-map 'slime-update-threads-buffer)
 
   (evil-collection-define-key 'normal 'slime-xref-mode-map
-    (kbd "RET") 'slime-goto-xref
-    (kbd "S-<return>") 'slime-goto-xref
-    "go" 'slime-show-xref
     "r" 'slime-xref-retract)
+  (evil-collection-bind 'action       'slime-xref-mode-map 'slime-goto-xref)
+  (evil-collection-bind 'action-other 'slime-xref-mode-map 'slime-goto-xref)
+  (evil-collection-bind 'action-stay  'slime-xref-mode-map 'slime-show-xref)
   (evil-collection-bind 'next-item    'slime-xref-mode-map 'slime-xref-next-line)
   (evil-collection-bind 'prev-item    'slime-xref-mode-map 'slime-xref-prev-line)
   (evil-collection-bind 'next-section 'slime-xref-mode-map 'slime-xref-next-line)

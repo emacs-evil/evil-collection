@@ -81,7 +81,8 @@
     "S" 'ggtags-navigation-isearch-forward
 
     "go" 'ggtags-navigation-visible-mode ;; FIXME: This can be anything.
-    (kbd "RET") 'ggtags-navigation-mode-done)
+    )
+  (evil-collection-bind 'action       'ggtags-navigation-map 'ggtags-navigation-mode-done)
   (evil-collection-bind 'next-item    'ggtags-navigation-map 'next-error)
   (evil-collection-bind 'prev-item    'ggtags-navigation-map 'previous-error)
   (evil-collection-bind 'next-section 'ggtags-navigation-map 'ggtags-navigation-next-file)

@@ -44,7 +44,6 @@
 
     (kbd "SPC") 'image-dired-display-next-thumbnail-original
     (kbd "S-SPC") 'image-dired-display-previous-thumbnail-original
-    (kbd "RET") 'image-dired-display-thumbnail-original-image
 
     "c" 'image-dired-comment-thumbnail
     "d" 'image-dired-thumbnail-set-image-description
@@ -68,6 +67,7 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-bind 'action 'image-dired-thumbnail-mode-map 'image-dired-display-thumbnail-original-image)
   (evil-collection-bind 'quit 'image-dired-thumbnail-mode-map 'quit-window))
 
 (provide 'evil-collection-image-dired)

@@ -70,14 +70,6 @@
     "u" 'vc-dir-unmark
     "U" 'vc-dir-unmark-all-files
 
-    ;; The remainder.
-    "\C-m" 'vc-dir-find-file
-
-    (kbd "S-<return>") 'vc-dir-find-file-other-window
-    "go" 'vc-dir-find-file-other-window
-    "gO" 'vc-dir-display-file
-    (kbd "M-<return>") 'vc-dir-display-file
-
     "\C-c\C-c" 'vc-dir-kill-dir-status-process
     [down-mouse-3] 'vc-dir-menu
     [mouse-2] 'vc-dir-find-file-other-window
@@ -103,6 +95,9 @@
   (evil-collection-bind 'prev-item    'vc-dir-mode-map 'vc-dir-previous-directory)
   (evil-collection-bind 'next-section 'vc-dir-mode-map 'vc-dir-next-directory)
   (evil-collection-bind 'prev-section 'vc-dir-mode-map 'vc-dir-previous-directory)
+  (evil-collection-bind 'action       'vc-dir-mode-map 'vc-dir-find-file)
+  (evil-collection-bind 'action-other 'vc-dir-mode-map 'vc-dir-find-file-other-window)
+  (evil-collection-bind 'action-stay  'vc-dir-mode-map 'vc-dir-display-file)
   (evil-collection-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file)
   (evil-collection-bind 'refresh   'vc-dir-mode-map 'revert-buffer))
 

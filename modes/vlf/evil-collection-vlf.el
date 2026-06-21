@@ -55,8 +55,9 @@
     "+" 'vlf-change-batch-size
     "-" 'evil-collection-vlf-decrease-batch-size
     "=" 'vlf-next-batch-from-point
-    "g%" 'vlf-query-replace
-    "go" 'vlf-occur)
+    "g%" 'vlf-query-replace)
+  (evil-collection-bind 'action       'vlf-prefix-map 'evil-ret)
+  (evil-collection-bind 'action-other 'vlf-prefix-map 'vlf-occur)
   (evil-collection-bind 'next-item    'vlf-prefix-map 'vlf-next-batch)
   (evil-collection-bind 'prev-item    'vlf-prefix-map 'vlf-prev-batch)
   (evil-collection-bind 'next-section 'vlf-prefix-map 'vlf-next-batch)

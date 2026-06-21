@@ -37,12 +37,8 @@
 (defun evil-collection-deadgrep-setup ()
   "Set up `evil' bindings for deadgrep.."
   (evil-collection-define-key 'normal 'deadgrep-edit-mode-map
-    (kbd "RET") 'deadgrep-visit-result
     (kbd "<escape>") 'deadgrep-mode)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
-    (kbd "RET") 'deadgrep-visit-result
-    (kbd "<S-return>") 'deadgrep-visit-result-other-window
-    "go" 'deadgrep-visit-result-other-window
     (kbd "TAB") 'deadgrep-toggle-file-results
 
     "i" 'deadgrep-edit-mode
@@ -53,6 +49,8 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'evil-quit)
+  (evil-collection-bind 'action       'deadgrep-mode-map 'deadgrep-visit-result)
+  (evil-collection-bind 'action-other 'deadgrep-mode-map 'deadgrep-visit-result-other-window)
   (evil-collection-bind 'next-item    'deadgrep-mode-map 'deadgrep-forward)
   (evil-collection-bind 'prev-item    'deadgrep-mode-map 'deadgrep-backward)
   (evil-collection-bind 'next-section 'deadgrep-mode-map 'deadgrep-forward)

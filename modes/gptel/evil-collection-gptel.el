@@ -65,9 +65,9 @@
       "k" 'gptel-context-previous
       "d" 'gptel-context-flag-deletion
       "ZQ" 'gptel-context-quit
-      "ZZ" 'gptel-context-confirm
-      (kbd "RET") 'gptel-context-visit)
-    (evil-collection-bind 'quit 'gptel-context-buffer-mode-map 'gptel-context-quit)))
+      "ZZ" 'gptel-context-confirm)
+    (evil-collection-bind 'quit   'gptel-context-buffer-mode-map 'gptel-context-quit)
+    (evil-collection-bind 'action 'gptel-context-buffer-mode-map 'gptel-context-visit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here

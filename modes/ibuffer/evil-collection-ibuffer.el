@@ -174,16 +174,15 @@
     (kbd "yf") 'ibuffer-copy-filename-as-kill
     (kbd "yb") 'ibuffer-copy-buffername-as-kill
 
-    (kbd "RET") 'ibuffer-visit-buffer
-    (kbd "go") 'ibuffer-visit-buffer-other-window
-    (kbd "C-o") 'ibuffer-visit-buffer-other-window-noselect
-    (kbd "M-o") 'ibuffer-visit-buffer-1-window
     (kbd "gv") 'ibuffer-do-view
     (kbd "gV") 'ibuffer-do-view-horizontally
 
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
+  (evil-collection-bind 'action       'ibuffer-mode-map 'ibuffer-visit-buffer)
+  (evil-collection-bind 'action-other 'ibuffer-mode-map 'ibuffer-visit-buffer-other-window)
+  (evil-collection-bind 'action-stay  'ibuffer-mode-map 'ibuffer-visit-buffer-other-window-noselect)
   (evil-collection-bind 'next-item    'ibuffer-mode-map 'ibuffer-forward-line)
   (evil-collection-bind 'prev-item    'ibuffer-mode-map 'ibuffer-backward-line)
   (evil-collection-bind 'next-section 'ibuffer-mode-map 'ibuffer-forward-filter-group)

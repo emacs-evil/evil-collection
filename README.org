@@ -279,6 +279,20 @@ equivalent to setting ~:state~ here.
         (refresh-all :state normal :key "gR")))
 #+end_src
 
+*** Action
+
+~action~ is the next logical action at point — usually opening or selecting
+the item, but more generally the mode's DTRT operation.  ~action-other~ performs
+the related action in another window or target.  ~action-stay~ displays or
+previews the target while keeping focus in the current context.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((action       :state normal :key ("RET" "<return>"))
+        (action-other :state normal :key ("S-<return>" "S-RET" "go"))
+        (action-stay  :state normal :key ("M-<return>" "M-RET" "gO"))))
+#+end_src
+
 *** Next / prev navigation
 
 Up to three tiers — ~next-item~/~prev-item~ is granular (e.g. next hunk, next

@@ -88,7 +88,6 @@
     "gs" 'gited-status             ; These "g"-prefixed operations open
     "gL" 'gited-log                ; new windows.
     "gN" 'gited-log-last-n-commits ;
-    "gO" 'gited-origin             ; Use "go" to visit branch source.
     "gc" 'gited-show-commit        ;
 
     "M" 'gited-merge-branch
@@ -106,9 +105,6 @@
     "sD" 'gited-delete-all-stashes
     "sd" 'gited-stash-drop
     "Y" 'gited-copy-branchname-as-kill
-
-    (kbd "RET") 'gited-visit-branch-sources
-    "go" 'gited-visit-branch-sources
 
     ;; Operations on Marked and Flagged Branches/Tags
     "D" 'gited-do-delete
@@ -152,7 +148,10 @@
     (kbd "C-t a") 'gited-tag-add
     (kbd "C-t d") 'gited-tag-delete
     (kbd "C-t D") 'gited-remote-tag-delete
-    (kbd "C-t F") 'gited-fetch-remote-tags))
+    (kbd "C-t F") 'gited-fetch-remote-tags)
+  (evil-collection-bind 'action       'gited-mode-map 'gited-visit-branch-sources)
+  (evil-collection-bind 'action-other 'gited-mode-map 'gited-visit-branch-sources)
+  (evil-collection-bind 'action-stay  'gited-mode-map 'gited-origin))
 
 (provide 'evil-collection-gited)
 ;;; evil-collection-gited.el ends here

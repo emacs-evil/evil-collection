@@ -70,8 +70,6 @@
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
 
-    (kbd "RET") 'disk-usage-files
-
     "S" 'tabulated-list-sort
 
     "zh" 'disk-usage-toggle-human-readable
@@ -79,6 +77,7 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
+  (evil-collection-bind 'action        'disk-usage-by-types-mode-map 'disk-usage-files)
   (evil-collection-bind 'describe-mode 'disk-usage-mode-map          'describe-mode)
   (evil-collection-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode)
   (evil-collection-bind 'refresh       'disk-usage-mode-map          'revert-buffer)

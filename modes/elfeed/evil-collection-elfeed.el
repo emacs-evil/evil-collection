@@ -45,11 +45,6 @@
   (evil-collection-set-readonly-bindings 'elfeed-search-mode-map)
   (evil-set-initial-state 'elfeed-search-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-search-mode-map
-    ;; open
-    (kbd "RET") 'elfeed-search-show-entry
-    (kbd "S-<return>") 'elfeed-search-browse-url
-    "go" 'elfeed-search-browse-url
-
     "y" 'elfeed-search-yank
 
     (kbd "SPC") 'scroll-up-command
@@ -64,6 +59,8 @@
     ;; `evil-collection-set-readonly-bindings'.
     "ZQ" 'quit-window)
 
+  (evil-collection-bind 'action       'elfeed-search-mode-map 'elfeed-search-show-entry)
+  (evil-collection-bind 'action-other 'elfeed-search-mode-map 'elfeed-search-browse-url)
   (evil-collection-bind 'refresh-all 'elfeed-search-mode-map 'elfeed-search-fetch)
   (evil-collection-bind 'refresh     'elfeed-search-mode-map 'revert-buffer)
 
@@ -91,9 +88,6 @@
   (evil-collection-set-readonly-bindings 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-show-mode-map
-    (kbd "S-<return>") 'elfeed-show-visit
-    "go" 'elfeed-show-visit
-
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
     (kbd "<tab>") 'elfeed-show-next-link
@@ -111,6 +105,7 @@
     ;; quit
     "ZQ" 'elfeed-kill-buffer
     "ZZ" 'elfeed-kill-buffer)
+  (evil-collection-bind 'action-other 'elfeed-show-mode-map 'elfeed-show-visit)
   (evil-collection-bind 'next-item    'elfeed-show-mode-map 'elfeed-show-next)
   (evil-collection-bind 'prev-item    'elfeed-show-mode-map 'elfeed-show-prev)
   (evil-collection-bind 'next-section 'elfeed-show-mode-map 'elfeed-show-next)
@@ -124,9 +119,7 @@
 
   (evil-collection-set-readonly-bindings 'elfeed-tree-mode-map)
   (evil-set-initial-state 'elfeed-tree-mode 'normal)
-  (evil-collection-define-key 'normal 'elfeed-tree-mode-map
-    ;; open
-    (kbd "RET") 'elfeed-tree-search))
+  (evil-collection-bind 'action 'elfeed-tree-mode-map 'elfeed-tree-search))
 
 (provide 'evil-collection-elfeed)
 ;;; evil-collection-elfeed.el ends here

@@ -56,7 +56,6 @@
     ;; sort
     "o" 'tabulated-list-sort
 
-    (kbd "RET") 'transmission-files
     "p" 'transmission-peers
     "i" 'transmission-info
 
@@ -83,6 +82,7 @@
     "ZZ" 'transmission-quit)
   (evil-collection-bind 'quit    'transmission-mode-map 'transmission-quit)
   (evil-collection-bind 'refresh 'transmission-mode-map 'revert-buffer)
+  (evil-collection-bind 'action  'transmission-mode-map 'transmission-files)
 
   (evil-collection-inhibit-insert-state 'transmission-files-mode-map)
   (evil-set-initial-state 'transmission-files-mode 'normal)
@@ -104,12 +104,6 @@
     "u" 'transmission-files-unwant
     "m" 'transmission-files-want
 
-    ;; open
-    (kbd "RET") 'transmission-find-file
-    (kbd "S-<return>") 'transmission-find-file-other-window
-    (kbd "M-<return>") 'transmission-display-file
-    "go" 'transmission-find-file-other-window
-
     "v" 'transmission-view-file
 
     "!" 'transmission-files-command
@@ -123,6 +117,9 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
+  (evil-collection-bind 'action       'transmission-files-mode-map 'transmission-find-file)
+  (evil-collection-bind 'action-other 'transmission-files-mode-map 'transmission-find-file-other-window)
+  (evil-collection-bind 'action-stay  'transmission-files-mode-map 'transmission-display-file)
   (evil-collection-bind 'quit 'transmission-files-mode-map 'transmission-quit)
 
   (evil-collection-define-key 'visual 'transmission-files-mode-map

@@ -75,32 +75,32 @@
       (kbd "<backtab>") 'evil-collection-dape--info-buffer-tab-backward))
 
   (evil-collection-define-key 'normal 'dape-info-breakpoints-mode-map
-    (kbd "RET") 'dape-info-breakpoint-dwim
     [mouse-2] 'dape-info-breakpoint-dwim
     [follow-link] 'mouse-face
     "D" 'dape-info-breakpoint-disable
     "d" 'dape-info-breakpoint-delete
     "e" 'dape-info-breakpoint-log-edit)
+  (evil-collection-bind 'action 'dape-info-breakpoints-mode-map 'dape-info-breakpoint-dwim)
 
   (evil-collection-define-key 'normal 'dape-info-threads-mode-map
-    (kbd "RET") 'dape-info-select-thread
     [mouse-2] 'dape-info-select-thread
     [follow-link] 'mouse-face)
+  (evil-collection-bind 'action 'dape-info-threads-mode-map 'dape-info-select-thread)
 
   (evil-collection-define-key 'normal 'dape-info-stack-mode-map
-    (kbd "RET") 'dape-info-stack-select
     [mouse-2] 'dape-info-stack-select
     [follow-link] 'mouse-face)
+  (evil-collection-bind 'action 'dape-info-stack-mode-map 'dape-info-stack-select)
 
   (evil-collection-define-key 'normal 'dape-info-sources-mode-map
-    (kbd "RET") 'dape-info-sources-goto
     [mouse-2] 'dape-info-sources-goto
     [follow-link] 'mouse-face)
+  (evil-collection-bind 'action 'dape-info-sources-mode-map 'dape-info-sources-goto)
 
   (evil-collection-define-key 'normal 'dape-info-modules-mode-map
-    (kbd "RET") 'dape-info-modules-goto
     [mouse-2] 'dape-info-modules-goto
     [follow-link] 'mouse-face)
+  (evil-collection-bind 'action 'dape-info-modules-mode-map 'dape-info-modules-goto)
 
   (evil-collection-define-key 'normal 'dape-info-scope-mode-map
     "e" 'dape-info-scope-toggle

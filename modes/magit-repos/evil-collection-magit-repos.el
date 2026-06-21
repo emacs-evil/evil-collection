@@ -40,9 +40,9 @@
   (evil-collection-define-key 'normal 'magit-repolist-mode-map
     "m" 'magit-repolist-mark
     "u" 'magit-repolist-unmark
-    "f" 'magit-repolist-fetch
-    (kbd "RET") 'magit-repolist-status
-    (kbd "gr")  'magit-list-repositories)
+    "f" 'magit-repolist-fetch)
+  (evil-collection-bind 'action  'magit-repolist-mode-map 'magit-repolist-status)
+  (evil-collection-bind 'refresh 'magit-repolist-mode-map 'magit-list-repositories)
   (add-hook 'magit-repolist-mode-hook 'evil-normalize-keymaps))
 
 (provide 'evil-collection-magit-repos)

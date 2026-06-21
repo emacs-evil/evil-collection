@@ -178,15 +178,16 @@ Evil version of `sly-eval-print-last-expression' that accounts for
 
   (evil-collection-bind 'quit 'sly-xref-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'sly-xref-mode-map
-    (kbd "RET") 'sly-xref-goto
     (kbd "SPC") 'sly-xref-show
-    "go" 'sly-show-xref
     (kbd "<tab>") 'forward-button
     (kbd "C-i") 'forward-button
     (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
     (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
     ;; "r" 'sly-xref-retract ; TODO: Equivalent for Sly?
     )
+  (evil-collection-bind 'action       'sly-xref-mode-map 'sly-xref-goto)
+  (evil-collection-bind 'action-other 'sly-xref-mode-map 'sly-show-xref)
+  (evil-collection-bind 'action-stay  'sly-xref-mode-map 'sly-xref-show)
   (evil-collection-bind 'next-item    'sly-xref-mode-map 'sly-xref-next-line)
   (evil-collection-bind 'prev-item    'sly-xref-mode-map 'sly-xref-prev-line)
   (evil-collection-bind 'next-section 'sly-xref-mode-map 'sly-xref-next-line)
@@ -229,25 +230,25 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "k" 'sly-stickers-replay-prev
     "n" 'sly-stickers-replay-next
     "p" 'sly-stickers-replay-prev
-    "go" 'sly-stickers-replay-pop-to-current-sticker
     "v" 'sly-stickers-replay-pop-to-current-sticker
     "x" 'sly-stickers-replay-toggle-ignore-sticker
     "zi" 'sly-stickers-replay-toggle-ignore-sticker
     "zz" 'sly-stickers-replay-toggle-ignore-zombies)
-  (evil-collection-bind 'quit 'sly-stickers--replay-mode-map 'quit-window)
+  (evil-collection-bind 'quit         'sly-stickers--replay-mode-map 'quit-window)
+  (evil-collection-bind 'action-other 'sly-stickers--replay-mode-map 'sly-stickers-replay-pop-to-current-sticker)
 
   (evil-collection-define-key 'normal 'sly-connection-list-mode-map
     (kbd "<tab>") 'forward-button
     (kbd "C-i") 'forward-button
     (kbd "<S-tab>") 'backward-button
     (kbd "<backtab>") 'backward-button
-    (kbd "RET") 'sly-connection-list-default-action
     "R" 'sly-restart-connection-at-point
     "d" 'sly-connection-list-make-default
     "x" 'sly-quit-connection-at-point
     "o" 'tabulated-list-sort)
   (evil-collection-bind 'quit    'sly-connection-list-mode-map 'quit-window)
   (evil-collection-bind 'refresh 'sly-connection-list-mode-map 'sly-update-connection-list)
+  (evil-collection-bind 'action  'sly-connection-list-mode-map 'sly-connection-list-default-action)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 

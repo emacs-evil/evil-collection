@@ -49,7 +49,6 @@
 
     "t" 'nov-goto-toc
     "i" 'nov-goto-toc
-    (kbd "RET") 'nov-browse-url
     (kbd "<follow-link>") 'mouse-face
     (kbd "<mouse-2>") 'nov-browse-url
     (kbd "TAB") 'shr-next-link
@@ -59,6 +58,7 @@
     (kbd "S-SPC") 'nov-scroll-down
     (kbd "DEL") 'nov-scroll-down)
 
+  (evil-collection-bind 'action        'nov-mode-map 'nov-browse-url)
   (evil-collection-bind 'describe-mode 'nov-mode-map 'nov-display-metadata)
   (evil-collection-bind 'refresh       'nov-mode-map 'nov-render-document))
 

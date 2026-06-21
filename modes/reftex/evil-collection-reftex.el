@@ -99,8 +99,6 @@
   (evil-collection-define-key 'normal 'reftex-select-shared-map
     "j" 'reftex-select-next
     "k" 'reftex-select-previous
-    (kbd "RET") 'reftex-select-accept
-    "go" 'reftex-select-callback        ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "ZZ" 'reftex-select-quit
@@ -119,7 +117,6 @@
     about this key." (interactive) (throw (quote myexit) 120))
     "r" 'reftex-select-cycle-ref-style-forward
     "R" 'reftex-select-cycle-ref-style-backward
-    "gO" 'reftex-select-show-insertion-point
     "o" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 101))
     "O" (lambda nil "Press `?' during selection to find out
@@ -128,6 +125,9 @@
     ;; mark
     "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
     "u" 'reftex-select-unmark)
+  (evil-collection-bind 'action        'reftex-select-shared-map 'reftex-select-accept)
+  (evil-collection-bind 'action-other  'reftex-select-shared-map 'reftex-select-callback) ; shows point where label is
+  (evil-collection-bind 'action-stay   'reftex-select-shared-map 'reftex-select-show-insertion-point)
   (evil-collection-bind 'next-item     'reftex-select-shared-map 'reftex-select-next-heading)
   (evil-collection-bind 'prev-item     'reftex-select-shared-map 'reftex-select-previous-heading)
   (evil-collection-bind 'next-section  'reftex-select-shared-map 'reftex-select-next-heading)
@@ -139,12 +139,13 @@
 
   ;; This one is more involved, in reftex-toc.el, line 267 it shows the prompt
   ;; string with the keybinds and I don't see any way of changing it to show evil-like binds.
+  ;; Per the upstream `reftex-toc-show-help' text:
+  ;;   go  / RET           Show the corresponding location of the LaTeX document
+  ;;                       (RET also hides the TOC window)
+  ;;   TAB / gO            Goto the location and keep the TOC window
   (evil-collection-define-key 'normal 'reftex-toc-mode-map
     "j" 'reftex-toc-next
     "k" 'reftex-toc-previous
-    "go" 'reftex-toc-view-line
-    "gO" 'reftex-toc-view-line
-    (kbd "RET") 'reftex-toc-goto-line-and-hide
     (kbd "<tab>") 'reftex-toc-goto-line
     "?" 'reftex-toc-show-help
     "ZZ" 'reftex-toc-quit-and-kill
@@ -161,6 +162,9 @@
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
+  (evil-collection-bind 'action       'reftex-toc-mode-map 'reftex-toc-goto-line-and-hide)
+  (evil-collection-bind 'action-other 'reftex-toc-mode-map 'reftex-toc-view-line)
+  (evil-collection-bind 'action-stay  'reftex-toc-mode-map 'reftex-toc-goto-line)
   (evil-collection-bind 'next-section  'reftex-toc-mode-map 'reftex-toc-next-heading)
   (evil-collection-bind 'prev-section  'reftex-toc-mode-map 'reftex-toc-previous-heading)
   (evil-collection-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)

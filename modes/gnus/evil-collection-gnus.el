@@ -61,6 +61,7 @@ Note that there is no gnus-common-mode-map")
 
   (evil-collection-bind 'quit    'gnus-summary-mode-map 'gnus-summary-exit)
   (evil-collection-bind 'refresh 'gnus-summary-mode-map 'gnus-summary-rescan-group)
+  (evil-collection-bind 'action  'gnus-summary-mode-map 'gnus-summary-scroll-up)
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
@@ -75,7 +76,6 @@ Note that there is no gnus-common-mode-map")
     (kbd "<delete>") 'gnus-summary-prev-page
     (kbd "S-SPC") 'gnus-summary-prev-page
     (kbd "SPC") 'gnus-summary-next-page
-    (kbd "RET") 'gnus-summary-scroll-up
     "{"         'gnus-summary-prev-thread
     "}"         'gnus-summary-next-thread
 
@@ -312,6 +312,7 @@ Note that there is no gnus-common-mode-map")
   (evil-collection-bind 'quit        'gnus-group-mode-map 'gnus-group-exit)
   (evil-collection-bind 'refresh     'gnus-group-mode-map 'gnus-group-get-new-news-this-group)
   (evil-collection-bind 'refresh-all 'gnus-group-mode-map 'gnus-group-get-new-news)
+  (evil-collection-bind 'action      'gnus-group-mode-map 'gnus-group-select-group)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
     "Q"         'gnus-group-quit
@@ -333,7 +334,6 @@ Note that there is no gnus-common-mode-map")
     "J"         'gnus-group-jump-to-group
     "R"         'gnus-group-rename-group
     "X"         'gnus-group-expunge-group
-    (kbd "RET") 'gnus-group-select-group
     (kbd "SPC") 'gnus-group-read-group
     "gu"        'gnus-group-unsubscribe-current-group
     "gU"        'gnus-group-unsubscribe-group
@@ -421,13 +421,13 @@ Note that there is no gnus-common-mode-map")
 
   (evil-collection-bind 'quit    'gnus-server-mode-map 'gnus-server-exit)
   (evil-collection-bind 'refresh 'gnus-server-mode-map 'gnus-server-regenerate-server)
+  (evil-collection-bind 'action  'gnus-server-mode-map 'gnus-server-read-server)
   (evil-collection-define-key 'normal 'gnus-server-mode-map
     ;; quit
     "Q"         'gnus-server-exit
     "ZQ"        'gnus-server-exit
     "ZZ"        'gnus-server-exit
 
-    (kbd "RET") 'gnus-server-read-server
     (kbd "SPC") 'gnus-server-read-server-in-server-buffer
     "C"         'gnus-server-close-server
     "D"         'gnus-server-deny-server
@@ -450,6 +450,7 @@ Note that there is no gnus-common-mode-map")
     "M-o"       'gnus-server-open-all-servers)
 
   (evil-collection-bind 'quit 'gnus-browse-mode-map 'gnus-browse-exit)
+  (evil-collection-bind 'action 'gnus-browse-mode-map 'gnus-browse-select-group)
   (evil-collection-define-key 'normal 'gnus-browse-mode-map
     ;; quit
     "Q"         'gnus-browse-exit
@@ -457,10 +458,10 @@ Note that there is no gnus-common-mode-map")
     "ZZ"        'gnus-browse-exit
 
     "u" 'gnus-browse-unsubscribe-current-group
-    (kbd "SPC") 'gnus-browse-read-group
-    (kbd "RET") 'gnus-browse-select-group)
+    (kbd "SPC") 'gnus-browse-read-group)
 
   (evil-collection-bind 'quit 'gnus-bookmark-bmenu-mode-map 'quit-window)
+  (evil-collection-bind 'action 'gnus-bookmark-bmenu-mode-map 'gnus-bookmark-bmenu-select)
   (evil-collection-define-key 'normal 'gnus-bookmark-bmenu-mode-map
     ;; quit
     "Q"         'quit-window
@@ -474,7 +475,6 @@ Note that there is no gnus-common-mode-map")
     "d"         'gnus-bookmark-bmenu-delete
     "x"         'gnus-bookmark-bmenu-execute-deletions
 
-    (kbd "RET") 'gnus-bookmark-bmenu-select
     [mouse-2]   'gnus-bookmark-bmenu-select-by-mouse
     "L"         'gnus-bookmark-bmenu-load
     "s"         'gnus-bookmark-bmenu-save

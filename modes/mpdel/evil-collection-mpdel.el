@@ -71,7 +71,6 @@
 
     "gb" 'mpdel-browser-open
 
-    "go" 'mpdel-song-open
     "I"  'mpdel-song-play
 
     ">s" 'mpdel-song-small-increment
@@ -86,6 +85,8 @@
     ")"  'mpdel-playlist-move-down
     "w"  'mpdel-playlist-save
     "P"  'mpdel-playlist-play)
+  (evil-collection-bind 'action       'mpdel-core-map 'libmpdel-playback-play-pause)
+  (evil-collection-bind 'action-other 'mpdel-core-map 'mpdel-song-open)
   (evil-collection-bind 'quit    'mpdel-core-map 'mpdel-song-quit-window)
   (evil-collection-bind 'refresh 'mpdel-core-map 'mpdel-song-refresh)
 

@@ -43,13 +43,6 @@
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
 
-    ;; open
-    (kbd "RET") 'tar-extract
-    (kbd "S-<return>") 'tar-extract-other-window
-    (kbd "M-<return>") 'tar-view
-    "go" 'tar-extract-other-window
-    "gO" 'tar-view
-
     "d" 'tar-flag-deleted
     "r" 'tar-rename-entry
     "x" 'tar-expunge
@@ -66,6 +59,9 @@
     ;; mark
     "u" 'tar-unflag
     "U" 'tar-clear-modification-flags)
+  (evil-collection-bind 'action       'tar-mode-map 'tar-extract)
+  (evil-collection-bind 'action-other 'tar-mode-map 'tar-extract-other-window)
+  (evil-collection-bind 'action-stay  'tar-mode-map 'tar-view)
   (evil-collection-bind 'next-item    'tar-mode-map 'tar-next-line)
   (evil-collection-bind 'prev-item    'tar-mode-map 'tar-previous-line)
   (evil-collection-bind 'next-section 'tar-mode-map 'tar-next-line)

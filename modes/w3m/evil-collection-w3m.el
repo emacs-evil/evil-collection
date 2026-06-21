@@ -40,7 +40,6 @@
     (kbd "S-SPC") 'w3m-scroll-down-or-previous-url
     (kbd "SPC") 'w3m-scroll-up-or-next-url
 
-    (kbd "RET") 'w3m-view-this-url
     "o" 'w3m-goto-url
     "O" 'w3m-goto-url-new-session
 
@@ -67,6 +66,7 @@
     ;; quit
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
+  (evil-collection-bind 'action       'w3m-mode-map 'w3m-view-this-url)
   (evil-collection-bind 'next-item    'w3m-mode-map 'w3m-next-form)
   (evil-collection-bind 'prev-item    'w3m-mode-map 'w3m-previous-form)
   (evil-collection-bind 'next-section 'w3m-mode-map 'w3m-next-form)

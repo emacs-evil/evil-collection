@@ -39,8 +39,6 @@
   (evil-collection-define-key 'normal 'Buffer-menu-mode-map
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
-    "go" 'Buffer-menu-this-window
-    "gO" 'Buffer-menu-other-window
     "d" 'Buffer-menu-delete
     "s" 'Buffer-menu-save
     [mouse-2] 'Buffer-menu-mouse-select
@@ -61,7 +59,6 @@
     ;; Default ones, unchanged. Redundant ones commented
     "2" 'Buffer-menu-2-window
     "1" 'Buffer-menu-1-window
-    (kbd "C-m") 'Buffer-menu-this-window
     (kbd "C-k") 'Buffer-menu-delete
     (kbd "C-d") 'Buffer-menu-delete-backwards
     (kbd "<delete>") 'Buffer-menu-backup-unmark
@@ -72,6 +69,8 @@
     (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
     (kbd "M-s a C-o") 'Buffer-menu-multi-occur)
+  (evil-collection-bind 'action       'Buffer-menu-mode-map 'Buffer-menu-this-window)
+  (evil-collection-bind 'action-other 'Buffer-menu-mode-map 'Buffer-menu-other-window)
   (evil-collection-bind 'refresh 'Buffer-menu-mode-map 'revert-buffer))
 
 (provide 'evil-collection-buff-menu)

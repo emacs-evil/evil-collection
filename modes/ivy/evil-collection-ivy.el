@@ -41,7 +41,6 @@
     (kbd "<escape>") 'minibuffer-keyboard-quit)
   (evil-collection-define-key 'normal 'ivy-occur-mode-map
     [mouse-1] 'ivy-occur-click
-    (kbd "RET") 'ivy-occur-press-and-switch
     "j" 'ivy-occur-next-line
     "k" 'ivy-occur-previous-line
     "h" 'evil-backward-char
@@ -54,6 +53,7 @@
   (evil-collection-bind 'quit      'ivy-occur-mode-map 'quit-window)
   (evil-collection-bind 'find-file 'ivy-occur-mode-map 'ivy-occur-press)
   (evil-collection-bind 'refresh   'ivy-occur-mode-map 'ivy-occur-revert-buffer)
+  (evil-collection-bind 'action    'ivy-occur-mode-map 'ivy-occur-press-and-switch)
 
   (when evil-want-C-d-scroll
     (evil-collection-define-key 'normal 'ivy-occur-grep-mode-map
@@ -70,7 +70,6 @@
     "i" 'ivy-wgrep-change-to-wgrep-mode
     "gd" 'ivy-occur-delete-candidate
     [mouse-1] 'ivy-occur-click
-    (kbd "RET") 'ivy-occur-press-and-switch
     "j" 'ivy-occur-next-line
     "k" 'ivy-occur-previous-line
     "h" 'evil-backward-char
@@ -85,15 +84,16 @@
   (evil-collection-bind 'quit      'ivy-occur-grep-mode-map 'quit-window)
   (evil-collection-bind 'find-file 'ivy-occur-grep-mode-map 'ivy-occur-press)
   (evil-collection-bind 'refresh   'ivy-occur-grep-mode-map 'ivy-occur-revert-buffer)
+  (evil-collection-bind 'action    'ivy-occur-grep-mode-map 'ivy-occur-press-and-switch)
 
   (defvar evil-collection-setup-minibuffer)
   (when evil-collection-setup-minibuffer
     (evil-collection-define-key 'normal 'ivy-minibuffer-map
       (kbd "<escape>") 'abort-recursive-edit
-      (kbd "RET") 'exit-minibuffer
       (kbd "C-m") 'ivy-done
       "j" 'ivy-next-line
       "k" 'ivy-previous-line)
+    (evil-collection-bind 'action 'ivy-minibuffer-map 'exit-minibuffer)
 
     (evil-collection-define-key 'insert 'ivy-minibuffer-map
       (kbd "DEL") 'ivy-backward-delete-char

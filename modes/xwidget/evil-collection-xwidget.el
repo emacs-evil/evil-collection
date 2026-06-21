@@ -165,7 +165,6 @@ F is the name of function, N is the pixel height."
 
     (kbd "C-f") 'xwidget-webkit-scroll-up
     (kbd "C-b") 'xwidget-webkit-scroll-down
-    (kbd "RET") 'xwidget-webkit-insert-string
 
     ;; zoom
     "+" 'xwidget-webkit-zoom-in
@@ -179,6 +178,7 @@ F is the name of function, N is the pixel height."
     (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
       (kbd "C-u") 'xwidget-webkit-scroll-down))
 
+  (evil-collection-bind 'action  'xwidget-webkit-mode-map 'xwidget-webkit-insert-string)
   (evil-collection-bind 'refresh 'xwidget-webkit-mode-map 'xwidget-webkit-reload))
 
 (provide 'evil-collection-xwidget)

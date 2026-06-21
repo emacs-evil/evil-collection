@@ -36,21 +36,21 @@
 (defun evil-collection-crdt-setup ()
   "Set up `evil' bindings for crdt."
   (evil-collection-define-key 'normal 'crdt-buffer-menu-mode-map
-    (kbd "RET") 'crdt-switch-to-buffer-other-window
     "x" 'crdt-stop-share-buffer)
+  (evil-collection-bind 'action 'crdt-buffer-menu-mode-map 'crdt-switch-to-buffer-other-window)
 
   (evil-collection-define-key 'normal 'crdt-session-menu-mode-map
-    (kbd "RET") 'crdt-list-buffers
     "x" 'crdt--stop-session)
+  (evil-collection-bind 'action 'crdt-session-menu-mode-map 'crdt-list-buffers)
 
   (evil-collection-define-key 'normal 'crdt-user-menu-mode-map
-    (kbd "RET") 'crdt-goto-user
     "x" 'crdt-kill-user
     "f" 'crdt-follow-user)
+  (evil-collection-bind 'action 'crdt-user-menu-mode-map 'crdt-goto-user)
 
   (evil-collection-define-key 'normal 'crdt-read-settings-map
-    (kbd "RET") 'exit-recursive-edit
     "ZZ" 'exit-recursive-edit)
+  (evil-collection-bind 'action 'crdt-read-settings-map 'exit-recursive-edit)
   (evil-collection-bind 'quit 'crdt-read-settings-map 'abort-recursive-edit))
 
 (provide 'evil-collection-crdt)

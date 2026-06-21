@@ -59,11 +59,8 @@
     "+" 'p-search-increase-preview-size
     "-" 'p-search-decrease-preview-size
     (kbd "<tab>") 'p-search-toggle-section
-    (kbd "<return>") 'p-search-find-document
     "gv" 'p-search-view-document
-    "go" 'p-search-view-document
     (kbd "C-o") 'p-search-display-document
-    "gO" 'p-search-display-document
     ;; (keymap-set map "C-o" #'p-search-display-file)
     ;; (keymap-set map "1" #'p-search-show-level-1)
     ;; (keymap-set map "2" #'p-search-show-level-2)
@@ -71,6 +68,9 @@
     "Jg" 'p-search-jump-candidate-generators
     "Jp" 'p-search-jump-priors
     "Jr" 'p-search-jump-results)
+  (evil-collection-bind 'action       'evil-collection-p-search-mode-map 'p-search-find-document)
+  (evil-collection-bind 'action-other 'evil-collection-p-search-mode-map 'p-search-view-document)
+  (evil-collection-bind 'action-stay  'evil-collection-p-search-mode-map 'p-search-display-document)
   (evil-collection-bind 'next-item    'evil-collection-p-search-mode-map 'p-search-next-item)
   (evil-collection-bind 'prev-item    'evil-collection-p-search-mode-map 'p-search-prev-item)
   (evil-collection-bind 'next-section 'evil-collection-p-search-mode-map 'p-search-next-item)

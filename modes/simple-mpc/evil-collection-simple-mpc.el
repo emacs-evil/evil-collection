@@ -62,24 +62,19 @@ Other modes that are configured:
     "d" 'simple-mpc-delete
 
     "ZQ" 'simple-mpc-current-playlist-quit
-    "ZZ" 'simple-mpc-current-playlist-quit
-
-    "<return>" 'simple-mpc-play-current-line
-    (kbd "RET") 'simple-mpc-play-current-line)
-  (evil-collection-bind 'quit 'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
+    "ZZ" 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'quit   'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'action 'simple-mpc-current-playlist-mode-map 'simple-mpc-play-current-line)
 
   (evil-collection-bind 'quit 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
   (evil-collection-define-key 'normal 'simple-mpc-query-mode-map
     "o" 'simple-mpc-query-sort
 
     "ZQ" 'simple-mpc-query-quit
-    "ZZ" 'simple-mpc-query-quit
-
-    "<S-return>" 'simple-mpc-query-add
-    (kbd "M-RET") 'simple-mpc-query-add
-
-    "<return>" 'simple-mpc-query-add-and-play
-    (kbd "RET") 'simple-mpc-query-add-and-play))
+    "ZZ" 'simple-mpc-query-quit)
+  (evil-collection-bind 'action-other 'simple-mpc-query-mode-map 'simple-mpc-query-add)
+  (evil-collection-bind 'action-stay  'simple-mpc-query-mode-map 'simple-mpc-query-add)
+  (evil-collection-bind 'action       'simple-mpc-query-mode-map 'simple-mpc-query-add-and-play))
 
 (defvar simple-mpc-main-buffer-name "*simple-mpc-main*")
 

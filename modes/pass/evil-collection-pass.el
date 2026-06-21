@@ -92,8 +92,8 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "Y" 'pass-copy
     "r" 'pass-rename
     "R" 'pass-rename
-    "o" 'pass-otp-options
-    (kbd "RET") 'pass-view)
+    "o" 'pass-otp-options)
+  (evil-collection-bind 'action        'pass-mode-map 'pass-view)
   (evil-collection-bind 'quit          'pass-mode-map 'pass-quit)
   (evil-collection-bind 'describe-mode 'pass-mode-map 'describe-mode)
   (evil-collection-bind 'refresh       'pass-mode-map 'pass-update-buffer))

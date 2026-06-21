@@ -50,10 +50,9 @@
     (kbd "S-<tab>") 'hackernews-previous-comment
 
     "!" 'hackernews-button-mark-as-visited ; like mu4e
-    "?" 'hackernews-button-mark-as-unvisited
-
-    (kbd "RET") 'hackernews-button-browse-internal
-    (kbd "S-<return>") 'push-button)
+    "?" 'hackernews-button-mark-as-unvisited)
+  (evil-collection-bind 'action       'hackernews-mode-map 'hackernews-button-browse-internal)
+  (evil-collection-bind 'action-other 'hackernews-mode-map 'push-button)
   (evil-collection-bind 'refresh 'hackernews-mode-map 'hackernews-reload))
 
 (provide 'evil-collection-hackernews)

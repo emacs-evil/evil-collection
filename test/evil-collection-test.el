@@ -169,6 +169,18 @@
   (should (equal '("C-c C-z")
                  (evil-collection-binding-keys 'term-toggle-escape))))
 
+(ert-deftest evil-collection-theme-shipped-action-keys ()
+  "Sanity check the shipped default entries for action bindings."
+  (dolist (id '(action action-other action-stay))
+    (should (eq t (evil-collection-binding-enabled-p id)))
+    (should (equal '(normal) (evil-collection-binding-states id))))
+  (should (equal '("RET" "<return>")
+                 (evil-collection-binding-keys 'action)))
+  (should (equal '("S-<return>" "S-RET" "go")
+                 (evil-collection-binding-keys 'action-other)))
+  (should (equal '("M-<return>" "M-RET" "gO")
+                 (evil-collection-binding-keys 'action-stay))))
+
 (ert-deftest evil-collection-theme-function-valued-state ()
   ":state may be a function; it is funcalled at lookup time."
   (let* ((dynamic-state 'normal)

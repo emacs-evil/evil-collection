@@ -46,12 +46,12 @@
     (kbd "TAB") 'log-view-toggle-entry-display
     "m" 'log-view-toggle-mark-entry
     "c" 'log-view-modify-change-comment
-    (kbd "RET") 'log-view-diff
     "d" 'log-view-diff
     "=" 'log-view-diff
     "D" 'log-view-diff-changeset
     "a" 'log-view-annotate-version
     "F" 'log-view-find-revision)
+  (evil-collection-bind 'action       'log-view-mode-map 'log-view-diff)
   (evil-collection-bind 'next-item    'log-view-mode-map 'log-view-msg-next)
   (evil-collection-bind 'prev-item    'log-view-mode-map 'log-view-msg-prev)
   (evil-collection-bind 'next-section 'log-view-mode-map 'log-view-msg-next)

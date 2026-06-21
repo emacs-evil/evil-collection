@@ -59,15 +59,14 @@
     ;; "\C-j" 'help-go-forward
     ;; "\C-k" 'help-go-back
 
-    ;; The following bindings don't do what they are supposed to. "go" should open
-    ;; in the same window and "gO" should open in a different one.
-    "go" 'push-button
-    "gO" 'push-button
-
     "<" 'help-go-back
     ">" 'help-go-forward
     "r" 'help-follow)
 
+  ;; The following bindings don't do what they are supposed to. "go" should open
+  ;; in the same window and "gO" should open in a different one.
+  (evil-collection-bind 'action-other  'help-mode-map 'push-button)
+  (evil-collection-bind 'action-stay   'help-mode-map 'push-button)
   (evil-collection-bind 'describe-mode 'help-mode-map 'describe-mode)
   (evil-collection-bind 'refresh       'help-mode-map 'revert-buffer)
 

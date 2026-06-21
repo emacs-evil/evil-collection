@@ -85,7 +85,6 @@ When this is true, move the `elpaca-visit' to gv and gd."
     (kbd "s") 'elpaca-info)
 
   (evil-collection-define-key 'normal 'elpaca-ui-mode-map
-    (kbd "RET") 'elpaca-ui-info
     (kbd "!") 'elpaca-ui-send-input
     (kbd "+") 'elpaca-ui-show-hidden-rows
     (kbd "c") 'elpaca-ui-copy
@@ -98,6 +97,7 @@ When this is true, move the `elpaca-visit' to gv and gd."
     (kbd "s") 'elpaca-ui-search
     (kbd "u") 'elpaca-ui-unmark
     (kbd "x") 'elpaca-ui-execute-marks)
+  (evil-collection-bind 'action 'elpaca-ui-mode-map 'elpaca-ui-info)
 
   (if evil-collection-elpaca-want-v
       (evil-collection-define-key 'normal 'elpaca-ui-view-map

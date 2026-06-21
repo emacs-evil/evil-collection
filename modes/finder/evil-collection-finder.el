@@ -38,11 +38,11 @@
   (evil-set-initial-state 'finder-mode 'normal)
 
   (evil-collection-define-key 'normal 'finder-mode-map
-    (kbd "RET") 'finder-select
     (kbd "SPC") 'finder-select
 
     "d" 'finder-list-keywords
     "s" 'finder-summary)
+  (evil-collection-bind 'action 'finder-mode-map 'finder-select)
   (evil-collection-bind 'quit 'finder-mode-map 'finder-exit))
 
 (provide 'evil-collection-finder)

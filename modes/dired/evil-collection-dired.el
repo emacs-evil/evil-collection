@@ -117,7 +117,6 @@
     ;; Lower keys for commands not operating on all the marked files
     "a" 'dired-find-alternate-file
     "d" 'dired-flag-file-deletion
-    (kbd "C-m") 'dired-find-file
     "i" 'dired-toggle-read-only
     "I" 'dired-maybe-insert-subdir
     "J" 'dired-goto-file
@@ -131,12 +130,6 @@
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
     "Y" 'dired-copy-filename-as-kill
     "+" 'dired-create-directory
-    ;; open
-    (kbd "RET") 'dired-find-file
-    (kbd "S-<return>") 'dired-find-file-other-window
-    (kbd "M-RET") 'dired-display-file
-    "gO" 'dired-find-file-other-window
-    "go" 'dired-view-file
     ;; sort
     "o" 'dired-sort-toggle-or-edit
     ;; moving
@@ -167,6 +160,9 @@
   (evil-collection-bind 'prev-item     'dired-mode-map 'dired-prev-dirline)
   (evil-collection-bind 'next-section  'dired-mode-map 'dired-next-dirline)
   (evil-collection-bind 'prev-section  'dired-mode-map 'dired-prev-dirline)
+  (evil-collection-bind 'action        'dired-mode-map 'dired-find-file)
+  (evil-collection-bind 'action-other  'dired-mode-map 'dired-find-file-other-window)
+  (evil-collection-bind 'action-stay   'dired-mode-map 'dired-view-file)
   (evil-collection-bind 'find-file     'dired-mode-map 'dired-find-file)
   (evil-collection-bind 'describe-mode 'dired-mode-map 'dired-summary)
   (evil-collection-bind 'refresh       'dired-mode-map 'revert-buffer)

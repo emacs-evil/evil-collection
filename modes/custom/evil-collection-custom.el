@@ -45,7 +45,6 @@
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
     (kbd "<delete>") 'scroll-down-command
-    (kbd "RET") 'Custom-newline
 
     "^" 'Custom-goto-parent
     (kbd "C-o") 'Custom-goto-parent
@@ -55,6 +54,7 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done)
+  (evil-collection-bind 'action       'custom-mode-map 'Custom-newline)
   (evil-collection-bind 'next-item    'custom-mode-map 'widget-forward)
   (evil-collection-bind 'prev-item    'custom-mode-map 'widget-backward)
   (evil-collection-bind 'next-section 'custom-mode-map 'widget-forward)
