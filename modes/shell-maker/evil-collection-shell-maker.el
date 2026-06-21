@@ -37,10 +37,6 @@
   "Evil bindings for `shell-maker'."
   :group 'evil-collection)
 
-(make-obsolete-variable 'evil-collection-shell-maker-submit-state
-                        'evil-collection-repl-submit-state
-                        "evil-collection 0.0.2")
-
 (defconst evil-collection-shell-maker-maps '(shell-maker-mode-map))
 
 
