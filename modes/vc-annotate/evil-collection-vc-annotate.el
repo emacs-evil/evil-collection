@@ -36,7 +36,7 @@
 (defun evil-collection-vc-annotate-setup ()
   "Set up `evil' bindings for `vc-annotate'."
   (evil-set-initial-state 'vc-annotate-mode 'normal)
-  (evil-collection-theme-bind 'quit 'vc-annotate-mode-map 'quit-window)
+  (evil-collection-bind 'quit 'vc-annotate-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'vc-annotate-mode-map
     "a" 'vc-annotate-revision-previous-to-line
     "d" 'vc-annotate-show-diff-revision-at-line
@@ -48,10 +48,10 @@
     "W" 'vc-annotate-working-revision
     "A" 'vc-annotate-toggle-annotation-visibility
     (kbd "RET") 'vc-annotate-goto-line)
-  (evil-collection-theme-bind 'next-item    'vc-annotate-mode-map 'vc-annotate-next-revision)
-  (evil-collection-theme-bind 'prev-item    'vc-annotate-mode-map 'vc-annotate-prev-revision)
-  (evil-collection-theme-bind 'next-section 'vc-annotate-mode-map 'vc-annotate-next-revision)
-  (evil-collection-theme-bind 'prev-section 'vc-annotate-mode-map 'vc-annotate-prev-revision))
+  (evil-collection-bind 'next-item    'vc-annotate-mode-map 'vc-annotate-next-revision)
+  (evil-collection-bind 'prev-item    'vc-annotate-mode-map 'vc-annotate-prev-revision)
+  (evil-collection-bind 'next-section 'vc-annotate-mode-map 'vc-annotate-next-revision)
+  (evil-collection-bind 'prev-section 'vc-annotate-mode-map 'vc-annotate-prev-revision))
 
 (provide 'evil-collection-vc-annotate)
 ;;; evil-collection-vc-annotate.el ends here

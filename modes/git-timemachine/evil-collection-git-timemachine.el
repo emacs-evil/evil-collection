@@ -44,7 +44,7 @@
     "gtY"  'git-timemachine-kill-revision
     "gtb"  'git-timemachine-blame)
 
-  (evil-collection-theme-bind-minor-mode 'quit 'git-timemachine-mode 'git-timemachine-quit))
+  (evil-collection-bind-minor-mode 'quit 'git-timemachine-mode 'git-timemachine-quit))
 
 (provide 'evil-collection-git-timemachine)
 ;;; evil-collection-git-timemachine.el ends here

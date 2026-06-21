@@ -43,7 +43,7 @@
 
     ;; refresh
     (kbd "gr") 'revert-buffer)
-  (evil-collection-theme-bind 'quit 'view-mode-map 'View-quit))
+  (evil-collection-bind 'quit 'view-mode-map 'View-quit))
 
 (provide 'evil-collection-view)
 ;;; evil-collection-view.el ends here

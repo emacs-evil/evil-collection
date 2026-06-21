@@ -45,7 +45,7 @@
     (add-hook hook #'evil-collection-python-set-evil-shift-width))
 
   (dolist (kmap evil-collection-python-maps)
-    (evil-collection-theme-bind 'goto-repl kmap 'python-shell-switch-to-shell)))
+    (evil-collection-bind 'goto-repl kmap 'python-shell-switch-to-shell)))
 
 (provide 'evil-collection-python)
 ;;; evil-collection-python.el ends here

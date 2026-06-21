@@ -55,14 +55,14 @@
       (kbd "TAB") 'compilation-next-error
       (kbd "S-TAB") 'compilation-previous-error)
 
-    (evil-collection-theme-bind 'next-item    keymap 'compilation-next-error)
-    (evil-collection-theme-bind 'prev-item    keymap 'compilation-previous-error)
-    (evil-collection-theme-bind 'next-section keymap 'compilation-next-file)
-    (evil-collection-theme-bind 'prev-section keymap 'compilation-previous-file)
-    (evil-collection-theme-bind 'next-section-2 keymap 'compilation-next-error)
-    (evil-collection-theme-bind 'prev-section-2 keymap 'compilation-previous-error)
+    (evil-collection-bind 'next-item    keymap 'compilation-next-error)
+    (evil-collection-bind 'prev-item    keymap 'compilation-previous-error)
+    (evil-collection-bind 'next-section keymap 'compilation-next-file)
+    (evil-collection-bind 'prev-section keymap 'compilation-previous-file)
+    (evil-collection-bind 'next-section-2 keymap 'compilation-next-error)
+    (evil-collection-bind 'prev-section-2 keymap 'compilation-previous-error)
 
-    (evil-collection-theme-bind 'refresh keymap 'recompile)))
+    (evil-collection-bind 'refresh keymap 'recompile)))
 
 (provide 'evil-collection-compile)
 ;;; evil-collection-compile.el ends here

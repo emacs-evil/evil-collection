@@ -42,8 +42,8 @@
   "Set up `evil' bindings for `lua-mode'."
   (add-hook 'lua-mode-hook #'evil-collection-lua-mode-set-evil-shift-width)
 
-  (evil-collection-theme-bind 'lookup-doc 'lua-mode-map 'lua-search-documentation)
-  (evil-collection-theme-bind 'goto-repl  'lua-mode-map 'run-lua))
+  (evil-collection-bind 'lookup-doc 'lua-mode-map 'lua-search-documentation)
+  (evil-collection-bind 'goto-repl  'lua-mode-map 'run-lua))
 
 (provide 'evil-collection-lua-mode)
 ;;; evil-collection-lua-mode.el ends here

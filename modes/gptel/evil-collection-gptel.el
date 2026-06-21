@@ -47,9 +47,9 @@
 ;;;###autoload
 (defun evil-collection-gptel-setup ()
   "Set up `evil' bindings for gptel."
-  (evil-collection-theme-bind 'repl-submit        'gptel-mode-map 'gptel-send)
-  (evil-collection-theme-bind 'repl-newline       'gptel-mode-map 'newline)
-  (evil-collection-theme-bind 'repl-force-newline 'gptel-mode-map 'newline)
+  (evil-collection-bind 'repl-submit        'gptel-mode-map 'gptel-send)
+  (evil-collection-bind 'repl-newline       'gptel-mode-map 'newline)
+  (evil-collection-bind 'repl-force-newline 'gptel-mode-map 'newline)
   (if evil-collection-gptel-want-shift-ret-menu
       (evil-collection-define-key '(normal visual) 'gptel-mode-map
         (kbd "S-RET") 'gptel-menu
@@ -67,7 +67,7 @@
       "ZQ" 'gptel-context-quit
       "ZZ" 'gptel-context-confirm
       (kbd "RET") 'gptel-context-visit)
-    (evil-collection-theme-bind 'quit 'gptel-context-buffer-mode-map 'gptel-context-quit)))
+    (evil-collection-bind 'quit 'gptel-context-buffer-mode-map 'gptel-context-quit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here

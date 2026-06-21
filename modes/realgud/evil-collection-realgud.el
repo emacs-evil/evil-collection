@@ -58,7 +58,7 @@
     ;; (evil-collection-define-key nil map [M-S-down]  'realgud-track-hist-newest)
     ;; (evil-collection-define-key nil map [M-S-up]    'realgud-track-hist-oldest)
     )
-  (evil-collection-theme-bind 'quit 'realgud:shortkey-mode-map 'realgud:cmd-quit)
+  (evil-collection-bind 'quit 'realgud:shortkey-mode-map 'realgud:cmd-quit)
 
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     (kbd "C-x C-q") 'realgud-short-key-mode
@@ -89,12 +89,12 @@
     "R" 'realgud:cmd-restart
     "!" 'realgud:cmd-shell)
 
-  (evil-collection-theme-bind 'describe-mode    'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
-  (evil-collection-theme-bind 'refresh          'realgud:shortkey-mode-map 'realgud:cmd-restart)
-  (evil-collection-theme-bind 'debug-continue   'realgud:shortkey-mode-map 'realgud:cmd-continue)
-  (evil-collection-theme-bind 'debug-step-over  'realgud:shortkey-mode-map 'realgud:cmd-next)
-  (evil-collection-theme-bind 'debug-step-into  'realgud:shortkey-mode-map 'realgud:cmd-step)
-  (evil-collection-theme-bind 'debug-breakpoint 'realgud:shortkey-mode-map 'realgud:cmd-break)
+  (evil-collection-bind 'describe-mode    'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
+  (evil-collection-bind 'refresh          'realgud:shortkey-mode-map 'realgud:cmd-restart)
+  (evil-collection-bind 'debug-continue   'realgud:shortkey-mode-map 'realgud:cmd-continue)
+  (evil-collection-bind 'debug-step-over  'realgud:shortkey-mode-map 'realgud:cmd-next)
+  (evil-collection-bind 'debug-step-into  'realgud:shortkey-mode-map 'realgud:cmd-step)
+  (evil-collection-bind 'debug-breakpoint 'realgud:shortkey-mode-map 'realgud:cmd-break)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 

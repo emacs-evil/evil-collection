@@ -71,9 +71,9 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
-  (evil-collection-theme-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual)
-  (evil-collection-theme-bind 'refresh       'debbugs-gnu-mode-map 'debbugs-gnu-rescan))
+  (evil-collection-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
+  (evil-collection-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual)
+  (evil-collection-bind 'refresh       'debbugs-gnu-mode-map 'debbugs-gnu-rescan))
 
 (provide 'evil-collection-debbugs)
 ;;; evil-collection-debbugs.el ends here

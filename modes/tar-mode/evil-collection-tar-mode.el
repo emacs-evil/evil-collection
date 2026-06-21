@@ -66,12 +66,12 @@
     ;; mark
     "u" 'tar-unflag
     "U" 'tar-clear-modification-flags)
-  (evil-collection-theme-bind 'next-item    'tar-mode-map 'tar-next-line)
-  (evil-collection-theme-bind 'prev-item    'tar-mode-map 'tar-previous-line)
-  (evil-collection-theme-bind 'next-section 'tar-mode-map 'tar-next-line)
-  (evil-collection-theme-bind 'prev-section 'tar-mode-map 'tar-previous-line)
-  (evil-collection-theme-bind 'quit    'tar-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'tar-mode-map 'revert-buffer))
+  (evil-collection-bind 'next-item    'tar-mode-map 'tar-next-line)
+  (evil-collection-bind 'prev-item    'tar-mode-map 'tar-previous-line)
+  (evil-collection-bind 'next-section 'tar-mode-map 'tar-next-line)
+  (evil-collection-bind 'prev-section 'tar-mode-map 'tar-previous-line)
+  (evil-collection-bind 'quit    'tar-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'tar-mode-map 'revert-buffer))
 
 (provide 'evil-collection-tar-mode)
 ;;; evil-collection-tar-mode.el ends here

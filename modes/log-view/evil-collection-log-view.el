@@ -41,7 +41,7 @@
   (evil-set-initial-state 'vc-git-log-view-mode 'normal)
   (evil-set-initial-state 'vc-svn-log-view-mode 'normal)
 
-  (evil-collection-theme-bind 'quit 'log-view-mode-map 'quit-window)
+  (evil-collection-bind 'quit 'log-view-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'log-view-mode-map
     (kbd "TAB") 'log-view-toggle-entry-display
     "m" 'log-view-toggle-mark-entry
@@ -52,12 +52,12 @@
     "D" 'log-view-diff-changeset
     "a" 'log-view-annotate-version
     "F" 'log-view-find-revision)
-  (evil-collection-theme-bind 'next-item    'log-view-mode-map 'log-view-msg-next)
-  (evil-collection-theme-bind 'prev-item    'log-view-mode-map 'log-view-msg-prev)
-  (evil-collection-theme-bind 'next-section 'log-view-mode-map 'log-view-msg-next)
-  (evil-collection-theme-bind 'prev-section   'log-view-mode-map 'log-view-msg-prev)
-  (evil-collection-theme-bind 'next-section-2 'log-view-mode-map 'log-view-file-next)
-  (evil-collection-theme-bind 'prev-section-2 'log-view-mode-map 'log-view-file-prev))
+  (evil-collection-bind 'next-item    'log-view-mode-map 'log-view-msg-next)
+  (evil-collection-bind 'prev-item    'log-view-mode-map 'log-view-msg-prev)
+  (evil-collection-bind 'next-section 'log-view-mode-map 'log-view-msg-next)
+  (evil-collection-bind 'prev-section   'log-view-mode-map 'log-view-msg-prev)
+  (evil-collection-bind 'next-section-2 'log-view-mode-map 'log-view-file-next)
+  (evil-collection-bind 'prev-section-2 'log-view-mode-map 'log-view-file-prev))
 
 (provide 'evil-collection-log-view)
 ;;; evil-collection-log-view.el ends here

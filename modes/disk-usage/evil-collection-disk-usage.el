@@ -79,10 +79,10 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
-  (evil-collection-theme-bind 'describe-mode 'disk-usage-mode-map          'describe-mode)
-  (evil-collection-theme-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'disk-usage-mode-map          'revert-buffer)
-  (evil-collection-theme-bind 'refresh       'disk-usage-by-types-mode-map 'revert-buffer))
+  (evil-collection-bind 'describe-mode 'disk-usage-mode-map          'describe-mode)
+  (evil-collection-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'disk-usage-mode-map          'revert-buffer)
+  (evil-collection-bind 'refresh       'disk-usage-by-types-mode-map 'revert-buffer))
 
 (provide 'evil-collection-disk-usage)
 ;;; evil-collection-disk-usage.el ends here

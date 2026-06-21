@@ -188,12 +188,12 @@ instead, which is useless and counterintuitive."
     "Q" 'kill-current-buffer
     "ZQ" 'kill-current-buffer
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'next-item    'pdf-view-mode-map 'pdf-view-next-page-command)
-  (evil-collection-theme-bind 'prev-item    'pdf-view-mode-map 'pdf-view-previous-page-command)
-  (evil-collection-theme-bind 'next-section 'pdf-view-mode-map 'pdf-view-next-page-command)
-  (evil-collection-theme-bind 'prev-section 'pdf-view-mode-map 'pdf-view-previous-page-command)
-  (evil-collection-theme-bind 'quit    'pdf-view-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'pdf-view-mode-map 'revert-buffer)
+  (evil-collection-bind 'next-item    'pdf-view-mode-map 'pdf-view-next-page-command)
+  (evil-collection-bind 'prev-item    'pdf-view-mode-map 'pdf-view-previous-page-command)
+  (evil-collection-bind 'next-section 'pdf-view-mode-map 'pdf-view-next-page-command)
+  (evil-collection-bind 'prev-section 'pdf-view-mode-map 'pdf-view-previous-page-command)
+  (evil-collection-bind 'quit    'pdf-view-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'pdf-view-mode-map 'revert-buffer)
 
 
   (when evil-want-C-d-scroll
@@ -239,7 +239,7 @@ instead, which is useless and counterintuitive."
     (kbd "C-w q") 'pdf-outline-quit-and-kill ; TODO: Do we need to set this? I think not.
     "ZQ" 'quit-window
     "ZZ" 'pdf-outline-quit-and-kill)
-  (evil-collection-theme-bind 'quit 'pdf-outline-buffer-mode-map 'quit-window)
+  (evil-collection-bind 'quit 'pdf-outline-buffer-mode-map 'quit-window)
 
   (evil-collection-inhibit-insert-state 'pdf-occur-buffer-mode-map)
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
@@ -310,7 +310,7 @@ instead, which is useless and counterintuitive."
     ;; quit
     "ZQ" 'tablist-quit
     "ZZ" 'tablist-quit)
-  (evil-collection-theme-bind 'quit 'pdf-occur-buffer-mode-map 'tablist-quit))
+  (evil-collection-bind 'quit 'pdf-occur-buffer-mode-map 'tablist-quit))
 
 (provide 'evil-collection-pdf)
 ;;; evil-collection-pdf.el ends here

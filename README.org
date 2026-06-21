@@ -136,7 +136,7 @@ in order to improve startup time.
 ** Key Themes
 
 Some set of common keybindings can be configured. Look at
-~evil-collection-theme-defaults~ for the existing list.
+~evil-collection-binding-defaults~ for the existing list.
 
 For example, ~vterm~, ~eat~ and ~ghostel~ all need a way to send toggle sending
 ESC to Emacs or the underlying binary.
@@ -168,7 +168,7 @@ An override only replaces properties it explicitly sets; anything it leaves out
 falls through to the defaults. So this:
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((term-toggle-escape :state normal)))
 #+end_src
 
@@ -179,35 +179,35 @@ restricts the toggle to ~normal~ state while leaving ~:enabled~ and ~:key~.
 Rebind a feature across every mode that uses it:
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((term-toggle-escape :key "C-c j")))
 #+end_src
 
 Or supply multiple keys:
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((term-toggle-escape :key ("C-c C-z" "C-c j"))))
 #+end_src
 
 To disable a key theme.
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((term-toggle-escape :enabled nil)))
 #+end_src
 
 ~:enabled~ can also take a predicate.
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       `((find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings))))
 #+end_src
 
 *** Configure the REPL
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((repl-submit        :state insert)
         (repl-newline       :state normal)
         (repl-force-newline :enabled nil)))
@@ -216,14 +216,14 @@ To disable a key theme.
 *** Find usages
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((find-usages :key "gR")))     ;; or :enabled nil to disable
 #+end_src
 
 *** Find / pop definition
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((find-definition :key "gD")
         (pop-definition  :key "C-o")))     ;; or :enabled nil to disable either
 #+end_src
@@ -231,42 +231,42 @@ To disable a key theme.
 *** Lookup documentation
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((lookup-doc :key "gh")))     ;; or :enabled nil to disable
 #+end_src
 
 *** Goto REPL
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((goto-repl :key "gZ")))     ;; or :enabled nil to disable
 #+end_src
 
 *** Find file
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((find-file :key "gF")))     ;; or :enabled nil to disable
 #+end_src
 
 *** Quit
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((quit :key "Q")))     ;; or :enabled nil to disable
 #+end_src
 
 *** Describe mode
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((describe-mode :key "gH")))     ;; or :enabled nil to disable
 #+end_src
 
 *** Refresh / refresh-all
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((refresh     :key "gu")
         (refresh-all :key "gU")))     ;; or :enabled nil to disable either
 #+end_src
@@ -281,7 +281,7 @@ hunks vs files, sly-db's frames vs details, notmuch-tree's threads).  Modes
 that don't distinguish bind the same command to multiple tiers.
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((next-item      :key "gj")
         (prev-item      :key "gk")
         (next-section   :key ("]]" "C-j"))
@@ -293,7 +293,7 @@ that don't distinguish bind the same command to multiple tiers.
 *** Debugger
 
 #+begin_src emacs-lisp :tangle yes
-(setq evil-collection-theme-overrides
+(setq evil-collection-binding-overrides
       '((debug-continue   :key "c")            ;; default also binds <f5>
         (debug-step-over  :key "n")            ;; default also binds <f10>
         (debug-step-into  :key ("i" "s"))      ;; default also binds <f11>

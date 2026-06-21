@@ -68,10 +68,10 @@
     "y" 'ebib-copy-current-field-contents
     "ZZ" 'ebib-quit-entry-buffer
     "ZQ" 'ebib-quit-entry-buffer)
-  (evil-collection-theme-bind 'next-item    'ebib-entry-mode-map 'ebib-goto-next-set)
-  (evil-collection-theme-bind 'prev-item    'ebib-entry-mode-map 'ebib-goto-prev-set)
-  (evil-collection-theme-bind 'next-section 'ebib-entry-mode-map 'ebib-goto-next-set)
-  (evil-collection-theme-bind 'prev-section 'ebib-entry-mode-map 'ebib-goto-prev-set))
+  (evil-collection-bind 'next-item    'ebib-entry-mode-map 'ebib-goto-next-set)
+  (evil-collection-bind 'prev-item    'ebib-entry-mode-map 'ebib-goto-prev-set)
+  (evil-collection-bind 'next-section 'ebib-entry-mode-map 'ebib-goto-next-set)
+  (evil-collection-bind 'prev-section 'ebib-entry-mode-map 'ebib-goto-prev-set))
 
 (provide 'evil-collection-ebib)
 ;;; evil-collection-ebib.el ends here

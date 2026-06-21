@@ -37,12 +37,12 @@
 (defun evil-collection-gited-setup ()
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
-  (evil-collection-theme-bind 'next-item     'gited-mode-map 'gited-next-marked-branch)
-  (evil-collection-theme-bind 'prev-item     'gited-mode-map 'gited-prev-marked-branch)
-  (evil-collection-theme-bind 'next-section  'gited-mode-map 'gited-next-marked-branch)
-  (evil-collection-theme-bind 'prev-section  'gited-mode-map 'gited-prev-marked-branch)
-  (evil-collection-theme-bind 'describe-mode 'gited-mode-map 'gited-summary)
-  (evil-collection-theme-bind 'refresh       'gited-mode-map 'gited-update)
+  (evil-collection-bind 'next-item     'gited-mode-map 'gited-next-marked-branch)
+  (evil-collection-bind 'prev-item     'gited-mode-map 'gited-prev-marked-branch)
+  (evil-collection-bind 'next-section  'gited-mode-map 'gited-next-marked-branch)
+  (evil-collection-bind 'prev-section  'gited-mode-map 'gited-prev-marked-branch)
+  (evil-collection-bind 'describe-mode 'gited-mode-map 'gited-summary)
+  (evil-collection-bind 'refresh       'gited-mode-map 'gited-update)
 
   (evil-collection-define-key 'normal 'gited-mode-map
     "(" 'gited-hide-details-mode

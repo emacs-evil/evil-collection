@@ -140,11 +140,11 @@
                         dape-info-scope-mode-map
                         dape-info-watch-mode-map
                         dape-memory-mode-map))
-    (evil-collection-theme-bind 'debug-continue   map-symbol 'dape-continue)
-    (evil-collection-theme-bind 'debug-step-over  map-symbol 'dape-next)
-    (evil-collection-theme-bind 'debug-step-into  map-symbol 'dape-step-in)
-    (evil-collection-theme-bind 'debug-step-out   map-symbol 'dape-step-out)
-    (evil-collection-theme-bind 'debug-breakpoint map-symbol 'dape-breakpoint-toggle)))
+    (evil-collection-bind 'debug-continue   map-symbol 'dape-continue)
+    (evil-collection-bind 'debug-step-over  map-symbol 'dape-next)
+    (evil-collection-bind 'debug-step-into  map-symbol 'dape-step-in)
+    (evil-collection-bind 'debug-step-out   map-symbol 'dape-step-out)
+    (evil-collection-bind 'debug-breakpoint map-symbol 'dape-breakpoint-toggle)))
 
 (provide 'evil-collection-dape)
 ;;; evil-collection-dape.el ends here

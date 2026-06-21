@@ -112,13 +112,13 @@ binding keys to a minor mode created by `evil-collection' instead."
     "ge" 'diff-ediff-patch
     "\\" 'read-only-mode
     (kbd "RET") 'diff-goto-source)
-  (evil-collection-theme-bind 'next-item    'evil-collection-diff-mode-map 'diff-hunk-next)
-  (evil-collection-theme-bind 'prev-item    'evil-collection-diff-mode-map 'diff-hunk-prev)
-  (evil-collection-theme-bind 'next-section 'evil-collection-diff-mode-map 'diff-file-next)
-  (evil-collection-theme-bind 'prev-section   'evil-collection-diff-mode-map 'diff-file-prev)
-  (evil-collection-theme-bind 'next-section-2 'evil-collection-diff-mode-map 'diff-hunk-next)
-  (evil-collection-theme-bind 'prev-section-2 'evil-collection-diff-mode-map 'diff-hunk-prev)
-  (evil-collection-theme-bind 'quit 'evil-collection-diff-mode-map 'quit-window)
+  (evil-collection-bind 'next-item    'evil-collection-diff-mode-map 'diff-hunk-next)
+  (evil-collection-bind 'prev-item    'evil-collection-diff-mode-map 'diff-hunk-prev)
+  (evil-collection-bind 'next-section 'evil-collection-diff-mode-map 'diff-file-next)
+  (evil-collection-bind 'prev-section   'evil-collection-diff-mode-map 'diff-file-prev)
+  (evil-collection-bind 'next-section-2 'evil-collection-diff-mode-map 'diff-hunk-next)
+  (evil-collection-bind 'prev-section-2 'evil-collection-diff-mode-map 'diff-hunk-prev)
+  (evil-collection-bind 'quit 'evil-collection-diff-mode-map 'quit-window)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
@@ -159,13 +159,13 @@ binding keys to a minor mode created by `evil-collection' instead."
     (kbd "S-SPC") 'scroll-down-command
 
     "\\" 'read-only-mode) ; magit has "\"
-  (evil-collection-theme-bind 'next-item    'diff-mode-map 'diff-hunk-next)
-  (evil-collection-theme-bind 'prev-item    'diff-mode-map 'diff-hunk-prev)
-  (evil-collection-theme-bind 'next-section 'diff-mode-map 'diff-file-next)
-  (evil-collection-theme-bind 'prev-section   'diff-mode-map 'diff-file-prev)
-  (evil-collection-theme-bind 'next-section-2 'diff-mode-map 'diff-hunk-next)
-  (evil-collection-theme-bind 'prev-section-2 'diff-mode-map 'diff-hunk-prev)
-  (evil-collection-theme-bind 'quit 'diff-mode-map 'quit-window)
+  (evil-collection-bind 'next-item    'diff-mode-map 'diff-hunk-next)
+  (evil-collection-bind 'prev-item    'diff-mode-map 'diff-hunk-prev)
+  (evil-collection-bind 'next-section 'diff-mode-map 'diff-file-next)
+  (evil-collection-bind 'prev-section   'diff-mode-map 'diff-file-prev)
+  (evil-collection-bind 'next-section-2 'diff-mode-map 'diff-hunk-next)
+  (evil-collection-bind 'prev-section-2 'diff-mode-map 'diff-hunk-prev)
+  (evil-collection-bind 'quit 'diff-mode-map 'quit-window)
 
   (evil-collection-define-key 'motion 'diff-mode-map
     ;; motion

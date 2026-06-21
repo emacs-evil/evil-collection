@@ -40,11 +40,11 @@
     (kbd "<tab>") 'elisp-refs-next-match
     (kbd "<backtab>") 'elisp-refs-prev-match
     (kbd "RET") 'elisp-refs-visit-match)
-  (evil-collection-theme-bind 'next-item    'elisp-refs-mode-map 'elisp-refs-next-match)
-  (evil-collection-theme-bind 'prev-item    'elisp-refs-mode-map 'elisp-refs-prev-match)
-  (evil-collection-theme-bind 'next-section 'elisp-refs-mode-map 'elisp-refs-next-match)
-  (evil-collection-theme-bind 'prev-section 'elisp-refs-mode-map 'elisp-refs-prev-match)
-  (evil-collection-theme-bind 'quit 'elisp-refs-mode-map 'kill-current-buffer))
+  (evil-collection-bind 'next-item    'elisp-refs-mode-map 'elisp-refs-next-match)
+  (evil-collection-bind 'prev-item    'elisp-refs-mode-map 'elisp-refs-prev-match)
+  (evil-collection-bind 'next-section 'elisp-refs-mode-map 'elisp-refs-next-match)
+  (evil-collection-bind 'prev-section 'elisp-refs-mode-map 'elisp-refs-prev-match)
+  (evil-collection-bind 'quit 'elisp-refs-mode-map 'kill-current-buffer))
 
 (provide 'evil-collection-elisp-refs)
 ;;; evil-collection-elisp-refs.el ends here

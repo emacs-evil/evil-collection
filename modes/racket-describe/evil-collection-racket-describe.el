@@ -37,8 +37,8 @@
   "Set up `evil' bindings for `racket-describe'."
   (evil-collection-inhibit-insert-state 'racket-describe-mode-map)
   (evil-set-initial-state 'racket-describe-mode 'normal)
-  (evil-collection-theme-bind 'quit          'racket-describe-mode-map 'quit-window)
-  (evil-collection-theme-bind 'describe-mode 'racket-describe-mode-map 'describe-mode))
+  (evil-collection-bind 'quit          'racket-describe-mode-map 'quit-window)
+  (evil-collection-bind 'describe-mode 'racket-describe-mode-map 'describe-mode))
 
 (provide 'evil-collection-racket-describe)
 ;;; evil-collection-racket-describe.el ends here

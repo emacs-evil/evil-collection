@@ -245,7 +245,7 @@ But don't allow the cursor to move bellow the last prompt line."
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
 
-  (evil-collection-theme-bind 'term-toggle-escape
+  (evil-collection-bind 'term-toggle-escape
                               'vterm-mode-map
                               'evil-collection-vterm-toggle-send-escape)
 
@@ -273,12 +273,12 @@ But don't allow the cursor to move bellow the last prompt line."
     (kbd "C-z") 'vterm--self-insert
     (kbd "<delete>") 'vterm-send-delete)
 
-  (evil-collection-theme-bind 'repl-submit 'vterm-mode-map 'vterm-send-return)
+  (evil-collection-bind 'repl-submit 'vterm-mode-map 'vterm-send-return)
 
-  (evil-collection-theme-bind 'next-item    'vterm-mode-map 'vterm-next-prompt)
-  (evil-collection-theme-bind 'prev-item    'vterm-mode-map 'vterm-previous-prompt)
-  (evil-collection-theme-bind 'next-section 'vterm-mode-map 'vterm-next-prompt)
-  (evil-collection-theme-bind 'prev-section 'vterm-mode-map 'vterm-previous-prompt)
+  (evil-collection-bind 'next-item    'vterm-mode-map 'vterm-next-prompt)
+  (evil-collection-bind 'prev-item    'vterm-mode-map 'vterm-previous-prompt)
+  (evil-collection-bind 'next-section 'vterm-mode-map 'vterm-next-prompt)
+  (evil-collection-bind 'prev-section 'vterm-mode-map 'vterm-previous-prompt)
   (evil-collection-define-key 'normal 'vterm-mode-map
     "p" 'evil-collection-vterm-paste-after
     "P" 'vterm-yank

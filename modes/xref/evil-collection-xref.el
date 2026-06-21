@@ -51,13 +51,13 @@
     (kbd "S-<return>") 'xref-quit-and-goto-xref  ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'
     "o" 'xref-show-location-at-point
     "go" 'xref-show-location-at-point)
-  (evil-collection-theme-bind 'next-item    'xref--xref-buffer-mode-map 'xref-next-line)
-  (evil-collection-theme-bind 'prev-item    'xref--xref-buffer-mode-map 'xref-prev-line)
-  (evil-collection-theme-bind 'next-section 'xref--xref-buffer-mode-map 'xref-next-line)
-  (evil-collection-theme-bind 'prev-section 'xref--xref-buffer-mode-map 'xref-prev-line)
+  (evil-collection-bind 'next-item    'xref--xref-buffer-mode-map 'xref-next-line)
+  (evil-collection-bind 'prev-item    'xref--xref-buffer-mode-map 'xref-prev-line)
+  (evil-collection-bind 'next-section 'xref--xref-buffer-mode-map 'xref-next-line)
+  (evil-collection-bind 'prev-section 'xref--xref-buffer-mode-map 'xref-prev-line)
 
   (when (>= emacs-major-version 27)
-    (evil-collection-theme-bind 'refresh 'xref--xref-buffer-mode-map 'xref-revert-buffer))
+    (evil-collection-bind 'refresh 'xref--xref-buffer-mode-map 'xref-revert-buffer))
 
   (when (>= emacs-major-version 28)
     ;; Override `]]'/`[[' to navigate by group; keep `C-j'/`C-k' on lines.

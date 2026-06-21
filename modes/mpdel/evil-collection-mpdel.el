@@ -86,8 +86,8 @@
     ")"  'mpdel-playlist-move-down
     "w"  'mpdel-playlist-save
     "P"  'mpdel-playlist-play)
-  (evil-collection-theme-bind 'quit    'mpdel-core-map 'mpdel-song-quit-window)
-  (evil-collection-theme-bind 'refresh 'mpdel-core-map 'mpdel-song-refresh)
+  (evil-collection-bind 'quit    'mpdel-core-map 'mpdel-song-quit-window)
+  (evil-collection-bind 'refresh 'mpdel-core-map 'mpdel-song-refresh)
 
   (evil-collection-define-key 'normal 'mpdel-tablist-mode-map
     "D" 'tablist-do-delete))

@@ -44,9 +44,9 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit          'apropos-mode-map 'quit-window)
-  (evil-collection-theme-bind 'describe-mode 'apropos-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'apropos-mode-map 'revert-buffer))
+  (evil-collection-bind 'quit          'apropos-mode-map 'quit-window)
+  (evil-collection-bind 'describe-mode 'apropos-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'apropos-mode-map 'revert-buffer))
 
 (provide 'evil-collection-apropos)
 ;;; evil-collection-apropos.el ends here

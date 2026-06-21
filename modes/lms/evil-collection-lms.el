@@ -318,25 +318,25 @@ The actions triggered by pressing keys refer to the track under cursor.
     "Y"              'lms-ui-playing-now-year-albums-list
     "M"              'lms-ui-playing-now-browse-music-library
     "gh"             'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'next-item     'lms-ui-playing-now-mode-map 'lms-ui-playing-now-next)
-  (evil-collection-theme-bind 'prev-item     'lms-ui-playing-now-mode-map 'lms-ui-playing-now-prev)
-  (evil-collection-theme-bind 'next-section  'lms-ui-playing-now-mode-map 'lms-ui-playing-now-next)
-  (evil-collection-theme-bind 'prev-section  'lms-ui-playing-now-mode-map 'lms-ui-playing-now-prev)
-  (evil-collection-theme-bind 'quit          'lms-ui-playing-now-mode-map 'lms-ui-playing-now-quit)
-  (evil-collection-theme-bind 'describe-mode 'lms-ui-playing-now-mode-map 'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'refresh       'lms-ui-playing-now-mode-map 'lms-ui-playing-now-refresh)
+  (evil-collection-bind 'next-item     'lms-ui-playing-now-mode-map 'lms-ui-playing-now-next)
+  (evil-collection-bind 'prev-item     'lms-ui-playing-now-mode-map 'lms-ui-playing-now-prev)
+  (evil-collection-bind 'next-section  'lms-ui-playing-now-mode-map 'lms-ui-playing-now-next)
+  (evil-collection-bind 'prev-section  'lms-ui-playing-now-mode-map 'lms-ui-playing-now-prev)
+  (evil-collection-bind 'quit          'lms-ui-playing-now-mode-map 'lms-ui-playing-now-quit)
+  (evil-collection-bind 'describe-mode 'lms-ui-playing-now-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-bind 'refresh       'lms-ui-playing-now-mode-map 'lms-ui-playing-now-refresh)
 
   (evil-collection-define-key 'normal 'lms-ui-track-info-mode-map
     "R"             'lms-ui-track-info-change-rating
     (kbd "<left>")  'lms-ui-track-info-prev
     (kbd "<right>") 'lms-ui-track-info-next
     "gh"            'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'next-item     'lms-ui-track-info-mode-map 'lms-ui-track-info-next)
-  (evil-collection-theme-bind 'prev-item     'lms-ui-track-info-mode-map 'lms-ui-track-info-prev)
-  (evil-collection-theme-bind 'next-section  'lms-ui-track-info-mode-map 'lms-ui-track-info-next)
-  (evil-collection-theme-bind 'prev-section  'lms-ui-track-info-mode-map 'lms-ui-track-info-prev)
-  (evil-collection-theme-bind 'quit          'lms-ui-track-info-mode-map 'evil-collection-lms-ui-track-info-mode-quit)
-  (evil-collection-theme-bind 'describe-mode 'lms-ui-track-info-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-bind 'next-item     'lms-ui-track-info-mode-map 'lms-ui-track-info-next)
+  (evil-collection-bind 'prev-item     'lms-ui-track-info-mode-map 'lms-ui-track-info-prev)
+  (evil-collection-bind 'next-section  'lms-ui-track-info-mode-map 'lms-ui-track-info-next)
+  (evil-collection-bind 'prev-section  'lms-ui-track-info-mode-map 'lms-ui-track-info-prev)
+  (evil-collection-bind 'quit          'lms-ui-track-info-mode-map 'evil-collection-lms-ui-track-info-mode-quit)
+  (evil-collection-bind 'describe-mode 'lms-ui-track-info-mode-map 'lms-ui-playing-now-help)
 
   (evil-collection-define-key 'normal 'lms-ui-players-mode-map
     [remap evil-goto-line] 'evil-collection-lms-goto-line
@@ -347,8 +347,8 @@ The actions triggered by pressing keys refer to the track under cursor.
     "x" 'lms-ui-players-playpause
     "t" 'lms-ui-players-toggle-power
     "gh" 'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'quit          'lms-ui-players-mode-map 'evil-collection-lms-ui-players-mode-quit)
-  (evil-collection-theme-bind 'describe-mode 'lms-ui-players-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-bind 'quit          'lms-ui-players-mode-map 'evil-collection-lms-ui-players-mode-quit)
+  (evil-collection-bind 'describe-mode 'lms-ui-players-mode-map 'lms-ui-playing-now-help)
 
   (evil-collection-define-key 'normal 'lms-ui-playlist-mode-map
     [remap evil-goto-line] 'evil-collection-lms-goto-line
@@ -368,8 +368,8 @@ The actions triggered by pressing keys refer to the track under cursor.
     "T"              'lms-ui-playlist-album-tracks-list
     "Y"              'lms-ui-playlist-year-albums-list
     "gh"             'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'quit          'lms-ui-playlist-mode-map 'evil-collection-lms-ui-playlist-mode-quit)
-  (evil-collection-theme-bind 'describe-mode 'lms-ui-playlist-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-bind 'quit          'lms-ui-playlist-mode-map 'evil-collection-lms-ui-playlist-mode-quit)
+  (evil-collection-bind 'describe-mode 'lms-ui-playlist-mode-map 'lms-ui-playing-now-help)
 
   (evil-collection-define-key 'normal 'lms-ui-tracks-list-mode-map
     [remap evil-goto-line] 'evil-collection-lms-goto-line
@@ -383,8 +383,8 @@ The actions triggered by pressing keys refer to the track under cursor.
     "Y"         'lms-ui-tl-by-year
     "A"         'lms-ui-tl-by-artist
     "gh"        'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'quit          'lms-ui-tracks-list-mode-map 'evil-collection-lms-ui-tracks-list-mode-quit)
-  (evil-collection-theme-bind 'describe-mode 'lms-ui-tracks-list-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-bind 'quit          'lms-ui-tracks-list-mode-map 'evil-collection-lms-ui-tracks-list-mode-quit)
+  (evil-collection-bind 'describe-mode 'lms-ui-tracks-list-mode-map 'lms-ui-playing-now-help)
 
   (evil-collection-define-key 'normal 'lms-ui-year-album-artist-list-mode-map
     [remap evil-goto-line] 'evil-collection-lms-goto-line
@@ -397,8 +397,8 @@ The actions triggered by pressing keys refer to the track under cursor.
     "a"         'lms-ui-yaal-by-album
     "p"         'lms-ui-yaal-to-playlist
     "gh"        'lms-ui-playing-now-help)
-  (evil-collection-theme-bind 'quit          'lms-ui-year-album-artist-list-mode-map 'evil-collection-lms-ui-year-album-artist-list-mode-quit)
-  (evil-collection-theme-bind 'describe-mode 'lms-ui-year-album-artist-list-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-bind 'quit          'lms-ui-year-album-artist-list-mode-map 'evil-collection-lms-ui-year-album-artist-list-mode-quit)
+  (evil-collection-bind 'describe-mode 'lms-ui-year-album-artist-list-mode-map 'lms-ui-playing-now-help)
 
   ;; Reflect help keybinding changes in the lms.el UI.
   (advice-add 'lms-ui-playing-now :after 'evil-collection-lms-ui-playing-now)

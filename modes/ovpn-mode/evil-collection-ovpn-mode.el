@@ -50,7 +50,7 @@
     "B" 'ovpn-mode-spawn-browser-in-namespace
     "ZZ" 'quit-window
     "ZQ" 'evil-quit)
-  (evil-collection-theme-bind 'quit 'ovpn-mode-map 'ovpn-mode-stop-vpn))
+  (evil-collection-bind 'quit 'ovpn-mode-map 'ovpn-mode-stop-vpn))
 
 (provide 'evil-collection-ovpn-mode)
 ;;; evil-collection-ovpn-mode.el ends here

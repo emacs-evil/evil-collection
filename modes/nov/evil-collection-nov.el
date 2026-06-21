@@ -37,10 +37,10 @@
 ;;;###autoload
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
-  (evil-collection-theme-bind 'next-item    'nov-mode-map 'nov-next-document)
-  (evil-collection-theme-bind 'prev-item    'nov-mode-map 'nov-previous-document)
-  (evil-collection-theme-bind 'next-section 'nov-mode-map 'nov-next-document)
-  (evil-collection-theme-bind 'prev-section 'nov-mode-map 'nov-previous-document)
+  (evil-collection-bind 'next-item    'nov-mode-map 'nov-next-document)
+  (evil-collection-bind 'prev-item    'nov-mode-map 'nov-previous-document)
+  (evil-collection-bind 'next-section 'nov-mode-map 'nov-next-document)
+  (evil-collection-bind 'prev-section 'nov-mode-map 'nov-previous-document)
   (evil-collection-define-key 'normal 'nov-mode-map
     "s" 'nov-view-source
     "S" 'nov-view-content-source
@@ -59,8 +59,8 @@
     (kbd "S-SPC") 'nov-scroll-down
     (kbd "DEL") 'nov-scroll-down)
 
-  (evil-collection-theme-bind 'describe-mode 'nov-mode-map 'nov-display-metadata)
-  (evil-collection-theme-bind 'refresh       'nov-mode-map 'nov-render-document))
+  (evil-collection-bind 'describe-mode 'nov-mode-map 'nov-display-metadata)
+  (evil-collection-bind 'refresh       'nov-mode-map 'nov-render-document))
 
 (provide 'evil-collection-nov)
 ;;; evil-collection-nov.el ends here

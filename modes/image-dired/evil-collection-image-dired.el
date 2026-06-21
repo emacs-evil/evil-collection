@@ -68,7 +68,7 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'image-dired-thumbnail-mode-map 'quit-window))
+  (evil-collection-bind 'quit 'image-dired-thumbnail-mode-map 'quit-window))
 
 (provide 'evil-collection-image-dired)
 ;;; evil-collection-image-dired.el ends here

@@ -184,11 +184,11 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
-  (evil-collection-theme-bind 'next-item    'ibuffer-mode-map 'ibuffer-forward-line)
-  (evil-collection-theme-bind 'prev-item    'ibuffer-mode-map 'ibuffer-backward-line)
-  (evil-collection-theme-bind 'next-section 'ibuffer-mode-map 'ibuffer-forward-filter-group)
-  (evil-collection-theme-bind 'prev-section 'ibuffer-mode-map 'ibuffer-backward-filter-group)
-  (evil-collection-theme-bind 'quit 'ibuffer-mode-map 'quit-window))
+  (evil-collection-bind 'next-item    'ibuffer-mode-map 'ibuffer-forward-line)
+  (evil-collection-bind 'prev-item    'ibuffer-mode-map 'ibuffer-backward-line)
+  (evil-collection-bind 'next-section 'ibuffer-mode-map 'ibuffer-forward-filter-group)
+  (evil-collection-bind 'prev-section 'ibuffer-mode-map 'ibuffer-backward-filter-group)
+  (evil-collection-bind 'quit 'ibuffer-mode-map 'quit-window))
 
 (provide 'evil-collection-ibuffer)
 ;;; evil-collection-ibuffer.el ends here

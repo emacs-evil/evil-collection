@@ -55,10 +55,10 @@
     "r" 'occur-rename-buffer
     "c" 'clone-buffer
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
-  (evil-collection-theme-bind 'next-item    'occur-mode-map 'next-error-no-select)
-  (evil-collection-theme-bind 'prev-item    'occur-mode-map 'previous-error-no-select)
-  (evil-collection-theme-bind 'next-section 'occur-mode-map 'next-error-no-select)
-  (evil-collection-theme-bind 'prev-section 'occur-mode-map 'previous-error-no-select)
+  (evil-collection-bind 'next-item    'occur-mode-map 'next-error-no-select)
+  (evil-collection-bind 'prev-item    'occur-mode-map 'previous-error-no-select)
+  (evil-collection-bind 'next-section 'occur-mode-map 'next-error-no-select)
+  (evil-collection-bind 'prev-section 'occur-mode-map 'previous-error-no-select)
 
   (evil-collection-define-key 'normal 'occur-edit-mode-map
     ;; Like `wdired-mode'.

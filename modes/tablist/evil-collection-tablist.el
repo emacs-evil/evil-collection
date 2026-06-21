@@ -57,9 +57,9 @@
 
     (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
            common-bindings)
-    (evil-collection-theme-bind 'quit    'tablist-minor-mode-map 'tablist-quit)
-    (evil-collection-theme-bind 'refresh 'tablist-mode-map       'tablist-revert)
-    (evil-collection-theme-bind 'refresh 'tablist-minor-mode-map 'tablist-revert)))
+    (evil-collection-bind 'quit    'tablist-minor-mode-map 'tablist-quit)
+    (evil-collection-bind 'refresh 'tablist-mode-map       'tablist-revert)
+    (evil-collection-bind 'refresh 'tablist-minor-mode-map 'tablist-revert)))
 
 (provide 'evil-collection-tablist)
 ;;; evil-collection-tablist.el ends here

@@ -48,7 +48,7 @@
     (kbd "<down>") '2048-down
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit '2048-mode-map 'quit-window))
+  (evil-collection-bind 'quit '2048-mode-map 'quit-window))
 
 (provide 'evil-collection-2048-game)
 ;;; evil-collection-2048-game.el ends here

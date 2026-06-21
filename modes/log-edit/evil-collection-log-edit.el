@@ -41,15 +41,15 @@
     [remap evil-save-modified-and-close] 'log-edit-done
     [remap evil-quit] 'log-edit-kill-buffer)
 
-  (evil-collection-theme-bind 'describe-mode 'log-edit-mode-map 'log-edit-mode-help)
+  (evil-collection-bind 'describe-mode 'log-edit-mode-map 'log-edit-mode-help)
 
   (evil-collection-define-key 'normal 'log-edit-mode-map
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'next-item    'log-edit-mode-map 'log-edit-next-comment)
-  (evil-collection-theme-bind 'prev-item    'log-edit-mode-map 'log-edit-previous-comment)
-  (evil-collection-theme-bind 'next-section 'log-edit-mode-map 'log-edit-next-comment)
-  (evil-collection-theme-bind 'prev-section 'log-edit-mode-map 'log-edit-previous-comment))
+  (evil-collection-bind 'next-item    'log-edit-mode-map 'log-edit-next-comment)
+  (evil-collection-bind 'prev-item    'log-edit-mode-map 'log-edit-previous-comment)
+  (evil-collection-bind 'next-section 'log-edit-mode-map 'log-edit-next-comment)
+  (evil-collection-bind 'prev-section 'log-edit-mode-map 'log-edit-previous-comment))
 
 (provide 'evil-collection-log-edit)
 ;;; evil-collection-log-edit.el ends here

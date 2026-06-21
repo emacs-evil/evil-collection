@@ -72,10 +72,10 @@
 
         (kbd "C-o") 'bui-history-back
         (kbd "C-i") 'bui-history-forward)
-     (evil-collection-theme-bind 'goto-repl      ',map 'guix-switch-to-repl)
-     (evil-collection-theme-bind 'describe-mode  ',map 'bui-show-hint)
-     (evil-collection-theme-bind 'refresh        ',map 'revert-buffer)
-     (evil-collection-theme-bind 'refresh-all    ',map 'bui-redisplay)))
+     (evil-collection-bind 'goto-repl      ',map 'guix-switch-to-repl)
+     (evil-collection-bind 'describe-mode  ',map 'bui-show-hint)
+     (evil-collection-bind 'refresh        ',map 'revert-buffer)
+     (evil-collection-bind 'refresh-all    ',map 'bui-redisplay)))
 
 ;;;###autoload
 (defun evil-collection-guix-setup ()
@@ -187,12 +187,12 @@
     (kbd "<tab>") 'guix-build-log-phase-toggle
     (kbd "<backtab>") 'guix-build-log-phase-toggle-all)
 
-  (evil-collection-theme-bind 'next-item    'guix-build-log-mode-map 'guix-build-log-next-phase)
-  (evil-collection-theme-bind 'prev-item    'guix-build-log-mode-map 'guix-build-log-previous-phase)
-  (evil-collection-theme-bind 'next-section 'guix-build-log-mode-map 'guix-build-log-next-phase)
-  (evil-collection-theme-bind 'prev-section 'guix-build-log-mode-map 'guix-build-log-previous-phase)
-  (evil-collection-theme-bind 'goto-repl 'guix-build-log-mode-map 'guix-switch-to-repl)
-  (evil-collection-theme-bind 'refresh   'guix-build-log-mode-map 'revert-buffer)
+  (evil-collection-bind 'next-item    'guix-build-log-mode-map 'guix-build-log-next-phase)
+  (evil-collection-bind 'prev-item    'guix-build-log-mode-map 'guix-build-log-previous-phase)
+  (evil-collection-bind 'next-section 'guix-build-log-mode-map 'guix-build-log-next-phase)
+  (evil-collection-bind 'prev-section 'guix-build-log-mode-map 'guix-build-log-previous-phase)
+  (evil-collection-bind 'goto-repl 'guix-build-log-mode-map 'guix-switch-to-repl)
+  (evil-collection-bind 'refresh   'guix-build-log-mode-map 'revert-buffer)
 
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map
@@ -201,7 +201,7 @@
 
     "gd" 'guix-service-list-edit)
 
-  (evil-collection-theme-bind 'goto-repl 'guix-devel-mode-map 'guix-switch-to-repl))
+  (evil-collection-bind 'goto-repl 'guix-devel-mode-map 'guix-switch-to-repl))
 
 (provide 'evil-collection-guix)
 ;;; evil-collection-guix.el ends here

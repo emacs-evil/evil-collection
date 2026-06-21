@@ -45,11 +45,11 @@
     ;; show/hide
     "o" 'newsticker-show-old-items
     "O" 'newsticker-hide-old-items)
-  (evil-collection-theme-bind 'next-item   'newsticker-mode-map 'newsticker-next-feed)
-  (evil-collection-theme-bind 'prev-item   'newsticker-mode-map 'newsticker-previous-feed)
-  (evil-collection-theme-bind 'quit        'newsticker-mode-map 'newsticker-close-buffer)
-  (evil-collection-theme-bind 'refresh     'newsticker-mode-map 'newsticker-buffer-force-update)
-  (evil-collection-theme-bind 'refresh-all 'newsticker-mode-map 'newsticker-get-all-news)
+  (evil-collection-bind 'next-item   'newsticker-mode-map 'newsticker-next-feed)
+  (evil-collection-bind 'prev-item   'newsticker-mode-map 'newsticker-previous-feed)
+  (evil-collection-bind 'quit        'newsticker-mode-map 'newsticker-close-buffer)
+  (evil-collection-bind 'refresh     'newsticker-mode-map 'newsticker-buffer-force-update)
+  (evil-collection-bind 'refresh-all 'newsticker-mode-map 'newsticker-get-all-news)
 
   ;; treeview
   (evil-set-initial-state 'newsticker-treeview-list-mode 'normal)
@@ -94,13 +94,13 @@
     (kbd "<M-up>") 'newsticker-group-shift-feed-up
     (kbd "<M-S-down>") 'newsticker-group-shift-group-down
     (kbd "<M-S-up>") 'newsticker-group-shift-group-up)
-  (evil-collection-theme-bind 'next-item    'newsticker-treeview-mode-map 'newsticker-treeview-next-new-or-immortal-item)
-  (evil-collection-theme-bind 'prev-item    'newsticker-treeview-mode-map 'newsticker-treeview-prev-new-or-immortal-item)
-  (evil-collection-theme-bind 'next-section 'newsticker-treeview-mode-map 'newsticker-treeview-next-feed)
-  (evil-collection-theme-bind 'prev-section 'newsticker-treeview-mode-map 'newsticker-treeview-prev-feed)
-  (evil-collection-theme-bind 'quit        'newsticker-treeview-mode-map 'newsticker-treeview-quit)
-  (evil-collection-theme-bind 'refresh     'newsticker-treeview-mode-map 'newsticker-treeview-update)
-  (evil-collection-theme-bind 'refresh-all 'newsticker-treeview-mode-map 'newsticker-get-all-news))
+  (evil-collection-bind 'next-item    'newsticker-treeview-mode-map 'newsticker-treeview-next-new-or-immortal-item)
+  (evil-collection-bind 'prev-item    'newsticker-treeview-mode-map 'newsticker-treeview-prev-new-or-immortal-item)
+  (evil-collection-bind 'next-section 'newsticker-treeview-mode-map 'newsticker-treeview-next-feed)
+  (evil-collection-bind 'prev-section 'newsticker-treeview-mode-map 'newsticker-treeview-prev-feed)
+  (evil-collection-bind 'quit        'newsticker-treeview-mode-map 'newsticker-treeview-quit)
+  (evil-collection-bind 'refresh     'newsticker-treeview-mode-map 'newsticker-treeview-update)
+  (evil-collection-bind 'refresh-all 'newsticker-treeview-mode-map 'newsticker-get-all-news))
 
 (provide 'evil-collection-newsticker)
 ;;; evil-collection-newsticker.el ends here

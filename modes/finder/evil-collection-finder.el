@@ -43,7 +43,7 @@
 
     "d" 'finder-list-keywords
     "s" 'finder-summary)
-  (evil-collection-theme-bind 'quit 'finder-mode-map 'finder-exit))
+  (evil-collection-bind 'quit 'finder-mode-map 'finder-exit))
 
 (provide 'evil-collection-finder)
 ;;; evil-collection-finder.el ends here

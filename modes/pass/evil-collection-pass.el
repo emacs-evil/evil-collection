@@ -76,12 +76,12 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     (evil-collection-define-key 'normal 'pass-mode-map
       "E" 'pass-edit))
 
-  (evil-collection-theme-bind 'next-item    'pass-mode-map 'pass-next-entry)
-  (evil-collection-theme-bind 'prev-item    'pass-mode-map 'pass-prev-entry)
-  (evil-collection-theme-bind 'next-section 'pass-mode-map 'pass-next-directory)
-  (evil-collection-theme-bind 'prev-section   'pass-mode-map 'pass-prev-directory)
-  (evil-collection-theme-bind 'next-section-2 'pass-mode-map 'pass-next-entry)
-  (evil-collection-theme-bind 'prev-section-2 'pass-mode-map 'pass-prev-entry)
+  (evil-collection-bind 'next-item    'pass-mode-map 'pass-next-entry)
+  (evil-collection-bind 'prev-item    'pass-mode-map 'pass-prev-entry)
+  (evil-collection-bind 'next-section 'pass-mode-map 'pass-next-directory)
+  (evil-collection-bind 'prev-section   'pass-mode-map 'pass-prev-directory)
+  (evil-collection-bind 'next-section-2 'pass-mode-map 'pass-next-entry)
+  (evil-collection-bind 'prev-section-2 'pass-mode-map 'pass-prev-entry)
   (evil-collection-define-key 'normal 'pass-mode-map
     "d" 'pass-kill
     "x" 'pass-kill
@@ -94,9 +94,9 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "R" 'pass-rename
     "o" 'pass-otp-options
     (kbd "RET") 'pass-view)
-  (evil-collection-theme-bind 'quit          'pass-mode-map 'pass-quit)
-  (evil-collection-theme-bind 'describe-mode 'pass-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'pass-mode-map 'pass-update-buffer))
+  (evil-collection-bind 'quit          'pass-mode-map 'pass-quit)
+  (evil-collection-bind 'describe-mode 'pass-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'pass-mode-map 'pass-update-buffer))
 
 (provide 'evil-collection-pass)
 ;;; evil-collection-pass.el ends here

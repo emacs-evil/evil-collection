@@ -37,10 +37,10 @@
 (defun evil-collection-hackernews-setup ()
   "Set up `evil' bindings for `hackernews-mode'."
   (evil-collection-set-readonly-bindings 'hackernews-mode-map)
-  (evil-collection-theme-bind 'next-item    'hackernews-mode-map 'hackernews-next-item)
-  (evil-collection-theme-bind 'prev-item    'hackernews-mode-map 'hackernews-previous-item)
-  (evil-collection-theme-bind 'next-section 'hackernews-mode-map 'hackernews-next-item)
-  (evil-collection-theme-bind 'prev-section 'hackernews-mode-map 'hackernews-previous-item)
+  (evil-collection-bind 'next-item    'hackernews-mode-map 'hackernews-next-item)
+  (evil-collection-bind 'prev-item    'hackernews-mode-map 'hackernews-previous-item)
+  (evil-collection-bind 'next-section 'hackernews-mode-map 'hackernews-next-item)
+  (evil-collection-bind 'prev-section 'hackernews-mode-map 'hackernews-previous-item)
   (evil-collection-define-key 'normal 'hackernews-mode-map
     "+" 'hackernews-load-more-stories
 
@@ -54,7 +54,7 @@
 
     (kbd "RET") 'hackernews-button-browse-internal
     (kbd "S-<return>") 'push-button)
-  (evil-collection-theme-bind 'refresh 'hackernews-mode-map 'hackernews-reload))
+  (evil-collection-bind 'refresh 'hackernews-mode-map 'hackernews-reload))
 
 (provide 'evil-collection-hackernews)
 ;;; evil-collection-hackernews.el ends here

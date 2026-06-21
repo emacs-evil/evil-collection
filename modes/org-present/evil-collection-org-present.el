@@ -53,11 +53,11 @@
     "gw" 'org-present-read-write
     "gg" 'org-present-beginning
     "G" 'org-present-end)
-  (evil-collection-theme-bind 'next-item    'org-present-mode-keymap 'org-present-next)
-  (evil-collection-theme-bind 'prev-item    'org-present-mode-keymap 'org-present-prev)
-  (evil-collection-theme-bind 'next-section 'org-present-mode-keymap 'org-present-next)
-  (evil-collection-theme-bind 'prev-section 'org-present-mode-keymap 'org-present-prev)
-  (evil-collection-theme-bind 'quit 'org-present-mode-keymap 'org-present-quit))
+  (evil-collection-bind 'next-item    'org-present-mode-keymap 'org-present-next)
+  (evil-collection-bind 'prev-item    'org-present-mode-keymap 'org-present-prev)
+  (evil-collection-bind 'next-section 'org-present-mode-keymap 'org-present-next)
+  (evil-collection-bind 'prev-section 'org-present-mode-keymap 'org-present-prev)
+  (evil-collection-bind 'quit 'org-present-mode-keymap 'org-present-quit))
 
 (provide 'evil-collection-org-present)
 ;;; evil-collection-org-present.el ends here
