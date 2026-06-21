@@ -65,6 +65,10 @@ keybindings listed in `evil-collection-pass-command-to-label'."
 
   (evil-collection-bind 'pass-mode-map 'rename 'pass-rename)
 
+  ;; https://github.com/NicolasPetton/pass/pull/47
+  (when (fboundp 'pass-edit)
+    (evil-collection-bind 'pass-mode-map 'edit 'pass-edit))
+
   (advice-add 'pass--display-keybinding
               :around 'evil-collection-pass-display-keybinding)
 
@@ -72,11 +76,6 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "f" 'pass-copy-field
     "n" 'pass-copy-username
     "u" 'pass-copy-url)
-
-  ;; https://github.com/NicolasPetton/pass/pull/47
-  (when (fboundp 'pass-edit)
-    (evil-collection-define-key 'normal 'pass-mode-map
-      "E" 'pass-edit))
 
   (evil-collection-bind 'pass-mode-map
                         'next-item 'pass-next-entry

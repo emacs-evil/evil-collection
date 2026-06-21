@@ -62,6 +62,11 @@ Note that there is no gnus-common-mode-map")
   (evil-collection-bind 'gnus-group-mode-map 'rename 'gnus-group-rename-group)
   (evil-collection-bind 'gnus-bookmark-bmenu-mode-map 'rename 'gnus-bookmark-bmenu-rename)
 
+  (evil-collection-bind 'gnus-summary-mode-map 'edit 'gnus-summary-edit-article)
+  (evil-collection-bind 'gnus-server-mode-map 'edit 'gnus-server-edit-server)
+  (evil-collection-bind 'gnus-group-mode-map 'edit 'gnus-group-edit-group)
+  (evil-collection-bind 'gnus-bookmark-bmenu-mode-map 'edit 'gnus-bookmark-bmenu-edit-annotation)
+
   (evil-collection-bind 'gnus-summary-mode-map
                         'quit 'gnus-summary-exit
                         'refresh 'gnus-summary-rescan-group
@@ -115,7 +120,6 @@ Note that there is no gnus-common-mode-map")
     "!"         'gnus-summary-mark-as-read-forward
     "="         'gnus-summary-tick-article-forward
     "J"         'gnus-summary-goto-article
-    "e"         'gnus-summary-edit-article
     "E"         'gnus-summary-mark-as-expirable
     "z/"        'gnus-summary-limit-map
     "zt"        'gnus-summary-toggle-header
@@ -336,7 +340,6 @@ Note that there is no gnus-common-mode-map")
     ","         'gnus-group-best-unread-group
     "A"         'gnus-activate-all-groups
     "B"         'gnus-group-browse-foreign-server
-    "E"         'gnus-group-edit-group
     "F"         'gnus-group-find-new-groups
     "J"         'gnus-group-jump-to-group
     "X"         'gnus-group-expunge-group
@@ -447,7 +450,6 @@ Note that there is no gnus-common-mode-map")
     "S"         'gnus-server-show-server
     "a"         'gnus-server-add-server
     "y"         'gnus-server-copy-server
-    "e"         'gnus-server-edit-server
     "i"         'gnus-server-toggle-cloud-server
     "d"         'gnus-server-kill-server
     "L"         'gnus-server-list-servers
@@ -487,8 +489,7 @@ Note that there is no gnus-common-mode-map")
     "t"         'gnus-bookmark-bmenu-toggle-infos
     "a"         'gnus-bookmark-bmenu-show-details
     ;; not implemented yet
-    "A"         'gnus-bookmark-bmenu-show-all-annotations
-    "E"         'gnus-bookmark-bmenu-edit-annotation)
+    "A"         'gnus-bookmark-bmenu-show-all-annotations)
   (evil-collection-bind 'gnus-bookmark-bmenu-mode-map
                         'mark 'gnus-bookmark-bmenu-mark
                         'unmark 'gnus-bookmark-bmenu-unmark

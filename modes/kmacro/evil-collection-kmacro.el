@@ -36,12 +36,12 @@
 (defun evil-collection-kmacro-setup ()
   "Set up `evil' bindings to `tab-bar'."
   (evil-set-initial-state 'kmacro-menu-mode 'normal)
+  (evil-collection-bind 'kmacro-menu-mode-map 'edit 'kmacro-menu-edit-keys)
   (evil-collection-define-key 'normal 'kmacro-menu-mode-map
     ;; Edit
     "#" 'kmacro-menu-edit-position
     "c" 'kmacro-menu-edit-counter
     "f" 'kmacro-menu-edit-format
-    "e" 'kmacro-menu-edit-keys
 
     "C" 'kmacro-menu-do-copy
     "D" 'kmacro-menu-do-delete)

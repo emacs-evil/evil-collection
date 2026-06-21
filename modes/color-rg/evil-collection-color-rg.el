@@ -36,6 +36,7 @@
 (defun evil-collection-color-rg-setup ()
   "Set up `evil' bindings for color-rg."
   (evil-collection-bind 'color-rg-mode-map
+                        'edit 'color-rg-switch-to-edit-mode
                         'cycle-next 'color-rg-jump-next-keyword
                         'cycle-previous 'color-rg-jump-prev-keyword)
   (evil-collection-define-key 'normal 'color-rg-mode-map
@@ -53,7 +54,6 @@
     "S" 'color-rg-customized-search
     (kbd "SPC") 'color-rg-open-file
     "X" 'color-rg-filter-mismatch-files
-    "e" 'color-rg-switch-to-edit-mode
     "f" 'color-rg-filter-match-results
     "h" 'color-rg-jump-next-file
     "i" 'color-rg-insert-current-line
