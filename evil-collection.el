@@ -535,7 +535,13 @@ New customization should use
                         :key ("S-<return>" "S-RET"))
     (find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings)
                  :state normal
-                 :key "gr"))
+                 :key "gr")
+    (find-definition :enabled t
+                     :state normal
+                     :key "gd")
+    (pop-definition :enabled t
+                    :state normal
+                    :key "C-t"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

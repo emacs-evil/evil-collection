@@ -60,11 +60,12 @@
   (evil-collection-define-key 'normal 'geiser-debug-mode-map
     "q" 'quit-window)
 
+  (evil-collection-theme-bind 'find-definition 'geiser-doc-mode-map 'geiser-edit-symbol-at-point)
+  (evil-collection-theme-bind 'pop-definition  'geiser-doc-mode-map 'geiser-pop-symbol-stack)
+
   (evil-collection-define-key 'normal 'geiser-doc-mode-map
     (kbd "<tab>") 'forward-button
     (kbd "<S-tab>") 'backward-button
-    "gd" 'geiser-edit-symbol-at-point
-    (kbd "C-t") 'geiser-pop-symbol-stack
     "gr" 'geiser-doc-refresh
     "q" 'View-quit
     "gz" 'geiser-doc-switch-to-repl
@@ -83,9 +84,10 @@
   (evil-collection-theme-bind 'repl-newline       'geiser-repl-mode-map 'geiser-repl--newline-and-indent)
   (evil-collection-theme-bind 'repl-force-newline 'geiser-repl-mode-map 'geiser-repl--newline-and-indent)
 
+  (evil-collection-theme-bind 'find-definition 'geiser-repl-mode-map 'geiser-edit-symbol-at-point)
+  (evil-collection-theme-bind 'pop-definition  'geiser-repl-mode-map 'geiser-pop-symbol-stack)
+
   (evil-collection-define-key 'normal 'geiser-repl-mode-map
-    "gd" 'geiser-edit-symbol-at-point
-    (kbd "C-t") 'geiser-pop-symbol-stack
     "gj" 'geiser-repl-next-prompt
     "gk" 'geiser-repl-previous-prompt
     (kbd "C-j") 'geiser-repl-next-prompt
@@ -94,9 +96,10 @@
     "[[" 'geiser-repl-previous-prompt
     "K" 'geiser-doc-symbol-at-point)
 
+  (evil-collection-theme-bind 'find-definition 'geiser-mode-map 'geiser-edit-symbol-at-point)
+  (evil-collection-theme-bind 'pop-definition  'geiser-mode-map 'geiser-pop-symbol-stack)
+
   (evil-collection-define-key 'normal 'geiser-mode-map
-    "gd" 'geiser-edit-symbol-at-point
-    (kbd "C-t") 'geiser-pop-symbol-stack
     "gZ" 'geiser-mode-switch-to-repl-and-enter
     "gz" 'geiser-mode-switch-to-repl
     "K" 'geiser-doc-symbol-at-point))

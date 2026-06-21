@@ -36,9 +36,10 @@
 ;;;###autoload
 (defun evil-collection-racer-setup ()
   "Set up `evil' bindings for `racer'."
+  (evil-collection-theme-bind 'find-definition 'racer-mode-map 'racer-find-definition)
+  (evil-collection-theme-bind 'pop-definition  'racer-mode-map 'pop-tag-mark)
+
   (evil-collection-define-key 'normal 'racer-mode-map
-    "gd" 'racer-find-definition
-    (kbd "C-t") 'pop-tag-mark
     "K" 'racer-describe)
 
   (evil-collection-define-key 'normal 'racer-help-mode-map

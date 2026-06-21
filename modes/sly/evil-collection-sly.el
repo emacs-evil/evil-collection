@@ -158,27 +158,25 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
     (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
     "." 'sly-edit-definition
-    "gd" 'sly-edit-definition
     "gR" 'sly-inspector-fetch-all
     "q" 'sly-inspector-quit)
 
+  (evil-collection-theme-bind 'find-definition 'sly-inspector-mode-map 'sly-edit-definition)
+
   (evil-collection-define-key 'normal 'sly-mode-map
     (kbd "K") 'sly-describe-symbol
-    (kbd "C-t") 'sly-pop-find-definition-stack
-    ;; goto
-    "gd" 'sly-edit-definition
     "gz" 'sly-mrepl)
 
-  (evil-collection-theme-bind 'find-usages 'sly-mode-map 'sly-who-references)
+  (evil-collection-theme-bind 'find-usages     'sly-mode-map 'sly-who-references)
+  (evil-collection-theme-bind 'find-definition 'sly-mode-map 'sly-edit-definition)
+  (evil-collection-theme-bind 'pop-definition  'sly-mode-map 'sly-pop-find-definition-stack)
 
   (evil-collection-define-key 'normal 'sly-popup-buffer-mode-map
     ;; quit
-    "q" 'quit-window
+    "q" 'quit-window)
 
-    (kbd "C-t") 'sly-pop-find-definition-stack
-
-    ;; goto
-    "gd" 'sly-edit-definition)
+  (evil-collection-theme-bind 'find-definition 'sly-popup-buffer-mode-map 'sly-edit-definition)
+  (evil-collection-theme-bind 'pop-definition  'sly-popup-buffer-mode-map 'sly-pop-find-definition-stack)
 
   (evil-collection-inhibit-insert-state 'sly-thread-control-mode-map)
   (evil-collection-define-key 'normal 'sly-thread-control-mode-map

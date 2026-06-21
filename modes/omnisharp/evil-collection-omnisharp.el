@@ -35,8 +35,9 @@
 ;;;###autoload
 (defun evil-collection-omnisharp-setup ()
   "Set up `evil' bindings for `omnisharp'."
+  (evil-collection-theme-bind 'find-definition 'omnisharp-mode-map 'omnisharp-go-to-definition)
+
   (evil-collection-define-key '(normal visual) 'omnisharp-mode-map
-    "gd" 'omnisharp-go-to-definition
     "gR" 'omnisharp-reload-solution
     "K" 'omnisharp-current-type-documentation))
 

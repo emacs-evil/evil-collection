@@ -36,13 +36,13 @@
   "Set up `evil' bindings for `eglot'."
   (add-hook 'eglot-managed-mode-hook 'evil-normalize-keymaps)
   (evil-collection-define-key 'normal 'eglot-mode-map
-    "gd" 'xref-find-definitions
     "gD" 'xref-find-definitions-other-window
     "g5" 'xref-find-definitions-other-frame
-    (kbd "C-t") 'xref-pop-marker-stack
     "K" 'eldoc-doc-buffer)
 
-  (evil-collection-theme-bind 'find-usages 'eglot-mode-map 'xref-find-references))
+  (evil-collection-theme-bind 'find-usages     'eglot-mode-map 'xref-find-references)
+  (evil-collection-theme-bind 'find-definition 'eglot-mode-map 'xref-find-definitions)
+  (evil-collection-theme-bind 'pop-definition  'eglot-mode-map 'xref-pop-marker-stack))
 
 (provide 'evil-collection-eglot)
 ;;; evil-collection-eglot.el ends here

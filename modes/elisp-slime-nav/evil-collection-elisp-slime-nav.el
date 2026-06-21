@@ -35,9 +35,10 @@
 ;;;###autoload
 (defun evil-collection-elisp-slime-nav-setup ()
   "Set up `evil' bindings for `elisp-slime-nav'."
+  (evil-collection-theme-bind 'find-definition 'elisp-slime-nav-mode-map 'elisp-slime-nav-find-elisp-thing-at-point)
+  (evil-collection-theme-bind 'pop-definition  'elisp-slime-nav-mode-map 'pop-tag-mark)
+
   (evil-collection-define-key 'normal 'elisp-slime-nav-mode-map
-    "gd" 'elisp-slime-nav-find-elisp-thing-at-point
-    (kbd "C-t") 'pop-tag-mark
     "K" 'elisp-slime-nav-describe-elisp-thing-at-point))
 
 (provide 'evil-collection-elisp-slime-nav)
