@@ -1436,6 +1436,158 @@ instead of the modes in `evil-collection-mode-list'.
                                (if (eq evil-search-module 'evil-search)
                                    #'evil-ex-search-previous
                                  #'evil-search-previous))))
+;;* Unmap
+
+(defvar evil-collection-unmap-skip-events
+  '(menu-bar tool-bar tab-bar tab-line header-line mode-line)
+  "Events under which `evil-collection-unmap' will not descend.
+These are UI keymaps where removing entries is rarely the intent.")
+
+;;;###autoload
+(defun evil-collection-unmap (map-sym &rest things)
+  "Completely unmap THINGS from MAP-SYM.
+
+MAP-SYM is a symbol bound to a keymap. If MAP-SYM is not yet bound
+to a keymap, the operation is deferred via `after-load-functions',
+matching the deferral behaviour of `evil-collection-define-key'.
+
+Each thing in THINGS is one of:
+
+  - A command symbol — every binding pointing to that command
+    anywhere in the keymap is removed (TAB, RET, C-c TAB,
+    evil-state bindings, [remap ...] entries, etc.).
+
+  - A key description string accepted by `kbd' (e.g. \"RET\",
+    \"a\", \"<return>\", \"TAB\", \"C-c C-c\") — the binding at
+    that exact key sequence is removed at the top level and
+    inside every evil-state auxiliary keymap.
+
+  - A key vector — same as a key description, already parsed.
+
+Removals use `define-key' with REMOVE set, so bindings are
+deleted entirely, not just shadowed with nil.
+
+Parent keymaps installed via `set-keymap-parent' are not modified,
+and sub-keymaps stored under events in
+`evil-collection-unmap-skip-events' (menu-bar, tool-bar, etc.) are
+not descended into."
+  (declare (indent defun))
+  (cond
+   ((and (boundp map-sym) (keymapp (symbol-value map-sym)))
+    (evil-collection--unmap (symbol-value map-sym) things))
+   ((boundp map-sym)
+    (user-error "evil-collection-unmap: %s is not a keymap" map-sym))
+   (t
+    (let* ((fname (format "evil-collection-unmap-in-%s" map-sym))
+           (fun (make-symbol fname)))
+      (fset fun
+            `(lambda (&rest _)
+               (when (and (boundp ',map-sym) (keymapp ,map-sym))
+                 (remove-hook 'after-load-functions #',fun)
+                 (condition-case-unless-debug err
+                     (evil-collection--unmap
+                      (symbol-value ',map-sym) ',things)
+                   (error
+                    (message
+                     ,(format
+                       "evil-collection-unmap: error unmapping in %s %%S"
+                       map-sym)
+                     err))))))
+      (add-hook 'after-load-functions fun t)))))
+
+(defun evil-collection--unmap (keymap things)
+  "Workhorse for `evil-collection-unmap'."
+  (let (commands keys)
+    (dolist (thing things)
+      (cond
+       ((null thing))
+       ((symbolp thing) (push thing commands))
+       ((vectorp thing) (push thing keys))
+       ((stringp thing) (push (kbd thing) keys))
+       (t (user-error "evil-collection-unmap: cannot unmap %S" thing))))
+    ;; --- Remove by command (deep walk) -----------------------------------
+    (when commands
+      (let (paths)
+        (evil-collection--walk-keymap-shallow
+         keymap []
+         (lambda (key-vec binding)
+           (let ((real (if (and (consp binding)
+                                (eq (car-safe binding) 'menu-item))
+                           (nth 2 binding)
+                         binding)))
+             (when (memq real commands)
+               (push (copy-sequence key-vec) paths)))))
+        ;; Remove deeper paths first so we don't yank a prefix from under
+        ;; entries we still want to remove.
+        (setq paths (sort paths (lambda (a b) (> (length a) (length b)))))
+        (dolist (path paths)
+          (ignore-errors (define-key keymap path nil t)))))
+    ;; --- Remove by key (top-level + evil state aux maps) -----------------
+    (dolist (key keys)
+      (ignore-errors (define-key keymap key nil t))
+      (dolist (entry (cdr keymap))
+        (when (and (consp entry)
+                   (symbolp (car entry))
+                   (keymapp (cdr entry))
+                   (string-suffix-p "-state" (symbol-name (car entry))))
+          (ignore-errors (define-key (cdr entry) key nil t)))))))
+
+(defun evil-collection--walk-keymap-shallow (keymap prefix fn)
+  "Walk KEYMAP under PREFIX, calling FN with (KEY-VEC BINDING).
+
+Stops at the parent-keymap boundary (does NOT follow inherited
+keymaps). Skips sub-keymaps whose event is in
+`evil-collection-unmap-skip-events'."
+  (let ((tail (cdr keymap)))
+    (while (and tail (not (eq (car-safe tail) 'keymap)))
+      (let ((entry (car tail)))
+        (cond
+         ((stringp entry))                  ; prompt — skip
+         ((char-table-p entry)
+          (map-char-table
+           (lambda (ev binding)
+             (when binding
+               (cond
+                ((characterp ev)
+                 (evil-collection--walk-keymap-entry ev binding prefix fn))
+                ((and (consp ev)
+                      (characterp (car ev))
+                      (characterp (cdr ev)))
+                 (let ((c (car ev)) (end (cdr ev)))
+                   (while (<= c end)
+                     (evil-collection--walk-keymap-entry c binding prefix fn)
+                     (setq c (1+ c))))))))
+           entry))
+         ((vectorp entry)
+          (let ((i 0) (len (length entry)))
+            (while (< i len)
+              (let ((b (aref entry i)))
+                (when b
+                  (evil-collection--walk-keymap-entry i b prefix fn)))
+              (setq i (1+ i)))))
+         ((consp entry)
+          (let* ((ev (car entry))
+                 (rest (cdr entry))
+                 ;; Strip optional item-string in (EVENT ITEM-STRING . BINDING)
+                 (binding (if (and (consp rest) (stringp (car rest)))
+                              (cdr rest)
+                            rest)))
+            (evil-collection--walk-keymap-entry ev binding prefix fn)))))
+      (setq tail (cdr tail)))))
+
+(defun evil-collection--walk-keymap-entry (event binding prefix fn)
+  "Dispatch on BINDING type for `evil-collection--walk-keymap-shallow'."
+  (let ((key (vconcat prefix (vector event))))
+    (cond
+     ((memq event evil-collection-unmap-skip-events))
+     ((keymapp binding)
+      (evil-collection--walk-keymap-shallow binding key fn))
+     ((and (consp binding)
+           (eq (car-safe binding) 'menu-item)
+           (keymapp (nth 2 binding)))
+      (evil-collection--walk-keymap-shallow (nth 2 binding) key fn))
+     (binding
+      (funcall fn key binding)))))
 
 (provide 'evil-collection)
 ;;; evil-collection.el ends here
