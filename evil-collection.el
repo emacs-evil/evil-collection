@@ -635,10 +635,10 @@ New customization should use
                :key "gk")
     (next-section :enabled t
                   :state normal
-                  :key ("]]" "C-j"))
+                  :key ("]]"))
     (prev-section :enabled t
                   :state normal
-                  :key ("[[" "C-k"))
+                  :key ("[["))
     (next-section-2 :enabled t
                     :state normal
                     :key "C-j")
