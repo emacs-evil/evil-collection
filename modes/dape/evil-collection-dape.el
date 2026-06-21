@@ -36,6 +36,8 @@
 (defvar dape-info-modules-mode-map)
 (defvar dape-info-breakpoints-mode-map)
 (defvar dape-info-threads-mode-map)
+(defvar dape-info-watch-edit-mode-map)
+(defvar dape-memory-mode-map)
 
 (defconst evil-collection-dape--info-mode-maps '(dape-info-scope-mode-map
                                                  dape-info-watch-mode-map
@@ -49,26 +51,82 @@
                                       dape-memory-mode-map
                                       . ,evil-collection-dape--info-mode-maps))
 
+(defun evil-collection-dape--info-buffer-tab-backward ()
+  "Switch to the previous `dape' info tab."
+  (interactive)
+  (dape-info-buffer-tab t))
+
 ;;;###autoload
 (defun evil-collection-dape-setup ()
   "Set up `evil' bindings for `dape'."
+
+  (dolist (mode '(dape-info-scope-mode
+                  dape-info-watch-mode
+                  dape-info-stack-mode
+                  dape-info-sources-mode
+                  dape-info-modules-mode
+                  dape-info-breakpoints-mode
+                  dape-info-threads-mode))
+    (evil-set-initial-state mode 'normal))
+
   (dolist (map-symbol evil-collection-dape--info-mode-maps)
-    (evil-make-overriding-map (symbol-value map-symbol)))
+    (evil-collection-define-key 'normal map-symbol
+      (kbd "<tab>") 'dape-info-buffer-tab
+      (kbd "<backtab>") 'evil-collection-dape--info-buffer-tab-backward))
+
+  (evil-collection-define-key 'normal 'dape-info-breakpoints-mode-map
+    (kbd "RET") 'dape-info-breakpoint-dwim
+    [mouse-2] 'dape-info-breakpoint-dwim
+    [follow-link] 'mouse-face
+    "D" 'dape-info-breakpoint-disable
+    "d" 'dape-info-breakpoint-delete
+    "e" 'dape-info-breakpoint-log-edit)
+
+  (evil-collection-define-key 'normal 'dape-info-threads-mode-map
+    (kbd "RET") 'dape-info-select-thread
+    [mouse-2] 'dape-info-select-thread
+    [follow-link] 'mouse-face)
+
+  (evil-collection-define-key 'normal 'dape-info-stack-mode-map
+    (kbd "RET") 'dape-info-stack-select
+    [mouse-2] 'dape-info-stack-select
+    [follow-link] 'mouse-face)
+
+  (evil-collection-define-key 'normal 'dape-info-sources-mode-map
+    (kbd "RET") 'dape-info-sources-goto
+    [mouse-2] 'dape-info-sources-goto
+    [follow-link] 'mouse-face)
+
+  (evil-collection-define-key 'normal 'dape-info-modules-mode-map
+    (kbd "RET") 'dape-info-modules-goto
+    [mouse-2] 'dape-info-modules-goto
+    [follow-link] 'mouse-face)
+
+  (evil-collection-define-key 'normal 'dape-info-scope-mode-map
+    "e" 'dape-info-scope-toggle
+    "W" 'dape-info-scope-watch-dwim
+    "=" 'dape-info-variable-edit
+    "b" 'dape-info-scope-data-breakpoint
+    "m" 'dape-info-variable-memory)
 
   (evil-collection-define-key 'normal 'dape-info-watch-mode-map
+    "e" 'dape-info-scope-toggle
+    "W" 'dape-info-scope-watch-dwim
+    "=" 'dape-info-variable-edit
+    "b" 'dape-info-scope-data-breakpoint
+    "m" 'dape-info-variable-memory
     "i" 'dape-info-watch-edit-mode)
 
   (evil-collection-define-key nil 'dape-info-watch-edit-mode-map
     [remap evil-write] 'dape-info-watch-finish-edit)
-
-  (evil-collection-define-key 'normal 'dape-memory-mode-map
-    [remap evil-write] 'save-buffer
-    "ZZ" 'save-buffer)
-
   (evil-collection-define-key 'normal 'dape-info-watch-edit-mode-map
     "ZQ" 'dape-info-watch-abort-changes
     "ZZ" 'dape-info-watch-finish-edit
-    (kbd "<escape>") 'dape-info-watch-finish-edit))
+    (kbd "<escape>") 'dape-info-watch-finish-edit)
+
+  (evil-collection-define-key 'normal 'dape-memory-mode-map
+    [remap evil-write] 'save-buffer
+    "ZZ" 'save-buffer))
 
 (provide 'evil-collection-dape)
 ;;; evil-collection-dape.el ends here
