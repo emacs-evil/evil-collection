@@ -45,10 +45,10 @@
     (kbd "<up>") '2048-up
     (kbd "<left>") '2048-left
     (kbd "<right>") '2048-right
-    (kbd "<down>") '2048-down
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window)
-  (evil-collection-bind 'quit '2048-mode-map 'quit-window))
+    (kbd "<down>") '2048-down)
+  (evil-collection-bind 'quit        '2048-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save   '2048-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel '2048-mode-map 'evil-quit))
 
 (provide 'evil-collection-2048-game)
 ;;; evil-collection-2048-game.el ends here

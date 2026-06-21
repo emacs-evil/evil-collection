@@ -47,12 +47,12 @@
     "n" 'ebib-search-next
     "p" 'ebib-yank-entry
     "gj" 'ebib-jump-to-entry
-    "ZQ" 'ebib-quit
-    "ZZ" 'ebib-lower
     (kbd "C-u") 'ebib-index-scroll-down
     (kbd "C-d") 'ebib-index-scroll-up
     (kbd "C-b") 'ebib-index-scroll-down
     (kbd "C-f") 'ebib-index-scroll-up)
+  (evil-collection-bind 'quit-save    'ebib-index-mode-map 'ebib-lower)
+  (evil-collection-bind 'quit-cancel  'ebib-index-mode-map 'ebib-quit)
   (evil-set-initial-state 'ebib-entry-mode 'normal)
   (evil-make-overriding-map ebib-entry-mode-map 'normal)
   (evil-collection-inhibit-insert-state 'ebib-entry-mode-map)
@@ -64,13 +64,13 @@
     "j" 'ebib-next-field
     "k" 'ebib-prev-field
     "p" 'ebib-yank-field-contents
-    "y" 'ebib-copy-current-field-contents
-    "ZZ" 'ebib-quit-entry-buffer
-    "ZQ" 'ebib-quit-entry-buffer)
+    "y" 'ebib-copy-current-field-contents)
   (evil-collection-bind 'next-item    'ebib-entry-mode-map 'ebib-goto-next-set)
   (evil-collection-bind 'prev-item    'ebib-entry-mode-map 'ebib-goto-prev-set)
   (evil-collection-bind 'next-section 'ebib-entry-mode-map 'ebib-goto-next-set)
   (evil-collection-bind 'prev-section 'ebib-entry-mode-map 'ebib-goto-prev-set)
+  (evil-collection-bind 'quit-save    'ebib-entry-mode-map 'ebib-quit-entry-buffer)
+  (evil-collection-bind 'quit-cancel  'ebib-entry-mode-map 'ebib-quit-entry-buffer)
   (evil-collection-bind 'delete       'ebib-index-mode-map 'ebib-kill-entry))
 
 (provide 'evil-collection-ebib)

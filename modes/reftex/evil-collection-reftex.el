@@ -101,8 +101,6 @@
     "k" 'reftex-select-previous
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
-    "ZZ" 'reftex-select-quit
-    "ZQ" 'evil-quit
     "c" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 108))
     "J" 'reftex-select-jump ;; weird binding, using default
@@ -133,6 +131,8 @@
   (evil-collection-bind 'next-section  'reftex-select-shared-map 'reftex-select-next-heading)
   (evil-collection-bind 'prev-section  'reftex-select-shared-map 'reftex-select-previous-heading)
   (evil-collection-bind 'quit          'reftex-select-shared-map 'reftex-select-quit)
+  (evil-collection-bind 'quit-save     'reftex-select-shared-map 'reftex-select-quit)
+  (evil-collection-bind 'quit-cancel   'reftex-select-shared-map 'evil-quit)
   (evil-collection-bind 'describe-mode 'reftex-select-shared-map 'reftex-select-help)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
@@ -148,8 +148,6 @@
     "k" 'reftex-toc-previous
     (kbd "<tab>") 'reftex-toc-goto-line
     "?" 'reftex-toc-show-help
-    "ZZ" 'reftex-toc-quit-and-kill
-    "ZQ" 'evil-quit
     "l" 'reftex-toc-toggle-labels
     "i" 'reftex-toc-toggle-index
     "c" 'reftex-toc-toggle-context
@@ -168,6 +166,8 @@
   (evil-collection-bind 'next-section  'reftex-toc-mode-map 'reftex-toc-next-heading)
   (evil-collection-bind 'prev-section  'reftex-toc-mode-map 'reftex-toc-previous-heading)
   (evil-collection-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)
+  (evil-collection-bind 'quit-save     'reftex-toc-mode-map 'reftex-toc-quit-and-kill)
+  (evil-collection-bind 'quit-cancel   'reftex-toc-mode-map 'evil-quit)
   (evil-collection-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help)
   (evil-collection-bind 'refresh       'reftex-toc-mode-map 'reftex-toc-rescan)
   (evil-collection-bind 'refresh-all   'reftex-toc-mode-map 'reftex-toc-Rescan))

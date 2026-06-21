@@ -38,25 +38,21 @@
   "Set up `evil' bindings for deadgrep.."
   (evil-collection-define-key 'normal 'deadgrep-edit-mode-map
     (kbd "<escape>") 'deadgrep-mode)
+  ;; FIXME: Maybe we should bind this to something?
+  ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
     (kbd "TAB") 'deadgrep-toggle-file-results
-
-    "i" 'deadgrep-edit-mode
-
-    ;; FIXME: Maybe we should bind this to something?
-    ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
-
-    ;; Quit
-    "ZZ" 'quit-window
-    "ZQ" 'evil-quit)
+    "i" 'deadgrep-edit-mode)
   (evil-collection-bind 'action       'deadgrep-mode-map 'deadgrep-visit-result)
   (evil-collection-bind 'action-other 'deadgrep-mode-map 'deadgrep-visit-result-other-window)
   (evil-collection-bind 'next-item    'deadgrep-mode-map 'deadgrep-forward)
   (evil-collection-bind 'prev-item    'deadgrep-mode-map 'deadgrep-backward)
   (evil-collection-bind 'next-section 'deadgrep-mode-map 'deadgrep-forward)
   (evil-collection-bind 'prev-section 'deadgrep-mode-map 'deadgrep-backward)
-  (evil-collection-bind 'quit    'deadgrep-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'deadgrep-mode-map 'deadgrep-restart))
+  (evil-collection-bind 'quit         'deadgrep-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save    'deadgrep-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel  'deadgrep-mode-map 'evil-quit)
+  (evil-collection-bind 'refresh      'deadgrep-mode-map 'deadgrep-restart))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here

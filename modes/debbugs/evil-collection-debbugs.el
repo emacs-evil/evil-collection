@@ -62,14 +62,12 @@
     "m" 'debbugs-gnu-toggle-tag
 
     "gt" 'debbugs-gnu-view-bug-triage
-    "g#" 'debbugs-gnu-bugs
-
-    ;; quit
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "g#" 'debbugs-gnu-bugs)
   (evil-collection-bind 'scroll-down   'debbugs-gnu-mode-map 'scroll-up-command)
   (evil-collection-bind 'action        'debbugs-gnu-mode-map 'debbugs-gnu-select-report)
   (evil-collection-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save     'debbugs-gnu-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel   'debbugs-gnu-mode-map 'quit-window)
   (evil-collection-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual)
   (evil-collection-bind 'refresh       'debbugs-gnu-mode-map 'debbugs-gnu-rescan))
 

@@ -183,17 +183,17 @@ instead, which is useless and counterintuitive."
     "o" 'pdf-outline
 
     ;; quit
-    "Q" 'kill-current-buffer
-    "ZQ" 'kill-current-buffer
-    "ZZ" 'quit-window)
+    "Q" 'kill-current-buffer)
   (evil-collection-bind 'scroll-down  'pdf-view-mode-map 'pdf-view-scroll-up-or-next-page)
   (evil-collection-bind 'scroll-up    'pdf-view-mode-map 'pdf-view-scroll-down-or-previous-page)
   (evil-collection-bind 'next-item    'pdf-view-mode-map 'pdf-view-next-page-command)
   (evil-collection-bind 'prev-item    'pdf-view-mode-map 'pdf-view-previous-page-command)
   (evil-collection-bind 'next-section 'pdf-view-mode-map 'pdf-view-next-page-command)
   (evil-collection-bind 'prev-section 'pdf-view-mode-map 'pdf-view-previous-page-command)
-  (evil-collection-bind 'quit    'pdf-view-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'pdf-view-mode-map 'revert-buffer)
+  (evil-collection-bind 'quit        'pdf-view-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save   'pdf-view-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'pdf-view-mode-map 'kill-current-buffer)
+  (evil-collection-bind 'refresh     'pdf-view-mode-map 'revert-buffer)
 
 
   (when evil-want-C-d-scroll
@@ -230,14 +230,14 @@ instead, which is useless and counterintuitive."
     (kbd "<backtab>") 'pdf-outline-toggle-subtree
 
     ;; quit
-    (kbd "C-w q") 'pdf-outline-quit-and-kill ; TODO: Do we need to set this? I think not.
-    "ZQ" 'quit-window
-    "ZZ" 'pdf-outline-quit-and-kill)
+    (kbd "C-w q") 'pdf-outline-quit-and-kill) ; TODO: Do we need to set this? I think not.
   (evil-collection-bind 'section-toggle 'pdf-outline-buffer-mode-map 'outline-toggle-children)
   (evil-collection-bind 'action       'pdf-outline-buffer-mode-map 'pdf-outline-follow-link-and-quit)
   (evil-collection-bind 'action-other 'pdf-outline-buffer-mode-map 'pdf-outline-follow-link)
   (evil-collection-bind 'action-stay  'pdf-outline-buffer-mode-map 'pdf-outline-display-link)
-  (evil-collection-bind 'quit 'pdf-outline-buffer-mode-map 'quit-window)
+  (evil-collection-bind 'quit         'pdf-outline-buffer-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save    'pdf-outline-buffer-mode-map 'pdf-outline-quit-and-kill)
+  (evil-collection-bind 'quit-cancel  'pdf-outline-buffer-mode-map 'quit-window)
 
   (evil-collection-inhibit-insert-state 'pdf-occur-buffer-mode-map)
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
@@ -294,11 +294,7 @@ instead, which is useless and counterintuitive."
     "/r" 'tablist-push-regexp-filter
     "/s" 'tablist-name-current-filter
     "/t" 'tablist-toggle-first-filter-logic
-    "/z" 'tablist-suspend-filter
-
-    ;; quit
-    "ZQ" 'tablist-quit
-    "ZZ" 'tablist-quit)
+    "/z" 'tablist-suspend-filter)
   (evil-collection-bind 'mark          'pdf-occur-buffer-mode-map 'tablist-mark-forward)
   (evil-collection-bind 'unmark        'pdf-occur-buffer-mode-map 'tablist-unmark-forward)
   (evil-collection-bind 'unmark-all    'pdf-occur-buffer-mode-map 'tablist-unmark-all-marks)
@@ -306,8 +302,10 @@ instead, which is useless and counterintuitive."
   (evil-collection-bind 'scroll-up    'pdf-occur-buffer-mode-map 'scroll-down-command)
   (evil-collection-bind 'action       'pdf-occur-buffer-mode-map 'pdf-occur-goto-occurrence)
   (evil-collection-bind 'action-other 'pdf-occur-buffer-mode-map 'pdf-occur-view-occurrence)
-  (evil-collection-bind 'quit   'pdf-occur-buffer-mode-map 'tablist-quit)
-  (evil-collection-bind 'delete 'pdf-occur-buffer-mode-map 'pdf-occur-tablist-do-delete))
+  (evil-collection-bind 'quit         'pdf-occur-buffer-mode-map 'tablist-quit)
+  (evil-collection-bind 'quit-save    'pdf-occur-buffer-mode-map 'tablist-quit)
+  (evil-collection-bind 'quit-cancel  'pdf-occur-buffer-mode-map 'tablist-quit)
+  (evil-collection-bind 'delete       'pdf-occur-buffer-mode-map 'pdf-occur-tablist-do-delete))
 
 (provide 'evil-collection-pdf)
 ;;; evil-collection-pdf.el ends here

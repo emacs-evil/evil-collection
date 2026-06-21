@@ -45,15 +45,13 @@
   (evil-collection-bind 'prev-section 'custom-theme-choose-mode-map 'widget-backward)
   (evil-collection-bind 'lookup-doc 'custom-theme-choose-mode-map 'custom-describe-theme)
 
-  (evil-collection-define-key 'normal 'custom-new-theme-mode-map
-    ;; quit
-    "ZQ" 'evil-quit
-    "ZZ" 'Custom-buffer-done)
   (evil-collection-bind 'next-item    'custom-new-theme-mode-map 'widget-forward)
   (evil-collection-bind 'prev-item    'custom-new-theme-mode-map 'widget-backward)
   (evil-collection-bind 'next-section 'custom-new-theme-mode-map 'widget-forward)
   (evil-collection-bind 'prev-section 'custom-new-theme-mode-map 'widget-backward)
-  (evil-collection-bind 'quit 'custom-new-theme-mode-map 'Custom-buffer-done))
+  (evil-collection-bind 'quit         'custom-new-theme-mode-map 'Custom-buffer-done)
+  (evil-collection-bind 'quit-save    'custom-new-theme-mode-map 'Custom-buffer-done)
+  (evil-collection-bind 'quit-cancel  'custom-new-theme-mode-map 'evil-quit))
 
 (provide 'evil-collection-cus-theme)
 ;;; evil-collection-cus-theme.el ends here
