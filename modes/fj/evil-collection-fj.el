@@ -76,9 +76,9 @@
     (evil-collection-set-readonly-bindings map))
 
   (evil-collection-define-key 'normal 'fj-generic-map
-    "gb" 'fj-switch-to-buffer
-    (kbd "<tab>") 'fj-next-tab-item
-    (kbd "<backtab>") 'fj-prev-tab-item)
+    "gb" 'fj-switch-to-buffer)
+  (evil-collection-bind 'cycle-next     'fj-generic-map 'fj-next-tab-item)
+  (evil-collection-bind 'cycle-previous 'fj-generic-map 'fj-prev-tab-item)
   (evil-collection-bind 'action-other 'fj-generic-map 'fj-browse-view)
   (evil-collection-bind 'next-item    'fj-generic-map 'fj-item-next)
   (evil-collection-bind 'prev-item    'fj-generic-map 'fj-item-prev)
@@ -89,9 +89,9 @@
     "gb" 'fj-switch-to-buffer
     "gm" 'imenu
     ">" 'fj-next-page
-    "<" 'fj-prev-page
-    (kbd "<tab>") 'fj-next-tab-item
-    (kbd "<backtab>") 'fj-prev-tab-item)
+    "<" 'fj-prev-page)
+  (evil-collection-bind 'cycle-next     'fj-generic-tl-map 'fj-next-tab-item)
+  (evil-collection-bind 'cycle-previous 'fj-generic-tl-map 'fj-prev-tab-item)
   (evil-collection-bind 'action-other 'fj-generic-tl-map 'fj-tl-browse-entry)
   (evil-collection-bind 'refresh 'fj-generic-map    'fj-view-reload)
   (evil-collection-bind 'refresh 'fj-generic-tl-map 'fj-view-reload)

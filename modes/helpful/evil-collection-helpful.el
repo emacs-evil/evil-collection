@@ -36,10 +36,8 @@
 (defun evil-collection-helpful-setup ()
   "Set up `evil' bindings for `helpful'."
   (evil-collection-set-readonly-bindings 'helpful-mode-map)
-  (evil-collection-define-key 'normal 'helpful-mode-map
-    ;; motion
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button)
+  (evil-collection-bind 'next-button     'helpful-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'helpful-mode-map 'backward-button)
 
   (evil-collection-bind 'action        'helpful-mode-map 'helpful-visit-reference)
   ;; These do not distinguish other/stay yet, but belong to the action family.

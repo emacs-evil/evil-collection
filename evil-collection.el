@@ -612,6 +612,21 @@ New customization should use
     (debug-frame-down  :enabled ,(lambda () evil-collection-setup-debugger-keys)
                        :state normal
                        :key ">")
+    (next-button :enabled t
+                 :state normal
+                 :key ("<tab>" "TAB"))
+    (previous-button :enabled t
+                     :state normal
+                     :key ("<backtab>" "<S-tab>"))
+    (cycle-next :enabled t
+                :state normal
+                :key ("<tab>" "TAB"))
+    (cycle-previous :enabled t
+                    :state normal
+                    :key ("<backtab>" "<S-tab>"))
+    (section-toggle :enabled t
+                    :state normal
+                    :key ("<tab>" "TAB"))
     (next-item :enabled t
                :state normal
                :key "gj")

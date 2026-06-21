@@ -37,12 +37,12 @@
 (defun evil-collection-disk-usage-setup ()
   "Set up `evil' bindings for `disk-usage'."
   (evil-collection-set-readonly-bindings 'disk-usage-mode-map)
+  (evil-collection-bind 'next-button     'disk-usage-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'disk-usage-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
 
     "S" 'tabulated-list-sort
     "^" 'disk-usage-up
@@ -63,12 +63,12 @@
     "A" 'disk-usage-remove-filters)
 
   (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
+  (evil-collection-bind 'next-button     'disk-usage-by-types-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'disk-usage-by-types-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-by-types-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
 
     "S" 'tabulated-list-sort
 

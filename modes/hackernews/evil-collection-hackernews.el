@@ -46,11 +46,10 @@
 
     "gf" 'hackernews-switch-feed
 
-    (kbd "<tab>") 'hackernews-next-comment
-    (kbd "S-<tab>") 'hackernews-previous-comment
-
     "!" 'hackernews-button-mark-as-visited ; like mu4e
     "?" 'hackernews-button-mark-as-unvisited)
+  (evil-collection-bind 'cycle-next     'hackernews-mode-map 'hackernews-next-comment)
+  (evil-collection-bind 'cycle-previous 'hackernews-mode-map 'hackernews-previous-comment)
   (evil-collection-bind 'action       'hackernews-mode-map 'hackernews-button-browse-internal)
   (evil-collection-bind 'action-other 'hackernews-mode-map 'push-button)
   (evil-collection-bind 'refresh 'hackernews-mode-map 'hackernews-reload))

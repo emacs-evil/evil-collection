@@ -38,12 +38,12 @@
   (evil-set-initial-state 'devdocs-mode 'normal)
   (evil-collection-set-readonly-bindings 'devdocs-mode-map)
 
+  (evil-collection-bind 'next-button     'devdocs-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'devdocs-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'devdocs-mode-map
     ;; motion
     (kbd "SPC")         'scroll-up-command
     (kbd "S-SPC")       'scroll-down-command
-    (kbd "<tab>")       'forward-button
-    (kbd "<backtab>")   'backward-button
 
     "g." 'devdocs-goto-target
 

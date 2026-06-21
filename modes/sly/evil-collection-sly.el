@@ -143,11 +143,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "e" 'sly-inspector-eval
     "M-p" 'sly-inspector-history
     "gv" 'sly-inspector-toggle-verbose
-    (kbd "<tab>") 'forward-button
     (kbd "C-i") 'forward-button
-    (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
-    (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
     "." 'sly-edit-definition)
+  (evil-collection-bind 'next-button     'sly-inspector-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'sly-inspector-mode-map 'backward-button)
   (evil-collection-bind 'next-item       'sly-inspector-mode-map 'sly-inspector-next)
   (evil-collection-bind 'prev-item       'sly-inspector-mode-map 'sly-inspector-pop)
   (evil-collection-bind 'next-section    'sly-inspector-mode-map 'sly-inspector-next)
@@ -176,13 +175,12 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "x" 'sly-thread-kill)
   (evil-collection-bind 'refresh 'sly-thread-control-mode-map 'sly-update-threads-buffer)
 
-  (evil-collection-bind 'quit 'sly-xref-mode-map 'quit-window)
+  (evil-collection-bind 'quit            'sly-xref-mode-map 'quit-window)
+  (evil-collection-bind 'next-button     'sly-xref-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'sly-xref-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'sly-xref-mode-map
     (kbd "SPC") 'sly-xref-show
-    (kbd "<tab>") 'forward-button
     (kbd "C-i") 'forward-button
-    (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
-    (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
     ;; "r" 'sly-xref-retract ; TODO: Equivalent for Sly?
     )
   (evil-collection-bind 'action       'sly-xref-mode-map 'sly-xref-goto)
@@ -237,11 +235,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-bind 'quit         'sly-stickers--replay-mode-map 'quit-window)
   (evil-collection-bind 'action-other 'sly-stickers--replay-mode-map 'sly-stickers-replay-pop-to-current-sticker)
 
+  (evil-collection-bind 'next-button     'sly-connection-list-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'sly-connection-list-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'sly-connection-list-mode-map
-    (kbd "<tab>") 'forward-button
     (kbd "C-i") 'forward-button
-    (kbd "<S-tab>") 'backward-button
-    (kbd "<backtab>") 'backward-button
     "R" 'sly-restart-connection-at-point
     "d" 'sly-connection-list-make-default
     "x" 'sly-quit-connection-at-point

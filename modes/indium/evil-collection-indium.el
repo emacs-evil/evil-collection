@@ -58,9 +58,9 @@
 
   (evil-collection-define-key 'normal 'indium-inspector-mode-map
     [mouse-1] 'indium-follow-link
-    "L" 'indium-inspector-pop
-    [tab] 'indium-inspector-next-reference
-    [backtab] 'indium-inspector-previous-reference)
+    "L" 'indium-inspector-pop)
+  (evil-collection-bind 'cycle-next     'indium-inspector-mode-map 'indium-inspector-next-reference)
+  (evil-collection-bind 'cycle-previous 'indium-inspector-mode-map 'indium-inspector-previous-reference)
   (evil-collection-bind 'action       'indium-inspector-mode-map 'indium-follow-link)
   (evil-collection-bind 'next-item    'indium-inspector-mode-map 'indium-inspector-next-reference)
   (evil-collection-bind 'prev-item    'indium-inspector-mode-map 'indium-inspector-previous-reference)
@@ -75,9 +75,9 @@
   (evil-collection-bind 'quit 'indium-debugger-locals-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'indium-debugger-frames-mode-map
-    [return] 'indium-follow-link
-    [tab] 'indium-debugger-frames-next-frame
-    [backtab] 'indium-debugger-frames-previous-frame)
+    [return] 'indium-follow-link)
+  (evil-collection-bind 'cycle-next     'indium-debugger-frames-mode-map 'indium-debugger-frames-next-frame)
+  (evil-collection-bind 'cycle-previous 'indium-debugger-frames-mode-map 'indium-debugger-frames-previous-frame)
   (evil-collection-bind 'action       'indium-debugger-frames-mode-map 'indium-follow-link)
   (evil-collection-bind 'next-item    'indium-debugger-frames-mode-map 'indium-debugger-frames-next-frame)
   (evil-collection-bind 'prev-item    'indium-debugger-frames-mode-map 'indium-debugger-frames-previous-frame)

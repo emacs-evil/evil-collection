@@ -36,12 +36,12 @@
 (defun evil-collection-man-setup ()
   "Set up `evil' bindings for `man'."
   (evil-set-initial-state 'Man-mode 'normal)
+  (evil-collection-bind 'next-button     'Man-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'Man-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'Man-mode-map
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
 
     ;; goto
     "gm" 'man
