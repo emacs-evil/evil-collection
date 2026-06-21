@@ -36,9 +36,9 @@
 (defun evil-collection-imenu-list-setup ()
   "Set up `evil' bindings for `imenu-list'."
   (evil-collection-define-key 'normal 'imenu-list-major-mode-map
-    (kbd "RET") 'imenu-list-goto-entry
     (kbd "TAB") 'hs-toggle-hiding
     "d" 'imenu-list-display-entry)
+  (evil-collection-bind 'action  'imenu-list-major-mode-map 'imenu-list-goto-entry)
   (evil-collection-bind 'quit    'imenu-list-major-mode-map 'imenu-list-quit-window)
   (evil-collection-bind 'refresh 'imenu-list-major-mode-map 'imenu-list-refresh))
 

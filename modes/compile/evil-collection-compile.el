@@ -45,16 +45,12 @@
       "g" nil)
 
     (evil-collection-define-key 'normal keymap
-      (kbd "RET") 'compile-goto-error
-
-      "go" 'compilation-display-error
-      (kbd "M-RET") 'compilation-display-error
-      (kbd "M-<return>") 'compilation-display-error
-      (kbd "S-<return>") 'compilation-display-error
-
       (kbd "TAB") 'compilation-next-error
       (kbd "S-TAB") 'compilation-previous-error)
 
+    (evil-collection-bind 'action       keymap 'compile-goto-error)
+    (evil-collection-bind 'action-other keymap 'compilation-display-error)
+    (evil-collection-bind 'action-stay  keymap 'compilation-display-error)
     (evil-collection-bind 'next-item    keymap 'compilation-next-error)
     (evil-collection-bind 'prev-item    keymap 'compilation-previous-error)
     (evil-collection-bind 'next-section keymap 'compilation-next-file)

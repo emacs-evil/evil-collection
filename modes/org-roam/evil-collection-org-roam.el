@@ -39,8 +39,8 @@
   "Set up `evil' bindings for org-roam."
   (evil-collection-define-key 'normal 'org-roam-mode-map
     [C-return]  'org-roam-buffer-visit-thing
-    (kbd "C-m") 'org-roam-buffer-visit-thing
     [remap revert-buffer] 'org-roam-buffer-refresh)
+  (evil-collection-bind 'action  'org-roam-mode-map 'org-roam-buffer-visit-thing)
   (evil-collection-bind 'refresh 'org-roam-mode-map 'org-roam-buffer-refresh)
 
   (evil-collection-define-key 'normal 'org-roam-node-map

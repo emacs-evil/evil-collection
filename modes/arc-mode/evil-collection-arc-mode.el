@@ -44,12 +44,6 @@
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
 
-    ;; open
-    (kbd "RET") 'archive-extract
-    (kbd "S-<return>") 'archive-extract-other-window
-    (kbd "M-<return>") 'archive-view
-    "go" 'archive-extract-other-window
-
     "a" 'archive-alternate-display
     "d" 'archive-flag-deleted
     "r" 'archive-rename-entry
@@ -63,6 +57,9 @@
     "m" 'archive-mark
     "u" 'archive-unflag
     "U" 'archive-unmark-all-files)
+  (evil-collection-bind 'action       'archive-mode-map 'archive-extract)
+  (evil-collection-bind 'action-other 'archive-mode-map 'archive-extract-other-window)
+  (evil-collection-bind 'action-stay  'archive-mode-map 'archive-view)
   (evil-collection-bind 'next-item    'archive-mode-map 'archive-next-line)
   (evil-collection-bind 'prev-item    'archive-mode-map 'archive-previous-line)
   (evil-collection-bind 'next-section 'archive-mode-map 'archive-next-line)

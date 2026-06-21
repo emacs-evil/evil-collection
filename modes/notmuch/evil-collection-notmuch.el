@@ -152,9 +152,9 @@ that moves trashed messages out of the inbox)."
 
   (evil-collection-define-key 'normal 'notmuch-hello-mode-map
     (kbd "TAB") 'widget-forward
-    (kbd "RET") 'evil-collection-notmuch-hello-ret
     (kbd "S-TAB") 'widget-backward
     (kbd "<C-tab>") 'widget-backward)
+  (evil-collection-bind 'action 'notmuch-hello-mode-map 'evil-collection-notmuch-hello-ret)
 
   (evil-collection-define-key 'normal 'notmuch-show-mode-map
     "gd" 'goto-address-at-point
@@ -183,8 +183,8 @@ that moves trashed messages out of the inbox)."
     "+" 'notmuch-show-add-tag
     (kbd "TAB") 'notmuch-show-next-button
     (kbd "<backtab>") 'notmuch-show-previous-button
-    (kbd "RET") 'notmuch-show-toggle-message
     "." 'notmuch-show-part-map)
+  (evil-collection-bind 'action       'notmuch-show-mode-map 'notmuch-show-toggle-message)
   (evil-collection-bind 'next-item    'notmuch-show-mode-map 'notmuch-show-next-open-message)
   (evil-collection-bind 'prev-item    'notmuch-show-mode-map 'notmuch-show-previous-open-message)
   (evil-collection-bind 'next-section 'notmuch-show-mode-map 'notmuch-show-next-message)
@@ -204,7 +204,6 @@ that moves trashed messages out of the inbox)."
     "!" 'evil-collection-notmuch-tree-toggle-unread
     "=" 'evil-collection-notmuch-tree-toggle-flagged
     "K" 'notmuch-tag-jump
-    (kbd "RET") 'notmuch-tree-show-message
     [mouse-1] 'notmuch-tree-show-message
     "A" 'notmuch-tree-archive-thread-then-next
     "a" 'notmuch-tree-archive-message-then-next
@@ -214,6 +213,7 @@ that moves trashed messages out of the inbox)."
     "+" 'notmuch-tree-add-tag
     "*" 'notmuch-tree-tag-thread
     "e" 'notmuch-tree-resume-message)
+  (evil-collection-bind 'action       'notmuch-tree-mode-map 'notmuch-tree-show-message)
   (evil-collection-bind 'next-item    'notmuch-tree-mode-map 'notmuch-tree-next-matching-message)
   (evil-collection-bind 'prev-item    'notmuch-tree-mode-map 'notmuch-tree-prev-matching-message)
   (evil-collection-bind 'next-section 'notmuch-tree-mode-map 'notmuch-tree-next-message)
@@ -241,9 +241,9 @@ that moves trashed messages out of the inbox)."
       "t" 'notmuch-search-filter-by-tag
       [mouse-1] 'notmuch-search-show-thread
       "-" 'notmuch-search-remove-tag
-      "+" 'notmuch-search-add-tag
-      (kbd "RET") 'notmuch-search-show-thread))
-  (evil-collection-bind 'quit 'notmuch-search-mode-map 'notmuch-bury-or-kill-this-buffer)
+      "+" 'notmuch-search-add-tag))
+  (evil-collection-bind 'action 'notmuch-search-mode-map 'notmuch-search-show-thread)
+  (evil-collection-bind 'quit   'notmuch-search-mode-map 'notmuch-bury-or-kill-this-buffer)
 
   ;; ys
   (evil-collection-define-operator-key 'yank 'notmuch-search-mode-map

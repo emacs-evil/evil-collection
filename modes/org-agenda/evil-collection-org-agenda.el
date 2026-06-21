@@ -86,11 +86,9 @@
     "k" 'org-agenda-previous-line
 
     ;; Open / visit
-    (kbd "RET") 'org-agenda-switch-to
     [tab] 'org-agenda-goto
     (kbd "TAB") 'org-agenda-goto
     (kbd "SPC") 'org-agenda-show
-    "go" 'org-agenda-open-link
 
     ;; Quit / refresh
     "ZZ" 'org-agenda-quit
@@ -139,9 +137,11 @@
   (evil-collection-bind 'prev-section   'org-agenda-mode-map 'org-agenda-backward-block)
   (evil-collection-bind 'next-section-2 'org-agenda-mode-map 'org-agenda-next-item)
   (evil-collection-bind 'prev-section-2 'org-agenda-mode-map 'org-agenda-previous-item)
-  (evil-collection-bind 'quit        'org-agenda-mode-map 'org-agenda-quit)
-  (evil-collection-bind 'refresh     'org-agenda-mode-map 'org-agenda-redo)
-  (evil-collection-bind 'refresh-all 'org-agenda-mode-map 'org-agenda-redo-all))
+  (evil-collection-bind 'quit         'org-agenda-mode-map 'org-agenda-quit)
+  (evil-collection-bind 'refresh      'org-agenda-mode-map 'org-agenda-redo)
+  (evil-collection-bind 'refresh-all  'org-agenda-mode-map 'org-agenda-redo-all)
+  (evil-collection-bind 'action       'org-agenda-mode-map 'org-agenda-switch-to)
+  (evil-collection-bind 'action-other 'org-agenda-mode-map 'org-agenda-open-link))
 
 (provide 'evil-collection-org-agenda)
 ;;; evil-collection-org-agenda.el ends here

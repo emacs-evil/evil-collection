@@ -49,18 +49,15 @@
   (evil-set-initial-state 'rtags-location-stack-visualize-mode 'normal)
 
   (evil-collection-define-key 'normal 'rtags-mode-map
-    ;; open
-    (kbd "RET") 'rtags-select
-    (kbd "S-<return>") 'rtags-select-other-window
-    (kbd "M-<return>") 'rtags-show-in-other-window
-    (kbd "go") 'rtags-select-other-window
-    (kbd "gO") 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
 
     "c" 'rtags-select-caller
     "C" 'rtags-select-caller-other-window
     "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-bind 'action       'rtags-mode-map 'rtags-select)
+  (evil-collection-bind 'action-other 'rtags-mode-map 'rtags-select-other-window)
+  (evil-collection-bind 'action-stay  'rtags-mode-map 'rtags-show-in-other-window)
   (evil-collection-bind 'quit 'rtags-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-define-key 'normal 'rtags-dependency-tree-mode-map
@@ -71,17 +68,14 @@
     "+" 'rtags-dependency-tree-expand-current
     "P" 'rtags-dependency-tree-find-path
 
-    ;; open
-    (kbd "RET") 'rtags-select
-    (kbd "S-<return>") 'rtags-select-other-window
-    (kbd "M-<return>") 'rtags-show-in-other-window
-    "go" 'rtags-select-other-window
-    "gO" 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-bind 'action       'rtags-dependency-tree-mode-map 'rtags-select)
+  (evil-collection-bind 'action-other 'rtags-dependency-tree-mode-map 'rtags-select-other-window)
+  (evil-collection-bind 'action-stay  'rtags-dependency-tree-mode-map 'rtags-show-in-other-window)
   (evil-collection-bind 'next-item    'rtags-dependency-tree-mode-map 'rtags-dependency-tree-next-level)
   (evil-collection-bind 'prev-item    'rtags-dependency-tree-mode-map 'rtags-dependency-tree-previous-level)
   (evil-collection-bind 'next-section 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-next-level)
@@ -98,17 +92,14 @@
     "-" 'rtags-references-tree-collapse-current
     "+" 'rtags-references-tree-expand-current
 
-    ;; open
-    (kbd "RET") 'rtags-select
-    (kbd "S-<return>") 'rtags-select-other-window
-    (kbd "M-<return>") 'rtags-show-in-other-window
-    "go" 'rtags-select-other-window
-    "gO" 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-bind 'action       'rtags-references-tree-mode-map 'rtags-select)
+  (evil-collection-bind 'action-other 'rtags-references-tree-mode-map 'rtags-select-other-window)
+  (evil-collection-bind 'action-stay  'rtags-references-tree-mode-map 'rtags-show-in-other-window)
   (evil-collection-bind 'next-item    'rtags-references-tree-mode-map 'rtags-references-tree-next-level)
   (evil-collection-bind 'prev-item    'rtags-references-tree-mode-map 'rtags-references-tree-previous-level)
   (evil-collection-bind 'next-section 'rtags-references-tree-mode-map 'rtags-references-tree-next-level)
@@ -116,17 +107,14 @@
   (evil-collection-bind 'quit 'rtags-references-tree-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-define-key 'normal 'rtags-location-stack-visualize-mode-map
-    ;; open
-    (kbd "RET") 'rtags-select
-    (kbd "S-<return>") 'rtags-select-other-window
-    (kbd "M-<return>") 'rtags-show-in-other-window
-    (kbd "go") 'rtags-select-other-window
-    (kbd "gO") 'rtags-show-in-other-window
     [mouse-1] 'rtags-select-other-window
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-bind 'action       'rtags-location-stack-visualize-mode-map 'rtags-select)
+  (evil-collection-bind 'action-other 'rtags-location-stack-visualize-mode-map 'rtags-select-other-window)
+  (evil-collection-bind 'action-stay  'rtags-location-stack-visualize-mode-map 'rtags-show-in-other-window)
   (evil-collection-bind 'quit 'rtags-location-stack-visualize-mode-map 'rtags-call-bury-or-delete))
 
 (provide 'evil-collection-rtags)

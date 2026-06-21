@@ -56,12 +56,10 @@
     "i" 'profiler-report-describe-entry
     "=" 'profiler-report-compare-profile
 
-    ;; open
-    (kbd "RET") 'profiler-report-find-entry
-
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-windw)
+  (evil-collection-bind 'action  'profiler-report-mode-map 'profiler-report-find-entry)
   (evil-collection-bind 'quit    'profiler-report-mode-map 'quit-window)
   (evil-collection-bind 'refresh 'profiler-report-mode-map 'revert-buffer))
 

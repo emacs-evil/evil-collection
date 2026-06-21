@@ -181,7 +181,6 @@ end of the buffer."
        "b" mu4e-search-bookmark
        "B" mu4e-search-bookmark-edit
        ";" mu4e-context-switch
-       ,(kbd "RET") mu4e-headers-view-message
        "/" mu4e-search-narrow
        "s" mu4e-search
        "S" mu4e-search-edit
@@ -318,6 +317,7 @@ end of the buffer."
     (evil-collection-bind 'prev-section   'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
     (evil-collection-bind 'next-section-2 'mu4e-headers-mode-map 'mu4e-headers-next)
     (evil-collection-bind 'prev-section-2 'mu4e-headers-mode-map 'mu4e-headers-prev)
+    (evil-collection-bind 'action         'mu4e-headers-mode-map 'mu4e-headers-view-message)
 
     (evil-collection-bind 'next-item      'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
     (evil-collection-bind 'prev-item      'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)

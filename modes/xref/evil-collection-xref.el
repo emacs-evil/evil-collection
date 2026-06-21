@@ -46,11 +46,11 @@
     ;; Match `dired''s `dired-do-find-regexp-and-replace'.
     "Q" 'xref-query-replace-in-results
 
-    ;; open
-    (kbd "RET") 'xref-goto-xref
-    (kbd "S-<return>") 'xref-quit-and-goto-xref  ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'
-    "o" 'xref-show-location-at-point
-    "go" 'xref-show-location-at-point)
+    "o" 'xref-show-location-at-point)
+  (evil-collection-bind 'action       'xref--xref-buffer-mode-map 'xref-goto-xref)
+  ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'.
+  (evil-collection-bind 'action-other 'xref--xref-buffer-mode-map 'xref-quit-and-goto-xref)
+  (evil-collection-bind 'action-stay  'xref--xref-buffer-mode-map 'xref-show-location-at-point)
   (evil-collection-bind 'next-item    'xref--xref-buffer-mode-map 'xref-next-line)
   (evil-collection-bind 'prev-item    'xref--xref-buffer-mode-map 'xref-prev-line)
   (evil-collection-bind 'next-section 'xref--xref-buffer-mode-map 'xref-next-line)
@@ -69,8 +69,7 @@
 
   (when (>= emacs-major-version 27)
     (evil-set-initial-state 'xref--transient-buffer-mode 'normal)
-    (evil-collection-define-key 'normal 'xref--transient-buffer-mode-map
-      (kbd "RET") 'xref-quit-and-goto-xref)))
+    (evil-collection-bind 'action 'xref--transient-buffer-mode-map 'xref-quit-and-goto-xref)))
 
 (provide 'evil-collection-xref)
 ;;; evil-collection-xref.el ends here

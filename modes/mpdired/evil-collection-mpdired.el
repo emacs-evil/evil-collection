@@ -48,7 +48,6 @@
   (evil-collection-define-key 'normal 'mpdired-mode-map
     "j"         'mpdired-next-line
     "k"         'mpdired-previous-line
-    (kbd "RET") 'mpdired-enter
     "^"         'mpdired-goto-parent
     "."         'mpdired-goto-current-song
     "o"         'mpdired-toggle-view
@@ -79,6 +78,7 @@
     "%i"        'mpdired-put-order-at-point
     "%r"        'mpdired-reset-order-index)
 
+  (evil-collection-bind 'action      'mpdired-mode-map 'mpdired-enter)
   (evil-collection-bind 'refresh     'mpdired-mode-map 'mpdired-update)
   (evil-collection-bind 'refresh-all 'mpdired-mode-map 'mpdired-db-update))
 

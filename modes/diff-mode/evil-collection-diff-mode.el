@@ -110,8 +110,8 @@ binding keys to a minor mode created by `evil-collection' instead."
   "Set up bindings on `evil-collection-diff-mode'."
   (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
     "ge" 'diff-ediff-patch
-    "\\" 'read-only-mode
-    (kbd "RET") 'diff-goto-source)
+    "\\" 'read-only-mode)
+  (evil-collection-bind 'action       'evil-collection-diff-mode-map 'diff-goto-source)
   (evil-collection-bind 'next-item    'evil-collection-diff-mode-map 'diff-hunk-next)
   (evil-collection-bind 'prev-item    'evil-collection-diff-mode-map 'diff-hunk-prev)
   (evil-collection-bind 'next-section 'evil-collection-diff-mode-map 'diff-file-next)
@@ -165,7 +165,8 @@ binding keys to a minor mode created by `evil-collection' instead."
   (evil-collection-bind 'prev-section   'diff-mode-map 'diff-file-prev)
   (evil-collection-bind 'next-section-2 'diff-mode-map 'diff-hunk-next)
   (evil-collection-bind 'prev-section-2 'diff-mode-map 'diff-hunk-prev)
-  (evil-collection-bind 'quit 'diff-mode-map 'quit-window)
+  (evil-collection-bind 'quit   'diff-mode-map 'quit-window)
+  (evil-collection-bind 'action 'diff-mode-map 'diff-goto-source)
 
   (evil-collection-define-key 'motion 'diff-mode-map
     ;; motion
@@ -178,7 +179,6 @@ binding keys to a minor mode created by `evil-collection' instead."
     "gj" 'diff-hunk-next
     "gk" 'diff-hunk-prev
 
-    (kbd "RET") 'diff-goto-source
     "A" 'diff-add-change-log-entries-other-window
 
     "a" 'diff-apply-hunk

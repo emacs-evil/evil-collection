@@ -39,14 +39,12 @@
   (evil-collection-define-key 'normal 'helpful-mode-map
     ;; motion
     (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
-    (kbd "RET") 'helpful-visit-reference
+    (kbd "<backtab>") 'backward-button)
 
-    ;; The following bindings don't do what they are supposed to. "go" should open
-    ;; in the same window and "gO" should open in a different one.
-    "go" 'push-button
-    "gO" 'push-button)
-
+  (evil-collection-bind 'action        'helpful-mode-map 'helpful-visit-reference)
+  ;; These do not distinguish other/stay yet, but belong to the action family.
+  (evil-collection-bind 'action-other  'helpful-mode-map 'push-button)
+  (evil-collection-bind 'action-stay   'helpful-mode-map 'push-button)
   (evil-collection-bind 'describe-mode 'helpful-mode-map 'describe-mode)
   (evil-collection-bind 'refresh       'helpful-mode-map 'helpful-update))
 

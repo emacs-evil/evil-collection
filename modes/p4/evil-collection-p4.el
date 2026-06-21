@@ -59,11 +59,11 @@
 
   (evil-collection-bind 'quit    'p4-basic-mode-map 'quit-window)
   (evil-collection-bind 'refresh 'p4-basic-mode-map 'revert-buffer)
+  (evil-collection-bind 'action 'p4-basic-mode-map 'p4-buffer-commands)
   (evil-collection-define-key 'normal 'p4-basic-mode-map
     [mouse-1] 'p4-buffer-mouse-clicked
     "k" 'evil-previous-line
     "j" 'evil-next-line
-    (kbd "RET") 'p4-buffer-commands
     "gg" 'p4-top-of-buffer
     "G" 'p4-bottom-of-buffer
     "=" 'delete-other-windows)
@@ -72,16 +72,14 @@
   (evil-collection-bind 'next-section-2 'p4-basic-mode-map 'p4-forward-active-link)
   (evil-collection-bind 'prev-section-2 'p4-basic-mode-map 'p4-backward-active-link)
 
-  (evil-collection-define-key 'normal 'p4-basic-list-mode-map
-    (kbd "RET") 'p4-basic-list-activate)
+  (evil-collection-bind 'action 'p4-basic-list-mode-map 'p4-basic-list-activate)
 
   (evil-collection-define-key 'normal 'p4-opened-list-mode-map
     "R" 'p4-revert
     "T" 'p4-opened-list-type
     "C" 'p4-opened-list-change)
 
-  (evil-collection-define-key 'normal 'p4-status-list-mode-map
-    (kbd "RET") 'p4-status-list-activate)
+  (evil-collection-bind 'action 'p4-status-list-mode-map 'p4-status-list-activate)
 
   (evil-collection-bind 'find-file 'p4-filelog-mode-map 'p4-find-file-other-window)
 
@@ -96,6 +94,7 @@
   (evil-collection-bind 'next-section 'p4-filelog-mode-map 'p4-goto-next-change)
   (evil-collection-bind 'prev-section 'p4-filelog-mode-map 'p4-goto-prev-change)
 
+  (evil-collection-bind 'action 'p4-diff-mode-map 'p4-buffer-commands)
   (evil-collection-define-key 'normal 'p4-diff-mode-map
     (kbd "M-j") 'diff-file-next
     (kbd "M-k") 'diff-file-prev
@@ -103,7 +102,6 @@
     [backtab] 'diff-hunk-prev
     "}" 'diff-file-next
     "{" 'diff-file-prev
-    "\C-m" 'p4-buffer-commands
     [mouse-2] 'p4-buffer-commands
     "gb" 'p4-buffer-commands)
   (evil-collection-bind 'next-section 'p4-diff-mode-map 'diff-hunk-next)

@@ -38,7 +38,6 @@
   (evil-set-initial-state 'kmacro-menu-mode 'normal)
   (evil-collection-define-key 'normal 'kmacro-menu-mode-map
     ;; Edit
-    (kbd "RET") 'kmacro-menu-edit-column
     "#" 'kmacro-menu-edit-position
     "c" 'kmacro-menu-edit-counter
     "f" 'kmacro-menu-edit-format
@@ -52,7 +51,8 @@
 
     "x" 'kmacro-menu-do-flagged-delete
     "C" 'kmacro-menu-do-copy
-    "D" 'kmacro-menu-do-delete))
+    "D" 'kmacro-menu-do-delete)
+  (evil-collection-bind 'action 'kmacro-menu-mode-map 'kmacro-menu-edit-column))
 
 (provide 'evil-collection-kmacro)
 ;;; evil-collection-kmacro.el ends here

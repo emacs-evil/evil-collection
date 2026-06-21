@@ -49,7 +49,6 @@
     "N" 'color-rg-rerun-toggle-node
     "O" 'color-rg-rerun-in-project
     "R" 'color-rg-rerun-regexp
-    (kbd "RET") 'color-rg-open-file-and-stay
     "S" 'color-rg-customized-search
     (kbd "SPC") 'color-rg-open-file
     "X" 'color-rg-filter-mismatch-files
@@ -65,6 +64,9 @@
     "s" 'color-rg-rerun-change-dir
     "u" 'color-rg-unfilter
     "x" 'color-rg-filter-match-files)
+  (evil-collection-bind 'action       'color-rg-mode-map 'color-rg-open-file-and-stay)
+  (evil-collection-bind 'action-other 'color-rg-mode-map 'color-rg-open-file-and-stay)
+  (evil-collection-bind 'action-stay  'color-rg-mode-map 'color-rg-open-file-and-stay)
   (evil-collection-bind 'quit 'color-rg-mode-map 'color-rg-quit))
 
 (provide 'evil-collection-color-rg)

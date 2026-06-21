@@ -55,14 +55,11 @@
     "9" 'calcDigit-start
 
     (kbd "<tab>") 'calc-roll-down
-    (kbd "S-<return>") 'calc-over
-    (kbd "RET") 'calc-enter
     (kbd "SPC") 'calc-enter
 
     (kbd "C-x C-t") 'calc-transpose-lines
     (kbd "C-M-d") 'calc-pop-above
     (kbd "C-M-i") 'calc-roll-up
-    (kbd "M-RET") 'calc-last-args
     (kbd "C-M-w") 'kill-ring-save
     (kbd "M-%") 'calc-percent
     (kbd "M-k") 'calc-copy-as-kill
@@ -161,7 +158,10 @@
     "U" (lookup-key calc-mode-map (kbd "u"))
     "v" (lookup-key calc-mode-map (kbd "v"))
     "zz" (lookup-key calc-mode-map (kbd "z")))
-  (evil-collection-bind 'quit 'calc-mode-map 'calc-quit)
+  (evil-collection-bind 'action       'calc-mode-map 'calc-enter)
+  (evil-collection-bind 'action-other 'calc-mode-map 'calc-over)
+  (evil-collection-bind 'action-stay  'calc-mode-map 'calc-last-args)
+  (evil-collection-bind 'quit         'calc-mode-map 'calc-quit)
 
   (evil-collection-define-key 'visual 'calc-mode-map
     "d" 'calc-kill-region))

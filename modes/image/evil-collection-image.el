@@ -53,7 +53,6 @@
     (kbd "S-SPC") 'image-scroll-down
     (kbd "<delete>") 'image-scroll-down
     ;; animation
-    (kbd "RET") 'image-toggle-animation
     "a0" 'image-reset-speed
     "ar" 'image-reverse-speed
     "F" 'image-goto-frame
@@ -75,6 +74,7 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-bind 'action       'image-mode-map 'image-toggle-animation)
   (evil-collection-bind 'next-item    'image-mode-map 'image-next-file)
   (evil-collection-bind 'prev-item    'image-mode-map 'image-previous-file)
   (evil-collection-bind 'next-section 'image-mode-map 'image-next-file)

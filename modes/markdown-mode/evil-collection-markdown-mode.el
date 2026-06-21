@@ -42,9 +42,9 @@
     "{" 'markdown-backward-paragraph
     "}" 'markdown-forward-paragraph
     [tab] 'markdown-cycle
-    [S-tab] 'markdown-shifttab
-    ;; `evil-markdown' doesn't bind but spacemacs does.
-    (kbd "RET") 'markdown-do))
+    [S-tab] 'markdown-shifttab)
+  ;; `evil-markdown' doesn't bind but spacemacs does.
+  (evil-collection-bind 'action 'markdown-mode-map 'markdown-do))
 
 (provide 'evil-collection-markdown-mode)
 ;;; evil-collection-markdown-mode.el ends here

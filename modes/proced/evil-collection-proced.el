@@ -38,8 +38,6 @@
   (evil-collection-set-readonly-bindings 'proced-mode-map)
   (evil-set-initial-state 'proced-mode 'normal)
   (evil-collection-define-key 'normal 'proced-mode-map
-    (kbd "RET") 'proced-refine
-
     ;; mark
     ;; TODO: Implement a proced-toggle-mark?
     "m" 'proced-mark ; Mentioned in documentation, should be followed.
@@ -80,6 +78,7 @@
     "ou" 'proced-sort-user
 
     "r" 'proced-renice)
+  (evil-collection-bind 'action  'proced-mode-map 'proced-refine)
   (evil-collection-bind 'refresh 'proced-mode-map 'revert-buffer))
 
 (provide 'evil-collection-proced)

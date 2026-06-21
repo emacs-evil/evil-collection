@@ -573,6 +573,15 @@ New customization should use
     (refresh-all :enabled t
                  :state normal
                  :key "gR")
+    (action :enabled t
+            :state normal
+            :key ("RET" "<return>"))
+    (action-other :enabled t
+                  :state normal
+                  :key ("S-<return>" "S-RET" "go"))
+    (action-stay :enabled t
+                 :state normal
+                 :key ("M-<return>" "M-RET" "gO"))
     (debug-continue    :enabled ,(lambda () evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("c" "<f5>"))

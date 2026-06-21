@@ -37,13 +37,13 @@
   "Set up `evil' bindings for `apropos'."
   (evil-set-initial-state 'apropos-mode 'normal)
   (evil-collection-define-key 'normal 'apropos-mode-map
-    (kbd "RET") 'apropos-follow
     (kbd "TAB") 'forward-button
     (kbd "S-TAB") 'backward-button
 
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-bind 'action        'apropos-mode-map 'apropos-follow)
   (evil-collection-bind 'quit          'apropos-mode-map 'quit-window)
   (evil-collection-bind 'describe-mode 'apropos-mode-map 'describe-mode)
   (evil-collection-bind 'refresh       'apropos-mode-map 'revert-buffer))

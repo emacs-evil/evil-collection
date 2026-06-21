@@ -46,8 +46,8 @@
     "J" 'vc-annotate-revision-at-line
     "L" 'vc-annotate-show-log-revision-at-line
     "W" 'vc-annotate-working-revision
-    "A" 'vc-annotate-toggle-annotation-visibility
-    (kbd "RET") 'vc-annotate-goto-line)
+    "A" 'vc-annotate-toggle-annotation-visibility)
+  (evil-collection-bind 'action       'vc-annotate-mode-map 'vc-annotate-goto-line)
   (evil-collection-bind 'next-item    'vc-annotate-mode-map 'vc-annotate-next-revision)
   (evil-collection-bind 'prev-item    'vc-annotate-mode-map 'vc-annotate-prev-revision)
   (evil-collection-bind 'next-section 'vc-annotate-mode-map 'vc-annotate-next-revision)

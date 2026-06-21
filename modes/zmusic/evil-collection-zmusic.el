@@ -38,12 +38,12 @@
 (defun evil-collection-zmusic-setup ()
   "Set up `evil' bindings for `zmusic'."
   (evil-collection-define-key 'normal 'zmusic-mode-map
-    (kbd "RET") 'zmusic/toggle-play
     "j" 'zmusic/next-beat
     "k" 'zmusic/previous-beat
     "h" 'zmusic/backward-degree
     "l" 'zmusic/forward-degree
-    "d" 'zmusic/kill-beat))
+    "d" 'zmusic/kill-beat)
+  (evil-collection-bind 'action 'zmusic-mode-map 'zmusic/toggle-play))
 
 (provide 'evil-collection-zmusic)
 ;;; evil-collection-zmusic.el ends here

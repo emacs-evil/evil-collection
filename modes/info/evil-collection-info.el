@@ -51,7 +51,6 @@
     (kbd "C-t") 'Info-history-back      ; "l"
     (kbd "C-o") 'Info-history-back
     " " 'Info-scroll-up
-    (kbd "RET") 'Info-follow-nearest-node
     (kbd "C-]") 'Info-follow-nearest-node
     (kbd "DEL") 'Info-scroll-down
     (kbd "C-i") 'Info-history-forward
@@ -96,6 +95,7 @@
   (evil-collection-define-operator-key 'yank 'Info-mode-map
     "u" 'Info-copy-current-node-name)
 
+  (evil-collection-bind 'action        'Info-mode-map 'Info-follow-nearest-node)
   (evil-collection-bind 'next-item     'Info-mode-map 'Info-next)
   (evil-collection-bind 'prev-item     'Info-mode-map 'Info-prev)
   (evil-collection-bind 'next-section  'Info-mode-map 'Info-forward-node)

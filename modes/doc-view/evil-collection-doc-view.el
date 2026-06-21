@@ -53,7 +53,6 @@
     "gg" 'doc-view-first-page
     "G" 'doc-view-last-page
     "J" 'doc-view-goto-page
-    (kbd "RET") 'image-next-line
 
     ;; zoom
     "+" 'doc-view-enlarge
@@ -75,10 +74,9 @@
     (kbd "?") 'doc-view-search-backward
     (kbd "C-t") 'doc-view-show-tooltip
     (kbd "C-c C-c") 'doc-view-toggle-display
-    (kbd "C-c C-t") 'doc-view-open-text
-
-    ;; refresh
-    (kbd "gr") 'doc-view-revert-buffer)
+    (kbd "C-c C-t") 'doc-view-open-text)
+  (evil-collection-bind 'action  'doc-view-mode-map 'image-next-line)
+  (evil-collection-bind 'refresh 'doc-view-mode-map 'doc-view-revert-buffer)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll

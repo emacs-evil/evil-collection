@@ -43,13 +43,7 @@
     (kbd "<tab>") 'trashed-forward-column
     (kbd "<backtab>") 'trashed-backward-column
 
-    (kbd "RET") 'trashed-find-file
-    (kbd "S-RET") 'trashed-find-file-other-window
-    (kbd "go") 'trashed-find-file-other-window
-    (kbd "gO") 'trashed-display-file
     (kbd "gw") 'trashed-browse-url-of-file
-    (kbd "M-RET") 'trashed-display-file
-
     "S" 'tabulated-list-sort
 
     "m" 'trashed-mark
@@ -80,6 +74,9 @@
 
     "v" 'trashed-view-file)
 
+  (evil-collection-bind 'action        'trashed-mode-map 'trashed-find-file)
+  (evil-collection-bind 'action-other  'trashed-mode-map 'trashed-find-file-other-window)
+  (evil-collection-bind 'action-stay   'trashed-mode-map 'trashed-display-file)
   (evil-collection-bind 'describe-mode 'trashed-mode-map 'describe-mode)
   (evil-collection-bind 'refresh       'trashed-mode-map 'revert-buffer))
 

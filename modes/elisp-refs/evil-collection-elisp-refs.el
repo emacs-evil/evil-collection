@@ -38,8 +38,8 @@
   "Set up `evil' bindings for `elisp-refs'."
   (evil-collection-define-key 'normal 'elisp-refs-mode-map
     (kbd "<tab>") 'elisp-refs-next-match
-    (kbd "<backtab>") 'elisp-refs-prev-match
-    (kbd "RET") 'elisp-refs-visit-match)
+    (kbd "<backtab>") 'elisp-refs-prev-match)
+  (evil-collection-bind 'action       'elisp-refs-mode-map 'elisp-refs-visit-match)
   (evil-collection-bind 'next-item    'elisp-refs-mode-map 'elisp-refs-next-match)
   (evil-collection-bind 'prev-item    'elisp-refs-mode-map 'elisp-refs-prev-match)
   (evil-collection-bind 'next-section 'elisp-refs-mode-map 'elisp-refs-next-match)

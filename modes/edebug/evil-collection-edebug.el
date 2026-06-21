@@ -113,14 +113,14 @@
   (with-eval-after-load 'edebug-x
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map
       "E" 'edebug-x-evaluate-function
-      "Q" 'edebug-x-clear-data
-      (kbd "RET") 'edebug-x-find-function)
-    (evil-collection-bind 'quit 'edebug-x-instrumented-function-list-mode-map 'quit-window)
+      "Q" 'edebug-x-clear-data)
+    (evil-collection-bind 'quit   'edebug-x-instrumented-function-list-mode-map 'quit-window)
+    (evil-collection-bind 'action 'edebug-x-instrumented-function-list-mode-map 'edebug-x-find-function)
     (evil-collection-define-key 'normal 'edebug-x-breakpoint-list-mode-map
-      (kbd "RET") 'edebug-x-visit-breakpoint
       "x" 'edebug-x-kill-breakpoint
       "Q" 'edebug-x-clear-data)
-    (evil-collection-bind 'quit 'edebug-x-breakpoint-list-mode-map 'quit-window)))
+    (evil-collection-bind 'quit   'edebug-x-breakpoint-list-mode-map 'quit-window)
+    (evil-collection-bind 'action 'edebug-x-breakpoint-list-mode-map 'edebug-x-visit-breakpoint)))
 
 (provide 'evil-collection-edebug)
 ;;; evil-collection-edebug.el ends here

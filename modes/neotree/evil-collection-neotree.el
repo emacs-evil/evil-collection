@@ -42,9 +42,6 @@
 
   (evil-collection-define-key 'normal 'neotree-mode-map
 
-    (kbd "RET") (neotree-make-executor
-                      :file-fn 'neo-open-file
-                      :dir-fn 'neo-open-dir)
     (kbd "<tab>") (neotree-make-executor
                    :dir-fn 'neo-open-dir)
     "z" (neotree-make-executor
@@ -54,10 +51,6 @@
           :dir-fn 'neo-open-dired)
     "gD" (neotree-make-executor
           :dir-fn 'neo-open-dired)
-    "go" (neotree-make-executor
-          :file-fn 'neo-open-file
-          :dir-fn 'neo-open-dir)
-    "gO" 'neotree-quick-look
     "H" 'neotree-hidden-file-toggle
     "gh" 'neotree-hidden-file-toggle
     "gv" 'neotree-open-file-in-system-application
@@ -88,6 +81,15 @@
     (kbd "C-x 3") 'neotree-empty-fn
     (kbd "C-x C-f") 'find-file-other-window
     (kbd "C-c C-f") 'find-file-other-window)
+  (evil-collection-bind 'action       'neotree-mode-map
+                        (neotree-make-executor
+                         :file-fn 'neo-open-file
+                         :dir-fn 'neo-open-dir))
+  (evil-collection-bind 'action-other 'neotree-mode-map
+                        (neotree-make-executor
+                         :file-fn 'neo-open-file
+                         :dir-fn 'neo-open-dir))
+  (evil-collection-bind 'action-stay  'neotree-mode-map 'neotree-quick-look)
   (evil-collection-bind 'next-item    'neotree-mode-map 'neotree-select-down-node)
   (evil-collection-bind 'prev-item    'neotree-mode-map 'neotree-select-up-node)
   (evil-collection-bind 'next-section 'neotree-mode-map 'neotree-select-down-node)

@@ -42,9 +42,6 @@
     ;; motion
     (kbd "<tab>") 'forward-button
     (kbd "S-<tab>") 'backward-button
-    (kbd "RET") (if (fboundp 'debug-help-follow)
-                    'debug-help-follow
-                  'backtrace-help-follow-symbol)
     (kbd "SPC") 'next-line
 
     "R" 'debugger-record-expression
@@ -69,6 +66,10 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'top-level)
+  (evil-collection-bind 'action          'debugger-mode-map
+                        (if (fboundp 'debug-help-follow)
+                            'debug-help-follow
+                          'backtrace-help-follow-symbol))
   (evil-collection-bind 'quit            'debugger-mode-map 'top-level)
   (evil-collection-bind 'debug-continue  'debugger-mode-map 'debugger-continue)
   (evil-collection-bind 'debug-eval      'debugger-mode-map 'debugger-eval-expression)

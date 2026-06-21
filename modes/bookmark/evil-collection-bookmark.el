@@ -67,12 +67,10 @@
     ;; open
     "o" 'bookmark-bmenu-select
     "O" 'bookmark-bmenu-other-window
-    "go" 'bookmark-bmenu-other-window
-    "gO" 'bookmark-bmenu-switch-other-window
-    (kbd "DEL") 'bookmark-bmenu-backup-unmark
-    (kbd "RET") 'bookmark-bmenu-this-window
-    (kbd "S-<return>") 'bookmark-bmenu-other-window
-    (kbd "M-<return>") 'bookmark-bmenu-switch-other-window))
+    (kbd "DEL") 'bookmark-bmenu-backup-unmark)
+  (evil-collection-bind 'action       'bookmark-bmenu-mode-map 'bookmark-bmenu-this-window)
+  (evil-collection-bind 'action-other 'bookmark-bmenu-mode-map 'bookmark-bmenu-other-window)
+  (evil-collection-bind 'action-stay  'bookmark-bmenu-mode-map 'bookmark-bmenu-switch-other-window))
 
 (provide 'evil-collection-bookmark)
 ;;; evil-collection-bookmark.el ends here

@@ -37,16 +37,14 @@
 (defun evil-collection-dired-sidebar-setup ()
   "Set up `evil' bindings for `dired-sidebar'."
   (evil-collection-define-key 'normal 'dired-sidebar-mode-map
-    (kbd "RET") 'dired-sidebar-find-file
-    (kbd "C-m") 'dired-sidebar-find-file
-    (kbd "<return>") 'dired-sidebar-find-file
     (kbd "TAB") 'dired-sidebar-subtree-toggle
     [tab] 'dired-sidebar-subtree-toggle
     "^" 'dired-sidebar-up-directory
     "-" 'dired-sidebar-up-directory
-    (kbd "C-o") 'dired-sidebar-find-file-alt
     [mouse-2] 'dired-sidebar-mouse-subtree-cycle-or-find-file
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-bind 'action       'dired-sidebar-mode-map 'dired-sidebar-find-file)
+  (evil-collection-bind 'action-other 'dired-sidebar-mode-map 'dired-sidebar-find-file-alt))
 
 (provide 'evil-collection-dired-sidebar)
 ;;; evil-collection-dired-sidebar.el ends here

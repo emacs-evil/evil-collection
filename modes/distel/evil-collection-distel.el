@@ -52,12 +52,10 @@
       ;; ("\C-c\C-dm" edb-monitor)
       )
 
-    (evil-collection-define-key 'normal 'edb-monitor-mode-map
-      (kbd "RET") 'edb-attach-command)
+    (evil-collection-bind 'action 'edb-monitor-mode-map 'edb-attach-command)
     (evil-collection-bind 'quit 'edb-monitor-mode-map 'erl-bury-viewer)
 
-    (evil-collection-define-key 'normal 'edb-variables-mode-map
-      (kbd "RET") 'edb-show-variable)
+    (evil-collection-bind 'action 'edb-variables-mode-map 'edb-show-variable)
 
     (evil-collection-define-key 'normal 'edb-attach-mode-map
       "H" 'edb-attach-finish)
