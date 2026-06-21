@@ -66,9 +66,9 @@
       "U" 'edb-attach-up
       "D" 'edb-attach-down
       "H" 'edb-attach-finish
-      "g?" 'edb-attach-help
       "b" 'edb-toggle-breakpoint)
-    (evil-collection-theme-bind 'quit 'edb-attach-mode-map 'erl-quit-viewer))
+    (evil-collection-theme-bind 'quit          'edb-attach-mode-map 'erl-quit-viewer)
+    (evil-collection-theme-bind 'describe-mode 'edb-attach-mode-map 'edb-attach-help))
 
   (evil-collection-theme-bind 'find-usages 'erlang-extended-mode-map 'erl-who-calls)
 

@@ -135,8 +135,9 @@ that moves trashed messages out of the inbox)."
   (evil-set-initial-state 'notmuch-hello-mode 'normal)
   (evil-set-initial-state 'notmuch-tree-mode 'normal)
 
+  (evil-collection-theme-bind 'describe-mode 'notmuch-common-keymap 'notmuch-help)
+
   (evil-collection-define-key 'normal 'notmuch-common-keymap
-    "g?" 'notmuch-help
     "s" 'notmuch-search
     "S" 'notmuch-tree
     "C" 'notmuch-mua-new-mail           ; like mu4e
@@ -147,8 +148,9 @@ that moves trashed messages out of the inbox)."
     "J" 'notmuch-jump-search)
   (evil-collection-theme-bind 'quit 'notmuch-common-keymap 'notmuch-bury-or-kill-this-buffer)
 
+  (evil-collection-theme-bind 'describe-mode 'notmuch-hello-mode-map 'notmuch-version)
+
   (evil-collection-define-key 'normal 'notmuch-hello-mode-map
-    "g?" 'notmuch-version
     (kbd "TAB") 'widget-forward
     (kbd "RET") 'evil-collection-notmuch-hello-ret
     (kbd "S-TAB") 'widget-backward
@@ -190,8 +192,9 @@ that moves trashed messages out of the inbox)."
     (kbd "RET") 'notmuch-show-toggle-message
     "." 'notmuch-show-part-map)
 
+  (evil-collection-theme-bind 'describe-mode 'notmuch-tree-mode-map 'notmuch-help)
+
   (evil-collection-define-key 'normal 'notmuch-tree-mode-map
-    "g?" 'notmuch-help
     "S" 'notmuch-tree-to-search
     "C" 'notmuch-mua-new-mail ; like mu4e
     "cc" 'notmuch-mua-new-mail ; like mu4e

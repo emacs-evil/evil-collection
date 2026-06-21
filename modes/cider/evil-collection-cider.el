@@ -197,8 +197,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "d" 'cider-connections-make-default
     "c" 'cider-connection-browser
     "x" 'cider-connections-close-connection
-    (kbd "RET") 'cider-connections-goto-connection
-    "g?" 'describe-mode)
+    (kbd "RET") 'cider-connections-goto-connection)
+  (evil-collection-theme-bind 'describe-mode 'cider-connections-buffer-mode-map 'describe-mode)
 
   (evil-set-initial-state 'cider-stacktrace-mode 'normal)
   (evil-collection-define-key 'normal 'cider-stacktrace-mode-map

@@ -553,7 +553,10 @@ New customization should use
                :key "gf")
     (quit :enabled t
           :state normal
-          :key "q"))
+          :key "q")
+    (describe-mode :enabled t
+                   :state normal
+                   :key "g?"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

@@ -37,8 +37,9 @@
 (defun evil-collection-gited-setup ()
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
+  (evil-collection-theme-bind 'describe-mode 'gited-mode-map 'gited-summary)
+
   (evil-collection-define-key 'normal 'gited-mode-map
-    "g?" 'gited-summary
     "(" 'gited-hide-details-mode
     "gr" 'gited-update
     (kbd "C-c C-c") 'gited-commit

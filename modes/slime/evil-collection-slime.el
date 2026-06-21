@@ -79,7 +79,6 @@
     [mouse-2]  'sldb-default-action/mouse
     [follow-link] 'mouse-face
     "\C-i" 'sldb-cycle
-    "g?" 'describe-mode
     "S" 'sldb-show-source
     "e" 'sldb-eval-in-frame
     "d" 'sldb-pprint-eval-in-frame
@@ -120,7 +119,8 @@
     "7" 'sldb-invoke-restart-7
     "8" 'sldb-invoke-restart-8
     "9" 'sldb-invoke-restart-9)
-  (evil-collection-theme-bind 'quit 'sldb-mode-map 'sldb-quit)
+  (evil-collection-theme-bind 'quit          'sldb-mode-map 'sldb-quit)
+  (evil-collection-theme-bind 'describe-mode 'sldb-mode-map 'describe-mode)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
     (kbd "RET") 'slime-inspector-operate-on-point

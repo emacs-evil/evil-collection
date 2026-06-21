@@ -47,9 +47,9 @@
     "u" 'package-menu-mark-unmark
 
     ;; execute
-    "x" 'package-menu-execute
+    "x" 'package-menu-execute)
 
-    "g?" 'package-menu-describe-package)
+  (evil-collection-theme-bind 'describe-mode 'package-menu-mode-map 'package-menu-describe-package)
 
   ;; It's introduced since Emacs 28.
   (when (fboundp 'package-browse-url)

@@ -177,7 +177,6 @@ KEY is a string passed to `kbd'."
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-viewport-edit-mode-map
-      "g?" 'agent-shell-viewport-compose-help-menu
       "gs" 'agent-shell-cycle-session-mode
       "gm" 'agent-shell-viewport-set-session-mode
       "gv" 'agent-shell-viewport-set-session-model
@@ -185,7 +184,8 @@ KEY is a string passed to `kbd'."
       "gp" 'agent-shell-yank-dwim
       "g/" 'agent-shell-viewport-search-history
       "gy" 'agent-shell-viewport-copy-session-id
-      "gt" 'agent-shell-viewport-open-transcript))
+      "gt" 'agent-shell-viewport-open-transcript)
+    (evil-collection-theme-bind 'describe-mode 'agent-shell-viewport-edit-mode-map 'agent-shell-viewport-compose-help-menu))
 
   (evil-collection-define-key 'normal 'agent-shell-viewport-view-mode-map
     [remap evil-save-and-close] 'agent-shell-viewport-interrupt
@@ -216,7 +216,6 @@ KEY is a string passed to `kbd'."
       "gv" 'agent-shell-viewport-set-session-model
       "go" 'agent-shell-other-buffer
       "gm" 'agent-shell-viewport-set-session-mode
-      "g?" 'agent-shell-viewport-help-menu
       ;; Maybe move elsewhere.
       "gr" 'agent-shell-viewport-reply
       "gy" 'agent-shell-viewport-reply-yes
@@ -227,7 +226,8 @@ KEY is a string passed to `kbd'."
       "gF" 'agent-shell-viewport-fork
       "gY" 'agent-shell-viewport-copy-session-id
       "gt" 'agent-shell-viewport-open-transcript
-      "gz" 'agent-shell-viewport-refresh))
+      "gz" 'agent-shell-viewport-refresh)
+    (evil-collection-theme-bind 'describe-mode 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-help-menu))
 
   (evil-collection-theme-bind 'quit 'agent-shell-diff-mode-map #'kill-current-buffer)
 

@@ -62,7 +62,6 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters
 
-    "g?" 'describe-mode
     "gr" 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
@@ -79,11 +78,13 @@
 
     "zh" 'disk-usage-toggle-human-readable
 
-    "g?" 'describe-mode
     "gr" 'revert-buffer
 
     "a" 'disk-usage-add-filters
-    "A" 'disk-usage-remove-filters))
+    "A" 'disk-usage-remove-filters)
+
+  (evil-collection-theme-bind 'describe-mode 'disk-usage-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode))
 
 (provide 'evil-collection-disk-usage)
 ;;; evil-collection-disk-usage.el ends here

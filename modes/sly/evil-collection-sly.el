@@ -92,7 +92,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-define-key 'normal 'sly-db-mode-map
     [follow-link] 'mouse-face
     "\C-i" 'sly-db-cycle
-    "g?" 'describe-mode
     "S" 'sly-db-show-frame-source
     "e" 'sly-db-eval-in-frame
     "d" 'sly-db-pprint-eval-in-frame
@@ -133,7 +132,8 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "7" 'sly-db-invoke-restart-7
     "8" 'sly-db-invoke-restart-8
     "9" 'sly-db-invoke-restart-9)
-  (evil-collection-theme-bind 'quit 'sly-db-mode-map 'sly-db-quit)
+  (evil-collection-theme-bind 'quit          'sly-db-mode-map 'sly-db-quit)
+  (evil-collection-theme-bind 'describe-mode 'sly-db-mode-map 'describe-mode)
 
   (evil-collection-define-key 'normal 'sly-inspector-mode-map
     [mouse-6] 'sly-inspector-pop

@@ -68,14 +68,14 @@
     ;; refresh
     "gr" 'debbugs-gnu-rescan
 
-    "g?" 'debbugs-gnu-manual
     "gt" 'debbugs-gnu-view-bug-triage
     "g#" 'debbugs-gnu-bugs
 
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'debbugs-gnu-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
+  (evil-collection-theme-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual))
 
 (provide 'evil-collection-debbugs)
 ;;; evil-collection-debbugs.el ends here

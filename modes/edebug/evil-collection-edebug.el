@@ -91,7 +91,6 @@
     "WS" 'edebug-toggle-save-windows
 
     ;; misc
-    "g?" 'edebug-help
     "d" 'edebug-backtrace
 
     "-" 'negative-argument
@@ -108,7 +107,8 @@
     (kbd "C-c C-d") 'edebug-unset-breakpoint
     (kbd "C-c C-t") (lambda () (interactive) (edebug-set-breakpoint t))
     (kbd "C-c C-l") 'edebug-where)
-  (evil-collection-theme-bind 'quit 'edebug-mode-map 'top-level)
+  (evil-collection-theme-bind 'quit          'edebug-mode-map 'top-level)
+  (evil-collection-theme-bind 'describe-mode 'edebug-mode-map 'edebug-help)
 
   (with-eval-after-load 'edebug-x
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map
