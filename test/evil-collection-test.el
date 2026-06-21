@@ -249,4 +249,13 @@ The contract inherited from `evil-collection-repl-submit-state' documents
   (should (equal '("S-<return>" "S-RET")
                  (evil-collection-theme-keys 'repl-force-newline))))
 
+(ert-deftest evil-collection-theme-bind-minor-mode-skips-when-disabled ()
+  "`evil-collection-theme-bind-minor-mode' is a no-op when disabled."
+  (let ((evil-collection-theme-defaults '((demo :enabled t :state normal :key "X")))
+        (evil-collection-theme-overrides '((demo :enabled nil))))
+    ;; If the helper called through to `evil-define-minor-mode-key' with an
+    ;; unbound mode it would error.  Confirm it stays silent when disabled.
+    (should-not (evil-collection-theme-bind-minor-mode
+                 'demo 'evil-collection-theme-test--no-such-mode #'ignore))))
+
 ;;; evil-collection-test.el ends here
