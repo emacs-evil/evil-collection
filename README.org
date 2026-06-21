@@ -395,17 +395,19 @@ Dired-style mark family for tabular-list modes (~ibuffer~, ~proced~, ~package-me
 
 - ~mark~ / ~unmark~ — mark / unmark entry at point (~m~ / ~u~).
 - ~mark-all~ / ~unmark-all~ — bulk variants (~M~ / ~U~).
+- ~mark-toggle-all~ — invert marks (=~=) — mirrors vim's =~= invert-char.
 - ~mark-delete~ — flag entry for deletion (~d~), paired with ~execute-marks~ (~x~).
 - ~execute-marks~ — execute pending marked actions (~x~).
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((mark          :state normal :key "m")
-        (mark-all      :state normal :key "M")
-        (unmark        :state normal :key "u")
-        (unmark-all    :state normal :key "U")
-        (mark-delete   :state normal :key "d")
-        (execute-marks :state normal :key "x")))
+      '((mark            :state normal :key "m")
+        (mark-all        :state normal :key "M")
+        (mark-toggle-all :state normal :key "~")
+        (unmark          :state normal :key "u")
+        (unmark-all      :state normal :key "U")
+        (mark-delete     :state normal :key "d")
+        (execute-marks   :state normal :key "x")))
 #+end_src
 
 *** Delete

@@ -40,8 +40,6 @@
     ;; motion
     "S" 'tabulated-list-sort
 
-    "~" 'trashed-toggle-marks
-
     "$ m" 'trashed-mark-files-by-date
     "$ u" 'trashed-unmark-files-by-date
     "$ d" 'trashed-flag-delete-files-by-date
@@ -65,6 +63,7 @@
   (evil-collection-bind 'trashed-mode-map
                         'mark 'trashed-mark
                         'mark-all 'trashed-mark-all
+                        'mark-toggle-all 'trashed-toggle-marks
                         'unmark 'trashed-unmark
                         'unmark-all 'trashed-unmark-all
                         'mark-delete 'trashed-flag-delete
