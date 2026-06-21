@@ -120,7 +120,6 @@ Note that there is no gnus-common-mode-map")
     "z/"        'gnus-summary-limit-map
     "zt"        'gnus-summary-toggle-header
     "x"         'gnus-summary-limit-to-unread
-    "gX"        'gnus-summary-browse-url
 
     ;; Finding the parent
     "^"         'gnus-summary-refer-parent-article
@@ -235,7 +234,8 @@ Note that there is no gnus-common-mode-map")
                         'next-section 'gnus-summary-next-unread-article
                         'prev-section 'gnus-summary-prev-unread-article
                         'next-section-2 'gnus-summary-next-article
-                        'prev-section-2 'gnus-summary-prev-article)
+                        'prev-section-2 'gnus-summary-prev-article
+                        'browse-url 'gnus-summary-browse-url)
 
   (evil-collection-define-key 'motion 'gnus-article-mode-map
     "F"         'gnus-article-followup-with-original
@@ -308,12 +308,12 @@ Note that there is no gnus-common-mode-map")
 
     ;; Actions
     (kbd "C-]") 'gnus-article-refer-article
-    "s"         'gnus-article-show-summary
-    "gX"        'gnus-summary-browse-url)
+    "s"         'gnus-article-show-summary)
   (evil-collection-bind 'gnus-article-mode-map
                         'refresh 'gnus-summary-show-article
                         'next-button 'forward-button
-                        'previous-button 'backward-button)
+                        'previous-button 'backward-button
+                        'browse-url 'gnus-summary-browse-url)
 
   (evil-collection-bind 'gnus-group-mode-map
                         'quit 'gnus-group-exit

@@ -180,7 +180,8 @@ F is the name of function, N is the pixel height."
 
   (evil-collection-bind 'xwidget-webkit-mode-map
                         'action 'xwidget-webkit-insert-string
-                        'refresh 'xwidget-webkit-reload))
+                        'refresh 'xwidget-webkit-reload
+                        'browse-url 'xwidget-webkit-browse-url))
 
 (provide 'evil-collection-xwidget)
 ;;; evil-collection-xwidget.el ends here

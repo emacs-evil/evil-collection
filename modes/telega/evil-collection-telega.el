@@ -126,12 +126,13 @@
   (evil-collection-define-key 'normal 'telega-webpage-mode-map
     "ga" telega-prefix-map
 
-    "gx" 'telega-webpage-browse-url
     "yy" 'telega-webpage-copy-url
     "(" 'telega-webpage-history-prev
     ")" 'telega-webpage-history-next
     (kbd "<tab>") 'telega-button-forward
     (kbd "<backtab>") 'telega-button-backward)
+  (evil-collection-bind 'telega-webpage-mode-map
+                        'browse-url 'telega-webpage-browse-url)
 
   (evil-collection-set-readonly-bindings 'telega-user-button-map)
   ; We have to set keybinds for emacs instead of normal state because normal

@@ -84,7 +84,6 @@
     "i" 'newsticker-treeview-toggle-item-immortal
 
     "b" 'newsticker-treeview-browse-url-item
-    "B" 'newsticker-treeview-browse-url
 
     ;; group
     "A" 'newsticker-group-add-group
@@ -102,7 +101,8 @@
                         'prev-section 'newsticker-treeview-prev-feed
                         'quit 'newsticker-treeview-quit
                         'refresh 'newsticker-treeview-update
-                        'refresh-all 'newsticker-get-all-news))
+                        'refresh-all 'newsticker-get-all-news
+                        'browse-url 'newsticker-treeview-browse-url))
 
 (provide 'evil-collection-newsticker)
 ;;; evil-collection-newsticker.el ends here

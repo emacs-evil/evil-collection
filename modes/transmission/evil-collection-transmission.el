@@ -106,10 +106,7 @@
     "!" 'transmission-files-command
     ;; "X" 'transmission-files-command
     "t" 'transmission-trackers-add
-    "T" 'transmission-trackers-remove
-
-    ;; goto URL
-    "gx" 'transmission-browse-url-of-file) ; See mu4e.
+    "T" 'transmission-trackers-remove)
   (evil-collection-bind 'transmission-files-mode-map
                         'scroll-down 'scroll-up-command
                         'scroll-up 'scroll-down-command
@@ -118,7 +115,8 @@
                         'action-stay 'transmission-display-file
                         'quit 'transmission-quit
                         'quit-save 'transmission-quit
-                        'quit-cancel 'evil-quit)
+                        'quit-cancel 'evil-quit
+                        'browse-url 'transmission-browse-url-of-file)
 
   (evil-collection-define-key 'visual 'transmission-files-mode-map
     "r" 'transmission-move

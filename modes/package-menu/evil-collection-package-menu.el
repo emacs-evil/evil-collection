@@ -50,8 +50,8 @@
 
   ;; It's introduced since Emacs 28.
   (when (fboundp 'package-browse-url)
-    (evil-collection-define-key 'normal 'package-menu-mode-map
-      "B" 'package-browse-url)))
+    (evil-collection-bind 'package-menu-mode-map
+                          'browse-url 'package-browse-url)))
 
 (provide 'evil-collection-package-menu)
 ;;; evil-collection-package-menu.el ends here
