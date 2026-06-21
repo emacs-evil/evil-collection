@@ -59,11 +59,9 @@
       "k" 'vertico-previous)
     (evil-collection-bind 'vertico-map
                           'next-item 'vertico-next-group
-                          'prev-item 'vertico-previous-group)
-
-    (evil-collection-define-key 'insert 'vertico-map
-      (kbd "C-n") 'vertico-next
-      (kbd "C-p") 'vertico-previous)))
+                          'prev-item 'vertico-previous-group
+                          'completion-previous 'vertico-previous
+                          'completion-next     'vertico-next)))
 
 (provide 'evil-collection-vertico)
 ;;; evil-collection-vertico.el ends here

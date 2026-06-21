@@ -177,9 +177,12 @@
     (kbd "RET") 'helm-maybe-exit-minibuffer
     (kbd "M-v") 'helm-previous-page
     (kbd "C-v") 'helm-next-page
-    (kbd "C-p") 'helm-previous-line
-    (kbd "C-n") 'helm-next-line
     (kbd "C-o") 'helm-next-source)
+  (evil-collection-bind 'helm-map
+                        'completion-previous 'helm-previous-line
+                        'completion-next     'helm-next-line
+                        'history-previous    'helm-previous-line
+                        'history-next        'helm-next-line)
 
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'normal 'helm-map

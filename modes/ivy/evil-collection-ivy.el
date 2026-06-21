@@ -99,9 +99,10 @@
 
     (evil-collection-define-key 'insert 'ivy-minibuffer-map
       (kbd "DEL") 'ivy-backward-delete-char
-      (kbd "C-r") 'ivy-reverse-i-search
-      (kbd "C-n") 'ivy-next-line
-      (kbd "C-p") 'ivy-previous-line)))
+      (kbd "C-r") 'ivy-reverse-i-search)
+    (evil-collection-bind 'ivy-minibuffer-map
+                          'completion-previous 'ivy-previous-line
+                          'completion-next     'ivy-next-line)))
 
 (provide 'evil-collection-ivy)
 ;;; evil-collection-ivy.el ends here

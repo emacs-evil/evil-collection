@@ -105,8 +105,6 @@ appropriate in some cases like terminals."
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument
 
-    (kbd "C-n") 'eshell-next-matching-input-from-input
-    (kbd "C-p") 'eshell-previous-matching-input-from-input
 
     (kbd "C-c C-c") 'evil-collection-eshell-interrupt-process
     "c" 'evil-collection-eshell-evil-change
@@ -118,6 +116,8 @@ appropriate in some cases like terminals."
                         'prev-item 'eshell-previous-prompt
                         'next-section 'eshell-next-prompt
                         'prev-section 'eshell-previous-prompt
+                        'history-previous 'eshell-previous-matching-input-from-input
+                        'history-next     'eshell-next-matching-input-from-input
                         'repl-submit 'eshell-send-input
                         'repl-newline 'newline
                         'repl-force-newline 'newline)

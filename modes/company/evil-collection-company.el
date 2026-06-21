@@ -96,12 +96,23 @@ C-x C-l."
 (defun evil-collection-company-setup ()
   "Set up `evil' bindings for `company'."
   (evil-collection-define-key nil 'company-active-map
-    (kbd "C-n") 'company-select-next-or-abort
-    (kbd "C-p") 'company-select-previous-or-abort
     (kbd "C-j") 'company-select-next-or-abort
     (kbd "C-k") 'company-select-previous-or-abort
     (kbd "M-j") 'company-select-next
     (kbd "M-k") 'company-select-previous)
+
+  ;; company-active-map is bound across all states (`nil'), so we use the
+  ;; `completion-next' / `completion-previous' theme's *keys* but bind them
+  ;; with nil state instead of routing through `evil-collection-bind' (which
+  ;; would use the theme's :state insert).
+  (when (evil-collection-binding-enabled-p 'completion-next)
+    (dolist (key (evil-collection-binding-keys 'completion-next))
+      (evil-collection-define-key nil 'company-active-map
+        (kbd key) 'company-select-next-or-abort)))
+  (when (evil-collection-binding-enabled-p 'completion-previous)
+    (dolist (key (evil-collection-binding-keys 'completion-previous))
+      (evil-collection-define-key nil 'company-active-map
+        (kbd key) 'company-select-previous-or-abort)))
 
   (when evil-collection-want-company-extended-keybindings 
     (evil-collection-define-key nil 'company-active-map

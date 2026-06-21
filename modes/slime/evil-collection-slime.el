@@ -190,10 +190,9 @@
                         'next-item 'slime-repl-next-prompt
                         'prev-item 'slime-repl-previous-prompt
                         'next-section 'slime-repl-next-prompt
-                        'prev-section 'slime-repl-previous-prompt)
-  (evil-collection-define-key 'normal 'slime-repl-mode-map
-    (kbd "C-p") 'slime-repl-previous-input
-    (kbd "C-n") 'slime-repl-next-input)
+                        'prev-section 'slime-repl-previous-prompt
+                        'history-previous 'slime-repl-previous-input
+                        'history-next     'slime-repl-next-input)
 
   (add-hook 'slime-popup-buffer-mode-hook #'evil-normalize-keymaps))
 

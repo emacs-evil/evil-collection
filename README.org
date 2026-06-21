@@ -398,6 +398,29 @@ Three semantics share the ~<tab>~ / ~<backtab>~ pair:
         (scroll-up   :state normal :key ("S-SPC" "S-<space>"))))
 #+end_src
 
+*** History / Completion (C-n / C-p)
+
+Vim uses ~C-n~ / ~C-p~ in several "next/previous in some sequence" contexts.
+We split them into two themes so the state matches the semantic:
+
+- ~history-previous~ / ~history-next~ — normal-state navigation of a buffer's
+  input or page history (REPL prompts, shell history, doc back/forward).
+  Consumers: ~comint~, ~eshell~, ~slime~, ~sly~, ~edbi~, ~rg~, ~devdocs~.
+
+- ~completion-previous~ / ~completion-next~ — insert-state navigation of the
+  candidate list during an active minibuffer or popup completion.
+  Consumers: ~ivy~, ~vertico~, ~selectrum~, ~corfu~, ~helm~, ~company~.
+
+Modes whose ~C-n~ / ~C-p~ blur both (e.g. ~helm~) opt into both themes.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((history-previous     :state normal :key "C-p")
+        (history-next         :state normal :key "C-n")
+        (completion-previous  :state insert :key "C-p")
+        (completion-next      :state insert :key "C-n")))
+#+end_src
+
 *** Marking
 
 Dired-style mark family for tabular-list modes (~ibuffer~, ~proced~, ~package-menu~, ~tablist~ derivatives):
