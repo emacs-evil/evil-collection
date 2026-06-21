@@ -39,15 +39,11 @@
   (evil-collection-set-readonly-bindings 'package-menu-mode-map)
   (evil-collection-define-key 'normal 'package-menu-mode-map
     "i" 'package-menu-mark-install
-    "U" 'package-menu-mark-upgrades
-    "d" 'package-menu-mark-delete
+    "U" 'package-menu-mark-upgrades)
 
-    ;; undo
-    "u" 'package-menu-mark-unmark
-
-    ;; execute
-    "x" 'package-menu-execute)
-
+  (evil-collection-bind 'unmark        'package-menu-mode-map 'package-menu-mark-unmark)
+  (evil-collection-bind 'mark-delete   'package-menu-mode-map 'package-menu-mark-delete)
+  (evil-collection-bind 'execute-marks 'package-menu-mode-map 'package-menu-execute)
   (evil-collection-bind 'describe-mode 'package-menu-mode-map 'package-menu-describe-package)
   (evil-collection-bind 'refresh       'package-menu-mode-map 'revert-buffer)
 

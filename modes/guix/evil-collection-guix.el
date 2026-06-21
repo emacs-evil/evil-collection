@@ -50,8 +50,6 @@
      (evil-collection-set-readonly-bindings ',map)
      (evil-collection-define-key 'normal ',map
         ;; motion
-        (kbd "SPC") 'scroll-up-command
-        (kbd "S-SPC") 'scroll-down-command
         (kbd "<tab>") 'forward-button
         (kbd "<backtab>") 'backward-button
 
@@ -72,6 +70,8 @@
 
         (kbd "C-o") 'bui-history-back
         (kbd "C-i") 'bui-history-forward)
+     (evil-collection-bind 'scroll-down    ',map 'scroll-up-command)
+     (evil-collection-bind 'scroll-up      ',map 'scroll-down-command)
      (evil-collection-bind 'goto-repl      ',map 'guix-switch-to-repl)
      (evil-collection-bind 'describe-mode  ',map 'bui-show-hint)
      (evil-collection-bind 'refresh        ',map 'revert-buffer)
@@ -177,11 +177,11 @@
   (evil-collection-set-readonly-bindings 'guix-build-log-mode-map)
   (evil-collection-define-key 'normal 'guix-build-log-mode-map
     ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
     (kbd "<tab>") 'guix-build-log-phase-toggle
     (kbd "<backtab>") 'guix-build-log-phase-toggle-all)
 
+  (evil-collection-bind 'scroll-down  'guix-build-log-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'guix-build-log-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'guix-build-log-mode-map 'guix-build-log-next-phase)
   (evil-collection-bind 'prev-item    'guix-build-log-mode-map 'guix-build-log-previous-phase)
   (evil-collection-bind 'next-section 'guix-build-log-mode-map 'guix-build-log-next-phase)

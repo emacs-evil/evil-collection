@@ -120,8 +120,6 @@ instead, which is useless and counterintuitive."
     (kbd "RET") 'image-next-line
     "j" 'pdf-view-next-line-or-next-page
     "k" 'pdf-view-previous-line-or-previous-page
-    (kbd "SPC") 'pdf-view-scroll-up-or-next-page
-    (kbd "S-SPC") 'pdf-view-scroll-down-or-previous-page
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
     (kbd "C-f") 'pdf-view-scroll-up-or-next-page
     (kbd "C-b") 'pdf-view-scroll-down-or-previous-page
@@ -188,6 +186,8 @@ instead, which is useless and counterintuitive."
     "Q" 'kill-current-buffer
     "ZQ" 'kill-current-buffer
     "ZZ" 'quit-window)
+  (evil-collection-bind 'scroll-down  'pdf-view-mode-map 'pdf-view-scroll-up-or-next-page)
+  (evil-collection-bind 'scroll-up    'pdf-view-mode-map 'pdf-view-scroll-down-or-previous-page)
   (evil-collection-bind 'next-item    'pdf-view-mode-map 'pdf-view-next-page-command)
   (evil-collection-bind 'prev-item    'pdf-view-mode-map 'pdf-view-previous-page-command)
   (evil-collection-bind 'next-section 'pdf-view-mode-map 'pdf-view-next-page-command)
@@ -260,10 +260,7 @@ instead, which is useless and counterintuitive."
 
     ;; mark
     "*m" 'tablist-mark-forward
-    "m" 'tablist-mark-forward
     "~" 'tablist-toggle-marks
-    "u" 'tablist-unmark-forward
-    "U" 'tablist-unmark-all-marks
     "*!" 'tablist-unmark-all-marks
     "*c" 'tablist-change-marks
     "*n" 'tablist-mark-items-numeric
@@ -274,10 +271,7 @@ instead, which is useless and counterintuitive."
 
     ;; "f" 'tablist-find-entry ; TODO: Equivalent to 'pdf-occur-goto-occurrence?
     "r" 'pdf-occur-revert-buffer-with-args
-    "d" 'pdf-occur-tablist-do-delete
-    "x" 'pdf-occur-tablist-do-flagged-delete
     (kbd "<delete>") 'tablist-unmark-backward
-    (kbd "S-SPC") 'scroll-down-command
     (kbd "<backtab>") 'tablist-backward-column
     (kbd "C-c C-e") 'tablist-export-csv
 
@@ -305,9 +299,15 @@ instead, which is useless and counterintuitive."
     ;; quit
     "ZQ" 'tablist-quit
     "ZZ" 'tablist-quit)
+  (evil-collection-bind 'mark          'pdf-occur-buffer-mode-map 'tablist-mark-forward)
+  (evil-collection-bind 'unmark        'pdf-occur-buffer-mode-map 'tablist-unmark-forward)
+  (evil-collection-bind 'unmark-all    'pdf-occur-buffer-mode-map 'tablist-unmark-all-marks)
+  (evil-collection-bind 'execute-marks 'pdf-occur-buffer-mode-map 'pdf-occur-tablist-do-flagged-delete)
+  (evil-collection-bind 'scroll-up    'pdf-occur-buffer-mode-map 'scroll-down-command)
   (evil-collection-bind 'action       'pdf-occur-buffer-mode-map 'pdf-occur-goto-occurrence)
   (evil-collection-bind 'action-other 'pdf-occur-buffer-mode-map 'pdf-occur-view-occurrence)
-  (evil-collection-bind 'quit 'pdf-occur-buffer-mode-map 'tablist-quit))
+  (evil-collection-bind 'quit   'pdf-occur-buffer-mode-map 'tablist-quit)
+  (evil-collection-bind 'delete 'pdf-occur-buffer-mode-map 'pdf-occur-tablist-do-delete))
 
 (provide 'evil-collection-pdf)
 ;;; evil-collection-pdf.el ends here

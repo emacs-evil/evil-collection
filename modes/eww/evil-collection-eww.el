@@ -60,9 +60,6 @@
 
     "o" 'eww                            ; Like qutebrowser.
 
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
-
     ;; bookmarks
     "gb" 'eww-list-bookmarks
 
@@ -72,6 +69,8 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-bind 'scroll-down  'eww-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'eww-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'eww-mode-map 'eww-next-url)
   (evil-collection-bind 'prev-item    'eww-mode-map 'eww-previous-url)
   (evil-collection-bind 'next-section 'eww-mode-map 'eww-next-url)
@@ -95,22 +94,21 @@
 
   (evil-collection-set-readonly-bindings 'eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
-  (evil-collection-define-key 'normal 'eww-buffers-mode-map
-    "d" 'eww-buffer-kill)
   (evil-collection-bind 'action       'eww-buffers-mode-map 'eww-buffer-select)
   (evil-collection-bind 'next-item    'eww-buffers-mode-map 'eww-buffer-show-next)
   (evil-collection-bind 'prev-item    'eww-buffers-mode-map 'eww-buffer-show-previous)
   (evil-collection-bind 'next-section 'eww-buffers-mode-map 'eww-buffer-show-next)
   (evil-collection-bind 'prev-section 'eww-buffers-mode-map 'eww-buffer-show-previous)
   (evil-collection-bind 'refresh 'eww-buffers-mode-map 'revert-buffer)
+  (evil-collection-bind 'delete  'eww-buffers-mode-map 'eww-buffer-kill)
 
   (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
   (evil-collection-define-key 'normal 'eww-bookmark-mode-map
-    "d" 'eww-bookmark-kill
     "P" 'eww-bookmark-yank)
   (evil-collection-bind 'action 'eww-bookmark-mode-map 'eww-bookmark-browse)
   (evil-collection-bind 'refresh 'eww-bookmark-mode-map 'revert-buffer)
+  (evil-collection-bind 'delete  'eww-bookmark-mode-map 'eww-bookmark-kill)
 
   (evil-collection-define-operator-key 'yank 'eww-bookmark-mode-map
     "u" 'eww-copy-page-url))

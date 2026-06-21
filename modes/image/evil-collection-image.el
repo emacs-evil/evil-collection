@@ -49,8 +49,6 @@
     "^" 'image-bol
     "$" 'image-eol
     (kbd "C-d") 'image-scroll-up
-    (kbd "SPC") 'image-scroll-up
-    (kbd "S-SPC") 'image-scroll-down
     (kbd "<delete>") 'image-scroll-down
     ;; animation
     "a0" 'image-reset-speed
@@ -74,6 +72,8 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-bind 'scroll-down  'image-mode-map 'image-scroll-up)
+  (evil-collection-bind 'scroll-up    'image-mode-map 'image-scroll-down)
   (evil-collection-bind 'action       'image-mode-map 'image-toggle-animation)
   (evil-collection-bind 'next-item    'image-mode-map 'image-next-file)
   (evil-collection-bind 'prev-item    'image-mode-map 'image-previous-file)

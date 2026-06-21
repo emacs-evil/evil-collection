@@ -39,20 +39,13 @@
   (evil-collection-define-key 'normal 'Buffer-menu-mode-map
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
-    "d" 'Buffer-menu-delete
     "s" 'Buffer-menu-save
     [mouse-2] 'Buffer-menu-mouse-select
     [follow-link] 'mouse-face
-    "x" 'Buffer-menu-execute
     "o" 'tabulated-list-sort
     "gv" 'Buffer-menu-select
     "gV" 'Buffer-menu-view
     "v" 'evil-visual-char
-
-    ;; mark
-    "u" 'Buffer-menu-unmark
-    "U" 'Buffer-menu-unmark-all
-    "m" 'Buffer-menu-mark
 
     "X" 'Buffer-menu-bury
 
@@ -69,6 +62,11 @@
     (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
     (kbd "M-s a C-o") 'Buffer-menu-multi-occur)
+  (evil-collection-bind 'mark          'Buffer-menu-mode-map 'Buffer-menu-mark)
+  (evil-collection-bind 'unmark        'Buffer-menu-mode-map 'Buffer-menu-unmark)
+  (evil-collection-bind 'unmark-all    'Buffer-menu-mode-map 'Buffer-menu-unmark-all)
+  (evil-collection-bind 'mark-delete   'Buffer-menu-mode-map 'Buffer-menu-delete)
+  (evil-collection-bind 'execute-marks 'Buffer-menu-mode-map 'Buffer-menu-execute)
   (evil-collection-bind 'action       'Buffer-menu-mode-map 'Buffer-menu-this-window)
   (evil-collection-bind 'action-other 'Buffer-menu-mode-map 'Buffer-menu-other-window)
   (evil-collection-bind 'refresh 'Buffer-menu-mode-map 'revert-buffer))

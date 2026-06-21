@@ -43,15 +43,13 @@
     "f" 'kmacro-menu-edit-format
     "e" 'kmacro-menu-edit-keys
 
-    ;; Mark
-    "d" 'kmacro-menu-flag-for-deletion
-    "m" 'kmacro-menu-mark
-    "u" 'kmacro-menu-unmark
-    "U" 'kmacro-menu-unmark-all
-
-    "x" 'kmacro-menu-do-flagged-delete
     "C" 'kmacro-menu-do-copy
     "D" 'kmacro-menu-do-delete)
+  (evil-collection-bind 'mark          'kmacro-menu-mode-map 'kmacro-menu-mark)
+  (evil-collection-bind 'unmark        'kmacro-menu-mode-map 'kmacro-menu-unmark)
+  (evil-collection-bind 'unmark-all    'kmacro-menu-mode-map 'kmacro-menu-unmark-all)
+  (evil-collection-bind 'mark-delete   'kmacro-menu-mode-map 'kmacro-menu-flag-for-deletion)
+  (evil-collection-bind 'execute-marks 'kmacro-menu-mode-map 'kmacro-menu-do-flagged-delete)
   (evil-collection-bind 'action 'kmacro-menu-mode-map 'kmacro-menu-edit-column))
 
 (provide 'evil-collection-kmacro)

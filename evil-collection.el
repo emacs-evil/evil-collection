@@ -644,7 +644,34 @@ New customization should use
                     :key "C-j")
     (prev-section-2 :enabled t
                     :state normal
-                    :key "C-k"))
+                    :key "C-k")
+    (scroll-down :enabled t
+                 :state normal
+                 :key "SPC")
+    (scroll-up :enabled t
+               :state normal
+               :key ("S-SPC" "S-<space>"))
+    (mark :enabled t
+          :state normal
+          :key "m")
+    (mark-all :enabled t
+              :state normal
+              :key "M")
+    (unmark :enabled t
+            :state normal
+            :key "u")
+    (unmark-all :enabled t
+                :state normal
+                :key "U")
+    (mark-delete :enabled t
+                 :state normal
+                 :key "d")
+    (execute-marks :enabled t
+                   :state normal
+                   :key "x")
+    (delete :enabled t
+            :state normal
+            :key "d"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

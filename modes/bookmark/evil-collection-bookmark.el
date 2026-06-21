@@ -43,8 +43,6 @@
     "1" 'bookmark-bmenu-1-window
     "2" 'bookmark-bmenu-2-window
     "5" 'bookmark-bmenu-other-frame
-    "d" 'bookmark-bmenu-delete
-    "x" 'bookmark-bmenu-execute-deletions
     "s" 'bookmark-bmenu-search
     "r" 'bookmark-bmenu-rename
     "R" 'bookmark-bmenu-relocate
@@ -58,16 +56,16 @@
     "A" 'bookmark-bmenu-show-all-annotations
     "E" 'bookmark-bmenu-edit-annotation
 
-    ;; mark
-    "u" 'bookmark-bmenu-unmark
-    "U" 'bookmark-bmenu-unmark-all
-    "m" 'bookmark-bmenu-mark
-    "M" 'bookmark-bmenu-mark-all
-
     ;; open
     "o" 'bookmark-bmenu-select
     "O" 'bookmark-bmenu-other-window
     (kbd "DEL") 'bookmark-bmenu-backup-unmark)
+  (evil-collection-bind 'mark          'bookmark-bmenu-mode-map 'bookmark-bmenu-mark)
+  (evil-collection-bind 'mark-all      'bookmark-bmenu-mode-map 'bookmark-bmenu-mark-all)
+  (evil-collection-bind 'unmark        'bookmark-bmenu-mode-map 'bookmark-bmenu-unmark)
+  (evil-collection-bind 'unmark-all    'bookmark-bmenu-mode-map 'bookmark-bmenu-unmark-all)
+  (evil-collection-bind 'mark-delete   'bookmark-bmenu-mode-map 'bookmark-bmenu-delete)
+  (evil-collection-bind 'execute-marks 'bookmark-bmenu-mode-map 'bookmark-bmenu-execute-deletions)
   (evil-collection-bind 'action       'bookmark-bmenu-mode-map 'bookmark-bmenu-this-window)
   (evil-collection-bind 'action-other 'bookmark-bmenu-mode-map 'bookmark-bmenu-other-window)
   (evil-collection-bind 'action-stay  'bookmark-bmenu-mode-map 'bookmark-bmenu-switch-other-window))

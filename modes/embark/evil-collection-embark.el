@@ -43,8 +43,8 @@
     "a" 'embark-act
     "A" 'embark-act-all
     "E" 'embark-export                   ;; was e
-    "m" 'embark-select
     (kbd "M-a") 'embark-collect-direct-action-minor-mode)
+  (evil-collection-bind 'mark    'embark-collect-mode-map 'embark-select)
   (evil-collection-bind 'refresh 'embark-collect-mode-map 'revert-buffer))
 
 (provide 'evil-collection-embark)

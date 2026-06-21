@@ -37,9 +37,6 @@
   "Set up `evil' bindings for `w3m'."
   (evil-set-initial-state 'w3m-mode 'normal)
   (evil-collection-define-key 'normal 'w3m-mode-map
-    (kbd "S-SPC") 'w3m-scroll-down-or-previous-url
-    (kbd "SPC") 'w3m-scroll-up-or-next-url
-
     "o" 'w3m-goto-url
     "O" 'w3m-goto-url-new-session
 
@@ -66,6 +63,8 @@
     ;; quit
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
+  (evil-collection-bind 'scroll-down  'w3m-mode-map 'w3m-scroll-up-or-next-url)
+  (evil-collection-bind 'scroll-up    'w3m-mode-map 'w3m-scroll-down-or-previous-url)
   (evil-collection-bind 'action       'w3m-mode-map 'w3m-view-this-url)
   (evil-collection-bind 'next-item    'w3m-mode-map 'w3m-next-form)
   (evil-collection-bind 'prev-item    'w3m-mode-map 'w3m-previous-form)

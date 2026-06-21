@@ -40,10 +40,6 @@
   (evil-collection-bind 'next-button     'disk-usage-mode-map 'forward-button)
   (evil-collection-bind 'previous-button 'disk-usage-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-mode-map
-    ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
-
     "S" 'tabulated-list-sort
     "^" 'disk-usage-up
 
@@ -62,20 +58,22 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
+  (evil-collection-bind 'scroll-down 'disk-usage-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up   'disk-usage-mode-map 'scroll-down-command)
+
   (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
   (evil-collection-bind 'next-button     'disk-usage-by-types-mode-map 'forward-button)
   (evil-collection-bind 'previous-button 'disk-usage-by-types-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-by-types-mode-map
-    ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
-
     "S" 'tabulated-list-sort
 
     "zh" 'disk-usage-toggle-human-readable
 
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
+
+  (evil-collection-bind 'scroll-down 'disk-usage-by-types-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up   'disk-usage-by-types-mode-map 'scroll-down-command)
 
   (evil-collection-bind 'action        'disk-usage-by-types-mode-map 'disk-usage-files)
   (evil-collection-bind 'describe-mode 'disk-usage-mode-map          'describe-mode)

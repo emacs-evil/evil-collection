@@ -43,9 +43,7 @@
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
 
-    "d" 'tar-flag-deleted
     "r" 'tar-rename-entry
-    "x" 'tar-expunge
     "M" 'tar-chmod-entry
     "P" 'tar-chgrp-entry
     "O" 'tar-chown-entry
@@ -54,11 +52,11 @@
     "I" 'tar-new-entry
 
     ;; write
-    "C" 'tar-copy
-
-    ;; mark
-    "u" 'tar-unflag
-    "U" 'tar-clear-modification-flags)
+    "C" 'tar-copy)
+  (evil-collection-bind 'mark-delete   'tar-mode-map 'tar-flag-deleted)
+  (evil-collection-bind 'execute-marks 'tar-mode-map 'tar-expunge)
+  (evil-collection-bind 'unmark        'tar-mode-map 'tar-unflag)
+  (evil-collection-bind 'unmark-all    'tar-mode-map 'tar-clear-modification-flags)
   (evil-collection-bind 'action       'tar-mode-map 'tar-extract)
   (evil-collection-bind 'action-other 'tar-mode-map 'tar-extract-other-window)
   (evil-collection-bind 'action-stay  'tar-mode-map 'tar-view)

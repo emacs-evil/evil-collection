@@ -80,7 +80,6 @@
     "B" 'gited-bisect
     "C" 'gited-copy-branch
     "c" 'gited-checkout-branch
-    "d" 'gited-flag-branch-deletion
     "e" 'gited-extract-patches
     "F" 'gited-pull ; Similar to Magit binding. Don't conflict with "f".
     "gR" 'gited-change-current-remote-rep
@@ -110,7 +109,6 @@
     "D" 'gited-do-delete
     "K" 'gited-do-kill-lines
     "T" 'gited-do-sync-with-trunk
-    "x" 'gited-do-flagged-delete
 
     ;; Marks
     "*" nil
@@ -126,11 +124,8 @@
     "*l" 'gited-mark-local-tags
     "*N" 'gited-number-marked
 
-    "U" 'gited-unmark-all-marks
-    "m" 'gited-mark
     "t" 'gited-toggle-marks
     "~" 'gited-toggle-marks
-    "u" 'gited-unmark
     (kbd "<delete>") 'gited-unmark-backward
 
     ;; Searching for marks
@@ -149,6 +144,11 @@
     (kbd "C-t d") 'gited-tag-delete
     (kbd "C-t D") 'gited-remote-tag-delete
     (kbd "C-t F") 'gited-fetch-remote-tags)
+  (evil-collection-bind 'mark          'gited-mode-map 'gited-mark)
+  (evil-collection-bind 'unmark        'gited-mode-map 'gited-unmark)
+  (evil-collection-bind 'unmark-all    'gited-mode-map 'gited-unmark-all-marks)
+  (evil-collection-bind 'mark-delete   'gited-mode-map 'gited-flag-branch-deletion)
+  (evil-collection-bind 'execute-marks 'gited-mode-map 'gited-do-flagged-delete)
   (evil-collection-bind 'action       'gited-mode-map 'gited-visit-branch-sources)
   (evil-collection-bind 'action-other 'gited-mode-map 'gited-visit-branch-sources)
   (evil-collection-bind 'action-stay  'gited-mode-map 'gited-origin))

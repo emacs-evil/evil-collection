@@ -40,21 +40,14 @@
   (evil-collection-define-key 'normal 'proced-mode-map
     ;; mark
     ;; TODO: Implement a proced-toggle-mark?
-    "m" 'proced-mark ; Mentioned in documentation, should be followed.
     "*" 'proced-mark-all
     "M" 'proced-mark-all
-    "U" 'proced-unmark-all
     "~" 'proced-toggle-marks
     "c" 'proced-mark-children
     "C" 'proced-mark-children           ; Emacs has "C"
     "p" 'proced-mark-parents
     "P" 'proced-mark-parents            ; Emacs has "P"
     (kbd "<delete>") 'proced-unmark-backward
-
-    ;; motion
-    ;; TODO: Implement beginning-of-buffer / end-of-buffer.
-    (kbd "SPC") 'evil-scroll-down
-    (kbd "S-SPC") 'evil-scroll-up
 
     "zt" 'proced-toggle-tree
 
@@ -78,6 +71,14 @@
     "ou" 'proced-sort-user
 
     "r" 'proced-renice)
+
+  ;; motion
+  ;; TODO: Implement beginning-of-buffer / end-of-buffer.
+  (evil-collection-bind 'scroll-down 'proced-mode-map 'evil-scroll-down)
+  (evil-collection-bind 'scroll-up   'proced-mode-map 'evil-scroll-up)
+
+  (evil-collection-bind 'mark        'proced-mode-map 'proced-mark)
+  (evil-collection-bind 'unmark-all  'proced-mode-map 'proced-unmark-all)
   (evil-collection-bind 'action  'proced-mode-map 'proced-refine)
   (evil-collection-bind 'refresh 'proced-mode-map 'revert-buffer))
 

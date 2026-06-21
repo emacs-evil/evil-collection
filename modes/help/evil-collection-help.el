@@ -39,8 +39,6 @@
   (evil-collection-set-readonly-bindings 'help-mode-map)
   (evil-collection-define-key 'normal 'help-mode-map
     ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
     (kbd "C-f") 'scroll-up-command
     (kbd "C-b") 'scroll-down-command
     (kbd "<tab>") 'forward-button
@@ -65,6 +63,8 @@
 
   ;; The following bindings don't do what they are supposed to. "go" should open
   ;; in the same window and "gO" should open in a different one.
+  (evil-collection-bind 'scroll-down   'help-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up     'help-mode-map 'scroll-down-command)
   (evil-collection-bind 'action-other  'help-mode-map 'push-button)
   (evil-collection-bind 'action-stay   'help-mode-map 'push-button)
   (evil-collection-bind 'describe-mode 'help-mode-map 'describe-mode)

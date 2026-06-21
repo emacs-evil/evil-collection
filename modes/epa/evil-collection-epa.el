@@ -45,15 +45,13 @@
     "ZQ" 'evil-quit
     "V" 'epa-verify-file
 
-    ;; mark
-    "m" 'epa-mark-key
-    "u" 'epa-unmark-key
-
     ;; Unchanged keybindings.
     "s" 'epa-sign-file
     "e" 'epa-encrypt-file
     "i" 'epa-import-keys
     "o" 'epa-export-keys)
+  (evil-collection-bind 'mark    'epa-key-list-mode-map 'epa-mark-key)
+  (evil-collection-bind 'unmark  'epa-key-list-mode-map 'epa-unmark-key)
   (evil-collection-bind 'quit    'epa-key-list-mode-map 'epa-exit-buffer)
   (evil-collection-bind 'refresh 'epa-key-list-mode-map 'revert-buffer)
 

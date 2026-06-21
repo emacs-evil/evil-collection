@@ -42,9 +42,6 @@
   (evil-collection-bind 'previous-button 'devdocs-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'devdocs-mode-map
     ;; motion
-    (kbd "SPC")         'scroll-up-command
-    (kbd "S-SPC")       'scroll-down-command
-
     "g." 'devdocs-goto-target
 
     ;; history
@@ -56,6 +53,8 @@
 
     ;; search
     "s" 'devdocs-lookup)
+  (evil-collection-bind 'scroll-down  'devdocs-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'devdocs-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'devdocs-mode-map 'devdocs-next-page)
   (evil-collection-bind 'prev-item    'devdocs-mode-map 'devdocs-previous-page)
   (evil-collection-bind 'next-section 'devdocs-mode-map 'devdocs-next-page)

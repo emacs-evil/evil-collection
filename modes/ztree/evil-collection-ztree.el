@@ -54,12 +54,12 @@
     "C" 'ztree-diff-copy
     "D" 'ztree-diff-simple-diff-files
     "zH" 'ztree-diff-toggle-show-filtered-files
-    "d" 'ztree-diff-delete-file
     "zh" 'ztree-diff-toggle-show-equal-files)
 
   (evil-collection-bind-minor-mode 'find-file    'ztreediff-mode 'ztree-diff-view-file)
   (evil-collection-bind-minor-mode 'refresh      'ztreediff-mode 'ztree-diff-partial-rescan)
-  (evil-collection-bind-minor-mode 'refresh-all  'ztreediff-mode 'ztree-diff-full-rescan))
+  (evil-collection-bind-minor-mode 'refresh-all  'ztreediff-mode 'ztree-diff-full-rescan)
+  (evil-collection-bind-minor-mode 'delete       'ztreediff-mode 'ztree-diff-delete-file))
 
 (provide 'evil-collection-ztree)
 ;;; evil-collection-ztree.el ends here

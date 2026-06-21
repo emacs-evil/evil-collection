@@ -48,11 +48,14 @@
           "u"  'tablist-unmark-forward)))
 
     (apply #'evil-collection-define-key 'normal 'tablist-mode-map
-           "d" 'tablist-flag-forward
            "f" 'tablist-find-entry
            "X" 'tablist-do-delete
-           "x" 'tablist-do-flagged-delete
            common-bindings)
+    (evil-collection-bind 'mark          'tablist-mode-map 'tablist-mark-forward)
+    (evil-collection-bind 'unmark        'tablist-mode-map 'tablist-unmark-forward)
+    (evil-collection-bind 'unmark-all    'tablist-mode-map 'tablist-unmark-all-marks)
+    (evil-collection-bind 'mark-delete   'tablist-mode-map 'tablist-flag-forward)
+    (evil-collection-bind 'execute-marks 'tablist-mode-map 'tablist-do-flagged-delete)
     (evil-collection-bind 'action 'tablist-mode-map 'tablist-find-entry)
 
     (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
