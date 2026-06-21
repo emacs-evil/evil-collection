@@ -46,7 +46,7 @@
     ;; misc
     (kbd "C-o") 'dictionary-previous) ; normally under `l` which is rebound here
 
-  (evil-collection-bind 'describe-mode 'dictionary-mode-map 'dictionary-help))
+  (evil-collection-bind 'dictionary-mode-map 'describe-mode 'dictionary-help))
 
 (provide 'evil-collection-dictionary)
 ;;; evil-collection-dictionary.el ends here

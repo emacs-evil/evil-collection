@@ -86,10 +86,10 @@ alternative printed representations that can be displayed."
 
   (evil-set-initial-state 'emacs-lisp-mode 'normal)
 
-  (evil-collection-bind 'refresh 'emacs-lisp-compilation-mode-map 'emacs-lisp-compilation-recompile)
+  (evil-collection-bind 'emacs-lisp-compilation-mode-map 'refresh 'emacs-lisp-compilation-recompile)
 
-  (evil-collection-bind 'find-usages 'emacs-lisp-mode-map 'xref-find-references)
-  (evil-collection-bind 'goto-repl   'emacs-lisp-mode-map 'evil-collection-elisp-mode-ielm-repl))
+  (evil-collection-bind 'emacs-lisp-mode-map 'find-usages 'xref-find-references)
+  (evil-collection-bind 'emacs-lisp-mode-map   'goto-repl 'evil-collection-elisp-mode-ielm-repl))
 
 (provide 'evil-collection-elisp-mode)
 ;;; evil-collection-elisp-mode.el ends here

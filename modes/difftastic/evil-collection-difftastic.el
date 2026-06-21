@@ -42,15 +42,15 @@
     (kbd "TAB") 'difftastic-toggle-chunk
     "o" 'difftastic-diff-visit-worktree-file
     "ZQ" 'difftastic-quit)
-  (evil-collection-bind 'action       'difftastic-mode-map 'difftastic-diff-visit-file)
-  (evil-collection-bind 'next-item    'difftastic-mode-map 'difftastic-next-chunk)
-  (evil-collection-bind 'prev-item    'difftastic-mode-map 'difftastic-previous-chunk)
-  (evil-collection-bind 'next-section 'difftastic-mode-map 'difftastic-next-file)
-  (evil-collection-bind 'prev-section 'difftastic-mode-map 'difftastic-previous-file)
-  (evil-collection-bind 'next-section-2 'difftastic-mode-map 'difftastic-next-chunk)
-  (evil-collection-bind 'prev-section-2 'difftastic-mode-map 'difftastic-previous-chunk)
-  (evil-collection-bind 'quit    'difftastic-mode-map 'difftastic-leave)
-  (evil-collection-bind 'refresh 'difftastic-mode-map 'difftastic-rerun))
+  (evil-collection-bind 'difftastic-mode-map       'action 'difftastic-diff-visit-file)
+  (evil-collection-bind 'difftastic-mode-map    'next-item 'difftastic-next-chunk)
+  (evil-collection-bind 'difftastic-mode-map    'prev-item 'difftastic-previous-chunk)
+  (evil-collection-bind 'difftastic-mode-map 'next-section 'difftastic-next-file)
+  (evil-collection-bind 'difftastic-mode-map 'prev-section 'difftastic-previous-file)
+  (evil-collection-bind 'difftastic-mode-map 'next-section-2 'difftastic-next-chunk)
+  (evil-collection-bind 'difftastic-mode-map 'prev-section-2 'difftastic-previous-chunk)
+  (evil-collection-bind 'difftastic-mode-map    'quit 'difftastic-leave)
+  (evil-collection-bind 'difftastic-mode-map 'refresh 'difftastic-rerun))
 
 (provide 'evil-collection-difftastic)
 

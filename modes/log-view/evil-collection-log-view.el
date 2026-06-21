@@ -41,8 +41,8 @@
   (evil-set-initial-state 'vc-git-log-view-mode 'normal)
   (evil-set-initial-state 'vc-svn-log-view-mode 'normal)
 
-  (evil-collection-bind 'quit           'log-view-mode-map 'quit-window)
-  (evil-collection-bind 'section-toggle 'log-view-mode-map 'log-view-toggle-entry-display)
+  (evil-collection-bind 'log-view-mode-map           'quit 'quit-window)
+  (evil-collection-bind 'log-view-mode-map 'section-toggle 'log-view-toggle-entry-display)
   (evil-collection-define-key 'normal 'log-view-mode-map
     "c" 'log-view-modify-change-comment
     "d" 'log-view-diff
@@ -50,14 +50,14 @@
     "D" 'log-view-diff-changeset
     "a" 'log-view-annotate-version
     "F" 'log-view-find-revision)
-  (evil-collection-bind 'mark         'log-view-mode-map 'log-view-toggle-mark-entry)
-  (evil-collection-bind 'action       'log-view-mode-map 'log-view-diff)
-  (evil-collection-bind 'next-item    'log-view-mode-map 'log-view-msg-next)
-  (evil-collection-bind 'prev-item    'log-view-mode-map 'log-view-msg-prev)
-  (evil-collection-bind 'next-section 'log-view-mode-map 'log-view-msg-next)
-  (evil-collection-bind 'prev-section   'log-view-mode-map 'log-view-msg-prev)
-  (evil-collection-bind 'next-section-2 'log-view-mode-map 'log-view-file-next)
-  (evil-collection-bind 'prev-section-2 'log-view-mode-map 'log-view-file-prev))
+  (evil-collection-bind 'log-view-mode-map         'mark 'log-view-toggle-mark-entry)
+  (evil-collection-bind 'log-view-mode-map       'action 'log-view-diff)
+  (evil-collection-bind 'log-view-mode-map    'next-item 'log-view-msg-next)
+  (evil-collection-bind 'log-view-mode-map    'prev-item 'log-view-msg-prev)
+  (evil-collection-bind 'log-view-mode-map 'next-section 'log-view-msg-next)
+  (evil-collection-bind 'log-view-mode-map   'prev-section 'log-view-msg-prev)
+  (evil-collection-bind 'log-view-mode-map 'next-section-2 'log-view-file-next)
+  (evil-collection-bind 'log-view-mode-map 'prev-section-2 'log-view-file-prev))
 
 (provide 'evil-collection-log-view)
 ;;; evil-collection-log-view.el ends here

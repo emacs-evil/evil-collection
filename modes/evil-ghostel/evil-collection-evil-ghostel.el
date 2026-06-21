@@ -39,8 +39,8 @@
 ;;;###autoload
 (defun evil-collection-evil-ghostel-setup ()
   "Set up `evil' bindings for `evil-ghostel'."
-  (evil-collection-bind 'term-toggle-escape
-                              'evil-ghostel-mode-map
+  (evil-collection-bind 'evil-ghostel-mode-map
+                              'term-toggle-escape
                               'evil-ghostel-toggle-send-escape))
 
 (provide 'evil-collection-evil-ghostel)

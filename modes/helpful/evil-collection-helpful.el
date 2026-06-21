@@ -36,15 +36,15 @@
 (defun evil-collection-helpful-setup ()
   "Set up `evil' bindings for `helpful'."
   (evil-collection-set-readonly-bindings 'helpful-mode-map)
-  (evil-collection-bind 'next-button     'helpful-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'helpful-mode-map 'backward-button)
+  (evil-collection-bind 'helpful-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'helpful-mode-map 'previous-button 'backward-button)
 
-  (evil-collection-bind 'action        'helpful-mode-map 'helpful-visit-reference)
+  (evil-collection-bind 'helpful-mode-map        'action 'helpful-visit-reference)
   ;; These do not distinguish other/stay yet, but belong to the action family.
-  (evil-collection-bind 'action-other  'helpful-mode-map 'push-button)
-  (evil-collection-bind 'action-stay   'helpful-mode-map 'push-button)
-  (evil-collection-bind 'describe-mode 'helpful-mode-map 'describe-mode)
-  (evil-collection-bind 'refresh       'helpful-mode-map 'helpful-update))
+  (evil-collection-bind 'helpful-mode-map  'action-other 'push-button)
+  (evil-collection-bind 'helpful-mode-map   'action-stay 'push-button)
+  (evil-collection-bind 'helpful-mode-map 'describe-mode 'describe-mode)
+  (evil-collection-bind 'helpful-mode-map       'refresh 'helpful-update))
 
 (provide 'evil-collection-helpful)
 ;;; evil-collection-helpful.el ends here

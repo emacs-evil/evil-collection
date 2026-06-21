@@ -184,16 +184,16 @@ instead, which is useless and counterintuitive."
 
     ;; quit
     "Q" 'kill-current-buffer)
-  (evil-collection-bind 'scroll-down  'pdf-view-mode-map 'pdf-view-scroll-up-or-next-page)
-  (evil-collection-bind 'scroll-up    'pdf-view-mode-map 'pdf-view-scroll-down-or-previous-page)
-  (evil-collection-bind 'next-item    'pdf-view-mode-map 'pdf-view-next-page-command)
-  (evil-collection-bind 'prev-item    'pdf-view-mode-map 'pdf-view-previous-page-command)
-  (evil-collection-bind 'next-section 'pdf-view-mode-map 'pdf-view-next-page-command)
-  (evil-collection-bind 'prev-section 'pdf-view-mode-map 'pdf-view-previous-page-command)
-  (evil-collection-bind 'quit        'pdf-view-mode-map 'quit-window)
-  (evil-collection-bind 'quit-save   'pdf-view-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel 'pdf-view-mode-map 'kill-current-buffer)
-  (evil-collection-bind 'refresh     'pdf-view-mode-map 'revert-buffer)
+  (evil-collection-bind 'pdf-view-mode-map  'scroll-down 'pdf-view-scroll-up-or-next-page)
+  (evil-collection-bind 'pdf-view-mode-map    'scroll-up 'pdf-view-scroll-down-or-previous-page)
+  (evil-collection-bind 'pdf-view-mode-map    'next-item 'pdf-view-next-page-command)
+  (evil-collection-bind 'pdf-view-mode-map    'prev-item 'pdf-view-previous-page-command)
+  (evil-collection-bind 'pdf-view-mode-map 'next-section 'pdf-view-next-page-command)
+  (evil-collection-bind 'pdf-view-mode-map 'prev-section 'pdf-view-previous-page-command)
+  (evil-collection-bind 'pdf-view-mode-map        'quit 'quit-window)
+  (evil-collection-bind 'pdf-view-mode-map   'quit-save 'quit-window)
+  (evil-collection-bind 'pdf-view-mode-map 'quit-cancel 'kill-current-buffer)
+  (evil-collection-bind 'pdf-view-mode-map     'refresh 'revert-buffer)
 
 
   (when evil-want-C-d-scroll
@@ -231,13 +231,13 @@ instead, which is useless and counterintuitive."
 
     ;; quit
     (kbd "C-w q") 'pdf-outline-quit-and-kill) ; TODO: Do we need to set this? I think not.
-  (evil-collection-bind 'section-toggle 'pdf-outline-buffer-mode-map 'outline-toggle-children)
-  (evil-collection-bind 'action       'pdf-outline-buffer-mode-map 'pdf-outline-follow-link-and-quit)
-  (evil-collection-bind 'action-other 'pdf-outline-buffer-mode-map 'pdf-outline-follow-link)
-  (evil-collection-bind 'action-stay  'pdf-outline-buffer-mode-map 'pdf-outline-display-link)
-  (evil-collection-bind 'quit         'pdf-outline-buffer-mode-map 'quit-window)
-  (evil-collection-bind 'quit-save    'pdf-outline-buffer-mode-map 'pdf-outline-quit-and-kill)
-  (evil-collection-bind 'quit-cancel  'pdf-outline-buffer-mode-map 'quit-window)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map 'section-toggle 'outline-toggle-children)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map       'action 'pdf-outline-follow-link-and-quit)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map 'action-other 'pdf-outline-follow-link)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map  'action-stay 'pdf-outline-display-link)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map         'quit 'quit-window)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map    'quit-save 'pdf-outline-quit-and-kill)
+  (evil-collection-bind 'pdf-outline-buffer-mode-map  'quit-cancel 'quit-window)
 
   (evil-collection-inhibit-insert-state 'pdf-occur-buffer-mode-map)
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
@@ -295,17 +295,17 @@ instead, which is useless and counterintuitive."
     "/s" 'tablist-name-current-filter
     "/t" 'tablist-toggle-first-filter-logic
     "/z" 'tablist-suspend-filter)
-  (evil-collection-bind 'mark          'pdf-occur-buffer-mode-map 'tablist-mark-forward)
-  (evil-collection-bind 'unmark        'pdf-occur-buffer-mode-map 'tablist-unmark-forward)
-  (evil-collection-bind 'unmark-all    'pdf-occur-buffer-mode-map 'tablist-unmark-all-marks)
-  (evil-collection-bind 'execute-marks 'pdf-occur-buffer-mode-map 'pdf-occur-tablist-do-flagged-delete)
-  (evil-collection-bind 'scroll-up    'pdf-occur-buffer-mode-map 'scroll-down-command)
-  (evil-collection-bind 'action       'pdf-occur-buffer-mode-map 'pdf-occur-goto-occurrence)
-  (evil-collection-bind 'action-other 'pdf-occur-buffer-mode-map 'pdf-occur-view-occurrence)
-  (evil-collection-bind 'quit         'pdf-occur-buffer-mode-map 'tablist-quit)
-  (evil-collection-bind 'quit-save    'pdf-occur-buffer-mode-map 'tablist-quit)
-  (evil-collection-bind 'quit-cancel  'pdf-occur-buffer-mode-map 'tablist-quit)
-  (evil-collection-bind 'delete       'pdf-occur-buffer-mode-map 'pdf-occur-tablist-do-delete))
+  (evil-collection-bind 'pdf-occur-buffer-mode-map          'mark 'tablist-mark-forward)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map        'unmark 'tablist-unmark-forward)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map    'unmark-all 'tablist-unmark-all-marks)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map 'execute-marks 'pdf-occur-tablist-do-flagged-delete)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map       'action 'pdf-occur-goto-occurrence)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map 'action-other 'pdf-occur-view-occurrence)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map         'quit 'tablist-quit)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map    'quit-save 'tablist-quit)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map  'quit-cancel 'tablist-quit)
+  (evil-collection-bind 'pdf-occur-buffer-mode-map       'delete 'pdf-occur-tablist-do-delete))
 
 (provide 'evil-collection-pdf)
 ;;; evil-collection-pdf.el ends here

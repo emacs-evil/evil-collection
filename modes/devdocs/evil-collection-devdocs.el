@@ -38,8 +38,8 @@
   (evil-set-initial-state 'devdocs-mode 'normal)
   (evil-collection-set-readonly-bindings 'devdocs-mode-map)
 
-  (evil-collection-bind 'next-button     'devdocs-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'devdocs-mode-map 'backward-button)
+  (evil-collection-bind 'devdocs-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'devdocs-mode-map 'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'devdocs-mode-map
     ;; motion
     "g." 'devdocs-goto-target
@@ -53,12 +53,12 @@
 
     ;; search
     "s" 'devdocs-lookup)
-  (evil-collection-bind 'scroll-down  'devdocs-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up    'devdocs-mode-map 'scroll-down-command)
-  (evil-collection-bind 'next-item    'devdocs-mode-map 'devdocs-next-page)
-  (evil-collection-bind 'prev-item    'devdocs-mode-map 'devdocs-previous-page)
-  (evil-collection-bind 'next-section 'devdocs-mode-map 'devdocs-next-page)
-  (evil-collection-bind 'prev-section 'devdocs-mode-map 'devdocs-previous-page))
+  (evil-collection-bind 'devdocs-mode-map  'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'devdocs-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'devdocs-mode-map    'next-item 'devdocs-next-page)
+  (evil-collection-bind 'devdocs-mode-map    'prev-item 'devdocs-previous-page)
+  (evil-collection-bind 'devdocs-mode-map 'next-section 'devdocs-next-page)
+  (evil-collection-bind 'devdocs-mode-map 'prev-section 'devdocs-previous-page))
 
 (provide 'evil-collection-devdocs)
 ;;; evil-collection-devdocs.el ends here

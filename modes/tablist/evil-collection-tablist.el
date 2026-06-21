@@ -51,18 +51,18 @@
            "f" 'tablist-find-entry
            "X" 'tablist-do-delete
            common-bindings)
-    (evil-collection-bind 'mark          'tablist-mode-map 'tablist-mark-forward)
-    (evil-collection-bind 'unmark        'tablist-mode-map 'tablist-unmark-forward)
-    (evil-collection-bind 'unmark-all    'tablist-mode-map 'tablist-unmark-all-marks)
-    (evil-collection-bind 'mark-delete   'tablist-mode-map 'tablist-flag-forward)
-    (evil-collection-bind 'execute-marks 'tablist-mode-map 'tablist-do-flagged-delete)
-    (evil-collection-bind 'action 'tablist-mode-map 'tablist-find-entry)
+    (evil-collection-bind 'tablist-mode-map          'mark 'tablist-mark-forward)
+    (evil-collection-bind 'tablist-mode-map        'unmark 'tablist-unmark-forward)
+    (evil-collection-bind 'tablist-mode-map    'unmark-all 'tablist-unmark-all-marks)
+    (evil-collection-bind 'tablist-mode-map   'mark-delete 'tablist-flag-forward)
+    (evil-collection-bind 'tablist-mode-map 'execute-marks 'tablist-do-flagged-delete)
+    (evil-collection-bind 'tablist-mode-map 'action 'tablist-find-entry)
 
     (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
            common-bindings)
-    (evil-collection-bind 'quit    'tablist-minor-mode-map 'tablist-quit)
-    (evil-collection-bind 'refresh 'tablist-mode-map       'tablist-revert)
-    (evil-collection-bind 'refresh 'tablist-minor-mode-map 'tablist-revert)))
+    (evil-collection-bind 'tablist-minor-mode-map    'quit 'tablist-quit)
+    (evil-collection-bind 'tablist-mode-map 'refresh       'tablist-revert)
+    (evil-collection-bind 'tablist-minor-mode-map 'refresh 'tablist-revert)))
 
 (provide 'evil-collection-tablist)
 ;;; evil-collection-tablist.el ends here

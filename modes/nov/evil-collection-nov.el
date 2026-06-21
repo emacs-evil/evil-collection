@@ -37,10 +37,10 @@
 ;;;###autoload
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
-  (evil-collection-bind 'next-item    'nov-mode-map 'nov-next-document)
-  (evil-collection-bind 'prev-item    'nov-mode-map 'nov-previous-document)
-  (evil-collection-bind 'next-section 'nov-mode-map 'nov-next-document)
-  (evil-collection-bind 'prev-section 'nov-mode-map 'nov-previous-document)
+  (evil-collection-bind 'nov-mode-map    'next-item 'nov-next-document)
+  (evil-collection-bind 'nov-mode-map    'prev-item 'nov-previous-document)
+  (evil-collection-bind 'nov-mode-map 'next-section 'nov-next-document)
+  (evil-collection-bind 'nov-mode-map 'prev-section 'nov-previous-document)
   (evil-collection-define-key 'normal 'nov-mode-map
     "s" 'nov-view-source
     "S" 'nov-view-content-source
@@ -56,11 +56,11 @@
     (kbd "<backtab>") 'shr-previous-link
     (kbd "DEL") 'nov-scroll-down)
 
-  (evil-collection-bind 'scroll-down   'nov-mode-map 'nov-scroll-up)
-  (evil-collection-bind 'scroll-up     'nov-mode-map 'nov-scroll-down)
-  (evil-collection-bind 'action        'nov-mode-map 'nov-browse-url)
-  (evil-collection-bind 'describe-mode 'nov-mode-map 'nov-display-metadata)
-  (evil-collection-bind 'refresh       'nov-mode-map 'nov-render-document))
+  (evil-collection-bind 'nov-mode-map   'scroll-down 'nov-scroll-up)
+  (evil-collection-bind 'nov-mode-map     'scroll-up 'nov-scroll-down)
+  (evil-collection-bind 'nov-mode-map        'action 'nov-browse-url)
+  (evil-collection-bind 'nov-mode-map 'describe-mode 'nov-display-metadata)
+  (evil-collection-bind 'nov-mode-map       'refresh 'nov-render-document))
 
 (provide 'evil-collection-nov)
 ;;; evil-collection-nov.el ends here

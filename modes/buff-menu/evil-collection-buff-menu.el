@@ -60,16 +60,16 @@
     (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
     (kbd "M-s a C-o") 'Buffer-menu-multi-occur)
-  (evil-collection-bind 'mark          'Buffer-menu-mode-map 'Buffer-menu-mark)
-  (evil-collection-bind 'unmark        'Buffer-menu-mode-map 'Buffer-menu-unmark)
-  (evil-collection-bind 'unmark-all    'Buffer-menu-mode-map 'Buffer-menu-unmark-all)
-  (evil-collection-bind 'mark-delete   'Buffer-menu-mode-map 'Buffer-menu-delete)
-  (evil-collection-bind 'execute-marks 'Buffer-menu-mode-map 'Buffer-menu-execute)
-  (evil-collection-bind 'action       'Buffer-menu-mode-map 'Buffer-menu-this-window)
-  (evil-collection-bind 'action-other 'Buffer-menu-mode-map 'Buffer-menu-other-window)
-  (evil-collection-bind 'quit-save    'Buffer-menu-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel  'Buffer-menu-mode-map 'evil-quit)
-  (evil-collection-bind 'refresh      'Buffer-menu-mode-map 'revert-buffer))
+  (evil-collection-bind 'Buffer-menu-mode-map          'mark 'Buffer-menu-mark)
+  (evil-collection-bind 'Buffer-menu-mode-map        'unmark 'Buffer-menu-unmark)
+  (evil-collection-bind 'Buffer-menu-mode-map    'unmark-all 'Buffer-menu-unmark-all)
+  (evil-collection-bind 'Buffer-menu-mode-map   'mark-delete 'Buffer-menu-delete)
+  (evil-collection-bind 'Buffer-menu-mode-map 'execute-marks 'Buffer-menu-execute)
+  (evil-collection-bind 'Buffer-menu-mode-map       'action 'Buffer-menu-this-window)
+  (evil-collection-bind 'Buffer-menu-mode-map 'action-other 'Buffer-menu-other-window)
+  (evil-collection-bind 'Buffer-menu-mode-map    'quit-save 'quit-window)
+  (evil-collection-bind 'Buffer-menu-mode-map  'quit-cancel 'evil-quit)
+  (evil-collection-bind 'Buffer-menu-mode-map      'refresh 'revert-buffer))
 
 (provide 'evil-collection-buff-menu)
 ;;; evil-collection-buff-menu.el ends here

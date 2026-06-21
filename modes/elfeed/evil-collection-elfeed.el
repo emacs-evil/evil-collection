@@ -56,26 +56,26 @@
     ;; `evil-collection-set-readonly-bindings'.
     "ZQ" 'quit-window)
 
-  (evil-collection-bind 'scroll-down  'elfeed-search-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up    'elfeed-search-mode-map 'scroll-down-command)
-  (evil-collection-bind 'action       'elfeed-search-mode-map 'elfeed-search-show-entry)
-  (evil-collection-bind 'action-other 'elfeed-search-mode-map 'elfeed-search-browse-url)
-  (evil-collection-bind 'refresh-all 'elfeed-search-mode-map 'elfeed-search-fetch)
-  (evil-collection-bind 'refresh     'elfeed-search-mode-map 'revert-buffer)
+  (evil-collection-bind 'elfeed-search-mode-map  'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'elfeed-search-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'elfeed-search-mode-map       'action 'elfeed-search-show-entry)
+  (evil-collection-bind 'elfeed-search-mode-map 'action-other 'elfeed-search-browse-url)
+  (evil-collection-bind 'elfeed-search-mode-map 'refresh-all 'elfeed-search-fetch)
+  (evil-collection-bind 'elfeed-search-mode-map     'refresh 'revert-buffer)
 
   ;; Refresh fallback for elfeed before commit 518e5bd3, where
   ;; `revert-buffer-function' is not wired up.
   (unless (fboundp 'elfeed-search--update-force)
-    (evil-collection-bind 'refresh 'elfeed-search-mode-map 'elfeed-search-update--force))
+    (evil-collection-bind 'elfeed-search-mode-map 'refresh 'elfeed-search-update--force))
 
   ;; Quit fallback for elfeed before commit 2ef14c92, where
   ;; `quit-window-hook' does not run `elfeed-db-save'.
   (when (and (fboundp 'elfeed-search-quit-window)
              (not (eq (indirect-function 'elfeed-search-quit-window)
                       (symbol-function 'quit-window))))
-    (evil-collection-bind 'quit        'elfeed-search-mode-map 'elfeed-search-quit-window)
-    (evil-collection-bind 'quit-save   'elfeed-search-mode-map 'elfeed-search-quit-window)
-    (evil-collection-bind 'quit-cancel 'elfeed-search-mode-map 'elfeed-search-quit-window))
+    (evil-collection-bind 'elfeed-search-mode-map        'quit 'elfeed-search-quit-window)
+    (evil-collection-bind 'elfeed-search-mode-map   'quit-save 'elfeed-search-quit-window)
+    (evil-collection-bind 'elfeed-search-mode-map 'quit-cancel 'elfeed-search-quit-window))
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
@@ -97,17 +97,17 @@
     "A" 'elfeed-show-add-enclosure-to-playlist
     "P" 'elfeed-show-play-enclosure
     "d" 'elfeed-show-save-enclosure)
-  (evil-collection-bind 'scroll-down  'elfeed-show-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up    'elfeed-show-mode-map 'scroll-down-command)
-  (evil-collection-bind 'action-other 'elfeed-show-mode-map 'elfeed-show-visit)
-  (evil-collection-bind 'next-item    'elfeed-show-mode-map 'elfeed-show-next)
-  (evil-collection-bind 'prev-item    'elfeed-show-mode-map 'elfeed-show-prev)
-  (evil-collection-bind 'next-section 'elfeed-show-mode-map 'elfeed-show-next)
-  (evil-collection-bind 'prev-section 'elfeed-show-mode-map 'elfeed-show-prev)
-  (evil-collection-bind 'quit         'elfeed-show-mode-map 'elfeed-kill-buffer)
-  (evil-collection-bind 'quit-save    'elfeed-show-mode-map 'elfeed-kill-buffer)
-  (evil-collection-bind 'quit-cancel  'elfeed-show-mode-map 'elfeed-kill-buffer)
-  (evil-collection-bind 'refresh      'elfeed-show-mode-map 'elfeed-show-refresh)
+  (evil-collection-bind 'elfeed-show-mode-map  'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'elfeed-show-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'elfeed-show-mode-map 'action-other 'elfeed-show-visit)
+  (evil-collection-bind 'elfeed-show-mode-map    'next-item 'elfeed-show-next)
+  (evil-collection-bind 'elfeed-show-mode-map    'prev-item 'elfeed-show-prev)
+  (evil-collection-bind 'elfeed-show-mode-map 'next-section 'elfeed-show-next)
+  (evil-collection-bind 'elfeed-show-mode-map 'prev-section 'elfeed-show-prev)
+  (evil-collection-bind 'elfeed-show-mode-map         'quit 'elfeed-kill-buffer)
+  (evil-collection-bind 'elfeed-show-mode-map    'quit-save 'elfeed-kill-buffer)
+  (evil-collection-bind 'elfeed-show-mode-map  'quit-cancel 'elfeed-kill-buffer)
+  (evil-collection-bind 'elfeed-show-mode-map      'refresh 'elfeed-show-refresh)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map
@@ -115,7 +115,7 @@
 
   (evil-collection-set-readonly-bindings 'elfeed-tree-mode-map)
   (evil-set-initial-state 'elfeed-tree-mode 'normal)
-  (evil-collection-bind 'action 'elfeed-tree-mode-map 'elfeed-tree-search))
+  (evil-collection-bind 'elfeed-tree-mode-map 'action 'elfeed-tree-search))
 
 (provide 'evil-collection-elfeed)
 ;;; evil-collection-elfeed.el ends here

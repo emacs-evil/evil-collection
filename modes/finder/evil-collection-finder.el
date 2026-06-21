@@ -42,8 +42,8 @@
 
     "d" 'finder-list-keywords
     "s" 'finder-summary)
-  (evil-collection-bind 'action 'finder-mode-map 'finder-select)
-  (evil-collection-bind 'quit 'finder-mode-map 'finder-exit))
+  (evil-collection-bind 'finder-mode-map 'action 'finder-select)
+  (evil-collection-bind 'finder-mode-map 'quit 'finder-exit))
 
 (provide 'evil-collection-finder)
 ;;; evil-collection-finder.el ends here

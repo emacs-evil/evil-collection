@@ -38,7 +38,7 @@
   (evil-collection-set-readonly-bindings 'emoji-list-mode-map)
   (evil-collection-define-key 'normal 'emoji-list-mode-map
     "gh" 'emoji-list-help)
-  (evil-collection-bind 'action 'emoji-list-mode-map 'emoji-list-select))
+  (evil-collection-bind 'emoji-list-mode-map 'action 'emoji-list-select))
 
 (provide 'evil-collection-emoji)
 ;;; evil-collection-emoji.el ends here

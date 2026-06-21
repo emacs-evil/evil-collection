@@ -89,7 +89,7 @@
     "J" telega-root-fastnav-map
 
     "gs" 'telega-view-search)
-  (evil-collection-bind 'quit 'telega-root-mode-map 'bury-buffer)
+  (evil-collection-bind 'telega-root-mode-map 'quit 'bury-buffer)
 
   (evil-collection-define-key 'normal 'telega-chat-mode-map
     "ga" telega-prefix-map
@@ -109,19 +109,19 @@
 
     (kbd "<tab>") 'telega-chatbuf-complete-or-next-link
     (kbd "<backtab>") 'telega-chatbuf-prev-link)
-  (evil-collection-bind 'quit          'telega-chat-mode-map 'quit-window)
-  (evil-collection-bind 'describe-mode 'telega-chat-mode-map 'telega-describe-chat)
+  (evil-collection-bind 'telega-chat-mode-map          'quit 'quit-window)
+  (evil-collection-bind 'telega-chat-mode-map 'describe-mode 'telega-describe-chat)
 
-  (evil-collection-bind 'repl-submit        'telega-chat-mode-map 'telega-chatbuf-newline-or-input-send)
-  (evil-collection-bind 'repl-newline       'telega-chat-mode-map 'newline)
-  (evil-collection-bind 'repl-force-newline 'telega-chat-mode-map 'newline)
+  (evil-collection-bind 'telega-chat-mode-map        'repl-submit 'telega-chatbuf-newline-or-input-send)
+  (evil-collection-bind 'telega-chat-mode-map       'repl-newline 'newline)
+  (evil-collection-bind 'telega-chat-mode-map 'repl-force-newline 'newline)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
     "ga" telega-prefix-map
 
     "}" 'telega-image-next
     "{" 'telega-image-prev)
-  (evil-collection-bind 'quit 'telega-image-mode-map 'telega-image-quit)
+  (evil-collection-bind 'telega-image-mode-map 'quit 'telega-image-quit)
 
   (evil-collection-define-key 'normal 'telega-webpage-mode-map
     "ga" telega-prefix-map

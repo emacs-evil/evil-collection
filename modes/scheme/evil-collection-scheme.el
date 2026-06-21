@@ -40,7 +40,7 @@
 ;;;###autoload
 (defun evil-collection-scheme-setup ()
   "Set up `evil' bindings for `scheme'."
-  (evil-collection-bind 'goto-repl 'scheme-mode-map 'evil-collection-scheme-repl))
+  (evil-collection-bind 'scheme-mode-map 'goto-repl 'evil-collection-scheme-repl))
 
 (provide 'evil-collection-scheme)
 ;;; evil-collection-scheme.el ends here

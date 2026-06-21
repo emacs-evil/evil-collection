@@ -46,10 +46,10 @@
 ;;;###autoload
 (defun evil-collection-mpc-setup ()
   "Setup up `evil' bindings for `mpc-mode'."
-  (evil-collection-bind 'next-item    'mpc-mode-map 'evil-collection-mpc-move-down)
-  (evil-collection-bind 'prev-item    'mpc-mode-map 'evil-collection-mpc-move-up)
-  (evil-collection-bind 'next-section 'mpc-mode-map 'evil-collection-mpc-move-down)
-  (evil-collection-bind 'prev-section 'mpc-mode-map 'evil-collection-mpc-move-up)
+  (evil-collection-bind 'mpc-mode-map    'next-item 'evil-collection-mpc-move-down)
+  (evil-collection-bind 'mpc-mode-map    'prev-item 'evil-collection-mpc-move-up)
+  (evil-collection-bind 'mpc-mode-map 'next-section 'evil-collection-mpc-move-down)
+  (evil-collection-bind 'mpc-mode-map 'prev-section 'evil-collection-mpc-move-up)
   (evil-collection-define-key 'normal 'mpc-mode-map
     "t"                'mpc-toggle-play
     "T"                'mpc-stop
@@ -72,14 +72,14 @@
     "gd"               'mpc-songs-jump-to
     "D"                'mpc-playlist-delete)
   ;; Bind action keys before restoring `go' to `mpc-goto-playing-song'.
-  (evil-collection-bind 'action       'mpc-mode-map 'mpc-select)
-  (evil-collection-bind 'action-other 'mpc-mode-map 'mpc-select-toggle)
-  (evil-collection-bind 'action-stay  'mpc-mode-map 'mpc-select-extend)
+  (evil-collection-bind 'mpc-mode-map       'action 'mpc-select)
+  (evil-collection-bind 'mpc-mode-map 'action-other 'mpc-select-toggle)
+  (evil-collection-bind 'mpc-mode-map  'action-stay 'mpc-select-extend)
   (evil-collection-define-key 'normal 'mpc-mode-map
     (kbd "C-<return>") 'mpc-select-extend
     "go" 'mpc-goto-playing-song)
-  (evil-collection-bind 'quit        'mpc-mode-map 'mpc-quit)
-  (evil-collection-bind 'refresh-all 'mpc-mode-map 'mpc-update))
+  (evil-collection-bind 'mpc-mode-map        'quit 'mpc-quit)
+  (evil-collection-bind 'mpc-mode-map 'refresh-all 'mpc-update))
 
 (provide 'evil-collection-mpc)
 ;;; evil-collection-mpc.el ends here

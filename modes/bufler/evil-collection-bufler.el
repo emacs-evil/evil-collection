@@ -51,7 +51,7 @@
     "D"   'bufler-list-buffer-kill
     "w"   'bufler-list-buffer-save
     "J"   'bufler-list-buffer-peek)
-  (evil-collection-bind 'action 'bufler-list-mode-map 'bufler-list-buffer-switch))
+  (evil-collection-bind 'bufler-list-mode-map 'action 'bufler-list-buffer-switch))
 
 (provide 'evil-collection-bufler)
 ;;; evil-collection-bufler.el ends here

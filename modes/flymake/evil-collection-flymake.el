@@ -39,13 +39,13 @@
   "Set up `evil' bindings for `flymake'."
   (dolist (map '(flymake-diagnostics-buffer-mode-map flymake-project-diagnostics-mode-map))
     (evil-collection-set-readonly-bindings map)
-    (evil-collection-bind 'action       map 'flymake-goto-diagnostic)
-    (evil-collection-bind 'action-other map 'flymake-show-diagnostic)
-    (evil-collection-bind 'action-stay  map 'flymake-show-diagnostic)
-    (evil-collection-bind 'next-item    map 'flymake-goto-next-error)
-    (evil-collection-bind 'prev-item    map 'flymake-goto-prev-error)
-    (evil-collection-bind 'next-section map 'flymake-goto-next-error)
-    (evil-collection-bind 'prev-section map 'flymake-goto-prev-error)))
+    (evil-collection-bind map       'action 'flymake-goto-diagnostic)
+    (evil-collection-bind map 'action-other 'flymake-show-diagnostic)
+    (evil-collection-bind map  'action-stay 'flymake-show-diagnostic)
+    (evil-collection-bind map    'next-item 'flymake-goto-next-error)
+    (evil-collection-bind map    'prev-item 'flymake-goto-prev-error)
+    (evil-collection-bind map 'next-section 'flymake-goto-next-error)
+    (evil-collection-bind map 'prev-section 'flymake-goto-prev-error)))
 
 (provide 'evil-collection-flymake)
 ;;; evil-collection-flymake.el ends here

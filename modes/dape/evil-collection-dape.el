@@ -80,27 +80,27 @@
     "D" 'dape-info-breakpoint-disable
     "d" 'dape-info-breakpoint-delete
     "e" 'dape-info-breakpoint-log-edit)
-  (evil-collection-bind 'action 'dape-info-breakpoints-mode-map 'dape-info-breakpoint-dwim)
+  (evil-collection-bind 'dape-info-breakpoints-mode-map 'action 'dape-info-breakpoint-dwim)
 
   (evil-collection-define-key 'normal 'dape-info-threads-mode-map
     [mouse-2] 'dape-info-select-thread
     [follow-link] 'mouse-face)
-  (evil-collection-bind 'action 'dape-info-threads-mode-map 'dape-info-select-thread)
+  (evil-collection-bind 'dape-info-threads-mode-map 'action 'dape-info-select-thread)
 
   (evil-collection-define-key 'normal 'dape-info-stack-mode-map
     [mouse-2] 'dape-info-stack-select
     [follow-link] 'mouse-face)
-  (evil-collection-bind 'action 'dape-info-stack-mode-map 'dape-info-stack-select)
+  (evil-collection-bind 'dape-info-stack-mode-map 'action 'dape-info-stack-select)
 
   (evil-collection-define-key 'normal 'dape-info-sources-mode-map
     [mouse-2] 'dape-info-sources-goto
     [follow-link] 'mouse-face)
-  (evil-collection-bind 'action 'dape-info-sources-mode-map 'dape-info-sources-goto)
+  (evil-collection-bind 'dape-info-sources-mode-map 'action 'dape-info-sources-goto)
 
   (evil-collection-define-key 'normal 'dape-info-modules-mode-map
     [mouse-2] 'dape-info-modules-goto
     [follow-link] 'mouse-face)
-  (evil-collection-bind 'action 'dape-info-modules-mode-map 'dape-info-modules-goto)
+  (evil-collection-bind 'dape-info-modules-mode-map 'action 'dape-info-modules-goto)
 
   (evil-collection-define-key 'normal 'dape-info-scope-mode-map
     "e" 'dape-info-scope-toggle
@@ -121,8 +121,8 @@
     [remap evil-write] 'dape-info-watch-finish-edit)
   (evil-collection-define-key 'normal 'dape-info-watch-edit-mode-map
     (kbd "<escape>") 'dape-info-watch-finish-edit)
-  (evil-collection-bind 'quit-save   'dape-info-watch-edit-mode-map 'dape-info-watch-finish-edit)
-  (evil-collection-bind 'quit-cancel 'dape-info-watch-edit-mode-map 'dape-info-watch-abort-changes)
+  (evil-collection-bind 'dape-info-watch-edit-mode-map   'quit-save 'dape-info-watch-finish-edit)
+  (evil-collection-bind 'dape-info-watch-edit-mode-map 'quit-cancel 'dape-info-watch-abort-changes)
 
   (evil-collection-define-key 'normal 'dape-memory-mode-map
     [remap evil-write] 'save-buffer
@@ -140,12 +140,12 @@
                         dape-info-scope-mode-map
                         dape-info-watch-mode-map
                         dape-memory-mode-map))
-    (evil-collection-bind 'debug-continue   map-symbol 'dape-continue)
-    (evil-collection-bind 'debug-step-over  map-symbol 'dape-next)
-    (evil-collection-bind 'debug-step-into  map-symbol 'dape-step-in)
-    (evil-collection-bind 'debug-step-out   map-symbol 'dape-step-out)
-    (evil-collection-bind 'debug-breakpoint map-symbol 'dape-breakpoint-toggle)
-    (evil-collection-bind 'debug-restart    map-symbol 'dape-restart)))
+    (evil-collection-bind map-symbol   'debug-continue 'dape-continue)
+    (evil-collection-bind map-symbol  'debug-step-over 'dape-next)
+    (evil-collection-bind map-symbol  'debug-step-into 'dape-step-in)
+    (evil-collection-bind map-symbol   'debug-step-out 'dape-step-out)
+    (evil-collection-bind map-symbol 'debug-breakpoint 'dape-breakpoint-toggle)
+    (evil-collection-bind map-symbol    'debug-restart 'dape-restart)))
 
 (provide 'evil-collection-dape)
 ;;; evil-collection-dape.el ends here

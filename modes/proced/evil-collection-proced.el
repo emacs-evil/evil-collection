@@ -74,13 +74,13 @@
 
   ;; motion
   ;; TODO: Implement beginning-of-buffer / end-of-buffer.
-  (evil-collection-bind 'scroll-down 'proced-mode-map 'evil-scroll-down)
-  (evil-collection-bind 'scroll-up   'proced-mode-map 'evil-scroll-up)
+  (evil-collection-bind 'proced-mode-map 'scroll-down 'evil-scroll-down)
+  (evil-collection-bind 'proced-mode-map   'scroll-up 'evil-scroll-up)
 
-  (evil-collection-bind 'mark        'proced-mode-map 'proced-mark)
-  (evil-collection-bind 'unmark-all  'proced-mode-map 'proced-unmark-all)
-  (evil-collection-bind 'action  'proced-mode-map 'proced-refine)
-  (evil-collection-bind 'refresh 'proced-mode-map 'revert-buffer))
+  (evil-collection-bind 'proced-mode-map        'mark 'proced-mark)
+  (evil-collection-bind 'proced-mode-map  'unmark-all 'proced-unmark-all)
+  (evil-collection-bind 'proced-mode-map  'action 'proced-refine)
+  (evil-collection-bind 'proced-mode-map 'refresh 'revert-buffer))
 
 (provide 'evil-collection-proced)
 ;;; evil-collection-proced.el ends here

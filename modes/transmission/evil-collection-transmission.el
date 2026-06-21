@@ -72,15 +72,15 @@
 
     ;; mark
     "~" 'transmission-invert-marks)
-  (evil-collection-bind 'mark        'transmission-mode-map 'transmission-toggle-mark)
-  (evil-collection-bind 'unmark-all  'transmission-mode-map 'transmission-unmark-all)
-  (evil-collection-bind 'scroll-down 'transmission-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up   'transmission-mode-map 'scroll-down-command)
-  (evil-collection-bind 'quit        'transmission-mode-map 'transmission-quit)
-  (evil-collection-bind 'quit-save   'transmission-mode-map 'transmission-quit)
-  (evil-collection-bind 'quit-cancel 'transmission-mode-map 'evil-quit)
-  (evil-collection-bind 'refresh     'transmission-mode-map 'revert-buffer)
-  (evil-collection-bind 'action      'transmission-mode-map 'transmission-files)
+  (evil-collection-bind 'transmission-mode-map        'mark 'transmission-toggle-mark)
+  (evil-collection-bind 'transmission-mode-map  'unmark-all 'transmission-unmark-all)
+  (evil-collection-bind 'transmission-mode-map 'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'transmission-mode-map   'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'transmission-mode-map        'quit 'transmission-quit)
+  (evil-collection-bind 'transmission-mode-map   'quit-save 'transmission-quit)
+  (evil-collection-bind 'transmission-mode-map 'quit-cancel 'evil-quit)
+  (evil-collection-bind 'transmission-mode-map     'refresh 'revert-buffer)
+  (evil-collection-bind 'transmission-mode-map      'action 'transmission-files)
 
   (evil-collection-inhibit-insert-state 'transmission-files-mode-map)
   (evil-set-initial-state 'transmission-files-mode 'normal)
@@ -109,14 +109,14 @@
 
     ;; goto URL
     "gx" 'transmission-browse-url-of-file) ; See mu4e.
-  (evil-collection-bind 'scroll-down  'transmission-files-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up    'transmission-files-mode-map 'scroll-down-command)
-  (evil-collection-bind 'action       'transmission-files-mode-map 'transmission-find-file)
-  (evil-collection-bind 'action-other 'transmission-files-mode-map 'transmission-find-file-other-window)
-  (evil-collection-bind 'action-stay  'transmission-files-mode-map 'transmission-display-file)
-  (evil-collection-bind 'quit         'transmission-files-mode-map 'transmission-quit)
-  (evil-collection-bind 'quit-save    'transmission-files-mode-map 'transmission-quit)
-  (evil-collection-bind 'quit-cancel  'transmission-files-mode-map 'evil-quit)
+  (evil-collection-bind 'transmission-files-mode-map  'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'transmission-files-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'transmission-files-mode-map       'action 'transmission-find-file)
+  (evil-collection-bind 'transmission-files-mode-map 'action-other 'transmission-find-file-other-window)
+  (evil-collection-bind 'transmission-files-mode-map  'action-stay 'transmission-display-file)
+  (evil-collection-bind 'transmission-files-mode-map         'quit 'transmission-quit)
+  (evil-collection-bind 'transmission-files-mode-map    'quit-save 'transmission-quit)
+  (evil-collection-bind 'transmission-files-mode-map  'quit-cancel 'evil-quit)
 
   (evil-collection-define-key 'visual 'transmission-files-mode-map
     "r" 'transmission-move

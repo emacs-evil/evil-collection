@@ -55,56 +55,56 @@
   (evil-set-initial-state 'alchemist-test-mode 'normal)
   (evil-set-initial-state 'alchemist-test-report-mode 'normal)
 
-  (evil-collection-bind 'quit 'alchemist-compile-mode-map 'quit-window)
+  (evil-collection-bind 'alchemist-compile-mode-map 'quit 'quit-window)
 
-  (evil-collection-bind 'quit 'alchemist-eval-mode-map 'quit-window)
+  (evil-collection-bind 'alchemist-eval-mode-map 'quit 'quit-window)
 
-  (evil-collection-bind 'quit 'alchemist-execute-mode-map 'quit-window)
+  (evil-collection-bind 'alchemist-execute-mode-map 'quit 'quit-window)
 
-  (evil-collection-bind 'quit 'alchemist-message-mode-map 'quit-window)
+  (evil-collection-bind 'alchemist-message-mode-map 'quit 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-help-minor-mode-map
     "m" 'alchemist-help-module
     "s" 'alchemist-help
     "gh" 'alchemist-help-history)
-  (evil-collection-bind 'quit          'alchemist-help-minor-mode-map 'quit-window)
-  (evil-collection-bind 'describe-mode 'alchemist-help-minor-mode-map 'alchemist-help-minor-mode-key-binding-summary)
+  (evil-collection-bind 'alchemist-help-minor-mode-map          'quit 'quit-window)
+  (evil-collection-bind 'alchemist-help-minor-mode-map 'describe-mode 'alchemist-help-minor-mode-key-binding-summary)
 
-  (evil-collection-bind 'find-definition 'alchemist-help-minor-mode-map 'alchemist-goto-definition-at-point)
-  (evil-collection-bind 'lookup-doc      'alchemist-help-minor-mode-map 'alchemist-help-search-at-point)
+  (evil-collection-bind 'alchemist-help-minor-mode-map 'find-definition 'alchemist-goto-definition-at-point)
+  (evil-collection-bind 'alchemist-help-minor-mode-map      'lookup-doc 'alchemist-help-search-at-point)
 
-  (evil-collection-bind 'quit 'alchemist-macroexpand-mode-map 'quit-window)
+  (evil-collection-bind 'alchemist-macroexpand-mode-map 'quit 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-refcard-mode-map
     "gd" 'alchemist-refcard--describe-funtion-at-point
     "g?" 'alchemist-refcard--describe-funtion-at-point)
-  (evil-collection-bind 'quit 'alchemist-refcard-mode-map 'quit-window)
+  (evil-collection-bind 'alchemist-refcard-mode-map 'quit 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-mix-mode-map
     "i" 'alchemist-mix-send-input-to-mix-process)
-  (evil-collection-bind 'quit    'alchemist-mix-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'alchemist-mix-mode-map 'alchemist-mix-rerun-last-task)
+  (evil-collection-bind 'alchemist-mix-mode-map    'quit 'quit-window)
+  (evil-collection-bind 'alchemist-mix-mode-map 'refresh 'alchemist-mix-rerun-last-task)
 
-  (evil-collection-bind 'next-item    'alchemist-test-report-mode-map 'alchemist-test-next-result)
-  (evil-collection-bind 'prev-item    'alchemist-test-report-mode-map 'alchemist-test-previous-result)
-  (evil-collection-bind 'next-section 'alchemist-test-report-mode-map 'alchemist-test-next-stacktrace-file)
-  (evil-collection-bind 'prev-section 'alchemist-test-report-mode-map 'alchemist-test-previous-stacktrace-file)
+  (evil-collection-bind 'alchemist-test-report-mode-map    'next-item 'alchemist-test-next-result)
+  (evil-collection-bind 'alchemist-test-report-mode-map    'prev-item 'alchemist-test-previous-result)
+  (evil-collection-bind 'alchemist-test-report-mode-map 'next-section 'alchemist-test-next-stacktrace-file)
+  (evil-collection-bind 'alchemist-test-report-mode-map 'prev-section 'alchemist-test-previous-stacktrace-file)
   (evil-collection-define-key 'normal 'alchemist-test-report-mode-map
     "t" 'toggle-truncate-lines
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
-  (evil-collection-bind 'next-section-2 'alchemist-test-report-mode-map 'alchemist-test-next-result)
-  (evil-collection-bind 'prev-section-2 'alchemist-test-report-mode-map 'alchemist-test-previous-result)
-  (evil-collection-bind 'quit    'alchemist-test-report-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'alchemist-test-report-mode-map 'alchemist-mix-rerun-last-test)
+  (evil-collection-bind 'alchemist-test-report-mode-map 'next-section-2 'alchemist-test-next-result)
+  (evil-collection-bind 'alchemist-test-report-mode-map 'prev-section-2 'alchemist-test-previous-result)
+  (evil-collection-bind 'alchemist-test-report-mode-map    'quit 'quit-window)
+  (evil-collection-bind 'alchemist-test-report-mode-map 'refresh 'alchemist-mix-rerun-last-test)
 
-  (evil-collection-bind 'next-section 'alchemist-mode-map 'alchemist-goto-jump-to-next-def-symbol)
-  (evil-collection-bind 'prev-section 'alchemist-mode-map 'alchemist-goto-jump-to-previous-def-symbol)
+  (evil-collection-bind 'alchemist-mode-map 'next-section 'alchemist-goto-jump-to-next-def-symbol)
+  (evil-collection-bind 'alchemist-mode-map 'prev-section 'alchemist-goto-jump-to-previous-def-symbol)
 
-  (evil-collection-bind 'find-definition 'alchemist-mode-map 'alchemist-goto-definition-at-point)
-  (evil-collection-bind 'pop-definition  'alchemist-mode-map 'alchemist-goto-jump-back)
-  (evil-collection-bind 'lookup-doc      'alchemist-mode-map 'alchemist-help-search-at-point)
-  (evil-collection-bind 'goto-repl       'alchemist-mode-map 'alchemist-iex-run)
-  (evil-collection-bind 'describe-mode   'alchemist-mode-map 'alchemist-help))
+  (evil-collection-bind 'alchemist-mode-map 'find-definition 'alchemist-goto-definition-at-point)
+  (evil-collection-bind 'alchemist-mode-map  'pop-definition 'alchemist-goto-jump-back)
+  (evil-collection-bind 'alchemist-mode-map      'lookup-doc 'alchemist-help-search-at-point)
+  (evil-collection-bind 'alchemist-mode-map       'goto-repl 'alchemist-iex-run)
+  (evil-collection-bind 'alchemist-mode-map   'describe-mode 'alchemist-help))
 
 (provide 'evil-collection-alchemist)
 ;;; evil-collection-alchemist.el ends here

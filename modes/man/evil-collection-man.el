@@ -36,26 +36,26 @@
 (defun evil-collection-man-setup ()
   "Set up `evil' bindings for `man'."
   (evil-set-initial-state 'Man-mode 'normal)
-  (evil-collection-bind 'next-button     'Man-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'Man-mode-map 'backward-button)
+  (evil-collection-bind 'Man-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'Man-mode-map 'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'Man-mode-map
     ;; goto
     "gm" 'man
     "gd" 'Man-goto-section ; TODO: "gd" does not match the rationale of "go to definition". Change?
     "gR" 'Man-follow-manual-reference ; TODO: Make this match Info-follow-reference?
     "gs" 'Man-goto-see-also-section)
-  (evil-collection-bind 'scroll-down  'Man-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up    'Man-mode-map 'scroll-down-command)
-  (evil-collection-bind 'next-item    'Man-mode-map 'Man-next-manpage)
-  (evil-collection-bind 'prev-item    'Man-mode-map 'Man-previous-manpage)
-  (evil-collection-bind 'next-section 'Man-mode-map 'Man-next-manpage)
-  (evil-collection-bind 'prev-section 'Man-mode-map 'Man-previous-manpage)
-  (evil-collection-bind 'next-section-2 'Man-mode-map 'Man-next-section)
-  (evil-collection-bind 'prev-section-2 'Man-mode-map 'Man-previous-section)
-  (evil-collection-bind 'quit        'Man-mode-map 'quit-window)
-  (evil-collection-bind 'quit-save   'Man-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel 'Man-mode-map 'quit-window)
-  (evil-collection-bind 'refresh     'Man-mode-map 'Man-update-manpage))
+  (evil-collection-bind 'Man-mode-map  'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'Man-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'Man-mode-map    'next-item 'Man-next-manpage)
+  (evil-collection-bind 'Man-mode-map    'prev-item 'Man-previous-manpage)
+  (evil-collection-bind 'Man-mode-map 'next-section 'Man-next-manpage)
+  (evil-collection-bind 'Man-mode-map 'prev-section 'Man-previous-manpage)
+  (evil-collection-bind 'Man-mode-map 'next-section-2 'Man-next-section)
+  (evil-collection-bind 'Man-mode-map 'prev-section-2 'Man-previous-section)
+  (evil-collection-bind 'Man-mode-map        'quit 'quit-window)
+  (evil-collection-bind 'Man-mode-map   'quit-save 'quit-window)
+  (evil-collection-bind 'Man-mode-map 'quit-cancel 'quit-window)
+  (evil-collection-bind 'Man-mode-map     'refresh 'Man-update-manpage))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here

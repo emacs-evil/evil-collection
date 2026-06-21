@@ -88,16 +88,16 @@ default bindings."
     "l" 'ctbl:navi-move-right
 
     "gc" 'ctbl:navi-jump-to-column)
-  (evil-collection-bind 'quit          'edbi:dbview-query-result-keymap 'edbi:dbview-query-result-quit-command)
-  (evil-collection-bind 'quit-save     'edbi:dbview-query-result-keymap 'quit-window)
-  (evil-collection-bind 'quit-cancel   'edbi:dbview-query-result-keymap 'evil-quit)
-  (evil-collection-bind 'describe-mode 'edbi:dbview-query-result-keymap 'ctbl:describe-bindings)
-  (evil-collection-bind 'refresh       'edbi:dbview-query-result-keymap 'ctbl:action-update-buffer)
+  (evil-collection-bind 'edbi:dbview-query-result-keymap          'quit 'edbi:dbview-query-result-quit-command)
+  (evil-collection-bind 'edbi:dbview-query-result-keymap     'quit-save 'quit-window)
+  (evil-collection-bind 'edbi:dbview-query-result-keymap   'quit-cancel 'evil-quit)
+  (evil-collection-bind 'edbi:dbview-query-result-keymap 'describe-mode 'ctbl:describe-bindings)
+  (evil-collection-bind 'edbi:dbview-query-result-keymap       'refresh 'ctbl:action-update-buffer)
 
   (evil-collection-define-key 'normal 'edbi:sql-mode-map
     (kbd "C-n") 'edbi:dbview-query-editor-history-forward-command
     (kbd "C-p") 'edbi:dbview-query-editor-history-back-command)
-  (evil-collection-bind 'quit 'edbi:sql-mode-map 'edbi:dbview-query-editor-quit-command))
+  (evil-collection-bind 'edbi:sql-mode-map 'quit 'edbi:dbview-query-editor-quit-command))
 
 (provide 'evil-collection-edbi)
 ;;; evil-collection-edbi.el ends here

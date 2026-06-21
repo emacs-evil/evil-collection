@@ -66,21 +66,21 @@
   (evil-collection-define-key 'normal 'ement-directory-mode-map
     (kbd "s")        'ement-directory-search
     (kbd "q")        'quit-window)
-  (evil-collection-bind 'action 'ement-directory-mode-map 'ement-directory-RET)
+  (evil-collection-bind 'ement-directory-mode-map 'action 'ement-directory-RET)
 
   (evil-collection-define-key 'normal 'ement-room-list-mode-map
     (kbd "d")     'ement-room-list-kill-buffer
     (kbd "x")     'ement-room-leave
     (kbd "X")     'ement-forget-room)
-  (evil-collection-bind 'action 'ement-room-list-mode-map 'ement-room-list-RET)
+  (evil-collection-bind 'ement-room-list-mode-map 'action 'ement-room-list-RET)
 
-  (evil-collection-bind 'repl-submit        'ement-room-mode-map 'ement-room-send-message)
-  (evil-collection-bind 'repl-newline       'ement-room-mode-map 'newline)
-  (evil-collection-bind 'repl-force-newline 'ement-room-mode-map 'newline)
-  (evil-collection-bind 'next-item    'ement-room-mode-map 'ement-room-goto-next)
-  (evil-collection-bind 'prev-item    'ement-room-mode-map 'ement-room-goto-prev)
-  (evil-collection-bind 'next-section 'ement-room-mode-map 'ement-room-goto-next)
-  (evil-collection-bind 'prev-section 'ement-room-mode-map 'ement-room-goto-prev)
+  (evil-collection-bind 'ement-room-mode-map        'repl-submit 'ement-room-send-message)
+  (evil-collection-bind 'ement-room-mode-map       'repl-newline 'newline)
+  (evil-collection-bind 'ement-room-mode-map 'repl-force-newline 'newline)
+  (evil-collection-bind 'ement-room-mode-map    'next-item 'ement-room-goto-next)
+  (evil-collection-bind 'ement-room-mode-map    'prev-item 'ement-room-goto-prev)
+  (evil-collection-bind 'ement-room-mode-map 'next-section 'ement-room-goto-next)
+  (evil-collection-bind 'ement-room-mode-map 'prev-section 'ement-room-goto-prev)
 
   (evil-collection-define-key '(normal motion) 'ement-room-mode-map
     (kbd "<")  'ement-room-transient

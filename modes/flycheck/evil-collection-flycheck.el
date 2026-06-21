@@ -42,13 +42,13 @@
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error)
-  (evil-collection-bind 'action       'flycheck-error-list-mode-map 'flycheck-error-list-goto-error)
-  (evil-collection-bind 'next-item    'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
-  (evil-collection-bind 'prev-item    'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
-  (evil-collection-bind 'next-section 'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
-  (evil-collection-bind 'prev-section 'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
-  (evil-collection-bind 'quit    'flycheck-error-list-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'flycheck-error-list-mode-map 'flycheck-error-list-check-source))
+  (evil-collection-bind 'flycheck-error-list-mode-map       'action 'flycheck-error-list-goto-error)
+  (evil-collection-bind 'flycheck-error-list-mode-map    'next-item 'flycheck-error-list-next-error)
+  (evil-collection-bind 'flycheck-error-list-mode-map    'prev-item 'flycheck-error-list-previous-error)
+  (evil-collection-bind 'flycheck-error-list-mode-map 'next-section 'flycheck-error-list-next-error)
+  (evil-collection-bind 'flycheck-error-list-mode-map 'prev-section 'flycheck-error-list-previous-error)
+  (evil-collection-bind 'flycheck-error-list-mode-map    'quit 'quit-window)
+  (evil-collection-bind 'flycheck-error-list-mode-map 'refresh 'flycheck-error-list-check-source))
 
 (provide 'evil-collection-flycheck)
 ;;; evil-collection-flycheck.el ends here

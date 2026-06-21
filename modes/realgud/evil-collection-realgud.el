@@ -57,8 +57,8 @@
     ;; (evil-collection-define-key nil map [M-S-down]  'realgud-track-hist-newest)
     ;; (evil-collection-define-key nil map [M-S-up]    'realgud-track-hist-oldest)
     )
-  (evil-collection-bind 'quit   'realgud:shortkey-mode-map 'realgud:cmd-quit)
-  (evil-collection-bind 'delete 'realgud:shortkey-mode-map 'realgud:cmd-delete)
+  (evil-collection-bind 'realgud:shortkey-mode-map   'quit 'realgud:cmd-quit)
+  (evil-collection-bind 'realgud:shortkey-mode-map 'delete 'realgud:cmd-delete)
 
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     (kbd "C-x C-q") 'realgud-short-key-mode
@@ -85,16 +85,16 @@
     "S" 'realgud-window-src-undisturb-cmd
     "!" 'realgud:cmd-shell)
 
-  (evil-collection-bind 'describe-mode    'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
-  (evil-collection-bind 'refresh          'realgud:shortkey-mode-map 'realgud:cmd-restart)
-  (evil-collection-bind 'debug-continue   'realgud:shortkey-mode-map 'realgud:cmd-continue)
-  (evil-collection-bind 'debug-step-over  'realgud:shortkey-mode-map 'realgud:cmd-next)
-  (evil-collection-bind 'debug-step-into  'realgud:shortkey-mode-map 'realgud:cmd-step)
-  (evil-collection-bind 'debug-breakpoint 'realgud:shortkey-mode-map 'realgud:cmd-break)
-  (evil-collection-bind 'debug-eval       'realgud:shortkey-mode-map 'realgud:cmd-eval-dwim)
-  (evil-collection-bind 'debug-restart    'realgud:shortkey-mode-map 'realgud:cmd-restart)
-  (evil-collection-bind 'debug-frame-up   'realgud:shortkey-mode-map 'realgud:cmd-older-frame)
-  (evil-collection-bind 'debug-frame-down 'realgud:shortkey-mode-map 'realgud:cmd-newer-frame)
+  (evil-collection-bind 'realgud:shortkey-mode-map    'describe-mode 'realgud:cmdbuf-info-describe)
+  (evil-collection-bind 'realgud:shortkey-mode-map          'refresh 'realgud:cmd-restart)
+  (evil-collection-bind 'realgud:shortkey-mode-map   'debug-continue 'realgud:cmd-continue)
+  (evil-collection-bind 'realgud:shortkey-mode-map  'debug-step-over 'realgud:cmd-next)
+  (evil-collection-bind 'realgud:shortkey-mode-map  'debug-step-into 'realgud:cmd-step)
+  (evil-collection-bind 'realgud:shortkey-mode-map 'debug-breakpoint 'realgud:cmd-break)
+  (evil-collection-bind 'realgud:shortkey-mode-map       'debug-eval 'realgud:cmd-eval-dwim)
+  (evil-collection-bind 'realgud:shortkey-mode-map    'debug-restart 'realgud:cmd-restart)
+  (evil-collection-bind 'realgud:shortkey-mode-map   'debug-frame-up 'realgud:cmd-older-frame)
+  (evil-collection-bind 'realgud:shortkey-mode-map 'debug-frame-down 'realgud:cmd-newer-frame)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 

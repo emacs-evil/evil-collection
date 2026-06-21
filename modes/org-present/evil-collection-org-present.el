@@ -51,13 +51,13 @@
     "gw" 'org-present-read-write
     "gg" 'org-present-beginning
     "G" 'org-present-end)
-  (evil-collection-bind 'next-item    'org-present-mode-keymap 'org-present-next)
-  (evil-collection-bind 'prev-item    'org-present-mode-keymap 'org-present-prev)
-  (evil-collection-bind 'next-section 'org-present-mode-keymap 'org-present-next)
-  (evil-collection-bind 'prev-section 'org-present-mode-keymap 'org-present-prev)
-  (evil-collection-bind 'quit         'org-present-mode-keymap 'org-present-quit)
-  (evil-collection-bind 'quit-save    'org-present-mode-keymap 'org-present-quit)
-  (evil-collection-bind 'quit-cancel  'org-present-mode-keymap 'org-present-quit))
+  (evil-collection-bind 'org-present-mode-keymap    'next-item 'org-present-next)
+  (evil-collection-bind 'org-present-mode-keymap    'prev-item 'org-present-prev)
+  (evil-collection-bind 'org-present-mode-keymap 'next-section 'org-present-next)
+  (evil-collection-bind 'org-present-mode-keymap 'prev-section 'org-present-prev)
+  (evil-collection-bind 'org-present-mode-keymap         'quit 'org-present-quit)
+  (evil-collection-bind 'org-present-mode-keymap    'quit-save 'org-present-quit)
+  (evil-collection-bind 'org-present-mode-keymap  'quit-cancel 'org-present-quit))
 
 (provide 'evil-collection-org-present)
 ;;; evil-collection-org-present.el ends here

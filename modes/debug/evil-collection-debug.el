@@ -66,14 +66,14 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'top-level)
-  (evil-collection-bind 'action          'debugger-mode-map
+  (evil-collection-bind 'debugger-mode-map          'action
                         (if (fboundp 'debug-help-follow)
                             'debug-help-follow
                           'backtrace-help-follow-symbol))
-  (evil-collection-bind 'quit            'debugger-mode-map 'top-level)
-  (evil-collection-bind 'debug-continue  'debugger-mode-map 'debugger-continue)
-  (evil-collection-bind 'debug-eval      'debugger-mode-map 'debugger-eval-expression)
-  (evil-collection-bind 'debug-locals    'debugger-mode-map
+  (evil-collection-bind 'debugger-mode-map            'quit 'top-level)
+  (evil-collection-bind 'debugger-mode-map  'debug-continue 'debugger-continue)
+  (evil-collection-bind 'debugger-mode-map      'debug-eval 'debugger-eval-expression)
+  (evil-collection-bind 'debugger-mode-map    'debug-locals
                         (if (fboundp 'debugger-toggle-locals)
                             'debugger-toggle-locals
                           'backtrace-toggle-locals)))

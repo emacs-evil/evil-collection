@@ -37,12 +37,12 @@
 (defun evil-collection-gited-setup ()
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
-  (evil-collection-bind 'next-item     'gited-mode-map 'gited-next-marked-branch)
-  (evil-collection-bind 'prev-item     'gited-mode-map 'gited-prev-marked-branch)
-  (evil-collection-bind 'next-section  'gited-mode-map 'gited-next-marked-branch)
-  (evil-collection-bind 'prev-section  'gited-mode-map 'gited-prev-marked-branch)
-  (evil-collection-bind 'describe-mode 'gited-mode-map 'gited-summary)
-  (evil-collection-bind 'refresh       'gited-mode-map 'gited-update)
+  (evil-collection-bind 'gited-mode-map     'next-item 'gited-next-marked-branch)
+  (evil-collection-bind 'gited-mode-map     'prev-item 'gited-prev-marked-branch)
+  (evil-collection-bind 'gited-mode-map  'next-section 'gited-next-marked-branch)
+  (evil-collection-bind 'gited-mode-map  'prev-section 'gited-prev-marked-branch)
+  (evil-collection-bind 'gited-mode-map 'describe-mode 'gited-summary)
+  (evil-collection-bind 'gited-mode-map       'refresh 'gited-update)
 
   (evil-collection-define-key 'normal 'gited-mode-map
     "(" 'gited-hide-details-mode
@@ -144,14 +144,14 @@
     (kbd "C-t d") 'gited-tag-delete
     (kbd "C-t D") 'gited-remote-tag-delete
     (kbd "C-t F") 'gited-fetch-remote-tags)
-  (evil-collection-bind 'mark          'gited-mode-map 'gited-mark)
-  (evil-collection-bind 'unmark        'gited-mode-map 'gited-unmark)
-  (evil-collection-bind 'unmark-all    'gited-mode-map 'gited-unmark-all-marks)
-  (evil-collection-bind 'mark-delete   'gited-mode-map 'gited-flag-branch-deletion)
-  (evil-collection-bind 'execute-marks 'gited-mode-map 'gited-do-flagged-delete)
-  (evil-collection-bind 'action       'gited-mode-map 'gited-visit-branch-sources)
-  (evil-collection-bind 'action-other 'gited-mode-map 'gited-visit-branch-sources)
-  (evil-collection-bind 'action-stay  'gited-mode-map 'gited-origin))
+  (evil-collection-bind 'gited-mode-map          'mark 'gited-mark)
+  (evil-collection-bind 'gited-mode-map        'unmark 'gited-unmark)
+  (evil-collection-bind 'gited-mode-map    'unmark-all 'gited-unmark-all-marks)
+  (evil-collection-bind 'gited-mode-map   'mark-delete 'gited-flag-branch-deletion)
+  (evil-collection-bind 'gited-mode-map 'execute-marks 'gited-do-flagged-delete)
+  (evil-collection-bind 'gited-mode-map       'action 'gited-visit-branch-sources)
+  (evil-collection-bind 'gited-mode-map 'action-other 'gited-visit-branch-sources)
+  (evil-collection-bind 'gited-mode-map  'action-stay 'gited-origin))
 
 (provide 'evil-collection-gited)
 ;;; evil-collection-gited.el ends here

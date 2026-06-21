@@ -47,9 +47,9 @@
 ;;;###autoload
 (defun evil-collection-gptel-setup ()
   "Set up `evil' bindings for gptel."
-  (evil-collection-bind 'repl-submit        'gptel-mode-map 'gptel-send)
-  (evil-collection-bind 'repl-newline       'gptel-mode-map 'newline)
-  (evil-collection-bind 'repl-force-newline 'gptel-mode-map 'newline)
+  (evil-collection-bind 'gptel-mode-map        'repl-submit 'gptel-send)
+  (evil-collection-bind 'gptel-mode-map       'repl-newline 'newline)
+  (evil-collection-bind 'gptel-mode-map 'repl-force-newline 'newline)
   (if evil-collection-gptel-want-shift-ret-menu
       (evil-collection-define-key '(normal visual) 'gptel-mode-map
         (kbd "S-RET") 'gptel-menu
@@ -64,10 +64,10 @@
       "j" 'gptel-context-next
       "k" 'gptel-context-previous
       "d" 'gptel-context-flag-deletion)
-    (evil-collection-bind 'quit        'gptel-context-buffer-mode-map 'gptel-context-quit)
-    (evil-collection-bind 'quit-save   'gptel-context-buffer-mode-map 'gptel-context-confirm)
-    (evil-collection-bind 'quit-cancel 'gptel-context-buffer-mode-map 'gptel-context-quit)
-    (evil-collection-bind 'action      'gptel-context-buffer-mode-map 'gptel-context-visit)))
+    (evil-collection-bind 'gptel-context-buffer-mode-map        'quit 'gptel-context-quit)
+    (evil-collection-bind 'gptel-context-buffer-mode-map   'quit-save 'gptel-context-confirm)
+    (evil-collection-bind 'gptel-context-buffer-mode-map 'quit-cancel 'gptel-context-quit)
+    (evil-collection-bind 'gptel-context-buffer-mode-map      'action 'gptel-context-visit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here

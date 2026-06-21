@@ -50,13 +50,13 @@
     "a" 'youtube-dl
     "d" 'youtube-dl-list-kill)
 
-  (evil-collection-bind 'scroll-up    'youtube-dl-list-mode-map 'scroll-down-command)
-  (evil-collection-bind 'next-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
-  (evil-collection-bind 'prev-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
-  (evil-collection-bind 'next-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
-  (evil-collection-bind 'prev-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
-  (evil-collection-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode)
-  (evil-collection-bind 'refresh       'youtube-dl-list-mode-map 'youtube-dl-list-redisplay))
+  (evil-collection-bind 'youtube-dl-list-mode-map    'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'youtube-dl-list-mode-map    'next-item 'youtube-dl-list-priority-down)
+  (evil-collection-bind 'youtube-dl-list-mode-map    'prev-item 'youtube-dl-list-priority-up)
+  (evil-collection-bind 'youtube-dl-list-mode-map 'next-section 'youtube-dl-list-priority-down)
+  (evil-collection-bind 'youtube-dl-list-mode-map 'prev-section 'youtube-dl-list-priority-up)
+  (evil-collection-bind 'youtube-dl-list-mode-map 'describe-mode 'describe-mode)
+  (evil-collection-bind 'youtube-dl-list-mode-map       'refresh 'youtube-dl-list-redisplay))
 
 (provide 'evil-collection-youtube-dl)
 ;;; evil-collection-youtube-dl.el ends here

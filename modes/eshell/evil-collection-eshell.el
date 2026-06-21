@@ -113,14 +113,14 @@ appropriate in some cases like terminals."
     "C" 'evil-collection-eshell-evil-change-line
     "d" 'evil-collection-eshell-evil-delete
     "D" 'evil-collection-eshell-evil-delete-line)
-  (evil-collection-bind 'next-item    'eshell-mode-map 'eshell-next-prompt)
-  (evil-collection-bind 'prev-item    'eshell-mode-map 'eshell-previous-prompt)
-  (evil-collection-bind 'next-section 'eshell-mode-map 'eshell-next-prompt)
-  (evil-collection-bind 'prev-section 'eshell-mode-map 'eshell-previous-prompt)
+  (evil-collection-bind 'eshell-mode-map    'next-item 'eshell-next-prompt)
+  (evil-collection-bind 'eshell-mode-map    'prev-item 'eshell-previous-prompt)
+  (evil-collection-bind 'eshell-mode-map 'next-section 'eshell-next-prompt)
+  (evil-collection-bind 'eshell-mode-map 'prev-section 'eshell-previous-prompt)
 
-  (evil-collection-bind 'repl-submit        'eshell-mode-map 'eshell-send-input)
-  (evil-collection-bind 'repl-newline       'eshell-mode-map 'newline)
-  (evil-collection-bind 'repl-force-newline 'eshell-mode-map 'newline)
+  (evil-collection-bind 'eshell-mode-map        'repl-submit 'eshell-send-input)
+  (evil-collection-bind 'eshell-mode-map       'repl-newline 'newline)
+  (evil-collection-bind 'eshell-mode-map 'repl-force-newline 'newline)
 
   (when (< emacs-major-version 30)
     (evil-collection-define-key 'normal 'eshell-mode-map

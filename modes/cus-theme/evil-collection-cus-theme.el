@@ -39,15 +39,15 @@
   (evil-set-initial-state 'custom-new-theme-mode 'normal)
   (evil-set-initial-state 'custom-theme-choose-mode 'normal)
 
-  (evil-collection-bind 'cycle-next     'custom-theme-choose-mode-map 'widget-forward)
-  (evil-collection-bind 'cycle-previous 'custom-theme-choose-mode-map 'widget-backward)
-  (evil-collection-bind 'lookup-doc     'custom-theme-choose-mode-map 'custom-describe-theme)
+  (evil-collection-bind 'custom-theme-choose-mode-map     'cycle-next 'widget-forward)
+  (evil-collection-bind 'custom-theme-choose-mode-map 'cycle-previous 'widget-backward)
+  (evil-collection-bind 'custom-theme-choose-mode-map     'lookup-doc 'custom-describe-theme)
 
-  (evil-collection-bind 'cycle-next     'custom-new-theme-mode-map 'widget-forward)
-  (evil-collection-bind 'cycle-previous 'custom-new-theme-mode-map 'widget-backward)
-  (evil-collection-bind 'quit         'custom-new-theme-mode-map 'Custom-buffer-done)
-  (evil-collection-bind 'quit-save    'custom-new-theme-mode-map 'Custom-buffer-done)
-  (evil-collection-bind 'quit-cancel  'custom-new-theme-mode-map 'evil-quit))
+  (evil-collection-bind 'custom-new-theme-mode-map     'cycle-next 'widget-forward)
+  (evil-collection-bind 'custom-new-theme-mode-map 'cycle-previous 'widget-backward)
+  (evil-collection-bind 'custom-new-theme-mode-map         'quit 'Custom-buffer-done)
+  (evil-collection-bind 'custom-new-theme-mode-map    'quit-save 'Custom-buffer-done)
+  (evil-collection-bind 'custom-new-theme-mode-map  'quit-cancel 'evil-quit))
 
 (provide 'evil-collection-cus-theme)
 ;;; evil-collection-cus-theme.el ends here

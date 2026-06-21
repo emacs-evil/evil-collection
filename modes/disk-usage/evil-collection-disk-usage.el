@@ -37,8 +37,8 @@
 (defun evil-collection-disk-usage-setup ()
   "Set up `evil' bindings for `disk-usage'."
   (evil-collection-set-readonly-bindings 'disk-usage-mode-map)
-  (evil-collection-bind 'next-button     'disk-usage-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'disk-usage-mode-map 'backward-button)
+  (evil-collection-bind 'disk-usage-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'disk-usage-mode-map 'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-mode-map
     "S" 'tabulated-list-sort
     "^" 'disk-usage-up
@@ -58,12 +58,12 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
-  (evil-collection-bind 'scroll-down 'disk-usage-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up   'disk-usage-mode-map 'scroll-down-command)
+  (evil-collection-bind 'disk-usage-mode-map 'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'disk-usage-mode-map   'scroll-up 'scroll-down-command)
 
   (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
-  (evil-collection-bind 'next-button     'disk-usage-by-types-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'disk-usage-by-types-mode-map 'backward-button)
+  (evil-collection-bind 'disk-usage-by-types-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'disk-usage-by-types-mode-map 'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-by-types-mode-map
     "S" 'tabulated-list-sort
 
@@ -72,14 +72,14 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
-  (evil-collection-bind 'scroll-down 'disk-usage-by-types-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up   'disk-usage-by-types-mode-map 'scroll-down-command)
+  (evil-collection-bind 'disk-usage-by-types-mode-map 'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'disk-usage-by-types-mode-map   'scroll-up 'scroll-down-command)
 
-  (evil-collection-bind 'action        'disk-usage-by-types-mode-map 'disk-usage-files)
-  (evil-collection-bind 'describe-mode 'disk-usage-mode-map          'describe-mode)
-  (evil-collection-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode)
-  (evil-collection-bind 'refresh       'disk-usage-mode-map          'revert-buffer)
-  (evil-collection-bind 'refresh       'disk-usage-by-types-mode-map 'revert-buffer))
+  (evil-collection-bind 'disk-usage-by-types-mode-map        'action 'disk-usage-files)
+  (evil-collection-bind 'disk-usage-mode-map 'describe-mode          'describe-mode)
+  (evil-collection-bind 'disk-usage-by-types-mode-map 'describe-mode 'describe-mode)
+  (evil-collection-bind 'disk-usage-mode-map       'refresh          'revert-buffer)
+  (evil-collection-bind 'disk-usage-by-types-mode-map       'refresh 'revert-buffer))
 
 (provide 'evil-collection-disk-usage)
 ;;; evil-collection-disk-usage.el ends here

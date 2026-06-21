@@ -39,15 +39,15 @@
     (evil-collection-define-key 'normal 'comint-mode-map
       (kbd "C-d") #'evil-scroll-down))
 
-  (evil-collection-bind 'repl-submit        'comint-mode-map #'comint-send-input)
-  (evil-collection-bind 'repl-newline       'comint-mode-map #'newline)
-  (evil-collection-bind 'repl-force-newline 'comint-mode-map #'newline)
+  (evil-collection-bind 'comint-mode-map        'repl-submit #'comint-send-input)
+  (evil-collection-bind 'comint-mode-map       'repl-newline #'newline)
+  (evil-collection-bind 'comint-mode-map 'repl-force-newline #'newline)
 
   ;; Match Eshell bindings.
-  (evil-collection-bind 'next-item    'comint-mode-map #'comint-next-prompt)
-  (evil-collection-bind 'prev-item    'comint-mode-map #'comint-previous-prompt)
-  (evil-collection-bind 'next-section 'comint-mode-map #'comint-next-prompt)
-  (evil-collection-bind 'prev-section 'comint-mode-map #'comint-previous-prompt)
+  (evil-collection-bind 'comint-mode-map    'next-item #'comint-next-prompt)
+  (evil-collection-bind 'comint-mode-map    'prev-item #'comint-previous-prompt)
+  (evil-collection-bind 'comint-mode-map 'next-section #'comint-next-prompt)
+  (evil-collection-bind 'comint-mode-map 'prev-section #'comint-previous-prompt)
 
   (evil-collection-define-key 'normal 'comint-mode-map
     (kbd "C-p") #'comint-previous-input

@@ -36,14 +36,14 @@
 (defun evil-collection-apropos-setup ()
   "Set up `evil' bindings for `apropos'."
   (evil-set-initial-state 'apropos-mode 'normal)
-  (evil-collection-bind 'next-button     'apropos-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'apropos-mode-map 'backward-button)
-  (evil-collection-bind 'action        'apropos-mode-map 'apropos-follow)
-  (evil-collection-bind 'quit          'apropos-mode-map 'quit-window)
-  (evil-collection-bind 'quit-save     'apropos-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel   'apropos-mode-map 'evil-quit)
-  (evil-collection-bind 'describe-mode 'apropos-mode-map 'describe-mode)
-  (evil-collection-bind 'refresh       'apropos-mode-map 'revert-buffer))
+  (evil-collection-bind 'apropos-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'apropos-mode-map 'previous-button 'backward-button)
+  (evil-collection-bind 'apropos-mode-map        'action 'apropos-follow)
+  (evil-collection-bind 'apropos-mode-map          'quit 'quit-window)
+  (evil-collection-bind 'apropos-mode-map     'quit-save 'quit-window)
+  (evil-collection-bind 'apropos-mode-map   'quit-cancel 'evil-quit)
+  (evil-collection-bind 'apropos-mode-map 'describe-mode 'describe-mode)
+  (evil-collection-bind 'apropos-mode-map       'refresh 'revert-buffer))
 
 (provide 'evil-collection-apropos)
 ;;; evil-collection-apropos.el ends here

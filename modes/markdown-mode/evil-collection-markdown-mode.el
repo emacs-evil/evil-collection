@@ -44,7 +44,7 @@
     [tab] 'markdown-cycle
     [S-tab] 'markdown-shifttab)
   ;; `evil-markdown' doesn't bind but spacemacs does.
-  (evil-collection-bind 'action 'markdown-mode-map 'markdown-do))
+  (evil-collection-bind 'markdown-mode-map 'action 'markdown-do))
 
 (provide 'evil-collection-markdown-mode)
 ;;; evil-collection-markdown-mode.el ends here

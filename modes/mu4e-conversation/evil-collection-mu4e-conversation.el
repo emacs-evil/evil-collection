@@ -67,11 +67,11 @@
     (kbd "S-SPC") 'evil-scroll-page-up
     "zv" 'mu4e-conversation-toggle-view
     "za" 'mu4e-conversation-toggle-hide-cited)
-  (evil-collection-bind 'next-item    'mu4e-conversation-map 'mu4e-conversation-next-message)
-  (evil-collection-bind 'prev-item    'mu4e-conversation-map 'mu4e-conversation-previous-message)
-  (evil-collection-bind 'next-section 'mu4e-conversation-map 'mu4e-conversation-next-message)
-  (evil-collection-bind 'prev-section 'mu4e-conversation-map 'mu4e-conversation-previous-message)
-  (evil-collection-bind 'quit 'mu4e-conversation-map 'mu4e-conversation-quit))
+  (evil-collection-bind 'mu4e-conversation-map    'next-item 'mu4e-conversation-next-message)
+  (evil-collection-bind 'mu4e-conversation-map    'prev-item 'mu4e-conversation-previous-message)
+  (evil-collection-bind 'mu4e-conversation-map 'next-section 'mu4e-conversation-next-message)
+  (evil-collection-bind 'mu4e-conversation-map 'prev-section 'mu4e-conversation-previous-message)
+  (evil-collection-bind 'mu4e-conversation-map 'quit 'mu4e-conversation-quit))
 
 (provide 'evil-collection-mu4e-conversation)
 ;;; evil-collection-mu4e-conversation.el ends here

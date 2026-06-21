@@ -38,10 +38,10 @@
     "{" 'compilation-previous-file
     "}" 'compilation-next-file
     "i" 'wgrep-change-to-wgrep-mode)
-  (evil-collection-bind 'next-item    'ripgrep-search-mode-map 'next-error-no-select)
-  (evil-collection-bind 'prev-item    'ripgrep-search-mode-map 'previous-error-no-select)
-  (evil-collection-bind 'next-section 'ripgrep-search-mode-map 'next-error-no-select)
-  (evil-collection-bind 'prev-section 'ripgrep-search-mode-map 'previous-error-no-select))
+  (evil-collection-bind 'ripgrep-search-mode-map    'next-item 'next-error-no-select)
+  (evil-collection-bind 'ripgrep-search-mode-map    'prev-item 'previous-error-no-select)
+  (evil-collection-bind 'ripgrep-search-mode-map 'next-section 'next-error-no-select)
+  (evil-collection-bind 'ripgrep-search-mode-map 'prev-section 'previous-error-no-select))
 
 
 (provide 'evil-collection-ripgrep)

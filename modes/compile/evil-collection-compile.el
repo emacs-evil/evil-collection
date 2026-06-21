@@ -48,17 +48,17 @@
       (kbd "TAB") 'compilation-next-error
       (kbd "S-TAB") 'compilation-previous-error)
 
-    (evil-collection-bind 'action       keymap 'compile-goto-error)
-    (evil-collection-bind 'action-other keymap 'compilation-display-error)
-    (evil-collection-bind 'action-stay  keymap 'compilation-display-error)
-    (evil-collection-bind 'next-item    keymap 'compilation-next-error)
-    (evil-collection-bind 'prev-item    keymap 'compilation-previous-error)
-    (evil-collection-bind 'next-section keymap 'compilation-next-file)
-    (evil-collection-bind 'prev-section keymap 'compilation-previous-file)
-    (evil-collection-bind 'next-section-2 keymap 'compilation-next-error)
-    (evil-collection-bind 'prev-section-2 keymap 'compilation-previous-error)
+    (evil-collection-bind keymap       'action 'compile-goto-error)
+    (evil-collection-bind keymap 'action-other 'compilation-display-error)
+    (evil-collection-bind keymap  'action-stay 'compilation-display-error)
+    (evil-collection-bind keymap    'next-item 'compilation-next-error)
+    (evil-collection-bind keymap    'prev-item 'compilation-previous-error)
+    (evil-collection-bind keymap 'next-section 'compilation-next-file)
+    (evil-collection-bind keymap 'prev-section 'compilation-previous-file)
+    (evil-collection-bind keymap 'next-section-2 'compilation-next-error)
+    (evil-collection-bind keymap 'prev-section-2 'compilation-previous-error)
 
-    (evil-collection-bind 'refresh keymap 'recompile)))
+    (evil-collection-bind keymap 'refresh 'recompile)))
 
 (provide 'evil-collection-compile)
 ;;; evil-collection-compile.el ends here
