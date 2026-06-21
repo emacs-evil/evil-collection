@@ -701,13 +701,17 @@ context, never callables."
 (defun evil-collection-bind (id map-sym command)
   "Bind theme entry ID in MAP-SYM to COMMAND.
 
-Does nothing when ID is disabled.  Each key in the entry's :key
-list is bound across every state in :state."
+Does nothing when ID is disabled.  All keys in the entry's :key
+list are batched into a single `evil-collection-define-key' call
+so a deferred map installs only one `after-load-functions' hook
+per call instead of one per key."
   (when (evil-collection-binding-enabled-p id)
-    (let ((states (evil-collection-binding-states id)))
-      (dolist (key (evil-collection-binding-keys id))
-        (evil-collection-define-key states map-sym
-          (kbd key) command)))))
+    (let ((states (evil-collection-binding-states id))
+          (keys (evil-collection-binding-keys id)))
+      (when keys
+        (apply #'evil-collection-define-key states map-sym
+               (cl-mapcan (lambda (key) (list (kbd key) command))
+                          keys))))))
 
 (defun evil-collection-bind-minor-mode (id mode command)
   "Bind theme entry ID to COMMAND in minor-mode MODE.
@@ -715,10 +719,12 @@ list is bound across every state in :state."
 Like `evil-collection-bind' but routes through
 `evil-collection-define-minor-mode-key'."
   (when (evil-collection-binding-enabled-p id)
-    (let ((states (evil-collection-binding-states id)))
-      (dolist (key (evil-collection-binding-keys id))
-        (evil-collection-define-minor-mode-key states mode
-          (kbd key) command)))))
+    (let ((states (evil-collection-binding-states id))
+          (keys (evil-collection-binding-keys id)))
+      (when keys
+        (apply #'evil-collection-define-minor-mode-key states mode
+               (cl-mapcan (lambda (key) (list (kbd key) command))
+                          keys))))))
 
 (defun evil-collection-bind-local (id command)
   "Bind theme entry ID to COMMAND in the current buffer.
