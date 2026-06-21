@@ -38,7 +38,6 @@
   (evil-collection-define-key 'normal 'ovpn-mode-map
     "s" 'ovpn-mode-start-vpn
     "n" 'ovpn-mode-start-vpn-with-namespace
-    "q" 'ovpn-mode-stop-vpn
     "r" 'ovpn-mode-restart-vpn
     "i" 'ovpn-mode-info-vpn
     "$" 'ovpn-mode-buffer-vpn
@@ -50,7 +49,8 @@
     "T" 'ovpn-mode-spawn-term-in-namespace
     "B" 'ovpn-mode-spawn-browser-in-namespace
     "ZZ" 'quit-window
-    "ZQ" 'evil-quit))
+    "ZQ" 'evil-quit)
+  (evil-collection-theme-bind 'quit 'ovpn-mode-map 'ovpn-mode-stop-vpn))
 
 (provide 'evil-collection-ovpn-mode)
 ;;; evil-collection-ovpn-mode.el ends here
