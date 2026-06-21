@@ -53,12 +53,10 @@
   (when (boundp 'ggtags-enable-navigation-keys)
     (setq ggtags-enable-navigation-keys nil))
 
-  (evil-collection-define-key 'normal 'ggtags-mode-map
-    "gf" 'ggtags-find-file)
-
   (evil-collection-theme-bind 'find-usages     'ggtags-mode-map 'ggtags-find-reference)
   (evil-collection-theme-bind 'find-definition 'ggtags-mode-map 'ggtags-find-tag-dwim)
   (evil-collection-theme-bind 'pop-definition  'ggtags-mode-map 'ggtags-prev-mark)
+  (evil-collection-theme-bind 'find-file       'ggtags-mode-map 'ggtags-find-file)
 
   (evil-collection-define-key 'normal 'ggtags-view-search-history-mode-map
     "gj" 'ggtags-view-search-history-next

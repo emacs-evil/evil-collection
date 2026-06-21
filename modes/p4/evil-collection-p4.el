@@ -83,9 +83,10 @@
   (evil-collection-define-key 'normal 'p4-status-list-mode-map
     (kbd "RET") 'p4-status-list-activate)
 
+  (evil-collection-theme-bind 'find-file 'p4-filelog-mode-map 'p4-find-file-other-window)
+
   (evil-collection-define-key 'normal 'p4-filelog-mode-map
     "d" 'p4-diff2
-    "gf" 'p4-find-file-other-window
     "S" 'p4-filelog-short-format
     "L" 'p4-filelog-long-format
     " " 'p4-scroll-up-1-window

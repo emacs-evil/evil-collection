@@ -117,7 +117,6 @@
     ;; Lower keys for commands not operating on all the marked files
     "a" 'dired-find-alternate-file
     "d" 'dired-flag-file-deletion
-    "gf" 'dired-find-file
     (kbd "C-m") 'dired-find-file
     "gr" 'revert-buffer
     "i" 'dired-toggle-read-only
@@ -168,7 +167,11 @@
     ;; `toggle-read-only' is an obsolete alias for `read-only-mode'
     [remap toggle-read-only] 'dired-toggle-read-only
     "g?" 'dired-summary
-    (kbd "<delete>") 'dired-unmark-backward
+    (kbd "<delete>") 'dired-unmark-backward)
+
+  (evil-collection-theme-bind 'find-file 'dired-mode-map 'dired-find-file)
+
+  (evil-collection-define-key 'normal 'dired-mode-map
     [remap undo] 'dired-undo
     [remap advertised-undo] 'dired-undo
     ;; thumbnail manipulation (image-dired)

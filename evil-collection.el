@@ -547,7 +547,10 @@ New customization should use
                 :key "K")
     (goto-repl :enabled t
                :state normal
-               :key "gz"))
+               :key "gz")
+    (find-file :enabled t
+               :state normal
+               :key "gf"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

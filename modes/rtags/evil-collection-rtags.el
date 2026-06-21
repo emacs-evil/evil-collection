@@ -70,7 +70,6 @@
     "-" 'rtags-dependency-tree-collapse-current
     "+" 'rtags-dependency-tree-expand-current
     "P" 'rtags-dependency-tree-find-path
-    "gf" 'rtags-dependency-tree-find-path
 
     "gj" 'rtags-dependency-tree-next-level
     "gk" 'rtags-dependency-tree-previous-level
@@ -92,6 +91,8 @@
 
     "x" 'rtags-select-and-remove-rtags-buffer
     "q" 'rtags-call-bury-or-delete)
+
+  (evil-collection-theme-bind 'find-file 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-find-path)
 
   (evil-collection-define-key 'normal 'rtags-references-tree-mode-map
     (kbd "<tab>") 'rtags-references-tree-toggle-current-expanded

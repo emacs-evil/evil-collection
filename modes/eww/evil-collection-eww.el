@@ -48,8 +48,6 @@
     "H" 'eww-back-url
     "L" 'eww-forward-url
 
-    "gf" 'eww-view-source               ; Like qutebrowser.
-
     "&" 'eww-browse-with-external-browser
     "gc" 'url-cookie-list
     "zd" 'eww-toggle-paragraph-direction
@@ -91,6 +89,8 @@
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)
+
+  (evil-collection-theme-bind 'find-file 'eww-mode-map 'eww-view-source)
 
   (evil-collection-set-readonly-bindings 'eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
