@@ -543,7 +543,8 @@ New customization should use
     (repl-force-newline :enabled t
                         :state (normal insert)
                         :key ("S-<return>" "S-RET"))
-    (find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings)
+    (find-usages :enabled ,(lambda (_map-sym _id _keys _command)
+                             evil-collection-want-find-usages-bindings)
                  :state normal
                  :key "gr")
     (find-definition :enabled t :state normal :key "gd")
@@ -563,34 +564,44 @@ New customization should use
     (action :enabled t :state normal :key ("RET" "<return>"))
     (action-other :enabled t :state normal :key ("S-<return>" "S-RET" "go"))
     (action-stay :enabled t :state normal :key ("M-<return>" "M-RET" "gO"))
-    (debug-continue    :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-continue    :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("c" "<f5>"))
-    (debug-step-over   :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-step-over   :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("n" "<f10>"))
-    (debug-step-into   :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-step-into   :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("i" "s" "<f11>"))
-    (debug-step-out    :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-step-out    :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("o" "<S-f11>"))
-    (debug-breakpoint  :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-breakpoint  :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key ("b" "<f9>"))
-    (debug-eval        :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-eval        :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key "e")
-    (debug-locals      :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-locals      :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key "L")
-    (debug-restart     :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-restart     :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key "R")
-    (debug-frame-up    :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-frame-up    :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key "<")
-    (debug-frame-down  :enabled ,(lambda () evil-collection-setup-debugger-keys)
+    (debug-frame-down  :enabled ,(lambda (_map-sym _id _keys _command)
+                                    evil-collection-setup-debugger-keys)
                        :state normal
                        :key ">")
     (next-button :enabled t :state normal :key ("<tab>" "TAB"))
@@ -626,25 +637,42 @@ New customization should use
 
 Each entry has the form (ID . PLIST) and may use:
 
-  :enabled  nil, t, or a function called with no args.  Missing
-            entries are treated as t.
+  :enabled  nil, t, or a function with the signature
+              (lambda (map-sym id keys command) ...)
+            called at lookup time.  Missing entries are treated as t.
+            Any of the four arguments may be nil when
+            `evil-collection-binding-enabled-p' is called outside the
+            bind helpers (e.g. as a pure feature toggle from a
+            consumer-side setup function).  Override examples:
+
+              ;; Skip in one specific keymap.
+              (find-usages :enabled
+                ,(lambda (map-sym _id _keys _cmd)
+                   (not (eq map-sym \\='dired-sidebar-mode-map))))
+
+              ;; Skip when bound to a particular key.
+              (find-usages :enabled
+                ,(lambda (_map-sym _id keys _cmd)
+                   (not (member \"gr\" keys))))
+
   :state    Evil state symbol, list of state symbols, or a function
-            returning either.  A singular value is wrapped to a list
-            at lookup.  Optional.
+            of no args returning either.  A singular value is wrapped
+            to a list at lookup.  Optional.
   :key      Key string (suitable for `kbd'), list of key strings, or
-            a function returning either.  Optional.
+            a function of no args returning either.  Optional.
 
 :state and :key are optional.  An entry with only :enabled acts as a
 pure feature toggle: the consumer-side code does the binding itself
 and asks the resolver via `evil-collection-binding-enabled-p' whether
 the feature is on.
 
-Function values are funcalled at lookup time, which is useful for
-delegating to legacy defcustoms while features migrate to the theme
-system.  Plain symbols are never funcalled even when they happen to
-have a function binding (e.g. the state symbol `insert' is also the
-`insert' function); that is why anonymous lambdas are required when a
-property's value should be computed dynamically.
+Function values for :state and :key are funcalled at lookup time with
+no arguments, which is useful for delegating to legacy defcustoms
+while features migrate to the theme system.  Plain symbols are never
+funcalled even when they happen to have a function binding (e.g. the
+state symbol `insert' is also the `insert' function); that is why
+anonymous lambdas are required when a property's value should be
+computed dynamically.
 
 Users customize via `evil-collection-binding-overrides'; do not
 modify this variable directly.")
@@ -689,16 +717,24 @@ context, never callables."
         ((listp v) v)
         (t (list v))))
 
-(defun evil-collection-binding-enabled-p (id)
+(defun evil-collection-binding-enabled-p (id &optional map-sym keys command)
   "Return non-nil if theme entry ID is enabled.
 
-:enabled may be nil, t, or a function of no args.  Missing -> t."
+:enabled may be nil, t, or a function with the signature
+\(lambda (MAP-SYM ID KEYS COMMAND) ...).  Missing -> t.
+
+The optional MAP-SYM, KEYS, and COMMAND are forwarded to the function
+when present at the call site, and otherwise nil — this lets callers
+that resolve `:enabled' as a pure feature toggle (no concrete keymap
+in scope) keep their existing call shape."
   (let* ((over (cdr (assq id evil-collection-binding-overrides)))
          (def  (cdr (assq id evil-collection-binding-defaults)))
          (v (cond ((plist-member over :enabled) (plist-get over :enabled))
                   ((plist-member def :enabled)  (plist-get def :enabled))
                   (t t))))
-    (evil-collection-binding--resolve v)))
+    (if (and (functionp v) (not (symbolp v)))
+        (funcall v map-sym id keys command)
+      v)))
 
 (defun evil-collection-binding-states (id)
   "Return list of evil states configured for theme entry ID."
@@ -727,11 +763,11 @@ so a deferred map installs one `after-load-functions' hook per
 state-group instead of one per pair."
   (let ((groups nil))
     (while id-command-pairs
-      (let ((id (pop id-command-pairs))
-            (cmd (pop id-command-pairs)))
-        (when (evil-collection-binding-enabled-p id)
-          (let ((states (evil-collection-binding-states id))
-                (keys (evil-collection-binding-keys id)))
+      (let* ((id (pop id-command-pairs))
+             (cmd (pop id-command-pairs))
+             (keys (evil-collection-binding-keys id)))
+        (when (evil-collection-binding-enabled-p id map-sym keys cmd)
+          (let ((states (evil-collection-binding-states id)))
             (when keys
               (let ((pairs (cl-mapcan (lambda (k) (list (kbd k) cmd))
                                       keys))
@@ -748,33 +784,34 @@ state-group instead of one per pair."
 
 Like `evil-collection-bind' but routes through
 `evil-collection-define-minor-mode-key'."
-  (when (evil-collection-binding-enabled-p id)
-    (let ((states (evil-collection-binding-states id))
-          (keys (evil-collection-binding-keys id)))
-      (when keys
-        (apply #'evil-collection-define-minor-mode-key states mode
-               (cl-mapcan (lambda (key) (list (kbd key) command))
-                          keys))))))
+  (let ((keys (evil-collection-binding-keys id)))
+    (when (evil-collection-binding-enabled-p id mode keys command)
+      (let ((states (evil-collection-binding-states id)))
+        (when keys
+          (apply #'evil-collection-define-minor-mode-key states mode
+                 (cl-mapcan (lambda (key) (list (kbd key) command))
+                            keys)))))))
 
 (defun evil-collection-bind-local (id command)
   "Bind theme entry ID to COMMAND in the current buffer.
 
 Like `evil-collection-bind' but uses `evil-local-set-key'."
-  (when (evil-collection-binding-enabled-p id)
-    (let ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
-          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
-          (states (evil-collection--filter-states
-                   (evil-collection-binding-states id))))
-      (when states
-        (dolist (key (evil-collection-binding-keys id))
-          (let ((kbd-key (kbd key)))
-            (when (evil-collection--can-bind-key kbd-key whitelist blacklist)
-              (when (featurep 'annalist)
-                (annalist-record 'evil-collection 'keybindings
-                                 (list 'local (car states) kbd-key command)
-                                 :local t))
-              (dolist (state states)
-                (evil-local-set-key state kbd-key command)))))))))
+  (let ((keys (evil-collection-binding-keys id)))
+    (when (evil-collection-binding-enabled-p id nil keys command)
+      (let ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
+            (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+            (states (evil-collection--filter-states
+                     (evil-collection-binding-states id))))
+        (when states
+          (dolist (key keys)
+            (let ((kbd-key (kbd key)))
+              (when (evil-collection--can-bind-key kbd-key whitelist blacklist)
+                (when (featurep 'annalist)
+                  (annalist-record 'evil-collection 'keybindings
+                                   (list 'local (car states) kbd-key command)
+                                   :local t))
+                (dolist (state states)
+                  (evil-local-set-key state kbd-key command))))))))))
 
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.

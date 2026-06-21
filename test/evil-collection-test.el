@@ -76,13 +76,56 @@
     (should (null (evil-collection-binding-enabled-p 'demo)))))
 
 (ert-deftest evil-collection-theme-enabled-function ()
-  ":enabled may be a function; it is funcalled at lookup time."
+  ":enabled may be a function; it is funcalled with (map-sym id keys command)."
   (let ((evil-collection-binding-defaults
-         `((demo :enabled ,(lambda () (= 1 1)))
-           (off  :enabled ,(lambda () nil))))
+         `((demo :enabled ,(lambda (_map-sym _id _keys _command) (= 1 1)))
+           (off  :enabled ,(lambda (_map-sym _id _keys _command) nil))))
         (evil-collection-binding-overrides nil))
     (should (eq t (evil-collection-binding-enabled-p 'demo)))
     (should (null (evil-collection-binding-enabled-p 'off)))))
+
+(ert-deftest evil-collection-theme-enabled-function-receives-context ()
+  ":enabled gets the bind-site context (map-sym, id, keys, command)."
+  (let* ((calls nil)
+         (record (lambda (map-sym id keys command)
+                   (push (list map-sym id keys command) calls)
+                   t))
+         (evil-collection-binding-defaults
+          `((demo :enabled ,record :state normal :key ("X" "Y"))))
+         (evil-collection-binding-overrides nil))
+    (defvar evil-collection-theme-test--ctx-map nil)
+    (setq evil-collection-theme-test--ctx-map (make-sparse-keymap))
+    (evil-collection-bind 'evil-collection-theme-test--ctx-map
+                          'demo #'ignore)
+    (should (equal (list 'evil-collection-theme-test--ctx-map
+                         'demo
+                         '("X" "Y")
+                         #'ignore)
+                   (car calls)))))
+
+(ert-deftest evil-collection-theme-enabled-function-can-skip-by-map ()
+  "A user :enabled lambda can disable a binding for a specific map-sym."
+  (let* ((evil-collection-binding-defaults
+          '((demo :enabled t :state normal :key "X")))
+         (evil-collection-binding-overrides
+          `((demo :enabled ,(lambda (map-sym _id _keys _command)
+                              (not (eq map-sym
+                                       'evil-collection-theme-test--skip-map)))))))
+    (defvar evil-collection-theme-test--skip-map nil)
+    (defvar evil-collection-theme-test--keep-map nil)
+    (setq evil-collection-theme-test--skip-map (make-sparse-keymap)
+          evil-collection-theme-test--keep-map (make-sparse-keymap))
+    (evil-collection-bind 'evil-collection-theme-test--skip-map
+                          'demo #'ignore)
+    (evil-collection-bind 'evil-collection-theme-test--keep-map
+                          'demo #'ignore)
+    (should (null (lookup-key (evil-get-auxiliary-keymap
+                               evil-collection-theme-test--skip-map 'normal)
+                              (kbd "X"))))
+    (should (eq #'ignore
+                (lookup-key (evil-get-auxiliary-keymap
+                             evil-collection-theme-test--keep-map 'normal)
+                            (kbd "X"))))))
 
 (ert-deftest evil-collection-theme-enabled-missing-defaults-to-t ()
   "Missing :enabled is treated as t."
