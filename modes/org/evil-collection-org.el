@@ -70,9 +70,9 @@
     ")" 'org-forward-sentence)
 
   (evil-collection-define-key 'normal 'org-capture-mode-map
-    "ZZ" 'org-capture-finalize
-    "ZQ" 'org-capture-kill
     "ZR" 'org-capture-refile)
+  (evil-collection-bind 'quit-save   'org-capture-mode-map 'org-capture-finalize)
+  (evil-collection-bind 'quit-cancel 'org-capture-mode-map 'org-capture-kill)
 
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-l") #'org-calendar-forward-day)
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-h") #'org-calendar-backward-day)

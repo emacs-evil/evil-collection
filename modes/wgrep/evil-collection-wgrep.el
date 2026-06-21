@@ -41,9 +41,9 @@
     [remap evil-write] 'wgrep-finish-edit)
 
   (evil-collection-define-key 'normal 'wgrep-mode-map
-    "ZQ" 'wgrep-abort-changes
-    "ZZ" 'wgrep-finish-edit
-    (kbd "<escape>") 'wgrep-exit))
+    (kbd "<escape>") 'wgrep-exit)
+  (evil-collection-bind 'quit-save   'wgrep-mode-map 'wgrep-finish-edit)
+  (evil-collection-bind 'quit-cancel 'wgrep-mode-map 'wgrep-abort-changes))
 
 (provide 'evil-collection-wgrep)
 ;;; evil-collection-wgrep.el ends here

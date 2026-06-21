@@ -552,6 +552,8 @@ New customization should use
     (goto-repl :enabled t :state normal :key "gz")
     (find-file :enabled t :state normal :key "gf")
     (quit :enabled t :state normal :key "q")
+    (quit-save :enabled t :state normal :key "ZZ")
+    (quit-cancel :enabled t :state normal :key "ZQ")
     (describe-mode :enabled t :state normal :key "g?")
     (refresh :enabled t :state normal :key "gr")
     (refresh-all :enabled t :state normal :key "gR")

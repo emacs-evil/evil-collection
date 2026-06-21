@@ -264,6 +264,16 @@ equivalent to setting ~:state~ here.
       '((quit :state normal :key "q")))
 #+end_src
 
+*** Quit save / cancel
+
+Vim's ~ZZ~ (~:x~ — save and quit) and ~ZQ~ (~:q!~ — discard and quit), for editable buffers like ~wgrep~, ~wdired~, ~message~, ~org-capture~, ~with-editor~.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((quit-save   :state normal :key "ZZ")
+        (quit-cancel :state normal :key "ZQ")))
+#+end_src
+
 *** Describe mode
 
 #+begin_src emacs-lisp :tangle yes

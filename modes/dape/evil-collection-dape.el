@@ -120,9 +120,9 @@
   (evil-collection-define-key nil 'dape-info-watch-edit-mode-map
     [remap evil-write] 'dape-info-watch-finish-edit)
   (evil-collection-define-key 'normal 'dape-info-watch-edit-mode-map
-    "ZQ" 'dape-info-watch-abort-changes
-    "ZZ" 'dape-info-watch-finish-edit
     (kbd "<escape>") 'dape-info-watch-finish-edit)
+  (evil-collection-bind 'quit-save   'dape-info-watch-edit-mode-map 'dape-info-watch-finish-edit)
+  (evil-collection-bind 'quit-cancel 'dape-info-watch-edit-mode-map 'dape-info-watch-abort-changes)
 
   (evil-collection-define-key 'normal 'dape-memory-mode-map
     [remap evil-write] 'save-buffer
