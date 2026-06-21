@@ -71,9 +71,8 @@
   (evil-set-initial-state 'slime-thread-control-mode 'normal)
   (evil-set-initial-state 'slime-xref-mode 'normal)
 
-  (evil-collection-define-key 'normal 'slime-parent-map
-    "gd" 'slime-edit-definition
-    (kbd "C-t") 'slime-pop-find-definition-stack)
+  (evil-collection-theme-bind 'find-definition 'slime-parent-map 'slime-edit-definition)
+  (evil-collection-theme-bind 'pop-definition  'slime-parent-map 'slime-pop-find-definition-stack)
 
   (evil-collection-define-key 'normal 'sldb-mode-map
     (kbd "RET") 'sldb-default-action
@@ -156,21 +155,18 @@
 
   (evil-collection-define-key 'normal 'slime-mode-map
     (kbd "K") 'slime-describe-symbol
-    (kbd "C-t") 'slime-pop-find-definition-stack
-    ;; goto
-    "gd" 'slime-edit-definition
     "gz" 'slime-switch-to-output-buffer)
 
-  (evil-collection-theme-bind 'find-usages 'slime-mode-map 'slime-edit-uses)
+  (evil-collection-theme-bind 'find-usages     'slime-mode-map 'slime-edit-uses)
+  (evil-collection-theme-bind 'find-definition 'slime-mode-map 'slime-edit-definition)
+  (evil-collection-theme-bind 'pop-definition  'slime-mode-map 'slime-pop-find-definition-stack)
 
   (evil-collection-define-key 'normal 'slime-popup-buffer-mode-map
     ;; quit
-    "q" 'quit-window
+    "q" 'quit-window)
 
-    (kbd "C-t") 'slime-pop-find-definition-stack
-
-    ;; goto
-    "gd" 'slime-edit-definition)
+  (evil-collection-theme-bind 'find-definition 'slime-popup-buffer-mode-map 'slime-edit-definition)
+  (evil-collection-theme-bind 'pop-definition  'slime-popup-buffer-mode-map 'slime-pop-find-definition-stack)
 
   (evil-collection-inhibit-insert-state 'slime-thread-control-mode-map)
   (evil-collection-define-key 'normal 'slime-thread-control-mode-map

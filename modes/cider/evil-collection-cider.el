@@ -128,9 +128,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "K" 'cider-doc)
 
   (unless cider-use-xref
-    (evil-collection-define-key '(normal visual) 'cider-mode-map
-      "gd" 'cider-find-var
-      (kbd "C-t") 'cider-pop-back))
+    (evil-collection-theme-bind 'find-definition 'cider-mode-map 'cider-find-var)
+    (evil-collection-theme-bind 'pop-definition  'cider-mode-map 'cider-pop-back))
 
   (evil-collection-define-key '(normal visual) 'cider-repl-mode-map
     ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
@@ -144,9 +143,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
   (evil-collection-theme-bind 'repl-force-newline 'cider-repl-mode-map 'newline)
 
   (unless cider-use-xref
-    (evil-collection-define-key '(normal visual) 'cider-repl-mode-map
-      "gd" 'cider-find-var
-      (kbd "C-t") 'cider-pop-back))
+    (evil-collection-theme-bind 'find-definition 'cider-repl-mode-map 'cider-find-var)
+    (evil-collection-theme-bind 'pop-definition  'cider-repl-mode-map 'cider-pop-back))
 
   (evil-collection-define-key '(normal visual) 'cider-repl-history-mode-map
     (kbd "C-k") 'cider-repl-history-previous

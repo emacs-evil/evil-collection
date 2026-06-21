@@ -51,13 +51,14 @@
       "q" 'quit-window))
 
   (evil-collection-define-key 'normal 'anaconda-mode-map
-    "gd" 'anaconda-mode-find-definitions
-    (kbd "C-t") (if (fboundp 'anaconda-mode-go-back)
-                    'anaconda-mode-go-back
-                  'xref-pop-marker-stack)
     "K" 'anaconda-mode-show-doc)
 
-  (evil-collection-theme-bind 'find-usages 'anaconda-mode-map 'anaconda-mode-find-references)
+  (evil-collection-theme-bind 'find-usages     'anaconda-mode-map 'anaconda-mode-find-references)
+  (evil-collection-theme-bind 'find-definition 'anaconda-mode-map 'anaconda-mode-find-definitions)
+  (evil-collection-theme-bind 'pop-definition  'anaconda-mode-map
+                              (if (fboundp 'anaconda-mode-go-back)
+                                  'anaconda-mode-go-back
+                                'xref-pop-marker-stack))
   (when (evil-collection-theme-enabled-p 'find-usages)
     (evil-collection-define-key 'normal 'anaconda-mode-map
       "gA" 'anaconda-mode-find-assignments)))
