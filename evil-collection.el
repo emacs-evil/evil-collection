@@ -614,9 +614,14 @@ Each entry has the form (ID . PLIST) and may use:
             entries are treated as t.
   :state    Evil state symbol, list of state symbols, or a function
             returning either.  A singular value is wrapped to a list
-            at lookup.
+            at lookup.  Optional.
   :key      Key string (suitable for `kbd'), list of key strings, or
-            a function returning either.
+            a function returning either.  Optional.
+
+:state and :key are optional.  An entry with only :enabled acts as a
+pure feature toggle: the consumer-side code does the binding itself
+and asks the resolver via `evil-collection-binding-enabled-p' whether
+the feature is on.
 
 Function values are funcalled at lookup time, which is useful for
 delegating to legacy defcustoms while features migrate to the theme

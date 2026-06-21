@@ -108,10 +108,9 @@ evilified by ~evil-collection~.
 | evil-collection-outline-bind-tab-p         | nil     | Enable <tab>-based bindings in Outline mode.                      |
 | evil-collection-term-sync-state-and-mode-p | t       | Synchronize insert/normal state with char/line-mode in term-mode. |
 | evil-collection-setup-minibuffer           | nil     | Set up Vim style bindings in the minibuffer.                      |
-| evil-collection-setup-debugger-keys        | t       | Set up debugger keys for certain modes.                           |
 | evil-collection-want-unimpaired-p          | t       | Set up unimpaired bindings globally.                              |
-| evil-collection-want-find-usages-bindings  | t       | Bind -find references-, etc to various modes.                     |
 | evil-collection-config                     | *       | List of mode specific configurations.                             |
+| evil-collection-binding-overrides          | nil     | Override key themes (see *Key Themes* below).                     |
 | evil-collection-key-whitelist              | nil     | List of keys Evil Collection is allowed to bind to.               |
 | evil-collection-key-blacklist              | nil     | List of keys Evil Collection is not allowed to bind to.           |
 | evil-collection-state-passlist             | nil     | List of Evil States Evil Collection is allowed to bind to.        |
@@ -145,12 +144,17 @@ To customize, override with ~completion-category-overrides~.
 
 Each entry has the form ~(ID . PLIST)~ with these properties:
 
-| Property   | Accepts                            | Notes                                                     |
-|------------+------------------------------------+-----------------------------------------------------------|
-| ~:enabled~ | ~t~, ~nil~, or a function          | Missing is treated as ~t~. Functions are called with no args. |
-| ~:state~   | symbol or list of symbols          | Evil states. Singular form (e.g. ~normal~) is allowed.    |
-| ~:key~     | key string or list of key strings  | Strings suitable for ~kbd~. Singular form is allowed.     |
+| Property   | Accepts                                  | Notes                                                            |
+|------------+------------------------------------------+------------------------------------------------------------------|
+| ~:enabled~ | ~t~, ~nil~, or a function of no args     | Missing -> ~t~. Functions are funcalled at lookup time.          |
+| ~:state~   | symbol, list of symbols, or a function   | Evil states. Singular form (e.g. ~normal~) is allowed. Optional. |
+| ~:key~     | key string, list of strings, or function | Strings suitable for ~kbd~. Singular form is allowed. Optional.  |
 
+~:state~ and ~:key~ are optional. Entries with only ~:enabled~ act as
+pure feature toggles — the consumer-side code does the binding itself
+and asks the resolver whether the feature is on.
+
+Example:
 
 #+begin_src emacs-lisp :tangle yes
 (term-toggle-escape :enabled t
@@ -158,9 +162,9 @@ Each entry has the form ~(ID . PLIST)~ with these properties:
                     :key "C-c C-z")
 #+end_src
 
- ~vterm~, ~eat~, and ~evil-ghostel~ will then bind their respective
-"toggle ESC routing" command to ~normal~ and ~insert~ state bounded to the key
-C-c C-z.
+~vterm~, ~eat~, and ~evil-ghostel~ each call
+~(evil-collection-bind 'term-toggle-escape MAP CMD)~ which binds CMD to
+~C-c C-z~ in normal and insert state inside MAP.
 
 *** Overrides merge per-property
 
@@ -206,69 +210,73 @@ To disable a key theme.
 
 *** Configure the REPL
 
+~:state~ for ~repl-submit~/~repl-newline~ defaults to lambdas that read the
+(now-obsolete) ~evil-collection-repl-submit-state~ — flipping that var is
+equivalent to setting ~:state~ here.
+
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((repl-submit        :state insert)
-        (repl-newline       :state normal)
-        (repl-force-newline :enabled nil)))
+      '((repl-submit        :state normal         :key ("RET" "<return>" "C-m"))
+        (repl-newline       :state insert         :key ("RET" "<return>" "C-m"))
+        (repl-force-newline :state (normal insert) :key ("S-<return>" "S-RET"))))
 #+end_src
 
 *** Find usages
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((find-usages :key "gR")))     ;; or :enabled nil to disable
+      '((find-usages :state normal :key "gr")))
 #+end_src
 
 *** Find / pop definition
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((find-definition :key "gD")
-        (pop-definition  :key "C-o")))     ;; or :enabled nil to disable either
+      '((find-definition :state normal :key "gd")
+        (pop-definition  :state normal :key "C-t")))
 #+end_src
 
 *** Lookup documentation
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((lookup-doc :key "gh")))     ;; or :enabled nil to disable
+      '((lookup-doc :state normal :key "K")))
 #+end_src
 
 *** Goto REPL
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((goto-repl :key "gZ")))     ;; or :enabled nil to disable
+      '((goto-repl :state normal :key "gz")))
 #+end_src
 
 *** Find file
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((find-file :key "gF")))     ;; or :enabled nil to disable
+      '((find-file :state normal :key "gf")))
 #+end_src
 
 *** Quit
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((quit :key "Q")))     ;; or :enabled nil to disable
+      '((quit :state normal :key "q")))
 #+end_src
 
 *** Describe mode
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((describe-mode :key "gH")))     ;; or :enabled nil to disable
+      '((describe-mode :state normal :key "g?")))
 #+end_src
 
 *** Refresh / refresh-all
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((refresh     :key "gu")
-        (refresh-all :key "gU")))     ;; or :enabled nil to disable either
+      '((refresh     :state normal :key "gr")
+        (refresh-all :state normal :key "gR")))
 #+end_src
 
 *** Next / prev navigation
@@ -282,26 +290,28 @@ that don't distinguish bind the same command to multiple tiers.
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((next-item      :key "gj")
-        (prev-item      :key "gk")
-        (next-section   :key ("]]" "C-j"))
-        (prev-section   :key ("[[" "C-k"))
-        (next-section-2 :key "C-j")
-        (prev-section-2 :key "C-k")))     ;; or :enabled nil to disable
+      '((next-item      :state normal :key "gj")
+        (prev-item      :state normal :key "gk")
+        (next-section   :state normal :key ("]]" "C-j"))
+        (prev-section   :state normal :key ("[[" "C-k"))
+        (next-section-2 :state normal :key "C-j")
+        (prev-section-2 :state normal :key "C-k")))
 #+end_src
 
 *** Debugger
 
+~:enabled~ defaults to a function that reads (now-obsolete)
+~evil-collection-setup-debugger-keys~ — setting that to ~nil~ disables all
+five at once.
+
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      '((debug-continue   :key "c")            ;; default also binds <f5>
-        (debug-step-over  :key "n")            ;; default also binds <f10>
-        (debug-step-into  :key ("i" "s"))      ;; default also binds <f11>
-        (debug-step-out   :key "o")            ;; default also binds <S-f11>
-        (debug-breakpoint :key "b")))          ;; default also binds <f9>
+      '((debug-continue   :state normal :key ("c" "<f5>"))
+        (debug-step-over  :state normal :key ("n" "<f10>"))
+        (debug-step-into  :state normal :key ("i" "s" "<f11>"))
+        (debug-step-out   :state normal :key ("o" "<S-f11>"))
+        (debug-breakpoint :state normal :key ("b" "<f9>"))))
 #+end_src
-
-Disable any with =:enabled nil=.
 
 ** Guidelines
 
