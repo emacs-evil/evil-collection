@@ -53,8 +53,8 @@
 
 (defun evil-collection-fj--setup-compose-buffer ()
   "Set up Evil bindings for the current fj compose buffer."
-  (evil-local-set-key 'normal "ZQ" 'fj-compose-cancel)
-  (evil-local-set-key 'normal "ZZ" 'fj-compose-send)
+  (evil-collection-bind-local 'quit-save   'fj-compose-send)
+  (evil-collection-bind-local 'quit-cancel 'fj-compose-cancel)
   (evil-insert-state))
 
 ;;;###autoload

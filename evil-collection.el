@@ -711,14 +711,34 @@ list is bound across every state in :state."
 
 (defun evil-collection-bind-minor-mode (id mode command)
   "Bind theme entry ID to COMMAND in minor-mode MODE.
+
 Like `evil-collection-bind' but routes through
-`evil-collection-define-minor-mode-key' so the binding tracks MODE's
-activation rather than being attached to a keymap symbol."
+`evil-collection-define-minor-mode-key'."
   (when (evil-collection-binding-enabled-p id)
     (let ((states (evil-collection-binding-states id)))
       (dolist (key (evil-collection-binding-keys id))
         (evil-collection-define-minor-mode-key states mode
           (kbd key) command)))))
+
+(defun evil-collection-bind-local (id command)
+  "Bind theme entry ID to COMMAND in the current buffer.
+
+Like `evil-collection-bind' but uses `evil-local-set-key'."
+  (when (evil-collection-binding-enabled-p id)
+    (let ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
+          (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+          (states (evil-collection--filter-states
+                   (evil-collection-binding-states id))))
+      (when states
+        (dolist (key (evil-collection-binding-keys id))
+          (let ((kbd-key (kbd key)))
+            (when (evil-collection--can-bind-key kbd-key whitelist blacklist)
+              (when (featurep 'annalist)
+                (annalist-record 'evil-collection 'keybindings
+                                 (list 'local (car states) kbd-key command)
+                                 :local t))
+              (dolist (state states)
+                (evil-local-set-key state kbd-key command)))))))))
 
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
