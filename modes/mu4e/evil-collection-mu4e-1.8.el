@@ -204,7 +204,6 @@ with older release versions of `mu4e.'"
     (mu4e-view-mode-map
      " " mu4e-view-scroll-up-or-next
      "q" mu4e~view-quit-buffer
-     "gx" mu4e-view-go-to-url
      "gX" mu4e-view-fetch-url
      "C" mu4e-compose-new
      "H" mu4e-view-toggle-html
@@ -300,7 +299,8 @@ with older release versions of `mu4e.'"
                         'next-section 'mu4e-view-headers-next-unread
                         'prev-section 'mu4e-view-headers-prev-unread
                         'next-section-2 'mu4e-view-headers-next
-                        'prev-section-2 'mu4e-view-headers-prev)
+                        'prev-section-2 'mu4e-view-headers-prev
+                        'browse-url 'mu4e-view-go-to-url)
 
   ;; yu
   (evil-collection-define-operator-key 'yank 'mu4e-view-mode-map

@@ -38,7 +38,6 @@
   (evil-collection-set-readonly-bindings 'trashed-mode-map)
   (evil-collection-define-key 'normal 'trashed-mode-map
     ;; motion
-    (kbd "gw") 'trashed-browse-url-of-file
     "S" 'tabulated-list-sort
 
     "~" 'trashed-toggle-marks
@@ -78,7 +77,8 @@
                         'describe-mode 'describe-mode
                         'refresh 'revert-buffer
                         'cycle-next 'trashed-forward-column
-                        'cycle-previous 'trashed-backward-column))
+                        'cycle-previous 'trashed-backward-column
+                        'browse-url 'trashed-browse-url-of-file))
 
 (provide 'evil-collection-trashed)
 ;;; evil-collection-trashed.el ends here

@@ -121,7 +121,6 @@
     "K" 'dired-do-kill-lines
     "r" 'dired-do-redisplay
     "t" 'dired-toggle-marks
-    "W" 'browse-url-of-dired-file
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
     "Y" 'dired-copy-filename-as-kill
     "+" 'dired-create-directory
@@ -166,7 +165,8 @@
                         'action-stay 'dired-view-file
                         'find-file 'dired-find-file
                         'describe-mode 'dired-summary
-                        'refresh 'revert-buffer)
+                        'refresh 'revert-buffer
+                        'browse-url 'browse-url-of-dired-file)
 
   (evil-collection-define-key 'normal 'dired-mode-map
     [remap undo] 'dired-undo

@@ -555,6 +555,7 @@ New customization should use
     (quit-save :enabled t :state normal :key "ZZ")
     (quit-cancel :enabled t :state normal :key "ZQ")
     (rename :enabled t :state normal :key ("r" "R"))
+    (browse-url :enabled t :state normal :key "gx")
     (describe-mode :enabled t :state normal :key "g?")
     (refresh :enabled t :state normal :key "gr")
     (refresh-all :enabled t :state normal :key "gR")

@@ -73,6 +73,7 @@
                         'next-section 'eww-next-url
                         'prev-section 'eww-previous-url
                         'action-other 'eww-browse-with-external-browser
+                        'browse-url 'eww-browse-with-external-browser
                         'quit 'quit-window
                         'quit-save 'quit-window
                         'quit-cancel 'quit-window
