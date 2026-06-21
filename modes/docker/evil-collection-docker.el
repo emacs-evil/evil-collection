@@ -38,7 +38,7 @@
     ";"  'docker-container-ls
     "?"  'docker-container-help
     "C"  'docker-container-cp
-    "D"  'docker-container-rm
+    "D"  'docker-container-diff
     "I"  'docker-container-inspect
     "K"  'docker-container-kill
     "L"  'docker-container-logs
@@ -48,40 +48,40 @@
     "S"  'docker-container-start
     "a"  'docker-container-attach
     "b"  'docker-container-shells
-    "d"  'docker-container-diff
+    "d"  'docker-container-rm
     "f"  'docker-container-open
     "r"  'docker-container-rename-selection)
 
   (evil-collection-define-key 'normal 'docker-context-mode-map
     "?"  'docker-context-help
-    "D"  'docker-context-rm
+    "d"  'docker-context-rm
     "I"  'docker-context-inspect
     "X"  'docker-context-use)
 
   (evil-collection-define-key 'normal 'docker-image-mode-map
     ";"  'docker-image-ls
     "?"  'docker-image-help
-    "D"  'docker-image-rm
+    "D"  'docker-image-mark-dangling
     "F"  'docker-image-pull
     "I"  'docker-image-inspect
     "P"  'docker-image-push
     "R"  'docker-image-run
     "T"  'docker-image-tag-selection
-    "d"  'docker-image-mark-dangling)
+    "d"  'docker-image-rm)
 
   (evil-collection-define-key 'normal 'docker-network-mode-map
     ";"  'docker-network-ls
     "?"  'docker-network-help
-    "D"  'docker-network-rm
+    "D"  'docker-network-mark-dangling
     "I"  'docker-network-inspect
-    "d"  'docker-network-mark-dangling)
+    "d"  'docker-network-rm)
 
   (evil-collection-define-key 'normal 'docker-volume-mode-map
     ";"  'docker-volume-ls
     "?"  'docker-volume-help
-    "D"  'docker-volume-rm
+    "D"  'docker-volume-mark-dangling
     "I"  'docker-volume-inspect
-    "d"  'docker-volume-mark-dangling
+    "d"  'docker-volume-rm
     "f"  'docker-volume-dired-selection))
 
 (provide 'evil-collection-docker)

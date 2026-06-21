@@ -37,7 +37,7 @@
   "Set up `evil' bindings for `realgud'."
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
-    "D" 'realgud:cmd-delete
+    "d" 'realgud:cmd-delete
     "X" 'realgud:cmd-clear
     "-" 'realgud:cmd-disable
     "+" 'realgud:cmd-enable
@@ -78,7 +78,7 @@
     [mouse-2] 'realgud:tooltip-eval
     [left-fringe mouse-1] 'realgud-cmds--mouse-add-remove-bp
     [left-margin mouse-1] 'realgud-cmds--mouse-add-remove-bp
-    "d" 'realgud:cmd-newer-frame
+    "D" 'realgud:cmd-newer-frame
     "u" 'realgud:cmd-older-frame
     "gR" 'realgud-recenter-arrow ;; FIXME: Hmnn!
     "C" 'realgud-window-cmd-undisturb-src

@@ -247,7 +247,7 @@ instead, which is useless and counterintuitive."
     "gD" 'pdf-occur-view-occurrence
 
     "A" 'pdf-occur-tablist-gather-documents
-    "D" 'pdf-occur-tablist-do-delete
+    "D" 'tablist-do-kill-lines
 
     ;; sort
     "o" 'tabulated-list-sort
@@ -274,7 +274,7 @@ instead, which is useless and counterintuitive."
 
     ;; "f" 'tablist-find-entry ; TODO: Equivalent to 'pdf-occur-goto-occurrence?
     "r" 'pdf-occur-revert-buffer-with-args
-    "d" 'tablist-do-kill-lines
+    "d" 'pdf-occur-tablist-do-delete
     "x" 'pdf-occur-tablist-do-flagged-delete
     (kbd "<delete>") 'tablist-unmark-backward
     (kbd "S-SPC") 'scroll-down-command
