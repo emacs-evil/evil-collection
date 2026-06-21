@@ -43,11 +43,10 @@
     "r" 'daemons-reload-at-point
     "R" 'daemons-restart-at-point
 
-    "gr" 'revert-buffer
-
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'daemons-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'daemons-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'daemons-mode-map 'revert-buffer)
 
   ;; Functions are available in daemons-output-mode-map as well
   (evil-collection-define-key '(normal visual) 'daemons-output-mode-map

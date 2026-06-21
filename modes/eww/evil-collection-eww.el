@@ -79,13 +79,11 @@
     "gh" 'eww-list-histories
     "gt" 'eww-list-buffers              ; Like dwb, qutebrowser.
 
-    ;; refresh
-    "gr" 'eww-reload
-
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'eww-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'eww-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'eww-mode-map 'eww-reload)
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)
@@ -95,9 +93,8 @@
   (evil-collection-set-readonly-bindings 'eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
   (evil-collection-define-key 'normal 'eww-history-mode-map
-    (kbd "RET") 'eww-history-browse
-    ;; refresh
-    "gr" 'revert-buffer)
+    (kbd "RET") 'eww-history-browse)
+  (evil-collection-theme-bind 'refresh 'eww-history-mode-map 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
@@ -107,9 +104,8 @@
     "]]" 'eww-buffer-show-next
     "[[" 'eww-buffer-show-previous
     "gj" 'eww-buffer-show-next
-    "gk" 'eww-buffer-show-previous
-    ;; refresh
-    "gr" 'revert-buffer)
+    "gk" 'eww-buffer-show-previous)
+  (evil-collection-theme-bind 'refresh 'eww-buffers-mode-map 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
@@ -117,9 +113,8 @@
     "D" 'eww-bookmark-kill
     "P" 'eww-bookmark-yank
 
-    (kbd "RET") 'eww-bookmark-browse
-    ;; refresh
-    "gr" 'revert-buffer)
+    (kbd "RET") 'eww-bookmark-browse)
+  (evil-collection-theme-bind 'refresh 'eww-bookmark-mode-map 'revert-buffer)
 
   (evil-collection-define-operator-key 'yank 'eww-bookmark-mode-map
     "u" 'eww-copy-page-url))

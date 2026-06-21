@@ -108,7 +108,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "gg" 'sly-db-beginning-of-backtrace
     "G" 'sly-db-end-of-backtrace
     "t" 'sly-db-toggle-details
-    "gr" 'sly-db-restart-frame
     "I" 'sly-db-invoke-restart-by-name
     "R" 'sly-db-return-from-frame
     "c" 'sly-db-continue
@@ -134,6 +133,7 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "9" 'sly-db-invoke-restart-9)
   (evil-collection-theme-bind 'quit          'sly-db-mode-map 'sly-db-quit)
   (evil-collection-theme-bind 'describe-mode 'sly-db-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'sly-db-mode-map 'sly-db-restart-frame)
 
   (evil-collection-define-key 'normal 'sly-inspector-mode-map
     [mouse-6] 'sly-inspector-pop
@@ -150,18 +150,17 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "C-i") 'sly-inspector-next
     "e" 'sly-inspector-eval
     "M-p" 'sly-inspector-history
-    "gr" 'sly-inspector-reinspect
     "gv" 'sly-inspector-toggle-verbose
     (kbd "<tab>") 'forward-button
     (kbd "C-i") 'forward-button
     (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
     (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
-    "." 'sly-edit-definition
-    "gR" 'sly-inspector-fetch-all)
-  (evil-collection-theme-bind 'quit 'sly-inspector-mode-map 'sly-inspector-quit)
-
+    "." 'sly-edit-definition)
+  (evil-collection-theme-bind 'quit            'sly-inspector-mode-map 'sly-inspector-quit)
   (evil-collection-theme-bind 'find-definition 'sly-inspector-mode-map 'sly-edit-definition)
   (evil-collection-theme-bind 'lookup-doc      'sly-inspector-mode-map 'sly-inspector-describe-inspectee)
+  (evil-collection-theme-bind 'refresh         'sly-inspector-mode-map 'sly-inspector-reinspect)
+  (evil-collection-theme-bind 'refresh-all     'sly-inspector-mode-map 'sly-inspector-fetch-all)
 
   (evil-collection-theme-bind 'find-usages     'sly-mode-map 'sly-who-references)
   (evil-collection-theme-bind 'find-definition 'sly-mode-map 'sly-edit-definition)
@@ -178,8 +177,8 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-define-key 'normal 'sly-thread-control-mode-map
     "a" 'sly-thread-attach
     "d" 'sly-thread-debug
-    "x" 'sly-thread-kill
-    "gr" 'sly-update-threads-buffer)
+    "x" 'sly-thread-kill)
+  (evil-collection-theme-bind 'refresh 'sly-thread-control-mode-map 'sly-update-threads-buffer)
 
   (evil-collection-theme-bind 'quit 'sly-xref-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'sly-xref-mode-map
@@ -196,10 +195,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "C-k") 'sly-xref-prev-line
     "]]" 'sly-xref-next-line
     "[[" 'sly-xref-prev-line
-    "gr" 'sly-recompile-xref
-    "gR" 'sly-recompile-all-xrefs
     ;; "r" 'sly-xref-retract ; TODO: Equivalent for Sly?
     )
+  (evil-collection-theme-bind 'refresh     'sly-xref-mode-map 'sly-recompile-xref)
+  (evil-collection-theme-bind 'refresh-all 'sly-xref-mode-map 'sly-recompile-all-xrefs)
 
   (evil-collection-theme-bind 'repl-submit        'sly-mrepl-mode-map 'sly-mrepl-return)
   (evil-collection-theme-bind 'repl-newline       'sly-mrepl-mode-map 'newline)
@@ -215,10 +214,9 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "C-p") 'sly-mrepl-previous-input-or-button
     (kbd "C-n") 'sly-mrepl-next-input-or-button)
 
-  (evil-collection-define-key 'normal 'sly-trace-dialog-mode-map
-    "gr" 'sly-trace-dialog-fetch-status
-    "gR" 'sly-trace-dialog-fetch-traces)
-  (evil-collection-theme-bind 'quit 'sly-trace-dialog-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit        'sly-trace-dialog-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh     'sly-trace-dialog-mode-map 'sly-trace-dialog-fetch-status)
+  (evil-collection-theme-bind 'refresh-all 'sly-trace-dialog-mode-map 'sly-trace-dialog-fetch-traces)
 
   (evil-collection-define-key 'normal 'sly-stickers--replay-mode-map
     ;; The "n", "p", "x", "h" and "q" key are hard-coded in the description, so
@@ -255,9 +253,9 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "R" 'sly-restart-connection-at-point
     "d" 'sly-connection-list-make-default
     "x" 'sly-quit-connection-at-point
-    "gr" 'sly-update-connection-list
     "o" 'tabulated-list-sort)
-  (evil-collection-theme-bind 'quit 'sly-connection-list-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'sly-connection-list-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'sly-connection-list-mode-map 'sly-update-connection-list)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 

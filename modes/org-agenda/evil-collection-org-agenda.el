@@ -102,8 +102,6 @@
     "ZZ" 'org-agenda-quit
     "ZQ" 'org-agenda-exit
     "x" 'org-agenda-exit
-    "gr" 'org-agenda-redo
-    "gR" 'org-agenda-redo-all
     "S" 'org-save-all-org-buffers
 
     ;; Date navigation
@@ -141,7 +139,9 @@
     "m" 'org-agenda-bulk-mark
     "u" 'org-agenda-bulk-unmark
     "B" 'org-agenda-bulk-action)
-  (evil-collection-theme-bind 'quit 'org-agenda-mode-map 'org-agenda-quit))
+  (evil-collection-theme-bind 'quit        'org-agenda-mode-map 'org-agenda-quit)
+  (evil-collection-theme-bind 'refresh     'org-agenda-mode-map 'org-agenda-redo)
+  (evil-collection-theme-bind 'refresh-all 'org-agenda-mode-map 'org-agenda-redo-all))
 
 (provide 'evil-collection-org-agenda)
 ;;; evil-collection-org-agenda.el ends here

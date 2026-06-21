@@ -59,7 +59,8 @@ Note that there is no gnus-common-mode-map")
       (apply #'evil-collection-define-key 'normal map
              evil-collection-gnus-common-normal-bindings)))
 
-  (evil-collection-theme-bind 'quit 'gnus-summary-mode-map 'gnus-summary-exit)
+  (evil-collection-theme-bind 'quit    'gnus-summary-mode-map 'gnus-summary-exit)
+  (evil-collection-theme-bind 'refresh 'gnus-summary-mode-map 'gnus-summary-rescan-group)
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
@@ -116,7 +117,6 @@ Note that there is no gnus-common-mode-map")
     "!"         'gnus-summary-mark-as-read-forward
     "="         'gnus-summary-tick-article-forward
     "J"         'gnus-summary-goto-article
-    "gr"        'gnus-summary-rescan-group
     "e"         'gnus-summary-edit-article
     "E"         'gnus-summary-mark-as-expirable
     "z/"        'gnus-summary-limit-map
@@ -306,10 +306,12 @@ Note that there is no gnus-common-mode-map")
     ;; Actions
     (kbd "C-]") 'gnus-article-refer-article
     "s"         'gnus-article-show-summary
-    "gr"        'gnus-summary-show-article
     "gX"        'gnus-summary-browse-url)
+  (evil-collection-theme-bind 'refresh 'gnus-article-mode-map 'gnus-summary-show-article)
 
-  (evil-collection-theme-bind 'quit 'gnus-group-mode-map 'gnus-group-exit)
+  (evil-collection-theme-bind 'quit        'gnus-group-mode-map 'gnus-group-exit)
+  (evil-collection-theme-bind 'refresh     'gnus-group-mode-map 'gnus-group-get-new-news-this-group)
+  (evil-collection-theme-bind 'refresh-all 'gnus-group-mode-map 'gnus-group-get-new-news)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
     "Q"         'gnus-group-quit
@@ -341,8 +343,6 @@ Note that there is no gnus-common-mode-map")
     "X"         'gnus-group-expunge-group
     (kbd "RET") 'gnus-group-select-group
     (kbd "SPC") 'gnus-group-read-group
-    "gr"        'gnus-group-get-new-news-this-group
-    "gR"        'gnus-group-get-new-news
     "gu"        'gnus-group-unsubscribe-current-group
     "gU"        'gnus-group-unsubscribe-group
     "gc"        'gnus-group-catchup-current
@@ -421,7 +421,8 @@ Note that there is no gnus-common-mode-map")
     [mouse-2]   'gnus-mouse-pick-group
     "g?"        'gnus-group-help-map)
 
-  (evil-collection-theme-bind 'quit 'gnus-server-mode-map 'gnus-server-exit)
+  (evil-collection-theme-bind 'quit    'gnus-server-mode-map 'gnus-server-exit)
+  (evil-collection-theme-bind 'refresh 'gnus-server-mode-map 'gnus-server-regenerate-server)
   (evil-collection-define-key 'normal 'gnus-server-mode-map
     ;; quit
     "Q"         'gnus-server-exit
@@ -441,7 +442,6 @@ Note that there is no gnus-common-mode-map")
     "a"         'gnus-server-add-server
     "y"         'gnus-server-copy-server
     "e"         'gnus-server-edit-server
-    "gr"        'gnus-server-regenerate-server
     "i"         'gnus-server-toggle-cloud-server
     "d"         'gnus-server-kill-server
     "L"         'gnus-server-list-servers

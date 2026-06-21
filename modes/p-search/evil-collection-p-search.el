@@ -51,8 +51,6 @@
     "a" 'p-search-add-dwim
     "E" 'p-search-edit-dwim
     "C" 'p-search-add-candidate-generator
-    "gr" 'p-search-refresh-buffer
-    "gR" 'p-search-hard-refresh-buffer
     ;; (keymap-set map "i" #'p-search-importance)
     "x" 'p-search-kill-entity-at-point
     "gj" 'p-search-next-item
@@ -79,7 +77,9 @@
     "Jg" 'p-search-jump-candidate-generators
     "Jp" 'p-search-jump-priors
     "Jr" 'p-search-jump-results)
-  (evil-collection-theme-bind 'quit 'evil-collection-p-search-mode-map 'p-search-quit))
+  (evil-collection-theme-bind 'quit        'evil-collection-p-search-mode-map 'p-search-quit)
+  (evil-collection-theme-bind 'refresh     'evil-collection-p-search-mode-map 'p-search-refresh-buffer)
+  (evil-collection-theme-bind 'refresh-all 'evil-collection-p-search-mode-map 'p-search-hard-refresh-buffer))
 
 (provide 'evil-collection-p-search)
 ;;; evil-collection-p-search.el ends here

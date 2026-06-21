@@ -54,9 +54,6 @@
     "s" 'prodigy-start
     "S" 'prodigy-stop
 
-    ;; refresh
-    "gr" 'prodigy-restart
-
     "`" 'prodigy-display-process
     (kbd "RET") 'prodigy-browse
     "it" 'prodigy-add-tag-filter
@@ -74,11 +71,13 @@
   (evil-collection-define-key 'normal 'prodigy-view-mode-map
     "s" 'prodigy-start
     "S" 'prodigy-stop
-    "gr" 'prodigy-restart
     "r" 'prodigy-restart
     "c" 'prodigy-view-clear-buffer
     (kbd "C-l") 'prodigy-view-clear-buffer
-    "x" 'prodigy-view-clear-buffer))
+    "x" 'prodigy-view-clear-buffer)
+
+  (evil-collection-theme-bind 'refresh 'prodigy-mode-map      'prodigy-restart)
+  (evil-collection-theme-bind 'refresh 'prodigy-view-mode-map 'prodigy-restart))
 
 (provide 'evil-collection-prodigy)
 ;;; evil-collection-prodigy.el ends here

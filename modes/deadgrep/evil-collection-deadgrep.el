@@ -43,7 +43,6 @@
     (kbd "RET") 'deadgrep-visit-result
     (kbd "<S-return>") 'deadgrep-visit-result-other-window
     "go" 'deadgrep-visit-result-other-window
-    "gr" 'deadgrep-restart
     (kbd "C-j") 'deadgrep-forward
     (kbd "C-k") 'deadgrep-backward
     "gj" 'deadgrep-forward
@@ -58,7 +57,8 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'evil-quit)
-  (evil-collection-theme-bind 'quit 'deadgrep-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'deadgrep-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'deadgrep-mode-map 'deadgrep-restart))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here

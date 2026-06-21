@@ -35,13 +35,13 @@
 ;;;###autoload
 (defun evil-collection-ebuku-setup ()
   "Set up `evil' bindings for `Ebuku'."
-  (evil-collection-theme-bind 'quit 'ebuku-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'ebuku-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'ebuku-mode-map 'ebuku-refresh)
   (evil-collection-define-key 'normal 'ebuku-mode-map
                               "a" 'ebuku-add-bookmark
                               "d" 'ebuku-delete-bookmark
                               "x" 'ebuku-delete-bookmark
                               "e" 'ebuku-edit-bookmark
-                              "gr" 'ebuku-refresh
                               "j" 'ebuku-next-bookmark
                               (kbd "C-j") 'ebuku-next-bookmark
                               "k" 'ebuku-previous-bookmark

@@ -163,7 +163,6 @@ F is the name of function, N is the pixel height."
     ;; Additional binding to browse tabs.
     "gt" 'evil-collection-xwidget-webkit-search-tabs
 
-    "gr" 'xwidget-webkit-reload
     (kbd "C-f") 'xwidget-webkit-scroll-up
     (kbd "C-b") 'xwidget-webkit-scroll-down
     (kbd "RET") 'xwidget-webkit-insert-string
@@ -178,7 +177,9 @@ F is the name of function, N is the pixel height."
       (kbd "C-d") 'xwidget-webkit-scroll-up))
   (when evil-want-C-u-scroll
     (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
-      (kbd "C-u") 'xwidget-webkit-scroll-down)))
+      (kbd "C-u") 'xwidget-webkit-scroll-down))
+
+  (evil-collection-theme-bind 'refresh 'xwidget-webkit-mode-map 'xwidget-webkit-reload))
 
 (provide 'evil-collection-xwidget)
 ;;; evil-collection-xwidget.el ends here

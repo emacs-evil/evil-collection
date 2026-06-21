@@ -60,8 +60,9 @@
       (kbd "C-j") 'compilation-next-error
       (kbd "C-k") 'compilation-previous-error
       "[[" 'compilation-previous-file
-      "]]" 'compilation-next-file
-      "gr" 'recompile)))
+      "]]" 'compilation-next-file)
+
+    (evil-collection-theme-bind 'refresh keymap 'recompile)))
 
 (provide 'evil-collection-compile)
 ;;; evil-collection-compile.el ends here

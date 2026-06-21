@@ -151,8 +151,6 @@
     "?" 'reftex-toc-show-help
     "ZZ" 'reftex-toc-quit-and-kill
     "ZQ" 'evil-quit
-    "gr" 'reftex-toc-rescan
-    "gR" 'reftex-toc-Rescan
     "l" 'reftex-toc-toggle-labels
     "i" 'reftex-toc-toggle-index
     "c" 'reftex-toc-toggle-context
@@ -168,7 +166,9 @@
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
   (evil-collection-theme-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)
-  (evil-collection-theme-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help))
+  (evil-collection-theme-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help)
+  (evil-collection-theme-bind 'refresh       'reftex-toc-mode-map 'reftex-toc-rescan)
+  (evil-collection-theme-bind 'refresh-all   'reftex-toc-mode-map 'reftex-toc-Rescan))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here

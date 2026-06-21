@@ -52,8 +52,6 @@
     "^"         'mpdired-goto-parent
     "."         'mpdired-goto-current-song
     "o"         'mpdired-toggle-view
-    "gr"        'mpdired-update
-    "gR"        'mpdired-db-update
     "J"         'mpdired-next-internal
     "K"         'mpdired-previous-internal
     "a"         'mpdired-add
@@ -79,7 +77,10 @@
     "%d"        'mpdired-flag-files-regexp
     "%m"        'mpdired-mark-files-regexp
     "%i"        'mpdired-put-order-at-point
-    "%r"        'mpdired-reset-order-index))
+    "%r"        'mpdired-reset-order-index)
+
+  (evil-collection-theme-bind 'refresh     'mpdired-mode-map 'mpdired-update)
+  (evil-collection-theme-bind 'refresh-all 'mpdired-mode-map 'mpdired-db-update))
 
 (provide 'evil-collection-mpdired)
 ;;; evil-collection-mpdired.el ends here

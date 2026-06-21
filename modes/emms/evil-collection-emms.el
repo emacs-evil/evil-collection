@@ -234,11 +234,11 @@ The return value is the yanked text."
   (evil-collection-define-key 'normal 'emms-metaplaylist-mode-map
     (kbd "RET") 'emms-metaplaylist-mode-goto-current
     (kbd "<space>") 'emms-metaplaylist-mode-set-active
-    "gr" 'emms-metaplaylist-mode-update
     "C" 'emms-metaplaylist-mode-new-buffer
     "." 'emms-metaplaylist-mode-center-current
     "D" 'emms-metaplaylist-mode-kill-buffer)
-  (evil-collection-theme-bind 'quit 'emms-metaplaylist-mode-map 'kill-current-buffer)
+  (evil-collection-theme-bind 'quit    'emms-metaplaylist-mode-map 'kill-current-buffer)
+  (evil-collection-theme-bind 'refresh 'emms-metaplaylist-mode-map 'emms-metaplaylist-mode-update)
 
   (evil-set-initial-state 'emms-stream-mode 'normal)
   (evil-collection-define-key 'normal 'emms-stream-mode-map

@@ -204,13 +204,12 @@
 
     "/" 'helm-quit-and-find-file
 
-    ;; refresh
-    "gr" 'helm-refresh
-
     "yp" 'helm-yank-selection
     "yP" 'helm-copy-to-buffer
     "yy" 'helm-kill-selection-and-quit
     (kbd "SPC") 'helm-toggle-visible-mark)
+
+  (evil-collection-theme-bind 'refresh 'helm-map 'helm-refresh)
 
   (evil-collection-define-key 'normal 'helm-occur-mode-map
     (kbd "RET") 'helm-occur-mode-goto-line

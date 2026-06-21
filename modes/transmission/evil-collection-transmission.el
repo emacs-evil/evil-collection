@@ -78,13 +78,11 @@
     "U" 'transmission-unmark-all
     "~" 'transmission-invert-marks
 
-    ;; refresh
-    "gr" 'revert-buffer
-
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'transmission-quit)
-  (evil-collection-theme-bind 'quit 'transmission-mode-map 'transmission-quit)
+  (evil-collection-theme-bind 'quit    'transmission-mode-map 'transmission-quit)
+  (evil-collection-theme-bind 'refresh 'transmission-mode-map 'revert-buffer)
 
   (evil-collection-inhibit-insert-state 'transmission-files-mode-map)
   (evil-set-initial-state 'transmission-files-mode 'normal)

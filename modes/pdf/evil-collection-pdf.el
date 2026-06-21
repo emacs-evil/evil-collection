@@ -162,9 +162,6 @@ instead, which is useless and counterintuitive."
     "P" 'pdf-view-fit-page-to-window
     "W" 'pdf-view-fit-width-to-window ; evil-image has "W"
 
-    ;; refresh
-    "gr" 'revert-buffer
-
     (kbd "<C-down-mouse-1>") 'pdf-view-mouse-extend-region
     (kbd "<M-down-mouse-1>") 'pdf-view-mouse-set-region-rectangle
     (kbd "<down-mouse-1>")  'pdf-view-mouse-set-region
@@ -197,7 +194,8 @@ instead, which is useless and counterintuitive."
     "Q" 'kill-current-buffer
     "ZQ" 'kill-current-buffer
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'pdf-view-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'pdf-view-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'pdf-view-mode-map 'revert-buffer)
 
 
   (when evil-want-C-d-scroll

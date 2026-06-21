@@ -56,13 +56,11 @@
     "gR" 'Man-follow-manual-reference ; TODO: Make this match Info-follow-reference?
     "gs" 'Man-goto-see-also-section
 
-    ;; refresh
-    "gr" 'Man-update-manpage
-
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'Man-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'Man-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'Man-mode-map 'Man-update-manpage))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here

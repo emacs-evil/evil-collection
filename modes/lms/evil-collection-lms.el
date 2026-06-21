@@ -313,7 +313,6 @@ The actions triggered by pressing keys refer to the track under cursor.
     "m"              'lms-ui-playing-now-volume-mute
     "r"              'lms-ui-playing-now-cycle-repeat
     "S"              'lms-ui-playing-now-cycle-shuffle
-    "gr"             'lms-ui-playing-now-refresh
     "i"              'lms-ui-playing-now-show-track-info
     "P"              'lms-ui-playing-now-show-playlist
     "T"              'lms-ui-playing-now-album-tracks-list
@@ -323,6 +322,7 @@ The actions triggered by pressing keys refer to the track under cursor.
     "gh"             'lms-ui-playing-now-help)
   (evil-collection-theme-bind 'quit          'lms-ui-playing-now-mode-map 'lms-ui-playing-now-quit)
   (evil-collection-theme-bind 'describe-mode 'lms-ui-playing-now-mode-map 'lms-ui-playing-now-help)
+  (evil-collection-theme-bind 'refresh       'lms-ui-playing-now-mode-map 'lms-ui-playing-now-refresh)
 
   (evil-collection-define-key 'normal 'lms-ui-track-info-mode-map
     "R"             'lms-ui-track-info-change-rating

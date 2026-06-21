@@ -93,10 +93,10 @@
     "C" 'realgud-window-cmd-undisturb-src
     "S" 'realgud-window-src-undisturb-cmd
     "R" 'realgud:cmd-restart
-    "gr" 'realgud:cmd-restart
     "!" 'realgud:cmd-shell)
 
   (evil-collection-theme-bind 'describe-mode 'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
+  (evil-collection-theme-bind 'refresh       'realgud:shortkey-mode-map 'realgud:cmd-restart)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 

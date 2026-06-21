@@ -45,10 +45,9 @@
     ;; motion
     ;; TODO: Implement beginning-of-buffer / end-of-buffer.
     (kbd "SPC") 'evil-scroll-down
-    (kbd "S-SPC") 'evil-scroll-up
+    (kbd "S-SPC") 'evil-scroll-up)
 
-    ;; refresh
-    "gr" 'revert-buffer))
+  (evil-collection-theme-bind 'refresh 'process-menu-mode-map 'revert-buffer))
 
 (provide 'evil-collection-process-menu)
 ;;; evil-collection-process-menu.el ends here

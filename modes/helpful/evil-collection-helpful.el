@@ -45,11 +45,10 @@
     ;; The following bindings don't do what they are supposed to. "go" should open
     ;; in the same window and "gO" should open in a different one.
     "go" 'push-button
-    "gO" 'push-button
+    "gO" 'push-button)
 
-    "gr" 'helpful-update)
-
-  (evil-collection-theme-bind 'describe-mode 'helpful-mode-map 'describe-mode))
+  (evil-collection-theme-bind 'describe-mode 'helpful-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'helpful-mode-map 'helpful-update))
 
 (provide 'evil-collection-helpful)
 ;;; evil-collection-helpful.el ends here

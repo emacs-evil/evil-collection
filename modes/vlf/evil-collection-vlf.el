@@ -61,10 +61,9 @@
     "+" 'vlf-change-batch-size
     "-" 'evil-collection-vlf-decrease-batch-size
     "=" 'vlf-next-batch-from-point
-    ;; refresh
-    "gr" 'vlf-revert
     "g%" 'vlf-query-replace
     "go" 'vlf-occur)
+  (evil-collection-theme-bind 'refresh 'vlf-prefix-map 'vlf-revert)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'vlf-prefix-map

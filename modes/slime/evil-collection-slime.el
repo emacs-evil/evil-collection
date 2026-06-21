@@ -95,7 +95,6 @@
     "gg" 'sldb-beginning-of-backtrace
     "G" 'sldb-end-of-backtrace
     "t" 'sldb-toggle-details
-    "gr" 'sldb-restart-frame
     "I" 'sldb-invoke-restart-by-name
     "R" 'sldb-return-from-frame
     "c" 'sldb-continue
@@ -121,6 +120,7 @@
     "9" 'sldb-invoke-restart-9)
   (evil-collection-theme-bind 'quit          'sldb-mode-map 'sldb-quit)
   (evil-collection-theme-bind 'describe-mode 'sldb-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'sldb-mode-map 'sldb-restart-frame)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
     (kbd "RET") 'slime-inspector-operate-on-point
@@ -141,18 +141,17 @@
     "p" 'slime-inspector-pprint
     "e" 'slime-inspector-eval
     "M-p" 'slime-inspector-history
-    "gr" 'slime-inspector-reinspect
     "gv" 'slime-inspector-toggle-verbose
     (kbd "<tab>") 'slime-inspector-next-inspectable-object
     (kbd "C-i") 'slime-inspector-next-inspectable-object
     (kbd "<S-tab>") 'slime-inspector-previous-inspectable-object ; Emacs translates S-TAB
     (kbd "<backtab>") 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
     "." 'slime-inspector-show-source
-    "gd" 'slime-inspector-show-source
-    "gR" 'slime-inspector-fetch-all)
-  (evil-collection-theme-bind 'quit 'slime-inspector-mode-map 'slime-inspector-quit)
-
-  (evil-collection-theme-bind 'lookup-doc 'slime-inspector-mode-map 'slime-inspector-describe)
+    "gd" 'slime-inspector-show-source)
+  (evil-collection-theme-bind 'quit        'slime-inspector-mode-map 'slime-inspector-quit)
+  (evil-collection-theme-bind 'lookup-doc  'slime-inspector-mode-map 'slime-inspector-describe)
+  (evil-collection-theme-bind 'refresh     'slime-inspector-mode-map 'slime-inspector-reinspect)
+  (evil-collection-theme-bind 'refresh-all 'slime-inspector-mode-map 'slime-inspector-fetch-all)
 
   (evil-collection-theme-bind 'find-usages     'slime-mode-map 'slime-edit-uses)
   (evil-collection-theme-bind 'find-definition 'slime-mode-map 'slime-edit-definition)
@@ -169,8 +168,8 @@
   (evil-collection-define-key 'normal 'slime-thread-control-mode-map
     "a" 'slime-thread-attach
     "d" 'slime-thread-debug
-    "x" 'slime-thread-kill
-    "gr" 'slime-update-threads-buffer)
+    "x" 'slime-thread-kill)
+  (evil-collection-theme-bind 'refresh 'slime-thread-control-mode-map 'slime-update-threads-buffer)
 
   (evil-collection-define-key 'normal 'slime-xref-mode-map
     (kbd "RET") 'slime-goto-xref
@@ -182,9 +181,9 @@
     (kbd "C-k") 'slime-xref-prev-line
     "]]" 'slime-xref-next-line
     "[[" 'slime-xref-prev-line
-    "gr" 'slime-recompile-xref
-    "gR" 'slime-recompile-all-xrefs
     "r" 'slime-xref-retract)
+  (evil-collection-theme-bind 'refresh     'slime-xref-mode-map 'slime-recompile-xref)
+  (evil-collection-theme-bind 'refresh-all 'slime-xref-mode-map 'slime-recompile-all-xrefs)
 
   (evil-collection-theme-bind 'repl-submit        'slime-repl-mode-map 'slime-repl-return)
   (evil-collection-theme-bind 'repl-newline       'slime-repl-mode-map 'slime-repl-newline-and-indent)

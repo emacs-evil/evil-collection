@@ -49,7 +49,6 @@
     "R" 'vc-register
     "s" 'vc-register ;; Like `magit-stage'?
     "gu" 'vc-update
-    "gr" 'revert-buffer
 
     "F" 'vc-update ;; This is the same as `vc-update' bound to "gu".
     "p" 'vc-push
@@ -108,7 +107,8 @@
     "Bl" 'vc-print-branch-log
     "Bs" 'vc-retrieve-tag)
 
-  (evil-collection-theme-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file))
+  (evil-collection-theme-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file)
+  (evil-collection-theme-bind 'refresh   'vc-dir-mode-map 'revert-buffer))
 
 (provide 'evil-collection-vc-dir)
 ;;; evil-collection-vc-dir.el ends here

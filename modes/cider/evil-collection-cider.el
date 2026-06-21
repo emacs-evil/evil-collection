@@ -130,9 +130,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (evil-collection-theme-bind 'find-definition 'cider-mode-map 'cider-find-var)
     (evil-collection-theme-bind 'pop-definition  'cider-mode-map 'cider-pop-back))
 
-  (evil-collection-define-key '(normal visual) 'cider-repl-mode-map
-    "gr" 'cider-refresh)
-
+  (evil-collection-theme-bind 'refresh    'cider-repl-mode-map 'cider-refresh)
   (evil-collection-theme-bind 'lookup-doc 'cider-repl-mode-map 'cider-doc)
   ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
   (evil-collection-theme-bind 'goto-repl  'cider-repl-mode-map 'cider-switch-to-last-clojure-buffer)
@@ -155,9 +153,9 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "]]" 'cider-repl-history-forward
 
     (kbd "RET") 'cider-repl-history-insert-and-quit
-    "gr" 'cider-repl-history-update
     "u" 'cider-repl-history-undo-other-window)
-  (evil-collection-theme-bind 'quit 'cider-repl-history-mode-map 'cider-repl-history-quit)
+  (evil-collection-theme-bind 'quit    'cider-repl-history-mode-map 'cider-repl-history-quit)
+  (evil-collection-theme-bind 'refresh 'cider-repl-history-mode-map 'cider-repl-history-update)
 
   (evil-collection-define-key 'normal 'cider-test-report-mode-map
     (kbd "C-c ,") 'cider-test-commands-map
@@ -177,9 +175,9 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "f" 'cider-test-rerun-failed-tests
     "n" 'cider-test-run-ns-tests
     "L" 'cider-test-run-loaded-tests
-    "p" 'cider-test-run-project-tests
-    "gr" 'cider-test-run-test)
-  (evil-collection-theme-bind 'quit 'cider-test-report-mode-map 'cider-popup-buffer-quit-function)
+    "p" 'cider-test-run-project-tests)
+  (evil-collection-theme-bind 'quit    'cider-test-report-mode-map 'cider-popup-buffer-quit-function)
+  (evil-collection-theme-bind 'refresh 'cider-test-report-mode-map 'cider-test-run-test)
 
   (evil-collection-theme-bind 'lookup-doc 'cider-macroexpansion-mode-map 'cider-doc)
 
@@ -231,7 +229,6 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "RET") 'cider-inspector-operate-on-point
     [mouse-1] 'cider-inspector-operate-on-click
     "L" 'cider-inspector-pop
-    "gr" 'cider-inspector-refresh
     ;; Page-up/down
     (kbd "C-j") 'cider-inspector-next-page
     (kbd "C-k") 'cider-inspector-prev-page
@@ -241,7 +238,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "[[") 'cider-inspector-previous-inspectable-object
     "gj" 'cider-inspector-next-inspectable-object
     "gk" 'cider-inspector-previous-inspectable-object)
-  (evil-collection-theme-bind 'quit 'cider-inspector-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'cider-inspector-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'cider-inspector-mode-map 'cider-inspector-refresh))
 
 (provide 'evil-collection-cider)
 ;;; evil-collection-cider.el ends here

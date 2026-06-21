@@ -71,12 +71,11 @@
         "U" 'bui-list-unmark-all
 
         (kbd "C-o") 'bui-history-back
-        (kbd "C-i") 'bui-history-forward
-
-        "gr" 'revert-buffer
-        "gR" 'bui-redisplay)
+        (kbd "C-i") 'bui-history-forward)
      (evil-collection-theme-bind 'goto-repl      ',map 'guix-switch-to-repl)
-     (evil-collection-theme-bind 'describe-mode  ',map 'bui-show-hint)))
+     (evil-collection-theme-bind 'describe-mode  ',map 'bui-show-hint)
+     (evil-collection-theme-bind 'refresh        ',map 'revert-buffer)
+     (evil-collection-theme-bind 'refresh-all    ',map 'bui-redisplay)))
 
 ;;;###autoload
 (defun evil-collection-guix-setup ()
@@ -193,11 +192,10 @@
     "[[" 'guix-build-log-previous-phase
     "]]" 'guix-build-log-next-phase
     (kbd "C-k") 'guix-build-log-previous-phase
-    (kbd "C-j") 'guix-build-log-next-phase
-
-    "gr" 'revert-buffer)
+    (kbd "C-j") 'guix-build-log-next-phase)
 
   (evil-collection-theme-bind 'goto-repl 'guix-build-log-mode-map 'guix-switch-to-repl)
+  (evil-collection-theme-bind 'refresh   'guix-build-log-mode-map 'revert-buffer)
 
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map

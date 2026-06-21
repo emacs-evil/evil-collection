@@ -556,7 +556,13 @@ New customization should use
           :key "q")
     (describe-mode :enabled t
                    :state normal
-                   :key "g?"))
+                   :key "g?")
+    (refresh :enabled t
+             :state normal
+             :key "gr")
+    (refresh-all :enabled t
+                 :state normal
+                 :key "gR"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

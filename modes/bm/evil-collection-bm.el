@@ -38,8 +38,6 @@
   (evil-set-initial-state 'bm-show-mode 'normal)
 
   (evil-collection-define-key 'normal 'bm-show-mode-map
-    "gr" 'revert-buffer
-
     "j" 'bm-show-next
     "k" 'bm-show-prev
 
@@ -47,7 +45,8 @@
     (kbd "RET") 'bm-show-goto-bookmark
     (kbd "S-<return>") 'bm-show-bookmark)
   (evil-collection-theme-bind 'quit          'bm-show-mode-map 'bm-show-quit-window)
-  (evil-collection-theme-bind 'describe-mode 'bm-show-mode-map 'describe-mode))
+  (evil-collection-theme-bind 'describe-mode 'bm-show-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'bm-show-mode-map 'revert-buffer))
 
 
 (provide 'evil-collection-bm)

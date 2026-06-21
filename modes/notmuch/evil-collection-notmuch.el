@@ -142,11 +142,11 @@ that moves trashed messages out of the inbox)."
     "S" 'notmuch-tree
     "C" 'notmuch-mua-new-mail           ; like mu4e
     "cc" 'notmuch-mua-new-mail          ; like mu4e
-    "gr" 'notmuch-refresh-this-buffer
     "gA" 'notmuch-refresh-all-buffers
-    "gR" 'notmuch-poll-and-refresh-this-buffer
     "J" 'notmuch-jump-search)
-  (evil-collection-theme-bind 'quit 'notmuch-common-keymap 'notmuch-bury-or-kill-this-buffer)
+  (evil-collection-theme-bind 'quit        'notmuch-common-keymap 'notmuch-bury-or-kill-this-buffer)
+  (evil-collection-theme-bind 'refresh     'notmuch-common-keymap 'notmuch-refresh-this-buffer)
+  (evil-collection-theme-bind 'refresh-all 'notmuch-common-keymap 'notmuch-poll-and-refresh-this-buffer)
 
   (evil-collection-theme-bind 'describe-mode 'notmuch-hello-mode-map 'notmuch-version)
 

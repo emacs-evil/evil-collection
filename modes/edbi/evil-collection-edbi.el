@@ -89,14 +89,12 @@ default bindings."
 
     "gc" 'ctbl:navi-jump-to-column
 
-    ;; motion
-    "gr" 'ctbl:action-update-buffer
-
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
   (evil-collection-theme-bind 'quit          'edbi:dbview-query-result-keymap 'edbi:dbview-query-result-quit-command)
   (evil-collection-theme-bind 'describe-mode 'edbi:dbview-query-result-keymap 'ctbl:describe-bindings)
+  (evil-collection-theme-bind 'refresh       'edbi:dbview-query-result-keymap 'ctbl:action-update-buffer)
 
   (evil-collection-define-key 'normal 'edbi:sql-mode-map
     (kbd "C-n") 'edbi:dbview-query-editor-history-forward-command

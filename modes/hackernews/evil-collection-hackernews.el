@@ -47,7 +47,6 @@
 
     "+" 'hackernews-load-more-stories
 
-    "gr" 'hackernews-reload
     "gf" 'hackernews-switch-feed
 
     (kbd "<tab>") 'hackernews-next-comment
@@ -57,7 +56,8 @@
     "?" 'hackernews-button-mark-as-unvisited
 
     (kbd "RET") 'hackernews-button-browse-internal
-    (kbd "S-<return>") 'push-button))
+    (kbd "S-<return>") 'push-button)
+  (evil-collection-theme-bind 'refresh 'hackernews-mode-map 'hackernews-reload))
 
 (provide 'evil-collection-hackernews)
 ;;; evil-collection-hackernews.el ends here

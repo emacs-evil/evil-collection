@@ -38,9 +38,7 @@
   (evil-collection-theme-bind 'find-definition 'robe-mode-map 'robe-jump)
   (evil-collection-theme-bind 'pop-definition  'robe-mode-map 'pop-tag-mark)
   (evil-collection-theme-bind 'lookup-doc      'robe-mode-map 'robe-doc)
-
-  (evil-collection-define-key 'normal 'robe-mode-map
-    "gr" 'robe-rails-refresh))
+  (evil-collection-theme-bind 'refresh         'robe-mode-map 'robe-rails-refresh))
 
 (provide 'evil-collection-robe)
 ;;; evil-collection-robe.el ends here

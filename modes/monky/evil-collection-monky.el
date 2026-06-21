@@ -57,7 +57,6 @@
     (kbd "TAB") 'monky-toggle-section
     (kbd "SPC") 'monky-show-item-or-scroll-up
     (kbd "DEL") 'monky-show-item-or-scroll-down
-    "gr" 'monky-refresh
     "`" 'monky-display-process
     "!" 'monky-hg-command
     "Ll" 'monky-log-current-branch
@@ -66,7 +65,8 @@
     "Lr" 'monky-log-revset
     "b" 'monky-branches
     "Q" 'monky-queue)
-  (evil-collection-theme-bind 'quit 'monky-mode-map 'monky-quit-window)
+  (evil-collection-theme-bind 'quit    'monky-mode-map 'monky-quit-window)
+  (evil-collection-theme-bind 'refresh 'monky-mode-map 'monky-refresh)
 
   (evil-collection-define-key 'normal 'monky-status-mode-map
     "s" 'monky-stage-item

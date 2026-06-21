@@ -38,9 +38,9 @@
   (evil-collection-define-key 'normal 'imenu-list-major-mode-map
     (kbd "RET") 'imenu-list-goto-entry
     (kbd "TAB") 'hs-toggle-hiding
-    "d" 'imenu-list-display-entry
-    "gr" 'imenu-list-refresh)
-  (evil-collection-theme-bind 'quit 'imenu-list-major-mode-map 'imenu-list-quit-window))
+    "d" 'imenu-list-display-entry)
+  (evil-collection-theme-bind 'quit    'imenu-list-major-mode-map 'imenu-list-quit-window)
+  (evil-collection-theme-bind 'refresh 'imenu-list-major-mode-map 'imenu-list-refresh))
 
 
 (provide 'evil-collection-imenu-list)

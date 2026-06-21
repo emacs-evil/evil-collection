@@ -59,8 +59,7 @@
     "go" 'xref-show-location-at-point)
 
   (when (>= emacs-major-version 27)
-    (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
-      "gr" 'xref-revert-buffer))
+    (evil-collection-theme-bind 'refresh 'xref--xref-buffer-mode-map 'xref-revert-buffer))
 
   (when (>= emacs-major-version 28)
     (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map

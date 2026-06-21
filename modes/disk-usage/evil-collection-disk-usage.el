@@ -60,9 +60,7 @@
     "x" 'disk-usage-delete-marked-files
 
     "a" 'disk-usage-add-filters
-    "A" 'disk-usage-remove-filters
-
-    "gr" 'revert-buffer)
+    "A" 'disk-usage-remove-filters)
 
   (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
   (evil-collection-define-key 'normal 'disk-usage-by-types-mode-map
@@ -78,13 +76,13 @@
 
     "zh" 'disk-usage-toggle-human-readable
 
-    "gr" 'revert-buffer
-
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
-  (evil-collection-theme-bind 'describe-mode 'disk-usage-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode))
+  (evil-collection-theme-bind 'describe-mode 'disk-usage-mode-map          'describe-mode)
+  (evil-collection-theme-bind 'describe-mode 'disk-usage-by-types-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'disk-usage-mode-map          'revert-buffer)
+  (evil-collection-theme-bind 'refresh       'disk-usage-by-types-mode-map 'revert-buffer))
 
 (provide 'evil-collection-disk-usage)
 ;;; evil-collection-disk-usage.el ends here

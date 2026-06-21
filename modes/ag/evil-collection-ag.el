@@ -39,9 +39,6 @@
     "k" 'evil-previous-line
     "h" 'evil-backward-char
 
-    ;; refresh
-    "gr" 'recompile
-
     ;; navigation
     "gj" 'compilation-next-error
     "gk" 'compilation-previous-error
@@ -57,7 +54,9 @@
     "N" evil-collection-evil-search-previous)
   ;; `ag' is best set in 'normal state because its buffer can be edited.
   ;; https://github.com/mhayashi1120/Emacs-wgrep
-  (evil-set-initial-state 'ag-mode 'normal))
+  (evil-set-initial-state 'ag-mode 'normal)
+
+  (evil-collection-theme-bind 'refresh 'ag-mode-map 'recompile))
 
 (provide 'evil-collection-ag)
 ;;; evil-collection-ag.el ends here

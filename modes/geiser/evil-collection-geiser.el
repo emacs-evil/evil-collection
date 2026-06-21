@@ -67,7 +67,6 @@
   (evil-collection-define-key 'normal 'geiser-doc-mode-map
     (kbd "<tab>") 'forward-button
     (kbd "<S-tab>") 'backward-button
-    "gr" 'geiser-doc-refresh
     ">" 'geiser-doc-next
     "<" 'geiser-doc-previous
     "gj" 'forward-button
@@ -78,7 +77,8 @@
     "[[" 'geiser-doc-previous-section
     "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
-  (evil-collection-theme-bind 'quit 'geiser-doc-mode-map 'View-quit)
+  (evil-collection-theme-bind 'quit    'geiser-doc-mode-map 'View-quit)
+  (evil-collection-theme-bind 'refresh 'geiser-doc-mode-map 'geiser-doc-refresh)
 
   (evil-collection-theme-bind 'repl-submit        'geiser-repl-mode-map 'geiser-repl-maybe-send)
   (evil-collection-theme-bind 'repl-newline       'geiser-repl-mode-map 'geiser-repl--newline-and-indent)

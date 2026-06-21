@@ -38,10 +38,10 @@
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
   (evil-collection-theme-bind 'describe-mode 'gited-mode-map 'gited-summary)
+  (evil-collection-theme-bind 'refresh       'gited-mode-map 'gited-update)
 
   (evil-collection-define-key 'normal 'gited-mode-map
     "(" 'gited-hide-details-mode
-    "gr" 'gited-update
     (kbd "C-c C-c") 'gited-commit
     (kbd "C-c C-b") 'gited-list-branches
 
