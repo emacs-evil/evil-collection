@@ -50,20 +50,21 @@
     "M" 'archive-chmod-entry
     "O" 'archive-chown-entry
     "P" 'archive-chgrp-entry)
-  (evil-collection-bind 'archive-mode-map          'mark 'archive-mark)
-  (evil-collection-bind 'archive-mode-map        'unmark 'archive-unflag)
-  (evil-collection-bind 'archive-mode-map    'unmark-all 'archive-unmark-all-files)
-  (evil-collection-bind 'archive-mode-map   'mark-delete 'archive-flag-deleted)
-  (evil-collection-bind 'archive-mode-map 'execute-marks 'archive-expunge)
-  (evil-collection-bind 'archive-mode-map       'action 'archive-extract)
-  (evil-collection-bind 'archive-mode-map 'action-other 'archive-extract-other-window)
-  (evil-collection-bind 'archive-mode-map  'action-stay 'archive-view)
-  (evil-collection-bind 'archive-mode-map    'next-item 'archive-next-line)
-  (evil-collection-bind 'archive-mode-map    'prev-item 'archive-previous-line)
-  (evil-collection-bind 'archive-mode-map 'next-section 'archive-next-line)
-  (evil-collection-bind 'archive-mode-map 'prev-section 'archive-previous-line)
-  (evil-collection-bind 'archive-mode-map    'quit 'quit-window)
-  (evil-collection-bind 'archive-mode-map 'refresh 'revert-buffer))
+  (evil-collection-bind 'archive-mode-map
+                        'mark 'archive-mark
+                        'unmark 'archive-unflag
+                        'unmark-all 'archive-unmark-all-files
+                        'mark-delete 'archive-flag-deleted
+                        'execute-marks 'archive-expunge
+                        'action 'archive-extract
+                        'action-other 'archive-extract-other-window
+                        'action-stay 'archive-view
+                        'next-item 'archive-next-line
+                        'prev-item 'archive-previous-line
+                        'next-section 'archive-next-line
+                        'prev-section 'archive-previous-line
+                        'quit 'quit-window
+                        'refresh 'revert-buffer))
 
 (provide 'evil-collection-arc-mode)
 ;;; evil-collection-arc-mode.el ends here

@@ -40,11 +40,12 @@
   (evil-collection-define-key 'normal 'bm-show-mode-map
     "j" 'bm-show-next
     "k" 'bm-show-prev)
-  (evil-collection-bind 'bm-show-mode-map        'action 'bm-show-goto-bookmark)
-  (evil-collection-bind 'bm-show-mode-map  'action-other 'bm-show-bookmark)
-  (evil-collection-bind 'bm-show-mode-map          'quit 'bm-show-quit-window)
-  (evil-collection-bind 'bm-show-mode-map 'describe-mode 'describe-mode)
-  (evil-collection-bind 'bm-show-mode-map       'refresh 'revert-buffer))
+  (evil-collection-bind 'bm-show-mode-map
+                        'action 'bm-show-goto-bookmark
+                        'action-other 'bm-show-bookmark
+                        'quit 'bm-show-quit-window
+                        'describe-mode 'describe-mode
+                        'refresh 'revert-buffer))
 
 
 (provide 'evil-collection-bm)

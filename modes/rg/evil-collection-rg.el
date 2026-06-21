@@ -66,12 +66,13 @@
     "l" 'evil-forward-char        ;; shadows rg-list-searches
     "w" 'evil-forward-word-begin  ;; shadows wgrep-change-to-wgrep-mode
     "gg" 'evil-goto-first-line)
-  (evil-collection-bind 'rg-mode-map    'next-item 'next-error-no-select)
-  (evil-collection-bind 'rg-mode-map    'prev-item 'previous-error-no-select)
-  (evil-collection-bind 'rg-mode-map 'next-section 'next-error-no-select)
-  (evil-collection-bind 'rg-mode-map 'prev-section 'previous-error-no-select)
-  (evil-collection-bind 'rg-mode-map    'quit 'quit-window)
-  (evil-collection-bind 'rg-mode-map 'refresh 'rg-recompile)
+  (evil-collection-bind 'rg-mode-map
+                        'next-item 'next-error-no-select
+                        'prev-item 'previous-error-no-select
+                        'next-section 'next-error-no-select
+                        'prev-section 'previous-error-no-select
+                        'quit 'quit-window
+                        'refresh 'rg-recompile)
 
   (evil-collection-define-key 'motion 'rg-mode-map
     "e" 'evil-forward-word-end    ;; shadows wgrep-change-to-wgrep-mode

@@ -37,10 +37,11 @@
 (defun evil-collection-hackernews-setup ()
   "Set up `evil' bindings for `hackernews-mode'."
   (evil-collection-set-readonly-bindings 'hackernews-mode-map)
-  (evil-collection-bind 'hackernews-mode-map    'next-item 'hackernews-next-item)
-  (evil-collection-bind 'hackernews-mode-map    'prev-item 'hackernews-previous-item)
-  (evil-collection-bind 'hackernews-mode-map 'next-section 'hackernews-next-item)
-  (evil-collection-bind 'hackernews-mode-map 'prev-section 'hackernews-previous-item)
+  (evil-collection-bind 'hackernews-mode-map
+                        'next-item 'hackernews-next-item
+                        'prev-item 'hackernews-previous-item
+                        'next-section 'hackernews-next-item
+                        'prev-section 'hackernews-previous-item)
   (evil-collection-define-key 'normal 'hackernews-mode-map
     "+" 'hackernews-load-more-stories
 
@@ -48,11 +49,12 @@
 
     "!" 'hackernews-button-mark-as-visited ; like mu4e
     "?" 'hackernews-button-mark-as-unvisited)
-  (evil-collection-bind 'hackernews-mode-map     'cycle-next 'hackernews-next-comment)
-  (evil-collection-bind 'hackernews-mode-map 'cycle-previous 'hackernews-previous-comment)
-  (evil-collection-bind 'hackernews-mode-map       'action 'hackernews-button-browse-internal)
-  (evil-collection-bind 'hackernews-mode-map 'action-other 'push-button)
-  (evil-collection-bind 'hackernews-mode-map 'refresh 'hackernews-reload))
+  (evil-collection-bind 'hackernews-mode-map
+                        'cycle-next 'hackernews-next-comment
+                        'cycle-previous 'hackernews-previous-comment
+                        'action 'hackernews-button-browse-internal
+                        'action-other 'push-button
+                        'refresh 'hackernews-reload))
 
 (provide 'evil-collection-hackernews)
 ;;; evil-collection-hackernews.el ends here

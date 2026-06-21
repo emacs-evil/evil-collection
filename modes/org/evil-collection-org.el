@@ -71,8 +71,9 @@
 
   (evil-collection-define-key 'normal 'org-capture-mode-map
     "ZR" 'org-capture-refile)
-  (evil-collection-bind 'org-capture-mode-map   'quit-save 'org-capture-finalize)
-  (evil-collection-bind 'org-capture-mode-map 'quit-cancel 'org-capture-kill)
+  (evil-collection-bind 'org-capture-mode-map
+                        'quit-save 'org-capture-finalize
+                        'quit-cancel 'org-capture-kill)
 
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-l") #'org-calendar-forward-day)
   (org-defkey org-read-date-minibuffer-local-map (kbd "M-h") #'org-calendar-backward-day)

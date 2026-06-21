@@ -44,11 +44,11 @@
 
   ;; motion
   ;; TODO: Implement beginning-of-buffer / end-of-buffer.
-  (evil-collection-bind 'process-menu-mode-map 'scroll-down 'evil-scroll-down)
-  (evil-collection-bind 'process-menu-mode-map   'scroll-up 'evil-scroll-up)
-
-  (evil-collection-bind 'process-menu-mode-map 'refresh 'revert-buffer)
-  (evil-collection-bind 'process-menu-mode-map  'delete 'process-menu-delete-process))
+  (evil-collection-bind 'process-menu-mode-map
+                        'scroll-down 'evil-scroll-down
+                        'scroll-up 'evil-scroll-up
+                        'refresh 'revert-buffer
+                        'delete 'process-menu-delete-process))
 
 (provide 'evil-collection-process-menu)
 ;;; evil-collection-process-menu.el ends here

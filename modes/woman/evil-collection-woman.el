@@ -39,12 +39,12 @@
   (evil-set-initial-state 'woman-mode 'normal)
   ;; goto
   ;; "gm" 'woman
-  (evil-collection-bind 'woman-mode-map    'next-item 'WoMan-next-manpage)
-  (evil-collection-bind 'woman-mode-map    'prev-item 'WoMan-previous-manpage)
-  (evil-collection-bind 'woman-mode-map 'next-section 'WoMan-next-manpage)
-  (evil-collection-bind 'woman-mode-map 'prev-section 'WoMan-previous-manpage)
-
-  (evil-collection-bind 'woman-mode-map 'refresh 'woman-reformat-last-file))
+  (evil-collection-bind 'woman-mode-map
+                        'next-item 'WoMan-next-manpage
+                        'prev-item 'WoMan-previous-manpage
+                        'next-section 'WoMan-next-manpage
+                        'prev-section 'WoMan-previous-manpage
+                        'refresh 'woman-reformat-last-file))
 
 (provide 'evil-collection-woman)
 ;;; evil-collection-woman.el ends here

@@ -47,22 +47,25 @@
     "e" 'epa-encrypt-file
     "i" 'epa-import-keys
     "o" 'epa-export-keys)
-  (evil-collection-bind 'epa-key-list-mode-map     'cycle-next 'widget-forward)
-  (evil-collection-bind 'epa-key-list-mode-map 'cycle-previous 'widget-backward)
-  (evil-collection-bind 'epa-key-list-mode-map        'mark 'epa-mark-key)
-  (evil-collection-bind 'epa-key-list-mode-map      'unmark 'epa-unmark-key)
-  (evil-collection-bind 'epa-key-list-mode-map        'quit 'epa-exit-buffer)
-  (evil-collection-bind 'epa-key-list-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'epa-key-list-mode-map 'quit-cancel 'evil-quit)
-  (evil-collection-bind 'epa-key-list-mode-map     'refresh 'revert-buffer)
+  (evil-collection-bind 'epa-key-list-mode-map
+                        'cycle-next 'widget-forward
+                        'cycle-previous 'widget-backward
+                        'mark 'epa-mark-key
+                        'unmark 'epa-unmark-key
+                        'quit 'epa-exit-buffer
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit
+                        'refresh 'revert-buffer)
 
-  (evil-collection-bind 'epa-key-mode-map        'quit 'epa-exit-buffer)
-  (evil-collection-bind 'epa-key-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'epa-key-mode-map 'quit-cancel 'evil-quit)
+  (evil-collection-bind 'epa-key-mode-map
+                        'quit 'epa-exit-buffer
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit)
 
-  (evil-collection-bind 'epa-info-mode-map        'quit 'delete-window)
-  (evil-collection-bind 'epa-info-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'epa-info-mode-map 'quit-cancel 'evil-quit))
+  (evil-collection-bind 'epa-info-mode-map
+                        'quit 'delete-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit))
 
 (provide 'evil-collection-epa)
 ;;; evil-collection-epa.el ends here

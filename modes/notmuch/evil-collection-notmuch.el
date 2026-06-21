@@ -144,13 +144,15 @@ that moves trashed messages out of the inbox)."
     "cc" 'notmuch-mua-new-mail          ; like mu4e
     "gA" 'notmuch-refresh-all-buffers
     "J" 'notmuch-jump-search)
-  (evil-collection-bind 'notmuch-common-keymap        'quit 'notmuch-bury-or-kill-this-buffer)
-  (evil-collection-bind 'notmuch-common-keymap     'refresh 'notmuch-refresh-this-buffer)
-  (evil-collection-bind 'notmuch-common-keymap 'refresh-all 'notmuch-poll-and-refresh-this-buffer)
-  (evil-collection-bind 'notmuch-hello-mode-map 'describe-mode 'notmuch-version)
-  (evil-collection-bind 'notmuch-hello-mode-map     'cycle-next 'widget-forward)
-  (evil-collection-bind 'notmuch-hello-mode-map 'cycle-previous 'widget-backward)
-  (evil-collection-bind 'notmuch-hello-mode-map 'action 'evil-collection-notmuch-hello-ret)
+  (evil-collection-bind 'notmuch-common-keymap
+                        'quit 'notmuch-bury-or-kill-this-buffer
+                        'refresh 'notmuch-refresh-this-buffer
+                        'refresh-all 'notmuch-poll-and-refresh-this-buffer)
+  (evil-collection-bind 'notmuch-hello-mode-map
+                        'describe-mode 'notmuch-version
+                        'cycle-next 'widget-forward
+                        'cycle-previous 'widget-backward
+                        'action 'evil-collection-notmuch-hello-ret)
 
   (evil-collection-define-key 'normal 'notmuch-show-mode-map
     "gd" 'goto-address-at-point
@@ -178,13 +180,14 @@ that moves trashed messages out of the inbox)."
     "-" 'notmuch-show-remove-tag
     "+" 'notmuch-show-add-tag
     "." 'notmuch-show-part-map)
-  (evil-collection-bind 'notmuch-show-mode-map     'next-button 'notmuch-show-next-button)
-  (evil-collection-bind 'notmuch-show-mode-map 'previous-button 'notmuch-show-previous-button)
-  (evil-collection-bind 'notmuch-show-mode-map       'action 'notmuch-show-toggle-message)
-  (evil-collection-bind 'notmuch-show-mode-map    'next-item 'notmuch-show-next-open-message)
-  (evil-collection-bind 'notmuch-show-mode-map    'prev-item 'notmuch-show-previous-open-message)
-  (evil-collection-bind 'notmuch-show-mode-map 'next-section 'notmuch-show-next-message)
-  (evil-collection-bind 'notmuch-show-mode-map 'prev-section 'notmuch-show-previous-message)
+  (evil-collection-bind 'notmuch-show-mode-map
+                        'next-button 'notmuch-show-next-button
+                        'previous-button 'notmuch-show-previous-button
+                        'action 'notmuch-show-toggle-message
+                        'next-item 'notmuch-show-next-open-message
+                        'prev-item 'notmuch-show-previous-open-message
+                        'next-section 'notmuch-show-next-message
+                        'prev-section 'notmuch-show-previous-message)
 
   (evil-collection-bind 'notmuch-tree-mode-map 'describe-mode 'notmuch-help)
 
@@ -209,14 +212,15 @@ that moves trashed messages out of the inbox)."
     "+" 'notmuch-tree-add-tag
     "*" 'notmuch-tree-tag-thread
     "e" 'notmuch-tree-resume-message)
-  (evil-collection-bind 'notmuch-tree-mode-map       'action 'notmuch-tree-show-message)
-  (evil-collection-bind 'notmuch-tree-mode-map    'next-item 'notmuch-tree-next-matching-message)
-  (evil-collection-bind 'notmuch-tree-mode-map    'prev-item 'notmuch-tree-prev-matching-message)
-  (evil-collection-bind 'notmuch-tree-mode-map 'next-section 'notmuch-tree-next-message)
-  (evil-collection-bind 'notmuch-tree-mode-map   'prev-section 'notmuch-tree-prev-message)
-  (evil-collection-bind 'notmuch-tree-mode-map 'next-section-2 'notmuch-tree-next-thread)
-  (evil-collection-bind 'notmuch-tree-mode-map 'prev-section-2 'notmuch-tree-prev-thread)
-  (evil-collection-bind 'notmuch-tree-mode-map 'quit 'notmuch-tree-quit)
+  (evil-collection-bind 'notmuch-tree-mode-map
+                        'action 'notmuch-tree-show-message
+                        'next-item 'notmuch-tree-next-matching-message
+                        'prev-item 'notmuch-tree-prev-matching-message
+                        'next-section 'notmuch-tree-next-message
+                        'prev-section 'notmuch-tree-prev-message
+                        'next-section-2 'notmuch-tree-next-thread
+                        'prev-section-2 'notmuch-tree-prev-thread
+                        'quit 'notmuch-tree-quit)
 
   (dolist (state '(normal visual))
     (evil-collection-define-key state 'notmuch-search-mode-map
@@ -238,8 +242,9 @@ that moves trashed messages out of the inbox)."
       [mouse-1] 'notmuch-search-show-thread
       "-" 'notmuch-search-remove-tag
       "+" 'notmuch-search-add-tag))
-  (evil-collection-bind 'notmuch-search-mode-map 'action 'notmuch-search-show-thread)
-  (evil-collection-bind 'notmuch-search-mode-map   'quit 'notmuch-bury-or-kill-this-buffer)
+  (evil-collection-bind 'notmuch-search-mode-map
+                        'action 'notmuch-search-show-thread
+                        'quit 'notmuch-bury-or-kill-this-buffer)
 
   ;; ys
   (evil-collection-define-operator-key 'yank 'notmuch-search-mode-map

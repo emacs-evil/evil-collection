@@ -36,14 +36,15 @@
 ;;;###autoload
 (defun evil-collection-elisp-refs-setup ()
   "Set up `evil' bindings for `elisp-refs'."
-  (evil-collection-bind 'elisp-refs-mode-map         'action 'elisp-refs-visit-match)
-  (evil-collection-bind 'elisp-refs-mode-map     'cycle-next 'elisp-refs-next-match)
-  (evil-collection-bind 'elisp-refs-mode-map 'cycle-previous 'elisp-refs-prev-match)
-  (evil-collection-bind 'elisp-refs-mode-map    'next-item 'elisp-refs-next-match)
-  (evil-collection-bind 'elisp-refs-mode-map    'prev-item 'elisp-refs-prev-match)
-  (evil-collection-bind 'elisp-refs-mode-map 'next-section 'elisp-refs-next-match)
-  (evil-collection-bind 'elisp-refs-mode-map 'prev-section 'elisp-refs-prev-match)
-  (evil-collection-bind 'elisp-refs-mode-map 'quit 'kill-current-buffer))
+  (evil-collection-bind 'elisp-refs-mode-map
+                        'action 'elisp-refs-visit-match
+                        'cycle-next 'elisp-refs-next-match
+                        'cycle-previous 'elisp-refs-prev-match
+                        'next-item 'elisp-refs-next-match
+                        'prev-item 'elisp-refs-prev-match
+                        'next-section 'elisp-refs-next-match
+                        'prev-section 'elisp-refs-prev-match
+                        'quit 'kill-current-buffer))
 
 (provide 'evil-collection-elisp-refs)
 ;;; evil-collection-elisp-refs.el ends here

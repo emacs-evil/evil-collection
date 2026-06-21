@@ -42,17 +42,18 @@
   ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
     "i" 'deadgrep-edit-mode)
-  (evil-collection-bind 'deadgrep-mode-map 'section-toggle 'deadgrep-toggle-file-results)
-  (evil-collection-bind 'deadgrep-mode-map       'action 'deadgrep-visit-result)
-  (evil-collection-bind 'deadgrep-mode-map 'action-other 'deadgrep-visit-result-other-window)
-  (evil-collection-bind 'deadgrep-mode-map    'next-item 'deadgrep-forward)
-  (evil-collection-bind 'deadgrep-mode-map    'prev-item 'deadgrep-backward)
-  (evil-collection-bind 'deadgrep-mode-map 'next-section 'deadgrep-forward)
-  (evil-collection-bind 'deadgrep-mode-map 'prev-section 'deadgrep-backward)
-  (evil-collection-bind 'deadgrep-mode-map         'quit 'quit-window)
-  (evil-collection-bind 'deadgrep-mode-map    'quit-save 'quit-window)
-  (evil-collection-bind 'deadgrep-mode-map  'quit-cancel 'evil-quit)
-  (evil-collection-bind 'deadgrep-mode-map      'refresh 'deadgrep-restart))
+  (evil-collection-bind 'deadgrep-mode-map
+                        'section-toggle 'deadgrep-toggle-file-results
+                        'action 'deadgrep-visit-result
+                        'action-other 'deadgrep-visit-result-other-window
+                        'next-item 'deadgrep-forward
+                        'prev-item 'deadgrep-backward
+                        'next-section 'deadgrep-forward
+                        'prev-section 'deadgrep-backward
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit
+                        'refresh 'deadgrep-restart))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here

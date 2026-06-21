@@ -652,8 +652,9 @@ This is an exact copy of `lispy-set-key-theme' except with the additions of
     (kbd "M-p") 'lispy-clone
     (kbd "M-d") 'evil-collection-lispy-delete)
 
-  (evil-collection-bind 'evil-collection-lispy-mode-map 'find-definition 'lispy-goto-symbol)
-  (evil-collection-bind 'evil-collection-lispy-mode-map  'pop-definition 'pop-tag-mark))
+  (evil-collection-bind 'evil-collection-lispy-mode-map
+                        'find-definition 'lispy-goto-symbol
+                        'pop-definition 'pop-tag-mark))
 
 (provide 'evil-collection-lispy)
 ;;; evil-collection-lispy.el ends here

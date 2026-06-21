@@ -130,18 +130,19 @@
     "m" 'org-agenda-bulk-mark
     "u" 'org-agenda-bulk-unmark
     "B" 'org-agenda-bulk-action)
-  (evil-collection-bind 'org-agenda-mode-map    'next-item 'org-agenda-next-item)
-  (evil-collection-bind 'org-agenda-mode-map    'prev-item 'org-agenda-previous-item)
-  (evil-collection-bind 'org-agenda-mode-map 'next-section 'org-agenda-forward-block)
-  (evil-collection-bind 'org-agenda-mode-map   'prev-section 'org-agenda-backward-block)
-  (evil-collection-bind 'org-agenda-mode-map 'next-section-2 'org-agenda-next-item)
-  (evil-collection-bind 'org-agenda-mode-map 'prev-section-2 'org-agenda-previous-item)
-  (evil-collection-bind 'org-agenda-mode-map         'quit 'org-agenda-quit)
-  (evil-collection-bind 'org-agenda-mode-map       'delete 'org-agenda-kill)
-  (evil-collection-bind 'org-agenda-mode-map      'refresh 'org-agenda-redo)
-  (evil-collection-bind 'org-agenda-mode-map  'refresh-all 'org-agenda-redo-all)
-  (evil-collection-bind 'org-agenda-mode-map       'action 'org-agenda-switch-to)
-  (evil-collection-bind 'org-agenda-mode-map 'action-other 'org-agenda-open-link))
+  (evil-collection-bind 'org-agenda-mode-map
+                        'next-item 'org-agenda-next-item
+                        'prev-item 'org-agenda-previous-item
+                        'next-section 'org-agenda-forward-block
+                        'prev-section 'org-agenda-backward-block
+                        'next-section-2 'org-agenda-next-item
+                        'prev-section-2 'org-agenda-previous-item
+                        'quit 'org-agenda-quit
+                        'delete 'org-agenda-kill
+                        'refresh 'org-agenda-redo
+                        'refresh-all 'org-agenda-redo-all
+                        'action 'org-agenda-switch-to
+                        'action-other 'org-agenda-open-link))
 
 (provide 'evil-collection-org-agenda)
 ;;; evil-collection-org-agenda.el ends here

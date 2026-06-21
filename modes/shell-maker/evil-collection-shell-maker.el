@@ -45,9 +45,10 @@
 ;;;###autoload
 (defun evil-collection-shell-maker-setup ()
   "Set up `evil' bindings for `shell-maker'."
-  (evil-collection-bind 'shell-maker-mode-map        'repl-submit 'shell-maker-submit)
-  (evil-collection-bind 'shell-maker-mode-map       'repl-newline 'newline)
-  (evil-collection-bind 'shell-maker-mode-map 'repl-force-newline 'newline))
+  (evil-collection-bind 'shell-maker-mode-map
+                        'repl-submit 'shell-maker-submit
+                        'repl-newline 'newline
+                        'repl-force-newline 'newline))
 
 (provide 'evil-collection-shell-maker)
 ;;; evil-collection-shell-maker.el ends here

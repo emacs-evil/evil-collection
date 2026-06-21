@@ -37,9 +37,10 @@
 ;;;###autoload
 (defun evil-collection-leetcode-setup ()
   "Set up `evil' bindings for `leetcode'."
-  (evil-collection-bind 'leetcode--problems-mode-map  'action 'leetcode-show-current-problem)
-  (evil-collection-bind 'leetcode--problems-mode-map    'quit 'quit-window)
-  (evil-collection-bind 'leetcode--problems-mode-map 'refresh 'leetcode-problems-refresh))
+  (evil-collection-bind 'leetcode--problems-mode-map
+                        'action 'leetcode-show-current-problem
+                        'quit 'quit-window
+                        'refresh 'leetcode-problems-refresh))
 
 (provide 'evil-collection-leetcode)
 ;;; evil-collection-leetcode.el ends here

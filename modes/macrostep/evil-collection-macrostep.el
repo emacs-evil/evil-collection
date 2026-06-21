@@ -42,11 +42,12 @@
   (evil-collection-define-key 'normal 'macrostep-keymap
     "e" 'macrostep-expand
     "u" 'macrostep-collapse)
-  (evil-collection-bind 'macrostep-keymap    'next-item 'macrostep-next-macro)
-  (evil-collection-bind 'macrostep-keymap    'prev-item 'macrostep-prev-macro)
-  (evil-collection-bind 'macrostep-keymap 'next-section 'macrostep-next-macro)
-  (evil-collection-bind 'macrostep-keymap 'prev-section 'macrostep-prev-macro)
-  (evil-collection-bind 'macrostep-keymap 'quit 'macrostep-collapse-all))
+  (evil-collection-bind 'macrostep-keymap
+                        'next-item 'macrostep-next-macro
+                        'prev-item 'macrostep-prev-macro
+                        'next-section 'macrostep-next-macro
+                        'prev-section 'macrostep-prev-macro
+                        'quit 'macrostep-collapse-all))
 
 (provide 'evil-collection-macrostep)
 ;;; evil-collection-macrostep.el ends here

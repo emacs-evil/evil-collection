@@ -82,15 +82,17 @@ When this option is enabled, the stash popup is available on \"Z\"."
     (kbd "4") 'magit-section-show-level-4)
   (if evil-collection-want-unimpaired-p
       (progn
-        (evil-collection-bind 'magit-section-mode-map 'next-section 'magit-section-forward-sibling)
-        (evil-collection-bind 'magit-section-mode-map 'prev-section 'magit-section-backward-sibling))
+        (evil-collection-bind 'magit-section-mode-map
+                              'next-section 'magit-section-forward-sibling
+                              'prev-section 'magit-section-backward-sibling))
     (evil-collection-define-key 'normal 'magit-section-mode-map
       "[" 'magit-section-backward-sibling
       "]" 'magit-section-forward-sibling))
-  (evil-collection-bind 'magit-section-mode-map    'next-item 'magit-section-forward-sibling)
-  (evil-collection-bind 'magit-section-mode-map    'prev-item 'magit-section-backward-sibling)
-  (evil-collection-bind 'magit-section-mode-map 'next-section-2 'magit-section-forward)
-  (evil-collection-bind 'magit-section-mode-map 'prev-section-2 'magit-section-backward))
+  (evil-collection-bind 'magit-section-mode-map
+                        'next-item 'magit-section-forward-sibling
+                        'prev-item 'magit-section-backward-sibling
+                        'next-section-2 'magit-section-forward
+                        'prev-section-2 'magit-section-backward))
 
 (provide 'evil-collection-magit-section)
 ;;; evil-collection-magit-section.el ends here

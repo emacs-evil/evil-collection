@@ -37,23 +37,26 @@
 ;;;###autoload
 (defun evil-collection-tide-setup ()
   "Set up `evil' bindings for `tide'."
-  (evil-collection-bind 'tide-mode-map 'find-definition 'tide-jump-to-definition)
-  (evil-collection-bind 'tide-mode-map  'pop-definition 'tide-jump-back)
-  (evil-collection-bind 'tide-mode-map      'lookup-doc 'tide-documentation-at-point)
+  (evil-collection-bind 'tide-mode-map
+                        'find-definition 'tide-jump-to-definition
+                        'pop-definition 'tide-jump-back
+                        'lookup-doc 'tide-documentation-at-point)
 
-  (evil-collection-bind 'tide-references-mode-map       'action 'tide-goto-line-reference)
-  (evil-collection-bind 'tide-references-mode-map    'next-item 'tide-find-next-reference)
-  (evil-collection-bind 'tide-references-mode-map    'prev-item 'tide-find-previous-reference)
-  (evil-collection-bind 'tide-references-mode-map 'next-section 'tide-find-next-reference)
-  (evil-collection-bind 'tide-references-mode-map 'prev-section 'tide-find-previous-reference)
-  (evil-collection-bind 'tide-references-mode-map 'quit 'quit-window)
+  (evil-collection-bind 'tide-references-mode-map
+                        'action 'tide-goto-line-reference
+                        'next-item 'tide-find-next-reference
+                        'prev-item 'tide-find-previous-reference
+                        'next-section 'tide-find-next-reference
+                        'prev-section 'tide-find-previous-reference
+                        'quit 'quit-window)
 
-  (evil-collection-bind 'tide-project-errors-mode-map       'action 'tide-goto-error)
-  (evil-collection-bind 'tide-project-errors-mode-map    'next-item 'tide-find-next-error)
-  (evil-collection-bind 'tide-project-errors-mode-map    'prev-item 'tide-find-previous-error)
-  (evil-collection-bind 'tide-project-errors-mode-map 'next-section 'tide-find-next-error)
-  (evil-collection-bind 'tide-project-errors-mode-map 'prev-section 'tide-find-previous-error)
-  (evil-collection-bind 'tide-project-errors-mode-map 'quit 'quit-window))
+  (evil-collection-bind 'tide-project-errors-mode-map
+                        'action 'tide-goto-error
+                        'next-item 'tide-find-next-error
+                        'prev-item 'tide-find-previous-error
+                        'next-section 'tide-find-next-error
+                        'prev-section 'tide-find-previous-error
+                        'quit 'quit-window))
 
 (provide 'evil-collection-tide)
 ;;; evil-collection-tide.el ends here

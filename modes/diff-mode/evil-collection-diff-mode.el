@@ -77,14 +77,15 @@ current file instead."
   (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
     "ge" 'diff-ediff-patch
     "\\" 'read-only-mode)
-  (evil-collection-bind 'evil-collection-diff-mode-map       'action 'diff-goto-source)
-  (evil-collection-bind 'evil-collection-diff-mode-map    'next-item 'diff-hunk-next)
-  (evil-collection-bind 'evil-collection-diff-mode-map    'prev-item 'diff-hunk-prev)
-  (evil-collection-bind 'evil-collection-diff-mode-map 'next-section 'diff-file-next)
-  (evil-collection-bind 'evil-collection-diff-mode-map   'prev-section 'diff-file-prev)
-  (evil-collection-bind 'evil-collection-diff-mode-map 'next-section-2 'diff-hunk-next)
-  (evil-collection-bind 'evil-collection-diff-mode-map 'prev-section-2 'diff-hunk-prev)
-  (evil-collection-bind 'evil-collection-diff-mode-map 'quit 'quit-window)
+  (evil-collection-bind 'evil-collection-diff-mode-map
+                        'action 'diff-goto-source
+                        'next-item 'diff-hunk-next
+                        'prev-item 'diff-hunk-prev
+                        'next-section 'diff-file-next
+                        'prev-section 'diff-file-prev
+                        'next-section-2 'diff-hunk-next
+                        'prev-section-2 'diff-hunk-prev
+                        'quit 'quit-window)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'evil-collection-diff-mode-map

@@ -88,14 +88,15 @@
                         (neotree-make-executor
                          :file-fn 'neo-open-file
                          :dir-fn 'neo-open-dir))
-  (evil-collection-bind 'neotree-mode-map  'action-stay 'neotree-quick-look)
-  (evil-collection-bind 'neotree-mode-map    'next-item 'neotree-select-down-node)
-  (evil-collection-bind 'neotree-mode-map    'prev-item 'neotree-select-up-node)
-  (evil-collection-bind 'neotree-mode-map 'next-section 'neotree-select-down-node)
-  (evil-collection-bind 'neotree-mode-map 'prev-section 'neotree-select-up-node)
-  (evil-collection-bind 'neotree-mode-map    'quit 'neotree-hide)
-  (evil-collection-bind 'neotree-mode-map 'refresh 'neotree-refresh)
-  (evil-collection-bind 'neotree-mode-map  'delete 'neotree-delete-node))
+  (evil-collection-bind 'neotree-mode-map
+                        'action-stay 'neotree-quick-look
+                        'next-item 'neotree-select-down-node
+                        'prev-item 'neotree-select-up-node
+                        'next-section 'neotree-select-down-node
+                        'prev-section 'neotree-select-up-node
+                        'quit 'neotree-hide
+                        'refresh 'neotree-refresh
+                        'delete 'neotree-delete-node))
 
 (provide 'evil-collection-neotree)
 ;;; evil-collection-neotree.el ends here

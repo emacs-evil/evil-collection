@@ -49,13 +49,14 @@
     "r" 'occur-rename-buffer
     "c" 'clone-buffer
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
-  (evil-collection-bind 'occur-mode-map       'action 'occur-mode-goto-occurrence)
-  (evil-collection-bind 'occur-mode-map 'action-other 'occur-mode-goto-occurrence-other-window)
-  (evil-collection-bind 'occur-mode-map  'action-stay 'occur-mode-display-occurrence)
-  (evil-collection-bind 'occur-mode-map    'next-item 'next-error-no-select)
-  (evil-collection-bind 'occur-mode-map    'prev-item 'previous-error-no-select)
-  (evil-collection-bind 'occur-mode-map 'next-section 'next-error-no-select)
-  (evil-collection-bind 'occur-mode-map 'prev-section 'previous-error-no-select)
+  (evil-collection-bind 'occur-mode-map
+                        'action 'occur-mode-goto-occurrence
+                        'action-other 'occur-mode-goto-occurrence-other-window
+                        'action-stay 'occur-mode-display-occurrence
+                        'next-item 'next-error-no-select
+                        'prev-item 'previous-error-no-select
+                        'next-section 'next-error-no-select
+                        'prev-section 'previous-error-no-select)
 
   (evil-collection-define-key 'normal 'occur-edit-mode-map
     ;; Like `wdired-mode'.
@@ -69,8 +70,9 @@
     (kbd "C-c C-c") 'occur-cease-edit
     (kbd "C-o") 'occur-mode-display-occurrence
     (kbd "C-c C-f") 'next-error-follow-minor-mode)
-  (evil-collection-bind 'occur-edit-mode-map   'quit-save 'occur-cease-edit)
-  (evil-collection-bind 'occur-edit-mode-map 'quit-cancel 'occur-cease-edit))
+  (evil-collection-bind 'occur-edit-mode-map
+                        'quit-save 'occur-cease-edit
+                        'quit-cancel 'occur-cease-edit))
 
 (provide 'evil-collection-replace)
 ;;; evil-collection-replace.el ends here

@@ -36,13 +36,14 @@
 (defun evil-collection-lsp-ui-imenu-setup ()
   "Set up `evil' bindings for `lsp-ui-imenu'."
   (evil-set-initial-state 'lsp-ui-imenu-mode 'normal)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map         'quit 'lsp-ui-imenu--kill)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map       'action 'lsp-ui-imenu--view)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map  'action-stay 'lsp-ui-imenu--visit)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map    'next-item 'lsp-ui-imenu--next-kind)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map    'prev-item 'lsp-ui-imenu--prev-kind)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map 'next-section 'lsp-ui-imenu--next-kind)
-  (evil-collection-bind 'lsp-ui-imenu-mode-map 'prev-section 'lsp-ui-imenu--prev-kind))
+  (evil-collection-bind 'lsp-ui-imenu-mode-map
+                        'quit 'lsp-ui-imenu--kill
+                        'action 'lsp-ui-imenu--view
+                        'action-stay 'lsp-ui-imenu--visit
+                        'next-item 'lsp-ui-imenu--next-kind
+                        'prev-item 'lsp-ui-imenu--prev-kind
+                        'next-section 'lsp-ui-imenu--next-kind
+                        'prev-section 'lsp-ui-imenu--prev-kind))
 
 (provide 'evil-collection-lsp-ui-imenu)
 ;;; evil-collection-lsp-ui-imenu.el ends here

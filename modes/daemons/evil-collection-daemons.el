@@ -41,11 +41,12 @@
     "S" 'daemons-stop-at-point
     "r" 'daemons-reload-at-point
     "R" 'daemons-restart-at-point)
-  (evil-collection-bind 'daemons-mode-map      'action 'daemons-status-at-point)
-  (evil-collection-bind 'daemons-mode-map        'quit 'quit-window)
-  (evil-collection-bind 'daemons-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'daemons-mode-map 'quit-cancel 'quit-window)
-  (evil-collection-bind 'daemons-mode-map     'refresh 'revert-buffer)
+  (evil-collection-bind 'daemons-mode-map
+                        'action 'daemons-status-at-point
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window
+                        'refresh 'revert-buffer)
 
   ;; Functions are available in daemons-output-mode-map as well
   (evil-collection-define-key '(normal visual) 'daemons-output-mode-map
@@ -53,10 +54,11 @@
     "S" 'daemons-stop-at-point
     "r" 'daemons-reload-at-point
     "R" 'daemons-restart-at-point)
-  (evil-collection-bind 'daemons-output-mode-map      'action 'daemons-status-at-point)
-  (evil-collection-bind 'daemons-output-mode-map        'quit 'quit-window)
-  (evil-collection-bind 'daemons-output-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'daemons-output-mode-map 'quit-cancel 'quit-window)
+  (evil-collection-bind 'daemons-output-mode-map
+                        'action 'daemons-status-at-point
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window)
 
   (evil-set-initial-state 'daemons-mode 'normal)
   (evil-set-initial-state 'daemons-output-mode 'normal))

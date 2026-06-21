@@ -85,19 +85,20 @@
     "Bl" 'vc-print-branch-log
     "Bs" 'vc-retrieve-tag)
 
-  (evil-collection-bind 'vc-dir-mode-map         'mark 'vc-dir-mark)
-  (evil-collection-bind 'vc-dir-mode-map     'mark-all 'vc-dir-mark-all-files)
-  (evil-collection-bind 'vc-dir-mode-map       'unmark 'vc-dir-unmark)
-  (evil-collection-bind 'vc-dir-mode-map   'unmark-all 'vc-dir-unmark-all-files)
-  (evil-collection-bind 'vc-dir-mode-map    'next-item 'vc-dir-next-directory)
-  (evil-collection-bind 'vc-dir-mode-map    'prev-item 'vc-dir-previous-directory)
-  (evil-collection-bind 'vc-dir-mode-map 'next-section 'vc-dir-next-directory)
-  (evil-collection-bind 'vc-dir-mode-map 'prev-section 'vc-dir-previous-directory)
-  (evil-collection-bind 'vc-dir-mode-map       'action 'vc-dir-find-file)
-  (evil-collection-bind 'vc-dir-mode-map 'action-other 'vc-dir-find-file-other-window)
-  (evil-collection-bind 'vc-dir-mode-map  'action-stay 'vc-dir-display-file)
-  (evil-collection-bind 'vc-dir-mode-map 'find-file 'vc-dir-find-file)
-  (evil-collection-bind 'vc-dir-mode-map   'refresh 'revert-buffer))
+  (evil-collection-bind 'vc-dir-mode-map
+                        'mark 'vc-dir-mark
+                        'mark-all 'vc-dir-mark-all-files
+                        'unmark 'vc-dir-unmark
+                        'unmark-all 'vc-dir-unmark-all-files
+                        'next-item 'vc-dir-next-directory
+                        'prev-item 'vc-dir-previous-directory
+                        'next-section 'vc-dir-next-directory
+                        'prev-section 'vc-dir-previous-directory
+                        'action 'vc-dir-find-file
+                        'action-other 'vc-dir-find-file-other-window
+                        'action-stay 'vc-dir-display-file
+                        'find-file 'vc-dir-find-file
+                        'refresh 'revert-buffer))
 
 (provide 'evil-collection-vc-dir)
 ;;; evil-collection-vc-dir.el ends here

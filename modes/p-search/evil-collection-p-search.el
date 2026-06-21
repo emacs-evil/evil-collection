@@ -68,16 +68,17 @@
     "Jg" 'p-search-jump-candidate-generators
     "Jp" 'p-search-jump-priors
     "Jr" 'p-search-jump-results)
-  (evil-collection-bind 'evil-collection-p-search-mode-map       'action 'p-search-find-document)
-  (evil-collection-bind 'evil-collection-p-search-mode-map 'action-other 'p-search-view-document)
-  (evil-collection-bind 'evil-collection-p-search-mode-map  'action-stay 'p-search-display-document)
-  (evil-collection-bind 'evil-collection-p-search-mode-map    'next-item 'p-search-next-item)
-  (evil-collection-bind 'evil-collection-p-search-mode-map    'prev-item 'p-search-prev-item)
-  (evil-collection-bind 'evil-collection-p-search-mode-map 'next-section 'p-search-next-item)
-  (evil-collection-bind 'evil-collection-p-search-mode-map 'prev-section 'p-search-prev-item)
-  (evil-collection-bind 'evil-collection-p-search-mode-map        'quit 'p-search-quit)
-  (evil-collection-bind 'evil-collection-p-search-mode-map     'refresh 'p-search-refresh-buffer)
-  (evil-collection-bind 'evil-collection-p-search-mode-map 'refresh-all 'p-search-hard-refresh-buffer))
+  (evil-collection-bind 'evil-collection-p-search-mode-map
+                        'action 'p-search-find-document
+                        'action-other 'p-search-view-document
+                        'action-stay 'p-search-display-document
+                        'next-item 'p-search-next-item
+                        'prev-item 'p-search-prev-item
+                        'next-section 'p-search-next-item
+                        'prev-section 'p-search-prev-item
+                        'quit 'p-search-quit
+                        'refresh 'p-search-refresh-buffer
+                        'refresh-all 'p-search-hard-refresh-buffer))
 
 (provide 'evil-collection-p-search)
 ;;; evil-collection-p-search.el ends here

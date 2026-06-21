@@ -63,10 +63,11 @@
     "ff" 'image-dired-line-up
     "fd" 'image-dired-line-up-dynamic
     "fi" 'image-dired-line-up-interactive)
-  (evil-collection-bind 'image-dired-thumbnail-mode-map      'action 'image-dired-display-thumbnail-original-image)
-  (evil-collection-bind 'image-dired-thumbnail-mode-map        'quit 'quit-window)
-  (evil-collection-bind 'image-dired-thumbnail-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'image-dired-thumbnail-mode-map 'quit-cancel 'evil-quit))
+  (evil-collection-bind 'image-dired-thumbnail-mode-map
+                        'action 'image-dired-display-thumbnail-original-image
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit))
 
 (provide 'evil-collection-image-dired)
 ;;; evil-collection-image-dired.el ends here

@@ -63,12 +63,13 @@
 
   ;; The following bindings don't do what they are supposed to. "go" should open
   ;; in the same window and "gO" should open in a different one.
-  (evil-collection-bind 'help-mode-map   'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'help-mode-map     'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'help-mode-map  'action-other 'push-button)
-  (evil-collection-bind 'help-mode-map   'action-stay 'push-button)
-  (evil-collection-bind 'help-mode-map 'describe-mode 'describe-mode)
-  (evil-collection-bind 'help-mode-map       'refresh 'revert-buffer)
+  (evil-collection-bind 'help-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'action-other 'push-button
+                        'action-stay 'push-button
+                        'describe-mode 'describe-mode
+                        'refresh 'revert-buffer)
 
   (when (>= emacs-major-version 28)
     (evil-collection-define-key 'normal 'help-mode-map

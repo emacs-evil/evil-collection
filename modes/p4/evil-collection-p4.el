@@ -57,9 +57,10 @@
   (evil-set-initial-state 'p4-diff-mode-map 'normal)
   (evil-set-initial-state 'p4-annotate-mode-map 'normal)
 
-  (evil-collection-bind 'p4-basic-mode-map    'quit 'quit-window)
-  (evil-collection-bind 'p4-basic-mode-map 'refresh 'revert-buffer)
-  (evil-collection-bind 'p4-basic-mode-map 'action 'p4-buffer-commands)
+  (evil-collection-bind 'p4-basic-mode-map
+                        'quit 'quit-window
+                        'refresh 'revert-buffer
+                        'action 'p4-buffer-commands)
   (evil-collection-define-key 'normal 'p4-basic-mode-map
     [mouse-1] 'p4-buffer-mouse-clicked
     "k" 'evil-previous-line
@@ -67,10 +68,11 @@
     "gg" 'p4-top-of-buffer
     "G" 'p4-bottom-of-buffer
     "=" 'delete-other-windows)
-  (evil-collection-bind 'p4-basic-mode-map 'next-section 'p4-scroll-down-1-window)
-  (evil-collection-bind 'p4-basic-mode-map   'prev-section 'p4-scroll-up-1-window)
-  (evil-collection-bind 'p4-basic-mode-map 'next-section-2 'p4-forward-active-link)
-  (evil-collection-bind 'p4-basic-mode-map 'prev-section-2 'p4-backward-active-link)
+  (evil-collection-bind 'p4-basic-mode-map
+                        'next-section 'p4-scroll-down-1-window
+                        'prev-section 'p4-scroll-up-1-window
+                        'next-section-2 'p4-forward-active-link
+                        'prev-section-2 'p4-backward-active-link)
 
   (evil-collection-bind 'p4-basic-list-mode-map 'action 'p4-basic-list-activate)
 
@@ -91,8 +93,9 @@
     "gg" 'p4-top-of-buffer
     "G" 'p4-bottom-of-buffer
     "=" 'p4-delete-other-windows)
-  (evil-collection-bind 'p4-filelog-mode-map 'next-section 'p4-goto-next-change)
-  (evil-collection-bind 'p4-filelog-mode-map 'prev-section 'p4-goto-prev-change)
+  (evil-collection-bind 'p4-filelog-mode-map
+                        'next-section 'p4-goto-next-change
+                        'prev-section 'p4-goto-prev-change)
 
   (evil-collection-bind 'p4-diff-mode-map 'action 'p4-buffer-commands)
   (evil-collection-define-key 'normal 'p4-diff-mode-map
@@ -104,13 +107,15 @@
     "{" 'diff-file-prev
     [mouse-2] 'p4-buffer-commands
     "gb" 'p4-buffer-commands)
-  (evil-collection-bind 'p4-diff-mode-map 'next-section 'diff-hunk-next)
-  (evil-collection-bind 'p4-diff-mode-map 'prev-section 'diff-hunk-prev)
+  (evil-collection-bind 'p4-diff-mode-map
+                        'next-section 'diff-hunk-next
+                        'prev-section 'diff-hunk-prev)
 
   (evil-collection-define-key 'normal 'p4-annotate-mode-map
     "L" 'p4-toggle-line-wrap)
-  (evil-collection-bind 'p4-annotate-mode-map 'next-section 'p4-next-change-rev-line)
-  (evil-collection-bind 'p4-annotate-mode-map 'prev-section 'p4-prev-change-rev-line))
+  (evil-collection-bind 'p4-annotate-mode-map
+                        'next-section 'p4-next-change-rev-line
+                        'prev-section 'p4-prev-change-rev-line))
 
 (provide 'evil-collection-p4)
 ;;; evil-collection-p4.el ends here

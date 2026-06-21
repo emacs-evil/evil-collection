@@ -150,10 +150,11 @@ it is not appropriate in some cases like terminals."
     ;; "0" 'term-bol ; "0" is meant to really go at the beginning of line.
     "^" 'term-bol
     "$" 'term-show-maximum-output)
-  (evil-collection-bind 'term-mode-map    'next-item 'term-next-prompt)
-  (evil-collection-bind 'term-mode-map    'prev-item 'term-previous-prompt)
-  (evil-collection-bind 'term-mode-map 'next-section 'term-next-prompt)
-  (evil-collection-bind 'term-mode-map 'prev-section 'term-previous-prompt)
+  (evil-collection-bind 'term-mode-map
+                        'next-item 'term-next-prompt
+                        'prev-item 'term-previous-prompt
+                        'next-section 'term-next-prompt
+                        'prev-section 'term-previous-prompt)
 
   ;; https://github.com/emacs-evil/evil-collection/issues/235
   (with-eval-after-load 'multi-term

@@ -170,21 +170,22 @@
 
     (kbd "gv") 'ibuffer-do-view
     (kbd "gV") 'ibuffer-do-view-horizontally)
-  (evil-collection-bind 'ibuffer-mode-map          'mark 'ibuffer-mark-forward)
-  (evil-collection-bind 'ibuffer-mode-map        'unmark 'ibuffer-unmark-forward)
-  (evil-collection-bind 'ibuffer-mode-map    'unmark-all 'ibuffer-unmark-all-marks)
-  (evil-collection-bind 'ibuffer-mode-map   'mark-delete 'ibuffer-mark-for-delete)
-  (evil-collection-bind 'ibuffer-mode-map 'execute-marks 'ibuffer-do-kill-on-deletion-marks)
-  (evil-collection-bind 'ibuffer-mode-map       'action 'ibuffer-visit-buffer)
-  (evil-collection-bind 'ibuffer-mode-map 'action-other 'ibuffer-visit-buffer-other-window)
-  (evil-collection-bind 'ibuffer-mode-map  'action-stay 'ibuffer-visit-buffer-other-window-noselect)
-  (evil-collection-bind 'ibuffer-mode-map    'next-item 'ibuffer-forward-line)
-  (evil-collection-bind 'ibuffer-mode-map    'prev-item 'ibuffer-backward-line)
-  (evil-collection-bind 'ibuffer-mode-map 'next-section 'ibuffer-forward-filter-group)
-  (evil-collection-bind 'ibuffer-mode-map 'prev-section 'ibuffer-backward-filter-group)
-  (evil-collection-bind 'ibuffer-mode-map         'quit 'quit-window)
-  (evil-collection-bind 'ibuffer-mode-map    'quit-save 'quit-window)
-  (evil-collection-bind 'ibuffer-mode-map  'quit-cancel 'quit-window))
+  (evil-collection-bind 'ibuffer-mode-map
+                        'mark 'ibuffer-mark-forward
+                        'unmark 'ibuffer-unmark-forward
+                        'unmark-all 'ibuffer-unmark-all-marks
+                        'mark-delete 'ibuffer-mark-for-delete
+                        'execute-marks 'ibuffer-do-kill-on-deletion-marks
+                        'action 'ibuffer-visit-buffer
+                        'action-other 'ibuffer-visit-buffer-other-window
+                        'action-stay 'ibuffer-visit-buffer-other-window-noselect
+                        'next-item 'ibuffer-forward-line
+                        'prev-item 'ibuffer-backward-line
+                        'next-section 'ibuffer-forward-filter-group
+                        'prev-section 'ibuffer-backward-filter-group
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window))
 
 (provide 'evil-collection-ibuffer)
 ;;; evil-collection-ibuffer.el ends here

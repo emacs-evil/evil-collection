@@ -50,10 +50,11 @@
 ;;;###autoload
 (defun evil-collection-restclient-setup ()
   "Set up `evil' bindings for `restclient'."
-  (evil-collection-bind 'restclient-mode-map    'next-item 'restclient-jump-next)
-  (evil-collection-bind 'restclient-mode-map    'prev-item 'restclient-jump-prev)
-  (evil-collection-bind 'restclient-mode-map 'next-section 'restclient-jump-next)
-  (evil-collection-bind 'restclient-mode-map 'prev-section 'restclient-jump-prev)
+  (evil-collection-bind 'restclient-mode-map
+                        'next-item 'restclient-jump-next
+                        'prev-item 'restclient-jump-prev
+                        'next-section 'restclient-jump-next
+                        'prev-section 'restclient-jump-prev)
   (evil-collection-define-key 'normal 'evil-collection-restclient-mode-map
     "q" #'quit-window
     "ZZ" #'quit-window

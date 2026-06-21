@@ -48,11 +48,12 @@
   ;; https://github.com/mhayashi1120/Emacs-wgrep
   (evil-set-initial-state 'ag-mode 'normal)
 
-  (evil-collection-bind 'ag-mode-map    'next-item 'compilation-next-error)
-  (evil-collection-bind 'ag-mode-map    'prev-item 'compilation-previous-error)
-  (evil-collection-bind 'ag-mode-map 'next-section 'compilation-next-error)
-  (evil-collection-bind 'ag-mode-map 'prev-section 'compilation-previous-error)
-  (evil-collection-bind 'ag-mode-map 'refresh 'recompile))
+  (evil-collection-bind 'ag-mode-map
+                        'next-item 'compilation-next-error
+                        'prev-item 'compilation-previous-error
+                        'next-section 'compilation-next-error
+                        'prev-section 'compilation-previous-error
+                        'refresh 'recompile))
 
 (provide 'evil-collection-ag)
 ;;; evil-collection-ag.el ends here

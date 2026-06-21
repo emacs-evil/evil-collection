@@ -151,21 +151,22 @@
     [remap toggle-read-only] 'dired-toggle-read-only
     (kbd "<delete>") 'dired-unmark-backward)
 
-  (evil-collection-bind 'dired-mode-map          'mark 'dired-mark)
-  (evil-collection-bind 'dired-mode-map        'unmark 'dired-unmark)
-  (evil-collection-bind 'dired-mode-map    'unmark-all 'dired-unmark-all-marks)
-  (evil-collection-bind 'dired-mode-map   'mark-delete 'dired-flag-file-deletion)
-  (evil-collection-bind 'dired-mode-map 'execute-marks 'dired-do-flagged-delete)
-  (evil-collection-bind 'dired-mode-map     'next-item 'dired-next-dirline)
-  (evil-collection-bind 'dired-mode-map     'prev-item 'dired-prev-dirline)
-  (evil-collection-bind 'dired-mode-map  'next-section 'dired-next-dirline)
-  (evil-collection-bind 'dired-mode-map  'prev-section 'dired-prev-dirline)
-  (evil-collection-bind 'dired-mode-map        'action 'dired-find-file)
-  (evil-collection-bind 'dired-mode-map  'action-other 'dired-find-file-other-window)
-  (evil-collection-bind 'dired-mode-map   'action-stay 'dired-view-file)
-  (evil-collection-bind 'dired-mode-map     'find-file 'dired-find-file)
-  (evil-collection-bind 'dired-mode-map 'describe-mode 'dired-summary)
-  (evil-collection-bind 'dired-mode-map       'refresh 'revert-buffer)
+  (evil-collection-bind 'dired-mode-map
+                        'mark 'dired-mark
+                        'unmark 'dired-unmark
+                        'unmark-all 'dired-unmark-all-marks
+                        'mark-delete 'dired-flag-file-deletion
+                        'execute-marks 'dired-do-flagged-delete
+                        'next-item 'dired-next-dirline
+                        'prev-item 'dired-prev-dirline
+                        'next-section 'dired-next-dirline
+                        'prev-section 'dired-prev-dirline
+                        'action 'dired-find-file
+                        'action-other 'dired-find-file-other-window
+                        'action-stay 'dired-view-file
+                        'find-file 'dired-find-file
+                        'describe-mode 'dired-summary
+                        'refresh 'revert-buffer)
 
   (evil-collection-define-key 'normal 'dired-mode-map
     [remap undo] 'dired-undo

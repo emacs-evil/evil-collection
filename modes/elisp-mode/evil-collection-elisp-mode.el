@@ -88,8 +88,9 @@ alternative printed representations that can be displayed."
 
   (evil-collection-bind 'emacs-lisp-compilation-mode-map 'refresh 'emacs-lisp-compilation-recompile)
 
-  (evil-collection-bind 'emacs-lisp-mode-map 'find-usages 'xref-find-references)
-  (evil-collection-bind 'emacs-lisp-mode-map   'goto-repl 'evil-collection-elisp-mode-ielm-repl))
+  (evil-collection-bind 'emacs-lisp-mode-map
+                        'find-usages 'xref-find-references
+                        'goto-repl 'evil-collection-elisp-mode-ielm-repl))
 
 (provide 'evil-collection-elisp-mode)
 ;;; evil-collection-elisp-mode.el ends here

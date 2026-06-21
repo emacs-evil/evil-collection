@@ -125,15 +125,16 @@
     "u" 'reftex-select-unmark)
   (evil-collection-bind 'reftex-select-shared-map        'action 'reftex-select-accept)
   (evil-collection-bind 'reftex-select-shared-map  'action-other 'reftex-select-callback) ; shows point where label is
-  (evil-collection-bind 'reftex-select-shared-map   'action-stay 'reftex-select-show-insertion-point)
-  (evil-collection-bind 'reftex-select-shared-map     'next-item 'reftex-select-next-heading)
-  (evil-collection-bind 'reftex-select-shared-map     'prev-item 'reftex-select-previous-heading)
-  (evil-collection-bind 'reftex-select-shared-map  'next-section 'reftex-select-next-heading)
-  (evil-collection-bind 'reftex-select-shared-map  'prev-section 'reftex-select-previous-heading)
-  (evil-collection-bind 'reftex-select-shared-map          'quit 'reftex-select-quit)
-  (evil-collection-bind 'reftex-select-shared-map     'quit-save 'reftex-select-quit)
-  (evil-collection-bind 'reftex-select-shared-map   'quit-cancel 'evil-quit)
-  (evil-collection-bind 'reftex-select-shared-map 'describe-mode 'reftex-select-help)
+  (evil-collection-bind 'reftex-select-shared-map
+                        'action-stay 'reftex-select-show-insertion-point
+                        'next-item 'reftex-select-next-heading
+                        'prev-item 'reftex-select-previous-heading
+                        'next-section 'reftex-select-next-heading
+                        'prev-section 'reftex-select-previous-heading
+                        'quit 'reftex-select-quit
+                        'quit-save 'reftex-select-quit
+                        'quit-cancel 'evil-quit
+                        'describe-mode 'reftex-select-help)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
 
@@ -160,17 +161,18 @@
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
-  (evil-collection-bind 'reftex-toc-mode-map       'action 'reftex-toc-goto-line-and-hide)
-  (evil-collection-bind 'reftex-toc-mode-map 'action-other 'reftex-toc-view-line)
-  (evil-collection-bind 'reftex-toc-mode-map  'action-stay 'reftex-toc-goto-line)
-  (evil-collection-bind 'reftex-toc-mode-map  'next-section 'reftex-toc-next-heading)
-  (evil-collection-bind 'reftex-toc-mode-map  'prev-section 'reftex-toc-previous-heading)
-  (evil-collection-bind 'reftex-toc-mode-map          'quit 'reftex-toc-quit)
-  (evil-collection-bind 'reftex-toc-mode-map     'quit-save 'reftex-toc-quit-and-kill)
-  (evil-collection-bind 'reftex-toc-mode-map   'quit-cancel 'evil-quit)
-  (evil-collection-bind 'reftex-toc-mode-map 'describe-mode 'reftex-toc-show-help)
-  (evil-collection-bind 'reftex-toc-mode-map       'refresh 'reftex-toc-rescan)
-  (evil-collection-bind 'reftex-toc-mode-map   'refresh-all 'reftex-toc-Rescan))
+  (evil-collection-bind 'reftex-toc-mode-map
+                        'action 'reftex-toc-goto-line-and-hide
+                        'action-other 'reftex-toc-view-line
+                        'action-stay 'reftex-toc-goto-line
+                        'next-section 'reftex-toc-next-heading
+                        'prev-section 'reftex-toc-previous-heading
+                        'quit 'reftex-toc-quit
+                        'quit-save 'reftex-toc-quit-and-kill
+                        'quit-cancel 'evil-quit
+                        'describe-mode 'reftex-toc-show-help
+                        'refresh 'reftex-toc-rescan
+                        'refresh-all 'reftex-toc-Rescan))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here

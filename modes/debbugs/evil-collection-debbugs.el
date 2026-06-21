@@ -37,8 +37,9 @@
   "Set up `evil' bindings for `debbugs-gnu-mode'."
   (evil-set-initial-state 'debbugs-gnu-mode 'normal)
 
-  (evil-collection-bind 'debbugs-gnu-mode-map     'next-button 'forward-button)
-  (evil-collection-bind 'debbugs-gnu-mode-map 'previous-button 'backward-button)
+  (evil-collection-bind 'debbugs-gnu-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'debbugs-gnu-mode-map
     "c" 'debbugs-gnu-send-control-message
     "d" 'debbugs-gnu-display-status
@@ -63,13 +64,14 @@
 
     "gt" 'debbugs-gnu-view-bug-triage
     "g#" 'debbugs-gnu-bugs)
-  (evil-collection-bind 'debbugs-gnu-mode-map   'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'debbugs-gnu-mode-map        'action 'debbugs-gnu-select-report)
-  (evil-collection-bind 'debbugs-gnu-mode-map          'quit 'quit-window)
-  (evil-collection-bind 'debbugs-gnu-mode-map     'quit-save 'quit-window)
-  (evil-collection-bind 'debbugs-gnu-mode-map   'quit-cancel 'quit-window)
-  (evil-collection-bind 'debbugs-gnu-mode-map 'describe-mode 'debbugs-gnu-manual)
-  (evil-collection-bind 'debbugs-gnu-mode-map       'refresh 'debbugs-gnu-rescan))
+  (evil-collection-bind 'debbugs-gnu-mode-map
+                        'scroll-down 'scroll-up-command
+                        'action 'debbugs-gnu-select-report
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window
+                        'describe-mode 'debbugs-gnu-manual
+                        'refresh 'debbugs-gnu-rescan))
 
 (provide 'evil-collection-debbugs)
 ;;; evil-collection-debbugs.el ends here

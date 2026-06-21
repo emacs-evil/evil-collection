@@ -53,13 +53,14 @@
     "-" 'evil-collection-vlf-decrease-batch-size
     "=" 'vlf-next-batch-from-point
     "g%" 'vlf-query-replace)
-  (evil-collection-bind 'vlf-prefix-map       'action 'evil-ret)
-  (evil-collection-bind 'vlf-prefix-map 'action-other 'vlf-occur)
-  (evil-collection-bind 'vlf-prefix-map    'next-item 'vlf-next-batch)
-  (evil-collection-bind 'vlf-prefix-map    'prev-item 'vlf-prev-batch)
-  (evil-collection-bind 'vlf-prefix-map 'next-section 'vlf-next-batch)
-  (evil-collection-bind 'vlf-prefix-map 'prev-section 'vlf-prev-batch)
-  (evil-collection-bind 'vlf-prefix-map 'refresh 'vlf-revert)
+  (evil-collection-bind 'vlf-prefix-map
+                        'action 'evil-ret
+                        'action-other 'vlf-occur
+                        'next-item 'vlf-next-batch
+                        'prev-item 'vlf-prev-batch
+                        'next-section 'vlf-next-batch
+                        'prev-section 'vlf-prev-batch
+                        'refresh 'vlf-revert)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'vlf-prefix-map

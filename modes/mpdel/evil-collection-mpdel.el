@@ -85,10 +85,11 @@
     ")"  'mpdel-playlist-move-down
     "w"  'mpdel-playlist-save
     "P"  'mpdel-playlist-play)
-  (evil-collection-bind 'mpdel-core-map       'action 'libmpdel-playback-play-pause)
-  (evil-collection-bind 'mpdel-core-map 'action-other 'mpdel-song-open)
-  (evil-collection-bind 'mpdel-core-map    'quit 'mpdel-song-quit-window)
-  (evil-collection-bind 'mpdel-core-map 'refresh 'mpdel-song-refresh)
+  (evil-collection-bind 'mpdel-core-map
+                        'action 'libmpdel-playback-play-pause
+                        'action-other 'mpdel-song-open
+                        'quit 'mpdel-song-quit-window
+                        'refresh 'mpdel-song-refresh)
 
   (evil-collection-define-key 'normal 'mpdel-tablist-mode-map
     "d" 'tablist-do-delete)

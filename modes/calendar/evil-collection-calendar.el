@@ -127,16 +127,17 @@
     "g?" 'calendar-goto-info-node
     "?" 'calendar-goto-info-node ; Search is not very useful.
     (kbd "M-=") 'calendar-count-days-region)
-  (evil-collection-bind 'calendar-mode-map    'next-item 'calendar-forward-month)
-  (evil-collection-bind 'calendar-mode-map    'prev-item 'calendar-backward-month)
-  (evil-collection-bind 'calendar-mode-map 'next-section 'calendar-forward-year)
-  (evil-collection-bind 'calendar-mode-map 'prev-section 'calendar-backward-year)
-  (evil-collection-bind 'calendar-mode-map 'next-section-2 'calendar-forward-month)
-  (evil-collection-bind 'calendar-mode-map 'prev-section-2 'calendar-backward-month)
-  (evil-collection-bind 'calendar-mode-map         'quit 'calendar-exit)
-  (evil-collection-bind 'calendar-mode-map    'quit-save 'calendar-exit)
-  (evil-collection-bind 'calendar-mode-map  'quit-cancel 'evil-quit)
-  (evil-collection-bind 'calendar-mode-map      'refresh 'calendar-redraw))
+  (evil-collection-bind 'calendar-mode-map
+                        'next-item 'calendar-forward-month
+                        'prev-item 'calendar-backward-month
+                        'next-section 'calendar-forward-year
+                        'prev-section 'calendar-backward-year
+                        'next-section-2 'calendar-forward-month
+                        'prev-section-2 'calendar-backward-month
+                        'quit 'calendar-exit
+                        'quit-save 'calendar-exit
+                        'quit-cancel 'evil-quit
+                        'refresh 'calendar-redraw))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here

@@ -121,8 +121,9 @@
     [remap evil-write] 'dape-info-watch-finish-edit)
   (evil-collection-define-key 'normal 'dape-info-watch-edit-mode-map
     (kbd "<escape>") 'dape-info-watch-finish-edit)
-  (evil-collection-bind 'dape-info-watch-edit-mode-map   'quit-save 'dape-info-watch-finish-edit)
-  (evil-collection-bind 'dape-info-watch-edit-mode-map 'quit-cancel 'dape-info-watch-abort-changes)
+  (evil-collection-bind 'dape-info-watch-edit-mode-map
+                        'quit-save 'dape-info-watch-finish-edit
+                        'quit-cancel 'dape-info-watch-abort-changes)
 
   (evil-collection-define-key 'normal 'dape-memory-mode-map
     [remap evil-write] 'save-buffer

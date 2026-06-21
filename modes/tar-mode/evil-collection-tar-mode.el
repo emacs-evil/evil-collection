@@ -53,19 +53,20 @@
 
     ;; write
     "C" 'tar-copy)
-  (evil-collection-bind 'tar-mode-map   'mark-delete 'tar-flag-deleted)
-  (evil-collection-bind 'tar-mode-map 'execute-marks 'tar-expunge)
-  (evil-collection-bind 'tar-mode-map        'unmark 'tar-unflag)
-  (evil-collection-bind 'tar-mode-map    'unmark-all 'tar-clear-modification-flags)
-  (evil-collection-bind 'tar-mode-map       'action 'tar-extract)
-  (evil-collection-bind 'tar-mode-map 'action-other 'tar-extract-other-window)
-  (evil-collection-bind 'tar-mode-map  'action-stay 'tar-view)
-  (evil-collection-bind 'tar-mode-map    'next-item 'tar-next-line)
-  (evil-collection-bind 'tar-mode-map    'prev-item 'tar-previous-line)
-  (evil-collection-bind 'tar-mode-map 'next-section 'tar-next-line)
-  (evil-collection-bind 'tar-mode-map 'prev-section 'tar-previous-line)
-  (evil-collection-bind 'tar-mode-map    'quit 'quit-window)
-  (evil-collection-bind 'tar-mode-map 'refresh 'revert-buffer))
+  (evil-collection-bind 'tar-mode-map
+                        'mark-delete 'tar-flag-deleted
+                        'execute-marks 'tar-expunge
+                        'unmark 'tar-unflag
+                        'unmark-all 'tar-clear-modification-flags
+                        'action 'tar-extract
+                        'action-other 'tar-extract-other-window
+                        'action-stay 'tar-view
+                        'next-item 'tar-next-line
+                        'prev-item 'tar-previous-line
+                        'next-section 'tar-next-line
+                        'prev-section 'tar-previous-line
+                        'quit 'quit-window
+                        'refresh 'revert-buffer))
 
 (provide 'evil-collection-tar-mode)
 ;;; evil-collection-tar-mode.el ends here

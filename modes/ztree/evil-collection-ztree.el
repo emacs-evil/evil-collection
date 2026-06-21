@@ -45,8 +45,9 @@
     (kbd "SPC") 'ztree-perform-soft-action
 
     "x" 'ztree-toggle-expand-subtree)
-  (evil-collection-bind 'ztree-mode-map  'action 'ztree-perform-action)
-  (evil-collection-bind 'ztree-mode-map 'refresh 'ztree-refresh-buffer)
+  (evil-collection-bind 'ztree-mode-map
+                        'action 'ztree-perform-action
+                        'refresh 'ztree-refresh-buffer)
 
   (evil-collection-set-readonly-bindings 'ztreediff-mode-map)
   (evil-set-initial-state 'ztree-mode 'normal)

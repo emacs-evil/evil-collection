@@ -40,8 +40,9 @@
   (evil-collection-define-key 'normal 'org-roam-mode-map
     [C-return]  'org-roam-buffer-visit-thing
     [remap revert-buffer] 'org-roam-buffer-refresh)
-  (evil-collection-bind 'org-roam-mode-map  'action 'org-roam-buffer-visit-thing)
-  (evil-collection-bind 'org-roam-mode-map 'refresh 'org-roam-buffer-refresh)
+  (evil-collection-bind 'org-roam-mode-map
+                        'action 'org-roam-buffer-visit-thing
+                        'refresh 'org-roam-buffer-refresh)
 
   (evil-collection-define-key 'normal 'org-roam-node-map
     [remap org-roam-buffer-visit-thing] 'org-roam-node-visit)
