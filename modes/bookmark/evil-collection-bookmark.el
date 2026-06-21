@@ -37,6 +37,7 @@
   "Set up `evil' bindings for `bookmark'."
   (evil-set-initial-state 'bookmark-bmenu-mode 'normal)
   (evil-collection-set-readonly-bindings 'bookmark-bmenu-mode-map)
+  (evil-collection-bind 'bookmark-bmenu-mode-map 'rename 'bookmark-bmenu-rename)
   (evil-collection-define-key 'normal 'bookmark-bmenu-mode-map
     [remap evil-write] 'bookmark-bmenu-save
 
@@ -44,8 +45,7 @@
     "2" 'bookmark-bmenu-2-window
     "5" 'bookmark-bmenu-other-frame
     "s" 'bookmark-bmenu-search
-    "r" 'bookmark-bmenu-rename
-    "R" 'bookmark-bmenu-relocate
+    "r" 'bookmark-bmenu-relocate
     "L" 'bookmark-bmenu-load
     "t" 'bookmark-bmenu-toggle-filenames
     "W" 'bookmark-bmenu-locate

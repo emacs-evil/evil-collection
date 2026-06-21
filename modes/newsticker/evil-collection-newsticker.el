@@ -62,6 +62,7 @@
     [down-mouse-3] 'newsticker-treeview-item-menu)
 
   (evil-set-initial-state 'newsticker-treeview-mode 'normal)
+  (evil-collection-bind 'newsticker-treeview-mode-map 'rename 'newsticker-group-rename-group)
   (evil-collection-define-key 'normal 'newsticker-treeview-mode-map
     ;; move
     ;; The items in Newsticker List buffer has a particular keymap by text
@@ -88,7 +89,6 @@
     ;; group
     "A" 'newsticker-group-add-group
     "D" 'newsticker-group-delete-group
-    "R" 'newsticker-group-rename-group
     "S" 'newsticker-treeview-save
     (kbd "M-m") 'newsticker-group-move-feed
     (kbd "<M-down>") 'newsticker-group-shift-feed-down

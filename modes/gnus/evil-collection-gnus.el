@@ -59,6 +59,9 @@ Note that there is no gnus-common-mode-map")
       (apply #'evil-collection-define-key 'normal map
              evil-collection-gnus-common-normal-bindings)))
 
+  (evil-collection-bind 'gnus-group-mode-map 'rename 'gnus-group-rename-group)
+  (evil-collection-bind 'gnus-bookmark-bmenu-mode-map 'rename 'gnus-bookmark-bmenu-rename)
+
   (evil-collection-bind 'gnus-summary-mode-map
                         'quit 'gnus-summary-exit
                         'refresh 'gnus-summary-rescan-group
@@ -336,7 +339,6 @@ Note that there is no gnus-common-mode-map")
     "E"         'gnus-group-edit-group
     "F"         'gnus-group-find-new-groups
     "J"         'gnus-group-jump-to-group
-    "R"         'gnus-group-rename-group
     "X"         'gnus-group-expunge-group
     (kbd "SPC") 'gnus-group-read-group
     "gu"        'gnus-group-unsubscribe-current-group
@@ -486,8 +488,7 @@ Note that there is no gnus-common-mode-map")
     "a"         'gnus-bookmark-bmenu-show-details
     ;; not implemented yet
     "A"         'gnus-bookmark-bmenu-show-all-annotations
-    "E"         'gnus-bookmark-bmenu-edit-annotation
-    "R"         'gnus-bookmark-bmenu-rename)
+    "E"         'gnus-bookmark-bmenu-edit-annotation)
   (evil-collection-bind 'gnus-bookmark-bmenu-mode-map
                         'mark 'gnus-bookmark-bmenu-mark
                         'unmark 'gnus-bookmark-bmenu-unmark

@@ -41,6 +41,7 @@
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
   (evil-collection-bind 'dired-mode-map 'quit 'quit-window)
+  (evil-collection-bind 'dired-mode-map 'rename 'dired-do-rename)
   (evil-collection-define-key 'normal 'dired-mode-map
     "j" 'dired-next-line
     "k" 'dired-previous-line
@@ -62,7 +63,6 @@
     "O" 'dired-do-chown
     "P" 'dired-do-print
     "Q" 'dired-do-find-regexp-and-replace
-    "R" 'dired-do-rename
     "S" 'dired-do-symlink
     "T" 'dired-do-touch
     "X" 'dired-do-shell-command

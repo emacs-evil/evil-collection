@@ -40,6 +40,8 @@
 
   (evil-set-initial-state 'neotree-mode 'normal) ;; Neotree start in normal by default.
 
+  (evil-collection-bind 'neotree-mode-map 'rename 'neotree-rename-node)
+
   (evil-collection-define-key 'normal 'neotree-mode-map
 
     (kbd "<tab>") (neotree-make-executor
@@ -56,8 +58,7 @@
     "gv" 'neotree-open-file-in-system-application
     "c" 'neotree-create-node
     "y" 'neotree-copy-node
-    "r" 'neotree-rename-node
-    "R" 'neotree-change-root
+    "r" 'neotree-change-root
     "J" 'neotree-dir
     "+" 'neotree-stretch-toggle
     "=" 'neotree-stretch-toggle
