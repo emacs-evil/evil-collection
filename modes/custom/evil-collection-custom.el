@@ -45,14 +45,14 @@
     (kbd "C-o") 'Custom-goto-parent
     ;; TODO: Should the following be added?
     "<" 'Custom-goto-parent)
-  (evil-collection-bind 'scroll-down    'custom-mode-map 'scroll-up-command)
-  (evil-collection-bind 'scroll-up      'custom-mode-map 'scroll-down-command)
-  (evil-collection-bind 'action         'custom-mode-map 'Custom-newline)
-  (evil-collection-bind 'cycle-next     'custom-mode-map 'widget-forward)
-  (evil-collection-bind 'cycle-previous 'custom-mode-map 'widget-backward)
-  (evil-collection-bind 'quit           'custom-mode-map 'Custom-buffer-done)
-  (evil-collection-bind 'quit-save    'custom-mode-map 'Custom-buffer-done)
-  (evil-collection-bind 'quit-cancel  'custom-mode-map 'evil-quit))
+  (evil-collection-bind 'custom-mode-map    'scroll-down 'scroll-up-command)
+  (evil-collection-bind 'custom-mode-map      'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'custom-mode-map         'action 'Custom-newline)
+  (evil-collection-bind 'custom-mode-map     'cycle-next 'widget-forward)
+  (evil-collection-bind 'custom-mode-map 'cycle-previous 'widget-backward)
+  (evil-collection-bind 'custom-mode-map           'quit 'Custom-buffer-done)
+  (evil-collection-bind 'custom-mode-map    'quit-save 'Custom-buffer-done)
+  (evil-collection-bind 'custom-mode-map  'quit-cancel 'evil-quit))
 
 (provide 'evil-collection-custom)
 ;;; evil-collection-custom.el ends here

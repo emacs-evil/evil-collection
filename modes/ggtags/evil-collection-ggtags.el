@@ -53,27 +53,27 @@
   (when (boundp 'ggtags-enable-navigation-keys)
     (setq ggtags-enable-navigation-keys nil))
 
-  (evil-collection-bind 'find-usages     'ggtags-mode-map 'ggtags-find-reference)
-  (evil-collection-bind 'find-definition 'ggtags-mode-map 'ggtags-find-tag-dwim)
-  (evil-collection-bind 'pop-definition  'ggtags-mode-map 'ggtags-prev-mark)
-  (evil-collection-bind 'find-file       'ggtags-mode-map 'ggtags-find-file)
+  (evil-collection-bind 'ggtags-mode-map     'find-usages 'ggtags-find-reference)
+  (evil-collection-bind 'ggtags-mode-map 'find-definition 'ggtags-find-tag-dwim)
+  (evil-collection-bind 'ggtags-mode-map  'pop-definition 'ggtags-prev-mark)
+  (evil-collection-bind 'ggtags-mode-map       'find-file 'ggtags-find-file)
 
   (evil-collection-define-key 'normal 'ggtags-view-search-history-mode-map
     "x" 'ggtags-view-search-history-kill
     "r" 'ggtags-save-to-register
     "R" 'ggtags-view-search-history-action)
-  (evil-collection-bind 'next-item    'ggtags-view-search-history-mode-map 'ggtags-view-search-history-next)
-  (evil-collection-bind 'prev-item    'ggtags-view-search-history-mode-map 'ggtags-view-search-history-prev)
-  (evil-collection-bind 'next-section 'ggtags-view-search-history-mode-map 'ggtags-view-search-history-next)
-  (evil-collection-bind 'prev-section 'ggtags-view-search-history-mode-map 'ggtags-view-search-history-prev)
-  (evil-collection-bind 'quit    'ggtags-view-search-history-mode-map 'ggtags-kill-window)
-  (evil-collection-bind 'refresh 'ggtags-view-search-history-mode-map 'ggtags-view-search-history-update)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map    'next-item 'ggtags-view-search-history-next)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map    'prev-item 'ggtags-view-search-history-prev)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map 'next-section 'ggtags-view-search-history-next)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map 'prev-section 'ggtags-view-search-history-prev)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map    'quit 'ggtags-kill-window)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map 'refresh 'ggtags-view-search-history-update)
 
-  (evil-collection-bind 'next-item    'ggtags-view-tag-history-mode-map 'next-error-no-select)
-  (evil-collection-bind 'prev-item    'ggtags-view-tag-history-mode-map 'previous-error-no-select)
-  (evil-collection-bind 'next-section 'ggtags-view-tag-history-mode-map 'next-error-no-select)
-  (evil-collection-bind 'prev-section 'ggtags-view-tag-history-mode-map 'previous-error-no-select)
-  (evil-collection-bind 'quit 'ggtags-view-tag-history-mode-map 'ggtags-kill-window)
+  (evil-collection-bind 'ggtags-view-tag-history-mode-map    'next-item 'next-error-no-select)
+  (evil-collection-bind 'ggtags-view-tag-history-mode-map    'prev-item 'previous-error-no-select)
+  (evil-collection-bind 'ggtags-view-tag-history-mode-map 'next-section 'next-error-no-select)
+  (evil-collection-bind 'ggtags-view-tag-history-mode-map 'prev-section 'previous-error-no-select)
+  (evil-collection-bind 'ggtags-view-tag-history-mode-map 'quit 'ggtags-kill-window)
 
   (evil-collection-define-key 'normal 'ggtags-navigation-map
     ;; search
@@ -82,13 +82,13 @@
 
     "go" 'ggtags-navigation-visible-mode ;; FIXME: This can be anything.
     )
-  (evil-collection-bind 'action       'ggtags-navigation-map 'ggtags-navigation-mode-done)
-  (evil-collection-bind 'next-item    'ggtags-navigation-map 'next-error)
-  (evil-collection-bind 'prev-item    'ggtags-navigation-map 'previous-error)
-  (evil-collection-bind 'next-section 'ggtags-navigation-map 'ggtags-navigation-next-file)
-  (evil-collection-bind 'prev-section 'ggtags-navigation-map 'ggtags-navigation-previous-file)
-  (evil-collection-bind 'next-section-2 'ggtags-navigation-map 'next-error)
-  (evil-collection-bind 'prev-section-2 'ggtags-navigation-map 'previous-error))
+  (evil-collection-bind 'ggtags-navigation-map       'action 'ggtags-navigation-mode-done)
+  (evil-collection-bind 'ggtags-navigation-map    'next-item 'next-error)
+  (evil-collection-bind 'ggtags-navigation-map    'prev-item 'previous-error)
+  (evil-collection-bind 'ggtags-navigation-map 'next-section 'ggtags-navigation-next-file)
+  (evil-collection-bind 'ggtags-navigation-map 'prev-section 'ggtags-navigation-previous-file)
+  (evil-collection-bind 'ggtags-navigation-map 'next-section-2 'next-error)
+  (evil-collection-bind 'ggtags-navigation-map 'prev-section-2 'previous-error))
 
 (provide 'evil-collection-ggtags)
 ;;; evil-collection-ggtags.el ends here

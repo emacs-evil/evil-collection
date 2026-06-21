@@ -47,17 +47,17 @@
     "Q" 'xref-query-replace-in-results
 
     "o" 'xref-show-location-at-point)
-  (evil-collection-bind 'action       'xref--xref-buffer-mode-map 'xref-goto-xref)
+  (evil-collection-bind 'xref--xref-buffer-mode-map       'action 'xref-goto-xref)
   ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'.
-  (evil-collection-bind 'action-other 'xref--xref-buffer-mode-map 'xref-quit-and-goto-xref)
-  (evil-collection-bind 'action-stay  'xref--xref-buffer-mode-map 'xref-show-location-at-point)
-  (evil-collection-bind 'next-item    'xref--xref-buffer-mode-map 'xref-next-line)
-  (evil-collection-bind 'prev-item    'xref--xref-buffer-mode-map 'xref-prev-line)
-  (evil-collection-bind 'next-section 'xref--xref-buffer-mode-map 'xref-next-line)
-  (evil-collection-bind 'prev-section 'xref--xref-buffer-mode-map 'xref-prev-line)
+  (evil-collection-bind 'xref--xref-buffer-mode-map 'action-other 'xref-quit-and-goto-xref)
+  (evil-collection-bind 'xref--xref-buffer-mode-map  'action-stay 'xref-show-location-at-point)
+  (evil-collection-bind 'xref--xref-buffer-mode-map    'next-item 'xref-next-line)
+  (evil-collection-bind 'xref--xref-buffer-mode-map    'prev-item 'xref-prev-line)
+  (evil-collection-bind 'xref--xref-buffer-mode-map 'next-section 'xref-next-line)
+  (evil-collection-bind 'xref--xref-buffer-mode-map 'prev-section 'xref-prev-line)
 
   (when (>= emacs-major-version 27)
-    (evil-collection-bind 'refresh 'xref--xref-buffer-mode-map 'xref-revert-buffer))
+    (evil-collection-bind 'xref--xref-buffer-mode-map 'refresh 'xref-revert-buffer))
 
   (when (>= emacs-major-version 28)
     ;; Override `]]'/`[[' to navigate by group; keep `C-j'/`C-k' on lines.
@@ -69,7 +69,7 @@
 
   (when (>= emacs-major-version 27)
     (evil-set-initial-state 'xref--transient-buffer-mode 'normal)
-    (evil-collection-bind 'action 'xref--transient-buffer-mode-map 'xref-quit-and-goto-xref)))
+    (evil-collection-bind 'xref--transient-buffer-mode-map 'action 'xref-quit-and-goto-xref)))
 
 (provide 'evil-collection-xref)
 ;;; evil-collection-xref.el ends here

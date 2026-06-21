@@ -36,7 +36,7 @@
 ;;;###autoload
 (defun evil-collection-prodigy-setup ()
   "Set up `evil' bindings for `prodigy'."
-  (evil-collection-bind 'quit 'prodigy-mode-map 'quit-window)
+  (evil-collection-bind 'prodigy-mode-map 'quit 'quit-window)
   (evil-collection-define-key 'normal 'prodigy-mode-map
     "j" 'prodigy-next
     "k" 'prodigy-prev
@@ -58,15 +58,15 @@
     "Jd" 'prodigy-jump-file-manager
 
     (kbd "Y") 'prodigy-copy-cmd)
-  (evil-collection-bind 'mark         'prodigy-mode-map 'prodigy-mark)
-  (evil-collection-bind 'mark-all     'prodigy-mode-map 'prodigy-mark-all)
-  (evil-collection-bind 'unmark       'prodigy-mode-map 'prodigy-unmark)
-  (evil-collection-bind 'unmark-all   'prodigy-mode-map 'prodigy-unmark-all)
-  (evil-collection-bind 'action       'prodigy-mode-map 'prodigy-browse)
-  (evil-collection-bind 'next-item    'prodigy-mode-map 'prodigy-next-with-status)
-  (evil-collection-bind 'prev-item    'prodigy-mode-map 'prodigy-prev-with-status)
-  (evil-collection-bind 'next-section 'prodigy-mode-map 'prodigy-next-with-status)
-  (evil-collection-bind 'prev-section 'prodigy-mode-map 'prodigy-prev-with-status)
+  (evil-collection-bind 'prodigy-mode-map         'mark 'prodigy-mark)
+  (evil-collection-bind 'prodigy-mode-map     'mark-all 'prodigy-mark-all)
+  (evil-collection-bind 'prodigy-mode-map       'unmark 'prodigy-unmark)
+  (evil-collection-bind 'prodigy-mode-map   'unmark-all 'prodigy-unmark-all)
+  (evil-collection-bind 'prodigy-mode-map       'action 'prodigy-browse)
+  (evil-collection-bind 'prodigy-mode-map    'next-item 'prodigy-next-with-status)
+  (evil-collection-bind 'prodigy-mode-map    'prev-item 'prodigy-prev-with-status)
+  (evil-collection-bind 'prodigy-mode-map 'next-section 'prodigy-next-with-status)
+  (evil-collection-bind 'prodigy-mode-map 'prev-section 'prodigy-prev-with-status)
 
   (evil-collection-define-key 'normal 'prodigy-view-mode-map
     "s" 'prodigy-start
@@ -76,8 +76,8 @@
     (kbd "C-l") 'prodigy-view-clear-buffer
     "x" 'prodigy-view-clear-buffer)
 
-  (evil-collection-bind 'refresh 'prodigy-mode-map      'prodigy-restart)
-  (evil-collection-bind 'refresh 'prodigy-view-mode-map 'prodigy-restart))
+  (evil-collection-bind 'prodigy-mode-map 'refresh      'prodigy-restart)
+  (evil-collection-bind 'prodigy-view-mode-map 'refresh 'prodigy-restart))
 
 (provide 'evil-collection-prodigy)
 ;;; evil-collection-prodigy.el ends here

@@ -40,7 +40,7 @@
 ;;;###autoload
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
-  (evil-collection-bind 'quit 'dired-mode-map 'quit-window)
+  (evil-collection-bind 'dired-mode-map 'quit 'quit-window)
   (evil-collection-define-key 'normal 'dired-mode-map
     "j" 'dired-next-line
     "k" 'dired-previous-line
@@ -151,21 +151,21 @@
     [remap toggle-read-only] 'dired-toggle-read-only
     (kbd "<delete>") 'dired-unmark-backward)
 
-  (evil-collection-bind 'mark          'dired-mode-map 'dired-mark)
-  (evil-collection-bind 'unmark        'dired-mode-map 'dired-unmark)
-  (evil-collection-bind 'unmark-all    'dired-mode-map 'dired-unmark-all-marks)
-  (evil-collection-bind 'mark-delete   'dired-mode-map 'dired-flag-file-deletion)
-  (evil-collection-bind 'execute-marks 'dired-mode-map 'dired-do-flagged-delete)
-  (evil-collection-bind 'next-item     'dired-mode-map 'dired-next-dirline)
-  (evil-collection-bind 'prev-item     'dired-mode-map 'dired-prev-dirline)
-  (evil-collection-bind 'next-section  'dired-mode-map 'dired-next-dirline)
-  (evil-collection-bind 'prev-section  'dired-mode-map 'dired-prev-dirline)
-  (evil-collection-bind 'action        'dired-mode-map 'dired-find-file)
-  (evil-collection-bind 'action-other  'dired-mode-map 'dired-find-file-other-window)
-  (evil-collection-bind 'action-stay   'dired-mode-map 'dired-view-file)
-  (evil-collection-bind 'find-file     'dired-mode-map 'dired-find-file)
-  (evil-collection-bind 'describe-mode 'dired-mode-map 'dired-summary)
-  (evil-collection-bind 'refresh       'dired-mode-map 'revert-buffer)
+  (evil-collection-bind 'dired-mode-map          'mark 'dired-mark)
+  (evil-collection-bind 'dired-mode-map        'unmark 'dired-unmark)
+  (evil-collection-bind 'dired-mode-map    'unmark-all 'dired-unmark-all-marks)
+  (evil-collection-bind 'dired-mode-map   'mark-delete 'dired-flag-file-deletion)
+  (evil-collection-bind 'dired-mode-map 'execute-marks 'dired-do-flagged-delete)
+  (evil-collection-bind 'dired-mode-map     'next-item 'dired-next-dirline)
+  (evil-collection-bind 'dired-mode-map     'prev-item 'dired-prev-dirline)
+  (evil-collection-bind 'dired-mode-map  'next-section 'dired-next-dirline)
+  (evil-collection-bind 'dired-mode-map  'prev-section 'dired-prev-dirline)
+  (evil-collection-bind 'dired-mode-map        'action 'dired-find-file)
+  (evil-collection-bind 'dired-mode-map  'action-other 'dired-find-file-other-window)
+  (evil-collection-bind 'dired-mode-map   'action-stay 'dired-view-file)
+  (evil-collection-bind 'dired-mode-map     'find-file 'dired-find-file)
+  (evil-collection-bind 'dired-mode-map 'describe-mode 'dired-summary)
+  (evil-collection-bind 'dired-mode-map       'refresh 'revert-buffer)
 
   (evil-collection-define-key 'normal 'dired-mode-map
     [remap undo] 'dired-undo

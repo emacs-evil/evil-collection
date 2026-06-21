@@ -151,8 +151,8 @@
         (evil-collection-binding-overrides nil))
     (defvar evil-collection-theme-test--map2 nil)
     (setq evil-collection-theme-test--map2 (make-sparse-keymap))
-    (evil-collection-bind 'demo
-                                'evil-collection-theme-test--map2
+    (evil-collection-bind 'evil-collection-theme-test--map2
+                                'demo
                                 #'ignore)
     (dolist (state '(normal insert))
       (dolist (key '("X" "Y"))

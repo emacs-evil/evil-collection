@@ -50,13 +50,13 @@
     "b"  'docker-container-shells
     "f"  'docker-container-open
     "r"  'docker-container-rename-selection)
-  (evil-collection-bind 'delete 'docker-container-mode-map 'docker-container-rm)
+  (evil-collection-bind 'docker-container-mode-map 'delete 'docker-container-rm)
 
   (evil-collection-define-key 'normal 'docker-context-mode-map
     "?"  'docker-context-help
     "I"  'docker-context-inspect
     "X"  'docker-context-use)
-  (evil-collection-bind 'delete 'docker-context-mode-map 'docker-context-rm)
+  (evil-collection-bind 'docker-context-mode-map 'delete 'docker-context-rm)
 
   (evil-collection-define-key 'normal 'docker-image-mode-map
     ";"  'docker-image-ls
@@ -67,14 +67,14 @@
     "P"  'docker-image-push
     "R"  'docker-image-run
     "T"  'docker-image-tag-selection)
-  (evil-collection-bind 'delete 'docker-image-mode-map 'docker-image-rm)
+  (evil-collection-bind 'docker-image-mode-map 'delete 'docker-image-rm)
 
   (evil-collection-define-key 'normal 'docker-network-mode-map
     ";"  'docker-network-ls
     "?"  'docker-network-help
     "D"  'docker-network-mark-dangling
     "I"  'docker-network-inspect)
-  (evil-collection-bind 'delete 'docker-network-mode-map 'docker-network-rm)
+  (evil-collection-bind 'docker-network-mode-map 'delete 'docker-network-rm)
 
   (evil-collection-define-key 'normal 'docker-volume-mode-map
     ";"  'docker-volume-ls
@@ -82,7 +82,7 @@
     "D"  'docker-volume-mark-dangling
     "I"  'docker-volume-inspect
     "f"  'docker-volume-dired-selection)
-  (evil-collection-bind 'delete 'docker-volume-mode-map 'docker-volume-rm))
+  (evil-collection-bind 'docker-volume-mode-map 'delete 'docker-volume-rm))
 
 (provide 'evil-collection-docker)
 

@@ -48,9 +48,9 @@
     "J" 'ovpn-mode-ipv6-linux-toggle
     "T" 'ovpn-mode-spawn-term-in-namespace
     "B" 'ovpn-mode-spawn-browser-in-namespace)
-  (evil-collection-bind 'quit        'ovpn-mode-map 'ovpn-mode-stop-vpn)
-  (evil-collection-bind 'quit-save   'ovpn-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel 'ovpn-mode-map 'evil-quit))
+  (evil-collection-bind 'ovpn-mode-map        'quit 'ovpn-mode-stop-vpn)
+  (evil-collection-bind 'ovpn-mode-map   'quit-save 'quit-window)
+  (evil-collection-bind 'ovpn-mode-map 'quit-cancel 'evil-quit))
 
 (provide 'evil-collection-ovpn-mode)
 ;;; evil-collection-ovpn-mode.el ends here

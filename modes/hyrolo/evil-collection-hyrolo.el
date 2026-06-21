@@ -20,10 +20,10 @@
   (evil-collection-define-key 'normal 'hyrolo-mode-map
     (kbd "zo") #'hyrolo-outline-show-all
     (kbd "zc") #'hyrolo-overview)
-  (evil-collection-bind 'next-item    'hyrolo-mode-map #'hyrolo-to-next-loc)
-  (evil-collection-bind 'prev-item    'hyrolo-mode-map #'hyrolo-to-previous-loc)
-  (evil-collection-bind 'next-section 'hyrolo-mode-map #'hyrolo-to-next-loc)
-  (evil-collection-bind 'prev-section 'hyrolo-mode-map #'hyrolo-to-previous-loc)
+  (evil-collection-bind 'hyrolo-mode-map    'next-item #'hyrolo-to-next-loc)
+  (evil-collection-bind 'hyrolo-mode-map    'prev-item #'hyrolo-to-previous-loc)
+  (evil-collection-bind 'hyrolo-mode-map 'next-section #'hyrolo-to-next-loc)
+  (evil-collection-bind 'hyrolo-mode-map 'prev-section #'hyrolo-to-previous-loc)
   (evil-set-initial-state 'hyrolo-mode 'normal))
 
 (provide 'evil-collection-hyrolo)

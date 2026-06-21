@@ -42,8 +42,8 @@
 
   (evil-collection-define-key 'normal 'wdired-mode-map
     (kbd "<escape>") 'wdired-exit)
-  (evil-collection-bind 'quit-save   'wdired-mode-map 'wdired-finish-edit)
-  (evil-collection-bind 'quit-cancel 'wdired-mode-map 'wdired-abort-changes))
+  (evil-collection-bind 'wdired-mode-map   'quit-save 'wdired-finish-edit)
+  (evil-collection-bind 'wdired-mode-map 'quit-cancel 'wdired-abort-changes))
 
 (provide 'evil-collection-wdired)
 ;;; evil-collection-wdired.el ends here

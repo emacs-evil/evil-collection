@@ -40,9 +40,9 @@
   (evil-collection-define-key 'normal 'view-mode-map
     ;; refresh
     (kbd "gr") 'revert-buffer)
-  (evil-collection-bind 'scroll-down 'view-mode-map 'View-scroll-page-forward)
-  (evil-collection-bind 'scroll-up   'view-mode-map 'View-scroll-page-backward)
-  (evil-collection-bind 'quit 'view-mode-map 'View-quit))
+  (evil-collection-bind 'view-mode-map 'scroll-down 'View-scroll-page-forward)
+  (evil-collection-bind 'view-mode-map   'scroll-up 'View-scroll-page-backward)
+  (evil-collection-bind 'view-mode-map 'quit 'View-quit))
 
 (provide 'evil-collection-view)
 ;;; evil-collection-view.el ends here

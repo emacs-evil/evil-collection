@@ -63,16 +63,16 @@
     ;; quit
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
-  (evil-collection-bind 'scroll-down  'w3m-mode-map 'w3m-scroll-up-or-next-url)
-  (evil-collection-bind 'scroll-up    'w3m-mode-map 'w3m-scroll-down-or-previous-url)
-  (evil-collection-bind 'action       'w3m-mode-map 'w3m-view-this-url)
-  (evil-collection-bind 'next-item    'w3m-mode-map 'w3m-next-form)
-  (evil-collection-bind 'prev-item    'w3m-mode-map 'w3m-previous-form)
-  (evil-collection-bind 'next-section 'w3m-mode-map 'w3m-next-form)
-  (evil-collection-bind 'prev-section 'w3m-mode-map 'w3m-previous-form)
-  (evil-collection-bind 'quit        'w3m-mode-map 'w3m-close-window)
-  (evil-collection-bind 'refresh     'w3m-mode-map 'w3m-reload-this-page)
-  (evil-collection-bind 'refresh-all 'w3m-mode-map 'w3m-reload-all-pages)
+  (evil-collection-bind 'w3m-mode-map  'scroll-down 'w3m-scroll-up-or-next-url)
+  (evil-collection-bind 'w3m-mode-map    'scroll-up 'w3m-scroll-down-or-previous-url)
+  (evil-collection-bind 'w3m-mode-map       'action 'w3m-view-this-url)
+  (evil-collection-bind 'w3m-mode-map    'next-item 'w3m-next-form)
+  (evil-collection-bind 'w3m-mode-map    'prev-item 'w3m-previous-form)
+  (evil-collection-bind 'w3m-mode-map 'next-section 'w3m-next-form)
+  (evil-collection-bind 'w3m-mode-map 'prev-section 'w3m-previous-form)
+  (evil-collection-bind 'w3m-mode-map        'quit 'w3m-close-window)
+  (evil-collection-bind 'w3m-mode-map     'refresh 'w3m-reload-this-page)
+  (evil-collection-bind 'w3m-mode-map 'refresh-all 'w3m-reload-all-pages)
 
   (evil-collection-define-operator-key 'yank 'w3m-mode-map
     ;; yt
@@ -80,7 +80,7 @@
     ;; yu
     "u" 'w3m-print-current-url)
 
-  (evil-collection-bind 'find-file 'w3m-mode-map 'w3m-view-source))
+  (evil-collection-bind 'w3m-mode-map 'find-file 'w3m-view-source))
 
 (provide 'evil-collection-w3m)
 ;;; evil-collection-w3m.el ends here

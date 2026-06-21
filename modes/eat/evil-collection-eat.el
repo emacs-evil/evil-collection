@@ -71,12 +71,12 @@ SSH-accessed Emacs that also uses `evil-mode'."
   "Set up `evil' bindings for `eat'."
   (evil-set-initial-state 'eat-mode 'insert)
 
-  (evil-collection-bind 'repl-submit        'eat-line-mode-map 'eat-line-send-input)
-  (evil-collection-bind 'repl-newline       'eat-line-mode-map #'newline)
-  (evil-collection-bind 'repl-force-newline 'eat-line-mode-map #'newline)
+  (evil-collection-bind 'eat-line-mode-map        'repl-submit 'eat-line-send-input)
+  (evil-collection-bind 'eat-line-mode-map       'repl-newline #'newline)
+  (evil-collection-bind 'eat-line-mode-map 'repl-force-newline #'newline)
 
-  (evil-collection-bind 'term-toggle-escape
-                              'eat-mode-map
+  (evil-collection-bind 'eat-mode-map
+                              'term-toggle-escape
                               'evil-collection-eat-toggle-send-escape)
 
   ;; `Evil' has some "C-" bindings in insert state that shadow the `eat' terminal

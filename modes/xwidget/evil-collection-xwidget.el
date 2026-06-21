@@ -178,8 +178,8 @@ F is the name of function, N is the pixel height."
     (evil-collection-define-key 'normal 'xwidget-webkit-mode-map
       (kbd "C-u") 'xwidget-webkit-scroll-down))
 
-  (evil-collection-bind 'action  'xwidget-webkit-mode-map 'xwidget-webkit-insert-string)
-  (evil-collection-bind 'refresh 'xwidget-webkit-mode-map 'xwidget-webkit-reload))
+  (evil-collection-bind 'xwidget-webkit-mode-map  'action 'xwidget-webkit-insert-string)
+  (evil-collection-bind 'xwidget-webkit-mode-map 'refresh 'xwidget-webkit-reload))
 
 (provide 'evil-collection-xwidget)
 ;;; evil-collection-xwidget.el ends here

@@ -35,8 +35,8 @@
 ;;;###autoload
 (defun evil-collection-color-rg-setup ()
   "Set up `evil' bindings for color-rg."
-  (evil-collection-bind 'cycle-next     'color-rg-mode-map 'color-rg-jump-next-keyword)
-  (evil-collection-bind 'cycle-previous 'color-rg-mode-map 'color-rg-jump-prev-keyword)
+  (evil-collection-bind 'color-rg-mode-map     'cycle-next 'color-rg-jump-next-keyword)
+  (evil-collection-bind 'color-rg-mode-map 'cycle-previous 'color-rg-jump-prev-keyword)
   (evil-collection-define-key 'normal 'color-rg-mode-map
     "C" 'color-rg-rerun-toggle-case
     (kbd "C-a") 'color-rg-beginning-of-line
@@ -64,10 +64,10 @@
     "s" 'color-rg-rerun-change-dir
     "u" 'color-rg-unfilter
     "x" 'color-rg-filter-match-files)
-  (evil-collection-bind 'action       'color-rg-mode-map 'color-rg-open-file-and-stay)
-  (evil-collection-bind 'action-other 'color-rg-mode-map 'color-rg-open-file-and-stay)
-  (evil-collection-bind 'action-stay  'color-rg-mode-map 'color-rg-open-file-and-stay)
-  (evil-collection-bind 'quit 'color-rg-mode-map 'color-rg-quit))
+  (evil-collection-bind 'color-rg-mode-map       'action 'color-rg-open-file-and-stay)
+  (evil-collection-bind 'color-rg-mode-map 'action-other 'color-rg-open-file-and-stay)
+  (evil-collection-bind 'color-rg-mode-map  'action-stay 'color-rg-open-file-and-stay)
+  (evil-collection-bind 'color-rg-mode-map 'quit 'color-rg-quit))
 
 (provide 'evil-collection-color-rg)
 ;;; evil-collection-color-rg.el ends here

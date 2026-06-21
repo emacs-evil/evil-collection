@@ -52,26 +52,26 @@ Other modes that are configured:
     "C" 'simple-mpc-clear-current-playlist
     "+" 'simple-mpc-increase-volume
     "-" 'simple-mpc-decrease-volume)
-  (evil-collection-bind 'quit        'simple-mpc-mode-map 'simple-mpc-quit)
-  (evil-collection-bind 'quit-save   'simple-mpc-mode-map 'simple-mpc-quit)
-  (evil-collection-bind 'quit-cancel 'simple-mpc-mode-map 'simple-mpc-quit)
+  (evil-collection-bind 'simple-mpc-mode-map        'quit 'simple-mpc-quit)
+  (evil-collection-bind 'simple-mpc-mode-map   'quit-save 'simple-mpc-quit)
+  (evil-collection-bind 'simple-mpc-mode-map 'quit-cancel 'simple-mpc-quit)
 
   (evil-collection-define-key 'normal 'simple-mpc-current-playlist-mode-map
     "x" 'simple-mpc-delete)
-  (evil-collection-bind 'quit        'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
-  (evil-collection-bind 'quit-save   'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
-  (evil-collection-bind 'quit-cancel 'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
-  (evil-collection-bind 'action      'simple-mpc-current-playlist-mode-map 'simple-mpc-play-current-line)
-  (evil-collection-bind 'delete      'simple-mpc-current-playlist-mode-map 'simple-mpc-delete)
+  (evil-collection-bind 'simple-mpc-current-playlist-mode-map        'quit 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'simple-mpc-current-playlist-mode-map   'quit-save 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'simple-mpc-current-playlist-mode-map 'quit-cancel 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'simple-mpc-current-playlist-mode-map      'action 'simple-mpc-play-current-line)
+  (evil-collection-bind 'simple-mpc-current-playlist-mode-map      'delete 'simple-mpc-delete)
 
-  (evil-collection-bind 'quit        'simple-mpc-query-mode-map 'simple-mpc-query-quit)
-  (evil-collection-bind 'quit-save   'simple-mpc-query-mode-map 'simple-mpc-query-quit)
-  (evil-collection-bind 'quit-cancel 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
+  (evil-collection-bind 'simple-mpc-query-mode-map        'quit 'simple-mpc-query-quit)
+  (evil-collection-bind 'simple-mpc-query-mode-map   'quit-save 'simple-mpc-query-quit)
+  (evil-collection-bind 'simple-mpc-query-mode-map 'quit-cancel 'simple-mpc-query-quit)
   (evil-collection-define-key 'normal 'simple-mpc-query-mode-map
     "o" 'simple-mpc-query-sort)
-  (evil-collection-bind 'action-other 'simple-mpc-query-mode-map 'simple-mpc-query-add)
-  (evil-collection-bind 'action-stay  'simple-mpc-query-mode-map 'simple-mpc-query-add)
-  (evil-collection-bind 'action       'simple-mpc-query-mode-map 'simple-mpc-query-add-and-play))
+  (evil-collection-bind 'simple-mpc-query-mode-map 'action-other 'simple-mpc-query-add)
+  (evil-collection-bind 'simple-mpc-query-mode-map  'action-stay 'simple-mpc-query-add)
+  (evil-collection-bind 'simple-mpc-query-mode-map       'action 'simple-mpc-query-add-and-play))
 
 (defvar simple-mpc-main-buffer-name "*simple-mpc-main*")
 

@@ -44,7 +44,7 @@
     "p" 'snake-pause-game
     "ZQ" 'quit-window
     "ZZ" 'snake-end-game)
-  (evil-collection-bind 'quit 'snake-mode-map 'quit-window))
+  (evil-collection-bind 'snake-mode-map 'quit 'quit-window))
 
 (provide 'evil-collection-snake)
 ;;; evil-collection-snake.el ends here

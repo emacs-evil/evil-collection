@@ -40,9 +40,9 @@
     "a" 'explain-pause-top-auto-refresh
     "c" 'explain-pause-top-clear
     "o" 'explain-pause-top-sort)
-  (evil-collection-bind 'quit        'explain-pause-top-mode-map 'quit-window)
-  (evil-collection-bind 'quit-save   'explain-pause-top-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel 'explain-pause-top-mode-map 'quit-window))
+  (evil-collection-bind 'explain-pause-top-mode-map        'quit 'quit-window)
+  (evil-collection-bind 'explain-pause-top-mode-map   'quit-save 'quit-window)
+  (evil-collection-bind 'explain-pause-top-mode-map 'quit-cancel 'quit-window))
 
 (provide 'evil-collection-explain-pause-mode)
 

@@ -245,8 +245,8 @@ But don't allow the cursor to move bellow the last prompt line."
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
 
-  (evil-collection-bind 'term-toggle-escape
-                              'vterm-mode-map
+  (evil-collection-bind 'vterm-mode-map
+                              'term-toggle-escape
                               'evil-collection-vterm-toggle-send-escape)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal
@@ -273,12 +273,12 @@ But don't allow the cursor to move bellow the last prompt line."
     (kbd "C-z") 'vterm--self-insert
     (kbd "<delete>") 'vterm-send-delete)
 
-  (evil-collection-bind 'repl-submit 'vterm-mode-map 'vterm-send-return)
+  (evil-collection-bind 'vterm-mode-map 'repl-submit 'vterm-send-return)
 
-  (evil-collection-bind 'next-item    'vterm-mode-map 'vterm-next-prompt)
-  (evil-collection-bind 'prev-item    'vterm-mode-map 'vterm-previous-prompt)
-  (evil-collection-bind 'next-section 'vterm-mode-map 'vterm-next-prompt)
-  (evil-collection-bind 'prev-section 'vterm-mode-map 'vterm-previous-prompt)
+  (evil-collection-bind 'vterm-mode-map    'next-item 'vterm-next-prompt)
+  (evil-collection-bind 'vterm-mode-map    'prev-item 'vterm-previous-prompt)
+  (evil-collection-bind 'vterm-mode-map 'next-section 'vterm-next-prompt)
+  (evil-collection-bind 'vterm-mode-map 'prev-section 'vterm-previous-prompt)
   (evil-collection-define-key 'normal 'vterm-mode-map
     "p" 'evil-collection-vterm-paste-after
     "P" 'vterm-yank

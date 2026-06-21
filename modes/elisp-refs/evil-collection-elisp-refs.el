@@ -36,14 +36,14 @@
 ;;;###autoload
 (defun evil-collection-elisp-refs-setup ()
   "Set up `evil' bindings for `elisp-refs'."
-  (evil-collection-bind 'action         'elisp-refs-mode-map 'elisp-refs-visit-match)
-  (evil-collection-bind 'cycle-next     'elisp-refs-mode-map 'elisp-refs-next-match)
-  (evil-collection-bind 'cycle-previous 'elisp-refs-mode-map 'elisp-refs-prev-match)
-  (evil-collection-bind 'next-item    'elisp-refs-mode-map 'elisp-refs-next-match)
-  (evil-collection-bind 'prev-item    'elisp-refs-mode-map 'elisp-refs-prev-match)
-  (evil-collection-bind 'next-section 'elisp-refs-mode-map 'elisp-refs-next-match)
-  (evil-collection-bind 'prev-section 'elisp-refs-mode-map 'elisp-refs-prev-match)
-  (evil-collection-bind 'quit 'elisp-refs-mode-map 'kill-current-buffer))
+  (evil-collection-bind 'elisp-refs-mode-map         'action 'elisp-refs-visit-match)
+  (evil-collection-bind 'elisp-refs-mode-map     'cycle-next 'elisp-refs-next-match)
+  (evil-collection-bind 'elisp-refs-mode-map 'cycle-previous 'elisp-refs-prev-match)
+  (evil-collection-bind 'elisp-refs-mode-map    'next-item 'elisp-refs-next-match)
+  (evil-collection-bind 'elisp-refs-mode-map    'prev-item 'elisp-refs-prev-match)
+  (evil-collection-bind 'elisp-refs-mode-map 'next-section 'elisp-refs-next-match)
+  (evil-collection-bind 'elisp-refs-mode-map 'prev-section 'elisp-refs-prev-match)
+  (evil-collection-bind 'elisp-refs-mode-map 'quit 'kill-current-buffer))
 
 (provide 'evil-collection-elisp-refs)
 ;;; evil-collection-elisp-refs.el ends here

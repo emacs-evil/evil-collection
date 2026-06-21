@@ -50,10 +50,10 @@
     "ga" 'ivy-occur-read-action
     "go" 'ivy-occur-dispatch
     "gc" 'ivy-occur-toggle-calling)
-  (evil-collection-bind 'quit      'ivy-occur-mode-map 'quit-window)
-  (evil-collection-bind 'find-file 'ivy-occur-mode-map 'ivy-occur-press)
-  (evil-collection-bind 'refresh   'ivy-occur-mode-map 'ivy-occur-revert-buffer)
-  (evil-collection-bind 'action    'ivy-occur-mode-map 'ivy-occur-press-and-switch)
+  (evil-collection-bind 'ivy-occur-mode-map      'quit 'quit-window)
+  (evil-collection-bind 'ivy-occur-mode-map 'find-file 'ivy-occur-press)
+  (evil-collection-bind 'ivy-occur-mode-map   'refresh 'ivy-occur-revert-buffer)
+  (evil-collection-bind 'ivy-occur-mode-map    'action 'ivy-occur-press-and-switch)
 
   (when evil-want-C-d-scroll
     (evil-collection-define-key 'normal 'ivy-occur-grep-mode-map
@@ -81,10 +81,10 @@
     "gc" 'ivy-occur-toggle-calling
 
     "0" 'evil-digit-argument-or-evil-beginning-of-line)
-  (evil-collection-bind 'quit      'ivy-occur-grep-mode-map 'quit-window)
-  (evil-collection-bind 'find-file 'ivy-occur-grep-mode-map 'ivy-occur-press)
-  (evil-collection-bind 'refresh   'ivy-occur-grep-mode-map 'ivy-occur-revert-buffer)
-  (evil-collection-bind 'action    'ivy-occur-grep-mode-map 'ivy-occur-press-and-switch)
+  (evil-collection-bind 'ivy-occur-grep-mode-map      'quit 'quit-window)
+  (evil-collection-bind 'ivy-occur-grep-mode-map 'find-file 'ivy-occur-press)
+  (evil-collection-bind 'ivy-occur-grep-mode-map   'refresh 'ivy-occur-revert-buffer)
+  (evil-collection-bind 'ivy-occur-grep-mode-map    'action 'ivy-occur-press-and-switch)
 
   (defvar evil-collection-setup-minibuffer)
   (when evil-collection-setup-minibuffer
@@ -93,7 +93,7 @@
       (kbd "C-m") 'ivy-done
       "j" 'ivy-next-line
       "k" 'ivy-previous-line)
-    (evil-collection-bind 'action 'ivy-minibuffer-map 'exit-minibuffer)
+    (evil-collection-bind 'ivy-minibuffer-map 'action 'exit-minibuffer)
 
     (evil-collection-define-key 'insert 'ivy-minibuffer-map
       (kbd "DEL") 'ivy-backward-delete-char

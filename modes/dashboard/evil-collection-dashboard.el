@@ -65,14 +65,14 @@
 
     ;; Other commands
     [down-mouse-1] 'widget-button-click)
-  (evil-collection-bind 'cycle-next     'dashboard-mode-map 'widget-forward)
-  (evil-collection-bind 'cycle-previous 'dashboard-mode-map 'widget-backward)
+  (evil-collection-bind 'dashboard-mode-map     'cycle-next 'widget-forward)
+  (evil-collection-bind 'dashboard-mode-map 'cycle-previous 'widget-backward)
 
   ;; Section navigation via theme.
   ;; Like `evil-collection-outline.el'.  These don't support COUNT, so [[ and ]]
   ;; aren't ideal — but bind via theme anyway for consistency.
-  (evil-collection-bind 'next-item 'dashboard-mode-map 'dashboard-next-section)
-  (evil-collection-bind 'prev-item 'dashboard-mode-map 'dashboard-previous-section)
+  (evil-collection-bind 'dashboard-mode-map 'next-item 'dashboard-next-section)
+  (evil-collection-bind 'dashboard-mode-map 'prev-item 'dashboard-previous-section)
 
   ;; Jump commands
   ;;

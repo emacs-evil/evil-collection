@@ -158,10 +158,10 @@
     "U" (lookup-key calc-mode-map (kbd "u"))
     "v" (lookup-key calc-mode-map (kbd "v"))
     "zz" (lookup-key calc-mode-map (kbd "z")))
-  (evil-collection-bind 'action       'calc-mode-map 'calc-enter)
-  (evil-collection-bind 'action-other 'calc-mode-map 'calc-over)
-  (evil-collection-bind 'action-stay  'calc-mode-map 'calc-last-args)
-  (evil-collection-bind 'quit         'calc-mode-map 'calc-quit)
+  (evil-collection-bind 'calc-mode-map       'action 'calc-enter)
+  (evil-collection-bind 'calc-mode-map 'action-other 'calc-over)
+  (evil-collection-bind 'calc-mode-map  'action-stay 'calc-last-args)
+  (evil-collection-bind 'calc-mode-map         'quit 'calc-quit)
 
   (evil-collection-define-key 'visual 'calc-mode-map
     "d" 'calc-kill-region))

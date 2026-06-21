@@ -36,11 +36,11 @@
 ;;;###autoload
 (defun evil-collection-racer-setup ()
   "Set up `evil' bindings for `racer'."
-  (evil-collection-bind 'find-definition 'racer-mode-map 'racer-find-definition)
-  (evil-collection-bind 'pop-definition  'racer-mode-map 'pop-tag-mark)
-  (evil-collection-bind 'lookup-doc      'racer-mode-map 'racer-describe)
+  (evil-collection-bind 'racer-mode-map 'find-definition 'racer-find-definition)
+  (evil-collection-bind 'racer-mode-map  'pop-definition 'pop-tag-mark)
+  (evil-collection-bind 'racer-mode-map      'lookup-doc 'racer-describe)
 
-  (evil-collection-bind 'quit 'racer-help-mode-map 'quit-window))
+  (evil-collection-bind 'racer-help-mode-map 'quit 'quit-window))
 
 (provide 'evil-collection-racer)
 ;;; evil-collection-racer.el ends here

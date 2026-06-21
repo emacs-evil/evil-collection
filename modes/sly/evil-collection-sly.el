@@ -118,20 +118,20 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "7" 'sly-db-invoke-restart-7
     "8" 'sly-db-invoke-restart-8
     "9" 'sly-db-invoke-restart-9)
-  (evil-collection-bind 'next-section     'sly-db-mode-map 'sly-db-details-down)
-  (evil-collection-bind 'prev-section     'sly-db-mode-map 'sly-db-details-up)
-  (evil-collection-bind 'quit             'sly-db-mode-map 'sly-db-quit)
-  (evil-collection-bind 'describe-mode    'sly-db-mode-map 'describe-mode)
-  (evil-collection-bind 'refresh          'sly-db-mode-map 'sly-db-restart-frame)
-  (evil-collection-bind 'debug-continue   'sly-db-mode-map 'sly-db-continue)
-  (evil-collection-bind 'debug-step-over  'sly-db-mode-map 'sly-db-next)
-  (evil-collection-bind 'debug-step-into  'sly-db-mode-map 'sly-db-step)
-  (evil-collection-bind 'debug-step-out   'sly-db-mode-map 'sly-db-out)
-  (evil-collection-bind 'debug-breakpoint 'sly-db-mode-map 'sly-db-break-on-return)
-  (evil-collection-bind 'debug-eval       'sly-db-mode-map 'sly-db-eval-in-frame)
-  (evil-collection-bind 'debug-restart    'sly-db-mode-map 'sly-db-return-from-frame)
-  (evil-collection-bind 'debug-frame-up   'sly-db-mode-map 'sly-db-up)
-  (evil-collection-bind 'debug-frame-down 'sly-db-mode-map 'sly-db-down)
+  (evil-collection-bind 'sly-db-mode-map     'next-section 'sly-db-details-down)
+  (evil-collection-bind 'sly-db-mode-map     'prev-section 'sly-db-details-up)
+  (evil-collection-bind 'sly-db-mode-map             'quit 'sly-db-quit)
+  (evil-collection-bind 'sly-db-mode-map    'describe-mode 'describe-mode)
+  (evil-collection-bind 'sly-db-mode-map          'refresh 'sly-db-restart-frame)
+  (evil-collection-bind 'sly-db-mode-map   'debug-continue 'sly-db-continue)
+  (evil-collection-bind 'sly-db-mode-map  'debug-step-over 'sly-db-next)
+  (evil-collection-bind 'sly-db-mode-map  'debug-step-into 'sly-db-step)
+  (evil-collection-bind 'sly-db-mode-map   'debug-step-out 'sly-db-out)
+  (evil-collection-bind 'sly-db-mode-map 'debug-breakpoint 'sly-db-break-on-return)
+  (evil-collection-bind 'sly-db-mode-map       'debug-eval 'sly-db-eval-in-frame)
+  (evil-collection-bind 'sly-db-mode-map    'debug-restart 'sly-db-return-from-frame)
+  (evil-collection-bind 'sly-db-mode-map   'debug-frame-up 'sly-db-up)
+  (evil-collection-bind 'sly-db-mode-map 'debug-frame-down 'sly-db-down)
 
   (evil-collection-define-key 'normal 'sly-inspector-mode-map
     [mouse-6] 'sly-inspector-pop
@@ -145,69 +145,69 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "gv" 'sly-inspector-toggle-verbose
     (kbd "C-i") 'forward-button
     "." 'sly-edit-definition)
-  (evil-collection-bind 'next-button     'sly-inspector-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'sly-inspector-mode-map 'backward-button)
-  (evil-collection-bind 'next-item       'sly-inspector-mode-map 'sly-inspector-next)
-  (evil-collection-bind 'prev-item       'sly-inspector-mode-map 'sly-inspector-pop)
-  (evil-collection-bind 'next-section    'sly-inspector-mode-map 'sly-inspector-next)
-  (evil-collection-bind 'prev-section    'sly-inspector-mode-map 'sly-inspector-pop)
-  (evil-collection-bind 'quit            'sly-inspector-mode-map 'sly-inspector-quit)
-  (evil-collection-bind 'find-definition 'sly-inspector-mode-map 'sly-edit-definition)
-  (evil-collection-bind 'lookup-doc      'sly-inspector-mode-map 'sly-inspector-describe-inspectee)
-  (evil-collection-bind 'refresh         'sly-inspector-mode-map 'sly-inspector-reinspect)
-  (evil-collection-bind 'refresh-all     'sly-inspector-mode-map 'sly-inspector-fetch-all)
+  (evil-collection-bind 'sly-inspector-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'sly-inspector-mode-map 'previous-button 'backward-button)
+  (evil-collection-bind 'sly-inspector-mode-map       'next-item 'sly-inspector-next)
+  (evil-collection-bind 'sly-inspector-mode-map       'prev-item 'sly-inspector-pop)
+  (evil-collection-bind 'sly-inspector-mode-map    'next-section 'sly-inspector-next)
+  (evil-collection-bind 'sly-inspector-mode-map    'prev-section 'sly-inspector-pop)
+  (evil-collection-bind 'sly-inspector-mode-map            'quit 'sly-inspector-quit)
+  (evil-collection-bind 'sly-inspector-mode-map 'find-definition 'sly-edit-definition)
+  (evil-collection-bind 'sly-inspector-mode-map      'lookup-doc 'sly-inspector-describe-inspectee)
+  (evil-collection-bind 'sly-inspector-mode-map         'refresh 'sly-inspector-reinspect)
+  (evil-collection-bind 'sly-inspector-mode-map     'refresh-all 'sly-inspector-fetch-all)
 
-  (evil-collection-bind 'find-usages     'sly-mode-map 'sly-who-references)
-  (evil-collection-bind 'find-definition 'sly-mode-map 'sly-edit-definition)
-  (evil-collection-bind 'pop-definition  'sly-mode-map 'sly-pop-find-definition-stack)
-  (evil-collection-bind 'lookup-doc      'sly-mode-map 'sly-describe-symbol)
-  (evil-collection-bind 'goto-repl       'sly-mode-map 'sly-mrepl)
+  (evil-collection-bind 'sly-mode-map     'find-usages 'sly-who-references)
+  (evil-collection-bind 'sly-mode-map 'find-definition 'sly-edit-definition)
+  (evil-collection-bind 'sly-mode-map  'pop-definition 'sly-pop-find-definition-stack)
+  (evil-collection-bind 'sly-mode-map      'lookup-doc 'sly-describe-symbol)
+  (evil-collection-bind 'sly-mode-map       'goto-repl 'sly-mrepl)
 
-  (evil-collection-bind 'quit 'sly-popup-buffer-mode-map 'quit-window)
+  (evil-collection-bind 'sly-popup-buffer-mode-map 'quit 'quit-window)
 
-  (evil-collection-bind 'find-definition 'sly-popup-buffer-mode-map 'sly-edit-definition)
-  (evil-collection-bind 'pop-definition  'sly-popup-buffer-mode-map 'sly-pop-find-definition-stack)
+  (evil-collection-bind 'sly-popup-buffer-mode-map 'find-definition 'sly-edit-definition)
+  (evil-collection-bind 'sly-popup-buffer-mode-map  'pop-definition 'sly-pop-find-definition-stack)
 
   (evil-collection-inhibit-insert-state 'sly-thread-control-mode-map)
   (evil-collection-define-key 'normal 'sly-thread-control-mode-map
     "a" 'sly-thread-attach
     "d" 'sly-thread-debug
     "x" 'sly-thread-kill)
-  (evil-collection-bind 'refresh 'sly-thread-control-mode-map 'sly-update-threads-buffer)
+  (evil-collection-bind 'sly-thread-control-mode-map 'refresh 'sly-update-threads-buffer)
 
-  (evil-collection-bind 'quit            'sly-xref-mode-map 'quit-window)
-  (evil-collection-bind 'next-button     'sly-xref-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'sly-xref-mode-map 'backward-button)
+  (evil-collection-bind 'sly-xref-mode-map            'quit 'quit-window)
+  (evil-collection-bind 'sly-xref-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'sly-xref-mode-map 'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'sly-xref-mode-map
     (kbd "SPC") 'sly-xref-show
     (kbd "C-i") 'forward-button
     ;; "r" 'sly-xref-retract ; TODO: Equivalent for Sly?
     )
-  (evil-collection-bind 'action       'sly-xref-mode-map 'sly-xref-goto)
-  (evil-collection-bind 'action-other 'sly-xref-mode-map 'sly-show-xref)
-  (evil-collection-bind 'action-stay  'sly-xref-mode-map 'sly-xref-show)
-  (evil-collection-bind 'next-item    'sly-xref-mode-map 'sly-xref-next-line)
-  (evil-collection-bind 'prev-item    'sly-xref-mode-map 'sly-xref-prev-line)
-  (evil-collection-bind 'next-section 'sly-xref-mode-map 'sly-xref-next-line)
-  (evil-collection-bind 'prev-section 'sly-xref-mode-map 'sly-xref-prev-line)
-  (evil-collection-bind 'refresh     'sly-xref-mode-map 'sly-recompile-xref)
-  (evil-collection-bind 'refresh-all 'sly-xref-mode-map 'sly-recompile-all-xrefs)
+  (evil-collection-bind 'sly-xref-mode-map       'action 'sly-xref-goto)
+  (evil-collection-bind 'sly-xref-mode-map 'action-other 'sly-show-xref)
+  (evil-collection-bind 'sly-xref-mode-map  'action-stay 'sly-xref-show)
+  (evil-collection-bind 'sly-xref-mode-map    'next-item 'sly-xref-next-line)
+  (evil-collection-bind 'sly-xref-mode-map    'prev-item 'sly-xref-prev-line)
+  (evil-collection-bind 'sly-xref-mode-map 'next-section 'sly-xref-next-line)
+  (evil-collection-bind 'sly-xref-mode-map 'prev-section 'sly-xref-prev-line)
+  (evil-collection-bind 'sly-xref-mode-map     'refresh 'sly-recompile-xref)
+  (evil-collection-bind 'sly-xref-mode-map 'refresh-all 'sly-recompile-all-xrefs)
 
-  (evil-collection-bind 'repl-submit        'sly-mrepl-mode-map 'sly-mrepl-return)
-  (evil-collection-bind 'repl-newline       'sly-mrepl-mode-map 'newline)
-  (evil-collection-bind 'repl-force-newline 'sly-mrepl-mode-map 'newline)
+  (evil-collection-bind 'sly-mrepl-mode-map        'repl-submit 'sly-mrepl-return)
+  (evil-collection-bind 'sly-mrepl-mode-map       'repl-newline 'newline)
+  (evil-collection-bind 'sly-mrepl-mode-map 'repl-force-newline 'newline)
 
-  (evil-collection-bind 'next-item    'sly-mrepl-mode-map 'sly-mrepl-next-prompt)
-  (evil-collection-bind 'prev-item    'sly-mrepl-mode-map 'sly-mrepl-previous-prompt)
-  (evil-collection-bind 'next-section 'sly-mrepl-mode-map 'sly-mrepl-next-prompt)
-  (evil-collection-bind 'prev-section 'sly-mrepl-mode-map 'sly-mrepl-previous-prompt)
+  (evil-collection-bind 'sly-mrepl-mode-map    'next-item 'sly-mrepl-next-prompt)
+  (evil-collection-bind 'sly-mrepl-mode-map    'prev-item 'sly-mrepl-previous-prompt)
+  (evil-collection-bind 'sly-mrepl-mode-map 'next-section 'sly-mrepl-next-prompt)
+  (evil-collection-bind 'sly-mrepl-mode-map 'prev-section 'sly-mrepl-previous-prompt)
   (evil-collection-define-key 'normal 'sly-mrepl-mode-map
     (kbd "C-p") 'sly-mrepl-previous-input-or-button
     (kbd "C-n") 'sly-mrepl-next-input-or-button)
 
-  (evil-collection-bind 'quit        'sly-trace-dialog-mode-map 'quit-window)
-  (evil-collection-bind 'refresh     'sly-trace-dialog-mode-map 'sly-trace-dialog-fetch-status)
-  (evil-collection-bind 'refresh-all 'sly-trace-dialog-mode-map 'sly-trace-dialog-fetch-traces)
+  (evil-collection-bind 'sly-trace-dialog-mode-map        'quit 'quit-window)
+  (evil-collection-bind 'sly-trace-dialog-mode-map     'refresh 'sly-trace-dialog-fetch-status)
+  (evil-collection-bind 'sly-trace-dialog-mode-map 'refresh-all 'sly-trace-dialog-fetch-traces)
 
   (evil-collection-define-key 'normal 'sly-stickers--replay-mode-map
     ;; The "n", "p", "x", "h" and "q" key are hard-coded in the description, so
@@ -232,20 +232,20 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "x" 'sly-stickers-replay-toggle-ignore-sticker
     "zi" 'sly-stickers-replay-toggle-ignore-sticker
     "zz" 'sly-stickers-replay-toggle-ignore-zombies)
-  (evil-collection-bind 'quit         'sly-stickers--replay-mode-map 'quit-window)
-  (evil-collection-bind 'action-other 'sly-stickers--replay-mode-map 'sly-stickers-replay-pop-to-current-sticker)
+  (evil-collection-bind 'sly-stickers--replay-mode-map         'quit 'quit-window)
+  (evil-collection-bind 'sly-stickers--replay-mode-map 'action-other 'sly-stickers-replay-pop-to-current-sticker)
 
-  (evil-collection-bind 'next-button     'sly-connection-list-mode-map 'forward-button)
-  (evil-collection-bind 'previous-button 'sly-connection-list-mode-map 'backward-button)
+  (evil-collection-bind 'sly-connection-list-mode-map     'next-button 'forward-button)
+  (evil-collection-bind 'sly-connection-list-mode-map 'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'sly-connection-list-mode-map
     (kbd "C-i") 'forward-button
     "R" 'sly-restart-connection-at-point
     "d" 'sly-connection-list-make-default
     "x" 'sly-quit-connection-at-point
     "o" 'tabulated-list-sort)
-  (evil-collection-bind 'quit    'sly-connection-list-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'sly-connection-list-mode-map 'sly-update-connection-list)
-  (evil-collection-bind 'action  'sly-connection-list-mode-map 'sly-connection-list-default-action)
+  (evil-collection-bind 'sly-connection-list-mode-map    'quit 'quit-window)
+  (evil-collection-bind 'sly-connection-list-mode-map 'refresh 'sly-update-connection-list)
+  (evil-collection-bind 'sly-connection-list-mode-map  'action 'sly-connection-list-default-action)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 

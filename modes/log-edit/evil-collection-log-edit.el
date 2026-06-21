@@ -41,14 +41,14 @@
     [remap evil-save-modified-and-close] 'log-edit-done
     [remap evil-quit] 'log-edit-kill-buffer)
 
-  (evil-collection-bind 'describe-mode 'log-edit-mode-map 'log-edit-mode-help)
+  (evil-collection-bind 'log-edit-mode-map 'describe-mode 'log-edit-mode-help)
 
-  (evil-collection-bind 'quit-save    'log-edit-mode-map 'quit-window)
-  (evil-collection-bind 'quit-cancel  'log-edit-mode-map 'quit-window)
-  (evil-collection-bind 'next-item    'log-edit-mode-map 'log-edit-next-comment)
-  (evil-collection-bind 'prev-item    'log-edit-mode-map 'log-edit-previous-comment)
-  (evil-collection-bind 'next-section 'log-edit-mode-map 'log-edit-next-comment)
-  (evil-collection-bind 'prev-section 'log-edit-mode-map 'log-edit-previous-comment))
+  (evil-collection-bind 'log-edit-mode-map    'quit-save 'quit-window)
+  (evil-collection-bind 'log-edit-mode-map  'quit-cancel 'quit-window)
+  (evil-collection-bind 'log-edit-mode-map    'next-item 'log-edit-next-comment)
+  (evil-collection-bind 'log-edit-mode-map    'prev-item 'log-edit-previous-comment)
+  (evil-collection-bind 'log-edit-mode-map 'next-section 'log-edit-next-comment)
+  (evil-collection-bind 'log-edit-mode-map 'prev-section 'log-edit-previous-comment))
 
 (provide 'evil-collection-log-edit)
 ;;; evil-collection-log-edit.el ends here

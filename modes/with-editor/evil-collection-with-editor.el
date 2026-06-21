@@ -37,8 +37,8 @@
 ;;;###autoload
 (defun evil-collection-with-editor-setup ()
   "Set up `evil' bindings for `with-editor'."
-  (evil-collection-bind 'quit-save   'with-editor-mode-map 'with-editor-finish)
-  (evil-collection-bind 'quit-cancel 'with-editor-mode-map 'with-editor-cancel))
+  (evil-collection-bind 'with-editor-mode-map   'quit-save 'with-editor-finish)
+  (evil-collection-bind 'with-editor-mode-map 'quit-cancel 'with-editor-cancel))
 
 (provide 'evil-collection-with-editor)
 ;;; evil-collection-with-editor.el ends here

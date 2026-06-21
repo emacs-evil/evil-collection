@@ -78,9 +78,9 @@
     "%i"        'mpdired-put-order-at-point
     "%r"        'mpdired-reset-order-index)
 
-  (evil-collection-bind 'action      'mpdired-mode-map 'mpdired-enter)
-  (evil-collection-bind 'refresh     'mpdired-mode-map 'mpdired-update)
-  (evil-collection-bind 'refresh-all 'mpdired-mode-map 'mpdired-db-update))
+  (evil-collection-bind 'mpdired-mode-map      'action 'mpdired-enter)
+  (evil-collection-bind 'mpdired-mode-map     'refresh 'mpdired-update)
+  (evil-collection-bind 'mpdired-mode-map 'refresh-all 'mpdired-db-update))
 
 (provide 'evil-collection-mpdired)
 ;;; evil-collection-mpdired.el ends here

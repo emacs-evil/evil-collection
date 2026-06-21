@@ -41,7 +41,7 @@
     "s" 'osx-dictionary-search-input
     "o" 'osx-dictionary-open-dictionary.app
     "r" 'osx-dictionary-read-word)
-  (evil-collection-bind 'quit 'osx-dictionary-mode-map 'osx-dictionary-quit))
+  (evil-collection-bind 'osx-dictionary-mode-map 'quit 'osx-dictionary-quit))
 
 (provide 'evil-collection-osx-dictionary)
 ;;; evil-collection-osx-dictionary.el ends here

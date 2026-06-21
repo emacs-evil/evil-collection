@@ -68,16 +68,16 @@
     "Jg" 'p-search-jump-candidate-generators
     "Jp" 'p-search-jump-priors
     "Jr" 'p-search-jump-results)
-  (evil-collection-bind 'action       'evil-collection-p-search-mode-map 'p-search-find-document)
-  (evil-collection-bind 'action-other 'evil-collection-p-search-mode-map 'p-search-view-document)
-  (evil-collection-bind 'action-stay  'evil-collection-p-search-mode-map 'p-search-display-document)
-  (evil-collection-bind 'next-item    'evil-collection-p-search-mode-map 'p-search-next-item)
-  (evil-collection-bind 'prev-item    'evil-collection-p-search-mode-map 'p-search-prev-item)
-  (evil-collection-bind 'next-section 'evil-collection-p-search-mode-map 'p-search-next-item)
-  (evil-collection-bind 'prev-section 'evil-collection-p-search-mode-map 'p-search-prev-item)
-  (evil-collection-bind 'quit        'evil-collection-p-search-mode-map 'p-search-quit)
-  (evil-collection-bind 'refresh     'evil-collection-p-search-mode-map 'p-search-refresh-buffer)
-  (evil-collection-bind 'refresh-all 'evil-collection-p-search-mode-map 'p-search-hard-refresh-buffer))
+  (evil-collection-bind 'evil-collection-p-search-mode-map       'action 'p-search-find-document)
+  (evil-collection-bind 'evil-collection-p-search-mode-map 'action-other 'p-search-view-document)
+  (evil-collection-bind 'evil-collection-p-search-mode-map  'action-stay 'p-search-display-document)
+  (evil-collection-bind 'evil-collection-p-search-mode-map    'next-item 'p-search-next-item)
+  (evil-collection-bind 'evil-collection-p-search-mode-map    'prev-item 'p-search-prev-item)
+  (evil-collection-bind 'evil-collection-p-search-mode-map 'next-section 'p-search-next-item)
+  (evil-collection-bind 'evil-collection-p-search-mode-map 'prev-section 'p-search-prev-item)
+  (evil-collection-bind 'evil-collection-p-search-mode-map        'quit 'p-search-quit)
+  (evil-collection-bind 'evil-collection-p-search-mode-map     'refresh 'p-search-refresh-buffer)
+  (evil-collection-bind 'evil-collection-p-search-mode-map 'refresh-all 'p-search-hard-refresh-buffer))
 
 (provide 'evil-collection-p-search)
 ;;; evil-collection-p-search.el ends here

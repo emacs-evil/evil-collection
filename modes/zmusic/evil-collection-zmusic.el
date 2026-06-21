@@ -43,7 +43,7 @@
     "h" 'zmusic/backward-degree
     "l" 'zmusic/forward-degree
     "d" 'zmusic/kill-beat)
-  (evil-collection-bind 'action 'zmusic-mode-map 'zmusic/toggle-play))
+  (evil-collection-bind 'zmusic-mode-map 'action 'zmusic/toggle-play))
 
 (provide 'evil-collection-zmusic)
 ;;; evil-collection-zmusic.el ends here

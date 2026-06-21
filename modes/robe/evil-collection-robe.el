@@ -35,10 +35,10 @@
 ;;;###autoload
 (defun evil-collection-robe-setup ()
   "Set up `evil' bindings for `robe'."
-  (evil-collection-bind 'find-definition 'robe-mode-map 'robe-jump)
-  (evil-collection-bind 'pop-definition  'robe-mode-map 'pop-tag-mark)
-  (evil-collection-bind 'lookup-doc      'robe-mode-map 'robe-doc)
-  (evil-collection-bind 'refresh         'robe-mode-map 'robe-rails-refresh))
+  (evil-collection-bind 'robe-mode-map 'find-definition 'robe-jump)
+  (evil-collection-bind 'robe-mode-map  'pop-definition 'pop-tag-mark)
+  (evil-collection-bind 'robe-mode-map      'lookup-doc 'robe-doc)
+  (evil-collection-bind 'robe-mode-map         'refresh 'robe-rails-refresh))
 
 (provide 'evil-collection-robe)
 ;;; evil-collection-robe.el ends here

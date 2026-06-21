@@ -71,7 +71,7 @@ it does not have a mode."
   (dolist (map evil-collection-minibuffer-maps)
     (evil-collection-define-key 'normal map "c" 'evil-collection-change-in-minibuffer)
     (evil-collection-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
-    (evil-collection-bind 'action map 'exit-minibuffer))
+    (evil-collection-bind map 'action 'exit-minibuffer))
 
   (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.

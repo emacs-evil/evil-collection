@@ -77,14 +77,14 @@ current file instead."
   (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
     "ge" 'diff-ediff-patch
     "\\" 'read-only-mode)
-  (evil-collection-bind 'action       'evil-collection-diff-mode-map 'diff-goto-source)
-  (evil-collection-bind 'next-item    'evil-collection-diff-mode-map 'diff-hunk-next)
-  (evil-collection-bind 'prev-item    'evil-collection-diff-mode-map 'diff-hunk-prev)
-  (evil-collection-bind 'next-section 'evil-collection-diff-mode-map 'diff-file-next)
-  (evil-collection-bind 'prev-section   'evil-collection-diff-mode-map 'diff-file-prev)
-  (evil-collection-bind 'next-section-2 'evil-collection-diff-mode-map 'diff-hunk-next)
-  (evil-collection-bind 'prev-section-2 'evil-collection-diff-mode-map 'diff-hunk-prev)
-  (evil-collection-bind 'quit 'evil-collection-diff-mode-map 'quit-window)
+  (evil-collection-bind 'evil-collection-diff-mode-map       'action 'diff-goto-source)
+  (evil-collection-bind 'evil-collection-diff-mode-map    'next-item 'diff-hunk-next)
+  (evil-collection-bind 'evil-collection-diff-mode-map    'prev-item 'diff-hunk-prev)
+  (evil-collection-bind 'evil-collection-diff-mode-map 'next-section 'diff-file-next)
+  (evil-collection-bind 'evil-collection-diff-mode-map   'prev-section 'diff-file-prev)
+  (evil-collection-bind 'evil-collection-diff-mode-map 'next-section-2 'diff-hunk-next)
+  (evil-collection-bind 'evil-collection-diff-mode-map 'prev-section-2 'diff-hunk-prev)
+  (evil-collection-bind 'evil-collection-diff-mode-map 'quit 'quit-window)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'evil-collection-diff-mode-map

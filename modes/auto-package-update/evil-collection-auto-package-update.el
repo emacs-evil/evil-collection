@@ -36,7 +36,7 @@
 (defun evil-collection-auto-package-update-setup ()
   "Set up `evil' bindings for `auto-package-update'."
   (add-hook 'auto-package-update-minor-mode-hook 'evil-normalize-keymaps)
-  (evil-collection-bind 'quit 'auto-package-update-minor-mode-map 'quit-window))
+  (evil-collection-bind 'auto-package-update-minor-mode-map 'quit 'quit-window))
 
 (provide 'evil-collection-auto-package-update)
 

@@ -35,9 +35,9 @@
 ;;;###autoload
 (defun evil-collection-omnisharp-setup ()
   "Set up `evil' bindings for `omnisharp'."
-  (evil-collection-bind 'find-definition 'omnisharp-mode-map 'omnisharp-go-to-definition)
-  (evil-collection-bind 'lookup-doc      'omnisharp-mode-map 'omnisharp-current-type-documentation)
-  (evil-collection-bind 'refresh-all     'omnisharp-mode-map 'omnisharp-reload-solution))
+  (evil-collection-bind 'omnisharp-mode-map 'find-definition 'omnisharp-go-to-definition)
+  (evil-collection-bind 'omnisharp-mode-map      'lookup-doc 'omnisharp-current-type-documentation)
+  (evil-collection-bind 'omnisharp-mode-map     'refresh-all 'omnisharp-reload-solution))
 
 (provide 'evil-collection-omnisharp)
 ;;; evil-collection-omnisharp.el ends here

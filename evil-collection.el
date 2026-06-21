@@ -698,20 +698,38 @@ context, never callables."
   (evil-collection-binding--listify
    (evil-collection-binding--resolve (evil-collection-binding--get id :key))))
 
-(defun evil-collection-bind (id map-sym command)
-  "Bind theme entry ID in MAP-SYM to COMMAND.
+(defun evil-collection-bind (map-sym &rest id-command-pairs)
+  "Bind one or more theme entries in MAP-SYM.
 
-Does nothing when ID is disabled.  All keys in the entry's :key
-list are batched into a single `evil-collection-define-key' call
-so a deferred map installs only one `after-load-functions' hook
-per call instead of one per key."
-  (when (evil-collection-binding-enabled-p id)
-    (let ((states (evil-collection-binding-states id))
-          (keys (evil-collection-binding-keys id)))
-      (when keys
-        (apply #'evil-collection-define-key states map-sym
-               (cl-mapcan (lambda (key) (list (kbd key) command))
-                          keys))))))
+ID-COMMAND-PAIRS is an even-length list alternating theme IDs and
+commands:
+
+  (evil-collection-bind \\='foo-mode-map
+    \\='action \\='foo-do
+    \\='quit   \\='foo-quit)
+
+Each ID is resolved through `evil-collection-binding-keys'; entries with
+`:enabled' nil are skipped.  Pairs that share the same `:state'
+value are batched into a single `evil-collection-define-key' call
+so a deferred map installs one `after-load-functions' hook per
+state-group instead of one per pair."
+  (let ((groups nil))
+    (while id-command-pairs
+      (let ((id (pop id-command-pairs))
+            (cmd (pop id-command-pairs)))
+        (when (evil-collection-binding-enabled-p id)
+          (let ((states (evil-collection-binding-states id))
+                (keys (evil-collection-binding-keys id)))
+            (when keys
+              (let ((pairs (cl-mapcan (lambda (k) (list (kbd k) cmd))
+                                      keys))
+                    (group (assoc states groups)))
+                (if group
+                    (setcdr group (nconc (cdr group) pairs))
+                  (push (cons states pairs) groups))))))))
+    (dolist (group (nreverse groups))
+      (apply #'evil-collection-define-key
+             (car group) map-sym (cdr group)))))
 
 (defun evil-collection-bind-minor-mode (id mode command)
   "Bind theme entry ID to COMMAND in minor-mode MODE.

@@ -58,13 +58,13 @@
     "x" 'ert-delete-test
     "T" 'ert-results-pop-to-timings)
 
-  (evil-collection-bind 'next-item     'ert-results-mode-map 'ert-results-next-test)
-  (evil-collection-bind 'prev-item     'ert-results-mode-map 'ert-results-previous-test)
-  (evil-collection-bind 'next-section  'ert-results-mode-map 'ert-results-next-test)
-  (evil-collection-bind 'prev-section  'ert-results-mode-map 'ert-results-previous-test)
-  (evil-collection-bind 'lookup-doc    'ert-results-mode-map 'ert-results-describe-test-at-point)
-  (evil-collection-bind 'describe-mode 'ert-results-mode-map 'ert-results-describe-test-at-point)
-  (evil-collection-bind 'refresh       'ert-results-mode-map 'ert-results-rerun-all-tests))
+  (evil-collection-bind 'ert-results-mode-map     'next-item 'ert-results-next-test)
+  (evil-collection-bind 'ert-results-mode-map     'prev-item 'ert-results-previous-test)
+  (evil-collection-bind 'ert-results-mode-map  'next-section 'ert-results-next-test)
+  (evil-collection-bind 'ert-results-mode-map  'prev-section 'ert-results-previous-test)
+  (evil-collection-bind 'ert-results-mode-map    'lookup-doc 'ert-results-describe-test-at-point)
+  (evil-collection-bind 'ert-results-mode-map 'describe-mode 'ert-results-describe-test-at-point)
+  (evil-collection-bind 'ert-results-mode-map       'refresh 'ert-results-rerun-all-tests))
 
 (provide 'evil-collection-ert)
 ;;; evil-collection-ert.el ends here
