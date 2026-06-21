@@ -39,7 +39,6 @@
   (evil-collection-define-key 'normal 'Buffer-menu-mode-map
     "ZQ" 'evil-quit
     "ZZ" 'quit-window
-    "gr" 'revert-buffer
     "go" 'Buffer-menu-this-window
     "gO" 'Buffer-menu-other-window
     "d" 'Buffer-menu-delete
@@ -72,7 +71,8 @@
     "T" 'Buffer-menu-toggle-files-only
     (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
-    (kbd "M-s a C-o") 'Buffer-menu-multi-occur))
+    (kbd "M-s a C-o") 'Buffer-menu-multi-occur)
+  (evil-collection-theme-bind 'refresh 'Buffer-menu-mode-map 'revert-buffer))
 
 (provide 'evil-collection-buff-menu)
 ;;; evil-collection-buff-menu.el ends here

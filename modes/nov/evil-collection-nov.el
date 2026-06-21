@@ -38,7 +38,6 @@
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
   (evil-collection-define-key 'normal 'nov-mode-map
-    "gr" 'nov-render-document
     "s" 'nov-view-source
     "S" 'nov-view-content-source
     "gj" 'nov-next-document
@@ -62,7 +61,8 @@
     (kbd "S-SPC") 'nov-scroll-down
     (kbd "DEL") 'nov-scroll-down)
 
-  (evil-collection-theme-bind 'describe-mode 'nov-mode-map 'nov-display-metadata))
+  (evil-collection-theme-bind 'describe-mode 'nov-mode-map 'nov-display-metadata)
+  (evil-collection-theme-bind 'refresh       'nov-mode-map 'nov-render-document))
 
 (provide 'evil-collection-nov)
 ;;; evil-collection-nov.el ends here

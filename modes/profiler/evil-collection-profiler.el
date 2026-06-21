@@ -59,13 +59,11 @@
     ;; open
     (kbd "RET") 'profiler-report-find-entry
 
-    ;; refresh
-    "gr" 'revert-buffer
-
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-windw)
-  (evil-collection-theme-bind 'quit 'profiler-report-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'profiler-report-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'profiler-report-mode-map 'revert-buffer))
 
 (provide 'evil-collection-profiler)
 ;;; evil-collection-profiler.el ends here

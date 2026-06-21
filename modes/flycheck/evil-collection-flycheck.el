@@ -45,12 +45,12 @@
     (kbd "C-k") 'flycheck-error-list-previous-error
     "]]" 'flycheck-error-list-next-error
     "[[" 'flycheck-error-list-previous-error
-    "gr" 'flycheck-error-list-check-source
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error
     (kbd "RET") 'flycheck-error-list-goto-error)
-  (evil-collection-theme-bind 'quit 'flycheck-error-list-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'flycheck-error-list-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'flycheck-error-list-mode-map 'flycheck-error-list-check-source))
 
 (provide 'evil-collection-flycheck)
 ;;; evil-collection-flycheck.el ends here

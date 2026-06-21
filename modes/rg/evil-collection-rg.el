@@ -69,9 +69,9 @@
     "e" 'evil-forward-word-end    ;; shadows wgrep-change-to-wgrep-mode
     "l" 'evil-forward-char        ;; shadows rg-list-searches
     "w" 'evil-forward-word-begin  ;; shadows wgrep-change-to-wgrep-mode
-    "gg" 'evil-goto-first-line
-    "gr" 'rg-recompile)
-  (evil-collection-theme-bind 'quit 'rg-mode-map 'quit-window)
+    "gg" 'evil-goto-first-line)
+  (evil-collection-theme-bind 'quit    'rg-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'rg-mode-map 'rg-recompile)
 
   (evil-collection-define-key 'motion 'rg-mode-map
     "e" 'evil-forward-word-end    ;; shadows wgrep-change-to-wgrep-mode

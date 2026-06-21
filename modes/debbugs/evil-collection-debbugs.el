@@ -65,9 +65,6 @@
     ;; mark
     "m" 'debbugs-gnu-toggle-tag
 
-    ;; refresh
-    "gr" 'debbugs-gnu-rescan
-
     "gt" 'debbugs-gnu-view-bug-triage
     "g#" 'debbugs-gnu-bugs
 
@@ -75,7 +72,8 @@
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
   (evil-collection-theme-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
-  (evil-collection-theme-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual))
+  (evil-collection-theme-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual)
+  (evil-collection-theme-bind 'refresh       'debbugs-gnu-mode-map 'debbugs-gnu-rescan))
 
 (provide 'evil-collection-debbugs)
 ;;; evil-collection-debbugs.el ends here

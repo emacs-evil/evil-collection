@@ -263,6 +263,14 @@ To disable a key theme.
       '((describe-mode :key "gH")))     ;; or :enabled nil to disable
 #+end_src
 
+*** Refresh / refresh-all
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((refresh     :key "gu")
+        (refresh-all :key "gU")))     ;; or :enabled nil to disable either
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

@@ -78,11 +78,10 @@
     "D" 'trashed-do-delete
     "R" 'trashed-do-restore
 
-    "v" 'trashed-view-file
+    "v" 'trashed-view-file)
 
-    "gr" 'revert-buffer)
-
-  (evil-collection-theme-bind 'describe-mode 'trashed-mode-map 'describe-mode))
+  (evil-collection-theme-bind 'describe-mode 'trashed-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'trashed-mode-map 'revert-buffer))
 
 (provide 'evil-collection-trashed)
 ;;; evil-collection-trashed.el ends here

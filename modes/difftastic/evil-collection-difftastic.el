@@ -48,9 +48,9 @@
     (kbd "TAB") 'difftastic-toggle-chunk
     (kbd "RET") 'difftastic-diff-visit-file
     "o" 'difftastic-diff-visit-worktree-file
-    "gr" 'difftastic-rerun
     "ZQ" 'difftastic-quit)
-  (evil-collection-theme-bind 'quit 'difftastic-mode-map 'difftastic-leave))
+  (evil-collection-theme-bind 'quit    'difftastic-mode-map 'difftastic-leave)
+  (evil-collection-theme-bind 'refresh 'difftastic-mode-map 'difftastic-rerun))
 
 (provide 'evil-collection-difftastic)
 

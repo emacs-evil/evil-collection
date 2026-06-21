@@ -78,7 +78,6 @@
   (evil-collection-define-key 'normal 'fj-generic-map
     "gb" 'fj-switch-to-buffer
     "go" 'fj-browse-view
-    "gr" 'fj-view-reload
     "]]" 'fj-item-next
     "[[" 'fj-item-prev
     "gj" 'fj-item-next
@@ -92,11 +91,12 @@
     "gb" 'fj-switch-to-buffer
     "go" 'fj-tl-browse-entry
     "gm" 'imenu
-    "gr" 'fj-view-reload
     ">" 'fj-next-page
     "<" 'fj-prev-page
     (kbd "<tab>") 'fj-next-tab-item
     (kbd "<backtab>") 'fj-prev-tab-item)
+  (evil-collection-theme-bind 'refresh 'fj-generic-map    'fj-view-reload)
+  (evil-collection-theme-bind 'refresh 'fj-generic-tl-map 'fj-view-reload)
 
   (evil-collection-define-key 'normal 'fj-repo-tl-map
     (kbd "RET") 'fj-repo-list-issues

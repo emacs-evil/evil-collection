@@ -60,19 +60,17 @@
     "S" 'elfeed-search-set-filter
     "c" 'elfeed-search-clear-filter
 
-    ;; refresh
-    "gR" 'elfeed-search-fetch ; TODO: Which update function is more useful?
-    "gr" 'revert-buffer
-
     ;; quit -- `q'/`ZZ' default to `quit-window' via
     ;; `evil-collection-set-readonly-bindings'.
     "ZQ" 'quit-window)
 
+  (evil-collection-theme-bind 'refresh-all 'elfeed-search-mode-map 'elfeed-search-fetch)
+  (evil-collection-theme-bind 'refresh     'elfeed-search-mode-map 'revert-buffer)
+
   ;; Refresh fallback for elfeed before commit 518e5bd3, where
   ;; `revert-buffer-function' is not wired up.
   (unless (fboundp 'elfeed-search--update-force)
-    (evil-collection-define-key 'normal 'elfeed-search-mode-map
-      "gr" 'elfeed-search-update--force))
+    (evil-collection-theme-bind 'refresh 'elfeed-search-mode-map 'elfeed-search-update--force))
 
   ;; Quit fallback for elfeed before commit 2ef14c92, where
   ;; `quit-window-hook' does not run `elfeed-db-save'.
@@ -117,13 +115,11 @@
     (kbd "C-j") 'elfeed-show-next
     (kbd "C-k") 'elfeed-show-prev
 
-    ;; refresh
-    "gr" 'elfeed-show-refresh
-
     ;; quit
     "ZQ" 'elfeed-kill-buffer
     "ZZ" 'elfeed-kill-buffer)
-  (evil-collection-theme-bind 'quit 'elfeed-show-mode-map 'elfeed-kill-buffer)
+  (evil-collection-theme-bind 'quit    'elfeed-show-mode-map 'elfeed-kill-buffer)
+  (evil-collection-theme-bind 'refresh 'elfeed-show-mode-map 'elfeed-show-refresh)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map

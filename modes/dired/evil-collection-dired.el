@@ -118,7 +118,6 @@
     "a" 'dired-find-alternate-file
     "d" 'dired-flag-file-deletion
     (kbd "C-m") 'dired-find-file
-    "gr" 'revert-buffer
     "i" 'dired-toggle-read-only
     "I" 'dired-maybe-insert-subdir
     "J" 'dired-goto-file
@@ -170,6 +169,7 @@
 
   (evil-collection-theme-bind 'find-file     'dired-mode-map 'dired-find-file)
   (evil-collection-theme-bind 'describe-mode 'dired-mode-map 'dired-summary)
+  (evil-collection-theme-bind 'refresh       'dired-mode-map 'revert-buffer)
 
   (evil-collection-define-key 'normal 'dired-mode-map
     [remap undo] 'dired-undo

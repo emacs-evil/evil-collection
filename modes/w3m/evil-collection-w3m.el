@@ -67,14 +67,12 @@
     "gB" 'w3m-bookmark-view-new-session
     "a" 'w3m-bookmark-add-current-url
 
-    ;; refresh
-    "gr" 'w3m-reload-this-page
-    "gR" 'w3m-reload-all-pages
-
     ;; quit
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'w3m-mode-map 'w3m-close-window)
+  (evil-collection-theme-bind 'quit        'w3m-mode-map 'w3m-close-window)
+  (evil-collection-theme-bind 'refresh     'w3m-mode-map 'w3m-reload-this-page)
+  (evil-collection-theme-bind 'refresh-all 'w3m-mode-map 'w3m-reload-all-pages)
 
   (evil-collection-define-operator-key 'yank 'w3m-mode-map
     ;; yt

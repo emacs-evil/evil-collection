@@ -61,9 +61,6 @@
     "P" 'tar-chgrp-entry
     "O" 'tar-chown-entry
 
-    ;; refresh
-    "gr" 'revert-buffer
-
     ;; create
     "I" 'tar-new-entry
 
@@ -73,7 +70,8 @@
     ;; mark
     "u" 'tar-unflag
     "U" 'tar-clear-modification-flags)
-  (evil-collection-theme-bind 'quit 'tar-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'tar-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'tar-mode-map 'revert-buffer))
 
 (provide 'evil-collection-tar-mode)
 ;;; evil-collection-tar-mode.el ends here

@@ -86,8 +86,7 @@ alternative printed representations that can be displayed."
 
   (evil-set-initial-state 'emacs-lisp-mode 'normal)
 
-  (evil-collection-define-key 'normal 'emacs-lisp-compilation-mode-map
-    "gr" 'emacs-lisp-compilation-recompile)
+  (evil-collection-theme-bind 'refresh 'emacs-lisp-compilation-mode-map 'emacs-lisp-compilation-recompile)
 
   (evil-collection-theme-bind 'find-usages 'emacs-lisp-mode-map 'xref-find-references)
   (evil-collection-theme-bind 'goto-repl   'emacs-lisp-mode-map 'evil-collection-elisp-mode-ielm-repl))

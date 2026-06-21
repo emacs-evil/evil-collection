@@ -37,9 +37,7 @@
   "Set up `evil' bindings for `omnisharp'."
   (evil-collection-theme-bind 'find-definition 'omnisharp-mode-map 'omnisharp-go-to-definition)
   (evil-collection-theme-bind 'lookup-doc      'omnisharp-mode-map 'omnisharp-current-type-documentation)
-
-  (evil-collection-define-key '(normal visual) 'omnisharp-mode-map
-    "gR" 'omnisharp-reload-solution))
+  (evil-collection-theme-bind 'refresh-all     'omnisharp-mode-map 'omnisharp-reload-solution))
 
 (provide 'evil-collection-omnisharp)
 ;;; evil-collection-omnisharp.el ends here

@@ -53,7 +53,6 @@
     (kbd "C-j") 'ert-results-next-test
     (kbd "C-k") 'ert-results-previous-test
     ;; Stuff that is in the menu.
-    "gr" 'ert-results-rerun-all-tests
     "R" 'ert-results-rerun-all-tests
     "r" 'ert-results-rerun-test-at-point
     "d" 'ert-results-rerun-test-at-point-debugging-errors
@@ -65,8 +64,9 @@
     "x" 'ert-delete-test
     "T" 'ert-results-pop-to-timings)
 
-  (evil-collection-theme-bind 'lookup-doc     'ert-results-mode-map 'ert-results-describe-test-at-point)
-  (evil-collection-theme-bind 'describe-mode  'ert-results-mode-map 'ert-results-describe-test-at-point))
+  (evil-collection-theme-bind 'lookup-doc    'ert-results-mode-map 'ert-results-describe-test-at-point)
+  (evil-collection-theme-bind 'describe-mode 'ert-results-mode-map 'ert-results-describe-test-at-point)
+  (evil-collection-theme-bind 'refresh       'ert-results-mode-map 'ert-results-rerun-all-tests))
 
 (provide 'evil-collection-ert)
 ;;; evil-collection-ert.el ends here

@@ -60,14 +60,14 @@
     (kbd "RET") 'indium-follow-link
     [mouse-1] 'indium-follow-link
     "L" 'indium-inspector-pop
-    "gr" 'indium-inspector-refresh
     "gj" 'indium-inspector-next-reference
     "gk" 'indium-inspector-previous-reference
     (kbd "C-j") 'indium-inspector-next-reference
     (kbd "C-k") 'indium-inspector-previous-reference
     [tab] 'indium-inspector-next-reference
     [backtab] 'indium-inspector-previous-reference)
-  (evil-collection-theme-bind 'quit 'indium-inspector-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'indium-inspector-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'indium-inspector-mode-map 'indium-inspector-refresh)
 
   (evil-collection-define-key 'normal 'indium-debugger-locals-mode-map
     "L" nil
@@ -85,9 +85,7 @@
     [backtab] 'indium-debugger-frames-previous-frame)
   (evil-collection-theme-bind 'quit 'indium-debugger-frames-mode-map 'quit-window)
 
-  (evil-collection-define-key 'normal 'indium-interaction-mode-map
-    "gr" 'indium-update-script-source)
-
+  (evil-collection-theme-bind 'refresh   'indium-interaction-mode-map 'indium-update-script-source)
   (evil-collection-theme-bind 'goto-repl 'indium-interaction-mode-map 'indium-switch-to-repl-buffer)
 
   (when evil-collection-setup-debugger-keys

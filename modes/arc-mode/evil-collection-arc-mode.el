@@ -63,14 +63,12 @@
     "O" 'archive-chown-entry
     "P" 'archive-chgrp-entry
 
-    ;; refresh
-    "gr" 'revert-buffer
-
     ;; mark
     "m" 'archive-mark
     "u" 'archive-unflag
     "U" 'archive-unmark-all-files)
-  (evil-collection-theme-bind 'quit 'archive-mode-map 'quit-window))
+  (evil-collection-theme-bind 'quit    'archive-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'archive-mode-map 'revert-buffer))
 
 (provide 'evil-collection-arc-mode)
 ;;; evil-collection-arc-mode.el ends here

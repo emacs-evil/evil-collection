@@ -72,7 +72,6 @@
     "gb" 'mpdel-browser-open
 
     "go" 'mpdel-song-open
-    "gr" 'mpdel-song-refresh
     "I"  'mpdel-song-play
 
     ">s" 'mpdel-song-small-increment
@@ -87,7 +86,8 @@
     ")"  'mpdel-playlist-move-down
     "w"  'mpdel-playlist-save
     "P"  'mpdel-playlist-play)
-  (evil-collection-theme-bind 'quit 'mpdel-core-map 'mpdel-song-quit-window)
+  (evil-collection-theme-bind 'quit    'mpdel-core-map 'mpdel-song-quit-window)
+  (evil-collection-theme-bind 'refresh 'mpdel-core-map 'mpdel-song-refresh)
 
   (evil-collection-define-key 'normal 'mpdel-tablist-mode-map
     "D" 'tablist-do-delete))

@@ -87,7 +87,6 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "x" 'pass-kill
     "s" 'isearch-forward
     "J" 'pass-goto-entry
-    "gr" 'pass-update-buffer
     "i" 'pass-insert
     "I" 'pass-insert-generated
     "Y" 'pass-copy
@@ -96,7 +95,8 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "o" 'pass-otp-options
     (kbd "RET") 'pass-view)
   (evil-collection-theme-bind 'quit          'pass-mode-map 'pass-quit)
-  (evil-collection-theme-bind 'describe-mode 'pass-mode-map 'describe-mode))
+  (evil-collection-theme-bind 'describe-mode 'pass-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'pass-mode-map 'pass-update-buffer))
 
 (provide 'evil-collection-pass)
 ;;; evil-collection-pass.el ends here

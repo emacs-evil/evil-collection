@@ -41,8 +41,6 @@
   (evil-collection-define-key 'normal 'youtube-dl-list-mode-map
     (kbd "S-SPC") 'scroll-down-command
 
-    "gr" 'youtube-dl-list-redisplay
-
     "p" 'youtube-dl-list-toggle-pause
     "s" 'youtube-dl-list-toggle-slow
     "S" 'youtube-dl-list-toggle-slow-all
@@ -61,7 +59,8 @@
     (kbd "C-j") 'youtube-dl-list-priority-down
     (kbd "C-k") 'youtube-dl-list-priority-up)
 
-  (evil-collection-theme-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode))
+  (evil-collection-theme-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh       'youtube-dl-list-mode-map 'youtube-dl-list-redisplay))
 
 (provide 'evil-collection-youtube-dl)
 ;;; evil-collection-youtube-dl.el ends here

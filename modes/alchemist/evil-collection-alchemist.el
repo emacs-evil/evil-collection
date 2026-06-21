@@ -81,13 +81,12 @@
   (evil-collection-theme-bind 'quit 'alchemist-refcard-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-mix-mode-map
-    "i" 'alchemist-mix-send-input-to-mix-process
-    "gr" 'alchemist-mix-rerun-last-task)
-  (evil-collection-theme-bind 'quit 'alchemist-mix-mode-map 'quit-window)
+    "i" 'alchemist-mix-send-input-to-mix-process)
+  (evil-collection-theme-bind 'quit    'alchemist-mix-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'alchemist-mix-mode-map 'alchemist-mix-rerun-last-task)
 
   (evil-collection-define-key 'normal 'alchemist-test-report-mode-map
     "t" 'toggle-truncate-lines
-    "gr" 'alchemist-mix-rerun-last-test
     "gj" 'alchemist-test-next-result
     "gk" 'alchemist-test-previous-result
     (kbd "C-j") 'alchemist-test-next-result
@@ -95,7 +94,8 @@
     "]]" 'alchemist-test-next-stacktrace-file
     "[[" 'alchemist-test-previous-stacktrace-file
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
-  (evil-collection-theme-bind 'quit 'alchemist-test-report-mode-map 'quit-window)
+  (evil-collection-theme-bind 'quit    'alchemist-test-report-mode-map 'quit-window)
+  (evil-collection-theme-bind 'refresh 'alchemist-test-report-mode-map 'alchemist-mix-rerun-last-test)
 
   (evil-collection-define-key 'normal 'alchemist-mode-map
     (kbd "C-j") 'alchemist-goto-jump-to-next-def-symbol

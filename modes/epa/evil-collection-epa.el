@@ -39,7 +39,6 @@
 (defun evil-collection-epa-setup ()
   (evil-collection-define-key 'normal 'epa-key-list-mode-map
     (kbd "<tab>") 'widget-forward
-    "gr" 'revert-buffer
     "E" 'epa-decrypt-file
     "d" 'epa-delete-keys
     "ZZ" 'quit-window
@@ -55,7 +54,8 @@
     "e" 'epa-encrypt-file
     "i" 'epa-import-keys
     "o" 'epa-export-keys)
-  (evil-collection-theme-bind 'quit 'epa-key-list-mode-map 'epa-exit-buffer)
+  (evil-collection-theme-bind 'quit    'epa-key-list-mode-map 'epa-exit-buffer)
+  (evil-collection-theme-bind 'refresh 'epa-key-list-mode-map 'revert-buffer)
 
   (evil-collection-define-key 'normal 'epa-key-mode-map
     "ZZ" 'quit-window

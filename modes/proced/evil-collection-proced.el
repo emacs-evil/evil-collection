@@ -79,10 +79,8 @@
     "ot" 'proced-sort-time
     "ou" 'proced-sort-user
 
-    "r" 'proced-renice
-
-    ;; refresh
-    "gr" 'revert-buffer))
+    "r" 'proced-renice)
+  (evil-collection-theme-bind 'refresh 'proced-mode-map 'revert-buffer))
 
 (provide 'evil-collection-proced)
 ;;; evil-collection-proced.el ends here

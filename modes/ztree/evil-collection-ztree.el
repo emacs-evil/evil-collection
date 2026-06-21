@@ -45,10 +45,8 @@
     (kbd "RET") 'ztree-perform-action
     (kbd "SPC") 'ztree-perform-soft-action
 
-    "x" 'ztree-toggle-expand-subtree
-
-    ;; refresh
-    "gr" 'ztree-refresh-buffer)
+    "x" 'ztree-toggle-expand-subtree)
+  (evil-collection-theme-bind 'refresh 'ztree-mode-map 'ztree-refresh-buffer)
 
   (evil-collection-set-readonly-bindings 'ztreediff-mode-map)
   (evil-set-initial-state 'ztree-mode 'normal)
@@ -57,13 +55,11 @@
     "D" 'ztree-diff-delete-file
     "zH" 'ztree-diff-toggle-show-filtered-files
     "d" 'ztree-diff-simple-diff-files
-    "zh" 'ztree-diff-toggle-show-equal-files
+    "zh" 'ztree-diff-toggle-show-equal-files)
 
-    ;; refresh
-    "gr" 'ztree-diff-partial-rescan
-    "gR" 'ztree-diff-full-rescan)
-
-  (evil-collection-theme-bind-minor-mode 'find-file 'ztreediff-mode 'ztree-diff-view-file))
+  (evil-collection-theme-bind-minor-mode 'find-file    'ztreediff-mode 'ztree-diff-view-file)
+  (evil-collection-theme-bind-minor-mode 'refresh      'ztreediff-mode 'ztree-diff-partial-rescan)
+  (evil-collection-theme-bind-minor-mode 'refresh-all  'ztreediff-mode 'ztree-diff-full-rescan))
 
 (provide 'evil-collection-ztree)
 ;;; evil-collection-ztree.el ends here

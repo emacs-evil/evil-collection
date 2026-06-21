@@ -43,9 +43,9 @@
 
     ;; goto
     ;; "gm" 'woman
+    )
 
-    ;; refresh
-    "gr" 'woman-reformat-last-file))
+  (evil-collection-theme-bind 'refresh 'woman-mode-map 'woman-reformat-last-file))
 
 (provide 'evil-collection-woman)
 ;;; evil-collection-woman.el ends here

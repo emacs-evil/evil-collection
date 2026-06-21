@@ -57,7 +57,6 @@
   (evil-collection-define-key 'normal 'speedbar-mode-map
     "j" 'speedbar-next
     "k" 'speedbar-prev
-    "gr" 'speedbar-refresh
     "gg" 'evil-goto-first-line
     "G"  'evil-goto-line
 
@@ -103,8 +102,9 @@
 
   (evil-collection-define-key 'normal 'speedbar-buffers-key-map
     ;; Buffer specific keybindings
-    "K" 'speedbar-buffer-kill-buffer
-    "gr" 'speedbar-buffer-revert-buffer))
+    "K" 'speedbar-buffer-kill-buffer)
+  (evil-collection-theme-bind 'refresh 'speedbar-mode-map         'speedbar-refresh)
+  (evil-collection-theme-bind 'refresh 'speedbar-buffers-key-map  'speedbar-buffer-revert-buffer))
 
 (provide 'evil-collection-speedbar)
 ;;; evil-collection-speedbar.el ends here
