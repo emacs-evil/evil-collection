@@ -47,9 +47,7 @@
     [remap evil-backward-char] 'image-backward-hscroll
     [remap evil-forward-char] 'image-forward-hscroll
     (kbd "C-d") 'forward-page
-    (kbd "SPC") 'doc-view-scroll-up-or-next-page
     (kbd "DEL") 'doc-view-scroll-down-or-previous-page
-    (kbd "S-SPC") 'doc-view-scroll-down-or-previous-page
     "gg" 'doc-view-first-page
     "G" 'doc-view-last-page
     "J" 'doc-view-goto-page
@@ -75,6 +73,8 @@
     (kbd "C-t") 'doc-view-show-tooltip
     (kbd "C-c C-c") 'doc-view-toggle-display
     (kbd "C-c C-t") 'doc-view-open-text)
+  (evil-collection-bind 'scroll-down 'doc-view-mode-map 'doc-view-scroll-up-or-next-page)
+  (evil-collection-bind 'scroll-up   'doc-view-mode-map 'doc-view-scroll-down-or-previous-page)
   (evil-collection-bind 'action  'doc-view-mode-map 'image-next-line)
   (evil-collection-bind 'refresh 'doc-view-mode-map 'doc-view-revert-buffer)
 

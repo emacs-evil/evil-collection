@@ -349,6 +349,44 @@ Three semantics share the ~<tab>~ / ~<backtab>~ pair:
         (section-toggle  :state normal :key ("<tab>" "TAB"))))
 #+end_src
 
+*** Scroll
+
+~SPC~ / ~S-SPC~ for paging in read-only buffers (e.g. ~eww~, ~pdf-view~, info-style modes).
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((scroll-down :state normal :key "SPC")
+        (scroll-up   :state normal :key ("S-SPC" "S-<space>"))))
+#+end_src
+
+*** Marking
+
+Dired-style mark family for tabular-list modes (~ibuffer~, ~proced~, ~package-menu~, ~tablist~ derivatives):
+
+- ~mark~ / ~unmark~ — mark / unmark entry at point (~m~ / ~u~).
+- ~mark-all~ / ~unmark-all~ — bulk variants (~M~ / ~U~).
+- ~mark-delete~ — flag entry for deletion (~d~), paired with ~execute-marks~ (~x~).
+- ~execute-marks~ — execute pending marked actions (~x~).
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((mark          :state normal :key "m")
+        (mark-all      :state normal :key "M")
+        (unmark        :state normal :key "u")
+        (unmark-all    :state normal :key "U")
+        (mark-delete   :state normal :key "d")
+        (execute-marks :state normal :key "x")))
+#+end_src
+
+*** Delete
+
+For modes whose ~d~ deletes immediately (no flag/execute step) — e.g. ~docker~ ~rm~, ~realgud~ breakpoint delete, ~eww~ buffer/bookmark kill, ~org-agenda-kill~, ~ztree~ file delete.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((delete :state normal :key "d")))
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

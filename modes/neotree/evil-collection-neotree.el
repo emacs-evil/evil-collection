@@ -58,7 +58,6 @@
     "y" 'neotree-copy-node
     "r" 'neotree-rename-node
     "R" 'neotree-change-root
-    "d" 'neotree-delete-node
     "J" 'neotree-dir
     "+" 'neotree-stretch-toggle
     "=" 'neotree-stretch-toggle
@@ -95,7 +94,8 @@
   (evil-collection-bind 'next-section 'neotree-mode-map 'neotree-select-down-node)
   (evil-collection-bind 'prev-section 'neotree-mode-map 'neotree-select-up-node)
   (evil-collection-bind 'quit    'neotree-mode-map 'neotree-hide)
-  (evil-collection-bind 'refresh 'neotree-mode-map 'neotree-refresh))
+  (evil-collection-bind 'refresh 'neotree-mode-map 'neotree-refresh)
+  (evil-collection-bind 'delete  'neotree-mode-map 'neotree-delete-node))
 
 (provide 'evil-collection-neotree)
 ;;; evil-collection-neotree.el ends here

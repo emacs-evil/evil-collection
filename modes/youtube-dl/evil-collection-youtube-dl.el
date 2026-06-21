@@ -39,8 +39,6 @@
 
   (evil-collection-set-readonly-bindings 'youtube-dl-list-mode-map)
   (evil-collection-define-key 'normal 'youtube-dl-list-mode-map
-    (kbd "S-SPC") 'scroll-down-command
-
     "p" 'youtube-dl-list-toggle-pause
     "s" 'youtube-dl-list-toggle-slow
     "S" 'youtube-dl-list-toggle-slow-all
@@ -52,6 +50,7 @@
     "a" 'youtube-dl
     "d" 'youtube-dl-list-kill)
 
+  (evil-collection-bind 'scroll-up    'youtube-dl-list-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
   (evil-collection-bind 'prev-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
   (evil-collection-bind 'next-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)

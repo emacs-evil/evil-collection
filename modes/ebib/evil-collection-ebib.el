@@ -39,7 +39,6 @@
   (evil-make-overriding-map ebib-index-mode-map 'normal)
   (evil-collection-inhibit-insert-state 'ebib-index-mode-map)
   (evil-collection-define-key 'normal 'ebib-index-mode-map
-    "d" 'ebib-kill-entry
     "D" 'ebib-delete-entry
     "gg" 'ebib-goto-first-entry
     "G" 'ebib-goto-last-entry
@@ -71,7 +70,8 @@
   (evil-collection-bind 'next-item    'ebib-entry-mode-map 'ebib-goto-next-set)
   (evil-collection-bind 'prev-item    'ebib-entry-mode-map 'ebib-goto-prev-set)
   (evil-collection-bind 'next-section 'ebib-entry-mode-map 'ebib-goto-next-set)
-  (evil-collection-bind 'prev-section 'ebib-entry-mode-map 'ebib-goto-prev-set))
+  (evil-collection-bind 'prev-section 'ebib-entry-mode-map 'ebib-goto-prev-set)
+  (evil-collection-bind 'delete       'ebib-index-mode-map 'ebib-kill-entry))
 
 (provide 'evil-collection-ebib)
 ;;; evil-collection-ebib.el ends here

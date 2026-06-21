@@ -45,18 +45,16 @@
     "G" 'end-of-buffer
 
     "a" 'archive-alternate-display
-    "d" 'archive-flag-deleted
     "r" 'archive-rename-entry
-    "x" 'archive-expunge
     "C" 'archive-copy-file
     "M" 'archive-chmod-entry
     "O" 'archive-chown-entry
-    "P" 'archive-chgrp-entry
-
-    ;; mark
-    "m" 'archive-mark
-    "u" 'archive-unflag
-    "U" 'archive-unmark-all-files)
+    "P" 'archive-chgrp-entry)
+  (evil-collection-bind 'mark          'archive-mode-map 'archive-mark)
+  (evil-collection-bind 'unmark        'archive-mode-map 'archive-unflag)
+  (evil-collection-bind 'unmark-all    'archive-mode-map 'archive-unmark-all-files)
+  (evil-collection-bind 'mark-delete   'archive-mode-map 'archive-flag-deleted)
+  (evil-collection-bind 'execute-marks 'archive-mode-map 'archive-expunge)
   (evil-collection-bind 'action       'archive-mode-map 'archive-extract)
   (evil-collection-bind 'action-other 'archive-mode-map 'archive-extract-other-window)
   (evil-collection-bind 'action-stay  'archive-mode-map 'archive-view)

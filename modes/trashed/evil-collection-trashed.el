@@ -38,16 +38,9 @@
   (evil-collection-set-readonly-bindings 'trashed-mode-map)
   (evil-collection-define-key 'normal 'trashed-mode-map
     ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
-
     (kbd "gw") 'trashed-browse-url-of-file
     "S" 'tabulated-list-sort
 
-    "m" 'trashed-mark
-    "M" 'trashed-mark-all
-    "u" 'trashed-unmark
-    "U" 'trashed-unmark-all
     "~" 'trashed-toggle-marks
 
     "$ m" 'trashed-mark-files-by-date
@@ -60,18 +53,25 @@
     "% d" 'trashed-flag-delete-files-regexp
     "% r" 'trashed-flag-restore-files-regexp
 
-    "d" 'trashed-flag-delete
     "r" 'trashed-flag-restore
 
     "zb" 'trashed-flag-backup-files
     "za" 'trashed-flag-auto-save-files
 
-    "x" 'trashed-do-execute
     "D" 'trashed-do-delete
     "R" 'trashed-do-restore
 
     "v" 'trashed-view-file)
 
+  (evil-collection-bind 'mark          'trashed-mode-map 'trashed-mark)
+  (evil-collection-bind 'mark-all      'trashed-mode-map 'trashed-mark-all)
+  (evil-collection-bind 'unmark        'trashed-mode-map 'trashed-unmark)
+  (evil-collection-bind 'unmark-all    'trashed-mode-map 'trashed-unmark-all)
+  (evil-collection-bind 'mark-delete   'trashed-mode-map 'trashed-flag-delete)
+  (evil-collection-bind 'execute-marks 'trashed-mode-map 'trashed-do-execute)
+
+  (evil-collection-bind 'scroll-down   'trashed-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up     'trashed-mode-map 'scroll-down-command)
   (evil-collection-bind 'action        'trashed-mode-map 'trashed-find-file)
   (evil-collection-bind 'action-other  'trashed-mode-map 'trashed-find-file-other-window)
   (evil-collection-bind 'action-stay   'trashed-mode-map 'trashed-display-file)

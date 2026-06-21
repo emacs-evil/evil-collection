@@ -91,7 +91,8 @@
   (evil-collection-bind 'refresh 'mpdel-core-map 'mpdel-song-refresh)
 
   (evil-collection-define-key 'normal 'mpdel-tablist-mode-map
-    "D" 'tablist-do-delete))
+    "d" 'tablist-do-delete)
+  (evil-collection-bind 'delete 'mpdel-tablist-mode-map 'tablist-do-delete))
 
 (provide 'evil-collection-mpdel)
 ;;; evil-collection-mpdel.el ends here

@@ -113,9 +113,7 @@
     [remap scroll-down-command] #'reader-scroll-up-screen
     [remap scroll-up-command] #'reader-scroll-down-screen
 
-    "SPC" #'reader-scroll-down-or-next-page
     "DEL" #'reader-scroll-up-or-prev-page
-    "S-SPC" #'reader-scroll-up-or-prev-page
 
     "l" #'reader-scroll-right
     "h" #'reader-scroll-left
@@ -149,6 +147,9 @@
     "<f5>" #'reader-presentation-mode
     "o" #'reader-outline-show
     "Q" #'reader-close-doc)
+
+  (evil-collection-bind 'scroll-down 'reader-mode-map 'reader-scroll-down-or-next-page)
+  (evil-collection-bind 'scroll-up   'reader-mode-map 'reader-scroll-up-or-prev-page)
 
   (evil-collection-define-key 'normal 'reader-outline-mode-map
     "p" #'previous-line

@@ -357,7 +357,6 @@ The actions triggered by pressing keys refer to the track under cursor.
     [remap evil-next-line] 'evil-collection-lms-next-line
     "i"              'lms-ui-playlist-track-info
     "C"              'lms-ui-playlist-jump-to-current
-    "d"              'lms-ui-playlist-delete-track
     (kbd "<delete>") 'lms-ui-playlist-delete-track
     "cc"             'lms-ui-playlist-clear
     "ct"             'lms-ui-playlist-clear-until-track
@@ -370,6 +369,7 @@ The actions triggered by pressing keys refer to the track under cursor.
   (evil-collection-bind 'quit          'lms-ui-playlist-mode-map 'evil-collection-lms-ui-playlist-mode-quit)
   (evil-collection-bind 'describe-mode 'lms-ui-playlist-mode-map 'lms-ui-playing-now-help)
   (evil-collection-bind 'action        'lms-ui-playlist-mode-map 'lms-ui-playlist-play)
+  (evil-collection-bind 'delete        'lms-ui-playlist-mode-map 'lms-ui-playlist-delete-track)
 
   (evil-collection-define-key 'normal 'lms-ui-tracks-list-mode-map
     [remap evil-goto-line] 'evil-collection-lms-goto-line

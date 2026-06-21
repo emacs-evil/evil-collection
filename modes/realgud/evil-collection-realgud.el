@@ -37,7 +37,6 @@
   "Set up `evil' bindings for `realgud'."
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
-    "d" 'realgud:cmd-delete
     "X" 'realgud:cmd-clear
     "-" 'realgud:cmd-disable
     "+" 'realgud:cmd-enable
@@ -58,7 +57,8 @@
     ;; (evil-collection-define-key nil map [M-S-down]  'realgud-track-hist-newest)
     ;; (evil-collection-define-key nil map [M-S-up]    'realgud-track-hist-oldest)
     )
-  (evil-collection-bind 'quit 'realgud:shortkey-mode-map 'realgud:cmd-quit)
+  (evil-collection-bind 'quit   'realgud:shortkey-mode-map 'realgud:cmd-quit)
+  (evil-collection-bind 'delete 'realgud:shortkey-mode-map 'realgud:cmd-delete)
 
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
     (kbd "C-x C-q") 'realgud-short-key-mode

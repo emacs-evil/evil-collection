@@ -109,24 +109,19 @@
     "*u" 'dired-unmark
     "*?" 'dired-unmark-all-files
     "*!" 'dired-unmark-all-marks
-    "U" 'dired-unmark-all-marks
     (kbd "* <delete>") 'dired-unmark-backward
     (kbd "* C-n") 'dired-next-marked-file
     (kbd "* C-p") 'dired-prev-marked-file
     "*t" 'dired-toggle-marks
     ;; Lower keys for commands not operating on all the marked files
     "a" 'dired-find-alternate-file
-    "d" 'dired-flag-file-deletion
     "i" 'dired-toggle-read-only
     "I" 'dired-maybe-insert-subdir
     "J" 'dired-goto-file
     "K" 'dired-do-kill-lines
     "r" 'dired-do-redisplay
-    "m" 'dired-mark
     "t" 'dired-toggle-marks
-    "u" 'dired-unmark                   ; also "*u"
     "W" 'browse-url-of-dired-file
-    "x" 'dired-do-flagged-delete
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
     "Y" 'dired-copy-filename-as-kill
     "+" 'dired-create-directory
@@ -156,6 +151,11 @@
     [remap toggle-read-only] 'dired-toggle-read-only
     (kbd "<delete>") 'dired-unmark-backward)
 
+  (evil-collection-bind 'mark          'dired-mode-map 'dired-mark)
+  (evil-collection-bind 'unmark        'dired-mode-map 'dired-unmark)
+  (evil-collection-bind 'unmark-all    'dired-mode-map 'dired-unmark-all-marks)
+  (evil-collection-bind 'mark-delete   'dired-mode-map 'dired-flag-file-deletion)
+  (evil-collection-bind 'execute-marks 'dired-mode-map 'dired-do-flagged-delete)
   (evil-collection-bind 'next-item     'dired-mode-map 'dired-next-dirline)
   (evil-collection-bind 'prev-item     'dired-mode-map 'dired-prev-dirline)
   (evil-collection-bind 'next-section  'dired-mode-map 'dired-next-dirline)

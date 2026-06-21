@@ -39,10 +39,6 @@
   (evil-collection-bind 'next-button     'Man-mode-map 'forward-button)
   (evil-collection-bind 'previous-button 'Man-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'Man-mode-map
-    ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
-
     ;; goto
     "gm" 'man
     "gd" 'Man-goto-section ; TODO: "gd" does not match the rationale of "go to definition". Change?
@@ -52,6 +48,8 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-bind 'scroll-down  'Man-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'Man-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'Man-mode-map 'Man-next-manpage)
   (evil-collection-bind 'prev-item    'Man-mode-map 'Man-previous-manpage)
   (evil-collection-bind 'next-section 'Man-mode-map 'Man-next-manpage)

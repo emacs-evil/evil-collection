@@ -47,9 +47,6 @@
   (evil-collection-define-key 'normal 'elfeed-search-mode-map
     "y" 'elfeed-search-yank
 
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
-
     ;; filter
     "s" 'elfeed-search-live-filter
     "S" 'elfeed-search-set-filter
@@ -59,6 +56,8 @@
     ;; `evil-collection-set-readonly-bindings'.
     "ZQ" 'quit-window)
 
+  (evil-collection-bind 'scroll-down  'elfeed-search-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'elfeed-search-mode-map 'scroll-down-command)
   (evil-collection-bind 'action       'elfeed-search-mode-map 'elfeed-search-show-entry)
   (evil-collection-bind 'action-other 'elfeed-search-mode-map 'elfeed-search-browse-url)
   (evil-collection-bind 'refresh-all 'elfeed-search-mode-map 'elfeed-search-fetch)
@@ -88,8 +87,6 @@
   (evil-collection-set-readonly-bindings 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-show-mode-map
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
     (kbd "<tab>") 'elfeed-show-next-link
 
     ;; filter
@@ -105,6 +102,8 @@
     ;; quit
     "ZQ" 'elfeed-kill-buffer
     "ZZ" 'elfeed-kill-buffer)
+  (evil-collection-bind 'scroll-down  'elfeed-show-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'elfeed-show-mode-map 'scroll-down-command)
   (evil-collection-bind 'action-other 'elfeed-show-mode-map 'elfeed-show-visit)
   (evil-collection-bind 'next-item    'elfeed-show-mode-map 'elfeed-show-next)
   (evil-collection-bind 'prev-item    'elfeed-show-mode-map 'elfeed-show-prev)

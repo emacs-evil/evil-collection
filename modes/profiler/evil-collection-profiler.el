@@ -39,8 +39,6 @@
 
   (evil-collection-define-key 'normal 'profiler-report-mode-map
     ;; motion
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
     (kbd "<delete>") 'scroll-down-command
     "j" 'profiler-report-next-entry
     "k" 'profiler-report-previous-entry
@@ -59,6 +57,8 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-windw)
+  (evil-collection-bind 'scroll-down 'profiler-report-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up   'profiler-report-mode-map 'scroll-down-command)
   (evil-collection-bind 'action  'profiler-report-mode-map 'profiler-report-find-entry)
   (evil-collection-bind 'quit    'profiler-report-mode-map 'quit-window)
   (evil-collection-bind 'refresh 'profiler-report-mode-map 'revert-buffer))

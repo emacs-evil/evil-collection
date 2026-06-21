@@ -64,12 +64,6 @@
     "x" 'vc-revert
     "b" 'vc-annotate ;; Like `magit-blame'
 
-    ;; Marking.
-    "m" 'vc-dir-mark
-    "M" 'vc-dir-mark-all-files
-    "u" 'vc-dir-unmark
-    "U" 'vc-dir-unmark-all-files
-
     "\C-c\C-c" 'vc-dir-kill-dir-status-process
     [down-mouse-3] 'vc-dir-menu
     [mouse-2] 'vc-dir-find-file-other-window
@@ -91,6 +85,10 @@
     "Bl" 'vc-print-branch-log
     "Bs" 'vc-retrieve-tag)
 
+  (evil-collection-bind 'mark         'vc-dir-mode-map 'vc-dir-mark)
+  (evil-collection-bind 'mark-all     'vc-dir-mode-map 'vc-dir-mark-all-files)
+  (evil-collection-bind 'unmark       'vc-dir-mode-map 'vc-dir-unmark)
+  (evil-collection-bind 'unmark-all   'vc-dir-mode-map 'vc-dir-unmark-all-files)
   (evil-collection-bind 'next-item    'vc-dir-mode-map 'vc-dir-next-directory)
   (evil-collection-bind 'prev-item    'vc-dir-mode-map 'vc-dir-previous-directory)
   (evil-collection-bind 'next-section 'vc-dir-mode-map 'vc-dir-next-directory)

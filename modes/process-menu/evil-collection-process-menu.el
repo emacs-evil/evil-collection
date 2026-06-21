@@ -40,14 +40,15 @@
     (kbd "<backtab>") 'backward-button
 
     "S" 'tabulated-list-sort
-    "D" 'process-menu-delete-process
+    "d" 'process-menu-delete-process)
 
-    ;; motion
-    ;; TODO: Implement beginning-of-buffer / end-of-buffer.
-    (kbd "SPC") 'evil-scroll-down
-    (kbd "S-SPC") 'evil-scroll-up)
+  ;; motion
+  ;; TODO: Implement beginning-of-buffer / end-of-buffer.
+  (evil-collection-bind 'scroll-down 'process-menu-mode-map 'evil-scroll-down)
+  (evil-collection-bind 'scroll-up   'process-menu-mode-map 'evil-scroll-up)
 
-  (evil-collection-bind 'refresh 'process-menu-mode-map 'revert-buffer))
+  (evil-collection-bind 'refresh 'process-menu-mode-map 'revert-buffer)
+  (evil-collection-bind 'delete  'process-menu-mode-map 'process-menu-delete-process))
 
 (provide 'evil-collection-process-menu)
 ;;; evil-collection-process-menu.el ends here

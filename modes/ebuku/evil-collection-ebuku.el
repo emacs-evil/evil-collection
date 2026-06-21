@@ -41,7 +41,6 @@
   (evil-collection-bind 'prev-section 'ebuku-mode-map 'ebuku-previous-bookmark)
   (evil-collection-define-key 'normal 'ebuku-mode-map
                               "a" 'ebuku-add-bookmark
-                              "d" 'ebuku-delete-bookmark
                               "x" 'ebuku-delete-bookmark
                               "e" 'ebuku-edit-bookmark
                               "j" 'ebuku-next-bookmark
@@ -56,7 +55,8 @@
                               "I" 'ebuku-copy-index
                               [mouse-1] 'ebuku-open-url
                               [mouse-2] 'ebuku-open-url)
-  (evil-collection-bind 'action 'ebuku-mode-map 'ebuku-open-url))
+  (evil-collection-bind 'action 'ebuku-mode-map 'ebuku-open-url)
+  (evil-collection-bind 'delete 'ebuku-mode-map 'ebuku-delete-bookmark))
 
 
 (provide 'evil-collection-ebuku)

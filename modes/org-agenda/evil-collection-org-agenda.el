@@ -109,7 +109,6 @@
     ;; Entry actions
     "t" 'org-agenda-todo
     "s" 'org-agenda-schedule
-    "d" 'org-agenda-kill
     "T" 'org-agenda-set-tags
     "p" 'org-agenda-priority
     "r" 'org-agenda-refile
@@ -138,6 +137,7 @@
   (evil-collection-bind 'next-section-2 'org-agenda-mode-map 'org-agenda-next-item)
   (evil-collection-bind 'prev-section-2 'org-agenda-mode-map 'org-agenda-previous-item)
   (evil-collection-bind 'quit         'org-agenda-mode-map 'org-agenda-quit)
+  (evil-collection-bind 'delete       'org-agenda-mode-map 'org-agenda-kill)
   (evil-collection-bind 'refresh      'org-agenda-mode-map 'org-agenda-redo)
   (evil-collection-bind 'refresh-all  'org-agenda-mode-map 'org-agenda-redo-all)
   (evil-collection-bind 'action       'org-agenda-mode-map 'org-agenda-switch-to)

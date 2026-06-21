@@ -54,10 +54,10 @@
     (kbd "TAB") 'shr-next-link
     (kbd "M-TAB") 'shr-previous-link
     (kbd "<backtab>") 'shr-previous-link
-    (kbd "SPC") 'nov-scroll-up
-    (kbd "S-SPC") 'nov-scroll-down
     (kbd "DEL") 'nov-scroll-down)
 
+  (evil-collection-bind 'scroll-down   'nov-mode-map 'nov-scroll-up)
+  (evil-collection-bind 'scroll-up     'nov-mode-map 'nov-scroll-down)
   (evil-collection-bind 'action        'nov-mode-map 'nov-browse-url)
   (evil-collection-bind 'describe-mode 'nov-mode-map 'nov-display-metadata)
   (evil-collection-bind 'refresh       'nov-mode-map 'nov-render-document))

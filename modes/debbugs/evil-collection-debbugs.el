@@ -40,9 +40,6 @@
   (evil-collection-bind 'next-button     'debbugs-gnu-mode-map 'forward-button)
   (evil-collection-bind 'previous-button 'debbugs-gnu-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'debbugs-gnu-mode-map
-    ;; motion
-    (kbd "SPC") 'scroll-up-command
-
     "c" 'debbugs-gnu-send-control-message
     "d" 'debbugs-gnu-display-status
 
@@ -70,6 +67,7 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-bind 'scroll-down   'debbugs-gnu-mode-map 'scroll-up-command)
   (evil-collection-bind 'action        'debbugs-gnu-mode-map 'debbugs-gnu-select-report)
   (evil-collection-bind 'quit          'debbugs-gnu-mode-map 'quit-window)
   (evil-collection-bind 'describe-mode 'debbugs-gnu-mode-map 'debbugs-gnu-manual)

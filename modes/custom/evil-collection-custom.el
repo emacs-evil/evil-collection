@@ -42,8 +42,6 @@
     (kbd "<tab>") 'widget-forward
     (kbd "S-<tab>") 'widget-backward
     (kbd "<backtab>") 'widget-backward
-    (kbd "SPC") 'scroll-up-command
-    (kbd "S-SPC") 'scroll-down-command
     (kbd "<delete>") 'scroll-down-command
 
     "^" 'Custom-goto-parent
@@ -54,6 +52,8 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done)
+  (evil-collection-bind 'scroll-down  'custom-mode-map 'scroll-up-command)
+  (evil-collection-bind 'scroll-up    'custom-mode-map 'scroll-down-command)
   (evil-collection-bind 'action       'custom-mode-map 'Custom-newline)
   (evil-collection-bind 'next-item    'custom-mode-map 'widget-forward)
   (evil-collection-bind 'prev-item    'custom-mode-map 'widget-backward)

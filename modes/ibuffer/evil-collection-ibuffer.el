@@ -51,14 +51,11 @@
     (kbd "M-s a C-o") 'ibuffer-do-occur
 
     ;; mark
-    (kbd "m") 'ibuffer-mark-forward
     (kbd "~") 'ibuffer-toggle-marks
-    (kbd "u") 'ibuffer-unmark-forward
     (kbd "DEL") 'ibuffer-unmark-backward
     (kbd "M-DEL") 'ibuffer-unmark-all
     (kbd "* *") 'ibuffer-mark-special-buffers
     (kbd "* c") 'ibuffer-change-marks
-    (kbd "U") 'ibuffer-unmark-all-marks
     (kbd "* M") 'ibuffer-mark-by-mode
     (kbd "* m") 'ibuffer-mark-modified-buffers
     (kbd "* u") 'ibuffer-mark-unsaved-buffers
@@ -69,9 +66,6 @@
     (kbd "* h") 'ibuffer-mark-help-buffers
     (kbd "* z") 'ibuffer-mark-compressed-file-buffers
     (kbd ".") 'ibuffer-mark-old-buffers
-
-    (kbd "d") 'ibuffer-mark-for-delete
-    (kbd "x") 'ibuffer-do-kill-on-deletion-marks
 
     ;; immediate operations
     (kbd "}") 'ibuffer-forward-next-marked
@@ -180,6 +174,11 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
+  (evil-collection-bind 'mark          'ibuffer-mode-map 'ibuffer-mark-forward)
+  (evil-collection-bind 'unmark        'ibuffer-mode-map 'ibuffer-unmark-forward)
+  (evil-collection-bind 'unmark-all    'ibuffer-mode-map 'ibuffer-unmark-all-marks)
+  (evil-collection-bind 'mark-delete   'ibuffer-mode-map 'ibuffer-mark-for-delete)
+  (evil-collection-bind 'execute-marks 'ibuffer-mode-map 'ibuffer-do-kill-on-deletion-marks)
   (evil-collection-bind 'action       'ibuffer-mode-map 'ibuffer-visit-buffer)
   (evil-collection-bind 'action-other 'ibuffer-mode-map 'ibuffer-visit-buffer-other-window)
   (evil-collection-bind 'action-stay  'ibuffer-mode-map 'ibuffer-visit-buffer-other-window-noselect)

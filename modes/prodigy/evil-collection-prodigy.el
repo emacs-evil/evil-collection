@@ -44,12 +44,8 @@
     "G" 'prodigy-last
 
     ;; mark
-    "m" 'prodigy-mark
     "*t" 'prodigy-mark-tag
-    "M" 'prodigy-mark-all
-    "u" 'prodigy-unmark
     "*T" 'prodigy-unmark-tag
-    "U" 'prodigy-unmark-all
 
     "s" 'prodigy-start
     "S" 'prodigy-stop
@@ -62,6 +58,10 @@
     "Jd" 'prodigy-jump-file-manager
 
     (kbd "Y") 'prodigy-copy-cmd)
+  (evil-collection-bind 'mark         'prodigy-mode-map 'prodigy-mark)
+  (evil-collection-bind 'mark-all     'prodigy-mode-map 'prodigy-mark-all)
+  (evil-collection-bind 'unmark       'prodigy-mode-map 'prodigy-unmark)
+  (evil-collection-bind 'unmark-all   'prodigy-mode-map 'prodigy-unmark-all)
   (evil-collection-bind 'action       'prodigy-mode-map 'prodigy-browse)
   (evil-collection-bind 'next-item    'prodigy-mode-map 'prodigy-next-with-status)
   (evil-collection-bind 'prev-item    'prodigy-mode-map 'prodigy-prev-with-status)

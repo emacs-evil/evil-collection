@@ -469,11 +469,7 @@ Note that there is no gnus-common-mode-map")
     "ZZ"        'quit-window
 
     ;; mark and execution
-    "m"         'gnus-bookmark-bmenu-mark
-    "u"         'gnus-bookmark-bmenu-unmark
     (kbd "DEL") 'gnus-bookmark-bmenu-backup-unmark
-    "d"         'gnus-bookmark-bmenu-delete
-    "x"         'gnus-bookmark-bmenu-execute-deletions
 
     [mouse-2]   'gnus-bookmark-bmenu-select-by-mouse
     "L"         'gnus-bookmark-bmenu-load
@@ -483,7 +479,11 @@ Note that there is no gnus-common-mode-map")
     ;; not implemented yet
     "A"         'gnus-bookmark-bmenu-show-all-annotations
     "E"         'gnus-bookmark-bmenu-edit-annotation
-    "R"         'gnus-bookmark-bmenu-rename))
+    "R"         'gnus-bookmark-bmenu-rename)
+  (evil-collection-bind 'mark          'gnus-bookmark-bmenu-mode-map 'gnus-bookmark-bmenu-mark)
+  (evil-collection-bind 'unmark        'gnus-bookmark-bmenu-mode-map 'gnus-bookmark-bmenu-unmark)
+  (evil-collection-bind 'mark-delete   'gnus-bookmark-bmenu-mode-map 'gnus-bookmark-bmenu-delete)
+  (evil-collection-bind 'execute-marks 'gnus-bookmark-bmenu-mode-map 'gnus-bookmark-bmenu-execute-deletions))
 
 (provide 'evil-collection-gnus)
 ;;; evil-collection-gnus.el ends here
