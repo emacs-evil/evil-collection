@@ -55,10 +55,10 @@
     (evil-collection-define-key 'normal 'vertico-map
       "gg" 'vertico-first
       "G" 'vertico-last
-      "gj" 'vertico-next-group
-      "gk" 'vertico-previous-group
       "j" 'vertico-next
       "k" 'vertico-previous)
+    (evil-collection-theme-bind 'next-item 'vertico-map 'vertico-next-group)
+    (evil-collection-theme-bind 'prev-item 'vertico-map 'vertico-previous-group)
 
     (evil-collection-define-key 'insert 'vertico-map
       (kbd "C-n") 'vertico-next

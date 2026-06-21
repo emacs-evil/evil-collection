@@ -114,9 +114,19 @@ This is only relevant for debug modes that are part of another mode,
 
 e.g. `indium'. Modes like `edebug' or `realgud' needs to be explicitly disabled
 
-through removing their entry from `evil-collection-mode-list'."
+through removing their entry from `evil-collection-mode-list'.
+
+This variable is obsolete; new customization should use
+`evil-collection-theme-overrides' instead:
+
+  (setq evil-collection-theme-overrides
+        \\='((debug-breakpoint :enabled nil)))"
   :type 'boolean
   :group 'evil-collection)
+
+(make-obsolete-variable 'evil-collection-setup-debugger-keys
+                        "use `evil-collection-theme-overrides': `debug-continue', `debug-step-over', `debug-step-into', `debug-step-out', `debug-breakpoint'."
+                        "evil-collection 0.0.3")
 
 (defcustom evil-collection-want-unimpaired-p t
   "Whether to enable unimpaired style bindings globally."
@@ -562,7 +572,40 @@ New customization should use
              :key "gr")
     (refresh-all :enabled t
                  :state normal
-                 :key "gR"))
+                 :key "gR")
+    (debug-continue    :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key ("c" "<f5>"))
+    (debug-step-over   :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key ("n" "<f10>"))
+    (debug-step-into   :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key ("i" "s" "<f11>"))
+    (debug-step-out    :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key ("o" "<S-f11>"))
+    (debug-breakpoint  :enabled ,(lambda () evil-collection-setup-debugger-keys)
+                       :state normal
+                       :key ("b" "<f9>"))
+    (next-item :enabled t
+               :state normal
+               :key "gj")
+    (prev-item :enabled t
+               :state normal
+               :key "gk")
+    (next-section :enabled t
+                  :state normal
+                  :key ("]]" "C-j"))
+    (prev-section :enabled t
+                  :state normal
+                  :key ("[[" "C-k"))
+    (next-section-2 :enabled t
+                    :state normal
+                    :key "C-j")
+    (prev-section-2 :enabled t
+                    :state normal
+                    :key "C-k"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

@@ -39,14 +39,8 @@
   (evil-set-initial-state 'xref--xref-buffer-mode 'normal)
   (evil-collection-set-readonly-bindings 'xref--xref-buffer-mode-map)
   (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
-    "gj" 'xref-next-line
-    "gk" 'xref-prev-line
-    (kbd "C-j") 'xref-next-line
-    (kbd "C-k") 'xref-prev-line
     (kbd "C-n") 'xref-next-line
     (kbd "C-p") 'xref-prev-line
-    "]]" 'xref-next-line
-    "[[" 'xref-prev-line
     "r" 'xref-query-replace-in-results
 
     ;; Match `dired''s `dired-do-find-regexp-and-replace'.
@@ -57,14 +51,21 @@
     (kbd "S-<return>") 'xref-quit-and-goto-xref  ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'
     "o" 'xref-show-location-at-point
     "go" 'xref-show-location-at-point)
+  (evil-collection-theme-bind 'next-item    'xref--xref-buffer-mode-map 'xref-next-line)
+  (evil-collection-theme-bind 'prev-item    'xref--xref-buffer-mode-map 'xref-prev-line)
+  (evil-collection-theme-bind 'next-section 'xref--xref-buffer-mode-map 'xref-next-line)
+  (evil-collection-theme-bind 'prev-section 'xref--xref-buffer-mode-map 'xref-prev-line)
 
   (when (>= emacs-major-version 27)
     (evil-collection-theme-bind 'refresh 'xref--xref-buffer-mode-map 'xref-revert-buffer))
 
   (when (>= emacs-major-version 28)
+    ;; Override `]]'/`[[' to navigate by group; keep `C-j'/`C-k' on lines.
     (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
       "[[" 'xref-prev-group
-      "]]" 'xref-next-group))
+      "]]" 'xref-next-group
+      (kbd "C-j") 'xref-next-line
+      (kbd "C-k") 'xref-prev-line))
 
   (when (>= emacs-major-version 27)
     (evil-set-initial-state 'xref--transient-buffer-mode 'normal)

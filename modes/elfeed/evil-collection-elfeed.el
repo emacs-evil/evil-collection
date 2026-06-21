@@ -108,16 +108,13 @@
     "P" 'elfeed-show-play-enclosure
     "d" 'elfeed-show-save-enclosure
 
-    "]]" 'elfeed-show-next
-    "[[" 'elfeed-show-prev
-    "gj" 'elfeed-show-next
-    "gk" 'elfeed-show-prev
-    (kbd "C-j") 'elfeed-show-next
-    (kbd "C-k") 'elfeed-show-prev
-
     ;; quit
     "ZQ" 'elfeed-kill-buffer
     "ZZ" 'elfeed-kill-buffer)
+  (evil-collection-theme-bind 'next-item    'elfeed-show-mode-map 'elfeed-show-next)
+  (evil-collection-theme-bind 'prev-item    'elfeed-show-mode-map 'elfeed-show-prev)
+  (evil-collection-theme-bind 'next-section 'elfeed-show-mode-map 'elfeed-show-next)
+  (evil-collection-theme-bind 'prev-section 'elfeed-show-mode-map 'elfeed-show-prev)
   (evil-collection-theme-bind 'quit    'elfeed-show-mode-map 'elfeed-kill-buffer)
   (evil-collection-theme-bind 'refresh 'elfeed-show-mode-map 'elfeed-show-refresh)
 

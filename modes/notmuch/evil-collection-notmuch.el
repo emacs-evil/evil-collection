@@ -173,12 +173,6 @@ that moves trashed messages out of the inbox)."
     "d" 'evil-collection-notmuch-show-toggle-delete
     "=" 'evil-collection-notmuch-show-toggle-flagged
     "H" 'notmuch-show-toggle-visibility-headers
-    "gj" 'notmuch-show-next-open-message
-    "gk" 'notmuch-show-previous-open-message
-    "]]" 'notmuch-show-next-message
-    "[[" 'notmuch-show-previous-message
-    (kbd "C-j") 'notmuch-show-next-message
-    (kbd "C-k") 'notmuch-show-previous-message
     (kbd "M-j") 'notmuch-show-next-thread-show
     (kbd "M-k") 'notmuch-show-previous-thread-show
     "cr" 'notmuch-show-reply-sender
@@ -191,6 +185,10 @@ that moves trashed messages out of the inbox)."
     (kbd "<backtab>") 'notmuch-show-previous-button
     (kbd "RET") 'notmuch-show-toggle-message
     "." 'notmuch-show-part-map)
+  (evil-collection-theme-bind 'next-item    'notmuch-show-mode-map 'notmuch-show-next-open-message)
+  (evil-collection-theme-bind 'prev-item    'notmuch-show-mode-map 'notmuch-show-previous-open-message)
+  (evil-collection-theme-bind 'next-section 'notmuch-show-mode-map 'notmuch-show-next-message)
+  (evil-collection-theme-bind 'prev-section 'notmuch-show-mode-map 'notmuch-show-previous-message)
 
   (evil-collection-theme-bind 'describe-mode 'notmuch-tree-mode-map 'notmuch-help)
 
@@ -211,17 +209,17 @@ that moves trashed messages out of the inbox)."
     "A" 'notmuch-tree-archive-thread-then-next
     "a" 'notmuch-tree-archive-message-then-next
     "s" 'notmuch-tree-to-tree
-    "gj" 'notmuch-tree-next-matching-message
-    "gk" 'notmuch-tree-prev-matching-message
-    "]]" 'notmuch-tree-next-message
-    "[[" 'notmuch-tree-prev-message
-    (kbd "C-k") 'notmuch-tree-prev-thread
-    (kbd "C-j") 'notmuch-tree-next-thread
     "|" 'notmuch-show-pipe-message
     "-" 'notmuch-tree-remove-tag
     "+" 'notmuch-tree-add-tag
     "*" 'notmuch-tree-tag-thread
     "e" 'notmuch-tree-resume-message)
+  (evil-collection-theme-bind 'next-item    'notmuch-tree-mode-map 'notmuch-tree-next-matching-message)
+  (evil-collection-theme-bind 'prev-item    'notmuch-tree-mode-map 'notmuch-tree-prev-matching-message)
+  (evil-collection-theme-bind 'next-section 'notmuch-tree-mode-map 'notmuch-tree-next-message)
+  (evil-collection-theme-bind 'prev-section   'notmuch-tree-mode-map 'notmuch-tree-prev-message)
+  (evil-collection-theme-bind 'next-section-2 'notmuch-tree-mode-map 'notmuch-tree-next-thread)
+  (evil-collection-theme-bind 'prev-section-2 'notmuch-tree-mode-map 'notmuch-tree-prev-thread)
   (evil-collection-theme-bind 'quit 'notmuch-tree-mode-map 'notmuch-tree-quit)
 
   (dolist (state '(normal visual))

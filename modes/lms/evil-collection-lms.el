@@ -303,9 +303,7 @@ The actions triggered by pressing keys refer to the track under cursor.
     "x"              'lms-ui-playing-now-play-pause
     "p"              'lms-ui-playing-now-play
     "s"              'lms-ui-playing-now-stop
-    (kbd "C-j")      'lms-ui-playing-now-next
     (kbd  "<right>") 'lms-ui-playing-now-next
-    (kbd "C-k")      'lms-ui-playing-now-prev
     (kbd  "<left>")  'lms-ui-playing-now-prev
     "+"              'lms-ui-playing-now-volume-up
     "="              'lms-ui-playing-now-volume-up
@@ -320,17 +318,23 @@ The actions triggered by pressing keys refer to the track under cursor.
     "Y"              'lms-ui-playing-now-year-albums-list
     "M"              'lms-ui-playing-now-browse-music-library
     "gh"             'lms-ui-playing-now-help)
+  (evil-collection-theme-bind 'next-item     'lms-ui-playing-now-mode-map 'lms-ui-playing-now-next)
+  (evil-collection-theme-bind 'prev-item     'lms-ui-playing-now-mode-map 'lms-ui-playing-now-prev)
+  (evil-collection-theme-bind 'next-section  'lms-ui-playing-now-mode-map 'lms-ui-playing-now-next)
+  (evil-collection-theme-bind 'prev-section  'lms-ui-playing-now-mode-map 'lms-ui-playing-now-prev)
   (evil-collection-theme-bind 'quit          'lms-ui-playing-now-mode-map 'lms-ui-playing-now-quit)
   (evil-collection-theme-bind 'describe-mode 'lms-ui-playing-now-mode-map 'lms-ui-playing-now-help)
   (evil-collection-theme-bind 'refresh       'lms-ui-playing-now-mode-map 'lms-ui-playing-now-refresh)
 
   (evil-collection-define-key 'normal 'lms-ui-track-info-mode-map
     "R"             'lms-ui-track-info-change-rating
-    (kbd "C-k")     'lms-ui-track-info-prev
     (kbd "<left>")  'lms-ui-track-info-prev
-    (kbd "C-j")     'lms-ui-track-info-next
     (kbd "<right>") 'lms-ui-track-info-next
     "gh"            'lms-ui-playing-now-help)
+  (evil-collection-theme-bind 'next-item     'lms-ui-track-info-mode-map 'lms-ui-track-info-next)
+  (evil-collection-theme-bind 'prev-item     'lms-ui-track-info-mode-map 'lms-ui-track-info-prev)
+  (evil-collection-theme-bind 'next-section  'lms-ui-track-info-mode-map 'lms-ui-track-info-next)
+  (evil-collection-theme-bind 'prev-section  'lms-ui-track-info-mode-map 'lms-ui-track-info-prev)
   (evil-collection-theme-bind 'quit          'lms-ui-track-info-mode-map 'evil-collection-lms-ui-track-info-mode-quit)
   (evil-collection-theme-bind 'describe-mode 'lms-ui-track-info-mode-map 'lms-ui-playing-now-help)
 

@@ -140,10 +140,6 @@
     ;; sort
     "o" 'dired-sort-toggle-or-edit
     ;; moving
-    "gj" 'dired-next-dirline
-    "gk" 'dired-prev-dirline
-    "[[" 'dired-prev-dirline
-    "]]" 'dired-next-dirline
     "<" 'dired-prev-dirline
     ">" 'dired-next-dirline
     "^" 'dired-up-directory
@@ -167,6 +163,10 @@
     [remap toggle-read-only] 'dired-toggle-read-only
     (kbd "<delete>") 'dired-unmark-backward)
 
+  (evil-collection-theme-bind 'next-item     'dired-mode-map 'dired-next-dirline)
+  (evil-collection-theme-bind 'prev-item     'dired-mode-map 'dired-prev-dirline)
+  (evil-collection-theme-bind 'next-section  'dired-mode-map 'dired-next-dirline)
+  (evil-collection-theme-bind 'prev-section  'dired-mode-map 'dired-prev-dirline)
   (evil-collection-theme-bind 'find-file     'dired-mode-map 'dired-find-file)
   (evil-collection-theme-bind 'describe-mode 'dired-mode-map 'dired-summary)
   (evil-collection-theme-bind 'refresh       'dired-mode-map 'revert-buffer)

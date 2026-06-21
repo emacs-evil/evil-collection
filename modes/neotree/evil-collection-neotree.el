@@ -60,12 +60,6 @@
     "gO" 'neotree-quick-look
     "H" 'neotree-hidden-file-toggle
     "gh" 'neotree-hidden-file-toggle
-    (kbd "C-k") 'neotree-select-up-node
-    "gk" 'neotree-select-up-node
-    "[[" 'neotree-select-up-node
-    (kbd "C-j") 'neotree-select-down-node
-    "gj" 'neotree-select-down-node
-    "]]" 'neotree-select-down-node
     "gv" 'neotree-open-file-in-system-application
     "c" 'neotree-create-node
     "y" 'neotree-copy-node
@@ -94,6 +88,10 @@
     (kbd "C-x 3") 'neotree-empty-fn
     (kbd "C-x C-f") 'find-file-other-window
     (kbd "C-c C-f") 'find-file-other-window)
+  (evil-collection-theme-bind 'next-item    'neotree-mode-map 'neotree-select-down-node)
+  (evil-collection-theme-bind 'prev-item    'neotree-mode-map 'neotree-select-up-node)
+  (evil-collection-theme-bind 'next-section 'neotree-mode-map 'neotree-select-down-node)
+  (evil-collection-theme-bind 'prev-section 'neotree-mode-map 'neotree-select-up-node)
   (evil-collection-theme-bind 'quit    'neotree-mode-map 'neotree-hide)
   (evil-collection-theme-bind 'refresh 'neotree-mode-map 'neotree-refresh))
 

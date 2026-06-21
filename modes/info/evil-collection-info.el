@@ -90,19 +90,16 @@
     "gm" 'Info-menu
     "gt" 'Info-top-node
     "gT" 'Info-toc
-    ;; TODO: "[" and "]" are Emacs default for fine-grained browsing.
-    ;; We usually use "C-j"/"C-k" for that.
-    (kbd "C-j") 'Info-forward-node
-    (kbd "C-k") 'Info-backward-node
-    "gj" 'Info-next
-    "gk" 'Info-prev
-
     "g," 'Info-index-next)
 
   ;; yu, Like eww.
   (evil-collection-define-operator-key 'yank 'Info-mode-map
     "u" 'Info-copy-current-node-name)
 
+  (evil-collection-theme-bind 'next-item     'Info-mode-map 'Info-next)
+  (evil-collection-theme-bind 'prev-item     'Info-mode-map 'Info-prev)
+  (evil-collection-theme-bind 'next-section  'Info-mode-map 'Info-forward-node)
+  (evil-collection-theme-bind 'prev-section  'Info-mode-map 'Info-backward-node)
   (evil-collection-theme-bind 'find-file     'Info-mode-map 'Info-follow-reference)
   (evil-collection-theme-bind 'describe-mode 'Info-mode-map 'Info-summary))
 

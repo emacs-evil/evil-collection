@@ -37,15 +37,15 @@
   "Set up `evil' bindings for `doc-view'."
   (evil-set-initial-state 'doc-view-mode 'normal)
   (evil-collection-theme-bind 'quit 'doc-view-mode-map 'quit-window)
+  (evil-collection-theme-bind 'next-item    'doc-view-mode-map 'doc-view-next-page)
+  (evil-collection-theme-bind 'prev-item    'doc-view-mode-map 'doc-view-previous-page)
+  (evil-collection-theme-bind 'next-section 'doc-view-mode-map 'doc-view-next-page)
+  (evil-collection-theme-bind 'prev-section 'doc-view-mode-map 'doc-view-previous-page)
   (evil-collection-define-key 'normal 'doc-view-mode-map
     [remap evil-next-line] 'doc-view-next-line-or-next-page
     [remap evil-previous-line] 'doc-view-previous-line-or-previous-page
     [remap evil-backward-char] 'image-backward-hscroll
     [remap evil-forward-char] 'image-forward-hscroll
-    (kbd "C-j") 'doc-view-next-page
-    (kbd "C-k") 'doc-view-previous-page
-    "gj" 'doc-view-next-page
-    "gk" 'doc-view-previous-page
     (kbd "C-d") 'forward-page
     (kbd "SPC") 'doc-view-scroll-up-or-next-page
     (kbd "DEL") 'doc-view-scroll-down-or-previous-page

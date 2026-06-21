@@ -45,11 +45,6 @@
     (kbd "<tab>")       'forward-button
     (kbd "<backtab>")   'backward-button
 
-    "[[" 'devdocs-previous-page
-    "]]" 'devdocs-next-page
-    "gk" 'devdocs-previous-page
-    "gj" 'devdocs-next-page
-
     "g." 'devdocs-goto-target
 
     ;; history
@@ -60,7 +55,11 @@
     "C" 'devdocs-copy-url
 
     ;; search
-    "s" 'devdocs-lookup))
+    "s" 'devdocs-lookup)
+  (evil-collection-theme-bind 'next-item    'devdocs-mode-map 'devdocs-next-page)
+  (evil-collection-theme-bind 'prev-item    'devdocs-mode-map 'devdocs-previous-page)
+  (evil-collection-theme-bind 'next-section 'devdocs-mode-map 'devdocs-next-page)
+  (evil-collection-theme-bind 'prev-section 'devdocs-mode-map 'devdocs-previous-page))
 
 (provide 'evil-collection-devdocs)
 ;;; evil-collection-devdocs.el ends here

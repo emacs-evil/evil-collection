@@ -275,9 +275,11 @@ But don't allow the cursor to move bellow the last prompt line."
 
   (evil-collection-theme-bind 'repl-submit 'vterm-mode-map 'vterm-send-return)
 
+  (evil-collection-theme-bind 'next-item    'vterm-mode-map 'vterm-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'vterm-mode-map 'vterm-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'vterm-mode-map 'vterm-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'vterm-mode-map 'vterm-previous-prompt)
   (evil-collection-define-key 'normal 'vterm-mode-map
-    "[[" 'vterm-previous-prompt
-    "]]" 'vterm-next-prompt
     "p" 'evil-collection-vterm-paste-after
     "P" 'vterm-yank
     "a" 'evil-collection-vterm-append

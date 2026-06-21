@@ -79,6 +79,10 @@
   (evil-collection-theme-bind 'repl-submit        'ement-room-mode-map 'ement-room-send-message)
   (evil-collection-theme-bind 'repl-newline       'ement-room-mode-map 'newline)
   (evil-collection-theme-bind 'repl-force-newline 'ement-room-mode-map 'newline)
+  (evil-collection-theme-bind 'next-item    'ement-room-mode-map 'ement-room-goto-next)
+  (evil-collection-theme-bind 'prev-item    'ement-room-mode-map 'ement-room-goto-prev)
+  (evil-collection-theme-bind 'next-section 'ement-room-mode-map 'ement-room-goto-next)
+  (evil-collection-theme-bind 'prev-section 'ement-room-mode-map 'ement-room-goto-prev)
 
   (evil-collection-define-key '(normal motion) 'ement-room-mode-map
     (kbd "<")  'ement-room-transient
@@ -89,8 +93,6 @@
     (kbd "d")  'ement-room-delete-message
     (kbd "D")  'ement-room-delete-message
     (kbd "J")  'ement-room-write-reply
-    (kbd "]]") 'ement-room-goto-next
-    (kbd "[[") 'ement-room-goto-prev
     (kbd "gr") 'ement-room-sync
     (kbd "gu") 'ement-room-goto-fully-read-marker
     (kbd "gm") 'ement-room-mark-read

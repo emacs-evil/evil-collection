@@ -51,13 +51,13 @@
     "=" 'log-view-diff
     "D" 'log-view-diff-changeset
     "a" 'log-view-annotate-version
-    "F" 'log-view-find-revision
-    "gj" 'log-view-msg-next
-    "gk" 'log-view-msg-prev
-    "]]" 'log-view-msg-next
-    "[[" 'log-view-msg-prev
-    (kbd "C-j") 'log-view-file-next
-    (kbd "C-k") 'log-view-file-prev))
+    "F" 'log-view-find-revision)
+  (evil-collection-theme-bind 'next-item    'log-view-mode-map 'log-view-msg-next)
+  (evil-collection-theme-bind 'prev-item    'log-view-mode-map 'log-view-msg-prev)
+  (evil-collection-theme-bind 'next-section 'log-view-mode-map 'log-view-msg-next)
+  (evil-collection-theme-bind 'prev-section   'log-view-mode-map 'log-view-msg-prev)
+  (evil-collection-theme-bind 'next-section-2 'log-view-mode-map 'log-view-file-next)
+  (evil-collection-theme-bind 'prev-section-2 'log-view-mode-map 'log-view-file-prev))
 
 (provide 'evil-collection-log-view)
 ;;; evil-collection-log-view.el ends here

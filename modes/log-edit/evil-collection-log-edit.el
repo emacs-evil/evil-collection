@@ -44,15 +44,12 @@
   (evil-collection-theme-bind 'describe-mode 'log-edit-mode-map 'log-edit-mode-help)
 
   (evil-collection-define-key 'normal 'log-edit-mode-map
-    "]]" 'log-edit-next-comment
-    "[[" 'log-edit-previous-comment
-    "gj" 'log-edit-next-comment
-    "gk" 'log-edit-previous-comment
-    (kbd "C-j") 'log-edit-next-comment
-    (kbd "C-k") 'log-edit-next-comment
-
     "ZQ" 'quit-window
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'log-edit-mode-map 'log-edit-next-comment)
+  (evil-collection-theme-bind 'prev-item    'log-edit-mode-map 'log-edit-previous-comment)
+  (evil-collection-theme-bind 'next-section 'log-edit-mode-map 'log-edit-next-comment)
+  (evil-collection-theme-bind 'prev-section 'log-edit-mode-map 'log-edit-previous-comment))
 
 (provide 'evil-collection-log-edit)
 ;;; evil-collection-log-edit.el ends here

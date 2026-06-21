@@ -83,13 +83,7 @@
     "e" 'sldb-eval-in-frame
     "d" 'sldb-pprint-eval-in-frame
     "D" 'sldb-disassemble
-    "i" 'sldb-inspect-in-frame
-    "gj" 'sldb-down
-    "gk" 'sldb-up
-    (kbd "C-j") 'sldb-down
-    (kbd "C-k") 'sldb-up
-    "]]" 'sldb-details-down
-    "[[" 'sldb-details-up
+    "gi" 'sldb-inspect-in-frame
     (kbd "M-j") 'sldb-details-down
     (kbd "M-k") 'sldb-details-up
     "gg" 'sldb-beginning-of-backtrace
@@ -97,11 +91,6 @@
     "t" 'sldb-toggle-details
     "I" 'sldb-invoke-restart-by-name
     "R" 'sldb-return-from-frame
-    "c" 'sldb-continue
-    "s" 'sldb-step
-    "n" 'sldb-next
-    "o" 'sldb-out
-    "b" 'sldb-break-on-return
     "a" 'sldb-abort
     "A" 'sldb-break-with-system-debugger
     "B" 'sldb-break-with-default-debugger
@@ -118,9 +107,20 @@
     "7" 'sldb-invoke-restart-7
     "8" 'sldb-invoke-restart-8
     "9" 'sldb-invoke-restart-9)
-  (evil-collection-theme-bind 'quit          'sldb-mode-map 'sldb-quit)
-  (evil-collection-theme-bind 'describe-mode 'sldb-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'sldb-mode-map 'sldb-restart-frame)
+  (evil-collection-theme-bind 'next-item        'sldb-mode-map 'sldb-down)
+  (evil-collection-theme-bind 'prev-item        'sldb-mode-map 'sldb-up)
+  (evil-collection-theme-bind 'next-section     'sldb-mode-map 'sldb-details-down)
+  (evil-collection-theme-bind 'prev-section     'sldb-mode-map 'sldb-details-up)
+  (evil-collection-theme-bind 'next-section-2   'sldb-mode-map 'sldb-down)
+  (evil-collection-theme-bind 'prev-section-2   'sldb-mode-map 'sldb-up)
+  (evil-collection-theme-bind 'quit             'sldb-mode-map 'sldb-quit)
+  (evil-collection-theme-bind 'describe-mode    'sldb-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh          'sldb-mode-map 'sldb-restart-frame)
+  (evil-collection-theme-bind 'debug-continue   'sldb-mode-map 'sldb-continue)
+  (evil-collection-theme-bind 'debug-step-over  'sldb-mode-map 'sldb-next)
+  (evil-collection-theme-bind 'debug-step-into  'sldb-mode-map 'sldb-step)
+  (evil-collection-theme-bind 'debug-step-out   'sldb-mode-map 'sldb-out)
+  (evil-collection-theme-bind 'debug-breakpoint 'sldb-mode-map 'sldb-break-on-return)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
     (kbd "RET") 'slime-inspector-operate-on-point
@@ -130,13 +130,7 @@
     [mouse-7] 'slime-inspector-next
     ;; TODO: `slime-inspector-next' and `slime-inspector-pop' should probably
     ;; just be bound to C-i and C-o.
-    "gk" 'slime-inspector-pop
-    (kbd "C-k") 'slime-inspector-pop
-    "[[" 'slime-inspector-pop
     (kbd "C-o") 'slime-inspector-pop
-    "gj" 'slime-inspector-next
-    (kbd "C-j") 'slime-inspector-next
-    "]]" 'slime-inspector-next
     (kbd "C-i") 'slime-inspector-next
     "p" 'slime-inspector-pprint
     "e" 'slime-inspector-eval
@@ -148,6 +142,10 @@
     (kbd "<backtab>") 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
     "." 'slime-inspector-show-source
     "gd" 'slime-inspector-show-source)
+  (evil-collection-theme-bind 'next-item    'slime-inspector-mode-map 'slime-inspector-next)
+  (evil-collection-theme-bind 'prev-item    'slime-inspector-mode-map 'slime-inspector-pop)
+  (evil-collection-theme-bind 'next-section 'slime-inspector-mode-map 'slime-inspector-next)
+  (evil-collection-theme-bind 'prev-section 'slime-inspector-mode-map 'slime-inspector-pop)
   (evil-collection-theme-bind 'quit        'slime-inspector-mode-map 'slime-inspector-quit)
   (evil-collection-theme-bind 'lookup-doc  'slime-inspector-mode-map 'slime-inspector-describe)
   (evil-collection-theme-bind 'refresh     'slime-inspector-mode-map 'slime-inspector-reinspect)
@@ -175,13 +173,11 @@
     (kbd "RET") 'slime-goto-xref
     (kbd "S-<return>") 'slime-goto-xref
     "go" 'slime-show-xref
-    "gj" 'slime-xref-next-line
-    "gk" 'slime-xref-prev-line
-    (kbd "C-j") 'slime-xref-next-line
-    (kbd "C-k") 'slime-xref-prev-line
-    "]]" 'slime-xref-next-line
-    "[[" 'slime-xref-prev-line
     "r" 'slime-xref-retract)
+  (evil-collection-theme-bind 'next-item    'slime-xref-mode-map 'slime-xref-next-line)
+  (evil-collection-theme-bind 'prev-item    'slime-xref-mode-map 'slime-xref-prev-line)
+  (evil-collection-theme-bind 'next-section 'slime-xref-mode-map 'slime-xref-next-line)
+  (evil-collection-theme-bind 'prev-section 'slime-xref-mode-map 'slime-xref-prev-line)
   (evil-collection-theme-bind 'refresh     'slime-xref-mode-map 'slime-recompile-xref)
   (evil-collection-theme-bind 'refresh-all 'slime-xref-mode-map 'slime-recompile-all-xrefs)
 
@@ -189,13 +185,11 @@
   (evil-collection-theme-bind 'repl-newline       'slime-repl-mode-map 'slime-repl-newline-and-indent)
   (evil-collection-theme-bind 'repl-force-newline 'slime-repl-mode-map 'slime-repl-newline-and-indent)
 
+  (evil-collection-theme-bind 'next-item    'slime-repl-mode-map 'slime-repl-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'slime-repl-mode-map 'slime-repl-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'slime-repl-mode-map 'slime-repl-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'slime-repl-mode-map 'slime-repl-previous-prompt)
   (evil-collection-define-key 'normal 'slime-repl-mode-map
-    "gj" 'slime-repl-next-prompt
-    "gk" 'slime-repl-previous-prompt
-    (kbd "C-j") 'slime-repl-next-prompt
-    (kbd "C-k") 'slime-repl-previous-prompt
-    "]]" 'slime-repl-next-prompt
-    "[[" 'slime-repl-previous-prompt
     (kbd "C-p") 'slime-repl-previous-input
     (kbd "C-n") 'slime-repl-next-input)
 

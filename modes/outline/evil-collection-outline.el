@@ -92,19 +92,18 @@ you can do:
     ;; TODO: To mark subtree ("C-c @"), we would need to define a tree object.
 
     ;; motion
-    "[[" 'outline-previous-visible-heading
-    "]]" 'outline-next-visible-heading
-    (kbd "C-k") 'outline-backward-same-level
-    (kbd "C-j") 'outline-forward-same-level
-    "gk" 'outline-backward-same-level
-    "gj" 'outline-forward-same-level
-
     (kbd "M-h") 'outline-promote ; Org-mode has "M-<left>", Evil-org has "M-h"
     (kbd "M-j") 'outline-move-subtree-down ; Org-mode has "M-<down>", Evil-org has "M-j"
     (kbd "M-k") 'outline-move-subtree-up ; Org-mode has "M-<up>", Evil-org has "M-k"
     (kbd "M-l") 'outline-demote ; Org-mode has "M-<right>", Evil-org has "M-l"
 
     (kbd "M-<return>") 'outline-insert-heading) ; Org-mode has "M-<return>"
+  (evil-collection-theme-bind 'next-item    'outline-mode-map 'outline-forward-same-level)
+  (evil-collection-theme-bind 'prev-item    'outline-mode-map 'outline-backward-same-level)
+  (evil-collection-theme-bind 'next-section 'outline-mode-map 'outline-next-visible-heading)
+  (evil-collection-theme-bind 'prev-section   'outline-mode-map 'outline-previous-visible-heading)
+  (evil-collection-theme-bind 'next-section-2 'outline-mode-map 'outline-forward-same-level)
+  (evil-collection-theme-bind 'prev-section-2 'outline-mode-map 'outline-backward-same-level)
 
   ;; Enable bindings in Outline minor mode if requested
   (when evil-collection-outline-enable-in-minor-mode-p

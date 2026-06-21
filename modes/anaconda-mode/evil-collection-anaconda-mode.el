@@ -41,13 +41,10 @@
   ;; latest anaconda has replaced view mode by an xref implementation,
   ;; anaconda stable uses `anaconda-view-mode-map'
   (when (boundp 'anaconda-view-mode-map)
-    (evil-collection-define-key 'normal 'anaconda-view-mode-map
-      "gj" 'next-error-no-select
-      "gk" 'previous-error-no-select
-      (kbd "C-j") 'next-error-no-select
-      (kbd "C-k") 'previous-error-no-select
-      "]]" 'next-error-no-select
-      "[[" 'previous-error-no-select)
+    (evil-collection-theme-bind 'next-item    'anaconda-view-mode-map 'next-error-no-select)
+    (evil-collection-theme-bind 'prev-item    'anaconda-view-mode-map 'previous-error-no-select)
+    (evil-collection-theme-bind 'next-section 'anaconda-view-mode-map 'next-error-no-select)
+    (evil-collection-theme-bind 'prev-section 'anaconda-view-mode-map 'previous-error-no-select)
     (evil-collection-theme-bind 'quit 'anaconda-view-mode-map 'quit-window))
 
   (evil-collection-theme-bind 'find-usages     'anaconda-mode-map 'anaconda-mode-find-references)

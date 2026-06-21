@@ -35,11 +35,11 @@
 (defun evil-collection-smerge-mode-setup ()
   "Setup up `evil' bindings for `smerge-mode'."
   (add-hook 'smerge-mode-hook #'evil-normalize-keymaps)
+  (evil-collection-theme-bind 'next-item    'smerge-mode-map 'smerge-next)
+  (evil-collection-theme-bind 'prev-item    'smerge-mode-map 'smerge-prev)
+  (evil-collection-theme-bind 'next-section 'smerge-mode-map 'smerge-next)
+  (evil-collection-theme-bind 'prev-section 'smerge-mode-map 'smerge-prev)
   (evil-collection-define-key 'normal 'smerge-mode-map
-    "gj" 'smerge-next
-    "]]" 'smerge-next
-    "gk" 'smerge-prev
-    "[[" 'smerge-prev
     "gr" 'smerge-resolve
     "ga" 'smerge-keep-all
     "gu" 'smerge-keep-upper

@@ -102,12 +102,6 @@ appropriate in some cases like terminals."
   "Set up `evil' bindings for `eshell'."
   (evil-collection-define-key 'normal 'eshell-mode-map
     ;; motion
-    "[[" 'eshell-previous-prompt
-    "]]" 'eshell-next-prompt
-    (kbd "C-k") 'eshell-previous-prompt
-    (kbd "C-j") 'eshell-next-prompt
-    "gk" 'eshell-previous-prompt
-    "gj" 'eshell-next-prompt
     (kbd "M-h") 'eshell-backward-argument
     (kbd "M-l") 'eshell-forward-argument
 
@@ -119,6 +113,10 @@ appropriate in some cases like terminals."
     "C" 'evil-collection-eshell-evil-change-line
     "d" 'evil-collection-eshell-evil-delete
     "D" 'evil-collection-eshell-evil-delete-line)
+  (evil-collection-theme-bind 'next-item    'eshell-mode-map 'eshell-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'eshell-mode-map 'eshell-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'eshell-mode-map 'eshell-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'eshell-mode-map 'eshell-previous-prompt)
 
   (evil-collection-theme-bind 'repl-submit        'eshell-mode-map 'eshell-send-input)
   (evil-collection-theme-bind 'repl-newline       'eshell-mode-map 'newline)

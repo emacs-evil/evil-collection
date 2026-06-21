@@ -40,13 +40,15 @@
   (dolist (map '(flymake-diagnostics-buffer-mode-map flymake-project-diagnostics-mode-map))
     (evil-collection-set-readonly-bindings map)
     (evil-collection-define-key 'normal map
-      (kbd "C-j") 'flymake-goto-next-error
-      (kbd "C-k") 'flymake-goto-prev-error
       (kbd "RET") 'flymake-goto-diagnostic
       (kbd "S-RET") 'flymake-show-diagnostic
       (kbd "M-RET") 'flymake-show-diagnostic
       (kbd "go") 'flymake-show-diagnostic
-      (kbd "gO") 'flymake-show-diagnostic)))
+      (kbd "gO") 'flymake-show-diagnostic)
+    (evil-collection-theme-bind 'next-item    map 'flymake-goto-next-error)
+    (evil-collection-theme-bind 'prev-item    map 'flymake-goto-prev-error)
+    (evil-collection-theme-bind 'next-section map 'flymake-goto-next-error)
+    (evil-collection-theme-bind 'prev-section map 'flymake-goto-prev-error)))
 
 (provide 'evil-collection-flymake)
 ;;; evil-collection-flymake.el ends here

@@ -58,20 +58,20 @@
   (evil-make-overriding-map ebib-entry-mode-map 'normal)
   (evil-collection-inhibit-insert-state 'ebib-entry-mode-map)
   (evil-collection-define-key 'normal 'ebib-entry-mode-map
-    "[[" 'ebib-goto-prev-set
-    "]]" 'ebib-goto-next-set
     "d" 'ebib-kill-field-contents
     "D" 'ebib-delete-field-contents
     "gg" 'ebib-goto-first-field
-    "gk" 'ebib-goto-prev-set
-    "gj" 'ebib-goto-next-set
     "G" 'ebib-goto-last-field
     "j" 'ebib-next-field
     "k" 'ebib-prev-field
     "p" 'ebib-yank-field-contents
     "y" 'ebib-copy-current-field-contents
     "ZZ" 'ebib-quit-entry-buffer
-    "ZQ" 'ebib-quit-entry-buffer))
+    "ZQ" 'ebib-quit-entry-buffer)
+  (evil-collection-theme-bind 'next-item    'ebib-entry-mode-map 'ebib-goto-next-set)
+  (evil-collection-theme-bind 'prev-item    'ebib-entry-mode-map 'ebib-goto-prev-set)
+  (evil-collection-theme-bind 'next-section 'ebib-entry-mode-map 'ebib-goto-next-set)
+  (evil-collection-theme-bind 'prev-section 'ebib-entry-mode-map 'ebib-goto-prev-set))
 
 (provide 'evil-collection-ebib)
 ;;; evil-collection-ebib.el ends here

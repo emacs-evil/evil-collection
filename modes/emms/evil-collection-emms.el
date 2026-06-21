@@ -104,13 +104,6 @@ The return value is the yanked text."
     "u" 'emms-playlist-mode-undo
 
     ;; motion
-    "[[" 'emms-browser-prev-non-track
-    "]]" 'emms-browser-next-non-track
-    (kbd "C-k") 'emms-browser-prev-non-track
-    (kbd "C-j") 'emms-browser-next-non-track
-    "gk" 'emms-browser-prev-non-track
-    "gj" 'emms-browser-next-non-track
-
     (kbd "<tab>") 'emms-browser-toggle-subitems-recursively
     (kbd "<backtab>") 'emms-browser-toggle-subitems-recursively
     "^" 'emms-browser-move-up-level
@@ -147,6 +140,10 @@ The return value is the yanked text."
     "d" 'emms-browser-view-in-dired
     ;; "d" does the same, keep "gd" for consistency.
     "gd" 'emms-browser-view-in-dired)
+  (evil-collection-theme-bind 'next-item    'emms-browser-mode-map 'emms-browser-next-non-track)
+  (evil-collection-theme-bind 'prev-item    'emms-browser-mode-map 'emms-browser-prev-non-track)
+  (evil-collection-theme-bind 'next-section 'emms-browser-mode-map 'emms-browser-next-non-track)
+  (evil-collection-theme-bind 'prev-section 'emms-browser-mode-map 'emms-browser-prev-non-track)
 
   (unless evil-collection-always-run-setup-hook-after-load
     (run-hook-with-args 'evil-collection-setup-hook
@@ -163,10 +160,6 @@ The return value is the yanked text."
     "r" 'emms-random
     "<" 'emms-seek-backward
     ">" 'emms-seek-forward
-    (kbd "C-j") 'emms-next
-    (kbd "C-k") 'emms-previous
-    "gj" 'emms-next
-    "gk" 'emms-previous
     (kbd "RET") 'emms-playlist-mode-play-smart
 
     ;; volume controls
@@ -179,8 +172,6 @@ The return value is the yanked text."
     ;; motion
     "gg" 'emms-playlist-mode-first
     "G" 'emms-playlist-mode-last
-    "]]" 'emms-playlist-mode-next
-    "[[" 'emms-playlist-mode-previous
 
     "D" 'emms-playlist-mode-kill-track  ; emms-browser uses "D"
     "C" 'emms-playlist-clear
@@ -208,6 +199,12 @@ The return value is the yanked text."
     ;; "" 'emms-playlist-limit-to-all ; TODO: Test.
 
     (kbd "M-y") 'emms-playlist-mode-yank-pop)
+  (evil-collection-theme-bind 'next-item    'emms-playlist-mode-map 'emms-next)
+  (evil-collection-theme-bind 'prev-item    'emms-playlist-mode-map 'emms-previous)
+  (evil-collection-theme-bind 'next-section 'emms-playlist-mode-map 'emms-playlist-mode-next)
+  (evil-collection-theme-bind 'prev-section 'emms-playlist-mode-map 'emms-playlist-mode-previous)
+  (evil-collection-theme-bind 'next-section-2 'emms-playlist-mode-map 'emms-next)
+  (evil-collection-theme-bind 'prev-section-2 'emms-playlist-mode-map 'emms-previous)
 
   (evil-collection-define-key 'visual 'emms-playlist-mode-map
     ;; "d" 'emms-playlist-mode-kill

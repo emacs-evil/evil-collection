@@ -71,14 +71,6 @@
     "+" 'rtags-dependency-tree-expand-current
     "P" 'rtags-dependency-tree-find-path
 
-    "gj" 'rtags-dependency-tree-next-level
-    "gk" 'rtags-dependency-tree-previous-level
-
-    (kbd "C-j") 'rtags-dependency-tree-next-level
-    (kbd "C-k") 'rtags-dependency-tree-previous-level
-    "]]" 'rtags-dependency-tree-next-level
-    "[[" 'rtags-dependency-tree-previous-level
-
     ;; open
     (kbd "RET") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
@@ -90,6 +82,10 @@
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-theme-bind 'next-item    'rtags-dependency-tree-mode-map 'rtags-dependency-tree-next-level)
+  (evil-collection-theme-bind 'prev-item    'rtags-dependency-tree-mode-map 'rtags-dependency-tree-previous-level)
+  (evil-collection-theme-bind 'next-section 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-next-level)
+  (evil-collection-theme-bind 'prev-section 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-previous-level)
   (evil-collection-theme-bind 'quit 'rtags-dependency-tree-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-theme-bind 'find-file 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-find-path)
@@ -102,15 +98,6 @@
     "-" 'rtags-references-tree-collapse-current
     "+" 'rtags-references-tree-expand-current
 
-    "gj" 'rtags-references-tree-next-level
-    "gk" 'rtags-references-tree-previous-level
-
-    (kbd "C-j") 'rtags-references-tree-next-level
-    (kbd "C-k") 'rtags-references-tree-previous-level
-
-    "]]" 'rtags-references-tree-next-level
-    "[[" 'rtags-references-tree-previous-level
-
     ;; open
     (kbd "RET") 'rtags-select
     (kbd "S-<return>") 'rtags-select-other-window
@@ -122,6 +109,10 @@
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-theme-bind 'next-item    'rtags-references-tree-mode-map 'rtags-references-tree-next-level)
+  (evil-collection-theme-bind 'prev-item    'rtags-references-tree-mode-map 'rtags-references-tree-previous-level)
+  (evil-collection-theme-bind 'next-section 'rtags-references-tree-mode-map 'rtags-references-tree-next-level)
+  (evil-collection-theme-bind 'prev-section 'rtags-references-tree-mode-map 'rtags-references-tree-previous-level)
   (evil-collection-theme-bind 'quit 'rtags-references-tree-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-define-key 'normal 'rtags-location-stack-visualize-mode-map

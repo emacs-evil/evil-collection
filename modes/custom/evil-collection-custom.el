@@ -46,13 +46,6 @@
     (kbd "S-SPC") 'scroll-down-command
     (kbd "<delete>") 'scroll-down-command
     (kbd "RET") 'Custom-newline
-    (kbd "]]") 'widget-forward
-    (kbd "[[") 'widget-backward
-    ;; TODO: Should the following be added?
-    (kbd "C-j") 'widget-forward
-    (kbd "C-k") 'widget-backward
-    "gj" 'widget-forward
-    "gk" 'widget-backward
 
     "^" 'Custom-goto-parent
     (kbd "C-o") 'Custom-goto-parent
@@ -62,6 +55,10 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done)
+  (evil-collection-theme-bind 'next-item    'custom-mode-map 'widget-forward)
+  (evil-collection-theme-bind 'prev-item    'custom-mode-map 'widget-backward)
+  (evil-collection-theme-bind 'next-section 'custom-mode-map 'widget-forward)
+  (evil-collection-theme-bind 'prev-section 'custom-mode-map 'widget-backward)
   (evil-collection-theme-bind 'quit 'custom-mode-map 'Custom-buffer-done))
 
 (provide 'evil-collection-custom)

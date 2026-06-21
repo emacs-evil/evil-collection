@@ -39,11 +39,11 @@
   (evil-set-initial-state 'shortdoc-mode 'normal)
   (evil-collection-define-key 'normal 'shortdoc-mode-map
     (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
-    (kbd "C-k") 'shortdoc-previous
-    (kbd "C-j") 'shortdoc-next
-    "[[" 'shortdoc-previous-section
-    "]]" 'shortdoc-next-section))
+    (kbd "<backtab>") 'backward-button)
+  (evil-collection-theme-bind 'next-section 'shortdoc-mode-map 'shortdoc-next-section)
+  (evil-collection-theme-bind 'prev-section   'shortdoc-mode-map 'shortdoc-previous-section)
+  (evil-collection-theme-bind 'next-section-2 'shortdoc-mode-map 'shortdoc-next)
+  (evil-collection-theme-bind 'prev-section-2 'shortdoc-mode-map 'shortdoc-previous))
 
 (provide 'evil-collection-shortdoc)
 ;;; evil-collection-shortdoc.el ends here

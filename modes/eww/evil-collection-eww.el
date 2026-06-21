@@ -58,11 +58,6 @@
     "R" 'eww-readable                   ; Default binding.
     "r" 'eww-readable
 
-    "]]" 'eww-next-url
-    "[[" 'eww-previous-url
-    "gj" 'eww-next-url
-    "gk" 'eww-previous-url
-
     ;; open
     (kbd "S-<return>") 'eww-browse-with-external-browser
     "go" 'eww-browse-with-external-browser
@@ -82,6 +77,10 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'eww-mode-map 'eww-next-url)
+  (evil-collection-theme-bind 'prev-item    'eww-mode-map 'eww-previous-url)
+  (evil-collection-theme-bind 'next-section 'eww-mode-map 'eww-next-url)
+  (evil-collection-theme-bind 'prev-section 'eww-mode-map 'eww-previous-url)
   (evil-collection-theme-bind 'quit    'eww-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'eww-mode-map 'eww-reload)
 
@@ -100,11 +99,11 @@
   (evil-set-initial-state 'eww-buffers-mode 'normal)
   (evil-collection-define-key 'normal 'eww-buffers-mode-map
     "D" 'eww-buffer-kill
-    (kbd "RET") 'eww-buffer-select
-    "]]" 'eww-buffer-show-next
-    "[[" 'eww-buffer-show-previous
-    "gj" 'eww-buffer-show-next
-    "gk" 'eww-buffer-show-previous)
+    (kbd "RET") 'eww-buffer-select)
+  (evil-collection-theme-bind 'next-item    'eww-buffers-mode-map 'eww-buffer-show-next)
+  (evil-collection-theme-bind 'prev-item    'eww-buffers-mode-map 'eww-buffer-show-previous)
+  (evil-collection-theme-bind 'next-section 'eww-buffers-mode-map 'eww-buffer-show-next)
+  (evil-collection-theme-bind 'prev-section 'eww-buffers-mode-map 'eww-buffer-show-previous)
   (evil-collection-theme-bind 'refresh 'eww-buffers-mode-map 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)

@@ -39,27 +39,20 @@
   (evil-set-initial-state 'custom-new-theme-mode 'normal)
   (evil-set-initial-state 'custom-theme-choose-mode 'normal)
 
-  (evil-collection-define-key 'normal 'custom-theme-choose-mode-map
-    "gj" 'widget-forward
-    "gk" 'widget-backward
-    (kbd "]]") 'widget-forward
-    (kbd "[[") 'widget-backward
-    (kbd "C-j") 'widget-forward
-    (kbd "C-k") 'widget-backward)
-
+  (evil-collection-theme-bind 'next-item    'custom-theme-choose-mode-map 'widget-forward)
+  (evil-collection-theme-bind 'prev-item    'custom-theme-choose-mode-map 'widget-backward)
+  (evil-collection-theme-bind 'next-section 'custom-theme-choose-mode-map 'widget-forward)
+  (evil-collection-theme-bind 'prev-section 'custom-theme-choose-mode-map 'widget-backward)
   (evil-collection-theme-bind 'lookup-doc 'custom-theme-choose-mode-map 'custom-describe-theme)
 
   (evil-collection-define-key 'normal 'custom-new-theme-mode-map
-    "gj" 'widget-forward
-    "gk" 'widget-backward
-    (kbd "]]") 'widget-forward
-    (kbd "[[") 'widget-backward
-    (kbd "C-j") 'widget-forward
-    (kbd "C-k") 'widget-backward
-
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done)
+  (evil-collection-theme-bind 'next-item    'custom-new-theme-mode-map 'widget-forward)
+  (evil-collection-theme-bind 'prev-item    'custom-new-theme-mode-map 'widget-backward)
+  (evil-collection-theme-bind 'next-section 'custom-new-theme-mode-map 'widget-forward)
+  (evil-collection-theme-bind 'prev-section 'custom-new-theme-mode-map 'widget-backward)
   (evil-collection-theme-bind 'quit 'custom-new-theme-mode-map 'Custom-buffer-done))
 
 (provide 'evil-collection-cus-theme)

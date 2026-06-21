@@ -194,11 +194,11 @@ KEY is a string passed to `kbd'."
     [remap evil-write] 'agent-shell-viewport-interrupt
     [remap evil-quit] 'bury-buffer
     (kbd "TAB") 'agent-shell-viewport-next-item
-    (kbd "<backtab>") 'agent-shell-viewport-previous-item
-    "gj" 'agent-shell-viewport-next-item
-    "gk" 'agent-shell-viewport-previous-item
-    (kbd "C-j") 'agent-shell-viewport-next-page
-    (kbd "C-k") 'agent-shell-viewport-previous-page)
+    (kbd "<backtab>") 'agent-shell-viewport-previous-item)
+  (evil-collection-theme-bind 'next-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-item)
+  (evil-collection-theme-bind 'prev-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-item)
+  (evil-collection-theme-bind 'next-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-page)
+  (evil-collection-theme-bind 'prev-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-page)
   (evil-collection-theme-bind 'quit 'agent-shell-viewport-view-mode-map 'bury-buffer)
 
   (when evil-collection-want-g-bindings

@@ -41,11 +41,11 @@
 
   (evil-collection-define-key 'normal 'macrostep-keymap
     "e" 'macrostep-expand
-    "u" 'macrostep-collapse
-    "gj" 'macrostep-next-macro
-    "gk" 'macrostep-prev-macro
-    (kbd "C-j") 'macrostep-next-macro
-    (kbd "C-k") 'macrostep-prev-macro)
+    "u" 'macrostep-collapse)
+  (evil-collection-theme-bind 'next-item    'macrostep-keymap 'macrostep-next-macro)
+  (evil-collection-theme-bind 'prev-item    'macrostep-keymap 'macrostep-prev-macro)
+  (evil-collection-theme-bind 'next-section 'macrostep-keymap 'macrostep-next-macro)
+  (evil-collection-theme-bind 'prev-section 'macrostep-keymap 'macrostep-prev-macro)
   (evil-collection-theme-bind 'quit 'macrostep-keymap 'macrostep-collapse-all))
 
 (provide 'evil-collection-macrostep)

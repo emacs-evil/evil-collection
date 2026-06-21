@@ -52,17 +52,15 @@
   (add-hook 'vlf-mode-hook #'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'vlf-prefix-map
-    "gj" 'vlf-next-batch
-    "gk" 'vlf-prev-batch
-    (kbd "C-j") 'vlf-next-batch
-    (kbd "C-k") 'vlf-prev-batch
-    "]]" 'vlf-next-batch
-    "[[" 'vlf-prev-batch
     "+" 'vlf-change-batch-size
     "-" 'evil-collection-vlf-decrease-batch-size
     "=" 'vlf-next-batch-from-point
     "g%" 'vlf-query-replace
     "go" 'vlf-occur)
+  (evil-collection-theme-bind 'next-item    'vlf-prefix-map 'vlf-next-batch)
+  (evil-collection-theme-bind 'prev-item    'vlf-prefix-map 'vlf-prev-batch)
+  (evil-collection-theme-bind 'next-section 'vlf-prefix-map 'vlf-next-batch)
+  (evil-collection-theme-bind 'prev-section 'vlf-prefix-map 'vlf-prev-batch)
   (evil-collection-theme-bind 'refresh 'vlf-prefix-map 'vlf-revert)
 
   (if evil-collection-want-g-bindings

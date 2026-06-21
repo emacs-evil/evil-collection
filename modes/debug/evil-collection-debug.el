@@ -48,7 +48,6 @@
     (kbd "SPC") 'next-line
 
     "R" 'debugger-record-expression
-    "c" 'debugger-continue
     "d" 'debugger-step-through
 
     "x" 'debugger-eval-expression
@@ -73,7 +72,8 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'top-level)
-  (evil-collection-theme-bind 'quit 'debugger-mode-map 'top-level))
+  (evil-collection-theme-bind 'quit            'debugger-mode-map 'top-level)
+  (evil-collection-theme-bind 'debug-continue  'debugger-mode-map 'debugger-continue))
 
 (provide 'evil-collection-debug)
 ;;; evil-collection-debug.el ends here

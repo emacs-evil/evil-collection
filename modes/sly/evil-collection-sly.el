@@ -96,13 +96,7 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "e" 'sly-db-eval-in-frame
     "d" 'sly-db-pprint-eval-in-frame
     "D" 'sly-db-disassemble
-    "i" 'sly-db-inspect-in-frame
-    "gj" 'sly-db-down
-    "gk" 'sly-db-up
-    (kbd "C-j") 'sly-db-down
-    (kbd "C-k") 'sly-db-up
-    "]]" 'sly-db-details-down
-    "[[" 'sly-db-details-up
+    "gi" 'sly-db-inspect-in-frame
     (kbd "M-j") 'sly-db-details-down
     (kbd "M-k") 'sly-db-details-up
     "gg" 'sly-db-beginning-of-backtrace
@@ -110,11 +104,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "t" 'sly-db-toggle-details
     "I" 'sly-db-invoke-restart-by-name
     "R" 'sly-db-return-from-frame
-    "c" 'sly-db-continue
-    "s" 'sly-db-step
-    "n" 'sly-db-next
-    "o" 'sly-db-out
-    "b" 'sly-db-break-on-return
     "a" 'sly-db-abort
     "A" 'sly-db-break-with-system-debugger
     "B" 'sly-db-break-with-default-debugger
@@ -131,22 +120,27 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "7" 'sly-db-invoke-restart-7
     "8" 'sly-db-invoke-restart-8
     "9" 'sly-db-invoke-restart-9)
-  (evil-collection-theme-bind 'quit          'sly-db-mode-map 'sly-db-quit)
-  (evil-collection-theme-bind 'describe-mode 'sly-db-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'sly-db-mode-map 'sly-db-restart-frame)
+  (evil-collection-theme-bind 'next-item        'sly-db-mode-map 'sly-db-down)
+  (evil-collection-theme-bind 'prev-item        'sly-db-mode-map 'sly-db-up)
+  (evil-collection-theme-bind 'next-section     'sly-db-mode-map 'sly-db-details-down)
+  (evil-collection-theme-bind 'prev-section     'sly-db-mode-map 'sly-db-details-up)
+  (evil-collection-theme-bind 'next-section-2   'sly-db-mode-map 'sly-db-down)
+  (evil-collection-theme-bind 'prev-section-2   'sly-db-mode-map 'sly-db-up)
+  (evil-collection-theme-bind 'quit             'sly-db-mode-map 'sly-db-quit)
+  (evil-collection-theme-bind 'describe-mode    'sly-db-mode-map 'describe-mode)
+  (evil-collection-theme-bind 'refresh          'sly-db-mode-map 'sly-db-restart-frame)
+  (evil-collection-theme-bind 'debug-continue   'sly-db-mode-map 'sly-db-continue)
+  (evil-collection-theme-bind 'debug-step-over  'sly-db-mode-map 'sly-db-next)
+  (evil-collection-theme-bind 'debug-step-into  'sly-db-mode-map 'sly-db-step)
+  (evil-collection-theme-bind 'debug-step-out   'sly-db-mode-map 'sly-db-out)
+  (evil-collection-theme-bind 'debug-breakpoint 'sly-db-mode-map 'sly-db-break-on-return)
 
   (evil-collection-define-key 'normal 'sly-inspector-mode-map
     [mouse-6] 'sly-inspector-pop
     [mouse-7] 'sly-inspector-next
     ;; TODO: `sly-inspector-next' and `sly-inspector-pop' should probably
     ;; just be bound to C-i and C-o.
-    "gk" 'sly-inspector-pop
-    (kbd "C-k") 'sly-inspector-pop
-    "[[" 'sly-inspector-pop
     (kbd "C-o") 'sly-inspector-pop
-    "gj" 'sly-inspector-next
-    (kbd "C-j") 'sly-inspector-next
-    "]]" 'sly-inspector-next
     (kbd "C-i") 'sly-inspector-next
     "e" 'sly-inspector-eval
     "M-p" 'sly-inspector-history
@@ -156,6 +150,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
     (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
     "." 'sly-edit-definition)
+  (evil-collection-theme-bind 'next-item       'sly-inspector-mode-map 'sly-inspector-next)
+  (evil-collection-theme-bind 'prev-item       'sly-inspector-mode-map 'sly-inspector-pop)
+  (evil-collection-theme-bind 'next-section    'sly-inspector-mode-map 'sly-inspector-next)
+  (evil-collection-theme-bind 'prev-section    'sly-inspector-mode-map 'sly-inspector-pop)
   (evil-collection-theme-bind 'quit            'sly-inspector-mode-map 'sly-inspector-quit)
   (evil-collection-theme-bind 'find-definition 'sly-inspector-mode-map 'sly-edit-definition)
   (evil-collection-theme-bind 'lookup-doc      'sly-inspector-mode-map 'sly-inspector-describe-inspectee)
@@ -189,14 +187,12 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "C-i") 'forward-button
     (kbd "<S-tab>") 'backward-button ; Emacs translates S-TAB
     (kbd "<backtab>") 'backward-button ; to BACKTAB on X.
-    "gj" 'sly-xref-next-line
-    "gk" 'sly-xref-prev-line
-    (kbd "C-j") 'sly-xref-next-line
-    (kbd "C-k") 'sly-xref-prev-line
-    "]]" 'sly-xref-next-line
-    "[[" 'sly-xref-prev-line
     ;; "r" 'sly-xref-retract ; TODO: Equivalent for Sly?
     )
+  (evil-collection-theme-bind 'next-item    'sly-xref-mode-map 'sly-xref-next-line)
+  (evil-collection-theme-bind 'prev-item    'sly-xref-mode-map 'sly-xref-prev-line)
+  (evil-collection-theme-bind 'next-section 'sly-xref-mode-map 'sly-xref-next-line)
+  (evil-collection-theme-bind 'prev-section 'sly-xref-mode-map 'sly-xref-prev-line)
   (evil-collection-theme-bind 'refresh     'sly-xref-mode-map 'sly-recompile-xref)
   (evil-collection-theme-bind 'refresh-all 'sly-xref-mode-map 'sly-recompile-all-xrefs)
 
@@ -204,13 +200,11 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-theme-bind 'repl-newline       'sly-mrepl-mode-map 'newline)
   (evil-collection-theme-bind 'repl-force-newline 'sly-mrepl-mode-map 'newline)
 
+  (evil-collection-theme-bind 'next-item    'sly-mrepl-mode-map 'sly-mrepl-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'sly-mrepl-mode-map 'sly-mrepl-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'sly-mrepl-mode-map 'sly-mrepl-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'sly-mrepl-mode-map 'sly-mrepl-previous-prompt)
   (evil-collection-define-key 'normal 'sly-mrepl-mode-map
-    "gj" 'sly-mrepl-next-prompt
-    "gk" 'sly-mrepl-previous-prompt
-    (kbd "C-j") 'sly-mrepl-next-prompt
-    (kbd "C-k") 'sly-mrepl-previous-prompt
-    "]]" 'sly-mrepl-next-prompt
-    "[[" 'sly-mrepl-previous-prompt
     (kbd "C-p") 'sly-mrepl-previous-input-or-button
     (kbd "C-n") 'sly-mrepl-next-input-or-button)
 

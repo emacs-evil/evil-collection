@@ -43,13 +43,6 @@
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
 
-    (kbd "]]") 'Man-next-manpage
-    (kbd "[[") 'Man-previous-manpage
-    (kbd "gj") 'Man-next-manpage
-    (kbd "gk") 'Man-previous-manpage
-    (kbd "C-j") 'Man-next-section
-    (kbd "C-k") 'Man-previous-section
-
     ;; goto
     "gm" 'man
     "gd" 'Man-goto-section ; TODO: "gd" does not match the rationale of "go to definition". Change?
@@ -59,6 +52,12 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'Man-mode-map 'Man-next-manpage)
+  (evil-collection-theme-bind 'prev-item    'Man-mode-map 'Man-previous-manpage)
+  (evil-collection-theme-bind 'next-section 'Man-mode-map 'Man-next-manpage)
+  (evil-collection-theme-bind 'prev-section 'Man-mode-map 'Man-previous-manpage)
+  (evil-collection-theme-bind 'next-section-2 'Man-mode-map 'Man-next-section)
+  (evil-collection-theme-bind 'prev-section-2 'Man-mode-map 'Man-previous-section)
   (evil-collection-theme-bind 'quit    'Man-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'Man-mode-map 'Man-update-manpage))
 

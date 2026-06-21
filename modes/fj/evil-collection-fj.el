@@ -78,14 +78,12 @@
   (evil-collection-define-key 'normal 'fj-generic-map
     "gb" 'fj-switch-to-buffer
     "go" 'fj-browse-view
-    "]]" 'fj-item-next
-    "[[" 'fj-item-prev
-    "gj" 'fj-item-next
-    "gk" 'fj-item-prev
-    (kbd "C-j") 'fj-item-next
-    (kbd "C-k") 'fj-item-prev
     (kbd "<tab>") 'fj-next-tab-item
     (kbd "<backtab>") 'fj-prev-tab-item)
+  (evil-collection-theme-bind 'next-item    'fj-generic-map 'fj-item-next)
+  (evil-collection-theme-bind 'prev-item    'fj-generic-map 'fj-item-prev)
+  (evil-collection-theme-bind 'next-section 'fj-generic-map 'fj-item-next)
+  (evil-collection-theme-bind 'prev-section 'fj-generic-map 'fj-item-prev)
 
   (evil-collection-define-key 'normal 'fj-generic-tl-map
     "gb" 'fj-switch-to-buffer

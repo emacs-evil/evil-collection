@@ -125,12 +125,6 @@ instead, which is useless and counterintuitive."
     (kbd "<delete>") 'pdf-view-scroll-down-or-previous-page
     (kbd "C-f") 'pdf-view-scroll-up-or-next-page
     (kbd "C-b") 'pdf-view-scroll-down-or-previous-page
-    "]]" 'pdf-view-next-page-command
-    "[[" 'pdf-view-previous-page-command
-    (kbd "C-j") 'pdf-view-next-page-command
-    (kbd "C-k") 'pdf-view-previous-page-command
-    "gj" 'pdf-view-next-page-command
-    "gk" 'pdf-view-previous-page-command
     (kbd "<next>") 'forward-page
     (kbd "<prior>") 'backward-page
     (kbd "<down>") 'pdf-view-next-line-or-next-page
@@ -194,6 +188,10 @@ instead, which is useless and counterintuitive."
     "Q" 'kill-current-buffer
     "ZQ" 'kill-current-buffer
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'pdf-view-mode-map 'pdf-view-next-page-command)
+  (evil-collection-theme-bind 'prev-item    'pdf-view-mode-map 'pdf-view-previous-page-command)
+  (evil-collection-theme-bind 'next-section 'pdf-view-mode-map 'pdf-view-next-page-command)
+  (evil-collection-theme-bind 'prev-section 'pdf-view-mode-map 'pdf-view-previous-page-command)
   (evil-collection-theme-bind 'quit    'pdf-view-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'pdf-view-mode-map 'revert-buffer)
 

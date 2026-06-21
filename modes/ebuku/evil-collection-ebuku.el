@@ -37,15 +37,15 @@
   "Set up `evil' bindings for `Ebuku'."
   (evil-collection-theme-bind 'quit    'ebuku-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'ebuku-mode-map 'ebuku-refresh)
+  (evil-collection-theme-bind 'next-section 'ebuku-mode-map 'ebuku-next-bookmark)
+  (evil-collection-theme-bind 'prev-section 'ebuku-mode-map 'ebuku-previous-bookmark)
   (evil-collection-define-key 'normal 'ebuku-mode-map
                               "a" 'ebuku-add-bookmark
                               "d" 'ebuku-delete-bookmark
                               "x" 'ebuku-delete-bookmark
                               "e" 'ebuku-edit-bookmark
                               "j" 'ebuku-next-bookmark
-                              (kbd "C-j") 'ebuku-next-bookmark
                               "k" 'ebuku-previous-bookmark
-                              (kbd "C-k") 'ebuku-previous-bookmark
                               "r" 'ebuku-search-on-recent
                               "s" 'ebuku-search
                               "*" 'ebuku-show-all

@@ -99,12 +99,6 @@
   (evil-collection-define-key 'normal 'reftex-select-shared-map
     "j" 'reftex-select-next
     "k" 'reftex-select-previous
-    (kbd "]]") 'reftex-select-next-heading
-    (kbd "[[") 'reftex-select-previous-heading
-    (kbd "gj") 'reftex-select-next-heading
-    (kbd "gk") 'reftex-select-previous-heading
-    (kbd "C-j") 'reftex-select-next-heading
-    (kbd "C-k") 'reftex-select-previous-heading
     (kbd "RET") 'reftex-select-accept
     "go" 'reftex-select-callback        ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
@@ -134,6 +128,10 @@
     ;; mark
     "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
     "u" 'reftex-select-unmark)
+  (evil-collection-theme-bind 'next-item     'reftex-select-shared-map 'reftex-select-next-heading)
+  (evil-collection-theme-bind 'prev-item     'reftex-select-shared-map 'reftex-select-previous-heading)
+  (evil-collection-theme-bind 'next-section  'reftex-select-shared-map 'reftex-select-next-heading)
+  (evil-collection-theme-bind 'prev-section  'reftex-select-shared-map 'reftex-select-previous-heading)
   (evil-collection-theme-bind 'quit          'reftex-select-shared-map 'reftex-select-quit)
   (evil-collection-theme-bind 'describe-mode 'reftex-select-shared-map 'reftex-select-help)
 
@@ -160,11 +158,11 @@
     "x" 'reftex-toc-external
     "." 'reftex-toc-show-calling-point
     "J" 'reftex-toc-jump
-    (kbd "[[") 'reftex-toc-previous-heading
-    (kbd "]]") 'reftex-toc-next-heading
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
+  (evil-collection-theme-bind 'next-section  'reftex-toc-mode-map 'reftex-toc-next-heading)
+  (evil-collection-theme-bind 'prev-section  'reftex-toc-mode-map 'reftex-toc-previous-heading)
   (evil-collection-theme-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)
   (evil-collection-theme-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help)
   (evil-collection-theme-bind 'refresh       'reftex-toc-mode-map 'reftex-toc-rescan)

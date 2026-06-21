@@ -84,12 +84,6 @@
     ;; Motion
     "j" 'org-agenda-next-line
     "k" 'org-agenda-previous-line
-    "gj" 'org-agenda-next-item
-    "gk" 'org-agenda-previous-item
-    (kbd "C-j") 'org-agenda-next-item
-    (kbd "C-k") 'org-agenda-previous-item
-    "]]" 'org-agenda-forward-block
-    "[[" 'org-agenda-backward-block
 
     ;; Open / visit
     (kbd "RET") 'org-agenda-switch-to
@@ -139,6 +133,12 @@
     "m" 'org-agenda-bulk-mark
     "u" 'org-agenda-bulk-unmark
     "B" 'org-agenda-bulk-action)
+  (evil-collection-theme-bind 'next-item    'org-agenda-mode-map 'org-agenda-next-item)
+  (evil-collection-theme-bind 'prev-item    'org-agenda-mode-map 'org-agenda-previous-item)
+  (evil-collection-theme-bind 'next-section 'org-agenda-mode-map 'org-agenda-forward-block)
+  (evil-collection-theme-bind 'prev-section   'org-agenda-mode-map 'org-agenda-backward-block)
+  (evil-collection-theme-bind 'next-section-2 'org-agenda-mode-map 'org-agenda-next-item)
+  (evil-collection-theme-bind 'prev-section-2 'org-agenda-mode-map 'org-agenda-previous-item)
   (evil-collection-theme-bind 'quit        'org-agenda-mode-map 'org-agenda-quit)
   (evil-collection-theme-bind 'refresh     'org-agenda-mode-map 'org-agenda-redo)
   (evil-collection-theme-bind 'refresh-all 'org-agenda-mode-map 'org-agenda-redo-all))

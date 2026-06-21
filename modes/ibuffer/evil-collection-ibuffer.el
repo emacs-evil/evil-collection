@@ -74,9 +74,6 @@
     (kbd "x") 'ibuffer-do-kill-on-deletion-marks
 
     ;; immediate operations
-    (kbd "gj") 'ibuffer-forward-line
-    (kbd "gk") 'ibuffer-backward-line
-
     (kbd "}") 'ibuffer-forward-next-marked
     (kbd "{") 'ibuffer-backwards-next-marked
     (kbd "M-}") 'ibuffer-forward-next-marked
@@ -131,13 +128,9 @@
     (kbd "s D") 'ibuffer-decompose-filter-group
     (kbd "s /") 'ibuffer-filter-disable
 
-    (kbd "C-j") 'ibuffer-forward-filter-group
     (kbd "M-n") 'ibuffer-forward-filter-group
-    (kbd "]]") 'ibuffer-forward-filter-group
     "\t" 'ibuffer-forward-filter-group
     (kbd "M-p") 'ibuffer-backward-filter-group
-    (kbd "C-k") 'ibuffer-backward-filter-group
-    (kbd "[[") 'ibuffer-backward-filter-group
     [backtab] 'ibuffer-backward-filter-group
     (kbd "M-j") 'ibuffer-jump-to-filter-group
     (kbd "gx") 'ibuffer-kill-line
@@ -191,6 +184,10 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'ibuffer-mode-map 'ibuffer-forward-line)
+  (evil-collection-theme-bind 'prev-item    'ibuffer-mode-map 'ibuffer-backward-line)
+  (evil-collection-theme-bind 'next-section 'ibuffer-mode-map 'ibuffer-forward-filter-group)
+  (evil-collection-theme-bind 'prev-section 'ibuffer-mode-map 'ibuffer-backward-filter-group)
   (evil-collection-theme-bind 'quit 'ibuffer-mode-map 'quit-window))
 
 (provide 'evil-collection-ibuffer)
