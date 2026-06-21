@@ -95,10 +95,10 @@ default bindings."
                         'describe-mode 'ctbl:describe-bindings
                         'refresh 'ctbl:action-update-buffer)
 
-  (evil-collection-define-key 'normal 'edbi:sql-mode-map
-    (kbd "C-n") 'edbi:dbview-query-editor-history-forward-command
-    (kbd "C-p") 'edbi:dbview-query-editor-history-back-command)
-  (evil-collection-bind 'edbi:sql-mode-map 'quit 'edbi:dbview-query-editor-quit-command))
+  (evil-collection-bind 'edbi:sql-mode-map
+                        'history-previous 'edbi:dbview-query-editor-history-back-command
+                        'history-next     'edbi:dbview-query-editor-history-forward-command
+                        'quit 'edbi:dbview-query-editor-quit-command))
 
 (provide 'evil-collection-edbi)
 ;;; evil-collection-edbi.el ends here

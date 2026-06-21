@@ -98,15 +98,16 @@ This key theme variable may be refactored in the future so use with caution."
   "Set up `evil' bindings for `corfu'."
   (when (memq 'default evil-collection-corfu-key-themes)
     (evil-collection-define-key 'insert 'corfu-map
-      (kbd "C-n") 'corfu-next
-      (kbd "C-p") 'corfu-previous
       (kbd "C-j") 'corfu-next
       (kbd "C-k") 'corfu-previous
       (kbd "M-j") 'corfu-next
       (kbd "M-k") 'corfu-previous
       (kbd "<down>") 'corfu-next
       (kbd "<up>") 'corfu-previous
-      (kbd "<escape>") 'evil-collection-corfu-quit-and-escape))
+      (kbd "<escape>") 'evil-collection-corfu-quit-and-escape)
+    (evil-collection-bind 'corfu-map
+                          'completion-previous 'corfu-previous
+                          'completion-next     'corfu-next))
 
   ;; https://github.com/minad/corfu#tab-and-go-completion
   (when (memq 'tab-n-go evil-collection-corfu-key-themes)

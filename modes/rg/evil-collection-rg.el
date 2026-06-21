@@ -55,9 +55,6 @@
     "i" 'wgrep-change-to-wgrep-mode    ;; was w/e
     "F" 'next-error-follow-minor-mode  ;; C-c C-f
     "L" 'rg-list-searches              ;; was l
-    (kbd "C-p") 'rg-back-history       ;; C-c <
-    (kbd "C-n") 'rg-forward-history    ;; C-c >
-
     ;; navigation
     "{" 'rg-prev-file
     "}" 'rg-next-file
@@ -71,6 +68,8 @@
                         'prev-item 'previous-error-no-select
                         'next-section 'next-error-no-select
                         'prev-section 'previous-error-no-select
+                        'history-previous 'rg-back-history
+                        'history-next     'rg-forward-history
                         'quit 'quit-window
                         'refresh 'rg-recompile)
 

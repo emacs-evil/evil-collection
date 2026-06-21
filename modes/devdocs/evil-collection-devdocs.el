@@ -45,10 +45,6 @@
     ;; motion
     "g." 'devdocs-goto-target
 
-    ;; history
-    (kbd "C-p") 'devdocs-go-back
-    (kbd "C-n") 'devdocs-go-forward
-
     ;; copy
     "C" 'devdocs-copy-url
 
@@ -60,7 +56,9 @@
                         'next-item 'devdocs-next-page
                         'prev-item 'devdocs-previous-page
                         'next-section 'devdocs-next-page
-                        'prev-section 'devdocs-previous-page))
+                        'prev-section 'devdocs-previous-page
+                        'history-previous 'devdocs-go-back
+                        'history-next     'devdocs-go-forward))
 
 (provide 'evil-collection-devdocs)
 ;;; evil-collection-devdocs.el ends here

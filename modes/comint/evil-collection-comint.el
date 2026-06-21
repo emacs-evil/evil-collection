@@ -51,9 +51,9 @@
                         'next-section #'comint-next-prompt
                         'prev-section #'comint-previous-prompt)
 
-  (evil-collection-define-key 'normal 'comint-mode-map
-    (kbd "C-p") #'comint-previous-input
-    (kbd "C-n") #'comint-next-input)
+  (evil-collection-bind 'comint-mode-map
+                        'history-previous #'comint-previous-input
+                        'history-next     #'comint-next-input)
 
   ;; TODO: What if the user changes `evil-want-C-u-delete' after this is run?
   (when evil-want-C-u-delete

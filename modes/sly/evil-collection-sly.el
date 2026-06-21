@@ -205,10 +205,9 @@ Evil version of `sly-eval-print-last-expression' that accounts for
                         'next-item 'sly-mrepl-next-prompt
                         'prev-item 'sly-mrepl-previous-prompt
                         'next-section 'sly-mrepl-next-prompt
-                        'prev-section 'sly-mrepl-previous-prompt)
-  (evil-collection-define-key 'normal 'sly-mrepl-mode-map
-    (kbd "C-p") 'sly-mrepl-previous-input-or-button
-    (kbd "C-n") 'sly-mrepl-next-input-or-button)
+                        'prev-section 'sly-mrepl-previous-prompt
+                        'history-previous 'sly-mrepl-previous-input-or-button
+                        'history-next     'sly-mrepl-next-input-or-button)
 
   (evil-collection-bind 'sly-trace-dialog-mode-map
                         'quit 'quit-window

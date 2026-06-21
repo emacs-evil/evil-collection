@@ -47,9 +47,7 @@
 
     (evil-collection-define-key 'insert 'selectrum-minibuffer-map
       (kbd "C-j") 'selectrum-next-candidate
-      (kbd "C-k") 'selectrum-previous-candidate
-      (kbd "C-n") 'selectrum-next-candidate
-      (kbd "C-p") 'selectrum-previous-candidate)
+      (kbd "C-k") 'selectrum-previous-candidate)
 
     (evil-collection-define-key 'normal 'selectrum-minibuffer-map
       (kbd "j") 'selectrum-next-candidate
@@ -59,7 +57,9 @@
       (kbd "gy") 'selectrum-kill-ring-save)
     (evil-collection-bind 'selectrum-minibuffer-map
                           'next-item 'selectrum-next-group
-                          'prev-item 'selectrum-previous-group)
+                          'prev-item 'selectrum-previous-group
+                          'completion-previous 'selectrum-previous-candidate
+                          'completion-next     'selectrum-next-candidate)
 
     (when evil-want-C-u-scroll
       (evil-collection-define-key '(insert normal) 'selectrum-minibuffer-map
