@@ -36,6 +36,7 @@
 (defun evil-collection-ebuku-setup ()
   "Set up `evil' bindings for `Ebuku'."
   (evil-collection-bind 'ebuku-mode-map
+                        'edit 'ebuku-edit-bookmark
                         'quit 'quit-window
                         'refresh 'ebuku-refresh
                         'next-section 'ebuku-next-bookmark
@@ -43,7 +44,6 @@
   (evil-collection-define-key 'normal 'ebuku-mode-map
                               "a" 'ebuku-add-bookmark
                               "x" 'ebuku-delete-bookmark
-                              "e" 'ebuku-edit-bookmark
                               "j" 'ebuku-next-bookmark
                               "k" 'ebuku-previous-bookmark
                               "r" 'ebuku-search-on-recent

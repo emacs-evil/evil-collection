@@ -74,12 +74,13 @@
       (kbd "<tab>") 'dape-info-buffer-tab
       (kbd "<backtab>") 'evil-collection-dape--info-buffer-tab-backward))
 
+  (evil-collection-bind 'dape-info-breakpoints-mode-map 'edit 'dape-info-breakpoint-log-edit)
+
   (evil-collection-define-key 'normal 'dape-info-breakpoints-mode-map
     [mouse-2] 'dape-info-breakpoint-dwim
     [follow-link] 'mouse-face
     "D" 'dape-info-breakpoint-disable
-    "d" 'dape-info-breakpoint-delete
-    "e" 'dape-info-breakpoint-log-edit)
+    "d" 'dape-info-breakpoint-delete)
   (evil-collection-bind 'dape-info-breakpoints-mode-map 'action 'dape-info-breakpoint-dwim)
 
   (evil-collection-define-key 'normal 'dape-info-threads-mode-map

@@ -37,7 +37,9 @@
   "Set up `evil' bindings for `bookmark'."
   (evil-set-initial-state 'bookmark-bmenu-mode 'normal)
   (evil-collection-set-readonly-bindings 'bookmark-bmenu-mode-map)
-  (evil-collection-bind 'bookmark-bmenu-mode-map 'rename 'bookmark-bmenu-rename)
+  (evil-collection-bind 'bookmark-bmenu-mode-map
+                        'rename 'bookmark-bmenu-rename
+                        'edit 'bookmark-bmenu-edit-annotation)
   (evil-collection-define-key 'normal 'bookmark-bmenu-mode-map
     [remap evil-write] 'bookmark-bmenu-save
 
@@ -54,7 +56,6 @@
     ;; annotation
     "a" 'bookmark-bmenu-show-annotation
     "A" 'bookmark-bmenu-show-all-annotations
-    "E" 'bookmark-bmenu-edit-annotation
 
     ;; open
     "o" 'bookmark-bmenu-select

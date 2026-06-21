@@ -75,6 +75,9 @@
   (dolist (map evil-collection-fj-tabulated-list-maps)
     (evil-collection-set-readonly-bindings map))
 
+  (evil-collection-bind 'fj-issue-tl-mode-map 'edit 'fj-item-edit)
+  (evil-collection-bind 'fj-item-view-mode-map 'edit 'fj-item-edit)
+
   (evil-collection-define-key 'normal 'fj-generic-map
     "gb" 'fj-switch-to-buffer)
   (evil-collection-bind 'fj-generic-map
@@ -113,7 +116,6 @@
   (evil-collection-define-key 'normal 'fj-issue-tl-mode-map
     "c" 'fj-item-comment
     "C" 'fj-create-issue
-    "e" 'fj-item-edit
     "E" 'fj-item-edit-title
     "g/" 'fj-list-issues-search
     "x" 'fj-item-close
@@ -131,7 +133,6 @@
 
   (evil-collection-define-key 'normal 'fj-item-view-mode-map
     "c" 'fj-item-comment
-    "e" 'fj-item-edit
     "E" 'fj-item-edit-title
     "r" 'fj-add-reaction
     "g/" 'fj-list-issues-search

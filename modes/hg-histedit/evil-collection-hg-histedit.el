@@ -35,8 +35,8 @@
 ;;;###autoload
 (defun evil-collection-hg-histedit-setup ()
   "Set up `evil' bindings for `hg-histedit'."
+  (evil-collection-bind 'hg-histedit-mode-map 'edit 'hg-histedit-modify-commit-with-edit)
   (evil-collection-define-key 'normal 'hg-histedit-mode-map
-    "e" 'hg-histedit-modify-commit-with-edit
     "m" 'hg-histedit-modify-commit-with-mess
     "p" 'hg-histedit-modify-commit-with-pick
     "b" 'hg-histedit-modify-commit-with-base

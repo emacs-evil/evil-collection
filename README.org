@@ -283,6 +283,15 @@ Rename the entry, file, or thing at point.  Both ~r~ and ~R~ are bound.
       '((rename :state normal :key ("r" "R"))))
 #+end_src
 
+*** Edit
+
+Edit the entry / annotation / item at point.  Both ~e~ and ~E~ are bound.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((edit :state normal :key ("e" "E"))))
+#+end_src
+
 *** Browse URL
 
 Open the URL / link / page at point in an external browser (or whatever the
