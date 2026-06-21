@@ -37,6 +37,7 @@
 (defun evil-collection-gited-setup ()
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
+  (evil-collection-bind 'gited-mode-map 'rename 'gited-rename-branch)
   (evil-collection-bind 'gited-mode-map
                         'next-item 'gited-next-marked-branch
                         'prev-item 'gited-prev-marked-branch
@@ -95,7 +96,6 @@
     "o" 'tabulated-list-sort
     "P" 'gited-push                ; Only branches.
     "p" 'gited-set-object-upstream ; Pushes branches and tags.
-    "R" 'gited-rename-branch
     "r" 'gited-reset-branch
     "s" nil                ; Don't conflict with `tabulated-list-sort' on "S".
     "ss" 'gited-stash

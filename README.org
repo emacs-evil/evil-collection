@@ -274,6 +274,15 @@ Vim's ~ZZ~ (~:x~ — save and quit) and ~ZQ~ (~:q!~ — discard and quit), for e
         (quit-cancel :state normal :key "ZQ")))
 #+end_src
 
+*** Rename
+
+Rename the entry, file, or thing at point.  Both ~r~ and ~R~ are bound.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((rename :state normal :key ("r" "R"))))
+#+end_src
+
 *** Describe mode
 
 #+begin_src emacs-lisp :tangle yes

@@ -63,6 +63,8 @@ keybindings listed in `evil-collection-pass-command-to-label'."
 (defun evil-collection-pass-setup ()
   "Set up `evil' bindings for `pass-mode'."
 
+  (evil-collection-bind 'pass-mode-map 'rename 'pass-rename)
+
   (advice-add 'pass--display-keybinding
               :around 'evil-collection-pass-display-keybinding)
 
@@ -91,8 +93,6 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "i" 'pass-insert
     "I" 'pass-insert-generated
     "Y" 'pass-copy
-    "r" 'pass-rename
-    "R" 'pass-rename
     "o" 'pass-otp-options)
   (evil-collection-bind 'pass-mode-map
                         'action 'pass-view

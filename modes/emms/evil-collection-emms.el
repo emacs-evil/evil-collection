@@ -154,6 +154,7 @@ The return value is the yanked text."
 (defun evil-collection-emms-playlist-setup ()
   "Set up `evil' bindings for `emms-playlist'."
   (evil-set-initial-state 'emms-playlist-mode 'normal)
+  (evil-collection-bind 'emms-playlist-mode-map 'rename 'emms-tag-editor-rename)
   (evil-collection-define-key 'normal 'emms-playlist-mode-map
     ;; playback controls
     "x" 'emms-pause
@@ -183,7 +184,6 @@ The return value is the yanked text."
     "u" 'emms-playlist-mode-undo
 
     "ze" 'emms-tag-editor-edit
-    "R" 'emms-tag-editor-rename
 
     "." 'emms-playlist-mode-center-current
     "d" 'emms-playlist-mode-goto-dired-at-point

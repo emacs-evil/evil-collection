@@ -36,6 +36,7 @@
 (defun evil-collection-tar-mode-setup ()
   "Set up `evil' bindings for `tar-mode'."
   (evil-set-initial-state 'tar-mode 'normal)
+  (evil-collection-bind 'tar-mode-map 'rename 'tar-rename-entry)
   (evil-collection-define-key 'normal 'tar-mode-map
     "j" 'tar-next-line
     "k" 'tar-previous-line
@@ -43,7 +44,6 @@
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
 
-    "r" 'tar-rename-entry
     "M" 'tar-chmod-entry
     "P" 'tar-chgrp-entry
     "O" 'tar-chown-entry

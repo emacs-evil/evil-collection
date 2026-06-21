@@ -37,6 +37,7 @@
   "Set up `evil' bindings for `arc-mode'."
   (evil-set-initial-state 'arc-mode 'normal)
   (evil-set-initial-state 'archive-mode 'normal)
+  (evil-collection-bind 'archive-mode-map 'rename 'archive-rename-entry)
   (evil-collection-define-key 'normal 'archive-mode-map
     "j" 'archive-next-line
     "k" 'archive-previous-line
@@ -45,7 +46,6 @@
     "G" 'end-of-buffer
 
     "a" 'archive-alternate-display
-    "r" 'archive-rename-entry
     "C" 'archive-copy-file
     "M" 'archive-chmod-entry
     "O" 'archive-chown-entry

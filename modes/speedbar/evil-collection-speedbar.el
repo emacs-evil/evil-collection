@@ -54,6 +54,7 @@
 (defun evil-collection-speedbar-setup ()
   "Set up `evil' bindings for `speedbar'."
   (evil-set-initial-state 'speedbar-mode 'normal)
+  (evil-collection-bind 'speedbar-file-key-map 'rename 'speedbar-item-rename)
   (evil-collection-define-key 'normal 'speedbar-mode-map
     "j" 'speedbar-next
     "k" 'speedbar-prev
@@ -92,7 +93,6 @@
     "I" 'speedbar-item-info
     "K" 'speedbar-item-object-delete
     "L" 'speedbar-item-load
-    "R" 'speedbar-item-rename
     "+" 'speedbar-create-directory
     "^" 'speedbar-up-directory
     "-" 'speedbar-up-directory)

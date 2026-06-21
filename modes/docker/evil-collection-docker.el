@@ -34,6 +34,7 @@
 
 (defun evil-collection-docker-setup ()
   "Set up `evil' bindings for `docker'."
+  (evil-collection-bind 'docker-container-mode-map 'rename 'docker-container-rename-selection)
   (evil-collection-define-key 'normal 'docker-container-mode-map
     ";"  'docker-container-ls
     "?"  'docker-container-help
@@ -44,12 +45,11 @@
     "L"  'docker-container-logs
     "O"  'docker-container-stop
     "P"  'docker-container-pause
-    "R"  'docker-container-restart
     "S"  'docker-container-start
     "a"  'docker-container-attach
     "b"  'docker-container-shells
     "f"  'docker-container-open
-    "r"  'docker-container-rename-selection)
+    "r"  'docker-container-restart)
   (evil-collection-bind 'docker-container-mode-map 'delete 'docker-container-rm)
 
   (evil-collection-define-key 'normal 'docker-context-mode-map
