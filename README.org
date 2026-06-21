@@ -398,6 +398,16 @@ Three semantics share the ~<tab>~ / ~<backtab>~ pair:
         (scroll-up   :state normal :key ("S-SPC" "S-<space>"))))
 #+end_src
 
+*** Jump (J)
+
+Jump to a named/prompted item — buffer, article, group, chunk, branch, entry,
+date, etc.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((jump :state normal :key "J")))
+#+end_src
+
 *** Zoom (+ / - / 0)
 
 Increase, decrease, and reset zoom/scale.

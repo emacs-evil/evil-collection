@@ -60,7 +60,8 @@
                         'prev-item 'vlf-prev-batch
                         'next-section 'vlf-next-batch
                         'prev-section 'vlf-prev-batch
-                        'refresh 'vlf-revert)
+                        'refresh 'vlf-revert
+                        'jump 'vlf-jump-to-chunk)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'vlf-prefix-map
@@ -73,7 +74,6 @@
     (evil-collection-define-key 'normal 'vlf-prefix-map
       "s" 'vlf-re-search-forward
       "S" 'vlf-re-search-backward
-      "J" 'vlf-jump-to-chunk
       "E" 'vlf-ediff-buffers
       "L" 'vlf-goto-line
       "F" 'vlf-toggle-follow)))
