@@ -37,10 +37,10 @@
   "Set up `evil' bindings for `message-mode'."
   (evil-set-initial-state 'message-mode 'insert)
   (evil-collection-define-key 'normal 'message-mode-map
-    "ZZ" 'message-send-and-exit
-    "ZQ" 'message-kill-buffer
     "ZD" 'message-dont-send
-    "ZF" 'mml-attach-file))
+    "ZF" 'mml-attach-file)
+  (evil-collection-bind 'quit-save   'message-mode-map 'message-send-and-exit)
+  (evil-collection-bind 'quit-cancel 'message-mode-map 'message-kill-buffer))
 
 (provide 'evil-collection-message)
 ;;; evil-collection-message.el ends here

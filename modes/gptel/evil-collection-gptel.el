@@ -63,11 +63,11 @@
     (evil-collection-define-key 'normal 'gptel-context-buffer-mode-map
       "j" 'gptel-context-next
       "k" 'gptel-context-previous
-      "d" 'gptel-context-flag-deletion
-      "ZQ" 'gptel-context-quit
-      "ZZ" 'gptel-context-confirm)
-    (evil-collection-bind 'quit   'gptel-context-buffer-mode-map 'gptel-context-quit)
-    (evil-collection-bind 'action 'gptel-context-buffer-mode-map 'gptel-context-visit)))
+      "d" 'gptel-context-flag-deletion)
+    (evil-collection-bind 'quit        'gptel-context-buffer-mode-map 'gptel-context-quit)
+    (evil-collection-bind 'quit-save   'gptel-context-buffer-mode-map 'gptel-context-confirm)
+    (evil-collection-bind 'quit-cancel 'gptel-context-buffer-mode-map 'gptel-context-quit)
+    (evil-collection-bind 'action      'gptel-context-buffer-mode-map 'gptel-context-visit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here
