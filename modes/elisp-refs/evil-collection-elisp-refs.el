@@ -43,10 +43,8 @@
     (kbd "C-k") 'elisp-refs-prev-match
     "gj" 'elisp-refs-next-match
     "gk" 'elisp-refs-prev-match
-    (kbd "RET") 'elisp-refs-visit-match
-
-    ;; quit
-    "q" 'kill-current-buffer))
+    (kbd "RET") 'elisp-refs-visit-match)
+  (evil-collection-theme-bind 'quit 'elisp-refs-mode-map 'kill-current-buffer))
 
 (provide 'evil-collection-elisp-refs)
 ;;; evil-collection-elisp-refs.el ends here

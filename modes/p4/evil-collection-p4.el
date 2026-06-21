@@ -57,6 +57,7 @@
   (evil-set-initial-state 'p4-diff-mode-map 'normal)
   (evil-set-initial-state 'p4-annotate-mode-map 'normal)
 
+  (evil-collection-theme-bind 'quit 'p4-basic-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'p4-basic-mode-map
     [mouse-1] 'p4-buffer-mouse-clicked
     "k" 'evil-previous-line
@@ -64,7 +65,6 @@
     (kbd "C-j") 'p4-forward-active-link
     (kbd "C-k") 'p4-backward-active-link
     (kbd "RET") 'p4-buffer-commands
-    "q" 'quit-window
     "gr" 'revert-buffer
     "]]" 'p4-scroll-down-1-window
     "[[" 'p4-scroll-up-1-window

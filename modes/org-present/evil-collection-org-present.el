@@ -53,13 +53,13 @@
     "+" 'org-present-big
     "=" 'org-present-big
     "-" 'org-present-small
-    "q" 'org-present-quit
     "ZQ" 'org-present-quit
     "ZZ" 'org-present-quit
     "r" 'org-present-read-only
     "gw" 'org-present-read-write
     "gg" 'org-present-beginning
-    "G" 'org-present-end))
+    "G" 'org-present-end)
+  (evil-collection-theme-bind 'quit 'org-present-mode-keymap 'org-present-quit))
 
 (provide 'evil-collection-org-present)
 ;;; evil-collection-org-present.el ends here

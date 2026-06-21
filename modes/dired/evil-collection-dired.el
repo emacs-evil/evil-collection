@@ -40,8 +40,8 @@
 ;;;###autoload
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
+  (evil-collection-theme-bind 'quit 'dired-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'dired-mode-map
-    "q" 'quit-window
     "j" 'dired-next-line
     "k" 'dired-previous-line
     [mouse-2] 'dired-mouse-find-file-other-window

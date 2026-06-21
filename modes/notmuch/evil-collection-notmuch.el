@@ -137,7 +137,6 @@ that moves trashed messages out of the inbox)."
 
   (evil-collection-define-key 'normal 'notmuch-common-keymap
     "g?" 'notmuch-help
-    "q" 'notmuch-bury-or-kill-this-buffer
     "s" 'notmuch-search
     "S" 'notmuch-tree
     "C" 'notmuch-mua-new-mail           ; like mu4e
@@ -146,6 +145,7 @@ that moves trashed messages out of the inbox)."
     "gA" 'notmuch-refresh-all-buffers
     "gR" 'notmuch-poll-and-refresh-this-buffer
     "J" 'notmuch-jump-search)
+  (evil-collection-theme-bind 'quit 'notmuch-common-keymap 'notmuch-bury-or-kill-this-buffer)
 
   (evil-collection-define-key 'normal 'notmuch-hello-mode-map
     "g?" 'notmuch-version
@@ -192,7 +192,6 @@ that moves trashed messages out of the inbox)."
 
   (evil-collection-define-key 'normal 'notmuch-tree-mode-map
     "g?" 'notmuch-help
-    "q" 'notmuch-tree-quit
     "S" 'notmuch-tree-to-search
     "C" 'notmuch-mua-new-mail ; like mu4e
     "cc" 'notmuch-mua-new-mail ; like mu4e
@@ -220,6 +219,7 @@ that moves trashed messages out of the inbox)."
     "+" 'notmuch-tree-add-tag
     "*" 'notmuch-tree-tag-thread
     "e" 'notmuch-tree-resume-message)
+  (evil-collection-theme-bind 'quit 'notmuch-tree-mode-map 'notmuch-tree-quit)
 
   (dolist (state '(normal visual))
     (evil-collection-define-key state 'notmuch-search-mode-map
@@ -235,7 +235,6 @@ that moves trashed messages out of the inbox)."
       "d" 'evil-collection-notmuch-search-toggle-delete
       "!" 'evil-collection-notmuch-search-toggle-unread
       "=" 'evil-collection-notmuch-search-toggle-flagged
-      "q" 'notmuch-bury-or-kill-this-buffer
       "cr" 'notmuch-search-reply-to-thread-sender
       "cR" 'notmuch-search-reply-to-thread
       "t" 'notmuch-search-filter-by-tag
@@ -243,6 +242,7 @@ that moves trashed messages out of the inbox)."
       "-" 'notmuch-search-remove-tag
       "+" 'notmuch-search-add-tag
       (kbd "RET") 'notmuch-search-show-thread))
+  (evil-collection-theme-bind 'quit 'notmuch-search-mode-map 'notmuch-bury-or-kill-this-buffer)
 
   ;; ys
   (evil-collection-define-operator-key 'yank 'notmuch-search-mode-map

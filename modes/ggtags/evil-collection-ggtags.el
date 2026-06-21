@@ -68,8 +68,8 @@
     "x" 'ggtags-view-search-history-kill
     "gr" 'ggtags-view-search-history-update
     "r" 'ggtags-save-to-register
-    "R" 'ggtags-view-search-history-action
-    "q" 'ggtags-kill-window)
+    "R" 'ggtags-view-search-history-action)
+  (evil-collection-theme-bind 'quit 'ggtags-view-search-history-mode-map 'ggtags-kill-window)
 
   (evil-collection-define-key 'normal 'ggtags-view-tag-history-mode-map
     "gj" 'next-error-no-select
@@ -77,8 +77,8 @@
     "]]" 'next-error-no-select
     "gk" 'previous-error-no-select
     (kbd "C-k") 'previous-error-no-select
-    (kbd "[[") 'previous-error-no-select
-    "q" 'ggtags-kill-window)
+    (kbd "[[") 'previous-error-no-select)
+  (evil-collection-theme-bind 'quit 'ggtags-view-tag-history-mode-map 'ggtags-kill-window)
 
   (evil-collection-define-key 'normal 'ggtags-navigation-map
     ;; navigation

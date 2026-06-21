@@ -59,7 +59,6 @@
           :dir-fn 'neo-open-dir)
     "gO" 'neotree-quick-look
     "gr" 'neotree-refresh
-    "q" 'neotree-hide
     "H" 'neotree-hidden-file-toggle
     "gh" 'neotree-hidden-file-toggle
     (kbd "C-k") 'neotree-select-up-node
@@ -95,7 +94,8 @@
     (kbd "C-x 2") 'neotree-empty-fn
     (kbd "C-x 3") 'neotree-empty-fn
     (kbd "C-x C-f") 'find-file-other-window
-    (kbd "C-c C-f") 'find-file-other-window))
+    (kbd "C-c C-f") 'find-file-other-window)
+  (evil-collection-theme-bind 'quit 'neotree-mode-map 'neotree-hide))
 
 (provide 'evil-collection-neotree)
 ;;; evil-collection-neotree.el ends here

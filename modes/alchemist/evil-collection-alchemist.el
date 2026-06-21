@@ -55,43 +55,37 @@
   (evil-set-initial-state 'alchemist-test-mode 'normal)
   (evil-set-initial-state 'alchemist-test-report-mode 'normal)
 
-  (evil-collection-define-key 'normal 'alchemist-compile-mode-map
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'alchemist-compile-mode-map 'quit-window)
 
-  (evil-collection-define-key 'normal 'alchemist-eval-mode-map
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'alchemist-eval-mode-map 'quit-window)
 
-  (evil-collection-define-key 'normal 'alchemist-execute-mode-map
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'alchemist-execute-mode-map 'quit-window)
 
-  (evil-collection-define-key 'normal 'alchemist-message-mode-map
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'alchemist-message-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-help-minor-mode-map
-    "q" 'quit-window
     "m" 'alchemist-help-module
     "s" 'alchemist-help
     "gh" 'alchemist-help-history
     "g?" 'alchemist-help-minor-mode-key-binding-summary)
+  (evil-collection-theme-bind 'quit 'alchemist-help-minor-mode-map 'quit-window)
 
   (evil-collection-theme-bind 'find-definition 'alchemist-help-minor-mode-map 'alchemist-goto-definition-at-point)
   (evil-collection-theme-bind 'lookup-doc      'alchemist-help-minor-mode-map 'alchemist-help-search-at-point)
 
-  (evil-collection-define-key 'normal 'alchemist-macroexpand-mode-map
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'alchemist-macroexpand-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-refcard-mode-map
     "gd" 'alchemist-refcard--describe-funtion-at-point
-    "g?" 'alchemist-refcard--describe-funtion-at-point
-    "q" 'quit-window)
+    "g?" 'alchemist-refcard--describe-funtion-at-point)
+  (evil-collection-theme-bind 'quit 'alchemist-refcard-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-mix-mode-map
-    "q" 'quit-window
     "i" 'alchemist-mix-send-input-to-mix-process
     "gr" 'alchemist-mix-rerun-last-task)
+  (evil-collection-theme-bind 'quit 'alchemist-mix-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-test-report-mode-map
-    "q" 'quit-window
     "t" 'toggle-truncate-lines
     "gr" 'alchemist-mix-rerun-last-test
     "gj" 'alchemist-test-next-result
@@ -101,6 +95,7 @@
     "]]" 'alchemist-test-next-stacktrace-file
     "[[" 'alchemist-test-previous-stacktrace-file
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
+  (evil-collection-theme-bind 'quit 'alchemist-test-report-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-mode-map
     "g?" 'alchemist-help

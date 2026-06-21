@@ -228,8 +228,7 @@ The return value is the yanked text."
   (with-eval-after-load 'emms-playlist-mode
     (evil-collection-emms-playlist-setup))
 
-  (evil-collection-define-key 'normal 'emms-browser-search-mode-map
-    "q" 'emms-browser-kill-search)
+  (evil-collection-theme-bind 'quit 'emms-browser-search-mode-map 'emms-browser-kill-search)
 
   (evil-set-initial-state 'emms-metaplaylist-mode 'normal)
   (evil-collection-define-key 'normal 'emms-metaplaylist-mode-map
@@ -238,8 +237,8 @@ The return value is the yanked text."
     "gr" 'emms-metaplaylist-mode-update
     "C" 'emms-metaplaylist-mode-new-buffer
     "." 'emms-metaplaylist-mode-center-current
-    "D" 'emms-metaplaylist-mode-kill-buffer
-    "q" 'kill-current-buffer)
+    "D" 'emms-metaplaylist-mode-kill-buffer)
+  (evil-collection-theme-bind 'quit 'emms-metaplaylist-mode-map 'kill-current-buffer)
 
   (evil-set-initial-state 'emms-stream-mode 'normal)
   (evil-collection-define-key 'normal 'emms-stream-mode-map
@@ -252,8 +251,8 @@ The return value is the yanked text."
     "r" 'emms-stream-edit-bookmark
     "i" 'emms-stream-info-bookmark
     "s" 'emms-stream-save-bookmarks-file
-    "x" 'emms-stream-toggle-default-action
-    "q" 'emms-stream-quit)
+    "x" 'emms-stream-toggle-default-action)
+  (evil-collection-theme-bind 'quit 'emms-stream-mode-map 'emms-stream-quit)
 
   (unless evil-collection-always-run-setup-hook-after-load
     (run-hook-with-args

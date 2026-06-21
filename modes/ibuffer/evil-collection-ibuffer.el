@@ -189,9 +189,9 @@
     (kbd "gV") 'ibuffer-do-view-horizontally
 
     ;; Quit
-    "q" 'quit-window
     "ZZ" 'quit-window
-    "ZQ" 'quit-window))
+    "ZQ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'ibuffer-mode-map 'quit-window))
 
 (provide 'evil-collection-ibuffer)
 ;;; evil-collection-ibuffer.el ends here

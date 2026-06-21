@@ -85,9 +85,9 @@
     "m" 'vundo-diff-mark
     "u" 'vundo-diff-unmark
     "w" 'vundo-next-root
-    "q" 'vundo-quit
     "ZZ" 'vundo-quit
-    "ZQ" 'vundo-quit))
+    "ZQ" 'vundo-quit)
+  (evil-collection-theme-bind 'quit 'vundo-mode-map 'vundo-quit))
 
 (provide 'evil-collection-vundo)
 ;;; evil-collection-vundo.el ends here

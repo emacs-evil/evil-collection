@@ -116,9 +116,9 @@ binding keys to a minor mode created by `evil-collection' instead."
     "gj" 'diff-hunk-next
     "gk" 'diff-hunk-prev
     "ge" 'diff-ediff-patch
-    "q" 'quit-window
     "\\" 'read-only-mode
     (kbd "RET") 'diff-goto-source)
+  (evil-collection-theme-bind 'quit 'evil-collection-diff-mode-map 'quit-window)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
@@ -164,9 +164,8 @@ binding keys to a minor mode created by `evil-collection' instead."
     "gj" 'diff-hunk-next
     "gk" 'diff-hunk-prev
 
-    "q" 'quit-window
-
     "\\" 'read-only-mode) ; magit has "\"
+  (evil-collection-theme-bind 'quit 'diff-mode-map 'quit-window)
 
   (evil-collection-define-key 'motion 'diff-mode-map
     ;; motion

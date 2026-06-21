@@ -105,7 +105,6 @@
     "o" 'sldb-out
     "b" 'sldb-break-on-return
     "a" 'sldb-abort
-    "q" 'sldb-quit
     "A" 'sldb-break-with-system-debugger
     "B" 'sldb-break-with-default-debugger
     "P" 'sldb-print-condition
@@ -121,6 +120,7 @@
     "7" 'sldb-invoke-restart-7
     "8" 'sldb-invoke-restart-8
     "9" 'sldb-invoke-restart-9)
+  (evil-collection-theme-bind 'quit 'sldb-mode-map 'sldb-quit)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
     (kbd "RET") 'slime-inspector-operate-on-point
@@ -149,8 +149,8 @@
     (kbd "<backtab>") 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
     "." 'slime-inspector-show-source
     "gd" 'slime-inspector-show-source
-    "gR" 'slime-inspector-fetch-all
-    "q" 'slime-inspector-quit)
+    "gR" 'slime-inspector-fetch-all)
+  (evil-collection-theme-bind 'quit 'slime-inspector-mode-map 'slime-inspector-quit)
 
   (evil-collection-theme-bind 'lookup-doc 'slime-inspector-mode-map 'slime-inspector-describe)
 
@@ -160,9 +160,7 @@
   (evil-collection-theme-bind 'lookup-doc      'slime-mode-map 'slime-describe-symbol)
   (evil-collection-theme-bind 'goto-repl       'slime-mode-map 'slime-switch-to-output-buffer)
 
-  (evil-collection-define-key 'normal 'slime-popup-buffer-mode-map
-    ;; quit
-    "q" 'quit-window)
+  (evil-collection-theme-bind 'quit 'slime-popup-buffer-mode-map 'quit-window)
 
   (evil-collection-theme-bind 'find-definition 'slime-popup-buffer-mode-map 'slime-edit-definition)
   (evil-collection-theme-bind 'pop-definition  'slime-popup-buffer-mode-map 'slime-pop-find-definition-stack)

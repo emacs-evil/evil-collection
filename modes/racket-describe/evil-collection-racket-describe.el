@@ -38,8 +38,8 @@
   (evil-collection-inhibit-insert-state 'racket-describe-mode-map)
   (evil-set-initial-state 'racket-describe-mode 'normal)
   (evil-collection-define-key 'normal 'racket-describe-mode-map
-    "q" 'quit-window
-    "g?" 'describe-mode))
+    "g?" 'describe-mode)
+  (evil-collection-theme-bind 'quit 'racket-describe-mode-map 'quit-window))
 
 (provide 'evil-collection-racket-describe)
 ;;; evil-collection-racket-describe.el ends here

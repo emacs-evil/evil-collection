@@ -109,7 +109,6 @@
     "go" 'reftex-select-callback        ;shows the point where the label is
     "gr" (lambda nil "Press `?' during selection to find out
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
-    "q" 'reftex-select-quit
     "ZZ" 'reftex-select-quit
     "ZQ" 'evil-quit
     "g?" 'reftex-select-help
@@ -136,6 +135,7 @@
     ;; mark
     "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
     "u" 'reftex-select-unmark)
+  (evil-collection-theme-bind 'quit 'reftex-select-shared-map 'reftex-select-quit)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
 
@@ -150,7 +150,6 @@
     (kbd "<tab>") 'reftex-toc-goto-line
     "g?" 'reftex-toc-show-help
     "?" 'reftex-toc-show-help
-    "q" 'reftex-toc-quit
     "ZZ" 'reftex-toc-quit-and-kill
     "ZQ" 'evil-quit
     "gr" 'reftex-toc-rescan
@@ -168,7 +167,8 @@
     (kbd "]]") 'reftex-toc-next-heading
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
-    "f" 'reftex-toc-toggle-follow))
+    "f" 'reftex-toc-toggle-follow)
+  (evil-collection-theme-bind 'quit 'reftex-toc-mode-map 'reftex-toc-quit))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here

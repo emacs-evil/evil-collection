@@ -49,8 +49,8 @@
     (kbd "RET") 'difftastic-diff-visit-file
     "o" 'difftastic-diff-visit-worktree-file
     "gr" 'difftastic-rerun
-    "q" 'difftastic-leave
-    "ZQ" 'difftastic-quit))
+    "ZQ" 'difftastic-quit)
+  (evil-collection-theme-bind 'quit 'difftastic-mode-map 'difftastic-leave))
 
 (provide 'evil-collection-difftastic)
 

@@ -39,8 +39,8 @@
   (evil-collection-theme-bind 'find-definition 'go-mode-map 'godef-jump)
   (evil-collection-theme-bind 'lookup-doc      'go-mode-map 'godef-describe)
   (evil-collection-define-key 'normal 'godoc-mode-map
-    "q" 'quit-window
-    "g?" 'describe-mode))
+    "g?" 'describe-mode)
+  (evil-collection-theme-bind 'quit 'godoc-mode-map 'quit-window))
 
 (provide 'evil-collection-go-mode)
 ;;; evil-collection-go-mode.el ends here

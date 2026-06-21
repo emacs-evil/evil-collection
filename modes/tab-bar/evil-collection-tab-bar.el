@@ -50,9 +50,9 @@
     "x" 'tab-switcher-execute
 
     ;; Quit
-    "q" 'quit-window
     "ZZ" 'quit-window
-    "ZQ" 'quit-window))
+    "ZQ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'tab-switcher-mode-map 'quit-window))
 
 (provide 'evil-collection-tab-bar)
 

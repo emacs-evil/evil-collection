@@ -60,9 +60,9 @@
     "<" 'Custom-goto-parent
 
     ;; quit
-    "q" 'Custom-buffer-done
     "ZQ" 'evil-quit
-    "ZZ" 'Custom-buffer-done))
+    "ZZ" 'Custom-buffer-done)
+  (evil-collection-theme-bind 'quit 'custom-mode-map 'Custom-buffer-done))
 
 (provide 'evil-collection-custom)
 ;;; evil-collection-custom.el ends here

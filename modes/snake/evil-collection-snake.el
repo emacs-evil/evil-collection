@@ -42,9 +42,9 @@
     "k" 'snake-move-up
     "gr" 'snake-start-game
     "p" 'snake-pause-game
-    "q" 'quit-window
     "ZQ" 'quit-window
-    "ZZ" 'snake-end-game))
+    "ZZ" 'snake-end-game)
+  (evil-collection-theme-bind 'quit 'snake-mode-map 'quit-window))
 
 (provide 'evil-collection-snake)
 ;;; evil-collection-snake.el ends here

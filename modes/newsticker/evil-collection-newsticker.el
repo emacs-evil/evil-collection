@@ -52,10 +52,8 @@
 
     ;; refresh
     "gr" 'newsticker-buffer-force-update
-    "gR" 'newsticker-get-all-news
-
-    ;; quit
-    "q" 'newsticker-close-buffer)
+    "gR" 'newsticker-get-all-news)
+  (evil-collection-theme-bind 'quit 'newsticker-mode-map 'newsticker-close-buffer)
 
   ;; treeview
   (evil-set-initial-state 'newsticker-treeview-list-mode 'normal)
@@ -107,10 +105,8 @@
 
     ;; refresh
     "gr" 'newsticker-treeview-update
-    "gR" 'newsticker-get-all-news
-
-    ;; quit
-    "q" 'newsticker-treeview-quit))
+    "gR" 'newsticker-get-all-news)
+  (evil-collection-theme-bind 'quit 'newsticker-treeview-mode-map 'newsticker-treeview-quit))
 
 (provide 'evil-collection-newsticker)
 ;;; evil-collection-newsticker.el ends here

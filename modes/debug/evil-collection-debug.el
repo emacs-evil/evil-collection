@@ -71,9 +71,9 @@
     "zc" 'backtrace-single-line
     
     ;; quit
-    "q" 'top-level
     "ZQ" 'evil-quit
-    "ZZ" 'top-level))
+    "ZZ" 'top-level)
+  (evil-collection-theme-bind 'quit 'debugger-mode-map 'top-level))
 
 (provide 'evil-collection-debug)
 ;;; evil-collection-debug.el ends here

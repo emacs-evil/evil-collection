@@ -49,8 +49,8 @@
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error
-    (kbd "RET") 'flycheck-error-list-goto-error
-    "q" 'quit-window))
+    (kbd "RET") 'flycheck-error-list-goto-error)
+  (evil-collection-theme-bind 'quit 'flycheck-error-list-mode-map 'quit-window))
 
 (provide 'evil-collection-flycheck)
 ;;; evil-collection-flycheck.el ends here

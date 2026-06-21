@@ -47,9 +47,9 @@
     "gr" 'tetris-start-game
     (kbd "TAB") 'tetris-move-bottom
     "p" 'tetris-pause-game
-    "q" 'quit-window
     "ZQ" 'quit-window
-    "ZZ" 'tetris-end-game))
+    "ZZ" 'tetris-end-game)
+  (evil-collection-theme-bind 'quit 'tetris-mode-map 'quit-window))
 
 (provide 'evil-collection-tetris)
 ;;; evil-collection-tetris.el ends here

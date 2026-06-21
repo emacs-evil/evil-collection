@@ -61,11 +61,11 @@
     "k" 'color-rg-jump-prev-keyword
     "l" 'color-rg-jump-prev-file
     "o" 'color-rg-rerun-in-parent-dir
-    "q" 'color-rg-quit
     "r" 'color-rg-replace-all-matches
     "s" 'color-rg-rerun-change-dir
     "u" 'color-rg-unfilter
-    "x" 'color-rg-filter-match-files))
+    "x" 'color-rg-filter-match-files)
+  (evil-collection-theme-bind 'quit 'color-rg-mode-map 'color-rg-quit))
 
 (provide 'evil-collection-color-rg)
 ;;; evil-collection-color-rg.el ends here

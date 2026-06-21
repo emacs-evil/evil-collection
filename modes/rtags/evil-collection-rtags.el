@@ -60,8 +60,8 @@
 
     "c" 'rtags-select-caller
     "C" 'rtags-select-caller-other-window
-    "x" 'rtags-select-and-remove-rtags-buffer
-    "q" 'rtags-call-bury-or-delete)
+    "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-theme-bind 'quit 'rtags-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-define-key 'normal 'rtags-dependency-tree-mode-map
     (kbd "<tab>") 'rtags-dependency-tree-toggle-current-expanded
@@ -89,8 +89,8 @@
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
 
-    "x" 'rtags-select-and-remove-rtags-buffer
-    "q" 'rtags-call-bury-or-delete)
+    "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-theme-bind 'quit 'rtags-dependency-tree-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-theme-bind 'find-file 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-find-path)
 
@@ -121,8 +121,8 @@
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
 
-    "x" 'rtags-select-and-remove-rtags-buffer
-    "q" 'rtags-call-bury-or-delete)
+    "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-theme-bind 'quit 'rtags-references-tree-mode-map 'rtags-call-bury-or-delete)
 
   (evil-collection-define-key 'normal 'rtags-location-stack-visualize-mode-map
     ;; open
@@ -135,8 +135,8 @@
     [mouse-2] 'rtags-select-other-window
     "s" 'rtags-show-in-other-window
 
-    "x" 'rtags-select-and-remove-rtags-buffer
-    "q" 'rtags-call-bury-or-delete))
+    "x" 'rtags-select-and-remove-rtags-buffer)
+  (evil-collection-theme-bind 'quit 'rtags-location-stack-visualize-mode-map 'rtags-call-bury-or-delete))
 
 (provide 'evil-collection-rtags)
 ;;; evil-collection-rtags.el ends here

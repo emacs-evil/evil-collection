@@ -60,9 +60,9 @@
     "gr" 'Man-update-manpage
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'quit-window
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'Man-mode-map 'quit-window))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here

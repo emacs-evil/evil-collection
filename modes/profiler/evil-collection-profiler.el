@@ -63,9 +63,9 @@
     "gr" 'revert-buffer
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'evil-quit
-    "ZZ" 'quit-windw))
+    "ZZ" 'quit-windw)
+  (evil-collection-theme-bind 'quit 'profiler-report-mode-map 'quit-window))
 
 (provide 'evil-collection-profiler)
 ;;; evil-collection-profiler.el ends here

@@ -35,8 +35,7 @@
 ;;;###autoload
 (defun evil-collection-quickrun-setup ()
   "Set up `evil' bindings for `quickrun'.."
-  (evil-collection-define-key 'normal 'quickrun--mode-map
-    "q" 'quit-window))
+  (evil-collection-theme-bind 'quit 'quickrun--mode-map 'quit-window))
 
 (provide 'evil-collection-quickrun)
 ;;; evil-collection-quickrun.el ends here

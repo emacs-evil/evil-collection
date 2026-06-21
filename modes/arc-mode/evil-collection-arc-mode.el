@@ -69,10 +69,8 @@
     ;; mark
     "m" 'archive-mark
     "u" 'archive-unflag
-    "U" 'archive-unmark-all-files
-
-    ;; quit
-    "q" 'quit-window))
+    "U" 'archive-unmark-all-files)
+  (evil-collection-theme-bind 'quit 'archive-mode-map 'quit-window))
 
 (provide 'evil-collection-arc-mode)
 ;;; evil-collection-arc-mode.el ends here

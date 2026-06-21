@@ -138,9 +138,9 @@
     (kbd "M-=") 'calendar-count-days-region
 
     ;; quit
-    "q" 'calendar-exit
     "ZQ" 'evil-quit
-    "ZZ" 'calendar-exit))
+    "ZZ" 'calendar-exit)
+  (evil-collection-theme-bind 'quit 'calendar-mode-map 'calendar-exit))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here

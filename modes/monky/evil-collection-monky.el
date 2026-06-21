@@ -65,8 +65,8 @@
     "LL" 'monky-log-all
     "Lr" 'monky-log-revset
     "b" 'monky-branches
-    "Q" 'monky-queue
-    "q" 'monky-quit-window)
+    "Q" 'monky-queue)
+  (evil-collection-theme-bind 'quit 'monky-mode-map 'monky-quit-window)
 
   (evil-collection-define-key 'normal 'monky-status-mode-map
     "s" 'monky-stage-item

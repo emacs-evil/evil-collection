@@ -64,10 +64,10 @@
       "j" 'gptel-context-next
       "k" 'gptel-context-previous
       "d" 'gptel-context-flag-deletion
-      "q" 'gptel-context-quit
       "ZQ" 'gptel-context-quit
       "ZZ" 'gptel-context-confirm
-      (kbd "RET") 'gptel-context-visit)))
+      (kbd "RET") 'gptel-context-visit)
+    (evil-collection-theme-bind 'quit 'gptel-context-buffer-mode-map 'gptel-context-quit)))
 
 (provide 'evil-collection-gptel)
 ;;; evil-collection-gptel.el ends here

@@ -46,9 +46,9 @@
     (kbd "<left>") '2048-left
     (kbd "<right>") '2048-right
     (kbd "<down>") '2048-down
-    "q" 'quit-window
     "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit '2048-mode-map 'quit-window))
 
 (provide 'evil-collection-2048-game)
 ;;; evil-collection-2048-game.el ends here

@@ -44,9 +44,9 @@
     "gr" 'revert-buffer
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'evil-quit
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'apropos-mode-map 'quit-window))
 
 (provide 'evil-collection-apropos)
 ;;; evil-collection-apropos.el ends here

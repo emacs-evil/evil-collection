@@ -83,9 +83,9 @@
     "gr" 'eww-reload
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'eww-mode-map 'quit-window)
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)

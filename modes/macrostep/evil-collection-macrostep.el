@@ -40,13 +40,13 @@
   (add-hook 'macrostep-mode-hook #'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'macrostep-keymap
-    "q" 'macrostep-collapse-all
     "e" 'macrostep-expand
     "u" 'macrostep-collapse
     "gj" 'macrostep-next-macro
     "gk" 'macrostep-prev-macro
     (kbd "C-j") 'macrostep-next-macro
-    (kbd "C-k") 'macrostep-prev-macro))
+    (kbd "C-k") 'macrostep-prev-macro)
+  (evil-collection-theme-bind 'quit 'macrostep-keymap 'macrostep-collapse-all))
 
 (provide 'evil-collection-macrostep)
 ;;; evil-collection-macrostep.el ends here

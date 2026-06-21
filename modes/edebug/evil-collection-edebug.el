@@ -67,7 +67,6 @@
     "o" 'edebug-step-out
 
     ;; quit
-    "q" 'top-level
     "Q" 'edebug-top-level-nonstop
     "a" 'abort-recursive-edit
     "S" 'edebug-stop
@@ -109,18 +108,19 @@
     (kbd "C-c C-d") 'edebug-unset-breakpoint
     (kbd "C-c C-t") (lambda () (interactive) (edebug-set-breakpoint t))
     (kbd "C-c C-l") 'edebug-where)
+  (evil-collection-theme-bind 'quit 'edebug-mode-map 'top-level)
 
   (with-eval-after-load 'edebug-x
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map
       "E" 'edebug-x-evaluate-function
       "Q" 'edebug-x-clear-data
-      (kbd "RET") 'edebug-x-find-function
-      "q" 'quit-window)
+      (kbd "RET") 'edebug-x-find-function)
+    (evil-collection-theme-bind 'quit 'edebug-x-instrumented-function-list-mode-map 'quit-window)
     (evil-collection-define-key 'normal 'edebug-x-breakpoint-list-mode-map
       (kbd "RET") 'edebug-x-visit-breakpoint
       "x" 'edebug-x-kill-breakpoint
-      "Q" 'edebug-x-clear-data
-      "q" 'quit-window)))
+      "Q" 'edebug-x-clear-data)
+    (evil-collection-theme-bind 'quit 'edebug-x-breakpoint-list-mode-map 'quit-window)))
 
 (provide 'evil-collection-edebug)
 ;;; evil-collection-edebug.el ends here

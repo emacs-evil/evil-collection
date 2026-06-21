@@ -47,8 +47,8 @@
       (kbd "C-j") 'next-error-no-select
       (kbd "C-k") 'previous-error-no-select
       "]]" 'next-error-no-select
-      "[[" 'previous-error-no-select
-      "q" 'quit-window))
+      "[[" 'previous-error-no-select)
+    (evil-collection-theme-bind 'quit 'anaconda-view-mode-map 'quit-window))
 
   (evil-collection-theme-bind 'find-usages     'anaconda-mode-map 'anaconda-mode-find-references)
   (evil-collection-theme-bind 'lookup-doc      'anaconda-mode-map 'anaconda-mode-show-doc)

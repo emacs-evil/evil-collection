@@ -99,7 +99,6 @@
     "go" 'org-agenda-open-link
 
     ;; Quit / refresh
-    "q" 'org-agenda-quit
     "ZZ" 'org-agenda-quit
     "ZQ" 'org-agenda-exit
     "x" 'org-agenda-exit
@@ -141,7 +140,8 @@
     ;; Bulk actions
     "m" 'org-agenda-bulk-mark
     "u" 'org-agenda-bulk-unmark
-    "B" 'org-agenda-bulk-action))
+    "B" 'org-agenda-bulk-action)
+  (evil-collection-theme-bind 'quit 'org-agenda-mode-map 'org-agenda-quit))
 
 (provide 'evil-collection-org-agenda)
 ;;; evil-collection-org-agenda.el ends here

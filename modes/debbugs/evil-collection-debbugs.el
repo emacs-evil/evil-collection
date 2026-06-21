@@ -73,9 +73,9 @@
     "g#" 'debbugs-gnu-bugs
 
     ;; quit
-    "q" 'quit-window
     "ZQ" 'quit-window
-    "ZZ" 'quit-window))
+    "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'quit 'debbugs-gnu-mode-map 'quit-window))
 
 (provide 'evil-collection-debbugs)
 ;;; evil-collection-debbugs.el ends here
