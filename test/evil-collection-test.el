@@ -169,4 +169,84 @@
   (should (equal '("C-c C-z")
                  (evil-collection-theme-keys 'term-toggle-escape))))
 
+(ert-deftest evil-collection-theme-function-valued-state ()
+  ":state may be a function; it is funcalled at lookup time."
+  (let* ((dynamic-state 'normal)
+         (evil-collection-theme-defaults
+          `((demo :state ,(lambda () dynamic-state))))
+         (evil-collection-theme-overrides nil))
+    (should (equal '(normal) (evil-collection-theme-states 'demo)))
+    (setq dynamic-state 'insert)
+    (should (equal '(insert) (evil-collection-theme-states 'demo)))
+    (setq dynamic-state '(normal insert))
+    (should (equal '(normal insert) (evil-collection-theme-states 'demo)))))
+
+(ert-deftest evil-collection-theme-function-valued-key ()
+  ":key may be a function; it is funcalled at lookup time."
+  (let* ((dynamic-key "C-c j")
+         (evil-collection-theme-defaults
+          `((demo :key ,(lambda () dynamic-key))))
+         (evil-collection-theme-overrides nil))
+    (should (equal '("C-c j") (evil-collection-theme-keys 'demo)))
+    (setq dynamic-key '("C-c j" "C-c k"))
+    (should (equal '("C-c j" "C-c k") (evil-collection-theme-keys 'demo)))))
+
+(ert-deftest evil-collection-theme-symbol-is-data-not-callable ()
+  "Symbols with function bindings (e.g. `insert') are data, not funcalled.
+This guards against the trap where `:state insert' would otherwise be
+funcalled because `(functionp \\='insert)' returns t."
+  (cl-assert (functionp 'insert) nil
+             "Test premise: `insert' must be function-bound.")
+  (let ((evil-collection-theme-defaults '((demo :state insert)))
+        (evil-collection-theme-overrides nil))
+    (should (equal '(insert) (evil-collection-theme-states 'demo)))))
+
+(ert-deftest evil-collection-theme-shipped-repl-submit-tracks-legacy-var ()
+  "Default `repl-submit' state follows `evil-collection-repl-submit-state'."
+  (let ((evil-collection-theme-overrides nil))
+    (let ((evil-collection-repl-submit-state 'normal))
+      (should (equal '(normal) (evil-collection-theme-states 'repl-submit)))
+      (should (equal '(insert) (evil-collection-theme-states 'repl-newline))))
+    (let ((evil-collection-repl-submit-state 'insert))
+      (should (equal '(insert) (evil-collection-theme-states 'repl-submit)))
+      (should (equal '(normal) (evil-collection-theme-states 'repl-newline))))))
+
+(ert-deftest evil-collection-theme-shipped-repl-key-set ()
+  "Both `repl-submit' and `repl-newline' default to the unified key set."
+  (should (equal '("RET" "<return>" "C-m")
+                 (evil-collection-theme-keys 'repl-submit)))
+  (should (equal '("RET" "<return>" "C-m")
+                 (evil-collection-theme-keys 'repl-newline))))
+
+(ert-deftest evil-collection-theme-repl-submit-overlap-both-states ()
+  "Override allows submit to bind in both states simultaneously."
+  (let ((evil-collection-theme-overrides
+         '((repl-submit  :state (normal insert))
+           (repl-newline :enabled nil))))
+    (should (equal '(normal insert)
+                   (evil-collection-theme-states 'repl-submit)))
+    (should (null (evil-collection-theme-enabled-p 'repl-newline)))))
+
+(ert-deftest evil-collection-theme-shipped-repl-force-newline-always-both-states ()
+  "Default `repl-force-newline' is in both states regardless of `repl-submit'.
+The contract inherited from `evil-collection-repl-submit-state' documents
+\"S-RET always inserts a newline regardless of state\"."
+  (let ((evil-collection-theme-overrides nil))
+    (dolist (legacy '(normal insert))
+      (let ((evil-collection-repl-submit-state legacy))
+        (should (equal '(normal insert)
+                       (evil-collection-theme-states 'repl-force-newline)))))))
+
+(ert-deftest evil-collection-theme-repl-force-newline-user-state-wins ()
+  "Explicit `repl-force-newline' :state replaces the default."
+  (let ((evil-collection-theme-overrides
+         '((repl-force-newline :state normal))))
+    (should (equal '(normal)
+                   (evil-collection-theme-states 'repl-force-newline)))))
+
+(ert-deftest evil-collection-theme-shipped-repl-force-newline-keys ()
+  "Default `repl-force-newline' key set."
+  (should (equal '("S-<return>" "S-RET")
+                 (evil-collection-theme-keys 'repl-force-newline))))
+
 ;;; evil-collection-test.el ends here

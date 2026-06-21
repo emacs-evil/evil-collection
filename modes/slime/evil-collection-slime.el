@@ -195,16 +195,9 @@
     "gR" 'slime-recompile-all-xrefs
     "r" 'slime-xref-retract)
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'slime-repl-mode-map
-      (kbd "RET") 'slime-repl-return
-      (kbd "\C-m") 'slime-repl-return
-      [return] 'slime-repl-return)
-    (evil-collection-define-key newline-state 'slime-repl-mode-map
-      (kbd "RET") 'slime-repl-newline-and-indent
-      (kbd "\C-m") 'slime-repl-newline-and-indent
-      [return] 'slime-repl-newline-and-indent))
+  (evil-collection-theme-bind 'repl-submit        'slime-repl-mode-map 'slime-repl-return)
+  (evil-collection-theme-bind 'repl-newline       'slime-repl-mode-map 'slime-repl-newline-and-indent)
+  (evil-collection-theme-bind 'repl-force-newline 'slime-repl-mode-map 'slime-repl-newline-and-indent)
 
   (evil-collection-define-key 'normal 'slime-repl-mode-map
     "gj" 'slime-repl-next-prompt

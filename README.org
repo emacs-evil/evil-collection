@@ -204,6 +204,15 @@ To disable a key theme.
       `((find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings))))
 #+end_src
 
+*** Configure the REPL
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((repl-submit        :state insert)
+        (repl-newline       :state normal)
+        (repl-force-newline :enabled nil)))
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

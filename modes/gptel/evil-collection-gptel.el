@@ -47,18 +47,9 @@
 ;;;###autoload
 (defun evil-collection-gptel-setup ()
   "Set up `evil' bindings for gptel."
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'gptel-mode-map
-      (kbd "RET") 'gptel-send
-      (kbd "<return>") 'gptel-send
-      (kbd "S-RET") 'newline
-      (kbd "S-<return>") 'newline)
-    (evil-collection-define-key newline-state 'gptel-mode-map
-      (kbd "RET") 'newline
-      (kbd "<return>") 'newline
-      (kbd "S-RET") 'newline
-      (kbd "S-<return>") 'newline))
+  (evil-collection-theme-bind 'repl-submit        'gptel-mode-map 'gptel-send)
+  (evil-collection-theme-bind 'repl-newline       'gptel-mode-map 'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'gptel-mode-map 'newline)
   (if evil-collection-gptel-want-shift-ret-menu
       (evil-collection-define-key '(normal visual) 'gptel-mode-map
         (kbd "S-RET") 'gptel-menu
