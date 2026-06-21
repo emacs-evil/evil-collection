@@ -80,7 +80,6 @@
     (kbd "C-k") 'vc-dir-previous-directory
 
     ;; The remainder.
-    "gf" 'vc-dir-find-file
     "\C-m" 'vc-dir-find-file
 
     (kbd "S-<return>") 'vc-dir-find-file-other-window
@@ -107,7 +106,9 @@
     ;; Branching
     "Bc" 'vc-create-tag
     "Bl" 'vc-print-branch-log
-    "Bs" 'vc-retrieve-tag))
+    "Bs" 'vc-retrieve-tag)
+
+  (evil-collection-theme-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file))
 
 (provide 'evil-collection-vc-dir)
 ;;; evil-collection-vc-dir.el ends here

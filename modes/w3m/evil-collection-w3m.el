@@ -51,7 +51,6 @@
     "L" 'w3m-view-next-page
     "^" 'w3m-view-parent-page
 
-    "gf" 'w3m-view-source
     "gh" 'w3m-view-header
 
     "d" 'w3m-download-this-url
@@ -81,7 +80,9 @@
     ;; yt
     "t" 'w3m-print-this-url
     ;; yu
-    "u" 'w3m-print-current-url))
+    "u" 'w3m-print-current-url)
+
+  (evil-collection-theme-bind 'find-file 'w3m-mode-map 'w3m-view-source))
 
 (provide 'evil-collection-w3m)
 ;;; evil-collection-w3m.el ends here

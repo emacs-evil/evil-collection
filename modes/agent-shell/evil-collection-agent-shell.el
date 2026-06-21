@@ -232,13 +232,13 @@ KEY is a string passed to `kbd'."
   (evil-collection-define-key 'normal 'agent-shell-diff-mode-map
     "q" #'kill-current-buffer)
 
+  (evil-collection-theme-bind 'find-file 'agent-shell-diff-mode-map 'agent-shell-diff-open-file)
+
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'agent-shell-diff-mode-map
-        "gf" 'agent-shell-diff-open-file
         "gy" 'agent-shell-diff-accept-all
         "gn" 'agent-shell-diff-reject-all)
     (evil-collection-define-key 'normal 'agent-shell-diff-mode-map
-      "f" 'agent-shell-diff-open-file
       "y" 'agent-shell-diff-accept-all
       "n" 'agent-shell-diff-reject-all))
 
