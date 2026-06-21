@@ -109,12 +109,12 @@
     ;; Entry actions
     "t" 'org-agenda-todo
     "s" 'org-agenda-schedule
-    "d" 'org-agenda-deadline
+    "d" 'org-agenda-kill
     "T" 'org-agenda-set-tags
     "p" 'org-agenda-priority
     "r" 'org-agenda-refile
     "A" 'org-agenda-archive
-    "D" 'org-agenda-kill
+    "D" 'org-agenda-deadline
     "n" 'org-agenda-add-note
 
     ;; Filtering

@@ -96,7 +96,7 @@
   (evil-collection-set-readonly-bindings 'eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
   (evil-collection-define-key 'normal 'eww-buffers-mode-map
-    "D" 'eww-buffer-kill)
+    "d" 'eww-buffer-kill)
   (evil-collection-bind 'action       'eww-buffers-mode-map 'eww-buffer-select)
   (evil-collection-bind 'next-item    'eww-buffers-mode-map 'eww-buffer-show-next)
   (evil-collection-bind 'prev-item    'eww-buffers-mode-map 'eww-buffer-show-previous)
@@ -107,7 +107,7 @@
   (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
   (evil-collection-define-key 'normal 'eww-bookmark-mode-map
-    "D" 'eww-bookmark-kill
+    "d" 'eww-bookmark-kill
     "P" 'eww-bookmark-yank)
   (evil-collection-bind 'action 'eww-bookmark-mode-map 'eww-bookmark-browse)
   (evil-collection-bind 'refresh 'eww-bookmark-mode-map 'revert-buffer)

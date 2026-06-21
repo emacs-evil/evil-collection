@@ -52,9 +52,9 @@
   (evil-set-initial-state 'ztree-mode 'normal)
   (evil-collection-define-minor-mode-key 'normal 'ztreediff-mode
     "C" 'ztree-diff-copy
-    "D" 'ztree-diff-delete-file
+    "D" 'ztree-diff-simple-diff-files
     "zH" 'ztree-diff-toggle-show-filtered-files
-    "d" 'ztree-diff-simple-diff-files
+    "d" 'ztree-diff-delete-file
     "zh" 'ztree-diff-toggle-show-equal-files)
 
   (evil-collection-bind-minor-mode 'find-file    'ztreediff-mode 'ztree-diff-view-file)
