@@ -37,12 +37,10 @@
 ;;;###autoload
 (defun evil-collection-distel-setup ()
   "Set up `evil' bindings for `distel'."
-  (evil-collection-define-key 'normal 'erlang-extended-mode-map
-    "gz" 'erl-ie-show-session)
-
   (evil-collection-theme-bind 'find-definition 'erlang-extended-mode-map 'erl-find-source-under-point)
   (evil-collection-theme-bind 'pop-definition  'erlang-extended-mode-map 'erl-find-source-unwind)
   (evil-collection-theme-bind 'lookup-doc      'erlang-extended-mode-map 'erl-find-doc-under-point)
+  (evil-collection-theme-bind 'goto-repl       'erlang-extended-mode-map 'erl-ie-show-session)
 
   (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'erlang-extended-mode-map

@@ -85,13 +85,12 @@ alternative printed representations that can be displayed."
               :override 'evil-collection-elisp-mode-last-sexp-setup-props)
 
   (evil-set-initial-state 'emacs-lisp-mode 'normal)
-  (evil-collection-define-key 'normal 'emacs-lisp-mode-map
-    "gz" 'evil-collection-elisp-mode-ielm-repl)
 
   (evil-collection-define-key 'normal 'emacs-lisp-compilation-mode-map
     "gr" 'emacs-lisp-compilation-recompile)
 
-  (evil-collection-theme-bind 'find-usages 'emacs-lisp-mode-map 'xref-find-references))
+  (evil-collection-theme-bind 'find-usages 'emacs-lisp-mode-map 'xref-find-references)
+  (evil-collection-theme-bind 'goto-repl   'emacs-lisp-mode-map 'evil-collection-elisp-mode-ielm-repl))
 
 (provide 'evil-collection-elisp-mode)
 ;;; evil-collection-elisp-mode.el ends here

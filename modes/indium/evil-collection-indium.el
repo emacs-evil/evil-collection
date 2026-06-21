@@ -86,8 +86,9 @@
     [backtab] 'indium-debugger-frames-previous-frame)
 
   (evil-collection-define-key 'normal 'indium-interaction-mode-map
-    "gr" 'indium-update-script-source
-    "gz" 'indium-switch-to-repl-buffer)
+    "gr" 'indium-update-script-source)
+
+  (evil-collection-theme-bind 'goto-repl 'indium-interaction-mode-map 'indium-switch-to-repl-buffer)
 
   (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'indium-interaction-mode-map

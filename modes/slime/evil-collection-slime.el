@@ -154,13 +154,11 @@
 
   (evil-collection-theme-bind 'lookup-doc 'slime-inspector-mode-map 'slime-inspector-describe)
 
-  (evil-collection-define-key 'normal 'slime-mode-map
-    "gz" 'slime-switch-to-output-buffer)
-
   (evil-collection-theme-bind 'find-usages     'slime-mode-map 'slime-edit-uses)
   (evil-collection-theme-bind 'find-definition 'slime-mode-map 'slime-edit-definition)
   (evil-collection-theme-bind 'pop-definition  'slime-mode-map 'slime-pop-find-definition-stack)
   (evil-collection-theme-bind 'lookup-doc      'slime-mode-map 'slime-describe-symbol)
+  (evil-collection-theme-bind 'goto-repl       'slime-mode-map 'slime-switch-to-output-buffer)
 
   (evil-collection-define-key 'normal 'slime-popup-buffer-mode-map
     ;; quit

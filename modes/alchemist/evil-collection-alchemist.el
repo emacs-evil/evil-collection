@@ -103,14 +103,14 @@
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
 
   (evil-collection-define-key 'normal 'alchemist-mode-map
-    "gz" 'alchemist-iex-run
     "g?" 'alchemist-help
     (kbd "C-j") 'alchemist-goto-jump-to-next-def-symbol
     (kbd "C-k") 'alchemist-goto-jump-to-previous-def-symbol)
 
   (evil-collection-theme-bind 'find-definition 'alchemist-mode-map 'alchemist-goto-definition-at-point)
   (evil-collection-theme-bind 'pop-definition  'alchemist-mode-map 'alchemist-goto-jump-back)
-  (evil-collection-theme-bind 'lookup-doc      'alchemist-mode-map 'alchemist-help-search-at-point))
+  (evil-collection-theme-bind 'lookup-doc      'alchemist-mode-map 'alchemist-help-search-at-point)
+  (evil-collection-theme-bind 'goto-repl       'alchemist-mode-map 'alchemist-iex-run))
 
 (provide 'evil-collection-alchemist)
 ;;; evil-collection-alchemist.el ends here

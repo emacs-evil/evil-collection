@@ -63,12 +63,13 @@
   (evil-collection-theme-bind 'find-definition 'geiser-doc-mode-map 'geiser-edit-symbol-at-point)
   (evil-collection-theme-bind 'pop-definition  'geiser-doc-mode-map 'geiser-pop-symbol-stack)
 
+  (evil-collection-theme-bind 'goto-repl 'geiser-doc-mode-map 'geiser-doc-switch-to-repl)
+
   (evil-collection-define-key 'normal 'geiser-doc-mode-map
     (kbd "<tab>") 'forward-button
     (kbd "<S-tab>") 'backward-button
     "gr" 'geiser-doc-refresh
     "q" 'View-quit
-    "gz" 'geiser-doc-switch-to-repl
     ">" 'geiser-doc-next
     "<" 'geiser-doc-previous
     "gj" 'forward-button
@@ -101,9 +102,10 @@
   (evil-collection-theme-bind 'pop-definition  'geiser-mode-map 'geiser-pop-symbol-stack)
   (evil-collection-theme-bind 'lookup-doc      'geiser-mode-map 'geiser-doc-symbol-at-point)
 
+  (evil-collection-theme-bind 'goto-repl 'geiser-mode-map 'geiser-mode-switch-to-repl)
+
   (evil-collection-define-key 'normal 'geiser-mode-map
-    "gZ" 'geiser-mode-switch-to-repl-and-enter
-    "gz" 'geiser-mode-switch-to-repl))
+    "gZ" 'geiser-mode-switch-to-repl-and-enter))
 
 (provide 'evil-collection-geiser)
 ;;; evil-collection-geiser.el ends here

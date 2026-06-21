@@ -75,10 +75,8 @@
 
         "g?" 'bui-show-hint
         "gr" 'revert-buffer
-        "gR" 'bui-redisplay
-
-        ;; repl
-        "gz" 'guix-switch-to-repl)))
+        "gR" 'bui-redisplay)
+     (evil-collection-theme-bind 'goto-repl ',map 'guix-switch-to-repl)))
 
 ;;;###autoload
 (defun evil-collection-guix-setup ()
@@ -197,10 +195,9 @@
     (kbd "C-k") 'guix-build-log-previous-phase
     (kbd "C-j") 'guix-build-log-next-phase
 
-    "gr" 'revert-buffer
+    "gr" 'revert-buffer)
 
-    ;; repl
-    "gz" 'guix-switch-to-repl)
+  (evil-collection-theme-bind 'goto-repl 'guix-build-log-mode-map 'guix-switch-to-repl)
 
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map
@@ -209,9 +206,7 @@
 
     "gd" 'guix-service-list-edit)
 
-  (evil-collection-define-key 'normal 'guix-devel-mode-map
-    ;; repl
-    "gz" 'guix-switch-to-repl))
+  (evil-collection-theme-bind 'goto-repl 'guix-devel-mode-map 'guix-switch-to-repl))
 
 (provide 'evil-collection-guix)
 ;;; evil-collection-guix.el ends here
