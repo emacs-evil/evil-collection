@@ -76,14 +76,9 @@
     (kbd "RET")   'ement-room-list-RET
     (kbd "<return>") 'ement-room-list-RET)
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'ement-room-mode-map
-      (kbd "<return>") 'ement-room-send-message
-      (kbd "RET") 'ement-room-send-message)
-    (evil-collection-define-key newline-state 'ement-room-mode-map
-      (kbd "<return>") 'newline
-      (kbd "RET") 'newline))
+  (evil-collection-theme-bind 'repl-submit        'ement-room-mode-map 'ement-room-send-message)
+  (evil-collection-theme-bind 'repl-newline       'ement-room-mode-map 'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'ement-room-mode-map 'newline)
 
   (evil-collection-define-key '(normal motion) 'ement-room-mode-map
     (kbd "<")  'ement-room-transient

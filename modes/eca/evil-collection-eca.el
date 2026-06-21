@@ -38,19 +38,9 @@
   "Set up `evil' bindings for `eca'."
   (add-hook 'eca-chat-mode-hook 'evil-normalize-keymaps)
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'eca-chat-mode-map
-      (kbd "<return>") 'eca-chat--key-pressed-return
-      (kbd "RET") 'eca-chat--key-pressed-return)
-    (evil-collection-define-key newline-state 'eca-chat-mode-map
-      (kbd "<return>") 'eca-chat--key-pressed-newline
-      (kbd "RET") 'eca-chat--key-pressed-newline))
-
-  (evil-collection-define-key 'insert 'eca-chat-mode-map
-    (kbd "S-<return>") 'eca-chat--key-pressed-newline)
-  (evil-collection-define-key 'normal 'eca-chat-mode-map
-    (kbd "S-<return>") 'eca-chat--key-pressed-newline))
+  (evil-collection-theme-bind 'repl-submit        'eca-chat-mode-map 'eca-chat--key-pressed-return)
+  (evil-collection-theme-bind 'repl-newline       'eca-chat-mode-map 'eca-chat--key-pressed-newline)
+  (evil-collection-theme-bind 'repl-force-newline 'eca-chat-mode-map 'eca-chat--key-pressed-newline))
 
 (provide 'evil-collection-eca)
 ;;; evil-collection-eca.el ends here

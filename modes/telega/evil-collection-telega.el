@@ -114,12 +114,9 @@
 
     "q" 'quit-window)
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'telega-chat-mode-map
-      (kbd "RET") 'telega-chatbuf-newline-or-input-send)
-    (evil-collection-define-key newline-state 'telega-chat-mode-map
-      (kbd "RET") 'newline))
+  (evil-collection-theme-bind 'repl-submit        'telega-chat-mode-map 'telega-chatbuf-newline-or-input-send)
+  (evil-collection-theme-bind 'repl-newline       'telega-chat-mode-map 'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'telega-chat-mode-map 'newline)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
     "ga" telega-prefix-map

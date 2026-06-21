@@ -139,12 +139,9 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "gf" 'cider-find-resource
     "K" 'cider-doc)
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'cider-repl-mode-map
-      (kbd "RET") 'cider-repl-return)
-    (evil-collection-define-key newline-state 'cider-repl-mode-map
-      (kbd "RET") 'newline))
+  (evil-collection-theme-bind 'repl-submit        'cider-repl-mode-map 'cider-repl-return)
+  (evil-collection-theme-bind 'repl-newline       'cider-repl-mode-map 'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'cider-repl-mode-map 'newline)
 
   (unless cider-use-xref
     (evil-collection-define-key '(normal visual) 'cider-repl-mode-map

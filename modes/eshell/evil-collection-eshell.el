@@ -120,12 +120,9 @@ appropriate in some cases like terminals."
     "d" 'evil-collection-eshell-evil-delete
     "D" 'evil-collection-eshell-evil-delete-line)
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'eshell-mode-map
-      (kbd "RET") 'eshell-send-input)
-    (evil-collection-define-key newline-state 'eshell-mode-map
-      (kbd "RET") 'newline))
+  (evil-collection-theme-bind 'repl-submit        'eshell-mode-map 'eshell-send-input)
+  (evil-collection-theme-bind 'repl-newline       'eshell-mode-map 'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'eshell-mode-map 'newline)
 
   (when (< emacs-major-version 30)
     (evil-collection-define-key 'normal 'eshell-mode-map

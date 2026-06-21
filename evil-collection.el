@@ -489,24 +489,59 @@ This is a list of symbols that are suitable for input to
   "Evil state in which RET submits the prompt in REPL-like buffers.
 
 The other state gets RET bound to `newline'.  S-RET always inserts a
-newline regardless of state."
+newline regardless of state.
+
+New customization should use
+`evil-collection-theme-overrides' instead:
+
+  `repl-submit', `repl-newline', `repl-force-newline'
+
+  (setq evil-collection-theme-overrides
+        \\='((repl-submit  :state insert)
+          (repl-newline :state normal)))"
   :type '(choice (const :tag "Submit in normal state" normal)
                  (const :tag "Submit in insert state" insert))
   :group 'evil-collection)
 
+(make-obsolete-variable 'evil-collection-repl-submit-state
+                        "use `evil-collection-theme-overrides' to customize the
+`repl-submit' and `repl-newline' theme entries instead."
+                        "evil-collection 0.0.3")
+
 (defvar evil-collection-theme-defaults
-  '((term-toggle-escape :enabled t
+  `((term-toggle-escape :enabled t
                         :state (normal insert)
-                        :key "C-c C-z"))
+                        :key "C-c C-z")
+    (repl-submit :enabled t
+                 :state ,(lambda () evil-collection-repl-submit-state)
+                 :key ("RET" "<return>" "C-m"))
+    (repl-newline :enabled t
+                  :state ,(lambda ()
+                            (if (eq evil-collection-repl-submit-state 'normal)
+                                'insert
+                              'normal))
+                  :key ("RET" "<return>" "C-m"))
+    (repl-force-newline :enabled t
+                        :state (normal insert)
+                        :key ("S-<return>" "S-RET")))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:
 
   :enabled  nil, t, or a function called with no args.  Missing
             entries are treated as t.
-  :state    Evil state symbol or list of state symbols.  A
-            singular value is wrapped to a list at lookup.
-  :key      Key string (suitable for `kbd') or list of strings.
+  :state    Evil state symbol, list of state symbols, or a function
+            returning either.  A singular value is wrapped to a list
+            at lookup.
+  :key      Key string (suitable for `kbd'), list of key strings, or
+            a function returning either.
+
+Function values are funcalled at lookup time, which is useful for
+delegating to legacy defcustoms while features migrate to the theme
+system.  Plain symbols are never funcalled even when they happen to
+have a function binding (e.g. the state symbol `insert' is also the
+`insert' function); that is why anonymous lambdas are required when a
+property's value should be computed dynamically.
 
 Users customize via `evil-collection-theme-overrides'; do not
 modify this variable directly.")
@@ -536,6 +571,15 @@ side sets PROP."
     (cond ((plist-member over prop) (plist-get over prop))
           ((plist-member def prop)  (plist-get def prop)))))
 
+(defun evil-collection-theme--resolve (v)
+  "Funcall V if it is an anonymous function; otherwise return V.
+Plain symbols are returned as-is even when they have a function
+binding — they are data (state names, command names) in this
+context, never callables."
+  (if (and (functionp v) (not (symbolp v)))
+      (funcall v)
+    v))
+
 (defun evil-collection-theme--listify (v)
   "Wrap V in a list unless it already is one.  Nil stays nil."
   (cond ((null v) nil)
@@ -551,15 +595,17 @@ side sets PROP."
          (v (cond ((plist-member over :enabled) (plist-get over :enabled))
                   ((plist-member def :enabled)  (plist-get def :enabled))
                   (t t))))
-    (if (functionp v) (funcall v) v)))
+    (evil-collection-theme--resolve v)))
 
 (defun evil-collection-theme-states (id)
   "Return list of evil states configured for theme entry ID."
-  (evil-collection-theme--listify (evil-collection-theme--get id :state)))
+  (evil-collection-theme--listify
+   (evil-collection-theme--resolve (evil-collection-theme--get id :state))))
 
 (defun evil-collection-theme-keys (id)
   "Return list of key strings configured for theme entry ID."
-  (evil-collection-theme--listify (evil-collection-theme--get id :key)))
+  (evil-collection-theme--listify
+   (evil-collection-theme--resolve (evil-collection-theme--get id :key))))
 
 (defun evil-collection-theme-bind (id map-sym command)
   "Bind theme entry ID in MAP-SYM to COMMAND.

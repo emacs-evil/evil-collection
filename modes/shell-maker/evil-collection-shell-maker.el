@@ -49,17 +49,9 @@
 ;;;###autoload
 (defun evil-collection-shell-maker-setup ()
   "Set up `evil' bindings for `shell-maker'."
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'shell-maker-mode-map
-      (kbd "RET") 'shell-maker-submit)
-    (evil-collection-define-key newline-state 'shell-maker-mode-map
-      (kbd "RET") 'newline))
-
-  (evil-collection-define-key 'insert 'shell-maker-mode-map
-    (kbd "S-<return>") 'newline)
-  (evil-collection-define-key 'normal 'shell-maker-mode-map
-    (kbd "S-<return>") 'newline))
+  (evil-collection-theme-bind 'repl-submit        'shell-maker-mode-map 'shell-maker-submit)
+  (evil-collection-theme-bind 'repl-newline       'shell-maker-mode-map 'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'shell-maker-mode-map 'newline))
 
 (provide 'evil-collection-shell-maker)
 ;;; evil-collection-shell-maker.el ends here

@@ -39,16 +39,9 @@
     (evil-collection-define-key 'normal 'comint-mode-map
       (kbd "C-d") #'evil-scroll-down))
 
-  (let* ((submit evil-collection-repl-submit-state)
-         (newline-state (if (eq submit 'normal) 'insert 'normal)))
-    (evil-collection-define-key submit 'comint-mode-map
-      (kbd "RET") #'comint-send-input
-      (kbd "\C-m") #'comint-send-input
-      [return] #'comint-send-input)
-    (evil-collection-define-key newline-state 'comint-mode-map
-      (kbd "RET") #'newline
-      (kbd "\C-m") #'newline
-      [return] #'newline))
+  (evil-collection-theme-bind 'repl-submit        'comint-mode-map #'comint-send-input)
+  (evil-collection-theme-bind 'repl-newline       'comint-mode-map #'newline)
+  (evil-collection-theme-bind 'repl-force-newline 'comint-mode-map #'newline)
 
   (evil-collection-define-key 'normal 'comint-mode-map
     ;; Match Eshell bindings:
