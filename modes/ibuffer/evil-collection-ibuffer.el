@@ -37,6 +37,8 @@
   "Set up `evil' bindings for `ibuffer'."
   (evil-set-initial-state 'ibuffer-mode 'normal)
 
+  (evil-collection-bind 'ibuffer-mode-map 'rename 'ibuffer-do-rename-uniquely)
+
   (evil-collection-define-key 'normal 'ibuffer-mode-map
     (kbd "C-d") (if evil-want-C-d-scroll
                     'evil-scroll-down
@@ -157,7 +159,6 @@
     (kbd "O") 'ibuffer-do-occur
     (kbd "P") 'ibuffer-do-print
     (kbd "Q") 'ibuffer-do-query-replace
-    (kbd "R") 'ibuffer-do-rename-uniquely
     (kbd "S") 'ibuffer-do-save
     (kbd "T") 'ibuffer-do-toggle-read-only
     (kbd "r") 'ibuffer-do-replace-regexp
