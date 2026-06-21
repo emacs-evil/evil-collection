@@ -37,12 +37,12 @@
   (add-hook 'eglot-managed-mode-hook 'evil-normalize-keymaps)
   (evil-collection-define-key 'normal 'eglot-mode-map
     "gD" 'xref-find-definitions-other-window
-    "g5" 'xref-find-definitions-other-frame
-    "K" 'eldoc-doc-buffer)
+    "g5" 'xref-find-definitions-other-frame)
 
   (evil-collection-theme-bind 'find-usages     'eglot-mode-map 'xref-find-references)
   (evil-collection-theme-bind 'find-definition 'eglot-mode-map 'xref-find-definitions)
-  (evil-collection-theme-bind 'pop-definition  'eglot-mode-map 'xref-pop-marker-stack))
+  (evil-collection-theme-bind 'pop-definition  'eglot-mode-map 'xref-pop-marker-stack)
+  (evil-collection-theme-bind 'lookup-doc      'eglot-mode-map 'eldoc-doc-buffer))
 
 (provide 'evil-collection-eglot)
 ;;; evil-collection-eglot.el ends here

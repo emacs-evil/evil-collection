@@ -62,10 +62,11 @@
     "B" 'ert-results-pop-to-backtrace-for-test-at-point
     "M" 'ert-results-pop-to-messages-for-test-at-point
     "s" 'ert-results-pop-to-should-forms-for-test-at-point
-    "K" 'ert-results-describe-test-at-point
     "g?" 'ert-results-describe-test-at-point
     "x" 'ert-delete-test
-    "T" 'ert-results-pop-to-timings))
+    "T" 'ert-results-pop-to-timings)
+
+  (evil-collection-theme-bind 'lookup-doc 'ert-results-mode-map 'ert-results-describe-test-at-point))
 
 (provide 'evil-collection-ert)
 ;;; evil-collection-ert.el ends here

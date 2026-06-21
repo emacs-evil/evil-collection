@@ -37,9 +37,7 @@
   "Set up `evil' bindings for `elisp-slime-nav'."
   (evil-collection-theme-bind 'find-definition 'elisp-slime-nav-mode-map 'elisp-slime-nav-find-elisp-thing-at-point)
   (evil-collection-theme-bind 'pop-definition  'elisp-slime-nav-mode-map 'pop-tag-mark)
-
-  (evil-collection-define-key 'normal 'elisp-slime-nav-mode-map
-    "K" 'elisp-slime-nav-describe-elisp-thing-at-point))
+  (evil-collection-theme-bind 'lookup-doc      'elisp-slime-nav-mode-map 'elisp-slime-nav-describe-elisp-thing-at-point))
 
 (provide 'evil-collection-elisp-slime-nav)
 ;;; evil-collection-elisp-slime-nav.el ends here

@@ -541,7 +541,10 @@ New customization should use
                      :key "gd")
     (pop-definition :enabled t
                     :state normal
-                    :key "C-t"))
+                    :key "C-t")
+    (lookup-doc :enabled t
+                :state normal
+                :key "K"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

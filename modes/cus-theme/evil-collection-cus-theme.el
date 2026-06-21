@@ -45,8 +45,9 @@
     (kbd "]]") 'widget-forward
     (kbd "[[") 'widget-backward
     (kbd "C-j") 'widget-forward
-    (kbd "C-k") 'widget-backward
-    "K" 'custom-describe-theme)
+    (kbd "C-k") 'widget-backward)
+
+  (evil-collection-theme-bind 'lookup-doc 'custom-theme-choose-mode-map 'custom-describe-theme)
 
   (evil-collection-define-key 'normal 'custom-new-theme-mode-map
     "gj" 'widget-forward
