@@ -431,6 +431,7 @@ If mu4e-main-mode is in evil-state-motion-modes, initialization
 is already done earlier."
     (evil-collection-mu4e-set-state)
     (evil-collection-mu4e-set-bindings)
+    (evil-collection-bind 'mu4e-headers-mode-map 'jump 'mu4e~headers-jump-to-maildir)
     (add-hook 'mu4e-main-mode-hook 'evil-collection-mu4e-update-main-view)
     (add-hook 'org-mode-hook #'evil-collection-mu4e-org-set-header-to-normal-mode)
     (add-hook 'mu4e-compose-pre-hook #'evil-collection-mu4e-org-set-header-to-insert-mode))

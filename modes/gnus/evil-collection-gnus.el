@@ -119,7 +119,6 @@ Note that there is no gnus-common-mode-map")
     ","         'gnus-summary-best-unread-article
     "!"         'gnus-summary-mark-as-read-forward
     "="         'gnus-summary-tick-article-forward
-    "J"         'gnus-summary-goto-article
     "E"         'gnus-summary-mark-as-expirable
     "z/"        'gnus-summary-limit-map
     "zt"        'gnus-summary-toggle-header
@@ -239,7 +238,8 @@ Note that there is no gnus-common-mode-map")
                         'prev-section 'gnus-summary-prev-unread-article
                         'next-section-2 'gnus-summary-next-article
                         'prev-section-2 'gnus-summary-prev-article
-                        'browse-url 'gnus-summary-browse-url)
+                        'browse-url 'gnus-summary-browse-url
+                        'jump 'gnus-summary-goto-article)
 
   (evil-collection-define-key 'motion 'gnus-article-mode-map
     "F"         'gnus-article-followup-with-original
@@ -323,7 +323,8 @@ Note that there is no gnus-common-mode-map")
                         'quit 'gnus-group-exit
                         'refresh 'gnus-group-get-new-news-this-group
                         'refresh-all 'gnus-group-get-new-news
-                        'action 'gnus-group-select-group)
+                        'action 'gnus-group-select-group
+                        'jump 'gnus-group-jump-to-group)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
     "Q"         'gnus-group-quit
@@ -341,7 +342,6 @@ Note that there is no gnus-common-mode-map")
     "A"         'gnus-activate-all-groups
     "B"         'gnus-group-browse-foreign-server
     "F"         'gnus-group-find-new-groups
-    "J"         'gnus-group-jump-to-group
     "X"         'gnus-group-expunge-group
     (kbd "SPC") 'gnus-group-read-group
     "gu"        'gnus-group-unsubscribe-current-group

@@ -83,12 +83,12 @@ keybindings listed in `evil-collection-pass-command-to-label'."
                         'next-section 'pass-next-directory
                         'prev-section 'pass-prev-directory
                         'next-section-2 'pass-next-entry
-                        'prev-section-2 'pass-prev-entry)
+                        'prev-section-2 'pass-prev-entry
+                        'jump 'pass-goto-entry)
   (evil-collection-define-key 'normal 'pass-mode-map
     "d" 'pass-kill
     "x" 'pass-kill
     "s" 'isearch-forward
-    "J" 'pass-goto-entry
     "i" 'pass-insert
     "I" 'pass-insert-generated
     "Y" 'pass-copy

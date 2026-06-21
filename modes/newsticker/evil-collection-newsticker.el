@@ -76,7 +76,6 @@
     (kbd "M-j") 'newsticker-treeview-next-item
     (kbd "M-k") 'newsticker-treeview-prev-item
     (kbd "SPC") 'newsticker-treeview-next-page
-    "J" 'newsticker-treeview-jump
 
     ;; mark
     "o" 'newsticker-treeview-mark-item-old
@@ -102,7 +101,8 @@
                         'quit 'newsticker-treeview-quit
                         'refresh 'newsticker-treeview-update
                         'refresh-all 'newsticker-get-all-news
-                        'browse-url 'newsticker-treeview-browse-url))
+                        'browse-url 'newsticker-treeview-browse-url
+                        'jump 'newsticker-treeview-jump))
 
 (provide 'evil-collection-newsticker)
 ;;; evil-collection-newsticker.el ends here

@@ -37,7 +37,9 @@
   "Set up `evil' bindings for `ibuffer'."
   (evil-set-initial-state 'ibuffer-mode 'normal)
 
-  (evil-collection-bind 'ibuffer-mode-map 'rename 'ibuffer-do-rename-uniquely)
+  (evil-collection-bind 'ibuffer-mode-map
+                        'rename 'ibuffer-do-rename-uniquely
+                        'jump 'ibuffer-jump-to-buffer)
 
   (evil-collection-define-key 'normal 'ibuffer-mode-map
     (kbd "C-d") (if evil-want-C-d-scroll
@@ -46,7 +48,6 @@
 
   (evil-collection-define-key 'normal 'ibuffer-mode-map
     (kbd "=") 'ibuffer-diff-with-file
-    (kbd "J") 'ibuffer-jump-to-buffer
     (kbd "M-g") 'ibuffer-jump-to-buffer
     (kbd "t") 'ibuffer-toggle-marks
     (kbd "M-s a C-s") 'ibuffer-do-isearch

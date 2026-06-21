@@ -44,7 +44,8 @@
                         'next-section 'gited-next-marked-branch
                         'prev-section 'gited-prev-marked-branch
                         'describe-mode 'gited-summary
-                        'refresh 'gited-update)
+                        'refresh 'gited-update
+                        'jump 'gited-goto-branch)
 
   (evil-collection-define-key 'normal 'gited-mode-map
     "(" 'gited-hide-details-mode
@@ -66,7 +67,6 @@
     [?\S-\ ] 'gited-prev-line
     [remap next-line] 'gited-next-line
     [remap previous-line] 'gited-prev-line
-    "J" 'gited-goto-branch
 
     "gA" 'gited-move-to-end-of-author
     "ga" 'gited-move-to-author

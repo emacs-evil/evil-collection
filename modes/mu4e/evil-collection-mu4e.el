@@ -340,7 +340,8 @@ end of the buffer."
 If `mu4e-main-mode' is in `evil-state-motion-modes', initialization
 is already done earlier."
     (evil-collection-mu4e-set-state)
-    (evil-collection-mu4e-set-bindings))
+    (evil-collection-mu4e-set-bindings)
+    (evil-collection-bind 'mu4e-headers-mode-map 'jump 'mu4e~headers-jump-to-maildir))
 
   (add-hook 'mu4e-thread-mode-hook #'evil-normalize-keymaps)
 

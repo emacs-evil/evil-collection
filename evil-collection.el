@@ -613,6 +613,7 @@ New customization should use
     (zoom-in :enabled t :state normal :key ("+" "="))
     (zoom-out :enabled t :state normal :key "-")
     (zoom-reset :enabled t :state normal :key "0")
+    (jump :enabled t :state normal :key "J")
     (mark :enabled t :state normal :key "m")
     (mark-all :enabled t :state normal :key "M")
     (mark-toggle-all :enabled t :state normal :key "~")

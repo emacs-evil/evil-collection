@@ -100,7 +100,6 @@
     "L" 'org-agenda-later
     "H" 'org-agenda-earlier
     "." 'org-agenda-goto-today
-    "J" 'org-agenda-goto-date
     "vd" 'org-agenda-day-view
     "vw" 'org-agenda-week-view
     "vm" 'org-agenda-month-view
@@ -142,7 +141,8 @@
                         'refresh 'org-agenda-redo
                         'refresh-all 'org-agenda-redo-all
                         'action 'org-agenda-switch-to
-                        'action-other 'org-agenda-open-link))
+                        'action-other 'org-agenda-open-link
+                        'jump 'org-agenda-goto-date))
 
 (provide 'evil-collection-org-agenda)
 ;;; evil-collection-org-agenda.el ends here
