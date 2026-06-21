@@ -161,9 +161,7 @@
     "gd" 'slime-edit-definition
     "gz" 'slime-switch-to-output-buffer)
 
-  (when evil-collection-want-find-usages-bindings
-    (evil-collection-define-key 'normal 'slime-mode-map
-      "gr" 'slime-edit-uses))
+  (evil-collection-theme-bind 'find-usages 'slime-mode-map 'slime-edit-uses)
 
   (evil-collection-define-key 'normal 'slime-popup-buffer-mode-map
     ;; quit

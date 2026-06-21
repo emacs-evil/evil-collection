@@ -7,7 +7,7 @@
 ;; Maintainer: James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; Package-Requires: ((emacs "26.3") (evil "1.2.13"))
 ;; Keywords: evil, tools
 
@@ -126,9 +126,19 @@ through removing their entry from `evil-collection-mode-list'."
 (defcustom evil-collection-want-find-usages-bindings t
   "Whether to bind `xref-find-references'-like bindings.
 
-This will bind additional find-* type commands, e.g. usages, assignments, etc.."
+This will bind additional find-* type commands, e.g. usages, assignments, etc..
+
+This variable is obsolete; New customization
+should use `evil-collection-theme-overrides' instead:
+
+  (setq evil-collection-theme-overrides
+        \\='((find-usages :enabled nil)))"
   :type 'boolean
   :group 'evil-collection)
+
+(make-obsolete-variable 'evil-collection-want-find-usages-bindings
+                        "use `evil-collection-theme-overrides': `find-usages'."
+                        "evil-collection 0.0.3")
 
 (defcustom evil-collection-want-g-bindings t
   "Whether to bind g* bindings."
@@ -504,8 +514,7 @@ New customization should use
   :group 'evil-collection)
 
 (make-obsolete-variable 'evil-collection-repl-submit-state
-                        "use `evil-collection-theme-overrides' to customize the
-`repl-submit' and `repl-newline' theme entries instead."
+                        "use `evil-collection-theme-overrides': `repl-submit', `repl-newline'."
                         "evil-collection 0.0.3")
 
 (defvar evil-collection-theme-defaults
@@ -523,7 +532,10 @@ New customization should use
                   :key ("RET" "<return>" "C-m"))
     (repl-force-newline :enabled t
                         :state (normal insert)
-                        :key ("S-<return>" "S-RET")))
+                        :key ("S-<return>" "S-RET"))
+    (find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings)
+                 :state normal
+                 :key "gr"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

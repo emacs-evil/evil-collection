@@ -71,9 +71,7 @@
       "g?" 'edb-attach-help
       "b" 'edb-toggle-breakpoint))
 
-  (when evil-collection-want-find-usages-bindings
-    (evil-collection-define-key 'normal 'erlang-extended-mode-map
-      "gr" 'erl-who-calls))
+  (evil-collection-theme-bind 'find-usages 'erlang-extended-mode-map 'erl-who-calls)
 
   (add-hook 'erlang-extended-mode-hook 'evil-normalize-keymaps))
 
