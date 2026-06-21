@@ -648,6 +648,17 @@ list is bound across every state in :state."
         (evil-collection-define-key states map-sym
           (kbd key) command)))))
 
+(defun evil-collection-theme-bind-minor-mode (id mode command)
+  "Bind theme entry ID to COMMAND in minor-mode MODE.
+Like `evil-collection-theme-bind' but routes through
+`evil-collection-define-minor-mode-key' so the binding tracks MODE's
+activation rather than being attached to a keymap symbol."
+  (when (evil-collection-theme-enabled-p id)
+    (let ((states (evil-collection-theme-states id)))
+      (dolist (key (evil-collection-theme-keys id))
+        (evil-collection-define-minor-mode-key states mode
+          (kbd key) command)))))
+
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.
 This hook runs after all setup (including keybindings) for a mode has already
@@ -774,6 +785,34 @@ to filter keys on the basis of `evil-collection-key-whitelist' and
             (push def filtered-bindings))))
       (setq filtered-bindings (nreverse filtered-bindings))
       (evil-collection--define-key states-to-bind map-sym filtered-bindings))))
+
+(defun evil-collection-define-minor-mode-key (state mode &rest bindings)
+  "Wrapper for `evil-define-minor-mode-key' with additional features.
+Like `evil-collection-define-key' but binds to MODE (a minor-mode
+symbol) rather than a keymap.  Bindings auto-activate when MODE is
+enabled without relying on `evil-normalize-keymaps'.
+
+Filters keys via `evil-collection-key-whitelist' /
+`evil-collection-key-blacklist' and records bindings with annalist."
+  (declare (indent defun))
+  (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+         (states-to-bind (evil-collection--filter-states state))
+         filtered-bindings)
+    (when (or states-to-bind (null state))
+      (while bindings
+        (let ((key (pop bindings))
+              (def (pop bindings)))
+          (when (evil-collection--can-bind-key key whitelist blacklist)
+            (when (featurep 'annalist)
+              (annalist-record 'evil-collection 'keybindings
+                               (list mode state key def)))
+            (push key filtered-bindings)
+            (push def filtered-bindings))))
+      (setq filtered-bindings (nreverse filtered-bindings))
+      (when filtered-bindings
+        (apply #'evil-define-minor-mode-key
+               states-to-bind mode filtered-bindings)))))
 
 (defun evil-collection-can-bind-key (key)
   "Return whether or not we should bind KEY."

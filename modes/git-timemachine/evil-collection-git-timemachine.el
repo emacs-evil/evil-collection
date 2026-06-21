@@ -35,15 +35,16 @@
 ;;;###autoload
 (defun evil-collection-git-timemachine-setup ()
   "Setup `evil' keybindings for `git-timemachine'."
-  (evil-define-minor-mode-key 'normal 'git-timemachine-mode
+  (evil-collection-define-minor-mode-key 'normal 'git-timemachine-mode
     "\C-k" 'git-timemachine-show-previous-revision
     "\C-j" 'git-timemachine-show-next-revision
-    "q"    'git-timemachine-quit
     "gtg"  'git-timemachine-show-nth-revision
     "gtt"  'git-timemachine-show-revision-fuzzy
     "gty"  'git-timemachine-kill-abbreviated-revision
     "gtY"  'git-timemachine-kill-revision
-    "gtb"  'git-timemachine-blame))
+    "gtb"  'git-timemachine-blame)
+
+  (evil-collection-theme-bind-minor-mode 'quit 'git-timemachine-mode 'git-timemachine-quit))
 
 (provide 'evil-collection-git-timemachine)
 ;;; evil-collection-git-timemachine.el ends here

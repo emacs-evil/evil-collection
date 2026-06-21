@@ -52,17 +52,18 @@
 
   (evil-collection-set-readonly-bindings 'ztreediff-mode-map)
   (evil-set-initial-state 'ztree-mode 'normal)
-  (evil-define-minor-mode-key 'normal 'ztreediff-mode
+  (evil-collection-define-minor-mode-key 'normal 'ztreediff-mode
     "C" 'ztree-diff-copy
     "D" 'ztree-diff-delete-file
     "zH" 'ztree-diff-toggle-show-filtered-files
     "d" 'ztree-diff-simple-diff-files
     "zh" 'ztree-diff-toggle-show-equal-files
-    "gf" 'ztree-diff-view-file
 
     ;; refresh
     "gr" 'ztree-diff-partial-rescan
-    "gR" 'ztree-diff-full-rescan))
+    "gR" 'ztree-diff-full-rescan)
+
+  (evil-collection-theme-bind-minor-mode 'find-file 'ztreediff-mode 'ztree-diff-view-file))
 
 (provide 'evil-collection-ztree)
 ;;; evil-collection-ztree.el ends here
