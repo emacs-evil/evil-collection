@@ -74,13 +74,14 @@
     (kbd "X")     'ement-forget-room)
   (evil-collection-bind 'ement-room-list-mode-map 'action 'ement-room-list-RET)
 
-  (evil-collection-bind 'ement-room-mode-map        'repl-submit 'ement-room-send-message)
-  (evil-collection-bind 'ement-room-mode-map       'repl-newline 'newline)
-  (evil-collection-bind 'ement-room-mode-map 'repl-force-newline 'newline)
-  (evil-collection-bind 'ement-room-mode-map    'next-item 'ement-room-goto-next)
-  (evil-collection-bind 'ement-room-mode-map    'prev-item 'ement-room-goto-prev)
-  (evil-collection-bind 'ement-room-mode-map 'next-section 'ement-room-goto-next)
-  (evil-collection-bind 'ement-room-mode-map 'prev-section 'ement-room-goto-prev)
+  (evil-collection-bind 'ement-room-mode-map
+                        'repl-submit 'ement-room-send-message
+                        'repl-newline 'newline
+                        'repl-force-newline 'newline
+                        'next-item 'ement-room-goto-next
+                        'prev-item 'ement-room-goto-prev
+                        'next-section 'ement-room-goto-next
+                        'prev-section 'ement-room-goto-prev)
 
   (evil-collection-define-key '(normal motion) 'ement-room-mode-map
     (kbd "<")  'ement-room-transient

@@ -41,10 +41,11 @@
     "d" 'log-view-diff
     "D" 'log-view-diff-changeset
     (kbd "<tab>") 'log-view-toggle-entry-display)
-  (evil-collection-bind 'vc-git-log-view-mode-map    'next-item 'log-view-msg-next)
-  (evil-collection-bind 'vc-git-log-view-mode-map    'prev-item 'log-view-msg-prev)
-  (evil-collection-bind 'vc-git-log-view-mode-map 'next-section 'log-view-msg-next)
-  (evil-collection-bind 'vc-git-log-view-mode-map 'prev-section 'log-view-msg-prev))
+  (evil-collection-bind 'vc-git-log-view-mode-map
+                        'next-item 'log-view-msg-next
+                        'prev-item 'log-view-msg-prev
+                        'next-section 'log-view-msg-next
+                        'prev-section 'log-view-msg-prev))
 
 (provide 'evil-collection-vc-git)
 ;;; evil-collection-vc-git.el ends here

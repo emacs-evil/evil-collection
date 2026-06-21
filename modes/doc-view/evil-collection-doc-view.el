@@ -36,11 +36,12 @@
 (defun evil-collection-doc-view-setup ()
   "Set up `evil' bindings for `doc-view'."
   (evil-set-initial-state 'doc-view-mode 'normal)
-  (evil-collection-bind 'doc-view-mode-map 'quit 'quit-window)
-  (evil-collection-bind 'doc-view-mode-map    'next-item 'doc-view-next-page)
-  (evil-collection-bind 'doc-view-mode-map    'prev-item 'doc-view-previous-page)
-  (evil-collection-bind 'doc-view-mode-map 'next-section 'doc-view-next-page)
-  (evil-collection-bind 'doc-view-mode-map 'prev-section 'doc-view-previous-page)
+  (evil-collection-bind 'doc-view-mode-map
+                        'quit 'quit-window
+                        'next-item 'doc-view-next-page
+                        'prev-item 'doc-view-previous-page
+                        'next-section 'doc-view-next-page
+                        'prev-section 'doc-view-previous-page)
   (evil-collection-define-key 'normal 'doc-view-mode-map
     [remap evil-next-line] 'doc-view-next-line-or-next-page
     [remap evil-previous-line] 'doc-view-previous-line-or-previous-page
@@ -73,10 +74,11 @@
     (kbd "C-t") 'doc-view-show-tooltip
     (kbd "C-c C-c") 'doc-view-toggle-display
     (kbd "C-c C-t") 'doc-view-open-text)
-  (evil-collection-bind 'doc-view-mode-map 'scroll-down 'doc-view-scroll-up-or-next-page)
-  (evil-collection-bind 'doc-view-mode-map   'scroll-up 'doc-view-scroll-down-or-previous-page)
-  (evil-collection-bind 'doc-view-mode-map  'action 'image-next-line)
-  (evil-collection-bind 'doc-view-mode-map 'refresh 'doc-view-revert-buffer)
+  (evil-collection-bind 'doc-view-mode-map
+                        'scroll-down 'doc-view-scroll-up-or-next-page
+                        'scroll-up 'doc-view-scroll-down-or-previous-page
+                        'action 'image-next-line
+                        'refresh 'doc-view-revert-buffer)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll

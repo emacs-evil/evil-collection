@@ -53,27 +53,30 @@
   (when (boundp 'ggtags-enable-navigation-keys)
     (setq ggtags-enable-navigation-keys nil))
 
-  (evil-collection-bind 'ggtags-mode-map     'find-usages 'ggtags-find-reference)
-  (evil-collection-bind 'ggtags-mode-map 'find-definition 'ggtags-find-tag-dwim)
-  (evil-collection-bind 'ggtags-mode-map  'pop-definition 'ggtags-prev-mark)
-  (evil-collection-bind 'ggtags-mode-map       'find-file 'ggtags-find-file)
+  (evil-collection-bind 'ggtags-mode-map
+                        'find-usages 'ggtags-find-reference
+                        'find-definition 'ggtags-find-tag-dwim
+                        'pop-definition 'ggtags-prev-mark
+                        'find-file 'ggtags-find-file)
 
   (evil-collection-define-key 'normal 'ggtags-view-search-history-mode-map
     "x" 'ggtags-view-search-history-kill
     "r" 'ggtags-save-to-register
     "R" 'ggtags-view-search-history-action)
-  (evil-collection-bind 'ggtags-view-search-history-mode-map    'next-item 'ggtags-view-search-history-next)
-  (evil-collection-bind 'ggtags-view-search-history-mode-map    'prev-item 'ggtags-view-search-history-prev)
-  (evil-collection-bind 'ggtags-view-search-history-mode-map 'next-section 'ggtags-view-search-history-next)
-  (evil-collection-bind 'ggtags-view-search-history-mode-map 'prev-section 'ggtags-view-search-history-prev)
-  (evil-collection-bind 'ggtags-view-search-history-mode-map    'quit 'ggtags-kill-window)
-  (evil-collection-bind 'ggtags-view-search-history-mode-map 'refresh 'ggtags-view-search-history-update)
+  (evil-collection-bind 'ggtags-view-search-history-mode-map
+                        'next-item 'ggtags-view-search-history-next
+                        'prev-item 'ggtags-view-search-history-prev
+                        'next-section 'ggtags-view-search-history-next
+                        'prev-section 'ggtags-view-search-history-prev
+                        'quit 'ggtags-kill-window
+                        'refresh 'ggtags-view-search-history-update)
 
-  (evil-collection-bind 'ggtags-view-tag-history-mode-map    'next-item 'next-error-no-select)
-  (evil-collection-bind 'ggtags-view-tag-history-mode-map    'prev-item 'previous-error-no-select)
-  (evil-collection-bind 'ggtags-view-tag-history-mode-map 'next-section 'next-error-no-select)
-  (evil-collection-bind 'ggtags-view-tag-history-mode-map 'prev-section 'previous-error-no-select)
-  (evil-collection-bind 'ggtags-view-tag-history-mode-map 'quit 'ggtags-kill-window)
+  (evil-collection-bind 'ggtags-view-tag-history-mode-map
+                        'next-item 'next-error-no-select
+                        'prev-item 'previous-error-no-select
+                        'next-section 'next-error-no-select
+                        'prev-section 'previous-error-no-select
+                        'quit 'ggtags-kill-window)
 
   (evil-collection-define-key 'normal 'ggtags-navigation-map
     ;; search
@@ -82,13 +85,14 @@
 
     "go" 'ggtags-navigation-visible-mode ;; FIXME: This can be anything.
     )
-  (evil-collection-bind 'ggtags-navigation-map       'action 'ggtags-navigation-mode-done)
-  (evil-collection-bind 'ggtags-navigation-map    'next-item 'next-error)
-  (evil-collection-bind 'ggtags-navigation-map    'prev-item 'previous-error)
-  (evil-collection-bind 'ggtags-navigation-map 'next-section 'ggtags-navigation-next-file)
-  (evil-collection-bind 'ggtags-navigation-map 'prev-section 'ggtags-navigation-previous-file)
-  (evil-collection-bind 'ggtags-navigation-map 'next-section-2 'next-error)
-  (evil-collection-bind 'ggtags-navigation-map 'prev-section-2 'previous-error))
+  (evil-collection-bind 'ggtags-navigation-map
+                        'action 'ggtags-navigation-mode-done
+                        'next-item 'next-error
+                        'prev-item 'previous-error
+                        'next-section 'ggtags-navigation-next-file
+                        'prev-section 'ggtags-navigation-previous-file
+                        'next-section-2 'next-error
+                        'prev-section-2 'previous-error))
 
 (provide 'evil-collection-ggtags)
 ;;; evil-collection-ggtags.el ends here

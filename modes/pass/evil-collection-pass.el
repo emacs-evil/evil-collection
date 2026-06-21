@@ -76,12 +76,13 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     (evil-collection-define-key 'normal 'pass-mode-map
       "E" 'pass-edit))
 
-  (evil-collection-bind 'pass-mode-map    'next-item 'pass-next-entry)
-  (evil-collection-bind 'pass-mode-map    'prev-item 'pass-prev-entry)
-  (evil-collection-bind 'pass-mode-map 'next-section 'pass-next-directory)
-  (evil-collection-bind 'pass-mode-map   'prev-section 'pass-prev-directory)
-  (evil-collection-bind 'pass-mode-map 'next-section-2 'pass-next-entry)
-  (evil-collection-bind 'pass-mode-map 'prev-section-2 'pass-prev-entry)
+  (evil-collection-bind 'pass-mode-map
+                        'next-item 'pass-next-entry
+                        'prev-item 'pass-prev-entry
+                        'next-section 'pass-next-directory
+                        'prev-section 'pass-prev-directory
+                        'next-section-2 'pass-next-entry
+                        'prev-section-2 'pass-prev-entry)
   (evil-collection-define-key 'normal 'pass-mode-map
     "d" 'pass-kill
     "x" 'pass-kill
@@ -93,10 +94,11 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "r" 'pass-rename
     "R" 'pass-rename
     "o" 'pass-otp-options)
-  (evil-collection-bind 'pass-mode-map        'action 'pass-view)
-  (evil-collection-bind 'pass-mode-map          'quit 'pass-quit)
-  (evil-collection-bind 'pass-mode-map 'describe-mode 'describe-mode)
-  (evil-collection-bind 'pass-mode-map       'refresh 'pass-update-buffer))
+  (evil-collection-bind 'pass-mode-map
+                        'action 'pass-view
+                        'quit 'pass-quit
+                        'describe-mode 'describe-mode
+                        'refresh 'pass-update-buffer))
 
 (provide 'evil-collection-pass)
 ;;; evil-collection-pass.el ends here

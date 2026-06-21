@@ -148,8 +148,9 @@
     "o" #'reader-outline-show
     "Q" #'reader-close-doc)
 
-  (evil-collection-bind 'reader-mode-map 'scroll-down 'reader-scroll-down-or-next-page)
-  (evil-collection-bind 'reader-mode-map   'scroll-up 'reader-scroll-up-or-prev-page)
+  (evil-collection-bind 'reader-mode-map
+                        'scroll-down 'reader-scroll-down-or-next-page
+                        'scroll-up 'reader-scroll-up-or-prev-page)
 
   (evil-collection-define-key 'normal 'reader-outline-mode-map
     "p" #'previous-line

@@ -273,12 +273,12 @@ But don't allow the cursor to move bellow the last prompt line."
     (kbd "C-z") 'vterm--self-insert
     (kbd "<delete>") 'vterm-send-delete)
 
-  (evil-collection-bind 'vterm-mode-map 'repl-submit 'vterm-send-return)
-
-  (evil-collection-bind 'vterm-mode-map    'next-item 'vterm-next-prompt)
-  (evil-collection-bind 'vterm-mode-map    'prev-item 'vterm-previous-prompt)
-  (evil-collection-bind 'vterm-mode-map 'next-section 'vterm-next-prompt)
-  (evil-collection-bind 'vterm-mode-map 'prev-section 'vterm-previous-prompt)
+  (evil-collection-bind 'vterm-mode-map
+                        'repl-submit 'vterm-send-return
+                        'next-item 'vterm-next-prompt
+                        'prev-item 'vterm-previous-prompt
+                        'next-section 'vterm-next-prompt
+                        'prev-section 'vterm-previous-prompt)
   (evil-collection-define-key 'normal 'vterm-mode-map
     "p" 'evil-collection-vterm-paste-after
     "P" 'vterm-yank

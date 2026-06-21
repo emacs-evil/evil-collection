@@ -36,10 +36,12 @@
 ;;;###autoload
 (defun evil-collection-go-mode-setup ()
   "Set up `evil' bindings for `go-mode'."
-  (evil-collection-bind 'go-mode-map 'find-definition 'godef-jump)
-  (evil-collection-bind 'go-mode-map      'lookup-doc 'godef-describe)
-  (evil-collection-bind 'godoc-mode-map          'quit 'quit-window)
-  (evil-collection-bind 'godoc-mode-map 'describe-mode 'describe-mode))
+  (evil-collection-bind 'go-mode-map
+                        'find-definition 'godef-jump
+                        'lookup-doc 'godef-describe)
+  (evil-collection-bind 'godoc-mode-map
+                        'quit 'quit-window
+                        'describe-mode 'describe-mode))
 
 (provide 'evil-collection-go-mode)
 ;;; evil-collection-go-mode.el ends here

@@ -88,11 +88,12 @@ default bindings."
     "l" 'ctbl:navi-move-right
 
     "gc" 'ctbl:navi-jump-to-column)
-  (evil-collection-bind 'edbi:dbview-query-result-keymap          'quit 'edbi:dbview-query-result-quit-command)
-  (evil-collection-bind 'edbi:dbview-query-result-keymap     'quit-save 'quit-window)
-  (evil-collection-bind 'edbi:dbview-query-result-keymap   'quit-cancel 'evil-quit)
-  (evil-collection-bind 'edbi:dbview-query-result-keymap 'describe-mode 'ctbl:describe-bindings)
-  (evil-collection-bind 'edbi:dbview-query-result-keymap       'refresh 'ctbl:action-update-buffer)
+  (evil-collection-bind 'edbi:dbview-query-result-keymap
+                        'quit 'edbi:dbview-query-result-quit-command
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit
+                        'describe-mode 'ctbl:describe-bindings
+                        'refresh 'ctbl:action-update-buffer)
 
   (evil-collection-define-key 'normal 'edbi:sql-mode-map
     (kbd "C-n") 'edbi:dbview-query-editor-history-forward-command

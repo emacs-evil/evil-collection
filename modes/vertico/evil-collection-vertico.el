@@ -57,8 +57,9 @@
       "G" 'vertico-last
       "j" 'vertico-next
       "k" 'vertico-previous)
-    (evil-collection-bind 'vertico-map 'next-item 'vertico-next-group)
-    (evil-collection-bind 'vertico-map 'prev-item 'vertico-previous-group)
+    (evil-collection-bind 'vertico-map
+                          'next-item 'vertico-next-group
+                          'prev-item 'vertico-previous-group)
 
     (evil-collection-define-key 'insert 'vertico-map
       (kbd "C-n") 'vertico-next

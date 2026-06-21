@@ -55,10 +55,11 @@
     "c" 'rtags-select-caller
     "C" 'rtags-select-caller-other-window
     "x" 'rtags-select-and-remove-rtags-buffer)
-  (evil-collection-bind 'rtags-mode-map       'action 'rtags-select)
-  (evil-collection-bind 'rtags-mode-map 'action-other 'rtags-select-other-window)
-  (evil-collection-bind 'rtags-mode-map  'action-stay 'rtags-show-in-other-window)
-  (evil-collection-bind 'rtags-mode-map 'quit 'rtags-call-bury-or-delete)
+  (evil-collection-bind 'rtags-mode-map
+                        'action 'rtags-select
+                        'action-other 'rtags-select-other-window
+                        'action-stay 'rtags-show-in-other-window
+                        'quit 'rtags-call-bury-or-delete)
 
   (evil-collection-bind 'rtags-dependency-tree-mode-map 'section-toggle 'rtags-dependency-tree-toggle-current-expanded)
   (evil-collection-define-key 'normal 'rtags-dependency-tree-mode-map
@@ -73,16 +74,16 @@
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map       'action 'rtags-select)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map 'action-other 'rtags-select-other-window)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map  'action-stay 'rtags-show-in-other-window)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map    'next-item 'rtags-dependency-tree-next-level)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map    'prev-item 'rtags-dependency-tree-previous-level)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map 'next-section 'rtags-dependency-tree-next-level)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map 'prev-section 'rtags-dependency-tree-previous-level)
-  (evil-collection-bind 'rtags-dependency-tree-mode-map 'quit 'rtags-call-bury-or-delete)
-
-  (evil-collection-bind 'rtags-dependency-tree-mode-map 'find-file 'rtags-dependency-tree-find-path)
+  (evil-collection-bind 'rtags-dependency-tree-mode-map
+                        'action 'rtags-select
+                        'action-other 'rtags-select-other-window
+                        'action-stay 'rtags-show-in-other-window
+                        'next-item 'rtags-dependency-tree-next-level
+                        'prev-item 'rtags-dependency-tree-previous-level
+                        'next-section 'rtags-dependency-tree-next-level
+                        'prev-section 'rtags-dependency-tree-previous-level
+                        'quit 'rtags-call-bury-or-delete
+                        'find-file 'rtags-dependency-tree-find-path)
 
   (evil-collection-bind 'rtags-references-tree-mode-map 'section-toggle 'rtags-references-tree-toggle-current-expanded)
   (evil-collection-define-key 'normal 'rtags-references-tree-mode-map
@@ -96,14 +97,15 @@
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
-  (evil-collection-bind 'rtags-references-tree-mode-map       'action 'rtags-select)
-  (evil-collection-bind 'rtags-references-tree-mode-map 'action-other 'rtags-select-other-window)
-  (evil-collection-bind 'rtags-references-tree-mode-map  'action-stay 'rtags-show-in-other-window)
-  (evil-collection-bind 'rtags-references-tree-mode-map    'next-item 'rtags-references-tree-next-level)
-  (evil-collection-bind 'rtags-references-tree-mode-map    'prev-item 'rtags-references-tree-previous-level)
-  (evil-collection-bind 'rtags-references-tree-mode-map 'next-section 'rtags-references-tree-next-level)
-  (evil-collection-bind 'rtags-references-tree-mode-map 'prev-section 'rtags-references-tree-previous-level)
-  (evil-collection-bind 'rtags-references-tree-mode-map 'quit 'rtags-call-bury-or-delete)
+  (evil-collection-bind 'rtags-references-tree-mode-map
+                        'action 'rtags-select
+                        'action-other 'rtags-select-other-window
+                        'action-stay 'rtags-show-in-other-window
+                        'next-item 'rtags-references-tree-next-level
+                        'prev-item 'rtags-references-tree-previous-level
+                        'next-section 'rtags-references-tree-next-level
+                        'prev-section 'rtags-references-tree-previous-level
+                        'quit 'rtags-call-bury-or-delete)
 
   (evil-collection-define-key 'normal 'rtags-location-stack-visualize-mode-map
     [mouse-1] 'rtags-select-other-window
@@ -111,10 +113,11 @@
     "s" 'rtags-show-in-other-window
 
     "x" 'rtags-select-and-remove-rtags-buffer)
-  (evil-collection-bind 'rtags-location-stack-visualize-mode-map       'action 'rtags-select)
-  (evil-collection-bind 'rtags-location-stack-visualize-mode-map 'action-other 'rtags-select-other-window)
-  (evil-collection-bind 'rtags-location-stack-visualize-mode-map  'action-stay 'rtags-show-in-other-window)
-  (evil-collection-bind 'rtags-location-stack-visualize-mode-map 'quit 'rtags-call-bury-or-delete))
+  (evil-collection-bind 'rtags-location-stack-visualize-mode-map
+                        'action 'rtags-select
+                        'action-other 'rtags-select-other-window
+                        'action-stay 'rtags-show-in-other-window
+                        'quit 'rtags-call-bury-or-delete))
 
 (provide 'evil-collection-rtags)
 ;;; evil-collection-rtags.el ends here

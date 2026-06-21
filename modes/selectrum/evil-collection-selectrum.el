@@ -57,8 +57,9 @@
       (kbd "G") 'selectrum-goto-end
       (kbd "gg") 'selectrum-goto-beginning
       (kbd "gy") 'selectrum-kill-ring-save)
-    (evil-collection-bind 'selectrum-minibuffer-map 'next-item 'selectrum-next-group)
-    (evil-collection-bind 'selectrum-minibuffer-map 'prev-item 'selectrum-previous-group)
+    (evil-collection-bind 'selectrum-minibuffer-map
+                          'next-item 'selectrum-next-group
+                          'prev-item 'selectrum-previous-group)
 
     (when evil-want-C-u-scroll
       (evil-collection-define-key '(insert normal) 'selectrum-minibuffer-map

@@ -45,12 +45,13 @@
 
     "C" 'kmacro-menu-do-copy
     "D" 'kmacro-menu-do-delete)
-  (evil-collection-bind 'kmacro-menu-mode-map          'mark 'kmacro-menu-mark)
-  (evil-collection-bind 'kmacro-menu-mode-map        'unmark 'kmacro-menu-unmark)
-  (evil-collection-bind 'kmacro-menu-mode-map    'unmark-all 'kmacro-menu-unmark-all)
-  (evil-collection-bind 'kmacro-menu-mode-map   'mark-delete 'kmacro-menu-flag-for-deletion)
-  (evil-collection-bind 'kmacro-menu-mode-map 'execute-marks 'kmacro-menu-do-flagged-delete)
-  (evil-collection-bind 'kmacro-menu-mode-map 'action 'kmacro-menu-edit-column))
+  (evil-collection-bind 'kmacro-menu-mode-map
+                        'mark 'kmacro-menu-mark
+                        'unmark 'kmacro-menu-unmark
+                        'unmark-all 'kmacro-menu-unmark-all
+                        'mark-delete 'kmacro-menu-flag-for-deletion
+                        'execute-marks 'kmacro-menu-do-flagged-delete
+                        'action 'kmacro-menu-edit-column))
 
 (provide 'evil-collection-kmacro)
 ;;; evil-collection-kmacro.el ends here

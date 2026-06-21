@@ -100,12 +100,13 @@
   (evil-collection-define-key 'normal 'speedbar-buffers-key-map
     ;; Buffer specific keybindings
     "K" 'speedbar-buffer-kill-buffer)
-  (evil-collection-bind 'speedbar-mode-map       'action 'speedbar-edit-line)
-  (evil-collection-bind 'speedbar-mode-map    'next-item 'speedbar-forward-list)
-  (evil-collection-bind 'speedbar-mode-map    'prev-item 'speedbar-backward-list)
-  (evil-collection-bind 'speedbar-mode-map 'next-section 'speedbar-forward-list)
-  (evil-collection-bind 'speedbar-mode-map 'prev-section 'speedbar-backward-list)
-  (evil-collection-bind 'speedbar-mode-map 'refresh         'speedbar-refresh)
+  (evil-collection-bind 'speedbar-mode-map
+                        'action 'speedbar-edit-line
+                        'next-item 'speedbar-forward-list
+                        'prev-item 'speedbar-backward-list
+                        'next-section 'speedbar-forward-list
+                        'prev-section 'speedbar-backward-list
+                        'refresh         'speedbar-refresh)
   (evil-collection-bind 'speedbar-buffers-key-map 'refresh  'speedbar-buffer-revert-buffer))
 
 (provide 'evil-collection-speedbar)

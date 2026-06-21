@@ -41,15 +41,17 @@
   ;; latest anaconda has replaced view mode by an xref implementation,
   ;; anaconda stable uses `anaconda-view-mode-map'
   (when (boundp 'anaconda-view-mode-map)
-    (evil-collection-bind 'anaconda-view-mode-map    'next-item 'next-error-no-select)
-    (evil-collection-bind 'anaconda-view-mode-map    'prev-item 'previous-error-no-select)
-    (evil-collection-bind 'anaconda-view-mode-map 'next-section 'next-error-no-select)
-    (evil-collection-bind 'anaconda-view-mode-map 'prev-section 'previous-error-no-select)
-    (evil-collection-bind 'anaconda-view-mode-map 'quit 'quit-window))
+    (evil-collection-bind 'anaconda-view-mode-map
+                          'next-item 'next-error-no-select
+                          'prev-item 'previous-error-no-select
+                          'next-section 'next-error-no-select
+                          'prev-section 'previous-error-no-select
+                          'quit 'quit-window))
 
-  (evil-collection-bind 'anaconda-mode-map     'find-usages 'anaconda-mode-find-references)
-  (evil-collection-bind 'anaconda-mode-map      'lookup-doc 'anaconda-mode-show-doc)
-  (evil-collection-bind 'anaconda-mode-map 'find-definition 'anaconda-mode-find-definitions)
+  (evil-collection-bind 'anaconda-mode-map
+                        'find-usages 'anaconda-mode-find-references
+                        'lookup-doc 'anaconda-mode-show-doc
+                        'find-definition 'anaconda-mode-find-definitions)
   (evil-collection-bind 'anaconda-mode-map  'pop-definition
                               (if (fboundp 'anaconda-mode-go-back)
                                   'anaconda-mode-go-back

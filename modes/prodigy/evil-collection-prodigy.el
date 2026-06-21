@@ -58,15 +58,16 @@
     "Jd" 'prodigy-jump-file-manager
 
     (kbd "Y") 'prodigy-copy-cmd)
-  (evil-collection-bind 'prodigy-mode-map         'mark 'prodigy-mark)
-  (evil-collection-bind 'prodigy-mode-map     'mark-all 'prodigy-mark-all)
-  (evil-collection-bind 'prodigy-mode-map       'unmark 'prodigy-unmark)
-  (evil-collection-bind 'prodigy-mode-map   'unmark-all 'prodigy-unmark-all)
-  (evil-collection-bind 'prodigy-mode-map       'action 'prodigy-browse)
-  (evil-collection-bind 'prodigy-mode-map    'next-item 'prodigy-next-with-status)
-  (evil-collection-bind 'prodigy-mode-map    'prev-item 'prodigy-prev-with-status)
-  (evil-collection-bind 'prodigy-mode-map 'next-section 'prodigy-next-with-status)
-  (evil-collection-bind 'prodigy-mode-map 'prev-section 'prodigy-prev-with-status)
+  (evil-collection-bind 'prodigy-mode-map
+                        'mark 'prodigy-mark
+                        'mark-all 'prodigy-mark-all
+                        'unmark 'prodigy-unmark
+                        'unmark-all 'prodigy-unmark-all
+                        'action 'prodigy-browse
+                        'next-item 'prodigy-next-with-status
+                        'prev-item 'prodigy-prev-with-status
+                        'next-section 'prodigy-next-with-status
+                        'prev-section 'prodigy-prev-with-status)
 
   (evil-collection-define-key 'normal 'prodigy-view-mode-map
     "s" 'prodigy-start

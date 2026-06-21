@@ -42,8 +42,9 @@
 
   (evil-collection-define-key 'normal 'wgrep-mode-map
     (kbd "<escape>") 'wgrep-exit)
-  (evil-collection-bind 'wgrep-mode-map   'quit-save 'wgrep-finish-edit)
-  (evil-collection-bind 'wgrep-mode-map 'quit-cancel 'wgrep-abort-changes))
+  (evil-collection-bind 'wgrep-mode-map
+                        'quit-save 'wgrep-finish-edit
+                        'quit-cancel 'wgrep-abort-changes))
 
 (provide 'evil-collection-wgrep)
 ;;; evil-collection-wgrep.el ends here

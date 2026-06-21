@@ -56,12 +56,13 @@
     ;; `evil-collection-set-readonly-bindings'.
     "ZQ" 'quit-window)
 
-  (evil-collection-bind 'elfeed-search-mode-map  'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'elfeed-search-mode-map    'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'elfeed-search-mode-map       'action 'elfeed-search-show-entry)
-  (evil-collection-bind 'elfeed-search-mode-map 'action-other 'elfeed-search-browse-url)
-  (evil-collection-bind 'elfeed-search-mode-map 'refresh-all 'elfeed-search-fetch)
-  (evil-collection-bind 'elfeed-search-mode-map     'refresh 'revert-buffer)
+  (evil-collection-bind 'elfeed-search-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'action 'elfeed-search-show-entry
+                        'action-other 'elfeed-search-browse-url
+                        'refresh-all 'elfeed-search-fetch
+                        'refresh 'revert-buffer)
 
   ;; Refresh fallback for elfeed before commit 518e5bd3, where
   ;; `revert-buffer-function' is not wired up.
@@ -73,9 +74,10 @@
   (when (and (fboundp 'elfeed-search-quit-window)
              (not (eq (indirect-function 'elfeed-search-quit-window)
                       (symbol-function 'quit-window))))
-    (evil-collection-bind 'elfeed-search-mode-map        'quit 'elfeed-search-quit-window)
-    (evil-collection-bind 'elfeed-search-mode-map   'quit-save 'elfeed-search-quit-window)
-    (evil-collection-bind 'elfeed-search-mode-map 'quit-cancel 'elfeed-search-quit-window))
+    (evil-collection-bind 'elfeed-search-mode-map
+                          'quit 'elfeed-search-quit-window
+                          'quit-save 'elfeed-search-quit-window
+                          'quit-cancel 'elfeed-search-quit-window))
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
@@ -97,17 +99,18 @@
     "A" 'elfeed-show-add-enclosure-to-playlist
     "P" 'elfeed-show-play-enclosure
     "d" 'elfeed-show-save-enclosure)
-  (evil-collection-bind 'elfeed-show-mode-map  'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'elfeed-show-mode-map    'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'elfeed-show-mode-map 'action-other 'elfeed-show-visit)
-  (evil-collection-bind 'elfeed-show-mode-map    'next-item 'elfeed-show-next)
-  (evil-collection-bind 'elfeed-show-mode-map    'prev-item 'elfeed-show-prev)
-  (evil-collection-bind 'elfeed-show-mode-map 'next-section 'elfeed-show-next)
-  (evil-collection-bind 'elfeed-show-mode-map 'prev-section 'elfeed-show-prev)
-  (evil-collection-bind 'elfeed-show-mode-map         'quit 'elfeed-kill-buffer)
-  (evil-collection-bind 'elfeed-show-mode-map    'quit-save 'elfeed-kill-buffer)
-  (evil-collection-bind 'elfeed-show-mode-map  'quit-cancel 'elfeed-kill-buffer)
-  (evil-collection-bind 'elfeed-show-mode-map      'refresh 'elfeed-show-refresh)
+  (evil-collection-bind 'elfeed-show-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'action-other 'elfeed-show-visit
+                        'next-item 'elfeed-show-next
+                        'prev-item 'elfeed-show-prev
+                        'next-section 'elfeed-show-next
+                        'prev-section 'elfeed-show-prev
+                        'quit 'elfeed-kill-buffer
+                        'quit-save 'elfeed-kill-buffer
+                        'quit-cancel 'elfeed-kill-buffer
+                        'refresh 'elfeed-show-refresh)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map

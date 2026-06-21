@@ -139,11 +139,12 @@ The return value is the yanked text."
     "d" 'emms-browser-view-in-dired
     ;; "d" does the same, keep "gd" for consistency.
     "gd" 'emms-browser-view-in-dired)
-  (evil-collection-bind 'emms-browser-mode-map       'action 'emms-browser-add-tracks)
-  (evil-collection-bind 'emms-browser-mode-map    'next-item 'emms-browser-next-non-track)
-  (evil-collection-bind 'emms-browser-mode-map    'prev-item 'emms-browser-prev-non-track)
-  (evil-collection-bind 'emms-browser-mode-map 'next-section 'emms-browser-next-non-track)
-  (evil-collection-bind 'emms-browser-mode-map 'prev-section 'emms-browser-prev-non-track)
+  (evil-collection-bind 'emms-browser-mode-map
+                        'action 'emms-browser-add-tracks
+                        'next-item 'emms-browser-next-non-track
+                        'prev-item 'emms-browser-prev-non-track
+                        'next-section 'emms-browser-next-non-track
+                        'prev-section 'emms-browser-prev-non-track)
 
   (unless evil-collection-always-run-setup-hook-after-load
     (run-hook-with-args 'evil-collection-setup-hook
@@ -198,13 +199,14 @@ The return value is the yanked text."
     ;; "" 'emms-playlist-limit-to-all ; TODO: Test.
 
     (kbd "M-y") 'emms-playlist-mode-yank-pop)
-  (evil-collection-bind 'emms-playlist-mode-map       'action 'emms-playlist-mode-play-smart)
-  (evil-collection-bind 'emms-playlist-mode-map    'next-item 'emms-next)
-  (evil-collection-bind 'emms-playlist-mode-map    'prev-item 'emms-previous)
-  (evil-collection-bind 'emms-playlist-mode-map 'next-section 'emms-playlist-mode-next)
-  (evil-collection-bind 'emms-playlist-mode-map 'prev-section 'emms-playlist-mode-previous)
-  (evil-collection-bind 'emms-playlist-mode-map 'next-section-2 'emms-next)
-  (evil-collection-bind 'emms-playlist-mode-map 'prev-section-2 'emms-previous)
+  (evil-collection-bind 'emms-playlist-mode-map
+                        'action 'emms-playlist-mode-play-smart
+                        'next-item 'emms-next
+                        'prev-item 'emms-previous
+                        'next-section 'emms-playlist-mode-next
+                        'prev-section 'emms-playlist-mode-previous
+                        'next-section-2 'emms-next
+                        'prev-section-2 'emms-previous)
 
   (evil-collection-define-key 'visual 'emms-playlist-mode-map
     ;; "d" 'emms-playlist-mode-kill
@@ -233,9 +235,10 @@ The return value is the yanked text."
     "C" 'emms-metaplaylist-mode-new-buffer
     "." 'emms-metaplaylist-mode-center-current
     "D" 'emms-metaplaylist-mode-kill-buffer)
-  (evil-collection-bind 'emms-metaplaylist-mode-map  'action 'emms-metaplaylist-mode-goto-current)
-  (evil-collection-bind 'emms-metaplaylist-mode-map    'quit 'kill-current-buffer)
-  (evil-collection-bind 'emms-metaplaylist-mode-map 'refresh 'emms-metaplaylist-mode-update)
+  (evil-collection-bind 'emms-metaplaylist-mode-map
+                        'action 'emms-metaplaylist-mode-goto-current
+                        'quit 'kill-current-buffer
+                        'refresh 'emms-metaplaylist-mode-update)
 
   (evil-set-initial-state 'emms-stream-mode 'normal)
   (evil-collection-define-key 'normal 'emms-stream-mode-map
@@ -248,8 +251,9 @@ The return value is the yanked text."
     "i" 'emms-stream-info-bookmark
     "s" 'emms-stream-save-bookmarks-file
     "x" 'emms-stream-toggle-default-action)
-  (evil-collection-bind 'emms-stream-mode-map 'action 'emms-stream-play)
-  (evil-collection-bind 'emms-stream-mode-map 'quit 'emms-stream-quit)
+  (evil-collection-bind 'emms-stream-mode-map
+                        'action 'emms-stream-play
+                        'quit 'emms-stream-quit)
 
   (unless evil-collection-always-run-setup-hook-after-load
     (run-hook-with-args

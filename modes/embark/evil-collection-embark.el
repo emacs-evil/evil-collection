@@ -44,8 +44,9 @@
     "A" 'embark-act-all
     "E" 'embark-export                   ;; was e
     (kbd "M-a") 'embark-collect-direct-action-minor-mode)
-  (evil-collection-bind 'embark-collect-mode-map    'mark 'embark-select)
-  (evil-collection-bind 'embark-collect-mode-map 'refresh 'revert-buffer))
+  (evil-collection-bind 'embark-collect-mode-map
+                        'mark 'embark-select
+                        'refresh 'revert-buffer))
 
 (provide 'evil-collection-embark)
 ;;; evil-collection-embark.el ends here

@@ -49,12 +49,13 @@
     "o" 'xref-show-location-at-point)
   (evil-collection-bind 'xref--xref-buffer-mode-map       'action 'xref-goto-xref)
   ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'.
-  (evil-collection-bind 'xref--xref-buffer-mode-map 'action-other 'xref-quit-and-goto-xref)
-  (evil-collection-bind 'xref--xref-buffer-mode-map  'action-stay 'xref-show-location-at-point)
-  (evil-collection-bind 'xref--xref-buffer-mode-map    'next-item 'xref-next-line)
-  (evil-collection-bind 'xref--xref-buffer-mode-map    'prev-item 'xref-prev-line)
-  (evil-collection-bind 'xref--xref-buffer-mode-map 'next-section 'xref-next-line)
-  (evil-collection-bind 'xref--xref-buffer-mode-map 'prev-section 'xref-prev-line)
+  (evil-collection-bind 'xref--xref-buffer-mode-map
+                        'action-other 'xref-quit-and-goto-xref
+                        'action-stay 'xref-show-location-at-point
+                        'next-item 'xref-next-line
+                        'prev-item 'xref-prev-line
+                        'next-section 'xref-next-line
+                        'prev-section 'xref-prev-line)
 
   (when (>= emacs-major-version 27)
     (evil-collection-bind 'xref--xref-buffer-mode-map 'refresh 'xref-revert-buffer))

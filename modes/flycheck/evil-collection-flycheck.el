@@ -42,13 +42,14 @@
     "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error)
-  (evil-collection-bind 'flycheck-error-list-mode-map       'action 'flycheck-error-list-goto-error)
-  (evil-collection-bind 'flycheck-error-list-mode-map    'next-item 'flycheck-error-list-next-error)
-  (evil-collection-bind 'flycheck-error-list-mode-map    'prev-item 'flycheck-error-list-previous-error)
-  (evil-collection-bind 'flycheck-error-list-mode-map 'next-section 'flycheck-error-list-next-error)
-  (evil-collection-bind 'flycheck-error-list-mode-map 'prev-section 'flycheck-error-list-previous-error)
-  (evil-collection-bind 'flycheck-error-list-mode-map    'quit 'quit-window)
-  (evil-collection-bind 'flycheck-error-list-mode-map 'refresh 'flycheck-error-list-check-source))
+  (evil-collection-bind 'flycheck-error-list-mode-map
+                        'action 'flycheck-error-list-goto-error
+                        'next-item 'flycheck-error-list-next-error
+                        'prev-item 'flycheck-error-list-previous-error
+                        'next-section 'flycheck-error-list-next-error
+                        'prev-section 'flycheck-error-list-previous-error
+                        'quit 'quit-window
+                        'refresh 'flycheck-error-list-check-source))
 
 (provide 'evil-collection-flycheck)
 ;;; evil-collection-flycheck.el ends here

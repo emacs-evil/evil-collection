@@ -77,22 +77,24 @@
 
   (evil-collection-define-key 'normal 'fj-generic-map
     "gb" 'fj-switch-to-buffer)
-  (evil-collection-bind 'fj-generic-map     'cycle-next 'fj-next-tab-item)
-  (evil-collection-bind 'fj-generic-map 'cycle-previous 'fj-prev-tab-item)
-  (evil-collection-bind 'fj-generic-map 'action-other 'fj-browse-view)
-  (evil-collection-bind 'fj-generic-map    'next-item 'fj-item-next)
-  (evil-collection-bind 'fj-generic-map    'prev-item 'fj-item-prev)
-  (evil-collection-bind 'fj-generic-map 'next-section 'fj-item-next)
-  (evil-collection-bind 'fj-generic-map 'prev-section 'fj-item-prev)
+  (evil-collection-bind 'fj-generic-map
+                        'cycle-next 'fj-next-tab-item
+                        'cycle-previous 'fj-prev-tab-item
+                        'action-other 'fj-browse-view
+                        'next-item 'fj-item-next
+                        'prev-item 'fj-item-prev
+                        'next-section 'fj-item-next
+                        'prev-section 'fj-item-prev)
 
   (evil-collection-define-key 'normal 'fj-generic-tl-map
     "gb" 'fj-switch-to-buffer
     "gm" 'imenu
     ">" 'fj-next-page
     "<" 'fj-prev-page)
-  (evil-collection-bind 'fj-generic-tl-map     'cycle-next 'fj-next-tab-item)
-  (evil-collection-bind 'fj-generic-tl-map 'cycle-previous 'fj-prev-tab-item)
-  (evil-collection-bind 'fj-generic-tl-map 'action-other 'fj-tl-browse-entry)
+  (evil-collection-bind 'fj-generic-tl-map
+                        'cycle-next 'fj-next-tab-item
+                        'cycle-previous 'fj-prev-tab-item
+                        'action-other 'fj-tl-browse-entry)
   (evil-collection-bind 'fj-generic-map 'refresh    'fj-view-reload)
   (evil-collection-bind 'fj-generic-tl-map 'refresh 'fj-view-reload)
 
@@ -101,9 +103,10 @@
     "r" 'fj-repo-readme
     "g/" 'fj-repo-search
     "gm" 'imenu)
-  (evil-collection-bind 'fj-repo-tl-map       'action 'fj-repo-list-issues)
-  (evil-collection-bind 'fj-repo-tl-map 'action-other 'fj-tl-browse-entry)
-  (evil-collection-bind 'fj-repo-tl-map  'action-stay 'fj-repo-list-pulls)
+  (evil-collection-bind 'fj-repo-tl-map
+                        'action 'fj-repo-list-issues
+                        'action-other 'fj-tl-browse-entry
+                        'action-stay 'fj-repo-list-pulls)
   (evil-collection-define-operator-key 'yank 'fj-repo-tl-map
     "c" 'fj-repo-copy-clone-url)
 
@@ -119,8 +122,9 @@
     "al" 'fj-item-label-add
     "gL" 'fj-repo-commit-log
     "gm" 'imenu)
-  (evil-collection-bind 'fj-issue-tl-mode-map       'action 'fj-issues-tl-view)
-  (evil-collection-bind 'fj-issue-tl-mode-map 'action-other 'fj-tl-browse-entry)
+  (evil-collection-bind 'fj-issue-tl-mode-map
+                        'action 'fj-issues-tl-view
+                        'action-other 'fj-tl-browse-entry)
   (evil-collection-define-operator-key 'yank 'fj-issue-tl-mode-map
     "c" 'fj-repo-copy-clone-url
     "u" 'fj-copy-item-url)

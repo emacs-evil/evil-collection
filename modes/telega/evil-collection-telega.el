@@ -109,12 +109,12 @@
 
     (kbd "<tab>") 'telega-chatbuf-complete-or-next-link
     (kbd "<backtab>") 'telega-chatbuf-prev-link)
-  (evil-collection-bind 'telega-chat-mode-map          'quit 'quit-window)
-  (evil-collection-bind 'telega-chat-mode-map 'describe-mode 'telega-describe-chat)
-
-  (evil-collection-bind 'telega-chat-mode-map        'repl-submit 'telega-chatbuf-newline-or-input-send)
-  (evil-collection-bind 'telega-chat-mode-map       'repl-newline 'newline)
-  (evil-collection-bind 'telega-chat-mode-map 'repl-force-newline 'newline)
+  (evil-collection-bind 'telega-chat-mode-map
+                        'quit 'quit-window
+                        'describe-mode 'telega-describe-chat
+                        'repl-submit 'telega-chatbuf-newline-or-input-send
+                        'repl-newline 'newline
+                        'repl-force-newline 'newline)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
     "ga" telega-prefix-map

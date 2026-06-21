@@ -65,48 +65,52 @@
 
     "gh" 'eww-list-histories
     "gt" 'eww-list-buffers)             ; Like dwb, qutebrowser.
-  (evil-collection-bind 'eww-mode-map  'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'eww-mode-map    'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'eww-mode-map    'next-item 'eww-next-url)
-  (evil-collection-bind 'eww-mode-map    'prev-item 'eww-previous-url)
-  (evil-collection-bind 'eww-mode-map 'next-section 'eww-next-url)
-  (evil-collection-bind 'eww-mode-map 'prev-section 'eww-previous-url)
-  (evil-collection-bind 'eww-mode-map 'action-other 'eww-browse-with-external-browser)
-  (evil-collection-bind 'eww-mode-map        'quit 'quit-window)
-  (evil-collection-bind 'eww-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'eww-mode-map 'quit-cancel 'quit-window)
-  (evil-collection-bind 'eww-mode-map     'refresh 'eww-reload)
+  (evil-collection-bind 'eww-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'next-item 'eww-next-url
+                        'prev-item 'eww-previous-url
+                        'next-section 'eww-next-url
+                        'prev-section 'eww-previous-url
+                        'action-other 'eww-browse-with-external-browser
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window
+                        'refresh 'eww-reload)
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)
 
-  (evil-collection-bind 'eww-mode-map     'cycle-next 'shr-next-link)
-  (evil-collection-bind 'eww-mode-map 'cycle-previous 'shr-previous-link)
-
-  (evil-collection-bind 'eww-mode-map 'find-file 'eww-view-source)
+  (evil-collection-bind 'eww-mode-map
+                        'cycle-next 'shr-next-link
+                        'cycle-previous 'shr-previous-link
+                        'find-file 'eww-view-source)
 
   (evil-collection-set-readonly-bindings 'eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
-  (evil-collection-bind 'eww-history-mode-map 'action 'eww-history-browse)
-  (evil-collection-bind 'eww-history-mode-map 'refresh 'revert-buffer)
+  (evil-collection-bind 'eww-history-mode-map
+                        'action 'eww-history-browse
+                        'refresh 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
-  (evil-collection-bind 'eww-buffers-mode-map       'action 'eww-buffer-select)
-  (evil-collection-bind 'eww-buffers-mode-map    'next-item 'eww-buffer-show-next)
-  (evil-collection-bind 'eww-buffers-mode-map    'prev-item 'eww-buffer-show-previous)
-  (evil-collection-bind 'eww-buffers-mode-map 'next-section 'eww-buffer-show-next)
-  (evil-collection-bind 'eww-buffers-mode-map 'prev-section 'eww-buffer-show-previous)
-  (evil-collection-bind 'eww-buffers-mode-map 'refresh 'revert-buffer)
-  (evil-collection-bind 'eww-buffers-mode-map  'delete 'eww-buffer-kill)
+  (evil-collection-bind 'eww-buffers-mode-map
+                        'action 'eww-buffer-select
+                        'next-item 'eww-buffer-show-next
+                        'prev-item 'eww-buffer-show-previous
+                        'next-section 'eww-buffer-show-next
+                        'prev-section 'eww-buffer-show-previous
+                        'refresh 'revert-buffer
+                        'delete 'eww-buffer-kill)
 
   (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
   (evil-collection-define-key 'normal 'eww-bookmark-mode-map
     "P" 'eww-bookmark-yank)
-  (evil-collection-bind 'eww-bookmark-mode-map 'action 'eww-bookmark-browse)
-  (evil-collection-bind 'eww-bookmark-mode-map 'refresh 'revert-buffer)
-  (evil-collection-bind 'eww-bookmark-mode-map  'delete 'eww-bookmark-kill)
+  (evil-collection-bind 'eww-bookmark-mode-map
+                        'action 'eww-bookmark-browse
+                        'refresh 'revert-buffer
+                        'delete 'eww-bookmark-kill)
 
   (evil-collection-define-operator-key 'yank 'eww-bookmark-mode-map
     "u" 'eww-copy-page-url))

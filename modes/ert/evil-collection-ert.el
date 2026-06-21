@@ -58,13 +58,14 @@
     "x" 'ert-delete-test
     "T" 'ert-results-pop-to-timings)
 
-  (evil-collection-bind 'ert-results-mode-map     'next-item 'ert-results-next-test)
-  (evil-collection-bind 'ert-results-mode-map     'prev-item 'ert-results-previous-test)
-  (evil-collection-bind 'ert-results-mode-map  'next-section 'ert-results-next-test)
-  (evil-collection-bind 'ert-results-mode-map  'prev-section 'ert-results-previous-test)
-  (evil-collection-bind 'ert-results-mode-map    'lookup-doc 'ert-results-describe-test-at-point)
-  (evil-collection-bind 'ert-results-mode-map 'describe-mode 'ert-results-describe-test-at-point)
-  (evil-collection-bind 'ert-results-mode-map       'refresh 'ert-results-rerun-all-tests))
+  (evil-collection-bind 'ert-results-mode-map
+                        'next-item 'ert-results-next-test
+                        'prev-item 'ert-results-previous-test
+                        'next-section 'ert-results-next-test
+                        'prev-section 'ert-results-previous-test
+                        'lookup-doc 'ert-results-describe-test-at-point
+                        'describe-mode 'ert-results-describe-test-at-point
+                        'refresh 'ert-results-rerun-all-tests))
 
 (provide 'evil-collection-ert)
 ;;; evil-collection-ert.el ends here

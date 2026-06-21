@@ -53,13 +53,14 @@
     "C" 'profiler-report-render-reversed-calltree
     "i" 'profiler-report-describe-entry
     "=" 'profiler-report-compare-profile)
-  (evil-collection-bind 'profiler-report-mode-map 'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'profiler-report-mode-map   'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'profiler-report-mode-map      'action 'profiler-report-find-entry)
-  (evil-collection-bind 'profiler-report-mode-map        'quit 'quit-window)
-  (evil-collection-bind 'profiler-report-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'profiler-report-mode-map 'quit-cancel 'evil-quit)
-  (evil-collection-bind 'profiler-report-mode-map     'refresh 'revert-buffer))
+  (evil-collection-bind 'profiler-report-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'action 'profiler-report-find-entry
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit
+                        'refresh 'revert-buffer))
 
 (provide 'evil-collection-profiler)
 ;;; evil-collection-profiler.el ends here

@@ -37,8 +37,9 @@
 (defun evil-collection-disk-usage-setup ()
   "Set up `evil' bindings for `disk-usage'."
   (evil-collection-set-readonly-bindings 'disk-usage-mode-map)
-  (evil-collection-bind 'disk-usage-mode-map     'next-button 'forward-button)
-  (evil-collection-bind 'disk-usage-mode-map 'previous-button 'backward-button)
+  (evil-collection-bind 'disk-usage-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-mode-map
     "S" 'tabulated-list-sort
     "^" 'disk-usage-up
@@ -58,12 +59,14 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
-  (evil-collection-bind 'disk-usage-mode-map 'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'disk-usage-mode-map   'scroll-up 'scroll-down-command)
+  (evil-collection-bind 'disk-usage-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command)
 
   (evil-collection-set-readonly-bindings 'disk-usage-by-types-mode-map)
-  (evil-collection-bind 'disk-usage-by-types-mode-map     'next-button 'forward-button)
-  (evil-collection-bind 'disk-usage-by-types-mode-map 'previous-button 'backward-button)
+  (evil-collection-bind 'disk-usage-by-types-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button)
   (evil-collection-define-key 'normal 'disk-usage-by-types-mode-map
     "S" 'tabulated-list-sort
 
@@ -72,10 +75,10 @@
     "a" 'disk-usage-add-filters
     "A" 'disk-usage-remove-filters)
 
-  (evil-collection-bind 'disk-usage-by-types-mode-map 'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'disk-usage-by-types-mode-map   'scroll-up 'scroll-down-command)
-
-  (evil-collection-bind 'disk-usage-by-types-mode-map        'action 'disk-usage-files)
+  (evil-collection-bind 'disk-usage-by-types-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'action 'disk-usage-files)
   (evil-collection-bind 'disk-usage-mode-map 'describe-mode          'describe-mode)
   (evil-collection-bind 'disk-usage-by-types-mode-map 'describe-mode 'describe-mode)
   (evil-collection-bind 'disk-usage-mode-map       'refresh          'revert-buffer)

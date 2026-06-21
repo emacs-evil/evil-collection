@@ -39,10 +39,11 @@
   (evil-set-initial-state 'magit-repolist-mode 'normal)
   (evil-collection-define-key 'normal 'magit-repolist-mode-map
     "f" 'magit-repolist-fetch)
-  (evil-collection-bind 'magit-repolist-mode-map    'mark 'magit-repolist-mark)
-  (evil-collection-bind 'magit-repolist-mode-map  'unmark 'magit-repolist-unmark)
-  (evil-collection-bind 'magit-repolist-mode-map  'action 'magit-repolist-status)
-  (evil-collection-bind 'magit-repolist-mode-map 'refresh 'magit-list-repositories)
+  (evil-collection-bind 'magit-repolist-mode-map
+                        'mark 'magit-repolist-mark
+                        'unmark 'magit-repolist-unmark
+                        'action 'magit-repolist-status
+                        'refresh 'magit-list-repositories)
   (add-hook 'magit-repolist-mode-hook 'evil-normalize-keymaps))
 
 (provide 'evil-collection-magit-repos)

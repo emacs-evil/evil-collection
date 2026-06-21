@@ -39,10 +39,11 @@
     "gD" 'xref-find-definitions-other-window
     "g5" 'xref-find-definitions-other-frame)
 
-  (evil-collection-bind 'eglot-mode-map     'find-usages 'xref-find-references)
-  (evil-collection-bind 'eglot-mode-map 'find-definition 'xref-find-definitions)
-  (evil-collection-bind 'eglot-mode-map  'pop-definition 'xref-pop-marker-stack)
-  (evil-collection-bind 'eglot-mode-map      'lookup-doc 'eldoc-doc-buffer))
+  (evil-collection-bind 'eglot-mode-map
+                        'find-usages 'xref-find-references
+                        'find-definition 'xref-find-definitions
+                        'pop-definition 'xref-pop-marker-stack
+                        'lookup-doc 'eldoc-doc-buffer))
 
 (provide 'evil-collection-eglot)
 ;;; evil-collection-eglot.el ends here

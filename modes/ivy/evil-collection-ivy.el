@@ -50,10 +50,11 @@
     "ga" 'ivy-occur-read-action
     "go" 'ivy-occur-dispatch
     "gc" 'ivy-occur-toggle-calling)
-  (evil-collection-bind 'ivy-occur-mode-map      'quit 'quit-window)
-  (evil-collection-bind 'ivy-occur-mode-map 'find-file 'ivy-occur-press)
-  (evil-collection-bind 'ivy-occur-mode-map   'refresh 'ivy-occur-revert-buffer)
-  (evil-collection-bind 'ivy-occur-mode-map    'action 'ivy-occur-press-and-switch)
+  (evil-collection-bind 'ivy-occur-mode-map
+                        'quit 'quit-window
+                        'find-file 'ivy-occur-press
+                        'refresh 'ivy-occur-revert-buffer
+                        'action 'ivy-occur-press-and-switch)
 
   (when evil-want-C-d-scroll
     (evil-collection-define-key 'normal 'ivy-occur-grep-mode-map
@@ -81,10 +82,11 @@
     "gc" 'ivy-occur-toggle-calling
 
     "0" 'evil-digit-argument-or-evil-beginning-of-line)
-  (evil-collection-bind 'ivy-occur-grep-mode-map      'quit 'quit-window)
-  (evil-collection-bind 'ivy-occur-grep-mode-map 'find-file 'ivy-occur-press)
-  (evil-collection-bind 'ivy-occur-grep-mode-map   'refresh 'ivy-occur-revert-buffer)
-  (evil-collection-bind 'ivy-occur-grep-mode-map    'action 'ivy-occur-press-and-switch)
+  (evil-collection-bind 'ivy-occur-grep-mode-map
+                        'quit 'quit-window
+                        'find-file 'ivy-occur-press
+                        'refresh 'ivy-occur-revert-buffer
+                        'action 'ivy-occur-press-and-switch)
 
   (defvar evil-collection-setup-minibuffer)
   (when evil-collection-setup-minibuffer

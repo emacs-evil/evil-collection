@@ -41,11 +41,12 @@
     "i" 'package-menu-mark-install
     "U" 'package-menu-mark-upgrades)
 
-  (evil-collection-bind 'package-menu-mode-map        'unmark 'package-menu-mark-unmark)
-  (evil-collection-bind 'package-menu-mode-map   'mark-delete 'package-menu-mark-delete)
-  (evil-collection-bind 'package-menu-mode-map 'execute-marks 'package-menu-execute)
-  (evil-collection-bind 'package-menu-mode-map 'describe-mode 'package-menu-describe-package)
-  (evil-collection-bind 'package-menu-mode-map       'refresh 'revert-buffer)
+  (evil-collection-bind 'package-menu-mode-map
+                        'unmark 'package-menu-mark-unmark
+                        'mark-delete 'package-menu-mark-delete
+                        'execute-marks 'package-menu-execute
+                        'describe-mode 'package-menu-describe-package
+                        'refresh 'revert-buffer)
 
   ;; It's introduced since Emacs 28.
   (when (fboundp 'package-browse-url)

@@ -308,23 +308,25 @@ end of the buffer."
     (evil-set-command-property 'mu4e-compose-goto-bottom :keep-visual t)
     (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
 
-    (evil-collection-bind 'mu4e-headers-mode-map    'next-item 'mu4e-headers-next-unread)
-    (evil-collection-bind 'mu4e-headers-mode-map    'prev-item 'mu4e-headers-prev-unread)
-    (evil-collection-bind 'mu4e-headers-mode-map 'next-section 'mu4e-headers-next-unread)
-    (evil-collection-bind 'mu4e-headers-mode-map   'prev-section 'mu4e-headers-prev-unread)
-    (evil-collection-bind 'mu4e-headers-mode-map 'next-section-2 'mu4e-headers-next)
-    (evil-collection-bind 'mu4e-headers-mode-map 'prev-section-2 'mu4e-headers-prev)
-    (evil-collection-bind 'mu4e-headers-mode-map         'action 'mu4e-headers-view-message)
+    (evil-collection-bind 'mu4e-headers-mode-map
+                          'next-item 'mu4e-headers-next-unread
+                          'prev-item 'mu4e-headers-prev-unread
+                          'next-section 'mu4e-headers-next-unread
+                          'prev-section 'mu4e-headers-prev-unread
+                          'next-section-2 'mu4e-headers-next
+                          'prev-section-2 'mu4e-headers-prev
+                          'action 'mu4e-headers-view-message)
     (evil-collection-bind 'mu4e-thread-mode-map 'section-toggle 'mu4e-thread-fold-toggle)
 
-    (evil-collection-bind 'mu4e-view-mode-map    'next-button 'forward-button)
-    (evil-collection-bind 'mu4e-view-mode-map 'previous-button 'backward-button)
-    (evil-collection-bind 'mu4e-view-mode-map      'next-item 'mu4e-view-headers-next-unread)
-    (evil-collection-bind 'mu4e-view-mode-map      'prev-item 'mu4e-view-headers-prev-unread)
-    (evil-collection-bind 'mu4e-view-mode-map   'next-section 'mu4e-view-headers-next-unread)
-    (evil-collection-bind 'mu4e-view-mode-map   'prev-section 'mu4e-view-headers-prev-unread)
-    (evil-collection-bind 'mu4e-view-mode-map 'next-section-2 'mu4e-view-headers-next)
-    (evil-collection-bind 'mu4e-view-mode-map 'prev-section-2 'mu4e-view-headers-prev)
+    (evil-collection-bind 'mu4e-view-mode-map
+                          'next-button 'forward-button
+                          'previous-button 'backward-button
+                          'next-item 'mu4e-view-headers-next-unread
+                          'prev-item 'mu4e-view-headers-prev-unread
+                          'next-section 'mu4e-view-headers-next-unread
+                          'prev-section 'mu4e-view-headers-prev-unread
+                          'next-section-2 'mu4e-view-headers-next
+                          'prev-section-2 'mu4e-view-headers-prev)
 
     ;; yu
     (evil-collection-define-operator-key 'yank 'mu4e-view-mode-map

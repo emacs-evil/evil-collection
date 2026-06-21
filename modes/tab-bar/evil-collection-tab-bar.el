@@ -45,12 +45,13 @@
     "d" 'tab-switcher-delete
     "u" 'tab-switcher-unmark
     "x" 'tab-switcher-execute)
-  (evil-collection-bind 'tab-switcher-mode-map      'action 'tab-switcher-select)
-  (evil-collection-bind 'tab-switcher-mode-map   'next-item 'tab-switcher-next-line)
-  (evil-collection-bind 'tab-switcher-mode-map   'prev-item 'tab-switcher-prev-line)
-  (evil-collection-bind 'tab-switcher-mode-map        'quit 'quit-window)
-  (evil-collection-bind 'tab-switcher-mode-map   'quit-save 'quit-window)
-  (evil-collection-bind 'tab-switcher-mode-map 'quit-cancel 'quit-window))
+  (evil-collection-bind 'tab-switcher-mode-map
+                        'action 'tab-switcher-select
+                        'next-item 'tab-switcher-next-line
+                        'prev-item 'tab-switcher-prev-line
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window))
 
 (provide 'evil-collection-tab-bar)
 

@@ -60,15 +60,16 @@
     "o" 'bookmark-bmenu-select
     "O" 'bookmark-bmenu-other-window
     (kbd "DEL") 'bookmark-bmenu-backup-unmark)
-  (evil-collection-bind 'bookmark-bmenu-mode-map          'mark 'bookmark-bmenu-mark)
-  (evil-collection-bind 'bookmark-bmenu-mode-map      'mark-all 'bookmark-bmenu-mark-all)
-  (evil-collection-bind 'bookmark-bmenu-mode-map        'unmark 'bookmark-bmenu-unmark)
-  (evil-collection-bind 'bookmark-bmenu-mode-map    'unmark-all 'bookmark-bmenu-unmark-all)
-  (evil-collection-bind 'bookmark-bmenu-mode-map   'mark-delete 'bookmark-bmenu-delete)
-  (evil-collection-bind 'bookmark-bmenu-mode-map 'execute-marks 'bookmark-bmenu-execute-deletions)
-  (evil-collection-bind 'bookmark-bmenu-mode-map       'action 'bookmark-bmenu-this-window)
-  (evil-collection-bind 'bookmark-bmenu-mode-map 'action-other 'bookmark-bmenu-other-window)
-  (evil-collection-bind 'bookmark-bmenu-mode-map  'action-stay 'bookmark-bmenu-switch-other-window))
+  (evil-collection-bind 'bookmark-bmenu-mode-map
+                        'mark 'bookmark-bmenu-mark
+                        'mark-all 'bookmark-bmenu-mark-all
+                        'unmark 'bookmark-bmenu-unmark
+                        'unmark-all 'bookmark-bmenu-unmark-all
+                        'mark-delete 'bookmark-bmenu-delete
+                        'execute-marks 'bookmark-bmenu-execute-deletions
+                        'action 'bookmark-bmenu-this-window
+                        'action-other 'bookmark-bmenu-other-window
+                        'action-stay 'bookmark-bmenu-switch-other-window))
 
 (provide 'evil-collection-bookmark)
 ;;; evil-collection-bookmark.el ends here

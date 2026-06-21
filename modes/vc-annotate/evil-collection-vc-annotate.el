@@ -47,11 +47,12 @@
     "L" 'vc-annotate-show-log-revision-at-line
     "W" 'vc-annotate-working-revision
     "A" 'vc-annotate-toggle-annotation-visibility)
-  (evil-collection-bind 'vc-annotate-mode-map       'action 'vc-annotate-goto-line)
-  (evil-collection-bind 'vc-annotate-mode-map    'next-item 'vc-annotate-next-revision)
-  (evil-collection-bind 'vc-annotate-mode-map    'prev-item 'vc-annotate-prev-revision)
-  (evil-collection-bind 'vc-annotate-mode-map 'next-section 'vc-annotate-next-revision)
-  (evil-collection-bind 'vc-annotate-mode-map 'prev-section 'vc-annotate-prev-revision))
+  (evil-collection-bind 'vc-annotate-mode-map
+                        'action 'vc-annotate-goto-line
+                        'next-item 'vc-annotate-next-revision
+                        'prev-item 'vc-annotate-prev-revision
+                        'next-section 'vc-annotate-next-revision
+                        'prev-section 'vc-annotate-prev-revision))
 
 (provide 'evil-collection-vc-annotate)
 ;;; evil-collection-vc-annotate.el ends here

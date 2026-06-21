@@ -63,22 +63,22 @@
 
     "v" 'trashed-view-file)
 
-  (evil-collection-bind 'trashed-mode-map          'mark 'trashed-mark)
-  (evil-collection-bind 'trashed-mode-map      'mark-all 'trashed-mark-all)
-  (evil-collection-bind 'trashed-mode-map        'unmark 'trashed-unmark)
-  (evil-collection-bind 'trashed-mode-map    'unmark-all 'trashed-unmark-all)
-  (evil-collection-bind 'trashed-mode-map   'mark-delete 'trashed-flag-delete)
-  (evil-collection-bind 'trashed-mode-map 'execute-marks 'trashed-do-execute)
-
-  (evil-collection-bind 'trashed-mode-map   'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'trashed-mode-map     'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'trashed-mode-map        'action 'trashed-find-file)
-  (evil-collection-bind 'trashed-mode-map  'action-other 'trashed-find-file-other-window)
-  (evil-collection-bind 'trashed-mode-map   'action-stay 'trashed-display-file)
-  (evil-collection-bind 'trashed-mode-map  'describe-mode 'describe-mode)
-  (evil-collection-bind 'trashed-mode-map        'refresh 'revert-buffer)
-  (evil-collection-bind 'trashed-mode-map     'cycle-next 'trashed-forward-column)
-  (evil-collection-bind 'trashed-mode-map 'cycle-previous 'trashed-backward-column))
+  (evil-collection-bind 'trashed-mode-map
+                        'mark 'trashed-mark
+                        'mark-all 'trashed-mark-all
+                        'unmark 'trashed-unmark
+                        'unmark-all 'trashed-unmark-all
+                        'mark-delete 'trashed-flag-delete
+                        'execute-marks 'trashed-do-execute
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'action 'trashed-find-file
+                        'action-other 'trashed-find-file-other-window
+                        'action-stay 'trashed-display-file
+                        'describe-mode 'describe-mode
+                        'refresh 'revert-buffer
+                        'cycle-next 'trashed-forward-column
+                        'cycle-previous 'trashed-backward-column))
 
 (provide 'evil-collection-trashed)
 ;;; evil-collection-trashed.el ends here

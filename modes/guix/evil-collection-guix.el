@@ -70,12 +70,13 @@
 
         (kbd "C-o") 'bui-history-back
         (kbd "C-i") 'bui-history-forward)
-     (evil-collection-bind ',map    'scroll-down 'scroll-up-command)
-     (evil-collection-bind ',map      'scroll-up 'scroll-down-command)
-     (evil-collection-bind ',map      'goto-repl 'guix-switch-to-repl)
-     (evil-collection-bind ',map  'describe-mode 'bui-show-hint)
-     (evil-collection-bind ',map        'refresh 'revert-buffer)
-     (evil-collection-bind ',map    'refresh-all 'bui-redisplay)))
+     (evil-collection-bind ',map
+                           'scroll-down 'scroll-up-command
+                           'scroll-up 'scroll-down-command
+                           'goto-repl 'guix-switch-to-repl
+                           'describe-mode 'bui-show-hint
+                           'refresh 'revert-buffer
+                           'refresh-all 'bui-redisplay)))
 
 ;;;###autoload
 (defun evil-collection-guix-setup ()
@@ -180,14 +181,15 @@
     (kbd "<tab>") 'guix-build-log-phase-toggle
     (kbd "<backtab>") 'guix-build-log-phase-toggle-all)
 
-  (evil-collection-bind 'guix-build-log-mode-map  'scroll-down 'scroll-up-command)
-  (evil-collection-bind 'guix-build-log-mode-map    'scroll-up 'scroll-down-command)
-  (evil-collection-bind 'guix-build-log-mode-map    'next-item 'guix-build-log-next-phase)
-  (evil-collection-bind 'guix-build-log-mode-map    'prev-item 'guix-build-log-previous-phase)
-  (evil-collection-bind 'guix-build-log-mode-map 'next-section 'guix-build-log-next-phase)
-  (evil-collection-bind 'guix-build-log-mode-map 'prev-section 'guix-build-log-previous-phase)
-  (evil-collection-bind 'guix-build-log-mode-map 'goto-repl 'guix-switch-to-repl)
-  (evil-collection-bind 'guix-build-log-mode-map   'refresh 'revert-buffer)
+  (evil-collection-bind 'guix-build-log-mode-map
+                        'scroll-down 'scroll-up-command
+                        'scroll-up 'scroll-down-command
+                        'next-item 'guix-build-log-next-phase
+                        'prev-item 'guix-build-log-previous-phase
+                        'next-section 'guix-build-log-next-phase
+                        'prev-section 'guix-build-log-previous-phase
+                        'goto-repl 'guix-switch-to-repl
+                        'refresh 'revert-buffer)
 
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-bind 'guix-service-list-mode-map 'action 'bui-list-describe)

@@ -68,16 +68,17 @@
     "-" 'image-decrease-size
 
     (kbd "C-c C-c") 'image-toggle-display)
-  (evil-collection-bind 'image-mode-map  'scroll-down 'image-scroll-up)
-  (evil-collection-bind 'image-mode-map    'scroll-up 'image-scroll-down)
-  (evil-collection-bind 'image-mode-map       'action 'image-toggle-animation)
-  (evil-collection-bind 'image-mode-map    'next-item 'image-next-file)
-  (evil-collection-bind 'image-mode-map    'prev-item 'image-previous-file)
-  (evil-collection-bind 'image-mode-map 'next-section 'image-next-file)
-  (evil-collection-bind 'image-mode-map 'prev-section 'image-previous-file)
-  (evil-collection-bind 'image-mode-map         'quit 'quit-window)
-  (evil-collection-bind 'image-mode-map    'quit-save 'quit-window)
-  (evil-collection-bind 'image-mode-map  'quit-cancel 'evil-quit)
+  (evil-collection-bind 'image-mode-map
+                        'scroll-down 'image-scroll-up
+                        'scroll-up 'image-scroll-down
+                        'action 'image-toggle-animation
+                        'next-item 'image-next-file
+                        'prev-item 'image-previous-file
+                        'next-section 'image-next-file
+                        'prev-section 'image-previous-file
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll

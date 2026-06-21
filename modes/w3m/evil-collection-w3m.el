@@ -63,16 +63,17 @@
     ;; quit
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
-  (evil-collection-bind 'w3m-mode-map  'scroll-down 'w3m-scroll-up-or-next-url)
-  (evil-collection-bind 'w3m-mode-map    'scroll-up 'w3m-scroll-down-or-previous-url)
-  (evil-collection-bind 'w3m-mode-map       'action 'w3m-view-this-url)
-  (evil-collection-bind 'w3m-mode-map    'next-item 'w3m-next-form)
-  (evil-collection-bind 'w3m-mode-map    'prev-item 'w3m-previous-form)
-  (evil-collection-bind 'w3m-mode-map 'next-section 'w3m-next-form)
-  (evil-collection-bind 'w3m-mode-map 'prev-section 'w3m-previous-form)
-  (evil-collection-bind 'w3m-mode-map        'quit 'w3m-close-window)
-  (evil-collection-bind 'w3m-mode-map     'refresh 'w3m-reload-this-page)
-  (evil-collection-bind 'w3m-mode-map 'refresh-all 'w3m-reload-all-pages)
+  (evil-collection-bind 'w3m-mode-map
+                        'scroll-down 'w3m-scroll-up-or-next-url
+                        'scroll-up 'w3m-scroll-down-or-previous-url
+                        'action 'w3m-view-this-url
+                        'next-item 'w3m-next-form
+                        'prev-item 'w3m-previous-form
+                        'next-section 'w3m-next-form
+                        'prev-section 'w3m-previous-form
+                        'quit 'w3m-close-window
+                        'refresh 'w3m-reload-this-page
+                        'refresh-all 'w3m-reload-all-pages)
 
   (evil-collection-define-operator-key 'yank 'w3m-mode-map
     ;; yt

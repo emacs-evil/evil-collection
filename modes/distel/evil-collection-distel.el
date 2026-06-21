@@ -37,10 +37,11 @@
 ;;;###autoload
 (defun evil-collection-distel-setup ()
   "Set up `evil' bindings for `distel'."
-  (evil-collection-bind 'erlang-extended-mode-map 'find-definition 'erl-find-source-under-point)
-  (evil-collection-bind 'erlang-extended-mode-map  'pop-definition 'erl-find-source-unwind)
-  (evil-collection-bind 'erlang-extended-mode-map      'lookup-doc 'erl-find-doc-under-point)
-  (evil-collection-bind 'erlang-extended-mode-map       'goto-repl 'erl-ie-show-session)
+  (evil-collection-bind 'erlang-extended-mode-map
+                        'find-definition 'erl-find-source-under-point
+                        'pop-definition 'erl-find-source-unwind
+                        'lookup-doc 'erl-find-doc-under-point
+                        'goto-repl 'erl-ie-show-session)
 
   (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'erlang-extended-mode-map
@@ -52,22 +53,25 @@
       ;; ("\C-c\C-dm" edb-monitor)
       )
 
-    (evil-collection-bind 'edb-monitor-mode-map 'action 'edb-attach-command)
-    (evil-collection-bind 'edb-monitor-mode-map 'quit 'erl-bury-viewer)
+    (evil-collection-bind 'edb-monitor-mode-map
+                          'action 'edb-attach-command
+                          'quit 'erl-bury-viewer)
 
     (evil-collection-bind 'edb-variables-mode-map 'action 'edb-show-variable)
 
     (evil-collection-define-key 'normal 'edb-attach-mode-map
       "H" 'edb-attach-finish)
-    (evil-collection-bind 'edb-attach-mode-map             'quit 'erl-quit-viewer)
-    (evil-collection-bind 'edb-attach-mode-map    'describe-mode 'edb-attach-help))
+    (evil-collection-bind 'edb-attach-mode-map
+                          'quit 'erl-quit-viewer
+                          'describe-mode 'edb-attach-help))
 
-  (evil-collection-bind 'edb-attach-mode-map   'debug-continue 'edb-attach-continue)
-  (evil-collection-bind 'edb-attach-mode-map  'debug-step-over 'edb-attach-next)
-  (evil-collection-bind 'edb-attach-mode-map  'debug-step-into 'edb-attach-step)
-  (evil-collection-bind 'edb-attach-mode-map 'debug-breakpoint 'edb-toggle-breakpoint)
-  (evil-collection-bind 'edb-attach-mode-map   'debug-frame-up 'edb-attach-up)
-  (evil-collection-bind 'edb-attach-mode-map 'debug-frame-down 'edb-attach-down)
+  (evil-collection-bind 'edb-attach-mode-map
+                        'debug-continue 'edb-attach-continue
+                        'debug-step-over 'edb-attach-next
+                        'debug-step-into 'edb-attach-step
+                        'debug-breakpoint 'edb-toggle-breakpoint
+                        'debug-frame-up 'edb-attach-up
+                        'debug-frame-down 'edb-attach-down)
 
   (evil-collection-bind 'erlang-extended-mode-map 'find-usages 'erl-who-calls)
 

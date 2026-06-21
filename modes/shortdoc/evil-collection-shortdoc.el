@@ -37,12 +37,13 @@
 (defun evil-collection-shortdoc-setup ()
   "Set up `evil' bindings for `shortdoc'."
   (evil-set-initial-state 'shortdoc-mode 'normal)
-  (evil-collection-bind 'shortdoc-mode-map     'next-button 'forward-button)
-  (evil-collection-bind 'shortdoc-mode-map 'previous-button 'backward-button)
-  (evil-collection-bind 'shortdoc-mode-map 'next-section 'shortdoc-next-section)
-  (evil-collection-bind 'shortdoc-mode-map   'prev-section 'shortdoc-previous-section)
-  (evil-collection-bind 'shortdoc-mode-map 'next-section-2 'shortdoc-next)
-  (evil-collection-bind 'shortdoc-mode-map 'prev-section-2 'shortdoc-previous))
+  (evil-collection-bind 'shortdoc-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button
+                        'next-section 'shortdoc-next-section
+                        'prev-section 'shortdoc-previous-section
+                        'next-section-2 'shortdoc-next
+                        'prev-section-2 'shortdoc-previous))
 
 (provide 'evil-collection-shortdoc)
 ;;; evil-collection-shortdoc.el ends here

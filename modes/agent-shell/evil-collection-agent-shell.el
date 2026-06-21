@@ -146,8 +146,9 @@ KEY is a string passed to `kbd'."
 
   (evil-collection-define-key 'normal 'agent-shell-mode-map
     (kbd "C-<tab>") 'agent-shell-cycle-session-mode)
-  (evil-collection-bind 'agent-shell-mode-map     'cycle-next 'agent-shell-next-item)
-  (evil-collection-bind 'agent-shell-mode-map 'cycle-previous 'agent-shell-previous-item)
+  (evil-collection-bind 'agent-shell-mode-map
+                        'cycle-next 'agent-shell-next-item
+                        'cycle-previous 'agent-shell-previous-item)
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-mode-map
@@ -193,13 +194,14 @@ KEY is a string passed to `kbd'."
     [remap evil-ret] 'agent-shell-viewport-interrupt
     [remap evil-write] 'agent-shell-viewport-interrupt
     [remap evil-quit] 'bury-buffer)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map     'cycle-next 'agent-shell-viewport-next-item)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map 'cycle-previous 'agent-shell-viewport-previous-item)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map    'next-item 'agent-shell-viewport-next-item)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map    'prev-item 'agent-shell-viewport-previous-item)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map 'next-section 'agent-shell-viewport-next-page)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map 'prev-section 'agent-shell-viewport-previous-page)
-  (evil-collection-bind 'agent-shell-viewport-view-mode-map 'quit 'bury-buffer)
+  (evil-collection-bind 'agent-shell-viewport-view-mode-map
+                        'cycle-next 'agent-shell-viewport-next-item
+                        'cycle-previous 'agent-shell-viewport-previous-item
+                        'next-item 'agent-shell-viewport-next-item
+                        'prev-item 'agent-shell-viewport-previous-item
+                        'next-section 'agent-shell-viewport-next-page
+                        'prev-section 'agent-shell-viewport-previous-page
+                        'quit 'bury-buffer)
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-viewport-view-mode-map
@@ -229,9 +231,9 @@ KEY is a string passed to `kbd'."
       "gz" 'agent-shell-viewport-refresh)
     (evil-collection-bind 'agent-shell-viewport-view-mode-map 'describe-mode 'agent-shell-viewport-help-menu))
 
-  (evil-collection-bind 'agent-shell-diff-mode-map 'quit #'kill-current-buffer)
-
-  (evil-collection-bind 'agent-shell-diff-mode-map 'find-file 'agent-shell-diff-open-file)
+  (evil-collection-bind 'agent-shell-diff-mode-map
+                        'quit #'kill-current-buffer
+                        'find-file 'agent-shell-diff-open-file)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'agent-shell-diff-mode-map

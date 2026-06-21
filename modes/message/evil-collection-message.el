@@ -39,8 +39,9 @@
   (evil-collection-define-key 'normal 'message-mode-map
     "ZD" 'message-dont-send
     "ZF" 'mml-attach-file)
-  (evil-collection-bind 'message-mode-map   'quit-save 'message-send-and-exit)
-  (evil-collection-bind 'message-mode-map 'quit-cancel 'message-kill-buffer))
+  (evil-collection-bind 'message-mode-map
+                        'quit-save 'message-send-and-exit
+                        'quit-cancel 'message-kill-buffer))
 
 (provide 'evil-collection-message)
 ;;; evil-collection-message.el ends here

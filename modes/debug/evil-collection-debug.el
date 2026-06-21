@@ -70,9 +70,10 @@
                         (if (fboundp 'debug-help-follow)
                             'debug-help-follow
                           'backtrace-help-follow-symbol))
-  (evil-collection-bind 'debugger-mode-map            'quit 'top-level)
-  (evil-collection-bind 'debugger-mode-map  'debug-continue 'debugger-continue)
-  (evil-collection-bind 'debugger-mode-map      'debug-eval 'debugger-eval-expression)
+  (evil-collection-bind 'debugger-mode-map
+                        'quit 'top-level
+                        'debug-continue 'debugger-continue
+                        'debug-eval 'debugger-eval-expression)
   (evil-collection-bind 'debugger-mode-map    'debug-locals
                         (if (fboundp 'debugger-toggle-locals)
                             'debugger-toggle-locals
