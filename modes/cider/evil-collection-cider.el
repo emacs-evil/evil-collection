@@ -123,22 +123,22 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "q" 'evil-collection-cider-debug-quit))
 
   (evil-collection-define-key '(normal visual) 'cider-mode-map
-    "gz" 'cider-switch-to-repl-buffer
     "gf" 'cider-find-resource)
 
   (evil-collection-theme-bind 'lookup-doc 'cider-mode-map 'cider-doc)
+  (evil-collection-theme-bind 'goto-repl  'cider-mode-map 'cider-switch-to-repl-buffer)
 
   (unless cider-use-xref
     (evil-collection-theme-bind 'find-definition 'cider-mode-map 'cider-find-var)
     (evil-collection-theme-bind 'pop-definition  'cider-mode-map 'cider-pop-back))
 
   (evil-collection-define-key '(normal visual) 'cider-repl-mode-map
-    ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
-    "gz" 'cider-switch-to-last-clojure-buffer
     "gr" 'cider-refresh
     "gf" 'cider-find-resource)
 
   (evil-collection-theme-bind 'lookup-doc 'cider-repl-mode-map 'cider-doc)
+  ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
+  (evil-collection-theme-bind 'goto-repl  'cider-repl-mode-map 'cider-switch-to-last-clojure-buffer)
 
   (evil-collection-theme-bind 'repl-submit        'cider-repl-mode-map 'cider-repl-return)
   (evil-collection-theme-bind 'repl-newline       'cider-repl-mode-map 'newline)

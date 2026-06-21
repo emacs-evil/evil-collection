@@ -36,8 +36,7 @@
 ;;;###autoload
 (defun evil-collection-tuareg-setup ()
   "Set up `evil' bindings for `tuareg'."
-  (evil-collection-define-key 'normal 'tuareg-mode-map
-    "gz" 'tuareg-run-ocaml))
+  (evil-collection-theme-bind 'goto-repl 'tuareg-mode-map 'tuareg-run-ocaml))
 
 (provide 'evil-collection-tuareg)
 

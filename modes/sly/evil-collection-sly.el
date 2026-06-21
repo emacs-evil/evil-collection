@@ -163,13 +163,11 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-theme-bind 'find-definition 'sly-inspector-mode-map 'sly-edit-definition)
   (evil-collection-theme-bind 'lookup-doc      'sly-inspector-mode-map 'sly-inspector-describe-inspectee)
 
-  (evil-collection-define-key 'normal 'sly-mode-map
-    "gz" 'sly-mrepl)
-
   (evil-collection-theme-bind 'find-usages     'sly-mode-map 'sly-who-references)
   (evil-collection-theme-bind 'find-definition 'sly-mode-map 'sly-edit-definition)
   (evil-collection-theme-bind 'pop-definition  'sly-mode-map 'sly-pop-find-definition-stack)
   (evil-collection-theme-bind 'lookup-doc      'sly-mode-map 'sly-describe-symbol)
+  (evil-collection-theme-bind 'goto-repl       'sly-mode-map 'sly-mrepl)
 
   (evil-collection-define-key 'normal 'sly-popup-buffer-mode-map
     ;; quit

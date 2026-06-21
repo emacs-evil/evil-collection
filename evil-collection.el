@@ -544,7 +544,10 @@ New customization should use
                     :key "C-t")
     (lookup-doc :enabled t
                 :state normal
-                :key "K"))
+                :key "K")
+    (goto-repl :enabled t
+               :state normal
+               :key "gz"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:
