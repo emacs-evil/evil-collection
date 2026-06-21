@@ -91,9 +91,7 @@ alternative printed representations that can be displayed."
   (evil-collection-define-key 'normal 'emacs-lisp-compilation-mode-map
     "gr" 'emacs-lisp-compilation-recompile)
 
-  (when evil-collection-want-find-usages-bindings
-    (evil-collection-define-key 'normal 'emacs-lisp-mode-map
-      "gr" 'xref-find-references)))
+  (evil-collection-theme-bind 'find-usages 'emacs-lisp-mode-map 'xref-find-references))
 
 (provide 'evil-collection-elisp-mode)
 ;;; evil-collection-elisp-mode.el ends here

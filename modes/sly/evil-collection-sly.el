@@ -169,9 +169,7 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "gd" 'sly-edit-definition
     "gz" 'sly-mrepl)
 
-  (when evil-collection-want-find-usages-bindings
-    (evil-collection-define-key 'normal 'sly-mode-map
-      "gr" 'sly-who-references))
+  (evil-collection-theme-bind 'find-usages 'sly-mode-map 'sly-who-references)
 
   (evil-collection-define-key 'normal 'sly-popup-buffer-mode-map
     ;; quit

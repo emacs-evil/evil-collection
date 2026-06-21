@@ -57,10 +57,10 @@
                   'xref-pop-marker-stack)
     "K" 'anaconda-mode-show-doc)
 
-  (when evil-collection-want-find-usages-bindings
+  (evil-collection-theme-bind 'find-usages 'anaconda-mode-map 'anaconda-mode-find-references)
+  (when (evil-collection-theme-enabled-p 'find-usages)
     (evil-collection-define-key 'normal 'anaconda-mode-map
-      "gA" 'anaconda-mode-find-assignments
-      "gr" 'anaconda-mode-find-references)))
+      "gA" 'anaconda-mode-find-assignments)))
 
 (provide 'evil-collection-anaconda-mode)
 ;;; evil-collection-anaconda-mode.el ends here
