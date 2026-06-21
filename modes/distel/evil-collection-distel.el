@@ -60,8 +60,6 @@
       (kbd "RET") 'edb-show-variable)
 
     (evil-collection-define-key 'normal 'edb-attach-mode-map
-      "U" 'edb-attach-up
-      "D" 'edb-attach-down
       "H" 'edb-attach-finish)
     (evil-collection-bind 'quit             'edb-attach-mode-map 'erl-quit-viewer)
     (evil-collection-bind 'describe-mode    'edb-attach-mode-map 'edb-attach-help))
@@ -70,6 +68,8 @@
   (evil-collection-bind 'debug-step-over  'edb-attach-mode-map 'edb-attach-next)
   (evil-collection-bind 'debug-step-into  'edb-attach-mode-map 'edb-attach-step)
   (evil-collection-bind 'debug-breakpoint 'edb-attach-mode-map 'edb-toggle-breakpoint)
+  (evil-collection-bind 'debug-frame-up   'edb-attach-mode-map 'edb-attach-up)
+  (evil-collection-bind 'debug-frame-down 'edb-attach-mode-map 'edb-attach-down)
 
   (evil-collection-bind 'find-usages 'erlang-extended-mode-map 'erl-who-calls)
 

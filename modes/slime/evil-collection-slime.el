@@ -80,7 +80,6 @@
     [follow-link] 'mouse-face
     "\C-i" 'sldb-cycle
     "S" 'sldb-show-source
-    "e" 'sldb-eval-in-frame
     "d" 'sldb-pprint-eval-in-frame
     "D" 'sldb-disassemble
     "gi" 'sldb-inspect-in-frame
@@ -90,7 +89,6 @@
     "G" 'sldb-end-of-backtrace
     "t" 'sldb-toggle-details
     "I" 'sldb-invoke-restart-by-name
-    "R" 'sldb-return-from-frame
     "a" 'sldb-abort
     "A" 'sldb-break-with-system-debugger
     "B" 'sldb-break-with-default-debugger
@@ -107,12 +105,8 @@
     "7" 'sldb-invoke-restart-7
     "8" 'sldb-invoke-restart-8
     "9" 'sldb-invoke-restart-9)
-  (evil-collection-bind 'next-item        'sldb-mode-map 'sldb-down)
-  (evil-collection-bind 'prev-item        'sldb-mode-map 'sldb-up)
   (evil-collection-bind 'next-section     'sldb-mode-map 'sldb-details-down)
   (evil-collection-bind 'prev-section     'sldb-mode-map 'sldb-details-up)
-  (evil-collection-bind 'next-section-2   'sldb-mode-map 'sldb-down)
-  (evil-collection-bind 'prev-section-2   'sldb-mode-map 'sldb-up)
   (evil-collection-bind 'quit             'sldb-mode-map 'sldb-quit)
   (evil-collection-bind 'describe-mode    'sldb-mode-map 'describe-mode)
   (evil-collection-bind 'refresh          'sldb-mode-map 'sldb-restart-frame)
@@ -121,6 +115,10 @@
   (evil-collection-bind 'debug-step-into  'sldb-mode-map 'sldb-step)
   (evil-collection-bind 'debug-step-out   'sldb-mode-map 'sldb-out)
   (evil-collection-bind 'debug-breakpoint 'sldb-mode-map 'sldb-break-on-return)
+  (evil-collection-bind 'debug-eval       'sldb-mode-map 'sldb-eval-in-frame)
+  (evil-collection-bind 'debug-restart    'sldb-mode-map 'sldb-return-from-frame)
+  (evil-collection-bind 'debug-frame-up   'sldb-mode-map 'sldb-up)
+  (evil-collection-bind 'debug-frame-down 'sldb-mode-map 'sldb-down)
 
   (evil-collection-define-key 'normal 'slime-inspector-mode-map
     (kbd "RET") 'slime-inspector-operate-on-point

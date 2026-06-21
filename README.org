@@ -140,7 +140,7 @@ Some set of common keybindings can be configured. Look at
 For example, ~vterm~, ~eat~ and ~ghostel~ all need a way to send toggle sending
 ESC to Emacs or the underlying binary.
 
-To customize, override with ~completion-category-overrides~.
+To customize, override with ~evil-collection-binding-overrides~.
 
 Each entry has the form ~(ID . PLIST)~ with these properties:
 
@@ -302,7 +302,7 @@ that don't distinguish bind the same command to multiple tiers.
 
 ~:enabled~ defaults to a function that reads (now-obsolete)
 ~evil-collection-setup-debugger-keys~ — setting that to ~nil~ disables all
-five at once.
+of them at once.
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
@@ -310,7 +310,12 @@ five at once.
         (debug-step-over  :state normal :key ("n" "<f10>"))
         (debug-step-into  :state normal :key ("i" "s" "<f11>"))
         (debug-step-out   :state normal :key ("o" "<S-f11>"))
-        (debug-breakpoint :state normal :key ("b" "<f9>"))))
+        (debug-breakpoint :state normal :key ("b" "<f9>"))
+        (debug-eval       :state normal :key "e")
+        (debug-locals     :state normal :key "L")
+        (debug-restart    :state normal :key "R")
+        (debug-frame-up   :state normal :key "<")
+        (debug-frame-down :state normal :key ">")))
 #+end_src
 
 ** Guidelines
