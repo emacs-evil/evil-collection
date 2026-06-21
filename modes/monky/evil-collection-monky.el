@@ -59,12 +59,12 @@
     "Lr" 'monky-log-revset
     "b" 'monky-branches
     "Q" 'monky-queue)
-  (evil-collection-theme-bind 'next-item    'monky-mode-map 'monky-goto-next-section)
-  (evil-collection-theme-bind 'prev-item    'monky-mode-map 'monky-goto-previous-section)
-  (evil-collection-theme-bind 'next-section 'monky-mode-map 'monky-goto-next-section)
-  (evil-collection-theme-bind 'prev-section 'monky-mode-map 'monky-goto-previous-section)
-  (evil-collection-theme-bind 'quit    'monky-mode-map 'monky-quit-window)
-  (evil-collection-theme-bind 'refresh 'monky-mode-map 'monky-refresh)
+  (evil-collection-bind 'next-item    'monky-mode-map 'monky-goto-next-section)
+  (evil-collection-bind 'prev-item    'monky-mode-map 'monky-goto-previous-section)
+  (evil-collection-bind 'next-section 'monky-mode-map 'monky-goto-next-section)
+  (evil-collection-bind 'prev-section 'monky-mode-map 'monky-goto-previous-section)
+  (evil-collection-bind 'quit    'monky-mode-map 'monky-quit-window)
+  (evil-collection-bind 'refresh 'monky-mode-map 'monky-refresh)
 
   (evil-collection-define-key 'normal 'monky-status-mode-map
     "s" 'monky-stage-item

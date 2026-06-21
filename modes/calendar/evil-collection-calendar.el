@@ -131,14 +131,14 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'calendar-exit)
-  (evil-collection-theme-bind 'next-item    'calendar-mode-map 'calendar-forward-month)
-  (evil-collection-theme-bind 'prev-item    'calendar-mode-map 'calendar-backward-month)
-  (evil-collection-theme-bind 'next-section 'calendar-mode-map 'calendar-forward-year)
-  (evil-collection-theme-bind 'prev-section 'calendar-mode-map 'calendar-backward-year)
-  (evil-collection-theme-bind 'next-section-2 'calendar-mode-map 'calendar-forward-month)
-  (evil-collection-theme-bind 'prev-section-2 'calendar-mode-map 'calendar-backward-month)
-  (evil-collection-theme-bind 'quit    'calendar-mode-map 'calendar-exit)
-  (evil-collection-theme-bind 'refresh 'calendar-mode-map 'calendar-redraw))
+  (evil-collection-bind 'next-item    'calendar-mode-map 'calendar-forward-month)
+  (evil-collection-bind 'prev-item    'calendar-mode-map 'calendar-backward-month)
+  (evil-collection-bind 'next-section 'calendar-mode-map 'calendar-forward-year)
+  (evil-collection-bind 'prev-section 'calendar-mode-map 'calendar-backward-year)
+  (evil-collection-bind 'next-section-2 'calendar-mode-map 'calendar-forward-month)
+  (evil-collection-bind 'prev-section-2 'calendar-mode-map 'calendar-backward-month)
+  (evil-collection-bind 'quit    'calendar-mode-map 'calendar-exit)
+  (evil-collection-bind 'refresh 'calendar-mode-map 'calendar-redraw))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here

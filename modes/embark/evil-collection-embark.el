@@ -45,7 +45,7 @@
     "E" 'embark-export                   ;; was e
     "m" 'embark-select
     (kbd "M-a") 'embark-collect-direct-action-minor-mode)
-  (evil-collection-theme-bind 'refresh 'embark-collect-mode-map 'revert-buffer))
+  (evil-collection-bind 'refresh 'embark-collect-mode-map 'revert-buffer))
 
 (provide 'evil-collection-embark)
 ;;; evil-collection-embark.el ends here

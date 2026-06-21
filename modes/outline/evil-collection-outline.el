@@ -98,12 +98,12 @@ you can do:
     (kbd "M-l") 'outline-demote ; Org-mode has "M-<right>", Evil-org has "M-l"
 
     (kbd "M-<return>") 'outline-insert-heading) ; Org-mode has "M-<return>"
-  (evil-collection-theme-bind 'next-item    'outline-mode-map 'outline-forward-same-level)
-  (evil-collection-theme-bind 'prev-item    'outline-mode-map 'outline-backward-same-level)
-  (evil-collection-theme-bind 'next-section 'outline-mode-map 'outline-next-visible-heading)
-  (evil-collection-theme-bind 'prev-section   'outline-mode-map 'outline-previous-visible-heading)
-  (evil-collection-theme-bind 'next-section-2 'outline-mode-map 'outline-forward-same-level)
-  (evil-collection-theme-bind 'prev-section-2 'outline-mode-map 'outline-backward-same-level)
+  (evil-collection-bind 'next-item    'outline-mode-map 'outline-forward-same-level)
+  (evil-collection-bind 'prev-item    'outline-mode-map 'outline-backward-same-level)
+  (evil-collection-bind 'next-section 'outline-mode-map 'outline-next-visible-heading)
+  (evil-collection-bind 'prev-section   'outline-mode-map 'outline-previous-visible-heading)
+  (evil-collection-bind 'next-section-2 'outline-mode-map 'outline-forward-same-level)
+  (evil-collection-bind 'prev-section-2 'outline-mode-map 'outline-backward-same-level)
 
   ;; Enable bindings in Outline minor mode if requested
   (when evil-collection-outline-enable-in-minor-mode-p

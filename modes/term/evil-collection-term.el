@@ -139,7 +139,7 @@ it is not appropriate in some cases like terminals."
     (kbd "C-c C-d") 'term-send-eof
     (kbd "C-c C-z") 'term-stop-subjob)
 
-  (evil-collection-theme-bind 'repl-submit 'term-mode-map 'term-send-input)
+  (evil-collection-bind 'repl-submit 'term-mode-map 'term-send-input)
 
   (evil-collection-define-key 'normal 'term-mode-map
     (kbd "C-c C-k") 'evil-collection-term-char-mode-insert
@@ -150,10 +150,10 @@ it is not appropriate in some cases like terminals."
     ;; "0" 'term-bol ; "0" is meant to really go at the beginning of line.
     "^" 'term-bol
     "$" 'term-show-maximum-output)
-  (evil-collection-theme-bind 'next-item    'term-mode-map 'term-next-prompt)
-  (evil-collection-theme-bind 'prev-item    'term-mode-map 'term-previous-prompt)
-  (evil-collection-theme-bind 'next-section 'term-mode-map 'term-next-prompt)
-  (evil-collection-theme-bind 'prev-section 'term-mode-map 'term-previous-prompt)
+  (evil-collection-bind 'next-item    'term-mode-map 'term-next-prompt)
+  (evil-collection-bind 'prev-item    'term-mode-map 'term-previous-prompt)
+  (evil-collection-bind 'next-section 'term-mode-map 'term-next-prompt)
+  (evil-collection-bind 'prev-section 'term-mode-map 'term-previous-prompt)
 
   ;; https://github.com/emacs-evil/evil-collection/issues/235
   (with-eval-after-load 'multi-term

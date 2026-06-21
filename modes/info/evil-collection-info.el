@@ -96,12 +96,12 @@
   (evil-collection-define-operator-key 'yank 'Info-mode-map
     "u" 'Info-copy-current-node-name)
 
-  (evil-collection-theme-bind 'next-item     'Info-mode-map 'Info-next)
-  (evil-collection-theme-bind 'prev-item     'Info-mode-map 'Info-prev)
-  (evil-collection-theme-bind 'next-section  'Info-mode-map 'Info-forward-node)
-  (evil-collection-theme-bind 'prev-section  'Info-mode-map 'Info-backward-node)
-  (evil-collection-theme-bind 'find-file     'Info-mode-map 'Info-follow-reference)
-  (evil-collection-theme-bind 'describe-mode 'Info-mode-map 'Info-summary))
+  (evil-collection-bind 'next-item     'Info-mode-map 'Info-next)
+  (evil-collection-bind 'prev-item     'Info-mode-map 'Info-prev)
+  (evil-collection-bind 'next-section  'Info-mode-map 'Info-forward-node)
+  (evil-collection-bind 'prev-section  'Info-mode-map 'Info-backward-node)
+  (evil-collection-bind 'find-file     'Info-mode-map 'Info-follow-reference)
+  (evil-collection-bind 'describe-mode 'Info-mode-map 'Info-summary))
 
 (provide 'evil-collection-info)
 ;;; evil-collection-info.el ends here

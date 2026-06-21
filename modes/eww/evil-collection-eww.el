@@ -77,34 +77,34 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'next-item    'eww-mode-map 'eww-next-url)
-  (evil-collection-theme-bind 'prev-item    'eww-mode-map 'eww-previous-url)
-  (evil-collection-theme-bind 'next-section 'eww-mode-map 'eww-next-url)
-  (evil-collection-theme-bind 'prev-section 'eww-mode-map 'eww-previous-url)
-  (evil-collection-theme-bind 'quit    'eww-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'eww-mode-map 'eww-reload)
+  (evil-collection-bind 'next-item    'eww-mode-map 'eww-next-url)
+  (evil-collection-bind 'prev-item    'eww-mode-map 'eww-previous-url)
+  (evil-collection-bind 'next-section 'eww-mode-map 'eww-next-url)
+  (evil-collection-bind 'prev-section 'eww-mode-map 'eww-previous-url)
+  (evil-collection-bind 'quit    'eww-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'eww-mode-map 'eww-reload)
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)
 
-  (evil-collection-theme-bind 'find-file 'eww-mode-map 'eww-view-source)
+  (evil-collection-bind 'find-file 'eww-mode-map 'eww-view-source)
 
   (evil-collection-set-readonly-bindings 'eww-history-mode-map)
   (evil-set-initial-state 'eww-history-mode 'normal)
   (evil-collection-define-key 'normal 'eww-history-mode-map
     (kbd "RET") 'eww-history-browse)
-  (evil-collection-theme-bind 'refresh 'eww-history-mode-map 'revert-buffer)
+  (evil-collection-bind 'refresh 'eww-history-mode-map 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'eww-buffers-mode-map)
   (evil-set-initial-state 'eww-buffers-mode 'normal)
   (evil-collection-define-key 'normal 'eww-buffers-mode-map
     "D" 'eww-buffer-kill
     (kbd "RET") 'eww-buffer-select)
-  (evil-collection-theme-bind 'next-item    'eww-buffers-mode-map 'eww-buffer-show-next)
-  (evil-collection-theme-bind 'prev-item    'eww-buffers-mode-map 'eww-buffer-show-previous)
-  (evil-collection-theme-bind 'next-section 'eww-buffers-mode-map 'eww-buffer-show-next)
-  (evil-collection-theme-bind 'prev-section 'eww-buffers-mode-map 'eww-buffer-show-previous)
-  (evil-collection-theme-bind 'refresh 'eww-buffers-mode-map 'revert-buffer)
+  (evil-collection-bind 'next-item    'eww-buffers-mode-map 'eww-buffer-show-next)
+  (evil-collection-bind 'prev-item    'eww-buffers-mode-map 'eww-buffer-show-previous)
+  (evil-collection-bind 'next-section 'eww-buffers-mode-map 'eww-buffer-show-next)
+  (evil-collection-bind 'prev-section 'eww-buffers-mode-map 'eww-buffer-show-previous)
+  (evil-collection-bind 'refresh 'eww-buffers-mode-map 'revert-buffer)
 
   (evil-collection-set-readonly-bindings 'eww-bookmark-mode-map)
   (evil-set-initial-state 'eww-bookmark-mode 'normal)
@@ -113,7 +113,7 @@
     "P" 'eww-bookmark-yank
 
     (kbd "RET") 'eww-bookmark-browse)
-  (evil-collection-theme-bind 'refresh 'eww-bookmark-mode-map 'revert-buffer)
+  (evil-collection-bind 'refresh 'eww-bookmark-mode-map 'revert-buffer)
 
   (evil-collection-define-operator-key 'yank 'eww-bookmark-mode-map
     "u" 'eww-copy-page-url))

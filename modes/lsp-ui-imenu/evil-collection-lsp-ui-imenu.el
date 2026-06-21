@@ -40,10 +40,10 @@
     (kbd "q") 'lsp-ui-imenu--kill
     (kbd "RET") 'lsp-ui-imenu--view
     (kbd "<M-return>") 'lsp-ui-imenu--visit)
-  (evil-collection-theme-bind 'next-item    'lsp-ui-imenu-mode-map 'lsp-ui-imenu--next-kind)
-  (evil-collection-theme-bind 'prev-item    'lsp-ui-imenu-mode-map 'lsp-ui-imenu--prev-kind)
-  (evil-collection-theme-bind 'next-section 'lsp-ui-imenu-mode-map 'lsp-ui-imenu--next-kind)
-  (evil-collection-theme-bind 'prev-section 'lsp-ui-imenu-mode-map 'lsp-ui-imenu--prev-kind))
+  (evil-collection-bind 'next-item    'lsp-ui-imenu-mode-map 'lsp-ui-imenu--next-kind)
+  (evil-collection-bind 'prev-item    'lsp-ui-imenu-mode-map 'lsp-ui-imenu--prev-kind)
+  (evil-collection-bind 'next-section 'lsp-ui-imenu-mode-map 'lsp-ui-imenu--next-kind)
+  (evil-collection-bind 'prev-section 'lsp-ui-imenu-mode-map 'lsp-ui-imenu--prev-kind))
 
 (provide 'evil-collection-lsp-ui-imenu)
 ;;; evil-collection-lsp-ui-imenu.el ends here

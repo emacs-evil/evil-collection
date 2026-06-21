@@ -88,12 +88,12 @@
     (kbd "C-x 3") 'neotree-empty-fn
     (kbd "C-x C-f") 'find-file-other-window
     (kbd "C-c C-f") 'find-file-other-window)
-  (evil-collection-theme-bind 'next-item    'neotree-mode-map 'neotree-select-down-node)
-  (evil-collection-theme-bind 'prev-item    'neotree-mode-map 'neotree-select-up-node)
-  (evil-collection-theme-bind 'next-section 'neotree-mode-map 'neotree-select-down-node)
-  (evil-collection-theme-bind 'prev-section 'neotree-mode-map 'neotree-select-up-node)
-  (evil-collection-theme-bind 'quit    'neotree-mode-map 'neotree-hide)
-  (evil-collection-theme-bind 'refresh 'neotree-mode-map 'neotree-refresh))
+  (evil-collection-bind 'next-item    'neotree-mode-map 'neotree-select-down-node)
+  (evil-collection-bind 'prev-item    'neotree-mode-map 'neotree-select-up-node)
+  (evil-collection-bind 'next-section 'neotree-mode-map 'neotree-select-down-node)
+  (evil-collection-bind 'prev-section 'neotree-mode-map 'neotree-select-up-node)
+  (evil-collection-bind 'quit    'neotree-mode-map 'neotree-hide)
+  (evil-collection-bind 'refresh 'neotree-mode-map 'neotree-refresh))
 
 (provide 'evil-collection-neotree)
 ;;; evil-collection-neotree.el ends here

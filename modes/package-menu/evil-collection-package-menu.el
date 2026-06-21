@@ -48,8 +48,8 @@
     ;; execute
     "x" 'package-menu-execute)
 
-  (evil-collection-theme-bind 'describe-mode 'package-menu-mode-map 'package-menu-describe-package)
-  (evil-collection-theme-bind 'refresh       'package-menu-mode-map 'revert-buffer)
+  (evil-collection-bind 'describe-mode 'package-menu-mode-map 'package-menu-describe-package)
+  (evil-collection-bind 'refresh       'package-menu-mode-map 'revert-buffer)
 
   ;; It's introduced since Emacs 28.
   (when (fboundp 'package-browse-url)

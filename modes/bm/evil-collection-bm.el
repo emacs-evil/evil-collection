@@ -44,9 +44,9 @@
     ;; open
     (kbd "RET") 'bm-show-goto-bookmark
     (kbd "S-<return>") 'bm-show-bookmark)
-  (evil-collection-theme-bind 'quit          'bm-show-mode-map 'bm-show-quit-window)
-  (evil-collection-theme-bind 'describe-mode 'bm-show-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'bm-show-mode-map 'revert-buffer))
+  (evil-collection-bind 'quit          'bm-show-mode-map 'bm-show-quit-window)
+  (evil-collection-bind 'describe-mode 'bm-show-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'bm-show-mode-map 'revert-buffer))
 
 
 (provide 'evil-collection-bm)

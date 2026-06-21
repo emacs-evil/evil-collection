@@ -72,7 +72,7 @@
     (kbd "M-s a C-s") 'Buffer-menu-isearch-buffers
     (kbd "M-s a M-C-s") 'Buffer-menu-isearch-buffers-regexp
     (kbd "M-s a C-o") 'Buffer-menu-multi-occur)
-  (evil-collection-theme-bind 'refresh 'Buffer-menu-mode-map 'revert-buffer))
+  (evil-collection-bind 'refresh 'Buffer-menu-mode-map 'revert-buffer))
 
 (provide 'evil-collection-buff-menu)
 ;;; evil-collection-buff-menu.el ends here

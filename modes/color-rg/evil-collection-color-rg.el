@@ -65,7 +65,7 @@
     "s" 'color-rg-rerun-change-dir
     "u" 'color-rg-unfilter
     "x" 'color-rg-filter-match-files)
-  (evil-collection-theme-bind 'quit 'color-rg-mode-map 'color-rg-quit))
+  (evil-collection-bind 'quit 'color-rg-mode-map 'color-rg-quit))
 
 (provide 'evil-collection-color-rg)
 ;;; evil-collection-color-rg.el ends here

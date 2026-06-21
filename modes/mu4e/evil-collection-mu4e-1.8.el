@@ -286,19 +286,19 @@ with older release versions of `mu4e.'"
   (evil-set-command-property 'mu4e-compose-goto-bottom :keep-visual t)
   (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
 
-  (evil-collection-theme-bind 'next-item    'mu4e-headers-mode-map 'mu4e-headers-next-unread)
-  (evil-collection-theme-bind 'prev-item    'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
-  (evil-collection-theme-bind 'next-section 'mu4e-headers-mode-map 'mu4e-headers-next-unread)
-  (evil-collection-theme-bind 'prev-section   'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
-  (evil-collection-theme-bind 'next-section-2 'mu4e-headers-mode-map 'mu4e-headers-next)
-  (evil-collection-theme-bind 'prev-section-2 'mu4e-headers-mode-map 'mu4e-headers-prev)
+  (evil-collection-bind 'next-item    'mu4e-headers-mode-map 'mu4e-headers-next-unread)
+  (evil-collection-bind 'prev-item    'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
+  (evil-collection-bind 'next-section 'mu4e-headers-mode-map 'mu4e-headers-next-unread)
+  (evil-collection-bind 'prev-section   'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
+  (evil-collection-bind 'next-section-2 'mu4e-headers-mode-map 'mu4e-headers-next)
+  (evil-collection-bind 'prev-section-2 'mu4e-headers-mode-map 'mu4e-headers-prev)
 
-  (evil-collection-theme-bind 'next-item      'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
-  (evil-collection-theme-bind 'prev-item      'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
-  (evil-collection-theme-bind 'next-section   'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
-  (evil-collection-theme-bind 'prev-section   'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
-  (evil-collection-theme-bind 'next-section-2 'mu4e-view-mode-map 'mu4e-view-headers-next)
-  (evil-collection-theme-bind 'prev-section-2 'mu4e-view-mode-map 'mu4e-view-headers-prev)
+  (evil-collection-bind 'next-item      'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
+  (evil-collection-bind 'prev-item      'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
+  (evil-collection-bind 'next-section   'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
+  (evil-collection-bind 'prev-section   'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
+  (evil-collection-bind 'next-section-2 'mu4e-view-mode-map 'mu4e-view-headers-next)
+  (evil-collection-bind 'prev-section-2 'mu4e-view-mode-map 'mu4e-view-headers-prev)
 
   ;; yu
   (evil-collection-define-operator-key 'yank 'mu4e-view-mode-map

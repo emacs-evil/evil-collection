@@ -85,11 +85,11 @@
     "w" 'vundo-next-root
     "ZZ" 'vundo-quit
     "ZQ" 'vundo-quit)
-  (evil-collection-theme-bind 'next-item    'vundo-mode-map 'vundo-next)
-  (evil-collection-theme-bind 'prev-item    'vundo-mode-map 'vundo-previous)
-  (evil-collection-theme-bind 'next-section 'vundo-mode-map 'vundo-next)
-  (evil-collection-theme-bind 'prev-section 'vundo-mode-map 'vundo-previous)
-  (evil-collection-theme-bind 'quit 'vundo-mode-map 'vundo-quit))
+  (evil-collection-bind 'next-item    'vundo-mode-map 'vundo-next)
+  (evil-collection-bind 'prev-item    'vundo-mode-map 'vundo-previous)
+  (evil-collection-bind 'next-section 'vundo-mode-map 'vundo-next)
+  (evil-collection-bind 'prev-section 'vundo-mode-map 'vundo-previous)
+  (evil-collection-bind 'quit 'vundo-mode-map 'vundo-quit))
 
 (provide 'evil-collection-vundo)
 ;;; evil-collection-vundo.el ends here

@@ -36,15 +36,15 @@
 (defun evil-collection-vc-git-setup ()
   "Set up `evil' bindings for `vc-git'."
   (evil-set-initial-state 'vc-git-log-view-mode 'normal)
-  (evil-collection-theme-bind 'quit 'vc-git-log-view-mode-map 'quit-window)
+  (evil-collection-bind 'quit 'vc-git-log-view-mode-map 'quit-window)
   (evil-collection-define-key 'normal 'vc-git-log-view-mode-map
     "d" 'log-view-diff
     "D" 'log-view-diff-changeset
     (kbd "<tab>") 'log-view-toggle-entry-display)
-  (evil-collection-theme-bind 'next-item    'vc-git-log-view-mode-map 'log-view-msg-next)
-  (evil-collection-theme-bind 'prev-item    'vc-git-log-view-mode-map 'log-view-msg-prev)
-  (evil-collection-theme-bind 'next-section 'vc-git-log-view-mode-map 'log-view-msg-next)
-  (evil-collection-theme-bind 'prev-section 'vc-git-log-view-mode-map 'log-view-msg-prev))
+  (evil-collection-bind 'next-item    'vc-git-log-view-mode-map 'log-view-msg-next)
+  (evil-collection-bind 'prev-item    'vc-git-log-view-mode-map 'log-view-msg-prev)
+  (evil-collection-bind 'next-section 'vc-git-log-view-mode-map 'log-view-msg-next)
+  (evil-collection-bind 'prev-section 'vc-git-log-view-mode-map 'log-view-msg-prev))
 
 (provide 'evil-collection-vc-git)
 ;;; evil-collection-vc-git.el ends here

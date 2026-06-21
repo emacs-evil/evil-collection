@@ -41,20 +41,20 @@
   ;; latest anaconda has replaced view mode by an xref implementation,
   ;; anaconda stable uses `anaconda-view-mode-map'
   (when (boundp 'anaconda-view-mode-map)
-    (evil-collection-theme-bind 'next-item    'anaconda-view-mode-map 'next-error-no-select)
-    (evil-collection-theme-bind 'prev-item    'anaconda-view-mode-map 'previous-error-no-select)
-    (evil-collection-theme-bind 'next-section 'anaconda-view-mode-map 'next-error-no-select)
-    (evil-collection-theme-bind 'prev-section 'anaconda-view-mode-map 'previous-error-no-select)
-    (evil-collection-theme-bind 'quit 'anaconda-view-mode-map 'quit-window))
+    (evil-collection-bind 'next-item    'anaconda-view-mode-map 'next-error-no-select)
+    (evil-collection-bind 'prev-item    'anaconda-view-mode-map 'previous-error-no-select)
+    (evil-collection-bind 'next-section 'anaconda-view-mode-map 'next-error-no-select)
+    (evil-collection-bind 'prev-section 'anaconda-view-mode-map 'previous-error-no-select)
+    (evil-collection-bind 'quit 'anaconda-view-mode-map 'quit-window))
 
-  (evil-collection-theme-bind 'find-usages     'anaconda-mode-map 'anaconda-mode-find-references)
-  (evil-collection-theme-bind 'lookup-doc      'anaconda-mode-map 'anaconda-mode-show-doc)
-  (evil-collection-theme-bind 'find-definition 'anaconda-mode-map 'anaconda-mode-find-definitions)
-  (evil-collection-theme-bind 'pop-definition  'anaconda-mode-map
+  (evil-collection-bind 'find-usages     'anaconda-mode-map 'anaconda-mode-find-references)
+  (evil-collection-bind 'lookup-doc      'anaconda-mode-map 'anaconda-mode-show-doc)
+  (evil-collection-bind 'find-definition 'anaconda-mode-map 'anaconda-mode-find-definitions)
+  (evil-collection-bind 'pop-definition  'anaconda-mode-map
                               (if (fboundp 'anaconda-mode-go-back)
                                   'anaconda-mode-go-back
                                 'xref-pop-marker-stack))
-  (when (evil-collection-theme-enabled-p 'find-usages)
+  (when (evil-collection-binding-enabled-p 'find-usages)
     (evil-collection-define-key 'normal 'anaconda-mode-map
       "gA" 'anaconda-mode-find-assignments)))
 

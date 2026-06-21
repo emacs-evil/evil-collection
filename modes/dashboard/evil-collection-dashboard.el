@@ -71,8 +71,8 @@
   ;; Section navigation via theme.
   ;; Like `evil-collection-outline.el'.  These don't support COUNT, so [[ and ]]
   ;; aren't ideal — but bind via theme anyway for consistency.
-  (evil-collection-theme-bind 'next-item 'dashboard-mode-map 'dashboard-next-section)
-  (evil-collection-theme-bind 'prev-item 'dashboard-mode-map 'dashboard-previous-section)
+  (evil-collection-bind 'next-item 'dashboard-mode-map 'dashboard-next-section)
+  (evil-collection-bind 'prev-item 'dashboard-mode-map 'dashboard-previous-section)
 
   ;; Jump commands
   ;;

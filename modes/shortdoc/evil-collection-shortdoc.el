@@ -40,10 +40,10 @@
   (evil-collection-define-key 'normal 'shortdoc-mode-map
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button)
-  (evil-collection-theme-bind 'next-section 'shortdoc-mode-map 'shortdoc-next-section)
-  (evil-collection-theme-bind 'prev-section   'shortdoc-mode-map 'shortdoc-previous-section)
-  (evil-collection-theme-bind 'next-section-2 'shortdoc-mode-map 'shortdoc-next)
-  (evil-collection-theme-bind 'prev-section-2 'shortdoc-mode-map 'shortdoc-previous))
+  (evil-collection-bind 'next-section 'shortdoc-mode-map 'shortdoc-next-section)
+  (evil-collection-bind 'prev-section   'shortdoc-mode-map 'shortdoc-previous-section)
+  (evil-collection-bind 'next-section-2 'shortdoc-mode-map 'shortdoc-next)
+  (evil-collection-bind 'prev-section-2 'shortdoc-mode-map 'shortdoc-previous))
 
 (provide 'evil-collection-shortdoc)
 ;;; evil-collection-shortdoc.el ends here

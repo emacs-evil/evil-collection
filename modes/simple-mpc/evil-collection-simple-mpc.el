@@ -55,7 +55,7 @@ Other modes that are configured:
 
     "ZQ" 'simple-mpc-quit
     "ZZ" 'simple-mpc-quit)
-  (evil-collection-theme-bind 'quit 'simple-mpc-mode-map 'simple-mpc-quit)
+  (evil-collection-bind 'quit 'simple-mpc-mode-map 'simple-mpc-quit)
 
   (evil-collection-define-key 'normal 'simple-mpc-current-playlist-mode-map
     "x" 'simple-mpc-delete
@@ -66,9 +66,9 @@ Other modes that are configured:
 
     "<return>" 'simple-mpc-play-current-line
     (kbd "RET") 'simple-mpc-play-current-line)
-  (evil-collection-theme-bind 'quit 'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'quit 'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
 
-  (evil-collection-theme-bind 'quit 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
+  (evil-collection-bind 'quit 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
   (evil-collection-define-key 'normal 'simple-mpc-query-mode-map
     "o" 'simple-mpc-query-sort
 

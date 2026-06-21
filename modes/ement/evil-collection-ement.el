@@ -76,13 +76,13 @@
     (kbd "RET")   'ement-room-list-RET
     (kbd "<return>") 'ement-room-list-RET)
 
-  (evil-collection-theme-bind 'repl-submit        'ement-room-mode-map 'ement-room-send-message)
-  (evil-collection-theme-bind 'repl-newline       'ement-room-mode-map 'newline)
-  (evil-collection-theme-bind 'repl-force-newline 'ement-room-mode-map 'newline)
-  (evil-collection-theme-bind 'next-item    'ement-room-mode-map 'ement-room-goto-next)
-  (evil-collection-theme-bind 'prev-item    'ement-room-mode-map 'ement-room-goto-prev)
-  (evil-collection-theme-bind 'next-section 'ement-room-mode-map 'ement-room-goto-next)
-  (evil-collection-theme-bind 'prev-section 'ement-room-mode-map 'ement-room-goto-prev)
+  (evil-collection-bind 'repl-submit        'ement-room-mode-map 'ement-room-send-message)
+  (evil-collection-bind 'repl-newline       'ement-room-mode-map 'newline)
+  (evil-collection-bind 'repl-force-newline 'ement-room-mode-map 'newline)
+  (evil-collection-bind 'next-item    'ement-room-mode-map 'ement-room-goto-next)
+  (evil-collection-bind 'prev-item    'ement-room-mode-map 'ement-room-goto-prev)
+  (evil-collection-bind 'next-section 'ement-room-mode-map 'ement-room-goto-next)
+  (evil-collection-bind 'prev-section 'ement-room-mode-map 'ement-room-goto-prev)
 
   (evil-collection-define-key '(normal motion) 'ement-room-mode-map
     (kbd "<")  'ement-room-transient

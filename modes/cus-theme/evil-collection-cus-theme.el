@@ -39,21 +39,21 @@
   (evil-set-initial-state 'custom-new-theme-mode 'normal)
   (evil-set-initial-state 'custom-theme-choose-mode 'normal)
 
-  (evil-collection-theme-bind 'next-item    'custom-theme-choose-mode-map 'widget-forward)
-  (evil-collection-theme-bind 'prev-item    'custom-theme-choose-mode-map 'widget-backward)
-  (evil-collection-theme-bind 'next-section 'custom-theme-choose-mode-map 'widget-forward)
-  (evil-collection-theme-bind 'prev-section 'custom-theme-choose-mode-map 'widget-backward)
-  (evil-collection-theme-bind 'lookup-doc 'custom-theme-choose-mode-map 'custom-describe-theme)
+  (evil-collection-bind 'next-item    'custom-theme-choose-mode-map 'widget-forward)
+  (evil-collection-bind 'prev-item    'custom-theme-choose-mode-map 'widget-backward)
+  (evil-collection-bind 'next-section 'custom-theme-choose-mode-map 'widget-forward)
+  (evil-collection-bind 'prev-section 'custom-theme-choose-mode-map 'widget-backward)
+  (evil-collection-bind 'lookup-doc 'custom-theme-choose-mode-map 'custom-describe-theme)
 
   (evil-collection-define-key 'normal 'custom-new-theme-mode-map
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done)
-  (evil-collection-theme-bind 'next-item    'custom-new-theme-mode-map 'widget-forward)
-  (evil-collection-theme-bind 'prev-item    'custom-new-theme-mode-map 'widget-backward)
-  (evil-collection-theme-bind 'next-section 'custom-new-theme-mode-map 'widget-forward)
-  (evil-collection-theme-bind 'prev-section 'custom-new-theme-mode-map 'widget-backward)
-  (evil-collection-theme-bind 'quit 'custom-new-theme-mode-map 'Custom-buffer-done))
+  (evil-collection-bind 'next-item    'custom-new-theme-mode-map 'widget-forward)
+  (evil-collection-bind 'prev-item    'custom-new-theme-mode-map 'widget-backward)
+  (evil-collection-bind 'next-section 'custom-new-theme-mode-map 'widget-forward)
+  (evil-collection-bind 'prev-section 'custom-new-theme-mode-map 'widget-backward)
+  (evil-collection-bind 'quit 'custom-new-theme-mode-map 'Custom-buffer-done))
 
 (provide 'evil-collection-cus-theme)
 ;;; evil-collection-cus-theme.el ends here

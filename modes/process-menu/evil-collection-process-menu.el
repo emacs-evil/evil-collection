@@ -47,7 +47,7 @@
     (kbd "SPC") 'evil-scroll-down
     (kbd "S-SPC") 'evil-scroll-up)
 
-  (evil-collection-theme-bind 'refresh 'process-menu-mode-map 'revert-buffer))
+  (evil-collection-bind 'refresh 'process-menu-mode-map 'revert-buffer))
 
 (provide 'evil-collection-process-menu)
 ;;; evil-collection-process-menu.el ends here

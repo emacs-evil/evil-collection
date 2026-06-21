@@ -102,25 +102,25 @@
     (kbd "C-c C-d") 'edebug-unset-breakpoint
     (kbd "C-c C-t") (lambda () (interactive) (edebug-set-breakpoint t))
     (kbd "C-c C-l") 'edebug-where)
-  (evil-collection-theme-bind 'quit             'edebug-mode-map 'top-level)
-  (evil-collection-theme-bind 'describe-mode    'edebug-mode-map 'edebug-help)
-  (evil-collection-theme-bind 'debug-continue   'edebug-mode-map 'edebug-continue-mode)
-  (evil-collection-theme-bind 'debug-step-over  'edebug-mode-map 'edebug-next-mode)
-  (evil-collection-theme-bind 'debug-step-into  'edebug-mode-map 'edebug-step-in)
-  (evil-collection-theme-bind 'debug-step-out   'edebug-mode-map 'edebug-step-out)
-  (evil-collection-theme-bind 'debug-breakpoint 'edebug-mode-map 'edebug-set-breakpoint)
+  (evil-collection-bind 'quit             'edebug-mode-map 'top-level)
+  (evil-collection-bind 'describe-mode    'edebug-mode-map 'edebug-help)
+  (evil-collection-bind 'debug-continue   'edebug-mode-map 'edebug-continue-mode)
+  (evil-collection-bind 'debug-step-over  'edebug-mode-map 'edebug-next-mode)
+  (evil-collection-bind 'debug-step-into  'edebug-mode-map 'edebug-step-in)
+  (evil-collection-bind 'debug-step-out   'edebug-mode-map 'edebug-step-out)
+  (evil-collection-bind 'debug-breakpoint 'edebug-mode-map 'edebug-set-breakpoint)
 
   (with-eval-after-load 'edebug-x
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map
       "E" 'edebug-x-evaluate-function
       "Q" 'edebug-x-clear-data
       (kbd "RET") 'edebug-x-find-function)
-    (evil-collection-theme-bind 'quit 'edebug-x-instrumented-function-list-mode-map 'quit-window)
+    (evil-collection-bind 'quit 'edebug-x-instrumented-function-list-mode-map 'quit-window)
     (evil-collection-define-key 'normal 'edebug-x-breakpoint-list-mode-map
       (kbd "RET") 'edebug-x-visit-breakpoint
       "x" 'edebug-x-kill-breakpoint
       "Q" 'edebug-x-clear-data)
-    (evil-collection-theme-bind 'quit 'edebug-x-breakpoint-list-mode-map 'quit-window)))
+    (evil-collection-bind 'quit 'edebug-x-breakpoint-list-mode-map 'quit-window)))
 
 (provide 'evil-collection-edebug)
 ;;; evil-collection-edebug.el ends here

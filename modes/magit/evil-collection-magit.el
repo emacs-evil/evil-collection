@@ -732,8 +732,8 @@ using `evil-collection-magit-toggle-text-mode'"
 (defun evil-collection-magit-setup ()
   "Set up `evil' bindings for `magit'."
 
-  (evil-collection-theme-bind 'quit 'magit-blame-mode-map 'magit-blame-quit)
-  (evil-collection-theme-bind 'quit 'magit-blame-read-only-mode-map 'magit-blame-quit)
+  (evil-collection-bind 'quit 'magit-blame-mode-map 'magit-blame-quit)
+  (evil-collection-bind 'quit 'magit-blame-read-only-mode-map 'magit-blame-quit)
 
   (evil-collection-magit-init))
 

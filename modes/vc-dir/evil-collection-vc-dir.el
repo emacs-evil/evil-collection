@@ -99,12 +99,12 @@
     "Bl" 'vc-print-branch-log
     "Bs" 'vc-retrieve-tag)
 
-  (evil-collection-theme-bind 'next-item    'vc-dir-mode-map 'vc-dir-next-directory)
-  (evil-collection-theme-bind 'prev-item    'vc-dir-mode-map 'vc-dir-previous-directory)
-  (evil-collection-theme-bind 'next-section 'vc-dir-mode-map 'vc-dir-next-directory)
-  (evil-collection-theme-bind 'prev-section 'vc-dir-mode-map 'vc-dir-previous-directory)
-  (evil-collection-theme-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file)
-  (evil-collection-theme-bind 'refresh   'vc-dir-mode-map 'revert-buffer))
+  (evil-collection-bind 'next-item    'vc-dir-mode-map 'vc-dir-next-directory)
+  (evil-collection-bind 'prev-item    'vc-dir-mode-map 'vc-dir-previous-directory)
+  (evil-collection-bind 'next-section 'vc-dir-mode-map 'vc-dir-next-directory)
+  (evil-collection-bind 'prev-section 'vc-dir-mode-map 'vc-dir-previous-directory)
+  (evil-collection-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file)
+  (evil-collection-bind 'refresh   'vc-dir-mode-map 'revert-buffer))
 
 (provide 'evil-collection-vc-dir)
 ;;; evil-collection-vc-dir.el ends here

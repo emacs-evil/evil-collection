@@ -52,12 +52,12 @@
     "a" 'youtube-dl
     "d" 'youtube-dl-list-kill)
 
-  (evil-collection-theme-bind 'next-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
-  (evil-collection-theme-bind 'prev-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
-  (evil-collection-theme-bind 'next-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
-  (evil-collection-theme-bind 'prev-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
-  (evil-collection-theme-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'youtube-dl-list-mode-map 'youtube-dl-list-redisplay))
+  (evil-collection-bind 'next-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
+  (evil-collection-bind 'prev-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
+  (evil-collection-bind 'next-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
+  (evil-collection-bind 'prev-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
+  (evil-collection-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'youtube-dl-list-mode-map 'youtube-dl-list-redisplay))
 
 (provide 'evil-collection-youtube-dl)
 ;;; evil-collection-youtube-dl.el ends here

@@ -80,8 +80,8 @@
 
     "v" 'trashed-view-file)
 
-  (evil-collection-theme-bind 'describe-mode 'trashed-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'trashed-mode-map 'revert-buffer))
+  (evil-collection-bind 'describe-mode 'trashed-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'trashed-mode-map 'revert-buffer))
 
 (provide 'evil-collection-trashed)
 ;;; evil-collection-trashed.el ends here

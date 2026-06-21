@@ -79,8 +79,8 @@
     "%i"        'mpdired-put-order-at-point
     "%r"        'mpdired-reset-order-index)
 
-  (evil-collection-theme-bind 'refresh     'mpdired-mode-map 'mpdired-update)
-  (evil-collection-theme-bind 'refresh-all 'mpdired-mode-map 'mpdired-db-update))
+  (evil-collection-bind 'refresh     'mpdired-mode-map 'mpdired-update)
+  (evil-collection-bind 'refresh-all 'mpdired-mode-map 'mpdired-db-update))
 
 (provide 'evil-collection-mpdired)
 ;;; evil-collection-mpdired.el ends here

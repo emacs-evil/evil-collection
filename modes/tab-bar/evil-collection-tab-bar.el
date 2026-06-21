@@ -50,9 +50,9 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
-  (evil-collection-theme-bind 'next-item 'tab-switcher-mode-map 'tab-switcher-next-line)
-  (evil-collection-theme-bind 'prev-item 'tab-switcher-mode-map 'tab-switcher-prev-line)
-  (evil-collection-theme-bind 'quit 'tab-switcher-mode-map 'quit-window))
+  (evil-collection-bind 'next-item 'tab-switcher-mode-map 'tab-switcher-next-line)
+  (evil-collection-bind 'prev-item 'tab-switcher-mode-map 'tab-switcher-prev-line)
+  (evil-collection-bind 'quit 'tab-switcher-mode-map 'quit-window))
 
 (provide 'evil-collection-tab-bar)
 

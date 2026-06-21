@@ -49,7 +49,7 @@
     "p" 'tetris-pause-game
     "ZQ" 'quit-window
     "ZZ" 'tetris-end-game)
-  (evil-collection-theme-bind 'quit 'tetris-mode-map 'quit-window))
+  (evil-collection-bind 'quit 'tetris-mode-map 'quit-window))
 
 (provide 'evil-collection-tetris)
 ;;; evil-collection-tetris.el ends here

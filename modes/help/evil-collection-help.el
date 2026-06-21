@@ -68,8 +68,8 @@
     ">" 'help-go-forward
     "r" 'help-follow)
 
-  (evil-collection-theme-bind 'describe-mode 'help-mode-map 'describe-mode)
-  (evil-collection-theme-bind 'refresh       'help-mode-map 'revert-buffer)
+  (evil-collection-bind 'describe-mode 'help-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh       'help-mode-map 'revert-buffer)
 
   (when (>= emacs-major-version 28)
     (evil-collection-define-key 'normal 'help-mode-map

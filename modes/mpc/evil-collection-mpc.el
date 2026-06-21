@@ -46,10 +46,10 @@
 ;;;###autoload
 (defun evil-collection-mpc-setup ()
   "Setup up `evil' bindings for `mpc-mode'."
-  (evil-collection-theme-bind 'next-item    'mpc-mode-map 'evil-collection-mpc-move-down)
-  (evil-collection-theme-bind 'prev-item    'mpc-mode-map 'evil-collection-mpc-move-up)
-  (evil-collection-theme-bind 'next-section 'mpc-mode-map 'evil-collection-mpc-move-down)
-  (evil-collection-theme-bind 'prev-section 'mpc-mode-map 'evil-collection-mpc-move-up)
+  (evil-collection-bind 'next-item    'mpc-mode-map 'evil-collection-mpc-move-down)
+  (evil-collection-bind 'prev-item    'mpc-mode-map 'evil-collection-mpc-move-up)
+  (evil-collection-bind 'next-section 'mpc-mode-map 'evil-collection-mpc-move-down)
+  (evil-collection-bind 'prev-section 'mpc-mode-map 'evil-collection-mpc-move-up)
   (evil-collection-define-key 'normal 'mpc-mode-map
     "t"                'mpc-toggle-play
     "T"                'mpc-stop
@@ -75,8 +75,8 @@
     "g_"               'mpc-songs-kill-search
     "gd"               'mpc-songs-jump-to
     "D"                'mpc-playlist-delete)
-  (evil-collection-theme-bind 'quit        'mpc-mode-map 'mpc-quit)
-  (evil-collection-theme-bind 'refresh-all 'mpc-mode-map 'mpc-update))
+  (evil-collection-bind 'quit        'mpc-mode-map 'mpc-quit)
+  (evil-collection-bind 'refresh-all 'mpc-mode-map 'mpc-update))
 
 (provide 'evil-collection-mpc)
 ;;; evil-collection-mpc.el ends here

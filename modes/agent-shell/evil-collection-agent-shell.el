@@ -185,7 +185,7 @@ KEY is a string passed to `kbd'."
       "g/" 'agent-shell-viewport-search-history
       "gy" 'agent-shell-viewport-copy-session-id
       "gt" 'agent-shell-viewport-open-transcript)
-    (evil-collection-theme-bind 'describe-mode 'agent-shell-viewport-edit-mode-map 'agent-shell-viewport-compose-help-menu))
+    (evil-collection-bind 'describe-mode 'agent-shell-viewport-edit-mode-map 'agent-shell-viewport-compose-help-menu))
 
   (evil-collection-define-key 'normal 'agent-shell-viewport-view-mode-map
     [remap evil-save-and-close] 'agent-shell-viewport-interrupt
@@ -195,11 +195,11 @@ KEY is a string passed to `kbd'."
     [remap evil-quit] 'bury-buffer
     (kbd "TAB") 'agent-shell-viewport-next-item
     (kbd "<backtab>") 'agent-shell-viewport-previous-item)
-  (evil-collection-theme-bind 'next-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-item)
-  (evil-collection-theme-bind 'prev-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-item)
-  (evil-collection-theme-bind 'next-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-page)
-  (evil-collection-theme-bind 'prev-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-page)
-  (evil-collection-theme-bind 'quit 'agent-shell-viewport-view-mode-map 'bury-buffer)
+  (evil-collection-bind 'next-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-item)
+  (evil-collection-bind 'prev-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-item)
+  (evil-collection-bind 'next-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-page)
+  (evil-collection-bind 'prev-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-page)
+  (evil-collection-bind 'quit 'agent-shell-viewport-view-mode-map 'bury-buffer)
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-viewport-view-mode-map
@@ -227,11 +227,11 @@ KEY is a string passed to `kbd'."
       "gY" 'agent-shell-viewport-copy-session-id
       "gt" 'agent-shell-viewport-open-transcript
       "gz" 'agent-shell-viewport-refresh)
-    (evil-collection-theme-bind 'describe-mode 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-help-menu))
+    (evil-collection-bind 'describe-mode 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-help-menu))
 
-  (evil-collection-theme-bind 'quit 'agent-shell-diff-mode-map #'kill-current-buffer)
+  (evil-collection-bind 'quit 'agent-shell-diff-mode-map #'kill-current-buffer)
 
-  (evil-collection-theme-bind 'find-file 'agent-shell-diff-mode-map 'agent-shell-diff-open-file)
+  (evil-collection-bind 'find-file 'agent-shell-diff-mode-map 'agent-shell-diff-open-file)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'agent-shell-diff-mode-map

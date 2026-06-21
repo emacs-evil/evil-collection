@@ -56,10 +56,10 @@
 
     ;; search
     "s" 'devdocs-lookup)
-  (evil-collection-theme-bind 'next-item    'devdocs-mode-map 'devdocs-next-page)
-  (evil-collection-theme-bind 'prev-item    'devdocs-mode-map 'devdocs-previous-page)
-  (evil-collection-theme-bind 'next-section 'devdocs-mode-map 'devdocs-next-page)
-  (evil-collection-theme-bind 'prev-section 'devdocs-mode-map 'devdocs-previous-page))
+  (evil-collection-bind 'next-item    'devdocs-mode-map 'devdocs-next-page)
+  (evil-collection-bind 'prev-item    'devdocs-mode-map 'devdocs-previous-page)
+  (evil-collection-bind 'next-section 'devdocs-mode-map 'devdocs-next-page)
+  (evil-collection-bind 'prev-section 'devdocs-mode-map 'devdocs-previous-page))
 
 (provide 'evil-collection-devdocs)
 ;;; evil-collection-devdocs.el ends here

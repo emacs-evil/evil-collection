@@ -117,15 +117,15 @@ e.g. `indium'. Modes like `edebug' or `realgud' needs to be explicitly disabled
 through removing their entry from `evil-collection-mode-list'.
 
 This variable is obsolete; new customization should use
-`evil-collection-theme-overrides' instead:
+`evil-collection-binding-overrides' instead:
 
-  (setq evil-collection-theme-overrides
+  (setq evil-collection-binding-overrides
         \\='((debug-breakpoint :enabled nil)))"
   :type 'boolean
   :group 'evil-collection)
 
 (make-obsolete-variable 'evil-collection-setup-debugger-keys
-                        "use `evil-collection-theme-overrides': `debug-continue', `debug-step-over', `debug-step-into', `debug-step-out', `debug-breakpoint'."
+                        "use `evil-collection-binding-overrides': `debug-continue', `debug-step-over', `debug-step-into', `debug-step-out', `debug-breakpoint'."
                         "evil-collection 0.0.3")
 
 (defcustom evil-collection-want-unimpaired-p t
@@ -139,15 +139,15 @@ This variable is obsolete; new customization should use
 This will bind additional find-* type commands, e.g. usages, assignments, etc..
 
 This variable is obsolete; New customization
-should use `evil-collection-theme-overrides' instead:
+should use `evil-collection-binding-overrides' instead:
 
-  (setq evil-collection-theme-overrides
+  (setq evil-collection-binding-overrides
         \\='((find-usages :enabled nil)))"
   :type 'boolean
   :group 'evil-collection)
 
 (make-obsolete-variable 'evil-collection-want-find-usages-bindings
-                        "use `evil-collection-theme-overrides': `find-usages'."
+                        "use `evil-collection-binding-overrides': `find-usages'."
                         "evil-collection 0.0.3")
 
 (defcustom evil-collection-want-g-bindings t
@@ -512,11 +512,11 @@ The other state gets RET bound to `newline'.  S-RET always inserts a
 newline regardless of state.
 
 New customization should use
-`evil-collection-theme-overrides' instead:
+`evil-collection-binding-overrides' instead:
 
   `repl-submit', `repl-newline', `repl-force-newline'
 
-  (setq evil-collection-theme-overrides
+  (setq evil-collection-binding-overrides
         \\='((repl-submit  :state insert)
           (repl-newline :state normal)))"
   :type '(choice (const :tag "Submit in normal state" normal)
@@ -524,10 +524,10 @@ New customization should use
   :group 'evil-collection)
 
 (make-obsolete-variable 'evil-collection-repl-submit-state
-                        "use `evil-collection-theme-overrides': `repl-submit', `repl-newline'."
+                        "use `evil-collection-binding-overrides': `repl-submit', `repl-newline'."
                         "evil-collection 0.0.3")
 
-(defvar evil-collection-theme-defaults
+(defvar evil-collection-binding-defaults
   `((term-toggle-escape :enabled t
                         :state (normal insert)
                         :key "C-c C-z")
@@ -625,17 +625,17 @@ have a function binding (e.g. the state symbol `insert' is also the
 `insert' function); that is why anonymous lambdas are required when a
 property's value should be computed dynamically.
 
-Users customize via `evil-collection-theme-overrides'; do not
+Users customize via `evil-collection-binding-overrides'; do not
 modify this variable directly.")
 
-(defcustom evil-collection-theme-overrides nil
-  "User overrides merged onto `evil-collection-theme-defaults'.
+(defcustom evil-collection-binding-overrides nil
+  "User overrides merged onto `evil-collection-binding-defaults'.
 
-Same shape as `evil-collection-theme-defaults'.  Properties present
+Same shape as `evil-collection-binding-defaults'.  Properties present
 here win per-property; properties omitted here fall through to the
 defaults.
 
-  (setq evil-collection-theme-overrides
+  (setq evil-collection-binding-overrides
         \\='((term-toggle-escape :state normal :key \"C-c j\")))
 
 Use `:enabled nil' to disable a feature.  An explicit nil counts as
@@ -643,17 +643,17 @@ Use `:enabled nil' to disable a feature.  An explicit nil counts as
   :type '(alist :key-type symbol :value-type plist)
   :group 'evil-collection)
 
-(defun evil-collection-theme--get (id prop)
+(defun evil-collection-binding--get (id prop)
   "Resolve PROP for theme entry ID.
 
 Overrides win over defaults per-property.  Returns nil if neither
 side sets PROP."
-  (let ((over (cdr (assq id evil-collection-theme-overrides)))
-        (def  (cdr (assq id evil-collection-theme-defaults))))
+  (let ((over (cdr (assq id evil-collection-binding-overrides)))
+        (def  (cdr (assq id evil-collection-binding-defaults))))
     (cond ((plist-member over prop) (plist-get over prop))
           ((plist-member def prop)  (plist-get def prop)))))
 
-(defun evil-collection-theme--resolve (v)
+(defun evil-collection-binding--resolve (v)
   "Funcall V if it is an anonymous function; otherwise return V.
 Plain symbols are returned as-is even when they have a function
 binding — they are data (state names, command names) in this
@@ -662,52 +662,52 @@ context, never callables."
       (funcall v)
     v))
 
-(defun evil-collection-theme--listify (v)
+(defun evil-collection-binding--listify (v)
   "Wrap V in a list unless it already is one.  Nil stays nil."
   (cond ((null v) nil)
         ((listp v) v)
         (t (list v))))
 
-(defun evil-collection-theme-enabled-p (id)
+(defun evil-collection-binding-enabled-p (id)
   "Return non-nil if theme entry ID is enabled.
 
 :enabled may be nil, t, or a function of no args.  Missing -> t."
-  (let* ((over (cdr (assq id evil-collection-theme-overrides)))
-         (def  (cdr (assq id evil-collection-theme-defaults)))
+  (let* ((over (cdr (assq id evil-collection-binding-overrides)))
+         (def  (cdr (assq id evil-collection-binding-defaults)))
          (v (cond ((plist-member over :enabled) (plist-get over :enabled))
                   ((plist-member def :enabled)  (plist-get def :enabled))
                   (t t))))
-    (evil-collection-theme--resolve v)))
+    (evil-collection-binding--resolve v)))
 
-(defun evil-collection-theme-states (id)
+(defun evil-collection-binding-states (id)
   "Return list of evil states configured for theme entry ID."
-  (evil-collection-theme--listify
-   (evil-collection-theme--resolve (evil-collection-theme--get id :state))))
+  (evil-collection-binding--listify
+   (evil-collection-binding--resolve (evil-collection-binding--get id :state))))
 
-(defun evil-collection-theme-keys (id)
+(defun evil-collection-binding-keys (id)
   "Return list of key strings configured for theme entry ID."
-  (evil-collection-theme--listify
-   (evil-collection-theme--resolve (evil-collection-theme--get id :key))))
+  (evil-collection-binding--listify
+   (evil-collection-binding--resolve (evil-collection-binding--get id :key))))
 
-(defun evil-collection-theme-bind (id map-sym command)
+(defun evil-collection-bind (id map-sym command)
   "Bind theme entry ID in MAP-SYM to COMMAND.
 
 Does nothing when ID is disabled.  Each key in the entry's :key
 list is bound across every state in :state."
-  (when (evil-collection-theme-enabled-p id)
-    (let ((states (evil-collection-theme-states id)))
-      (dolist (key (evil-collection-theme-keys id))
+  (when (evil-collection-binding-enabled-p id)
+    (let ((states (evil-collection-binding-states id)))
+      (dolist (key (evil-collection-binding-keys id))
         (evil-collection-define-key states map-sym
           (kbd key) command)))))
 
-(defun evil-collection-theme-bind-minor-mode (id mode command)
+(defun evil-collection-bind-minor-mode (id mode command)
   "Bind theme entry ID to COMMAND in minor-mode MODE.
-Like `evil-collection-theme-bind' but routes through
+Like `evil-collection-bind' but routes through
 `evil-collection-define-minor-mode-key' so the binding tracks MODE's
 activation rather than being attached to a keymap symbol."
-  (when (evil-collection-theme-enabled-p id)
-    (let ((states (evil-collection-theme-states id)))
-      (dolist (key (evil-collection-theme-keys id))
+  (when (evil-collection-binding-enabled-p id)
+    (let ((states (evil-collection-binding-states id)))
+      (dolist (key (evil-collection-binding-keys id))
         (evil-collection-define-minor-mode-key states mode
           (kbd key) command)))))
 

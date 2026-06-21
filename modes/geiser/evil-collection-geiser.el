@@ -57,12 +57,12 @@
   (evil-set-initial-state 'geiser-debug-mode 'normal)
   (evil-set-initial-state 'geiser-doc-mode 'normal)
 
-  (evil-collection-theme-bind 'quit 'geiser-debug-mode-map 'quit-window)
+  (evil-collection-bind 'quit 'geiser-debug-mode-map 'quit-window)
 
-  (evil-collection-theme-bind 'find-definition 'geiser-doc-mode-map 'geiser-edit-symbol-at-point)
-  (evil-collection-theme-bind 'pop-definition  'geiser-doc-mode-map 'geiser-pop-symbol-stack)
+  (evil-collection-bind 'find-definition 'geiser-doc-mode-map 'geiser-edit-symbol-at-point)
+  (evil-collection-bind 'pop-definition  'geiser-doc-mode-map 'geiser-pop-symbol-stack)
 
-  (evil-collection-theme-bind 'goto-repl 'geiser-doc-mode-map 'geiser-doc-switch-to-repl)
+  (evil-collection-bind 'goto-repl 'geiser-doc-mode-map 'geiser-doc-switch-to-repl)
 
   (evil-collection-define-key 'normal 'geiser-doc-mode-map
     (kbd "<tab>") 'forward-button
@@ -71,34 +71,34 @@
     "<" 'geiser-doc-previous
     "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
-  (evil-collection-theme-bind 'next-item    'geiser-doc-mode-map 'forward-button)
-  (evil-collection-theme-bind 'prev-item    'geiser-doc-mode-map 'backward-button)
-  (evil-collection-theme-bind 'next-section 'geiser-doc-mode-map 'geiser-doc-next-section)
-  (evil-collection-theme-bind 'prev-section   'geiser-doc-mode-map 'geiser-doc-previous-section)
-  (evil-collection-theme-bind 'next-section-2 'geiser-doc-mode-map 'forward-button)
-  (evil-collection-theme-bind 'prev-section-2 'geiser-doc-mode-map 'backward-button)
-  (evil-collection-theme-bind 'quit    'geiser-doc-mode-map 'View-quit)
-  (evil-collection-theme-bind 'refresh 'geiser-doc-mode-map 'geiser-doc-refresh)
+  (evil-collection-bind 'next-item    'geiser-doc-mode-map 'forward-button)
+  (evil-collection-bind 'prev-item    'geiser-doc-mode-map 'backward-button)
+  (evil-collection-bind 'next-section 'geiser-doc-mode-map 'geiser-doc-next-section)
+  (evil-collection-bind 'prev-section   'geiser-doc-mode-map 'geiser-doc-previous-section)
+  (evil-collection-bind 'next-section-2 'geiser-doc-mode-map 'forward-button)
+  (evil-collection-bind 'prev-section-2 'geiser-doc-mode-map 'backward-button)
+  (evil-collection-bind 'quit    'geiser-doc-mode-map 'View-quit)
+  (evil-collection-bind 'refresh 'geiser-doc-mode-map 'geiser-doc-refresh)
 
-  (evil-collection-theme-bind 'repl-submit        'geiser-repl-mode-map 'geiser-repl-maybe-send)
-  (evil-collection-theme-bind 'repl-newline       'geiser-repl-mode-map 'geiser-repl--newline-and-indent)
-  (evil-collection-theme-bind 'repl-force-newline 'geiser-repl-mode-map 'geiser-repl--newline-and-indent)
+  (evil-collection-bind 'repl-submit        'geiser-repl-mode-map 'geiser-repl-maybe-send)
+  (evil-collection-bind 'repl-newline       'geiser-repl-mode-map 'geiser-repl--newline-and-indent)
+  (evil-collection-bind 'repl-force-newline 'geiser-repl-mode-map 'geiser-repl--newline-and-indent)
 
-  (evil-collection-theme-bind 'find-definition 'geiser-repl-mode-map 'geiser-edit-symbol-at-point)
-  (evil-collection-theme-bind 'pop-definition  'geiser-repl-mode-map 'geiser-pop-symbol-stack)
+  (evil-collection-bind 'find-definition 'geiser-repl-mode-map 'geiser-edit-symbol-at-point)
+  (evil-collection-bind 'pop-definition  'geiser-repl-mode-map 'geiser-pop-symbol-stack)
 
-  (evil-collection-theme-bind 'lookup-doc 'geiser-repl-mode-map 'geiser-doc-symbol-at-point)
+  (evil-collection-bind 'lookup-doc 'geiser-repl-mode-map 'geiser-doc-symbol-at-point)
 
-  (evil-collection-theme-bind 'next-item    'geiser-repl-mode-map 'geiser-repl-next-prompt)
-  (evil-collection-theme-bind 'prev-item    'geiser-repl-mode-map 'geiser-repl-previous-prompt)
-  (evil-collection-theme-bind 'next-section 'geiser-repl-mode-map 'geiser-repl-next-prompt)
-  (evil-collection-theme-bind 'prev-section 'geiser-repl-mode-map 'geiser-repl-previous-prompt)
+  (evil-collection-bind 'next-item    'geiser-repl-mode-map 'geiser-repl-next-prompt)
+  (evil-collection-bind 'prev-item    'geiser-repl-mode-map 'geiser-repl-previous-prompt)
+  (evil-collection-bind 'next-section 'geiser-repl-mode-map 'geiser-repl-next-prompt)
+  (evil-collection-bind 'prev-section 'geiser-repl-mode-map 'geiser-repl-previous-prompt)
 
-  (evil-collection-theme-bind 'find-definition 'geiser-mode-map 'geiser-edit-symbol-at-point)
-  (evil-collection-theme-bind 'pop-definition  'geiser-mode-map 'geiser-pop-symbol-stack)
-  (evil-collection-theme-bind 'lookup-doc      'geiser-mode-map 'geiser-doc-symbol-at-point)
+  (evil-collection-bind 'find-definition 'geiser-mode-map 'geiser-edit-symbol-at-point)
+  (evil-collection-bind 'pop-definition  'geiser-mode-map 'geiser-pop-symbol-stack)
+  (evil-collection-bind 'lookup-doc      'geiser-mode-map 'geiser-doc-symbol-at-point)
 
-  (evil-collection-theme-bind 'goto-repl 'geiser-mode-map 'geiser-mode-switch-to-repl)
+  (evil-collection-bind 'goto-repl 'geiser-mode-map 'geiser-mode-switch-to-repl)
 
   (evil-collection-define-key 'normal 'geiser-mode-map
     "gZ" 'geiser-mode-switch-to-repl-and-enter))

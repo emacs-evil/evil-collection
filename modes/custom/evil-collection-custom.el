@@ -55,11 +55,11 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'Custom-buffer-done)
-  (evil-collection-theme-bind 'next-item    'custom-mode-map 'widget-forward)
-  (evil-collection-theme-bind 'prev-item    'custom-mode-map 'widget-backward)
-  (evil-collection-theme-bind 'next-section 'custom-mode-map 'widget-forward)
-  (evil-collection-theme-bind 'prev-section 'custom-mode-map 'widget-backward)
-  (evil-collection-theme-bind 'quit 'custom-mode-map 'Custom-buffer-done))
+  (evil-collection-bind 'next-item    'custom-mode-map 'widget-forward)
+  (evil-collection-bind 'prev-item    'custom-mode-map 'widget-backward)
+  (evil-collection-bind 'next-section 'custom-mode-map 'widget-forward)
+  (evil-collection-bind 'prev-section 'custom-mode-map 'widget-backward)
+  (evil-collection-bind 'quit 'custom-mode-map 'Custom-buffer-done))
 
 (provide 'evil-collection-custom)
 ;;; evil-collection-custom.el ends here

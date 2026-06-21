@@ -63,12 +63,12 @@
     "m" 'archive-mark
     "u" 'archive-unflag
     "U" 'archive-unmark-all-files)
-  (evil-collection-theme-bind 'next-item    'archive-mode-map 'archive-next-line)
-  (evil-collection-theme-bind 'prev-item    'archive-mode-map 'archive-previous-line)
-  (evil-collection-theme-bind 'next-section 'archive-mode-map 'archive-next-line)
-  (evil-collection-theme-bind 'prev-section 'archive-mode-map 'archive-previous-line)
-  (evil-collection-theme-bind 'quit    'archive-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'archive-mode-map 'revert-buffer))
+  (evil-collection-bind 'next-item    'archive-mode-map 'archive-next-line)
+  (evil-collection-bind 'prev-item    'archive-mode-map 'archive-previous-line)
+  (evil-collection-bind 'next-section 'archive-mode-map 'archive-next-line)
+  (evil-collection-bind 'prev-section 'archive-mode-map 'archive-previous-line)
+  (evil-collection-bind 'quit    'archive-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'archive-mode-map 'revert-buffer))
 
 (provide 'evil-collection-arc-mode)
 ;;; evil-collection-arc-mode.el ends here

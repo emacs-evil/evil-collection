@@ -43,7 +43,7 @@
 
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'explain-pause-top-mode-map 'quit-window))
+  (evil-collection-bind 'quit 'explain-pause-top-mode-map 'quit-window))
 
 (provide 'evil-collection-explain-pause-mode)
 

@@ -45,8 +45,8 @@
 
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
-  (evil-collection-theme-bind 'quit    'daemons-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'daemons-mode-map 'revert-buffer)
+  (evil-collection-bind 'quit    'daemons-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'daemons-mode-map 'revert-buffer)
 
   ;; Functions are available in daemons-output-mode-map as well
   (evil-collection-define-key '(normal visual) 'daemons-output-mode-map
@@ -58,7 +58,7 @@
 
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
-  (evil-collection-theme-bind 'quit 'daemons-output-mode-map 'quit-window)
+  (evil-collection-bind 'quit 'daemons-output-mode-map 'quit-window)
 
   (evil-set-initial-state 'daemons-mode 'normal)
   (evil-set-initial-state 'daemons-output-mode 'normal))

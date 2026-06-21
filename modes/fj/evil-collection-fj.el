@@ -80,10 +80,10 @@
     "go" 'fj-browse-view
     (kbd "<tab>") 'fj-next-tab-item
     (kbd "<backtab>") 'fj-prev-tab-item)
-  (evil-collection-theme-bind 'next-item    'fj-generic-map 'fj-item-next)
-  (evil-collection-theme-bind 'prev-item    'fj-generic-map 'fj-item-prev)
-  (evil-collection-theme-bind 'next-section 'fj-generic-map 'fj-item-next)
-  (evil-collection-theme-bind 'prev-section 'fj-generic-map 'fj-item-prev)
+  (evil-collection-bind 'next-item    'fj-generic-map 'fj-item-next)
+  (evil-collection-bind 'prev-item    'fj-generic-map 'fj-item-prev)
+  (evil-collection-bind 'next-section 'fj-generic-map 'fj-item-next)
+  (evil-collection-bind 'prev-section 'fj-generic-map 'fj-item-prev)
 
   (evil-collection-define-key 'normal 'fj-generic-tl-map
     "gb" 'fj-switch-to-buffer
@@ -93,8 +93,8 @@
     "<" 'fj-prev-page
     (kbd "<tab>") 'fj-next-tab-item
     (kbd "<backtab>") 'fj-prev-tab-item)
-  (evil-collection-theme-bind 'refresh 'fj-generic-map    'fj-view-reload)
-  (evil-collection-theme-bind 'refresh 'fj-generic-tl-map 'fj-view-reload)
+  (evil-collection-bind 'refresh 'fj-generic-map    'fj-view-reload)
+  (evil-collection-bind 'refresh 'fj-generic-tl-map 'fj-view-reload)
 
   (evil-collection-define-key 'normal 'fj-repo-tl-map
     (kbd "RET") 'fj-repo-list-issues

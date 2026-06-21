@@ -128,12 +128,12 @@
     ;; mark
     "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
     "u" 'reftex-select-unmark)
-  (evil-collection-theme-bind 'next-item     'reftex-select-shared-map 'reftex-select-next-heading)
-  (evil-collection-theme-bind 'prev-item     'reftex-select-shared-map 'reftex-select-previous-heading)
-  (evil-collection-theme-bind 'next-section  'reftex-select-shared-map 'reftex-select-next-heading)
-  (evil-collection-theme-bind 'prev-section  'reftex-select-shared-map 'reftex-select-previous-heading)
-  (evil-collection-theme-bind 'quit          'reftex-select-shared-map 'reftex-select-quit)
-  (evil-collection-theme-bind 'describe-mode 'reftex-select-shared-map 'reftex-select-help)
+  (evil-collection-bind 'next-item     'reftex-select-shared-map 'reftex-select-next-heading)
+  (evil-collection-bind 'prev-item     'reftex-select-shared-map 'reftex-select-previous-heading)
+  (evil-collection-bind 'next-section  'reftex-select-shared-map 'reftex-select-next-heading)
+  (evil-collection-bind 'prev-section  'reftex-select-shared-map 'reftex-select-previous-heading)
+  (evil-collection-bind 'quit          'reftex-select-shared-map 'reftex-select-quit)
+  (evil-collection-bind 'describe-mode 'reftex-select-shared-map 'reftex-select-help)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
 
@@ -161,12 +161,12 @@
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
-  (evil-collection-theme-bind 'next-section  'reftex-toc-mode-map 'reftex-toc-next-heading)
-  (evil-collection-theme-bind 'prev-section  'reftex-toc-mode-map 'reftex-toc-previous-heading)
-  (evil-collection-theme-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)
-  (evil-collection-theme-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help)
-  (evil-collection-theme-bind 'refresh       'reftex-toc-mode-map 'reftex-toc-rescan)
-  (evil-collection-theme-bind 'refresh-all   'reftex-toc-mode-map 'reftex-toc-Rescan))
+  (evil-collection-bind 'next-section  'reftex-toc-mode-map 'reftex-toc-next-heading)
+  (evil-collection-bind 'prev-section  'reftex-toc-mode-map 'reftex-toc-previous-heading)
+  (evil-collection-bind 'quit          'reftex-toc-mode-map 'reftex-toc-quit)
+  (evil-collection-bind 'describe-mode 'reftex-toc-mode-map 'reftex-toc-show-help)
+  (evil-collection-bind 'refresh       'reftex-toc-mode-map 'reftex-toc-rescan)
+  (evil-collection-bind 'refresh-all   'reftex-toc-mode-map 'reftex-toc-Rescan))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here

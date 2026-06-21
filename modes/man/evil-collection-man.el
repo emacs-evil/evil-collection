@@ -52,14 +52,14 @@
     ;; quit
     "ZQ" 'quit-window
     "ZZ" 'quit-window)
-  (evil-collection-theme-bind 'next-item    'Man-mode-map 'Man-next-manpage)
-  (evil-collection-theme-bind 'prev-item    'Man-mode-map 'Man-previous-manpage)
-  (evil-collection-theme-bind 'next-section 'Man-mode-map 'Man-next-manpage)
-  (evil-collection-theme-bind 'prev-section 'Man-mode-map 'Man-previous-manpage)
-  (evil-collection-theme-bind 'next-section-2 'Man-mode-map 'Man-next-section)
-  (evil-collection-theme-bind 'prev-section-2 'Man-mode-map 'Man-previous-section)
-  (evil-collection-theme-bind 'quit    'Man-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'Man-mode-map 'Man-update-manpage))
+  (evil-collection-bind 'next-item    'Man-mode-map 'Man-next-manpage)
+  (evil-collection-bind 'prev-item    'Man-mode-map 'Man-previous-manpage)
+  (evil-collection-bind 'next-section 'Man-mode-map 'Man-next-manpage)
+  (evil-collection-bind 'prev-section 'Man-mode-map 'Man-previous-manpage)
+  (evil-collection-bind 'next-section-2 'Man-mode-map 'Man-next-section)
+  (evil-collection-bind 'prev-section-2 'Man-mode-map 'Man-previous-section)
+  (evil-collection-bind 'quit    'Man-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'Man-mode-map 'Man-update-manpage))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here

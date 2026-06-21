@@ -43,12 +43,12 @@
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error
     (kbd "RET") 'flycheck-error-list-goto-error)
-  (evil-collection-theme-bind 'next-item    'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
-  (evil-collection-theme-bind 'prev-item    'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
-  (evil-collection-theme-bind 'next-section 'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
-  (evil-collection-theme-bind 'prev-section 'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
-  (evil-collection-theme-bind 'quit    'flycheck-error-list-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'flycheck-error-list-mode-map 'flycheck-error-list-check-source))
+  (evil-collection-bind 'next-item    'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
+  (evil-collection-bind 'prev-item    'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
+  (evil-collection-bind 'next-section 'flycheck-error-list-mode-map 'flycheck-error-list-next-error)
+  (evil-collection-bind 'prev-section 'flycheck-error-list-mode-map 'flycheck-error-list-previous-error)
+  (evil-collection-bind 'quit    'flycheck-error-list-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'flycheck-error-list-mode-map 'flycheck-error-list-check-source))
 
 (provide 'evil-collection-flycheck)
 ;;; evil-collection-flycheck.el ends here

@@ -51,7 +51,7 @@ it is not intuitive for some cases like REPL buffers."
 
   (add-hook 'ielm-mode-hook #'evil-collection-ielm-escape-stay)
 
-  (evil-collection-theme-bind 'repl-submit 'inferior-emacs-lisp-mode-map #'ielm-return))
+  (evil-collection-bind 'repl-submit 'inferior-emacs-lisp-mode-map #'ielm-return))
 
 (provide 'evil-collection-ielm)
 ;;; evil-collection-ielm.el ends here

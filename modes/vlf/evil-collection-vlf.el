@@ -57,11 +57,11 @@
     "=" 'vlf-next-batch-from-point
     "g%" 'vlf-query-replace
     "go" 'vlf-occur)
-  (evil-collection-theme-bind 'next-item    'vlf-prefix-map 'vlf-next-batch)
-  (evil-collection-theme-bind 'prev-item    'vlf-prefix-map 'vlf-prev-batch)
-  (evil-collection-theme-bind 'next-section 'vlf-prefix-map 'vlf-next-batch)
-  (evil-collection-theme-bind 'prev-section 'vlf-prefix-map 'vlf-prev-batch)
-  (evil-collection-theme-bind 'refresh 'vlf-prefix-map 'vlf-revert)
+  (evil-collection-bind 'next-item    'vlf-prefix-map 'vlf-next-batch)
+  (evil-collection-bind 'prev-item    'vlf-prefix-map 'vlf-prev-batch)
+  (evil-collection-bind 'next-section 'vlf-prefix-map 'vlf-next-batch)
+  (evil-collection-bind 'prev-section 'vlf-prefix-map 'vlf-prev-batch)
+  (evil-collection-bind 'refresh 'vlf-prefix-map 'vlf-revert)
 
   (if evil-collection-want-g-bindings
       (evil-collection-define-key 'normal 'vlf-prefix-map

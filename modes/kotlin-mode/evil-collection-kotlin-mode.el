@@ -35,7 +35,7 @@
 ;;;###autoload
 (defun evil-collection-kotlin-mode-setup ()
   "Set up `evil' bindings for `kotlin-mode'."
-  (evil-collection-theme-bind 'goto-repl 'kotlin-mode-map 'kotlin-repl))
+  (evil-collection-bind 'goto-repl 'kotlin-mode-map 'kotlin-repl))
 
 (provide 'evil-collection-kotlin-mode)
 ;;; evil-collection-kotlin-mode.el ends here

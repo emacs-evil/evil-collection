@@ -41,7 +41,7 @@
   "Set up `evil' bindings for `sh-script'."
   (add-hook 'sh-mode-hook #'evil-collection-sh-script-set-evil-shift-width)
 
-  (evil-collection-theme-bind 'goto-repl 'sh-mode-map 'sh-show-shell))
+  (evil-collection-bind 'goto-repl 'sh-mode-map 'sh-show-shell))
 
 (provide 'evil-collection-sh-script)
 ;;; evil-collection-sh-script.el ends here

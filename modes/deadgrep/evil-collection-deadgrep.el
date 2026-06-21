@@ -53,12 +53,12 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'evil-quit)
-  (evil-collection-theme-bind 'next-item    'deadgrep-mode-map 'deadgrep-forward)
-  (evil-collection-theme-bind 'prev-item    'deadgrep-mode-map 'deadgrep-backward)
-  (evil-collection-theme-bind 'next-section 'deadgrep-mode-map 'deadgrep-forward)
-  (evil-collection-theme-bind 'prev-section 'deadgrep-mode-map 'deadgrep-backward)
-  (evil-collection-theme-bind 'quit    'deadgrep-mode-map 'quit-window)
-  (evil-collection-theme-bind 'refresh 'deadgrep-mode-map 'deadgrep-restart))
+  (evil-collection-bind 'next-item    'deadgrep-mode-map 'deadgrep-forward)
+  (evil-collection-bind 'prev-item    'deadgrep-mode-map 'deadgrep-backward)
+  (evil-collection-bind 'next-section 'deadgrep-mode-map 'deadgrep-forward)
+  (evil-collection-bind 'prev-section 'deadgrep-mode-map 'deadgrep-backward)
+  (evil-collection-bind 'quit    'deadgrep-mode-map 'quit-window)
+  (evil-collection-bind 'refresh 'deadgrep-mode-map 'deadgrep-restart))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here
