@@ -109,15 +109,15 @@ binding keys to a minor mode created by `evil-collection' instead."
 (defun evil-collection-diff-mode-setup-on-minor-mode ()
   "Set up bindings on `evil-collection-diff-mode'."
   (evil-collection-define-key 'normal 'evil-collection-diff-mode-map
-    (kbd "[[") 'diff-file-prev
-    (kbd "]]") 'diff-file-next
-    (kbd "C-j") 'diff-hunk-next
-    (kbd "C-k") 'diff-hunk-prev
-    "gj" 'diff-hunk-next
-    "gk" 'diff-hunk-prev
     "ge" 'diff-ediff-patch
     "\\" 'read-only-mode
     (kbd "RET") 'diff-goto-source)
+  (evil-collection-theme-bind 'next-item    'evil-collection-diff-mode-map 'diff-hunk-next)
+  (evil-collection-theme-bind 'prev-item    'evil-collection-diff-mode-map 'diff-hunk-prev)
+  (evil-collection-theme-bind 'next-section 'evil-collection-diff-mode-map 'diff-file-next)
+  (evil-collection-theme-bind 'prev-section   'evil-collection-diff-mode-map 'diff-file-prev)
+  (evil-collection-theme-bind 'next-section-2 'evil-collection-diff-mode-map 'diff-hunk-next)
+  (evil-collection-theme-bind 'prev-section-2 'evil-collection-diff-mode-map 'diff-hunk-prev)
   (evil-collection-theme-bind 'quit 'evil-collection-diff-mode-map 'quit-window)
 
   (if evil-collection-want-g-bindings
@@ -157,14 +157,14 @@ binding keys to a minor mode created by `evil-collection' instead."
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "[[") 'diff-file-prev
-    (kbd "]]") 'diff-file-next
-    (kbd "C-j") 'diff-hunk-next
-    (kbd "C-k") 'diff-hunk-prev
-    "gj" 'diff-hunk-next
-    "gk" 'diff-hunk-prev
 
     "\\" 'read-only-mode) ; magit has "\"
+  (evil-collection-theme-bind 'next-item    'diff-mode-map 'diff-hunk-next)
+  (evil-collection-theme-bind 'prev-item    'diff-mode-map 'diff-hunk-prev)
+  (evil-collection-theme-bind 'next-section 'diff-mode-map 'diff-file-next)
+  (evil-collection-theme-bind 'prev-section   'diff-mode-map 'diff-file-prev)
+  (evil-collection-theme-bind 'next-section-2 'diff-mode-map 'diff-hunk-next)
+  (evil-collection-theme-bind 'prev-section-2 'diff-mode-map 'diff-hunk-prev)
   (evil-collection-theme-bind 'quit 'diff-mode-map 'quit-window)
 
   (evil-collection-define-key 'motion 'diff-mode-map

@@ -202,14 +202,8 @@ end of the buffer."
        "%" mu4e-headers-mark-pattern
        "+" mu4e-headers-mark-for-flag
        "-" mu4e-headers-mark-for-unflag
-       "[[" mu4e-headers-prev-unread
-       "]]" mu4e-headers-next-unread
        "}" mu4e-headers-next-thread
        "{" mu4e-headers-prev-thread
-       "gk" mu4e-headers-prev-unread
-       "gj" mu4e-headers-next-unread
-       "\C-j" mu4e-headers-next
-       "\C-k" mu4e-headers-prev
        "t" mu4e-headers-toggle-property
        "zr" mu4e-headers-toggle-include-related
        "zt" mu4e-headers-toggle-threading
@@ -258,12 +252,6 @@ end of the buffer."
        "A" mu4e-view-mime-part-action   ; Since 1.6, uses gnus view by default
        "a" mu4e-view-action
        "J" mu4e~headers-jump-to-maildir
-       "[[" mu4e-view-headers-prev-unread
-       "]]" mu4e-view-headers-next-unread
-       "gk" mu4e-view-headers-prev-unread
-       "gj" mu4e-view-headers-next-unread
-       "\C-j" mu4e-view-headers-next
-       "\C-k" mu4e-view-headers-prev
        "x" mu4e-view-marked-execute
        "&" mu4e-view-mark-custom
        "*" mu4e-view-mark-for-something ; TODO: Don't override "*".
@@ -323,6 +311,20 @@ end of the buffer."
       (apply #'evil-collection-define-key 'visual binding))
     (evil-set-command-property 'mu4e-compose-goto-bottom :keep-visual t)
     (evil-set-command-property 'mu4e-compose-goto-top :keep-visual t)
+
+    (evil-collection-theme-bind 'next-item    'mu4e-headers-mode-map 'mu4e-headers-next-unread)
+    (evil-collection-theme-bind 'prev-item    'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
+    (evil-collection-theme-bind 'next-section 'mu4e-headers-mode-map 'mu4e-headers-next-unread)
+    (evil-collection-theme-bind 'prev-section   'mu4e-headers-mode-map 'mu4e-headers-prev-unread)
+    (evil-collection-theme-bind 'next-section-2 'mu4e-headers-mode-map 'mu4e-headers-next)
+    (evil-collection-theme-bind 'prev-section-2 'mu4e-headers-mode-map 'mu4e-headers-prev)
+
+    (evil-collection-theme-bind 'next-item      'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
+    (evil-collection-theme-bind 'prev-item      'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
+    (evil-collection-theme-bind 'next-section   'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
+    (evil-collection-theme-bind 'prev-section   'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
+    (evil-collection-theme-bind 'next-section-2 'mu4e-view-mode-map 'mu4e-view-headers-next)
+    (evil-collection-theme-bind 'prev-section-2 'mu4e-view-mode-map 'mu4e-view-headers-prev)
 
     ;; yu
     (evil-collection-define-operator-key 'yank 'mu4e-view-mode-map

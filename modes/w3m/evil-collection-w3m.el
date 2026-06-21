@@ -44,9 +44,6 @@
     "o" 'w3m-goto-url
     "O" 'w3m-goto-url-new-session
 
-    "]]" 'w3m-next-form
-    "[[" 'w3m-previous-form
-
     "H" 'w3m-view-previous-page
     "L" 'w3m-view-next-page
     "^" 'w3m-view-parent-page
@@ -70,6 +67,10 @@
     ;; quit
     "ZQ" 'w3m-quit
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'w3m-mode-map 'w3m-next-form)
+  (evil-collection-theme-bind 'prev-item    'w3m-mode-map 'w3m-previous-form)
+  (evil-collection-theme-bind 'next-section 'w3m-mode-map 'w3m-next-form)
+  (evil-collection-theme-bind 'prev-section 'w3m-mode-map 'w3m-previous-form)
   (evil-collection-theme-bind 'quit        'w3m-mode-map 'w3m-close-window)
   (evil-collection-theme-bind 'refresh     'w3m-mode-map 'w3m-reload-this-page)
   (evil-collection-theme-bind 'refresh-all 'w3m-mode-map 'w3m-reload-all-pages)

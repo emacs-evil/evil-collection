@@ -39,11 +39,11 @@
   (evil-collection-define-key 'normal 'elisp-refs-mode-map
     (kbd "<tab>") 'elisp-refs-next-match
     (kbd "<backtab>") 'elisp-refs-prev-match
-    (kbd "C-j") 'elisp-refs-next-match
-    (kbd "C-k") 'elisp-refs-prev-match
-    "gj" 'elisp-refs-next-match
-    "gk" 'elisp-refs-prev-match
     (kbd "RET") 'elisp-refs-visit-match)
+  (evil-collection-theme-bind 'next-item    'elisp-refs-mode-map 'elisp-refs-next-match)
+  (evil-collection-theme-bind 'prev-item    'elisp-refs-mode-map 'elisp-refs-prev-match)
+  (evil-collection-theme-bind 'next-section 'elisp-refs-mode-map 'elisp-refs-next-match)
+  (evil-collection-theme-bind 'prev-section 'elisp-refs-mode-map 'elisp-refs-prev-match)
   (evil-collection-theme-bind 'quit 'elisp-refs-mode-map 'kill-current-buffer))
 
 (provide 'evil-collection-elisp-refs)

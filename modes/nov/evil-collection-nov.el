@@ -37,17 +37,15 @@
 ;;;###autoload
 (defun evil-collection-nov-setup ()
   "Set up `evil' bindings for `nov'."
+  (evil-collection-theme-bind 'next-item    'nov-mode-map 'nov-next-document)
+  (evil-collection-theme-bind 'prev-item    'nov-mode-map 'nov-previous-document)
+  (evil-collection-theme-bind 'next-section 'nov-mode-map 'nov-next-document)
+  (evil-collection-theme-bind 'prev-section 'nov-mode-map 'nov-previous-document)
   (evil-collection-define-key 'normal 'nov-mode-map
     "s" 'nov-view-source
     "S" 'nov-view-content-source
-    "gj" 'nov-next-document
-    (kbd "C-j") 'nov-next-document
     (kbd "M-j") 'nov-next-document
-    "]]" 'nov-next-document
-    "gk" 'nov-previous-document
-    (kbd "C-k") 'nov-previous-document
     (kbd "M-k") 'nov-previous-document
-    "[[" 'nov-previous-document
 
     "t" 'nov-goto-toc
     "i" 'nov-goto-toc

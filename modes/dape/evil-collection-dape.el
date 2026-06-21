@@ -106,16 +106,16 @@
     "e" 'dape-info-scope-toggle
     "W" 'dape-info-scope-watch-dwim
     "=" 'dape-info-variable-edit
-    "b" 'dape-info-scope-data-breakpoint
+    "B" 'dape-info-scope-data-breakpoint
     "m" 'dape-info-variable-memory)
 
   (evil-collection-define-key 'normal 'dape-info-watch-mode-map
     "e" 'dape-info-scope-toggle
     "W" 'dape-info-scope-watch-dwim
     "=" 'dape-info-variable-edit
-    "b" 'dape-info-scope-data-breakpoint
+    "B" 'dape-info-scope-data-breakpoint
     "m" 'dape-info-variable-memory
-    "i" 'dape-info-watch-edit-mode)
+    "I" 'dape-info-watch-edit-mode)
 
   (evil-collection-define-key nil 'dape-info-watch-edit-mode-map
     [remap evil-write] 'dape-info-watch-finish-edit)
@@ -126,7 +126,25 @@
 
   (evil-collection-define-key 'normal 'dape-memory-mode-map
     [remap evil-write] 'save-buffer
-    "ZZ" 'save-buffer))
+    "ZZ" 'save-buffer)
+
+  ;; Dape debug commands available in every info buffer (and memory).
+  ;; In scope/watch, the original `b' (data-breakpoint) and watch's `i'
+  ;; (watch-edit-mode) were relocated to `B' and `I' to free those slots
+  ;; for `debug-breakpoint' and `debug-step-into'.
+  (dolist (map-symbol '(dape-info-breakpoints-mode-map
+                        dape-info-threads-mode-map
+                        dape-info-stack-mode-map
+                        dape-info-sources-mode-map
+                        dape-info-modules-mode-map
+                        dape-info-scope-mode-map
+                        dape-info-watch-mode-map
+                        dape-memory-mode-map))
+    (evil-collection-theme-bind 'debug-continue   map-symbol 'dape-continue)
+    (evil-collection-theme-bind 'debug-step-over  map-symbol 'dape-next)
+    (evil-collection-theme-bind 'debug-step-into  map-symbol 'dape-step-in)
+    (evil-collection-theme-bind 'debug-step-out   map-symbol 'dape-step-out)
+    (evil-collection-theme-bind 'debug-breakpoint map-symbol 'dape-breakpoint-toggle)))
 
 (provide 'evil-collection-dape)
 ;;; evil-collection-dape.el ends here

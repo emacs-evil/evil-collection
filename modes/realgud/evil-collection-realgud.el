@@ -37,19 +37,15 @@
   "Set up `evil' bindings for `realgud'."
   ;; This one is to represent `realgud-populate-src-buffer-map-plain'.
   (evil-collection-define-key 'normal 'realgud:shortkey-mode-map
-    "b" 'realgud:cmd-break
     "D" 'realgud:cmd-delete
     "X" 'realgud:cmd-clear
     "-" 'realgud:cmd-disable
     "+" 'realgud:cmd-enable
     "T" 'realgud:cmd-backtrace
     "f" 'realgud:cmd-finish
-    "n" 'realgud:cmd-next
     "Q" 'realgud:cmd-kill
     "r" 'realgud:cmd-restart
     "R" 'realgud:cmd-restart
-    "s" 'realgud:cmd-step
-    "i" 'realgud:cmd-step
     "!" 'realgud:cmd-shell
 
     ;; (evil-collection-define-key nil map [M-down]    'realgud-track-hist-newer)
@@ -75,9 +71,7 @@
     "7" 'realgud:goto-loc-hist-7
     "8" 'realgud:goto-loc-hist-8
     "9" 'realgud:goto-loc-hist-9
-    "b" 'realgud:cmd-break
     "J" 'realgud:cmd-jump
-    "c" 'realgud:cmd-continue
     "e" 'realgud:cmd-eval-dwim
     "E" 'realgud:cmd-eval-at-point
     "U" 'realgud:cmd-until
@@ -95,8 +89,12 @@
     "R" 'realgud:cmd-restart
     "!" 'realgud:cmd-shell)
 
-  (evil-collection-theme-bind 'describe-mode 'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
-  (evil-collection-theme-bind 'refresh       'realgud:shortkey-mode-map 'realgud:cmd-restart)
+  (evil-collection-theme-bind 'describe-mode    'realgud:shortkey-mode-map 'realgud:cmdbuf-info-describe)
+  (evil-collection-theme-bind 'refresh          'realgud:shortkey-mode-map 'realgud:cmd-restart)
+  (evil-collection-theme-bind 'debug-continue   'realgud:shortkey-mode-map 'realgud:cmd-continue)
+  (evil-collection-theme-bind 'debug-step-over  'realgud:shortkey-mode-map 'realgud:cmd-next)
+  (evil-collection-theme-bind 'debug-step-into  'realgud:shortkey-mode-map 'realgud:cmd-step)
+  (evil-collection-theme-bind 'debug-breakpoint 'realgud:shortkey-mode-map 'realgud:cmd-break)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 

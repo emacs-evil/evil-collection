@@ -46,12 +46,6 @@
     ;; Stuff that's not in the menu.
     "J" 'ert-results-jump-between-summary-and-result
     "L" 'ert-results-toggle-printer-limits-for-test-at-point
-    "gj" 'ert-results-next-test
-    "gk" 'ert-results-previous-test
-    "]]" 'ert-results-next-test
-    "[[" 'ert-results-previous-test
-    (kbd "C-j") 'ert-results-next-test
-    (kbd "C-k") 'ert-results-previous-test
     ;; Stuff that is in the menu.
     "R" 'ert-results-rerun-all-tests
     "r" 'ert-results-rerun-test-at-point
@@ -64,6 +58,10 @@
     "x" 'ert-delete-test
     "T" 'ert-results-pop-to-timings)
 
+  (evil-collection-theme-bind 'next-item     'ert-results-mode-map 'ert-results-next-test)
+  (evil-collection-theme-bind 'prev-item     'ert-results-mode-map 'ert-results-previous-test)
+  (evil-collection-theme-bind 'next-section  'ert-results-mode-map 'ert-results-next-test)
+  (evil-collection-theme-bind 'prev-section  'ert-results-mode-map 'ert-results-previous-test)
   (evil-collection-theme-bind 'lookup-doc    'ert-results-mode-map 'ert-results-describe-test-at-point)
   (evil-collection-theme-bind 'describe-mode 'ert-results-mode-map 'ert-results-describe-test-at-point)
   (evil-collection-theme-bind 'refresh       'ert-results-mode-map 'ert-results-rerun-all-tests))

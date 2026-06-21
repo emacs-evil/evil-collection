@@ -191,10 +191,6 @@
 
   (evil-collection-define-key 'normal 'helm-map
     (kbd "<tab>") 'helm-select-action   ; TODO: Ivy has "ga".
-    (kbd "[[") 'helm-previous-source
-    (kbd "]]") 'helm-next-source
-    "gk" 'helm-previous-source
-    "gj" 'helm-next-source
     (kbd "(") 'helm-prev-visible-mark
     (kbd ")") 'helm-next-visible-mark
     "j" 'helm-next-line
@@ -208,6 +204,10 @@
     "yP" 'helm-copy-to-buffer
     "yy" 'helm-kill-selection-and-quit
     (kbd "SPC") 'helm-toggle-visible-mark)
+  (evil-collection-theme-bind 'next-item    'helm-map 'helm-next-source)
+  (evil-collection-theme-bind 'prev-item    'helm-map 'helm-previous-source)
+  (evil-collection-theme-bind 'next-section 'helm-map 'helm-next-source)
+  (evil-collection-theme-bind 'prev-section 'helm-map 'helm-previous-source)
 
   (evil-collection-theme-bind 'refresh 'helm-map 'helm-refresh)
 
@@ -217,10 +217,10 @@
     (kbd "M-n") 'helm-occur-mode-goto-line-ow-forward
     (kbd "M-p") 'helm-occur-mode-goto-line-ow-backward
     "go"        'helm-occur-mode-goto-line-ow
-    "gj"        'helm-occur-mode-goto-line-ow-forward
-    "gk"        'helm-occur-mode-goto-line-ow-backward
     (kbd "M-N") 'helm-gm-next-file
     (kbd "M-P") 'helm-gm-precedent-file)
+  (evil-collection-theme-bind 'next-item 'helm-occur-mode-map 'helm-occur-mode-goto-line-ow-forward)
+  (evil-collection-theme-bind 'prev-item 'helm-occur-mode-map 'helm-occur-mode-goto-line-ow-backward)
 
   (evil-collection-define-key 'normal 'helm-grep-mode-map
     (kbd "RET") 'helm-grep-mode-jump
@@ -228,10 +228,10 @@
     (kbd "M-n") 'helm-grep-mode-jump-other-window-forward
     (kbd "M-p") 'helm-grep-mode-jump-other-window-backward
     "go"        'helm-grep-mode-jump-other-window
-    "gj"        'helm-grep-mode-jump-other-window-forward
-    "gk"        'helm-grep-mode-jump-other-window-backward
     (kbd "M-N") 'helm-gm-next-file
-    (kbd "M-P") 'helm-gm-precedent-file))
+    (kbd "M-P") 'helm-gm-precedent-file)
+  (evil-collection-theme-bind 'next-item 'helm-grep-mode-map 'helm-grep-mode-jump-other-window-forward)
+  (evil-collection-theme-bind 'prev-item 'helm-grep-mode-map 'helm-grep-mode-jump-other-window-backward))
 
 (provide 'evil-collection-helm)
 ;;; evil-collection-helm.el ends here

@@ -37,13 +37,12 @@
 (defun evil-collection-woman-setup ()
   "Set up `evil' bindings for `woman'."
   (evil-set-initial-state 'woman-mode 'normal)
-  (evil-collection-define-key 'normal 'woman-mode-map
-    (kbd "]]") 'WoMan-next-manpage
-    (kbd "[[") 'WoMan-previous-manpage
-
-    ;; goto
-    ;; "gm" 'woman
-    )
+  ;; goto
+  ;; "gm" 'woman
+  (evil-collection-theme-bind 'next-item    'woman-mode-map 'WoMan-next-manpage)
+  (evil-collection-theme-bind 'prev-item    'woman-mode-map 'WoMan-previous-manpage)
+  (evil-collection-theme-bind 'next-section 'woman-mode-map 'WoMan-next-manpage)
+  (evil-collection-theme-bind 'prev-section 'woman-mode-map 'WoMan-previous-manpage)
 
   (evil-collection-theme-bind 'refresh 'woman-mode-map 'woman-reformat-last-file))
 

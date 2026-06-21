@@ -18,14 +18,12 @@
 (defun evil-collection-hyrolo-setup ()
   "Set up `evil' bindings for hyrolo."
   (evil-collection-define-key 'normal 'hyrolo-mode-map
-    (kbd "[[") #'hyrolo-to-previous-loc
-    (kbd "]]") #'hyrolo-to-next-loc
-    (kbd "C-k") #'hyrolo-to-previous-loc
-    (kbd "C-j") #'hyrolo-to-next-loc
-    (kbd "gk") #'hyrolo-to-previous-loc
-    (kbd "gj") #'hyrolo-to-next-loc
     (kbd "zo") #'hyrolo-outline-show-all
     (kbd "zc") #'hyrolo-overview)
+  (evil-collection-theme-bind 'next-item    'hyrolo-mode-map #'hyrolo-to-next-loc)
+  (evil-collection-theme-bind 'prev-item    'hyrolo-mode-map #'hyrolo-to-previous-loc)
+  (evil-collection-theme-bind 'next-section 'hyrolo-mode-map #'hyrolo-to-next-loc)
+  (evil-collection-theme-bind 'prev-section 'hyrolo-mode-map #'hyrolo-to-previous-loc)
   (evil-set-initial-state 'hyrolo-mode 'normal))
 
 (provide 'evil-collection-hyrolo)

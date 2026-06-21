@@ -45,15 +45,13 @@
     "F" 'vc-annotate-find-revision-at-line
     "J" 'vc-annotate-revision-at-line
     "L" 'vc-annotate-show-log-revision-at-line
-    "gj" 'vc-annotate-next-revision
-    "gk" 'vc-annotate-prev-revision
-    "]]" 'vc-annotate-next-revision
-    "[[" 'vc-annotate-prev-revision
-    (kbd "C-j") 'vc-annotate-next-revision
-    (kbd "C-k") 'vc-annotate-prev-revision
     "W" 'vc-annotate-working-revision
     "A" 'vc-annotate-toggle-annotation-visibility
-    (kbd "RET") 'vc-annotate-goto-line))
+    (kbd "RET") 'vc-annotate-goto-line)
+  (evil-collection-theme-bind 'next-item    'vc-annotate-mode-map 'vc-annotate-next-revision)
+  (evil-collection-theme-bind 'prev-item    'vc-annotate-mode-map 'vc-annotate-prev-revision)
+  (evil-collection-theme-bind 'next-section 'vc-annotate-mode-map 'vc-annotate-next-revision)
+  (evil-collection-theme-bind 'prev-section 'vc-annotate-mode-map 'vc-annotate-prev-revision))
 
 (provide 'evil-collection-vc-annotate)
 ;;; evil-collection-vc-annotate.el ends here

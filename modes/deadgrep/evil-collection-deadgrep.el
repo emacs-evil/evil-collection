@@ -43,10 +43,6 @@
     (kbd "RET") 'deadgrep-visit-result
     (kbd "<S-return>") 'deadgrep-visit-result-other-window
     "go" 'deadgrep-visit-result-other-window
-    (kbd "C-j") 'deadgrep-forward
-    (kbd "C-k") 'deadgrep-backward
-    "gj" 'deadgrep-forward
-    "gk" 'deadgrep-backward
     (kbd "TAB") 'deadgrep-toggle-file-results
 
     "i" 'deadgrep-edit-mode
@@ -57,6 +53,10 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'evil-quit)
+  (evil-collection-theme-bind 'next-item    'deadgrep-mode-map 'deadgrep-forward)
+  (evil-collection-theme-bind 'prev-item    'deadgrep-mode-map 'deadgrep-backward)
+  (evil-collection-theme-bind 'next-section 'deadgrep-mode-map 'deadgrep-forward)
+  (evil-collection-theme-bind 'prev-section 'deadgrep-mode-map 'deadgrep-backward)
   (evil-collection-theme-bind 'quit    'deadgrep-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'deadgrep-mode-map 'deadgrep-restart))
 

@@ -69,14 +69,14 @@
     (kbd "<S-tab>") 'backward-button
     ">" 'geiser-doc-next
     "<" 'geiser-doc-previous
-    "gj" 'forward-button
-    "gk" 'backward-button
-    (kbd "C-j") 'forward-button
-    (kbd "C-k") 'backward-button
-    "]]" 'geiser-doc-next-section
-    "[[" 'geiser-doc-previous-section
     "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
+  (evil-collection-theme-bind 'next-item    'geiser-doc-mode-map 'forward-button)
+  (evil-collection-theme-bind 'prev-item    'geiser-doc-mode-map 'backward-button)
+  (evil-collection-theme-bind 'next-section 'geiser-doc-mode-map 'geiser-doc-next-section)
+  (evil-collection-theme-bind 'prev-section   'geiser-doc-mode-map 'geiser-doc-previous-section)
+  (evil-collection-theme-bind 'next-section-2 'geiser-doc-mode-map 'forward-button)
+  (evil-collection-theme-bind 'prev-section-2 'geiser-doc-mode-map 'backward-button)
   (evil-collection-theme-bind 'quit    'geiser-doc-mode-map 'View-quit)
   (evil-collection-theme-bind 'refresh 'geiser-doc-mode-map 'geiser-doc-refresh)
 
@@ -89,13 +89,10 @@
 
   (evil-collection-theme-bind 'lookup-doc 'geiser-repl-mode-map 'geiser-doc-symbol-at-point)
 
-  (evil-collection-define-key 'normal 'geiser-repl-mode-map
-    "gj" 'geiser-repl-next-prompt
-    "gk" 'geiser-repl-previous-prompt
-    (kbd "C-j") 'geiser-repl-next-prompt
-    (kbd "C-k") 'geiser-repl-previous-prompt
-    "]]" 'geiser-repl-next-prompt
-    "[[" 'geiser-repl-previous-prompt)
+  (evil-collection-theme-bind 'next-item    'geiser-repl-mode-map 'geiser-repl-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'geiser-repl-mode-map 'geiser-repl-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'geiser-repl-mode-map 'geiser-repl-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'geiser-repl-mode-map 'geiser-repl-previous-prompt)
 
   (evil-collection-theme-bind 'find-definition 'geiser-mode-map 'geiser-edit-symbol-at-point)
   (evil-collection-theme-bind 'pop-definition  'geiser-mode-map 'geiser-pop-symbol-stack)

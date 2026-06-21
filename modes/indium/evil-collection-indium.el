@@ -42,30 +42,30 @@
   "Set up `evil' bindings for `indium'."
   (when evil-collection-setup-debugger-keys
     (evil-collection-define-key 'normal 'indium-debugger-mode-map
-      "n" 'indium-debugger-step-over
-      "i" 'indium-debugger-step-into
-      "o" 'indium-debugger-step-out
-      "c" 'indium-debugger-resume
       "L" 'indium-debugger-locals
-      "s" 'indium-debugger-stack-frames
+      "S" 'indium-debugger-stack-frames
       "H" 'indium-debugger-here
       "e" 'indium-debugger-evaluate
       ">" 'indium-debugger-next-frame
       "<" 'indium-debugger-previous-frame)
-    (evil-collection-theme-bind 'quit 'indium-debugger-mode-map 'indium-debugger-resume)
-
     (add-hook 'indium-debugger-mode-hook #'evil-normalize-keymaps))
+
+  (evil-collection-theme-bind 'quit            'indium-debugger-mode-map 'indium-debugger-resume)
+  (evil-collection-theme-bind 'debug-continue  'indium-debugger-mode-map 'indium-debugger-resume)
+  (evil-collection-theme-bind 'debug-step-over 'indium-debugger-mode-map 'indium-debugger-step-over)
+  (evil-collection-theme-bind 'debug-step-into 'indium-debugger-mode-map 'indium-debugger-step-into)
+  (evil-collection-theme-bind 'debug-step-out  'indium-debugger-mode-map 'indium-debugger-step-out)
 
   (evil-collection-define-key 'normal 'indium-inspector-mode-map
     (kbd "RET") 'indium-follow-link
     [mouse-1] 'indium-follow-link
     "L" 'indium-inspector-pop
-    "gj" 'indium-inspector-next-reference
-    "gk" 'indium-inspector-previous-reference
-    (kbd "C-j") 'indium-inspector-next-reference
-    (kbd "C-k") 'indium-inspector-previous-reference
     [tab] 'indium-inspector-next-reference
     [backtab] 'indium-inspector-previous-reference)
+  (evil-collection-theme-bind 'next-item    'indium-inspector-mode-map 'indium-inspector-next-reference)
+  (evil-collection-theme-bind 'prev-item    'indium-inspector-mode-map 'indium-inspector-previous-reference)
+  (evil-collection-theme-bind 'next-section 'indium-inspector-mode-map 'indium-inspector-next-reference)
+  (evil-collection-theme-bind 'prev-section 'indium-inspector-mode-map 'indium-inspector-previous-reference)
   (evil-collection-theme-bind 'quit    'indium-inspector-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'indium-inspector-mode-map 'indium-inspector-refresh)
 
@@ -77,12 +77,12 @@
   (evil-collection-define-key 'normal 'indium-debugger-frames-mode-map
     [return] 'indium-follow-link
     (kbd "RET") 'indium-follow-link
-    (kbd "gj") 'indium-debugger-frames-next-frame
-    (kbd "gk") 'indium-debugger-frames-previous-frame
-    (kbd "C-j") 'indium-debugger-frames-next-frame
-    (kbd "C-k") 'indium-debugger-frames-previous-frame
     [tab] 'indium-debugger-frames-next-frame
     [backtab] 'indium-debugger-frames-previous-frame)
+  (evil-collection-theme-bind 'next-item    'indium-debugger-frames-mode-map 'indium-debugger-frames-next-frame)
+  (evil-collection-theme-bind 'prev-item    'indium-debugger-frames-mode-map 'indium-debugger-frames-previous-frame)
+  (evil-collection-theme-bind 'next-section 'indium-debugger-frames-mode-map 'indium-debugger-frames-next-frame)
+  (evil-collection-theme-bind 'prev-section 'indium-debugger-frames-mode-map 'indium-debugger-frames-previous-frame)
   (evil-collection-theme-bind 'quit 'indium-debugger-frames-mode-map 'quit-window)
 
   (evil-collection-theme-bind 'refresh   'indium-interaction-mode-map 'indium-update-script-source)
@@ -92,18 +92,18 @@
     (evil-collection-define-key 'normal 'indium-interaction-mode-map
       [left-fringe mouse-1] 'indium-mouse-toggle-breakpoint
       [left-margin mouse-1] 'indium-mouse-toggle-breakpoint
-      [f5] 'indium-debugger-resume
-      [S-f5] 'indium-debugger-resume
-      [f9] 'indium-toggle-breakpoint
-      [f10] 'indium-debugger-step-over
-      [f11] 'indium-debugger-step-into
-      [S-f11] 'indium-debugger-step-out))
+      [S-f5] 'indium-debugger-resume))
 
-  (evil-collection-define-key 'normal 'indium-repl-mode-map
-    (kbd "gj") 'indium-repl-next-input
-    (kbd "gk") 'indium-repl-previous-input
-    (kbd "C-j") 'indium-repl-next-input
-    (kbd "C-k") 'indium-repl-previous-input))
+  (evil-collection-theme-bind 'debug-continue   'indium-interaction-mode-map 'indium-debugger-resume)
+  (evil-collection-theme-bind 'debug-step-over  'indium-interaction-mode-map 'indium-debugger-step-over)
+  (evil-collection-theme-bind 'debug-step-into  'indium-interaction-mode-map 'indium-debugger-step-into)
+  (evil-collection-theme-bind 'debug-step-out   'indium-interaction-mode-map 'indium-debugger-step-out)
+  (evil-collection-theme-bind 'debug-breakpoint 'indium-interaction-mode-map 'indium-toggle-breakpoint)
+
+  (evil-collection-theme-bind 'next-item    'indium-repl-mode-map 'indium-repl-next-input)
+  (evil-collection-theme-bind 'prev-item    'indium-repl-mode-map 'indium-repl-previous-input)
+  (evil-collection-theme-bind 'next-section 'indium-repl-mode-map 'indium-repl-next-input)
+  (evil-collection-theme-bind 'prev-section 'indium-repl-mode-map 'indium-repl-previous-input))
 
 (provide 'evil-collection-indium)
 ;;; evil-collection-indium.el ends here

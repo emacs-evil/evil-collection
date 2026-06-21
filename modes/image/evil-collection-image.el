@@ -70,18 +70,15 @@
     "=" 'image-increase-size
     "-" 'image-decrease-size
 
-    "[[" 'image-previous-file
-    "]]" 'image-next-file
-    "gk" 'image-previous-file
-    "gj" 'image-next-file
-    (kbd "C-k") 'image-previous-file
-    (kbd "C-j") 'image-next-file
-
     (kbd "C-c C-c") 'image-toggle-display
 
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'quit-window)
+  (evil-collection-theme-bind 'next-item    'image-mode-map 'image-next-file)
+  (evil-collection-theme-bind 'prev-item    'image-mode-map 'image-previous-file)
+  (evil-collection-theme-bind 'next-section 'image-mode-map 'image-next-file)
+  (evil-collection-theme-bind 'prev-section 'image-mode-map 'image-previous-file)
   (evil-collection-theme-bind 'quit 'image-mode-map 'quit-window)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?

@@ -53,14 +53,14 @@
       (kbd "S-<return>") 'compilation-display-error
 
       (kbd "TAB") 'compilation-next-error
-      (kbd "S-TAB") 'compilation-previous-error
+      (kbd "S-TAB") 'compilation-previous-error)
 
-      "gj" 'compilation-next-error
-      "gk" 'compilation-previous-error
-      (kbd "C-j") 'compilation-next-error
-      (kbd "C-k") 'compilation-previous-error
-      "[[" 'compilation-previous-file
-      "]]" 'compilation-next-file)
+    (evil-collection-theme-bind 'next-item    keymap 'compilation-next-error)
+    (evil-collection-theme-bind 'prev-item    keymap 'compilation-previous-error)
+    (evil-collection-theme-bind 'next-section keymap 'compilation-next-file)
+    (evil-collection-theme-bind 'prev-section keymap 'compilation-previous-file)
+    (evil-collection-theme-bind 'next-section-2 keymap 'compilation-next-error)
+    (evil-collection-theme-bind 'prev-section-2 keymap 'compilation-previous-error)
 
     (evil-collection-theme-bind 'refresh keymap 'recompile)))
 

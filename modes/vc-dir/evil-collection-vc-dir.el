@@ -70,14 +70,6 @@
     "u" 'vc-dir-unmark
     "U" 'vc-dir-unmark-all-files
 
-    ;; Rebind paragraph-movement commands.
-    "]]" 'vc-dir-next-directory
-    "[[" 'vc-dir-previous-directory
-    "gj" 'vc-dir-next-directory
-    "gk" 'vc-dir-previous-directory
-    (kbd "C-j") 'vc-dir-next-directory
-    (kbd "C-k") 'vc-dir-previous-directory
-
     ;; The remainder.
     "\C-m" 'vc-dir-find-file
 
@@ -107,6 +99,10 @@
     "Bl" 'vc-print-branch-log
     "Bs" 'vc-retrieve-tag)
 
+  (evil-collection-theme-bind 'next-item    'vc-dir-mode-map 'vc-dir-next-directory)
+  (evil-collection-theme-bind 'prev-item    'vc-dir-mode-map 'vc-dir-previous-directory)
+  (evil-collection-theme-bind 'next-section 'vc-dir-mode-map 'vc-dir-next-directory)
+  (evil-collection-theme-bind 'prev-section 'vc-dir-mode-map 'vc-dir-previous-directory)
   (evil-collection-theme-bind 'find-file 'vc-dir-mode-map 'vc-dir-find-file)
   (evil-collection-theme-bind 'refresh   'vc-dir-mode-map 'revert-buffer))
 

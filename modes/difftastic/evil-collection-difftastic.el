@@ -37,18 +37,18 @@
 (defun evil-collection-difftastic-setup ()
   "Set up `evil' bindings for `difftastic'."
   (evil-collection-define-key 'normal 'difftastic-mode-map
-    (kbd "[[") 'difftastic-previous-file
-    (kbd "]]") 'difftastic-next-file
-    (kbd "C-j") 'difftastic-next-chunk
-    (kbd "C-k") 'difftastic-previous-chunk
-    "gj" 'difftastic-next-chunk
-    "gk" 'difftastic-previous-chunk
     "zc" 'difftastic-hide-chunk
     "zo" 'difftastic-show-chunk
     (kbd "TAB") 'difftastic-toggle-chunk
     (kbd "RET") 'difftastic-diff-visit-file
     "o" 'difftastic-diff-visit-worktree-file
     "ZQ" 'difftastic-quit)
+  (evil-collection-theme-bind 'next-item    'difftastic-mode-map 'difftastic-next-chunk)
+  (evil-collection-theme-bind 'prev-item    'difftastic-mode-map 'difftastic-previous-chunk)
+  (evil-collection-theme-bind 'next-section 'difftastic-mode-map 'difftastic-next-file)
+  (evil-collection-theme-bind 'prev-section 'difftastic-mode-map 'difftastic-previous-file)
+  (evil-collection-theme-bind 'next-section-2 'difftastic-mode-map 'difftastic-next-chunk)
+  (evil-collection-theme-bind 'prev-section-2 'difftastic-mode-map 'difftastic-previous-chunk)
   (evil-collection-theme-bind 'quit    'difftastic-mode-map 'difftastic-leave)
   (evil-collection-theme-bind 'refresh 'difftastic-mode-map 'difftastic-rerun))
 

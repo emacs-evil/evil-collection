@@ -101,16 +101,10 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (add-hook 'cider-mode-hook #'evil-normalize-keymaps)
     (add-hook 'cider--debug-mode-hook #'evil-normalize-keymaps)
     (evil-collection-define-key 'normal 'cider-mode-map
-      [f6] 'cider-browse-instrumented-defs
-      [f9] 'cider-debug-defun-at-point)
+      [f6] 'cider-browse-instrumented-defs)
 
     (evil-collection-define-key 'normal 'cider--debug-mode-map
-      "b" 'cider-debug-defun-at-point
-      "c" 'evil-collection-cider-debug-continue
       "C" 'evil-collection-cider-debug-continue-all
-      "n" 'evil-collection-cider-debug-next
-      "I" 'evil-collection-cider-debug-in
-      "o" 'evil-collection-cider-debug-out
       "O" 'evil-collection-cider-debug-force-out
       "H" 'cider-debug-move-here
       "e" 'evil-collection-cider-debug-eval
@@ -118,9 +112,16 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "P" 'evil-collection-cider-debug-inspect-prompt
       "L" 'evil-collection-cider-debug-locals
       "J" 'evil-collection-cider-debug-inject
-      "s" 'evil-collection-cider-debug-stacktrace
+      "S" 'evil-collection-cider-debug-stacktrace
       "t" 'evil-collection-cider-debug-trace)
     (evil-collection-theme-bind 'quit 'cider--debug-mode-map 'evil-collection-cider-debug-quit))
+
+  (evil-collection-theme-bind 'debug-continue   'cider--debug-mode-map 'evil-collection-cider-debug-continue)
+  (evil-collection-theme-bind 'debug-step-over  'cider--debug-mode-map 'evil-collection-cider-debug-next)
+  (evil-collection-theme-bind 'debug-step-into  'cider--debug-mode-map 'evil-collection-cider-debug-in)
+  (evil-collection-theme-bind 'debug-step-out   'cider--debug-mode-map 'evil-collection-cider-debug-out)
+  (evil-collection-theme-bind 'debug-breakpoint 'cider--debug-mode-map 'cider-debug-defun-at-point)
+  (evil-collection-theme-bind 'debug-breakpoint 'cider-mode-map 'cider-debug-defun-at-point)
 
   (evil-collection-theme-bind 'lookup-doc 'cider-mode-map 'cider-doc)
   (evil-collection-theme-bind 'goto-repl  'cider-mode-map 'cider-switch-to-repl-buffer)
@@ -145,15 +146,12 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (evil-collection-theme-bind 'pop-definition  'cider-repl-mode-map 'cider-pop-back))
 
   (evil-collection-define-key '(normal visual) 'cider-repl-history-mode-map
-    (kbd "C-k") 'cider-repl-history-previous
-    (kbd "C-j") 'cider-repl-history-forward
-    "gk" 'cider-repl-history-previous
-    "gj" 'cider-repl-history-forward
-    "[[" 'cider-repl-history-previous
-    "]]" 'cider-repl-history-forward
-
     (kbd "RET") 'cider-repl-history-insert-and-quit
     "u" 'cider-repl-history-undo-other-window)
+  (evil-collection-theme-bind 'next-item    'cider-repl-history-mode-map 'cider-repl-history-forward)
+  (evil-collection-theme-bind 'prev-item    'cider-repl-history-mode-map 'cider-repl-history-previous)
+  (evil-collection-theme-bind 'next-section 'cider-repl-history-mode-map 'cider-repl-history-forward)
+  (evil-collection-theme-bind 'prev-section 'cider-repl-history-mode-map 'cider-repl-history-previous)
   (evil-collection-theme-bind 'quit    'cider-repl-history-mode-map 'cider-repl-history-quit)
   (evil-collection-theme-bind 'refresh 'cider-repl-history-mode-map 'cider-repl-history-update)
 
@@ -200,12 +198,6 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 
   (evil-set-initial-state 'cider-stacktrace-mode 'normal)
   (evil-collection-define-key 'normal 'cider-stacktrace-mode-map
-    (kbd "C-k") 'cider-stacktrace-previous-cause
-    (kbd "C-j") 'cider-stacktrace-next-cause
-    (kbd "gk") 'cider-stacktrace-previous-cause
-    (kbd "gj") 'cider-stacktrace-next-cause
-    (kbd "[[") 'cider-stacktrace-previous-cause
-    (kbd "]]") 'cider-stacktrace-next-cause
     "gd" 'cider-stacktrace-jump
     "J" 'cider-stacktrace-toggle-java
     "C" 'cider-stacktrace-toggle-clj
@@ -222,22 +214,25 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "0" 'cider-stacktrace-cycle-all-causes
     (kbd "TAB") 'cider-stacktrace-cycle-current-cause
     [backtab] 'cider-stacktrace-cycle-all-causes)
+  (evil-collection-theme-bind 'next-item    'cider-stacktrace-mode-map 'cider-stacktrace-next-cause)
+  (evil-collection-theme-bind 'prev-item    'cider-stacktrace-mode-map 'cider-stacktrace-previous-cause)
+  (evil-collection-theme-bind 'next-section 'cider-stacktrace-mode-map 'cider-stacktrace-next-cause)
+  (evil-collection-theme-bind 'prev-section 'cider-stacktrace-mode-map 'cider-stacktrace-previous-cause)
   (evil-collection-theme-bind 'quit 'cider-stacktrace-mode-map 'cider-popup-buffer-quit-function)
 
   (add-hook 'cider-inspector-mode-hook #'evil-normalize-keymaps)
+  (evil-collection-theme-bind 'next-item    'cider-inspector-mode-map 'cider-inspector-next-inspectable-object)
+  (evil-collection-theme-bind 'prev-item    'cider-inspector-mode-map 'cider-inspector-previous-inspectable-object)
+  (evil-collection-theme-bind 'next-section 'cider-inspector-mode-map 'cider-inspector-next-inspectable-object)
+  (evil-collection-theme-bind 'prev-section   'cider-inspector-mode-map 'cider-inspector-previous-inspectable-object)
+  (evil-collection-theme-bind 'next-section-2 'cider-inspector-mode-map 'cider-inspector-next-page)
+  (evil-collection-theme-bind 'prev-section-2 'cider-inspector-mode-map 'cider-inspector-prev-page)
   (evil-collection-define-key 'normal 'cider-inspector-mode-map
     (kbd "RET") 'cider-inspector-operate-on-point
     [mouse-1] 'cider-inspector-operate-on-click
     "L" 'cider-inspector-pop
-    ;; Page-up/down
-    (kbd "C-j") 'cider-inspector-next-page
-    (kbd "C-k") 'cider-inspector-prev-page
     " " 'cider-inspector-next-page
-    "s" 'cider-inspector-set-page-size
-    (kbd "]]") 'cider-inspector-next-inspectable-object
-    (kbd "[[") 'cider-inspector-previous-inspectable-object
-    "gj" 'cider-inspector-next-inspectable-object
-    "gk" 'cider-inspector-previous-inspectable-object)
+    "s" 'cider-inspector-set-page-size)
   (evil-collection-theme-bind 'quit    'cider-inspector-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'cider-inspector-mode-map 'cider-inspector-refresh))
 

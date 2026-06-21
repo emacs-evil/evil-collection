@@ -147,15 +147,13 @@ it is not appropriate in some cases like terminals."
     (kbd "p") 'term-paste
 
     ;; motion
-    "[[" 'term-previous-prompt
-    "]]" 'term-next-prompt
-    (kbd "C-k") 'term-previous-prompt
-    (kbd "C-j") 'term-next-prompt
-    "gk" 'term-previous-prompt
-    "gj" 'term-next-prompt
     ;; "0" 'term-bol ; "0" is meant to really go at the beginning of line.
     "^" 'term-bol
     "$" 'term-show-maximum-output)
+  (evil-collection-theme-bind 'next-item    'term-mode-map 'term-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'term-mode-map 'term-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'term-mode-map 'term-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'term-mode-map 'term-previous-prompt)
 
   ;; https://github.com/emacs-evil/evil-collection/issues/235
   (with-eval-after-load 'multi-term

@@ -46,9 +46,11 @@
 ;;;###autoload
 (defun evil-collection-mpc-setup ()
   "Setup up `evil' bindings for `mpc-mode'."
+  (evil-collection-theme-bind 'next-item    'mpc-mode-map 'evil-collection-mpc-move-down)
+  (evil-collection-theme-bind 'prev-item    'mpc-mode-map 'evil-collection-mpc-move-up)
+  (evil-collection-theme-bind 'next-section 'mpc-mode-map 'evil-collection-mpc-move-down)
+  (evil-collection-theme-bind 'prev-section 'mpc-mode-map 'evil-collection-mpc-move-up)
   (evil-collection-define-key 'normal 'mpc-mode-map
-    (kbd "C-j")        'evil-collection-mpc-move-down
-    (kbd "C-k")        'evil-collection-mpc-move-up
     "t"                'mpc-toggle-play
     "T"                'mpc-stop
     "r"                'mpc-toggle-repeat

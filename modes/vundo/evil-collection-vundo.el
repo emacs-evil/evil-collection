@@ -75,8 +75,6 @@
     [remap evil-delete-backward-char] 'vundo-backward
     (kbd "C-n") 'vundo-next
     (kbd "C-p") 'vundo-previous
-    (kbd "C-j") 'vundo-next
-    (kbd "C-k") 'vundo-previous
     (kbd "M-j") 'vundo-next
     (kbd "M-k") 'vundo-previous
     "i" 'vundo--inspect
@@ -87,6 +85,10 @@
     "w" 'vundo-next-root
     "ZZ" 'vundo-quit
     "ZQ" 'vundo-quit)
+  (evil-collection-theme-bind 'next-item    'vundo-mode-map 'vundo-next)
+  (evil-collection-theme-bind 'prev-item    'vundo-mode-map 'vundo-previous)
+  (evil-collection-theme-bind 'next-section 'vundo-mode-map 'vundo-next)
+  (evil-collection-theme-bind 'prev-section 'vundo-mode-map 'vundo-previous)
   (evil-collection-theme-bind 'quit 'vundo-mode-map 'vundo-quit))
 
 (provide 'evil-collection-vundo)

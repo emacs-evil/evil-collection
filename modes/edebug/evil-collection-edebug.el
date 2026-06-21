@@ -51,20 +51,16 @@
   ;; `lispyville' and `edebug' 's' key?
   (evil-collection-define-key 'normal 'edebug-mode-map
     ;; control
-    "s" 'edebug-step-mode
-    "n" 'edebug-next-mode
+    "gs" 'edebug-step-mode
     "go" 'edebug-go-mode
     "gO" 'edebug-Go-nonstop-mode
     "t" 'edebug-trace-mode
     "T" 'edebug-Trace-fast-mode
-    "c" 'edebug-continue-mode
     "C" 'edebug-Continue-fast-mode
 
     "f" 'edebug-forward-sexp
     "H" 'edebug-goto-here
     "I" 'edebug-instrument-callee
-    "i" 'edebug-step-in
-    "o" 'edebug-step-out
 
     ;; quit
     "Q" 'edebug-top-level-nonstop
@@ -72,7 +68,6 @@
     "S" 'edebug-stop
 
     ;; breakpoints
-    "b" 'edebug-set-breakpoint
     "u" 'edebug-unset-breakpoint
     "B" 'edebug-next-breakpoint
     "x" 'edebug-set-conditional-breakpoint
@@ -107,8 +102,13 @@
     (kbd "C-c C-d") 'edebug-unset-breakpoint
     (kbd "C-c C-t") (lambda () (interactive) (edebug-set-breakpoint t))
     (kbd "C-c C-l") 'edebug-where)
-  (evil-collection-theme-bind 'quit          'edebug-mode-map 'top-level)
-  (evil-collection-theme-bind 'describe-mode 'edebug-mode-map 'edebug-help)
+  (evil-collection-theme-bind 'quit             'edebug-mode-map 'top-level)
+  (evil-collection-theme-bind 'describe-mode    'edebug-mode-map 'edebug-help)
+  (evil-collection-theme-bind 'debug-continue   'edebug-mode-map 'edebug-continue-mode)
+  (evil-collection-theme-bind 'debug-step-over  'edebug-mode-map 'edebug-next-mode)
+  (evil-collection-theme-bind 'debug-step-into  'edebug-mode-map 'edebug-step-in)
+  (evil-collection-theme-bind 'debug-step-out   'edebug-mode-map 'edebug-step-out)
+  (evil-collection-theme-bind 'debug-breakpoint 'edebug-mode-map 'edebug-set-breakpoint)
 
   (with-eval-after-load 'edebug-x
     (evil-collection-define-key 'normal 'edebug-x-instrumented-function-list-mode-map

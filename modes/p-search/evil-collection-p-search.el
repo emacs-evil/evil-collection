@@ -53,13 +53,7 @@
     "C" 'p-search-add-candidate-generator
     ;; (keymap-set map "i" #'p-search-importance)
     "x" 'p-search-kill-entity-at-point
-    "gj" 'p-search-next-item
-    (kbd "C-j") 'p-search-next-item
-    "]]" 'p-search-next-item
     "o" 'p-search-observe
-    "gk" 'p-search-prev-item
-    (kbd "C-k") 'p-search-prev-item
-    "[[" 'p-search-prev-item
     ;; (keymap-set map "r" #'p-search-reinstantiate-prior)
     "P" 'p-search-add-prior
     "+" 'p-search-increase-preview-size
@@ -77,6 +71,10 @@
     "Jg" 'p-search-jump-candidate-generators
     "Jp" 'p-search-jump-priors
     "Jr" 'p-search-jump-results)
+  (evil-collection-theme-bind 'next-item    'evil-collection-p-search-mode-map 'p-search-next-item)
+  (evil-collection-theme-bind 'prev-item    'evil-collection-p-search-mode-map 'p-search-prev-item)
+  (evil-collection-theme-bind 'next-section 'evil-collection-p-search-mode-map 'p-search-next-item)
+  (evil-collection-theme-bind 'prev-section 'evil-collection-p-search-mode-map 'p-search-prev-item)
   (evil-collection-theme-bind 'quit        'evil-collection-p-search-mode-map 'p-search-quit)
   (evil-collection-theme-bind 'refresh     'evil-collection-p-search-mode-map 'p-search-refresh-buffer)
   (evil-collection-theme-bind 'refresh-all 'evil-collection-p-search-mode-map 'p-search-hard-refresh-buffer))

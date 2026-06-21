@@ -80,8 +80,6 @@
     "0" 'calendar-beginning-of-week
     "^" 'calendar-beginning-of-week
     "$" 'calendar-end-of-week
-    "[[" 'calendar-backward-year
-    "]]" 'calendar-forward-year
     (kbd "M-<") 'calendar-beginning-of-year
     (kbd "M->") 'calendar-end-of-year
     "(" 'calendar-beginning-of-month
@@ -95,10 +93,6 @@
     (kbd "C-f") 'calendar-scroll-left-three-months
     "{" 'calendar-backward-month
     "}" 'calendar-forward-month
-    (kbd "C-k") 'calendar-backward-month
-    (kbd "C-j") 'calendar-forward-month
-    "gk" 'calendar-backward-month
-    "gj" 'calendar-forward-month
 
     ;; visual
     "v" 'calendar-set-mark
@@ -137,6 +131,12 @@
     ;; quit
     "ZQ" 'evil-quit
     "ZZ" 'calendar-exit)
+  (evil-collection-theme-bind 'next-item    'calendar-mode-map 'calendar-forward-month)
+  (evil-collection-theme-bind 'prev-item    'calendar-mode-map 'calendar-backward-month)
+  (evil-collection-theme-bind 'next-section 'calendar-mode-map 'calendar-forward-year)
+  (evil-collection-theme-bind 'prev-section 'calendar-mode-map 'calendar-backward-year)
+  (evil-collection-theme-bind 'next-section-2 'calendar-mode-map 'calendar-forward-month)
+  (evil-collection-theme-bind 'prev-section-2 'calendar-mode-map 'calendar-backward-month)
   (evil-collection-theme-bind 'quit    'calendar-mode-map 'calendar-exit)
   (evil-collection-theme-bind 'refresh 'calendar-mode-map 'calendar-redraw))
 

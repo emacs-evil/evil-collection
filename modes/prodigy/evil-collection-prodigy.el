@@ -62,11 +62,11 @@
     "Jm" 'prodigy-jump-magit
     "Jd" 'prodigy-jump-file-manager
 
-    "gj" 'prodigy-next-with-status
-    "gk" 'prodigy-prev-with-status
-    (kbd "C-j") 'prodigy-next-with-status
-    (kbd "C-k") 'prodigy-prev-with-status
     (kbd "Y") 'prodigy-copy-cmd)
+  (evil-collection-theme-bind 'next-item    'prodigy-mode-map 'prodigy-next-with-status)
+  (evil-collection-theme-bind 'prev-item    'prodigy-mode-map 'prodigy-prev-with-status)
+  (evil-collection-theme-bind 'next-section 'prodigy-mode-map 'prodigy-next-with-status)
+  (evil-collection-theme-bind 'prev-section 'prodigy-mode-map 'prodigy-prev-with-status)
 
   (evil-collection-define-key 'normal 'prodigy-view-mode-map
     "s" 'prodigy-start

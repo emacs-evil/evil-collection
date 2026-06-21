@@ -79,8 +79,6 @@
     ;; Navigation
     (kbd "M-j") 'speedbar-restricted-next
     (kbd "M-k") 'speedbar-restricted-prev
-    "]]" 'speedbar-forward-list
-    "[[" 'speedbar-backward-list
     (kbd "C-p") 'evil-collection-speedbar-switch-to-previous-expansion-list
     (kbd "C-n") 'evil-collection-speedbar-switch-to-previous-expansion-list
     "b" 'evil-collection-speedbar-switch-to-quick-buffers
@@ -103,6 +101,10 @@
   (evil-collection-define-key 'normal 'speedbar-buffers-key-map
     ;; Buffer specific keybindings
     "K" 'speedbar-buffer-kill-buffer)
+  (evil-collection-theme-bind 'next-item    'speedbar-mode-map 'speedbar-forward-list)
+  (evil-collection-theme-bind 'prev-item    'speedbar-mode-map 'speedbar-backward-list)
+  (evil-collection-theme-bind 'next-section 'speedbar-mode-map 'speedbar-forward-list)
+  (evil-collection-theme-bind 'prev-section 'speedbar-mode-map 'speedbar-backward-list)
   (evil-collection-theme-bind 'refresh 'speedbar-mode-map         'speedbar-refresh)
   (evil-collection-theme-bind 'refresh 'speedbar-buffers-key-map  'speedbar-buffer-revert-buffer))
 

@@ -61,15 +61,15 @@
     ;; navigation
     "{" 'rg-prev-file
     "}" 'rg-next-file
-    "gk" 'previous-error-no-select
-    "gj" 'next-error-no-select
-    (kbd "C-k") 'previous-error-no-select
-    (kbd "C-j") 'next-error-no-select
 
     "e" 'evil-forward-word-end    ;; shadows wgrep-change-to-wgrep-mode
     "l" 'evil-forward-char        ;; shadows rg-list-searches
     "w" 'evil-forward-word-begin  ;; shadows wgrep-change-to-wgrep-mode
     "gg" 'evil-goto-first-line)
+  (evil-collection-theme-bind 'next-item    'rg-mode-map 'next-error-no-select)
+  (evil-collection-theme-bind 'prev-item    'rg-mode-map 'previous-error-no-select)
+  (evil-collection-theme-bind 'next-section 'rg-mode-map 'next-error-no-select)
+  (evil-collection-theme-bind 'prev-section 'rg-mode-map 'previous-error-no-select)
   (evil-collection-theme-bind 'quit    'rg-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'rg-mode-map 'rg-recompile)
 

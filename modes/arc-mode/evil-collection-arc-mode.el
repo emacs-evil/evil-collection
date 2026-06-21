@@ -40,10 +40,6 @@
   (evil-collection-define-key 'normal 'archive-mode-map
     "j" 'archive-next-line
     "k" 'archive-previous-line
-    (kbd "C-j") 'archive-next-line
-    (kbd "C-k") 'archive-previous-line
-    "gj" 'archive-next-line
-    "gk" 'archive-previous-line
 
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
@@ -67,6 +63,10 @@
     "m" 'archive-mark
     "u" 'archive-unflag
     "U" 'archive-unmark-all-files)
+  (evil-collection-theme-bind 'next-item    'archive-mode-map 'archive-next-line)
+  (evil-collection-theme-bind 'prev-item    'archive-mode-map 'archive-previous-line)
+  (evil-collection-theme-bind 'next-section 'archive-mode-map 'archive-next-line)
+  (evil-collection-theme-bind 'prev-section 'archive-mode-map 'archive-previous-line)
   (evil-collection-theme-bind 'quit    'archive-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'archive-mode-map 'revert-buffer))
 

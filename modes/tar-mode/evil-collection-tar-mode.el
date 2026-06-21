@@ -39,10 +39,6 @@
   (evil-collection-define-key 'normal 'tar-mode-map
     "j" 'tar-next-line
     "k" 'tar-previous-line
-    (kbd "C-j") 'tar-next-line
-    (kbd "C-k") 'tar-previous-line
-    "gj" 'tar-next-line
-    "gk" 'tar-previous-line
 
     "gg" 'beginning-of-buffer
     "G" 'end-of-buffer
@@ -70,6 +66,10 @@
     ;; mark
     "u" 'tar-unflag
     "U" 'tar-clear-modification-flags)
+  (evil-collection-theme-bind 'next-item    'tar-mode-map 'tar-next-line)
+  (evil-collection-theme-bind 'prev-item    'tar-mode-map 'tar-previous-line)
+  (evil-collection-theme-bind 'next-section 'tar-mode-map 'tar-next-line)
+  (evil-collection-theme-bind 'prev-section 'tar-mode-map 'tar-previous-line)
   (evil-collection-theme-bind 'quit    'tar-mode-map 'quit-window)
   (evil-collection-theme-bind 'refresh 'tar-mode-map 'revert-buffer))
 

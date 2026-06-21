@@ -40,8 +40,6 @@
     ;; Movement
     "j" 'tab-switcher-next-line
     "k" 'tab-switcher-prev-line
-    "gj" 'tab-switcher-next-line
-    "gk" 'tab-switcher-prev-line
 
     ;; Mark
     "d" 'tab-switcher-delete
@@ -52,6 +50,8 @@
     ;; Quit
     "ZZ" 'quit-window
     "ZQ" 'quit-window)
+  (evil-collection-theme-bind 'next-item 'tab-switcher-mode-map 'tab-switcher-next-line)
+  (evil-collection-theme-bind 'prev-item 'tab-switcher-mode-map 'tab-switcher-prev-line)
   (evil-collection-theme-bind 'quit 'tab-switcher-mode-map 'quit-window))
 
 (provide 'evil-collection-tab-bar)

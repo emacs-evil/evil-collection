@@ -47,12 +47,6 @@
   (add-hook 'monky-status-mode-hook 'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'monky-mode-map
-    "]]" 'monky-goto-next-section
-    "gj" 'monky-goto-next-section
-    (kbd "C-j") 'monky-goto-next-section
-    "[[" 'monky-goto-previous-section
-    "gk" 'monky-goto-previous-section
-    (kbd "C-k") 'monky-goto-previous-section
     (kbd "RET") 'monky-visit-item
     (kbd "TAB") 'monky-toggle-section
     (kbd "SPC") 'monky-show-item-or-scroll-up
@@ -65,6 +59,10 @@
     "Lr" 'monky-log-revset
     "b" 'monky-branches
     "Q" 'monky-queue)
+  (evil-collection-theme-bind 'next-item    'monky-mode-map 'monky-goto-next-section)
+  (evil-collection-theme-bind 'prev-item    'monky-mode-map 'monky-goto-previous-section)
+  (evil-collection-theme-bind 'next-section 'monky-mode-map 'monky-goto-next-section)
+  (evil-collection-theme-bind 'prev-section 'monky-mode-map 'monky-goto-previous-section)
   (evil-collection-theme-bind 'quit    'monky-mode-map 'monky-quit-window)
   (evil-collection-theme-bind 'refresh 'monky-mode-map 'monky-refresh)
 

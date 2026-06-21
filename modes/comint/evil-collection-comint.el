@@ -43,14 +43,13 @@
   (evil-collection-theme-bind 'repl-newline       'comint-mode-map #'newline)
   (evil-collection-theme-bind 'repl-force-newline 'comint-mode-map #'newline)
 
+  ;; Match Eshell bindings.
+  (evil-collection-theme-bind 'next-item    'comint-mode-map #'comint-next-prompt)
+  (evil-collection-theme-bind 'prev-item    'comint-mode-map #'comint-previous-prompt)
+  (evil-collection-theme-bind 'next-section 'comint-mode-map #'comint-next-prompt)
+  (evil-collection-theme-bind 'prev-section 'comint-mode-map #'comint-previous-prompt)
+
   (evil-collection-define-key 'normal 'comint-mode-map
-    ;; Match Eshell bindings:
-    (kbd "C-j") #'comint-next-prompt
-    (kbd "C-k") #'comint-previous-prompt
-    (kbd "gj") #'comint-next-prompt
-    (kbd "gk") #'comint-previous-prompt
-    (kbd "]]") #'comint-next-prompt
-    (kbd "[[") #'comint-previous-prompt
     (kbd "C-p") #'comint-previous-input
     (kbd "C-n") #'comint-next-input)
 

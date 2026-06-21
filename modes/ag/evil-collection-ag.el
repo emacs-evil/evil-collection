@@ -39,14 +39,6 @@
     "k" 'evil-previous-line
     "h" 'evil-backward-char
 
-    ;; navigation
-    "gj" 'compilation-next-error
-    "gk" 'compilation-previous-error
-    (kbd "C-j") 'compilation-next-error
-    (kbd "C-k") 'compilation-previous-error
-    "]]" 'compilation-next-error
-    "[[" 'compilation-previous-error
-
     ;; search
     "?" evil-collection-evil-search-backward
     "/" evil-collection-evil-search-forward
@@ -56,6 +48,10 @@
   ;; https://github.com/mhayashi1120/Emacs-wgrep
   (evil-set-initial-state 'ag-mode 'normal)
 
+  (evil-collection-theme-bind 'next-item    'ag-mode-map 'compilation-next-error)
+  (evil-collection-theme-bind 'prev-item    'ag-mode-map 'compilation-previous-error)
+  (evil-collection-theme-bind 'next-section 'ag-mode-map 'compilation-next-error)
+  (evil-collection-theme-bind 'prev-section 'ag-mode-map 'compilation-previous-error)
   (evil-collection-theme-bind 'refresh 'ag-mode-map 'recompile))
 
 (provide 'evil-collection-ag)

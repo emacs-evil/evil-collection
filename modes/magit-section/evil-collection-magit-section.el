@@ -76,16 +76,16 @@ When this option is enabled, the stash popup is available on \"Z\"."
     ;; [backtab] is the most portable binding for Shift+Tab.
     [backtab]   'magit-section-cycle-global
     "gh" 'magit-section-up
-    (kbd "C-k") 'magit-section-backward
-    (kbd "C-j") 'magit-section-forward
-    "gk" 'magit-section-backward-sibling
     "[" 'magit-section-backward-sibling
-    "gj" 'magit-section-forward-sibling
     "]" 'magit-section-forward-sibling
     (kbd "1") 'magit-section-show-level-1
     (kbd "2") 'magit-section-show-level-2
     (kbd "3") 'magit-section-show-level-3
-    (kbd "4") 'magit-section-show-level-4))
+    (kbd "4") 'magit-section-show-level-4)
+  (evil-collection-theme-bind 'next-item    'magit-section-mode-map 'magit-section-forward-sibling)
+  (evil-collection-theme-bind 'prev-item    'magit-section-mode-map 'magit-section-backward-sibling)
+  (evil-collection-theme-bind 'next-section 'magit-section-mode-map 'magit-section-forward)
+  (evil-collection-theme-bind 'prev-section 'magit-section-mode-map 'magit-section-backward))
 
 (provide 'evil-collection-magit-section)
 ;;; evil-collection-magit-section.el ends here

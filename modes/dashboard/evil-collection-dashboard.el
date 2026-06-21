@@ -58,11 +58,6 @@
     ;; Movement
     "j" 'dashboard-next-line
     "k" 'dashboard-previous-line
-    ;; Like `evil-collection-outline.el'.
-    ;; These don't support COUNT, so it's probably better to leave [[
-    ;; and ]] alone.
-    "gj" 'dashboard-next-section
-    "gk" 'dashboard-previous-section
 
     ;; Enabling this binding makes RET insert a newline.
     ;; Default `evil-ret' works better.
@@ -72,6 +67,12 @@
     [tab] 'widget-forward
     [backtab] 'widget-backward
     [down-mouse-1] 'widget-button-click)
+
+  ;; Section navigation via theme.
+  ;; Like `evil-collection-outline.el'.  These don't support COUNT, so [[ and ]]
+  ;; aren't ideal — but bind via theme anyway for consistency.
+  (evil-collection-theme-bind 'next-item 'dashboard-mode-map 'dashboard-next-section)
+  (evil-collection-theme-bind 'prev-item 'dashboard-mode-map 'dashboard-previous-section)
 
   ;; Jump commands
   ;;

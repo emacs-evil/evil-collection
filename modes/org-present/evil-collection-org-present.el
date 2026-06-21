@@ -38,15 +38,9 @@
   (evil-collection-define-key 'normal 'org-present-mode-keymap
     "J" 'org-present-next
     "K" 'org-present-prev
-    "gj" 'org-present-next
-    "gk" 'org-present-prev
-    "]]" 'org-present-next
-    "[[" 'org-present-prev
     (kbd "SPC") 'org-present-next
     (kbd "S-SPC") 'org-present-prev
-    (kbd "C-j") 'org-present-next
     (kbd "M-j") 'org-present-next
-    (kbd "C-k") 'org-present-prev
     (kbd "M-k") 'org-present-prev
     "zi" 'org-present-big
     "zo" 'org-present-small
@@ -59,6 +53,10 @@
     "gw" 'org-present-read-write
     "gg" 'org-present-beginning
     "G" 'org-present-end)
+  (evil-collection-theme-bind 'next-item    'org-present-mode-keymap 'org-present-next)
+  (evil-collection-theme-bind 'prev-item    'org-present-mode-keymap 'org-present-prev)
+  (evil-collection-theme-bind 'next-section 'org-present-mode-keymap 'org-present-next)
+  (evil-collection-theme-bind 'prev-section 'org-present-mode-keymap 'org-present-prev)
   (evil-collection-theme-bind 'quit 'org-present-mode-keymap 'org-present-quit))
 
 (provide 'evil-collection-org-present)

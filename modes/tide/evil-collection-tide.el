@@ -42,19 +42,19 @@
   (evil-collection-theme-bind 'lookup-doc      'tide-mode-map 'tide-documentation-at-point)
 
   (evil-collection-define-key 'normal 'tide-references-mode-map
-    "gj" 'tide-find-next-reference
-    "gk" 'tide-find-previous-reference
-    (kbd "C-j") 'tide-find-next-reference
-    (kbd "C-k") 'tide-find-previous-reference
     (kbd "RET") 'tide-goto-line-reference)
+  (evil-collection-theme-bind 'next-item    'tide-references-mode-map 'tide-find-next-reference)
+  (evil-collection-theme-bind 'prev-item    'tide-references-mode-map 'tide-find-previous-reference)
+  (evil-collection-theme-bind 'next-section 'tide-references-mode-map 'tide-find-next-reference)
+  (evil-collection-theme-bind 'prev-section 'tide-references-mode-map 'tide-find-previous-reference)
   (evil-collection-theme-bind 'quit 'tide-references-mode-map 'quit-window)
 
   (evil-collection-define-key 'normal 'tide-project-errors-mode-map
-    "gj" 'tide-find-next-error
-    "gk" 'tide-find-previous-error
-    (kbd "C-j") 'tide-find-next-error
-    (kbd "C-k") 'tide-find-previous-error
     (kbd "RET") 'tide-goto-error)
+  (evil-collection-theme-bind 'next-item    'tide-project-errors-mode-map 'tide-find-next-error)
+  (evil-collection-theme-bind 'prev-item    'tide-project-errors-mode-map 'tide-find-previous-error)
+  (evil-collection-theme-bind 'next-section 'tide-project-errors-mode-map 'tide-find-next-error)
+  (evil-collection-theme-bind 'prev-section 'tide-project-errors-mode-map 'tide-find-previous-error)
   (evil-collection-theme-bind 'quit 'tide-project-errors-mode-map 'quit-window))
 
 (provide 'evil-collection-tide)

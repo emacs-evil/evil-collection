@@ -38,10 +38,6 @@
   ;; plainview
   (evil-set-initial-state 'newsticker-mode 'normal)
   (evil-collection-define-key 'normal 'newsticker-mode-map
-    ;; move
-    "gk" 'newsticker-previous-feed
-    "gj" 'newsticker-next-feed
-
     ;; mark
     "r" 'newsticker-mark-item-at-point-as-read
     "i" 'newsticker-mark-item-at-point-as-immortal
@@ -49,6 +45,8 @@
     ;; show/hide
     "o" 'newsticker-show-old-items
     "O" 'newsticker-hide-old-items)
+  (evil-collection-theme-bind 'next-item   'newsticker-mode-map 'newsticker-next-feed)
+  (evil-collection-theme-bind 'prev-item   'newsticker-mode-map 'newsticker-previous-feed)
   (evil-collection-theme-bind 'quit        'newsticker-mode-map 'newsticker-close-buffer)
   (evil-collection-theme-bind 'refresh     'newsticker-mode-map 'newsticker-buffer-force-update)
   (evil-collection-theme-bind 'refresh-all 'newsticker-mode-map 'newsticker-get-all-news)
@@ -65,8 +63,6 @@
   (evil-set-initial-state 'newsticker-treeview-mode 'normal)
   (evil-collection-define-key 'normal 'newsticker-treeview-mode-map
     ;; move
-    "[[" 'newsticker-treeview-prev-feed
-    "]]" 'newsticker-treeview-next-feed
     ;; The items in Newsticker List buffer has a particular keymap by text
     ;; property, where CR (C-m) and LF (C-j) are bound to
     ;; `newsticker-treeview-show-item'. According to the keymap precedence page,
@@ -77,8 +73,6 @@
     ;; Use M-j/M-k instead.
     (kbd "M-j") 'newsticker-treeview-next-item
     (kbd "M-k") 'newsticker-treeview-prev-item
-    "gj" 'newsticker-treeview-next-new-or-immortal-item
-    "gk" 'newsticker-treeview-prev-new-or-immortal-item
     (kbd "SPC") 'newsticker-treeview-next-page
     "J" 'newsticker-treeview-jump
 
@@ -100,6 +94,10 @@
     (kbd "<M-up>") 'newsticker-group-shift-feed-up
     (kbd "<M-S-down>") 'newsticker-group-shift-group-down
     (kbd "<M-S-up>") 'newsticker-group-shift-group-up)
+  (evil-collection-theme-bind 'next-item    'newsticker-treeview-mode-map 'newsticker-treeview-next-new-or-immortal-item)
+  (evil-collection-theme-bind 'prev-item    'newsticker-treeview-mode-map 'newsticker-treeview-prev-new-or-immortal-item)
+  (evil-collection-theme-bind 'next-section 'newsticker-treeview-mode-map 'newsticker-treeview-next-feed)
+  (evil-collection-theme-bind 'prev-section 'newsticker-treeview-mode-map 'newsticker-treeview-prev-feed)
   (evil-collection-theme-bind 'quit        'newsticker-treeview-mode-map 'newsticker-treeview-quit)
   (evil-collection-theme-bind 'refresh     'newsticker-treeview-mode-map 'newsticker-treeview-update)
   (evil-collection-theme-bind 'refresh-all 'newsticker-treeview-mode-map 'newsticker-get-all-news))

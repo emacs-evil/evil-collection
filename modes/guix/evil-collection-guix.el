@@ -185,15 +185,12 @@
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
     (kbd "<tab>") 'guix-build-log-phase-toggle
-    (kbd "<backtab>") 'guix-build-log-phase-toggle-all
+    (kbd "<backtab>") 'guix-build-log-phase-toggle-all)
 
-    "gk" 'guix-build-log-previous-phase
-    "gj" 'guix-build-log-next-phase
-    "[[" 'guix-build-log-previous-phase
-    "]]" 'guix-build-log-next-phase
-    (kbd "C-k") 'guix-build-log-previous-phase
-    (kbd "C-j") 'guix-build-log-next-phase)
-
+  (evil-collection-theme-bind 'next-item    'guix-build-log-mode-map 'guix-build-log-next-phase)
+  (evil-collection-theme-bind 'prev-item    'guix-build-log-mode-map 'guix-build-log-previous-phase)
+  (evil-collection-theme-bind 'next-section 'guix-build-log-mode-map 'guix-build-log-next-phase)
+  (evil-collection-theme-bind 'prev-section 'guix-build-log-mode-map 'guix-build-log-previous-phase)
   (evil-collection-theme-bind 'goto-repl 'guix-build-log-mode-map 'guix-switch-to-repl)
   (evil-collection-theme-bind 'refresh   'guix-build-log-mode-map 'revert-buffer)
 

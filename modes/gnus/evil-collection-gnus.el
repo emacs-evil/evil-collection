@@ -76,14 +76,8 @@ Note that there is no gnus-common-mode-map")
     (kbd "S-SPC") 'gnus-summary-prev-page
     (kbd "SPC") 'gnus-summary-next-page
     (kbd "RET") 'gnus-summary-scroll-up
-    "gk"        'gnus-summary-prev-unread-article
-    "gj"        'gnus-summary-next-unread-article
-    "[["        'gnus-summary-prev-unread-article
-    "]]"        'gnus-summary-next-unread-article
     "{"         'gnus-summary-prev-thread
     "}"         'gnus-summary-next-thread
-    (kbd "C-j") 'gnus-summary-next-article
-    (kbd "C-k") 'gnus-summary-prev-article
 
     ;; Marking
     "m"         'gnus-summary-mark-as-processable
@@ -231,6 +225,12 @@ Note that there is no gnus-common-mode-map")
     (kbd "M-i") 'gnus-symbolic-argument
     "I"         'gnus-summary-increase-score
     "L"         'gnus-summary-lower-score)
+  (evil-collection-theme-bind 'next-item    'gnus-summary-mode-map 'gnus-summary-next-unread-article)
+  (evil-collection-theme-bind 'prev-item    'gnus-summary-mode-map 'gnus-summary-prev-unread-article)
+  (evil-collection-theme-bind 'next-section 'gnus-summary-mode-map 'gnus-summary-next-unread-article)
+  (evil-collection-theme-bind 'prev-section   'gnus-summary-mode-map 'gnus-summary-prev-unread-article)
+  (evil-collection-theme-bind 'next-section-2 'gnus-summary-mode-map 'gnus-summary-next-article)
+  (evil-collection-theme-bind 'prev-section-2 'gnus-summary-mode-map 'gnus-summary-prev-article)
 
   (evil-collection-define-key 'motion 'gnus-article-mode-map
     "F"         'gnus-article-followup-with-original
@@ -317,14 +317,6 @@ Note that there is no gnus-common-mode-map")
     "Q"         'gnus-group-quit
     "ZQ"        'gnus-group-quit
     "ZZ"        'gnus-group-exit
-
-    ;; Movement
-    "[["        'gnus-group-prev-unread-group
-    "]]"        'gnus-group-next-unread-group
-    "gk"        'gnus-group-prev-unread-group
-    "gj"        'gnus-group-next-unread-group
-    (kbd "C-j") 'gnus-group-next-group
-    (kbd "C-k") 'gnus-group-prev-group
 
     ;; Composing, like mu4e
     "C"         'gnus-group-mail
@@ -420,6 +412,12 @@ Note that there is no gnus-common-mode-map")
     (kbd "DEL") 'gnus-group-prev-unread-group
     [mouse-2]   'gnus-mouse-pick-group
     "g?"        'gnus-group-help-map)
+  (evil-collection-theme-bind 'next-item    'gnus-group-mode-map 'gnus-group-next-unread-group)
+  (evil-collection-theme-bind 'prev-item    'gnus-group-mode-map 'gnus-group-prev-unread-group)
+  (evil-collection-theme-bind 'next-section 'gnus-group-mode-map 'gnus-group-next-unread-group)
+  (evil-collection-theme-bind 'prev-section   'gnus-group-mode-map 'gnus-group-prev-unread-group)
+  (evil-collection-theme-bind 'next-section-2 'gnus-group-mode-map 'gnus-group-next-group)
+  (evil-collection-theme-bind 'prev-section-2 'gnus-group-mode-map 'gnus-group-prev-group)
 
   (evil-collection-theme-bind 'quit    'gnus-server-mode-map 'gnus-server-exit)
   (evil-collection-theme-bind 'refresh 'gnus-server-mode-map 'gnus-server-regenerate-server)

@@ -271,6 +271,38 @@ To disable a key theme.
         (refresh-all :key "gU")))     ;; or :enabled nil to disable either
 #+end_src
 
+*** Next / prev navigation
+
+Up to three tiers — ~next-item~/~prev-item~ is granular (e.g. next hunk, next
+prompt, next open message).  ~next-section~/~prev-section~ is coarser (next
+file, next thread, next group).  ~next-section-2~/~prev-section-2~ is a third
+tier for the few modes that distinguish a yet-different layer (diff-mode's
+hunks vs files, sly-db's frames vs details, notmuch-tree's threads).  Modes
+that don't distinguish bind the same command to multiple tiers.
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((next-item      :key "gj")
+        (prev-item      :key "gk")
+        (next-section   :key ("]]" "C-j"))
+        (prev-section   :key ("[[" "C-k"))
+        (next-section-2 :key "C-j")
+        (prev-section-2 :key "C-k")))     ;; or :enabled nil to disable
+#+end_src
+
+*** Debugger
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((debug-continue   :key "c")            ;; default also binds <f5>
+        (debug-step-over  :key "n")            ;; default also binds <f10>
+        (debug-step-into  :key ("i" "s"))      ;; default also binds <f11>
+        (debug-step-out   :key "o")            ;; default also binds <S-f11>
+        (debug-breakpoint :key "b")))          ;; default also binds <f9>
+#+end_src
+
+Disable any with =:enabled nil=.
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

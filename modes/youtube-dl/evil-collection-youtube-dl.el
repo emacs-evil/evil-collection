@@ -50,15 +50,12 @@
     "I" 'youtube-dl-list-kill-log
 
     "a" 'youtube-dl
-    "d" 'youtube-dl-list-kill
+    "d" 'youtube-dl-list-kill)
 
-    "[[" 'youtube-dl-list-priority-down
-    "]]" 'youtube-dl-list-priority-up
-    "gj" 'youtube-dl-list-priority-down
-    "gk" 'youtube-dl-list-priority-up
-    (kbd "C-j") 'youtube-dl-list-priority-down
-    (kbd "C-k") 'youtube-dl-list-priority-up)
-
+  (evil-collection-theme-bind 'next-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
+  (evil-collection-theme-bind 'prev-item    'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
+  (evil-collection-theme-bind 'next-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-down)
+  (evil-collection-theme-bind 'prev-section 'youtube-dl-list-mode-map 'youtube-dl-list-priority-up)
   (evil-collection-theme-bind 'describe-mode 'youtube-dl-list-mode-map 'describe-mode)
   (evil-collection-theme-bind 'refresh       'youtube-dl-list-mode-map 'youtube-dl-list-redisplay))
 

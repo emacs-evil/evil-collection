@@ -37,6 +37,10 @@
 (defun evil-collection-gited-setup ()
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
+  (evil-collection-theme-bind 'next-item     'gited-mode-map 'gited-next-marked-branch)
+  (evil-collection-theme-bind 'prev-item     'gited-mode-map 'gited-prev-marked-branch)
+  (evil-collection-theme-bind 'next-section  'gited-mode-map 'gited-next-marked-branch)
+  (evil-collection-theme-bind 'prev-section  'gited-mode-map 'gited-prev-marked-branch)
   (evil-collection-theme-bind 'describe-mode 'gited-mode-map 'gited-summary)
   (evil-collection-theme-bind 'refresh       'gited-mode-map 'gited-update)
 
@@ -52,12 +56,8 @@
     (kbd "M-}") 'gited-next-marked-branch
     "G" 'gited-goto-last-branch
     "gg" 'gited-goto-first-branch
-    "gj" 'gited-next-marked-branch
-    "gk" 'gited-prev-marked-branch
     "gl" 'tabulated-list-next-column
     "gh" 'tabulated-list-previous-column
-    "]]" 'gited-next-marked-branch
-    "[[" 'gited-prev-marked-branch
     "<" 'gited-prev-marked-branch
     ">" 'gited-next-marked-branch
     " " 'gited-next-line
