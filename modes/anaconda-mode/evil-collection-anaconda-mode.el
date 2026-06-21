@@ -50,10 +50,8 @@
       "[[" 'previous-error-no-select
       "q" 'quit-window))
 
-  (evil-collection-define-key 'normal 'anaconda-mode-map
-    "K" 'anaconda-mode-show-doc)
-
   (evil-collection-theme-bind 'find-usages     'anaconda-mode-map 'anaconda-mode-find-references)
+  (evil-collection-theme-bind 'lookup-doc      'anaconda-mode-map 'anaconda-mode-show-doc)
   (evil-collection-theme-bind 'find-definition 'anaconda-mode-map 'anaconda-mode-find-definitions)
   (evil-collection-theme-bind 'pop-definition  'anaconda-mode-map
                               (if (fboundp 'anaconda-mode-go-back)

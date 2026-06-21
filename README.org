@@ -228,6 +228,13 @@ To disable a key theme.
         (pop-definition  :key "C-o")))     ;; or :enabled nil to disable either
 #+end_src
 
+*** Lookup documentation
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-theme-overrides
+      '((lookup-doc :key "gh")))     ;; or :enabled nil to disable
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

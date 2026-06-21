@@ -37,8 +37,7 @@
 (defun evil-collection-go-mode-setup ()
   "Set up `evil' bindings for `go-mode'."
   (evil-collection-theme-bind 'find-definition 'go-mode-map 'godef-jump)
-  (evil-collection-define-key 'normal 'go-mode-map
-    "K" 'godef-describe)
+  (evil-collection-theme-bind 'lookup-doc      'go-mode-map 'godef-describe)
   (evil-collection-define-key 'normal 'godoc-mode-map
     "q" 'quit-window
     "g?" 'describe-mode))

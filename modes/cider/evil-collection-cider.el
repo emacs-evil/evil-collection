@@ -124,8 +124,9 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 
   (evil-collection-define-key '(normal visual) 'cider-mode-map
     "gz" 'cider-switch-to-repl-buffer
-    "gf" 'cider-find-resource
-    "K" 'cider-doc)
+    "gf" 'cider-find-resource)
+
+  (evil-collection-theme-bind 'lookup-doc 'cider-mode-map 'cider-doc)
 
   (unless cider-use-xref
     (evil-collection-theme-bind 'find-definition 'cider-mode-map 'cider-find-var)
@@ -135,8 +136,9 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
     "gz" 'cider-switch-to-last-clojure-buffer
     "gr" 'cider-refresh
-    "gf" 'cider-find-resource
-    "K" 'cider-doc)
+    "gf" 'cider-find-resource)
+
+  (evil-collection-theme-bind 'lookup-doc 'cider-repl-mode-map 'cider-doc)
 
   (evil-collection-theme-bind 'repl-submit        'cider-repl-mode-map 'cider-repl-return)
   (evil-collection-theme-bind 'repl-newline       'cider-repl-mode-map 'newline)
@@ -181,12 +183,13 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "gr" 'cider-test-run-test
     "q" 'cider-popup-buffer-quit-function)
 
+  (evil-collection-theme-bind 'lookup-doc 'cider-macroexpansion-mode-map 'cider-doc)
+
   (evil-collection-define-key 'normal 'cider-macroexpansion-mode-map
     ;; quit
     "q" 'cider-popup-buffer-quit-function
 
     "r" 'cider-macroexpand-again
-    "K" 'cider-doc ; Evil has `evil-lookup'.
     "J" 'cider-javadoc
     "." (if cider-use-xref 'xref-find-definitions 'cider-find-var)
     "m" 'cider-macroexpand-1-inplace

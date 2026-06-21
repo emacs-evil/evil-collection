@@ -87,22 +87,23 @@
   (evil-collection-theme-bind 'find-definition 'geiser-repl-mode-map 'geiser-edit-symbol-at-point)
   (evil-collection-theme-bind 'pop-definition  'geiser-repl-mode-map 'geiser-pop-symbol-stack)
 
+  (evil-collection-theme-bind 'lookup-doc 'geiser-repl-mode-map 'geiser-doc-symbol-at-point)
+
   (evil-collection-define-key 'normal 'geiser-repl-mode-map
     "gj" 'geiser-repl-next-prompt
     "gk" 'geiser-repl-previous-prompt
     (kbd "C-j") 'geiser-repl-next-prompt
     (kbd "C-k") 'geiser-repl-previous-prompt
     "]]" 'geiser-repl-next-prompt
-    "[[" 'geiser-repl-previous-prompt
-    "K" 'geiser-doc-symbol-at-point)
+    "[[" 'geiser-repl-previous-prompt)
 
   (evil-collection-theme-bind 'find-definition 'geiser-mode-map 'geiser-edit-symbol-at-point)
   (evil-collection-theme-bind 'pop-definition  'geiser-mode-map 'geiser-pop-symbol-stack)
+  (evil-collection-theme-bind 'lookup-doc      'geiser-mode-map 'geiser-doc-symbol-at-point)
 
   (evil-collection-define-key 'normal 'geiser-mode-map
     "gZ" 'geiser-mode-switch-to-repl-and-enter
-    "gz" 'geiser-mode-switch-to-repl
-    "K" 'geiser-doc-symbol-at-point))
+    "gz" 'geiser-mode-switch-to-repl))
 
 (provide 'evil-collection-geiser)
 ;;; evil-collection-geiser.el ends here

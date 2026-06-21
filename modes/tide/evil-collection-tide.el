@@ -39,9 +39,7 @@
   "Set up `evil' bindings for `tide'."
   (evil-collection-theme-bind 'find-definition 'tide-mode-map 'tide-jump-to-definition)
   (evil-collection-theme-bind 'pop-definition  'tide-mode-map 'tide-jump-back)
-
-  (evil-collection-define-key 'normal 'tide-mode-map
-    "K" 'tide-documentation-at-point)
+  (evil-collection-theme-bind 'lookup-doc      'tide-mode-map 'tide-documentation-at-point)
 
   (evil-collection-define-key 'normal 'tide-references-mode-map
     "gj" 'tide-find-next-reference
