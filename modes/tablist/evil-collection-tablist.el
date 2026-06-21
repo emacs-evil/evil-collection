@@ -53,6 +53,7 @@
            common-bindings)
     (evil-collection-bind 'tablist-mode-map
                           'mark 'tablist-mark-forward
+                          'mark-toggle-all 'tablist-toggle-marks
                           'unmark 'tablist-unmark-forward
                           'unmark-all 'tablist-unmark-all-marks
                           'mark-delete 'tablist-flag-forward
@@ -63,7 +64,8 @@
            common-bindings)
     (evil-collection-bind 'tablist-minor-mode-map    'quit 'tablist-quit)
     (evil-collection-bind 'tablist-mode-map 'refresh       'tablist-revert)
-    (evil-collection-bind 'tablist-minor-mode-map 'refresh 'tablist-revert)))
+    (evil-collection-bind 'tablist-minor-mode-map 'refresh 'tablist-revert)
+    (evil-collection-bind 'tablist-minor-mode-map 'mark-toggle-all 'tablist-toggle-marks)))
 
 (provide 'evil-collection-tablist)
 ;;; evil-collection-tablist.el ends here

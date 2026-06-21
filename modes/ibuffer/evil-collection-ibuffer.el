@@ -48,12 +48,12 @@
     (kbd "=") 'ibuffer-diff-with-file
     (kbd "J") 'ibuffer-jump-to-buffer
     (kbd "M-g") 'ibuffer-jump-to-buffer
+    (kbd "t") 'ibuffer-toggle-marks
     (kbd "M-s a C-s") 'ibuffer-do-isearch
     (kbd "M-s a M-C-s") 'ibuffer-do-isearch-regexp
     (kbd "M-s a C-o") 'ibuffer-do-occur
 
     ;; mark
-    (kbd "~") 'ibuffer-toggle-marks
     (kbd "DEL") 'ibuffer-unmark-backward
     (kbd "M-DEL") 'ibuffer-unmark-all
     (kbd "* *") 'ibuffer-mark-special-buffers
@@ -146,7 +146,6 @@
 
     (kbd "|") 'ibuffer-do-shell-command-pipe
     (kbd "!") 'ibuffer-do-shell-command-file
-    (kbd "t") 'ibuffer-toggle-marks
     ;; marked operations
     (kbd "A") 'ibuffer-do-view
     (kbd "D") 'ibuffer-do-delete
@@ -175,6 +174,7 @@
                         'mark 'ibuffer-mark-forward
                         'unmark 'ibuffer-unmark-forward
                         'unmark-all 'ibuffer-unmark-all-marks
+                        'mark-toggle-all 'ibuffer-toggle-marks
                         'mark-delete 'ibuffer-mark-for-delete
                         'execute-marks 'ibuffer-do-kill-on-deletion-marks
                         'action 'ibuffer-visit-buffer

@@ -154,6 +154,7 @@
                         'mark 'dired-mark
                         'unmark 'dired-unmark
                         'unmark-all 'dired-unmark-all-marks
+                        'mark-toggle-all 'dired-toggle-marks
                         'mark-delete 'dired-flag-file-deletion
                         'execute-marks 'dired-do-flagged-delete
                         'next-item 'dired-next-dirline

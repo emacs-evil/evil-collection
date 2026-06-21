@@ -607,6 +607,7 @@ New customization should use
     (scroll-up :enabled t :state normal :key ("S-SPC" "S-<space>"))
     (mark :enabled t :state normal :key "m")
     (mark-all :enabled t :state normal :key "M")
+    (mark-toggle-all :enabled t :state normal :key "~")
     (unmark :enabled t :state normal :key "u")
     (unmark-all :enabled t :state normal :key "U")
     (mark-delete :enabled t :state normal :key "d")

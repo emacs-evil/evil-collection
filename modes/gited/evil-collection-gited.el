@@ -97,6 +97,7 @@
     "P" 'gited-push                ; Only branches.
     "p" 'gited-set-object-upstream ; Pushes branches and tags.
     "r" 'gited-reset-branch
+    "t" 'gited-toggle-marks
     "s" nil                ; Don't conflict with `tabulated-list-sort' on "S".
     "ss" 'gited-stash
     "sA" 'gited-stash-pop
@@ -125,8 +126,6 @@
     "*l" 'gited-mark-local-tags
     "*N" 'gited-number-marked
 
-    "t" 'gited-toggle-marks
-    "~" 'gited-toggle-marks
     (kbd "<delete>") 'gited-unmark-backward
 
     ;; Searching for marks
@@ -149,6 +148,7 @@
                         'mark 'gited-mark
                         'unmark 'gited-unmark
                         'unmark-all 'gited-unmark-all-marks
+                        'mark-toggle-all 'gited-toggle-marks
                         'mark-delete 'gited-flag-branch-deletion
                         'execute-marks 'gited-do-flagged-delete
                         'action 'gited-visit-branch-sources
