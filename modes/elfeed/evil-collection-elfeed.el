@@ -73,10 +73,9 @@
   (when (and (fboundp 'elfeed-search-quit-window)
              (not (eq (indirect-function 'elfeed-search-quit-window)
                       (symbol-function 'quit-window))))
-    (evil-collection-define-key 'normal 'elfeed-search-mode-map
-      "ZQ" 'elfeed-search-quit-window
-      "ZZ" 'elfeed-search-quit-window)
-    (evil-collection-bind 'quit 'elfeed-search-mode-map 'elfeed-search-quit-window))
+    (evil-collection-bind 'quit        'elfeed-search-mode-map 'elfeed-search-quit-window)
+    (evil-collection-bind 'quit-save   'elfeed-search-mode-map 'elfeed-search-quit-window)
+    (evil-collection-bind 'quit-cancel 'elfeed-search-mode-map 'elfeed-search-quit-window))
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
     "+" 'elfeed-search-tag-all
@@ -97,11 +96,7 @@
 
     "A" 'elfeed-show-add-enclosure-to-playlist
     "P" 'elfeed-show-play-enclosure
-    "d" 'elfeed-show-save-enclosure
-
-    ;; quit
-    "ZQ" 'elfeed-kill-buffer
-    "ZZ" 'elfeed-kill-buffer)
+    "d" 'elfeed-show-save-enclosure)
   (evil-collection-bind 'scroll-down  'elfeed-show-mode-map 'scroll-up-command)
   (evil-collection-bind 'scroll-up    'elfeed-show-mode-map 'scroll-down-command)
   (evil-collection-bind 'action-other 'elfeed-show-mode-map 'elfeed-show-visit)
@@ -109,8 +104,10 @@
   (evil-collection-bind 'prev-item    'elfeed-show-mode-map 'elfeed-show-prev)
   (evil-collection-bind 'next-section 'elfeed-show-mode-map 'elfeed-show-next)
   (evil-collection-bind 'prev-section 'elfeed-show-mode-map 'elfeed-show-prev)
-  (evil-collection-bind 'quit    'elfeed-show-mode-map 'elfeed-kill-buffer)
-  (evil-collection-bind 'refresh 'elfeed-show-mode-map 'elfeed-show-refresh)
+  (evil-collection-bind 'quit         'elfeed-show-mode-map 'elfeed-kill-buffer)
+  (evil-collection-bind 'quit-save    'elfeed-show-mode-map 'elfeed-kill-buffer)
+  (evil-collection-bind 'quit-cancel  'elfeed-show-mode-map 'elfeed-kill-buffer)
+  (evil-collection-bind 'refresh      'elfeed-show-mode-map 'elfeed-show-refresh)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map

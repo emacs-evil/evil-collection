@@ -43,9 +43,8 @@
 
   (evil-collection-bind 'describe-mode 'log-edit-mode-map 'log-edit-mode-help)
 
-  (evil-collection-define-key 'normal 'log-edit-mode-map
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+  (evil-collection-bind 'quit-save    'log-edit-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel  'log-edit-mode-map 'quit-window)
   (evil-collection-bind 'next-item    'log-edit-mode-map 'log-edit-next-comment)
   (evil-collection-bind 'prev-item    'log-edit-mode-map 'log-edit-previous-comment)
   (evil-collection-bind 'next-section 'log-edit-mode-map 'log-edit-next-comment)

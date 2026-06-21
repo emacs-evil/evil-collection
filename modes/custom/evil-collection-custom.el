@@ -47,11 +47,7 @@
     "^" 'Custom-goto-parent
     (kbd "C-o") 'Custom-goto-parent
     ;; TODO: Should the following be added?
-    "<" 'Custom-goto-parent
-
-    ;; quit
-    "ZQ" 'evil-quit
-    "ZZ" 'Custom-buffer-done)
+    "<" 'Custom-goto-parent)
   (evil-collection-bind 'scroll-down  'custom-mode-map 'scroll-up-command)
   (evil-collection-bind 'scroll-up    'custom-mode-map 'scroll-down-command)
   (evil-collection-bind 'action       'custom-mode-map 'Custom-newline)
@@ -59,7 +55,9 @@
   (evil-collection-bind 'prev-item    'custom-mode-map 'widget-backward)
   (evil-collection-bind 'next-section 'custom-mode-map 'widget-forward)
   (evil-collection-bind 'prev-section 'custom-mode-map 'widget-backward)
-  (evil-collection-bind 'quit 'custom-mode-map 'Custom-buffer-done))
+  (evil-collection-bind 'quit         'custom-mode-map 'Custom-buffer-done)
+  (evil-collection-bind 'quit-save    'custom-mode-map 'Custom-buffer-done)
+  (evil-collection-bind 'quit-cancel  'custom-mode-map 'evil-quit))
 
 (provide 'evil-collection-custom)
 ;;; evil-collection-custom.el ends here

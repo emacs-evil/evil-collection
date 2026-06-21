@@ -87,12 +87,10 @@ default bindings."
     "k" 'ctbl:navi-move-up
     "l" 'ctbl:navi-move-right
 
-    "gc" 'ctbl:navi-jump-to-column
-
-    ;; quit
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window)
+    "gc" 'ctbl:navi-jump-to-column)
   (evil-collection-bind 'quit          'edbi:dbview-query-result-keymap 'edbi:dbview-query-result-quit-command)
+  (evil-collection-bind 'quit-save     'edbi:dbview-query-result-keymap 'quit-window)
+  (evil-collection-bind 'quit-cancel   'edbi:dbview-query-result-keymap 'evil-quit)
   (evil-collection-bind 'describe-mode 'edbi:dbview-query-result-keymap 'ctbl:describe-bindings)
   (evil-collection-bind 'refresh       'edbi:dbview-query-result-keymap 'ctbl:action-update-buffer)
 

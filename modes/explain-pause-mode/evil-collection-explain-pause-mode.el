@@ -39,11 +39,10 @@
   (evil-collection-define-key 'normal 'explain-pause-top-mode-map
     "a" 'explain-pause-top-auto-refresh
     "c" 'explain-pause-top-clear
-    "o" 'explain-pause-top-sort
-
-    "ZZ" 'quit-window
-    "ZQ" 'quit-window)
-  (evil-collection-bind 'quit 'explain-pause-top-mode-map 'quit-window))
+    "o" 'explain-pause-top-sort)
+  (evil-collection-bind 'quit        'explain-pause-top-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save   'explain-pause-top-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'explain-pause-top-mode-map 'quit-window))
 
 (provide 'evil-collection-explain-pause-mode)
 

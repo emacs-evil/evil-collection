@@ -64,13 +64,13 @@
     ;; Sadly, `occur-edit-mode' has no abort commands supported. ZZ, ZQ and
     ;; <escape> are same.
     (kbd "<escape>") 'occur-cease-edit
-    "ZZ" 'occur-cease-edit
-    "ZQ" 'occur-cease-edit
 
     [mouse-2] 'occur-mode-mouse-goto
     (kbd "C-c C-c") 'occur-cease-edit
     (kbd "C-o") 'occur-mode-display-occurrence
-    (kbd "C-c C-f") 'next-error-follow-minor-mode))
+    (kbd "C-c C-f") 'next-error-follow-minor-mode)
+  (evil-collection-bind 'quit-save   'occur-edit-mode-map 'occur-cease-edit)
+  (evil-collection-bind 'quit-cancel 'occur-edit-mode-map 'occur-cease-edit))
 
 (provide 'evil-collection-replace)
 ;;; evil-collection-replace.el ends here

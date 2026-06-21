@@ -82,14 +82,14 @@
     "d" 'vundo-diff
     "m" 'vundo-diff-mark
     "u" 'vundo-diff-unmark
-    "w" 'vundo-next-root
-    "ZZ" 'vundo-quit
-    "ZQ" 'vundo-quit)
+    "w" 'vundo-next-root)
   (evil-collection-bind 'next-item    'vundo-mode-map 'vundo-next)
   (evil-collection-bind 'prev-item    'vundo-mode-map 'vundo-previous)
   (evil-collection-bind 'next-section 'vundo-mode-map 'vundo-next)
   (evil-collection-bind 'prev-section 'vundo-mode-map 'vundo-previous)
-  (evil-collection-bind 'quit 'vundo-mode-map 'vundo-quit))
+  (evil-collection-bind 'quit         'vundo-mode-map 'vundo-quit)
+  (evil-collection-bind 'quit-save    'vundo-mode-map 'vundo-quit)
+  (evil-collection-bind 'quit-cancel  'vundo-mode-map 'vundo-quit))
 
 (provide 'evil-collection-vundo)
 ;;; evil-collection-vundo.el ends here

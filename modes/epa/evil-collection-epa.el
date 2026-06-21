@@ -41,8 +41,6 @@
     (kbd "<tab>") 'widget-forward
     "E" 'epa-decrypt-file
     "d" 'epa-delete-keys
-    "ZZ" 'quit-window
-    "ZQ" 'evil-quit
     "V" 'epa-verify-file
 
     ;; Unchanged keybindings.
@@ -50,20 +48,20 @@
     "e" 'epa-encrypt-file
     "i" 'epa-import-keys
     "o" 'epa-export-keys)
-  (evil-collection-bind 'mark    'epa-key-list-mode-map 'epa-mark-key)
-  (evil-collection-bind 'unmark  'epa-key-list-mode-map 'epa-unmark-key)
-  (evil-collection-bind 'quit    'epa-key-list-mode-map 'epa-exit-buffer)
-  (evil-collection-bind 'refresh 'epa-key-list-mode-map 'revert-buffer)
+  (evil-collection-bind 'mark        'epa-key-list-mode-map 'epa-mark-key)
+  (evil-collection-bind 'unmark      'epa-key-list-mode-map 'epa-unmark-key)
+  (evil-collection-bind 'quit        'epa-key-list-mode-map 'epa-exit-buffer)
+  (evil-collection-bind 'quit-save   'epa-key-list-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'epa-key-list-mode-map 'evil-quit)
+  (evil-collection-bind 'refresh     'epa-key-list-mode-map 'revert-buffer)
 
-  (evil-collection-define-key 'normal 'epa-key-mode-map
-    "ZZ" 'quit-window
-    "ZQ" 'evil-quit)
-  (evil-collection-bind 'quit 'epa-key-mode-map 'epa-exit-buffer)
+  (evil-collection-bind 'quit        'epa-key-mode-map 'epa-exit-buffer)
+  (evil-collection-bind 'quit-save   'epa-key-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'epa-key-mode-map 'evil-quit)
 
-  (evil-collection-define-key 'normal 'epa-info-mode-map
-    "ZZ" 'quit-window
-    "ZQ" 'evil-quit)
-  (evil-collection-bind 'quit 'epa-info-mode-map 'delete-window))
+  (evil-collection-bind 'quit        'epa-info-mode-map 'delete-window)
+  (evil-collection-bind 'quit-save   'epa-info-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'epa-info-mode-map 'evil-quit))
 
 (provide 'evil-collection-epa)
 ;;; evil-collection-epa.el ends here

@@ -43,11 +43,7 @@
     "gm" 'man
     "gd" 'Man-goto-section ; TODO: "gd" does not match the rationale of "go to definition". Change?
     "gR" 'Man-follow-manual-reference ; TODO: Make this match Info-follow-reference?
-    "gs" 'Man-goto-see-also-section
-
-    ;; quit
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "gs" 'Man-goto-see-also-section)
   (evil-collection-bind 'scroll-down  'Man-mode-map 'scroll-up-command)
   (evil-collection-bind 'scroll-up    'Man-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'Man-mode-map 'Man-next-manpage)
@@ -56,8 +52,10 @@
   (evil-collection-bind 'prev-section 'Man-mode-map 'Man-previous-manpage)
   (evil-collection-bind 'next-section-2 'Man-mode-map 'Man-next-section)
   (evil-collection-bind 'prev-section-2 'Man-mode-map 'Man-previous-section)
-  (evil-collection-bind 'quit    'Man-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'Man-mode-map 'Man-update-manpage))
+  (evil-collection-bind 'quit        'Man-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save   'Man-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'Man-mode-map 'quit-window)
+  (evil-collection-bind 'refresh     'Man-mode-map 'Man-update-manpage))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here

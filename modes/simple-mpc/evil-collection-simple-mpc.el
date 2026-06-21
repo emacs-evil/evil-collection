@@ -51,27 +51,24 @@ Other modes that are configured:
     "S" 'simple-mpc-shuffle-current-playlist
     "C" 'simple-mpc-clear-current-playlist
     "+" 'simple-mpc-increase-volume
-    "-" 'simple-mpc-decrease-volume
-
-    "ZQ" 'simple-mpc-quit
-    "ZZ" 'simple-mpc-quit)
-  (evil-collection-bind 'quit 'simple-mpc-mode-map 'simple-mpc-quit)
+    "-" 'simple-mpc-decrease-volume)
+  (evil-collection-bind 'quit        'simple-mpc-mode-map 'simple-mpc-quit)
+  (evil-collection-bind 'quit-save   'simple-mpc-mode-map 'simple-mpc-quit)
+  (evil-collection-bind 'quit-cancel 'simple-mpc-mode-map 'simple-mpc-quit)
 
   (evil-collection-define-key 'normal 'simple-mpc-current-playlist-mode-map
-    "x" 'simple-mpc-delete
+    "x" 'simple-mpc-delete)
+  (evil-collection-bind 'quit        'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'quit-save   'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'quit-cancel 'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
+  (evil-collection-bind 'action      'simple-mpc-current-playlist-mode-map 'simple-mpc-play-current-line)
+  (evil-collection-bind 'delete      'simple-mpc-current-playlist-mode-map 'simple-mpc-delete)
 
-    "ZQ" 'simple-mpc-current-playlist-quit
-    "ZZ" 'simple-mpc-current-playlist-quit)
-  (evil-collection-bind 'quit   'simple-mpc-current-playlist-mode-map 'simple-mpc-current-playlist-quit)
-  (evil-collection-bind 'action 'simple-mpc-current-playlist-mode-map 'simple-mpc-play-current-line)
-  (evil-collection-bind 'delete 'simple-mpc-current-playlist-mode-map 'simple-mpc-delete)
-
-  (evil-collection-bind 'quit 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
+  (evil-collection-bind 'quit        'simple-mpc-query-mode-map 'simple-mpc-query-quit)
+  (evil-collection-bind 'quit-save   'simple-mpc-query-mode-map 'simple-mpc-query-quit)
+  (evil-collection-bind 'quit-cancel 'simple-mpc-query-mode-map 'simple-mpc-query-quit)
   (evil-collection-define-key 'normal 'simple-mpc-query-mode-map
-    "o" 'simple-mpc-query-sort
-
-    "ZQ" 'simple-mpc-query-quit
-    "ZZ" 'simple-mpc-query-quit)
+    "o" 'simple-mpc-query-sort)
   (evil-collection-bind 'action-other 'simple-mpc-query-mode-map 'simple-mpc-query-add)
   (evil-collection-bind 'action-stay  'simple-mpc-query-mode-map 'simple-mpc-query-add)
   (evil-collection-bind 'action       'simple-mpc-query-mode-map 'simple-mpc-query-add-and-play))

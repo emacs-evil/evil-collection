@@ -37,8 +37,6 @@
   (evil-set-initial-state 'Buffer-menu-mode 'normal)
 
   (evil-collection-define-key 'normal 'Buffer-menu-mode-map
-    "ZQ" 'evil-quit
-    "ZZ" 'quit-window
     "s" 'Buffer-menu-save
     [mouse-2] 'Buffer-menu-mouse-select
     [follow-link] 'mouse-face
@@ -69,7 +67,9 @@
   (evil-collection-bind 'execute-marks 'Buffer-menu-mode-map 'Buffer-menu-execute)
   (evil-collection-bind 'action       'Buffer-menu-mode-map 'Buffer-menu-this-window)
   (evil-collection-bind 'action-other 'Buffer-menu-mode-map 'Buffer-menu-other-window)
-  (evil-collection-bind 'refresh 'Buffer-menu-mode-map 'revert-buffer))
+  (evil-collection-bind 'quit-save    'Buffer-menu-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel  'Buffer-menu-mode-map 'evil-quit)
+  (evil-collection-bind 'refresh      'Buffer-menu-mode-map 'revert-buffer))
 
 (provide 'evil-collection-buff-menu)
 ;;; evil-collection-buff-menu.el ends here

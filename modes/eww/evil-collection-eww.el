@@ -64,11 +64,7 @@
     "gb" 'eww-list-bookmarks
 
     "gh" 'eww-list-histories
-    "gt" 'eww-list-buffers              ; Like dwb, qutebrowser.
-
-    ;; quit
-    "ZQ" 'quit-window
-    "ZZ" 'quit-window)
+    "gt" 'eww-list-buffers)             ; Like dwb, qutebrowser.
   (evil-collection-bind 'scroll-down  'eww-mode-map 'scroll-up-command)
   (evil-collection-bind 'scroll-up    'eww-mode-map 'scroll-down-command)
   (evil-collection-bind 'next-item    'eww-mode-map 'eww-next-url)
@@ -76,8 +72,10 @@
   (evil-collection-bind 'next-section 'eww-mode-map 'eww-next-url)
   (evil-collection-bind 'prev-section 'eww-mode-map 'eww-previous-url)
   (evil-collection-bind 'action-other 'eww-mode-map 'eww-browse-with-external-browser)
-  (evil-collection-bind 'quit    'eww-mode-map 'quit-window)
-  (evil-collection-bind 'refresh 'eww-mode-map 'eww-reload)
+  (evil-collection-bind 'quit        'eww-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save   'eww-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel 'eww-mode-map 'quit-window)
+  (evil-collection-bind 'refresh     'eww-mode-map 'eww-reload)
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)

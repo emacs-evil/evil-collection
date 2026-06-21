@@ -169,11 +169,7 @@
     (kbd "yb") 'ibuffer-copy-buffername-as-kill
 
     (kbd "gv") 'ibuffer-do-view
-    (kbd "gV") 'ibuffer-do-view-horizontally
-
-    ;; Quit
-    "ZZ" 'quit-window
-    "ZQ" 'quit-window)
+    (kbd "gV") 'ibuffer-do-view-horizontally)
   (evil-collection-bind 'mark          'ibuffer-mode-map 'ibuffer-mark-forward)
   (evil-collection-bind 'unmark        'ibuffer-mode-map 'ibuffer-unmark-forward)
   (evil-collection-bind 'unmark-all    'ibuffer-mode-map 'ibuffer-unmark-all-marks)
@@ -186,7 +182,9 @@
   (evil-collection-bind 'prev-item    'ibuffer-mode-map 'ibuffer-backward-line)
   (evil-collection-bind 'next-section 'ibuffer-mode-map 'ibuffer-forward-filter-group)
   (evil-collection-bind 'prev-section 'ibuffer-mode-map 'ibuffer-backward-filter-group)
-  (evil-collection-bind 'quit 'ibuffer-mode-map 'quit-window))
+  (evil-collection-bind 'quit         'ibuffer-mode-map 'quit-window)
+  (evil-collection-bind 'quit-save    'ibuffer-mode-map 'quit-window)
+  (evil-collection-bind 'quit-cancel  'ibuffer-mode-map 'quit-window))
 
 (provide 'evil-collection-ibuffer)
 ;;; evil-collection-ibuffer.el ends here
