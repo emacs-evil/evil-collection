@@ -64,9 +64,9 @@
     ;; (kbd "RET") 'dashboard-return
 
     ;; Other commands
-    [tab] 'widget-forward
-    [backtab] 'widget-backward
     [down-mouse-1] 'widget-button-click)
+  (evil-collection-bind 'cycle-next     'dashboard-mode-map 'widget-forward)
+  (evil-collection-bind 'cycle-previous 'dashboard-mode-map 'widget-backward)
 
   ;; Section navigation via theme.
   ;; Like `evil-collection-outline.el'.  These don't support COUNT, so [[ and ]]

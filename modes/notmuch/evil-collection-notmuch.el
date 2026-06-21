@@ -55,7 +55,7 @@ that moves trashed messages out of the inbox)."
 ;; Since all the other maps in `evil-collection-notmuch-maps`
 ;; have notmuch-common-keymap as parent
 ;; https://git.notmuchmail.org/git?p=notmuch;a=blob;f=emacs/notmuch-hello.el;h=fa31694ff0f79a7f2781849394390a673f75aade;hb=HEAD#l651
-;; 
+;;
 ;; When `evil-collection-setup-hook` runs, if it changes keymaps
 ;; using a `dolist` over `evil-collection-notmuch-maps`, then a binding might
 ;; see 2 changes at once. To avoid that, notmuch-common-keymap is last
@@ -147,13 +147,9 @@ that moves trashed messages out of the inbox)."
   (evil-collection-bind 'quit        'notmuch-common-keymap 'notmuch-bury-or-kill-this-buffer)
   (evil-collection-bind 'refresh     'notmuch-common-keymap 'notmuch-refresh-this-buffer)
   (evil-collection-bind 'refresh-all 'notmuch-common-keymap 'notmuch-poll-and-refresh-this-buffer)
-
   (evil-collection-bind 'describe-mode 'notmuch-hello-mode-map 'notmuch-version)
-
-  (evil-collection-define-key 'normal 'notmuch-hello-mode-map
-    (kbd "TAB") 'widget-forward
-    (kbd "S-TAB") 'widget-backward
-    (kbd "<C-tab>") 'widget-backward)
+  (evil-collection-bind 'cycle-next     'notmuch-hello-mode-map 'widget-forward)
+  (evil-collection-bind 'cycle-previous 'notmuch-hello-mode-map 'widget-backward)
   (evil-collection-bind 'action 'notmuch-hello-mode-map 'evil-collection-notmuch-hello-ret)
 
   (evil-collection-define-key 'normal 'notmuch-show-mode-map
@@ -181,9 +177,9 @@ that moves trashed messages out of the inbox)."
     "*" 'notmuch-show-tag-all
     "-" 'notmuch-show-remove-tag
     "+" 'notmuch-show-add-tag
-    (kbd "TAB") 'notmuch-show-next-button
-    (kbd "<backtab>") 'notmuch-show-previous-button
     "." 'notmuch-show-part-map)
+  (evil-collection-bind 'next-button     'notmuch-show-mode-map 'notmuch-show-next-button)
+  (evil-collection-bind 'previous-button 'notmuch-show-mode-map 'notmuch-show-previous-button)
   (evil-collection-bind 'action       'notmuch-show-mode-map 'notmuch-show-toggle-message)
   (evil-collection-bind 'next-item    'notmuch-show-mode-map 'notmuch-show-next-open-message)
   (evil-collection-bind 'prev-item    'notmuch-show-mode-map 'notmuch-show-previous-open-message)
