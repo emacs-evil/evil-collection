@@ -134,13 +134,9 @@ instead, which is useless and counterintuitive."
     "'" 'pdf-view-jump-to-register
     "m" 'pdf-view-position-to-register
 
-    ;; zoom
-    "+" 'pdf-view-enlarge
+    ;; vim-fold-style synonyms kept inline.
     "zi" 'pdf-view-enlarge
-    "=" 'pdf-view-enlarge
-    "-" 'pdf-view-shrink
     "zo" 'pdf-view-shrink
-    "0" 'pdf-view-scale-reset
     "z0" 'pdf-view-scale-reset
 
     "f" 'pdf-links-isearch-link
@@ -194,7 +190,10 @@ instead, which is useless and counterintuitive."
                         'quit 'quit-window
                         'quit-save 'quit-window
                         'quit-cancel 'kill-current-buffer
-                        'refresh 'revert-buffer)
+                        'refresh 'revert-buffer
+                        'zoom-in    'pdf-view-enlarge
+                        'zoom-out   'pdf-view-shrink
+                        'zoom-reset 'pdf-view-scale-reset)
 
 
   (when evil-want-C-d-scroll

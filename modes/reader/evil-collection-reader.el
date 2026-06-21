@@ -131,11 +131,7 @@
     [remap end-of-buffer] #'reader-last-page
     [remap goto-line] #'reader-goto-page
 
-    ;; "0" #'evil-collections-reader-reset-zoom
-    "=" #'reader-enlarge-size
-    "+" #'reader-enlarge-size
     "C-<wheel-up>" #'reader-mwheel-enlarge-size
-    "-" #'reader-shrink-size
     "C-<wheel-down>" #'reader-mwheel-shrink-size
 
     "H" #'reader-fit-to-height
@@ -150,7 +146,9 @@
 
   (evil-collection-bind 'reader-mode-map
                         'scroll-down 'reader-scroll-down-or-next-page
-                        'scroll-up 'reader-scroll-up-or-prev-page)
+                        'scroll-up 'reader-scroll-up-or-prev-page
+                        'zoom-in  'reader-enlarge-size
+                        'zoom-out 'reader-shrink-size)
 
   (evil-collection-define-key 'normal 'reader-outline-mode-map
     "p" #'previous-line

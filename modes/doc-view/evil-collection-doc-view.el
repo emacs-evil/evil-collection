@@ -53,12 +53,6 @@
     "G" 'doc-view-last-page
     "J" 'doc-view-goto-page
 
-    ;; zoom
-    "+" 'doc-view-enlarge
-    "=" 'doc-view-enlarge
-    "0" 'doc-view-scale-reset
-    "-" 'doc-view-shrink
-
     "W" 'doc-view-fit-width-to-window ; Like evil-image.
     "H" 'doc-view-fit-height-to-window ; Like evil-image.
     "P" 'doc-view-fit-page-to-window
@@ -78,7 +72,10 @@
                         'scroll-down 'doc-view-scroll-up-or-next-page
                         'scroll-up 'doc-view-scroll-down-or-previous-page
                         'action 'image-next-line
-                        'refresh 'doc-view-revert-buffer)
+                        'refresh 'doc-view-revert-buffer
+                        'zoom-in    'doc-view-enlarge
+                        'zoom-out   'doc-view-shrink
+                        'zoom-reset 'doc-view-scale-reset)
 
   ;; TODO: What if the user changes `evil-want-C-u-scroll' after this is run?
   (when evil-want-C-u-scroll
