@@ -38,7 +38,6 @@
 ;;;###autoload
 (defun evil-collection-epa-setup ()
   (evil-collection-define-key 'normal 'epa-key-list-mode-map
-    (kbd "<tab>") 'widget-forward
     "E" 'epa-decrypt-file
     "d" 'epa-delete-keys
     "V" 'epa-verify-file
@@ -48,6 +47,8 @@
     "e" 'epa-encrypt-file
     "i" 'epa-import-keys
     "o" 'epa-export-keys)
+  (evil-collection-bind 'cycle-next     'epa-key-list-mode-map 'widget-forward)
+  (evil-collection-bind 'cycle-previous 'epa-key-list-mode-map 'widget-backward)
   (evil-collection-bind 'mark        'epa-key-list-mode-map 'epa-mark-key)
   (evil-collection-bind 'unmark      'epa-key-list-mode-map 'epa-unmark-key)
   (evil-collection-bind 'quit        'epa-key-list-mode-map 'epa-exit-buffer)

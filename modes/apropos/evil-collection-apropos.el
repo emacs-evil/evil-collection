@@ -36,9 +36,8 @@
 (defun evil-collection-apropos-setup ()
   "Set up `evil' bindings for `apropos'."
   (evil-set-initial-state 'apropos-mode 'normal)
-  (evil-collection-define-key 'normal 'apropos-mode-map
-    (kbd "TAB") 'forward-button
-    (kbd "S-TAB") 'backward-button)
+  (evil-collection-bind 'next-button     'apropos-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'apropos-mode-map 'backward-button)
   (evil-collection-bind 'action        'apropos-mode-map 'apropos-follow)
   (evil-collection-bind 'quit          'apropos-mode-map 'quit-window)
   (evil-collection-bind 'quit-save     'apropos-mode-map 'quit-window)
