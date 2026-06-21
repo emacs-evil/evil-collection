@@ -134,12 +134,11 @@
     "e" 'slime-inspector-eval
     "M-p" 'slime-inspector-history
     "gv" 'slime-inspector-toggle-verbose
-    (kbd "<tab>") 'slime-inspector-next-inspectable-object
     (kbd "C-i") 'slime-inspector-next-inspectable-object
-    (kbd "<S-tab>") 'slime-inspector-previous-inspectable-object ; Emacs translates S-TAB
-    (kbd "<backtab>") 'slime-inspector-previous-inspectable-object ; to BACKTAB on X.
     "." 'slime-inspector-show-source
     "gd" 'slime-inspector-show-source)
+  (evil-collection-bind 'cycle-next     'slime-inspector-mode-map 'slime-inspector-next-inspectable-object)
+  (evil-collection-bind 'cycle-previous 'slime-inspector-mode-map 'slime-inspector-previous-inspectable-object)
   (evil-collection-bind 'next-item    'slime-inspector-mode-map 'slime-inspector-next)
   (evil-collection-bind 'prev-item    'slime-inspector-mode-map 'slime-inspector-pop)
   (evil-collection-bind 'next-section 'slime-inspector-mode-map 'slime-inspector-next)

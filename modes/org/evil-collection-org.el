@@ -60,8 +60,8 @@
 (defun evil-collection-org-setup ()
   "Set up `evil' bindings for `org'."
   (evil-collection-define-key 'normal 'org-mode-map
-    [tab] 'org-cycle
     [S-tab] 'org-shifttab)
+  (evil-collection-bind 'section-toggle 'org-mode-map 'org-cycle)
 
   (evil-collection-define-key 'motion 'org-mode-map
     "{" 'org-backward-paragraph

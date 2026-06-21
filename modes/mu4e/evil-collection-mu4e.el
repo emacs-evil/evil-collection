@@ -225,14 +225,11 @@ end of the buffer."
 
       (mu4e-thread-mode-map
        [S-left] mu4e-thread-goto-root
-       [tab] mu4e-thread-fold-toggle
        [C-tab] mu4e-thread-fold-toggle-goto-next
        [backtab] mu4e-thread-fold-toggle-all)
 
       (mu4e-view-mode-map
        " " mu4e-view-scroll-up-or-next
-       [tab] forward-button
-       [backtab] backward-button
        "q" mu4e-view-quit
        "gx" mu4e-view-go-to-url
        "gX" mu4e-view-fetch-url
@@ -318,7 +315,10 @@ end of the buffer."
     (evil-collection-bind 'next-section-2 'mu4e-headers-mode-map 'mu4e-headers-next)
     (evil-collection-bind 'prev-section-2 'mu4e-headers-mode-map 'mu4e-headers-prev)
     (evil-collection-bind 'action         'mu4e-headers-mode-map 'mu4e-headers-view-message)
+    (evil-collection-bind 'section-toggle 'mu4e-thread-mode-map 'mu4e-thread-fold-toggle)
 
+    (evil-collection-bind 'next-button    'mu4e-view-mode-map 'forward-button)
+    (evil-collection-bind 'previous-button 'mu4e-view-mode-map 'backward-button)
     (evil-collection-bind 'next-item      'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
     (evil-collection-bind 'prev-item      'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
     (evil-collection-bind 'next-section   'mu4e-view-mode-map 'mu4e-view-headers-next-unread)

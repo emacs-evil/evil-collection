@@ -203,8 +203,6 @@ with older release versions of `mu4e.'"
 
     (mu4e-view-mode-map
      " " mu4e-view-scroll-up-or-next
-     [tab] shr-next-link
-     [backtab] shr-previous-link
      "q" mu4e~view-quit-buffer
      "gx" mu4e-view-go-to-url
      "gX" mu4e-view-fetch-url
@@ -293,6 +291,8 @@ with older release versions of `mu4e.'"
   (evil-collection-bind 'prev-section-2 'mu4e-headers-mode-map 'mu4e-headers-prev)
   (evil-collection-bind 'action         'mu4e-headers-mode-map 'mu4e-headers-view-message)
 
+  (evil-collection-bind 'cycle-next     'mu4e-view-mode-map 'shr-next-link)
+  (evil-collection-bind 'cycle-previous 'mu4e-view-mode-map 'shr-previous-link)
   (evil-collection-bind 'next-item      'mu4e-view-mode-map 'mu4e-view-headers-next-unread)
   (evil-collection-bind 'prev-item      'mu4e-view-mode-map 'mu4e-view-headers-prev-unread)
   (evil-collection-bind 'next-section   'mu4e-view-mode-map 'mu4e-view-headers-next-unread)

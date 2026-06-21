@@ -60,8 +60,10 @@ Note that there is no gnus-common-mode-map")
              evil-collection-gnus-common-normal-bindings)))
 
   (evil-collection-bind 'quit    'gnus-summary-mode-map 'gnus-summary-exit)
-  (evil-collection-bind 'refresh 'gnus-summary-mode-map 'gnus-summary-rescan-group)
-  (evil-collection-bind 'action  'gnus-summary-mode-map 'gnus-summary-scroll-up)
+  (evil-collection-bind 'refresh        'gnus-summary-mode-map 'gnus-summary-rescan-group)
+  (evil-collection-bind 'action         'gnus-summary-mode-map 'gnus-summary-scroll-up)
+  (evil-collection-bind 'cycle-next     'gnus-summary-mode-map 'gnus-summary-widget-forward)
+  (evil-collection-bind 'cycle-previous 'gnus-summary-mode-map 'gnus-summary-widget-backward)
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
@@ -71,8 +73,6 @@ Note that there is no gnus-common-mode-map")
     "g?"        'gnus-summary-help-map
 
     ;; motion
-    (kbd "<tab>") 'gnus-summary-widget-forward
-    (kbd "<backtab>") 'gnus-summary-widget-backward
     (kbd "<delete>") 'gnus-summary-prev-page
     (kbd "S-SPC") 'gnus-summary-prev-page
     (kbd "SPC") 'gnus-summary-next-page
@@ -244,8 +244,6 @@ Note that there is no gnus-common-mode-map")
     "ZZ"        'evil-window-delete
 
     ;; Movement
-    (kbd "TAB") 'forward-button
-    (kbd "<backtab>") 'backward-button
     (kbd "SPC") 'gnus-article-goto-next-page
     (kbd "DEL") 'gnus-article-goto-prev-page
     (kbd "S-SPC") 'gnus-article-goto-prev-page
@@ -307,7 +305,9 @@ Note that there is no gnus-common-mode-map")
     (kbd "C-]") 'gnus-article-refer-article
     "s"         'gnus-article-show-summary
     "gX"        'gnus-summary-browse-url)
-  (evil-collection-bind 'refresh 'gnus-article-mode-map 'gnus-summary-show-article)
+  (evil-collection-bind 'refresh         'gnus-article-mode-map 'gnus-summary-show-article)
+  (evil-collection-bind 'next-button     'gnus-article-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'gnus-article-mode-map 'backward-button)
 
   (evil-collection-bind 'quit        'gnus-group-mode-map 'gnus-group-exit)
   (evil-collection-bind 'refresh     'gnus-group-mode-map 'gnus-group-get-new-news-this-group)

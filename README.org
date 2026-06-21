@@ -332,6 +332,23 @@ of them at once.
         (debug-frame-down :state normal :key ">")))
 #+end_src
 
+*** Tab navigation
+
+Three semantics share the ~<tab>~ / ~<backtab>~ pair:
+
+- ~next-button~ / ~previous-button~ — for modes using Emacs's ~forward-button~ / ~backward-button~ (e.g. ~man~, ~helpful~, ~devdocs~).
+- ~cycle-next~ / ~cycle-previous~ — generic forward/back through mode-specific items (e.g. ~eww~ links, ~elisp-refs~ matches, ~indium~ inspector references).
+- ~section-toggle~ — TAB toggles fold/expand at point (e.g. ~org-cycle~, ~outline-toggle-children~).
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((next-button     :state normal :key ("<tab>" "TAB"))
+        (previous-button :state normal :key ("<backtab>" "<S-tab>"))
+        (cycle-next      :state normal :key ("<tab>" "TAB"))
+        (cycle-previous  :state normal :key ("<backtab>" "<S-tab>"))
+        (section-toggle  :state normal :key ("<tab>" "TAB"))))
+#+end_src
+
 ** Guidelines
 
 The following rules serve as guiding principles to define the set of standard

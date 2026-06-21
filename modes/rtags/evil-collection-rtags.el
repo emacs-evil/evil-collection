@@ -60,8 +60,8 @@
   (evil-collection-bind 'action-stay  'rtags-mode-map 'rtags-show-in-other-window)
   (evil-collection-bind 'quit 'rtags-mode-map 'rtags-call-bury-or-delete)
 
+  (evil-collection-bind 'section-toggle 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-toggle-current-expanded)
   (evil-collection-define-key 'normal 'rtags-dependency-tree-mode-map
-    (kbd "<tab>") 'rtags-dependency-tree-toggle-current-expanded
     "E" 'rtags-dependency-tree-expand-all
     "c" 'rtags-dependency-tree-collapse-all
     "-" 'rtags-dependency-tree-collapse-current
@@ -84,9 +84,8 @@
 
   (evil-collection-bind 'find-file 'rtags-dependency-tree-mode-map 'rtags-dependency-tree-find-path)
 
+  (evil-collection-bind 'section-toggle 'rtags-references-tree-mode-map 'rtags-references-tree-toggle-current-expanded)
   (evil-collection-define-key 'normal 'rtags-references-tree-mode-map
-    (kbd "<tab>") 'rtags-references-tree-toggle-current-expanded
-
     "E" 'rtags-references-tree-expand-all
     "c" 'rtags-references-tree-collapse-all
     "-" 'rtags-references-tree-collapse-current

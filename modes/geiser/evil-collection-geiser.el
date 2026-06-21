@@ -65,14 +65,14 @@
   (evil-collection-bind 'goto-repl 'geiser-doc-mode-map 'geiser-doc-switch-to-repl)
 
   (evil-collection-define-key 'normal 'geiser-doc-mode-map
-    (kbd "<tab>") 'forward-button
-    (kbd "<S-tab>") 'backward-button
     ">" 'geiser-doc-next
     "<" 'geiser-doc-previous
     "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
-  (evil-collection-bind 'next-item    'geiser-doc-mode-map 'forward-button)
-  (evil-collection-bind 'prev-item    'geiser-doc-mode-map 'backward-button)
+  (evil-collection-bind 'next-button     'geiser-doc-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'geiser-doc-mode-map 'backward-button)
+  (evil-collection-bind 'next-item       'geiser-doc-mode-map 'forward-button)
+  (evil-collection-bind 'prev-item       'geiser-doc-mode-map 'backward-button)
   (evil-collection-bind 'next-section 'geiser-doc-mode-map 'geiser-doc-next-section)
   (evil-collection-bind 'prev-section   'geiser-doc-mode-map 'geiser-doc-previous-section)
   (evil-collection-bind 'next-section-2 'geiser-doc-mode-map 'forward-button)

@@ -62,8 +62,6 @@
 
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "<tab>") 'shr-next-link
-    (kbd "<backtab>") 'shr-previous-link
 
     ;; bookmarks
     "gb" 'eww-list-bookmarks
@@ -84,6 +82,9 @@
 
   (evil-collection-define-operator-key 'yank 'eww-mode-map
     "u" 'eww-copy-page-url)
+
+  (evil-collection-bind 'cycle-next     'eww-mode-map 'shr-next-link)
+  (evil-collection-bind 'cycle-previous 'eww-mode-map 'shr-previous-link)
 
   (evil-collection-bind 'find-file 'eww-mode-map 'eww-view-source)
 

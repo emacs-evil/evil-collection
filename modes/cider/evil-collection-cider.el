@@ -164,8 +164,6 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     ;; goto
     "gd" 'cider-test-jump
 
-    (kbd "<backtab>") 'cider-test-previous-result
-    (kbd "<tab>") 'cider-test-next-result
     "t" 'cider-test-jump
     "d" 'cider-test-ediff
     "e" 'cider-test-stacktrace
@@ -173,9 +171,11 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "n" 'cider-test-run-ns-tests
     "L" 'cider-test-run-loaded-tests
     "p" 'cider-test-run-project-tests)
-  (evil-collection-bind 'action  'cider-test-report-mode-map 'cider-test-jump)
-  (evil-collection-bind 'quit    'cider-test-report-mode-map 'cider-popup-buffer-quit-function)
-  (evil-collection-bind 'refresh 'cider-test-report-mode-map 'cider-test-run-test)
+  (evil-collection-bind 'action         'cider-test-report-mode-map 'cider-test-jump)
+  (evil-collection-bind 'quit           'cider-test-report-mode-map 'cider-popup-buffer-quit-function)
+  (evil-collection-bind 'refresh        'cider-test-report-mode-map 'cider-test-run-test)
+  (evil-collection-bind 'cycle-next     'cider-test-report-mode-map 'cider-test-next-result)
+  (evil-collection-bind 'cycle-previous 'cider-test-report-mode-map 'cider-test-previous-result)
 
   (evil-collection-bind 'lookup-doc 'cider-macroexpansion-mode-map 'cider-doc)
 

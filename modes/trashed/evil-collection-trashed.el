@@ -40,8 +40,6 @@
     ;; motion
     (kbd "SPC") 'scroll-up-command
     (kbd "S-SPC") 'scroll-down-command
-    (kbd "<tab>") 'trashed-forward-column
-    (kbd "<backtab>") 'trashed-backward-column
 
     (kbd "gw") 'trashed-browse-url-of-file
     "S" 'tabulated-list-sort
@@ -77,8 +75,10 @@
   (evil-collection-bind 'action        'trashed-mode-map 'trashed-find-file)
   (evil-collection-bind 'action-other  'trashed-mode-map 'trashed-find-file-other-window)
   (evil-collection-bind 'action-stay   'trashed-mode-map 'trashed-display-file)
-  (evil-collection-bind 'describe-mode 'trashed-mode-map 'describe-mode)
-  (evil-collection-bind 'refresh       'trashed-mode-map 'revert-buffer))
+  (evil-collection-bind 'describe-mode  'trashed-mode-map 'describe-mode)
+  (evil-collection-bind 'refresh        'trashed-mode-map 'revert-buffer)
+  (evil-collection-bind 'cycle-next     'trashed-mode-map 'trashed-forward-column)
+  (evil-collection-bind 'cycle-previous 'trashed-mode-map 'trashed-backward-column))
 
 (provide 'evil-collection-trashed)
 ;;; evil-collection-trashed.el ends here

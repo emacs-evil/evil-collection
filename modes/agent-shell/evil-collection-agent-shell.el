@@ -145,9 +145,9 @@ KEY is a string passed to `kbd'."
       "!" evil-collection-agent-shell-permission-allow-always))
 
   (evil-collection-define-key 'normal 'agent-shell-mode-map
-    (kbd "TAB") 'agent-shell-next-item
-    "<backtab>" 'agent-shell-previous-item
     (kbd "C-<tab>") 'agent-shell-cycle-session-mode)
+  (evil-collection-bind 'cycle-next     'agent-shell-mode-map 'agent-shell-next-item)
+  (evil-collection-bind 'cycle-previous 'agent-shell-mode-map 'agent-shell-previous-item)
 
   (when evil-collection-want-g-bindings
     (evil-collection-define-key 'normal 'agent-shell-mode-map
@@ -192,9 +192,9 @@ KEY is a string passed to `kbd'."
     [remap evil-save-modified-and-close] 'agent-shell-viewport-interrupt
     [remap evil-ret] 'agent-shell-viewport-interrupt
     [remap evil-write] 'agent-shell-viewport-interrupt
-    [remap evil-quit] 'bury-buffer
-    (kbd "TAB") 'agent-shell-viewport-next-item
-    (kbd "<backtab>") 'agent-shell-viewport-previous-item)
+    [remap evil-quit] 'bury-buffer)
+  (evil-collection-bind 'cycle-next     'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-item)
+  (evil-collection-bind 'cycle-previous 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-item)
   (evil-collection-bind 'next-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-item)
   (evil-collection-bind 'prev-item    'agent-shell-viewport-view-mode-map 'agent-shell-viewport-previous-item)
   (evil-collection-bind 'next-section 'agent-shell-viewport-view-mode-map 'agent-shell-viewport-next-page)

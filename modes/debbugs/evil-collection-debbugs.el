@@ -37,10 +37,10 @@
   "Set up `evil' bindings for `debbugs-gnu-mode'."
   (evil-set-initial-state 'debbugs-gnu-mode 'normal)
 
+  (evil-collection-bind 'next-button     'debbugs-gnu-mode-map 'forward-button)
+  (evil-collection-bind 'previous-button 'debbugs-gnu-mode-map 'backward-button)
   (evil-collection-define-key 'normal 'debbugs-gnu-mode-map
     ;; motion
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
     (kbd "SPC") 'scroll-up-command
 
     "c" 'debbugs-gnu-send-control-message
