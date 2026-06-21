@@ -41,8 +41,8 @@
   ;; FIXME: Maybe we should bind this to something?
   ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
-    (kbd "TAB") 'deadgrep-toggle-file-results
     "i" 'deadgrep-edit-mode)
+  (evil-collection-bind 'section-toggle 'deadgrep-mode-map 'deadgrep-toggle-file-results)
   (evil-collection-bind 'action       'deadgrep-mode-map 'deadgrep-visit-result)
   (evil-collection-bind 'action-other 'deadgrep-mode-map 'deadgrep-visit-result-other-window)
   (evil-collection-bind 'next-item    'deadgrep-mode-map 'deadgrep-forward)
