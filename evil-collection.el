@@ -240,6 +240,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     ert
     eshell
     eval-sexp-fu
+    evil-ghostel
     evil-mc
     eww
     fanyi
@@ -492,6 +493,84 @@ newline regardless of state."
   :type '(choice (const :tag "Submit in normal state" normal)
                  (const :tag "Submit in insert state" insert))
   :group 'evil-collection)
+
+(defvar evil-collection-theme-defaults
+  '((term-toggle-escape :enabled t
+                        :state (normal insert)
+                        :key "C-c C-z"))
+  "Built-in entries for the evil-collection theme system.
+
+Each entry has the form (ID . PLIST) and may use:
+
+  :enabled  nil, t, or a function called with no args.  Missing
+            entries are treated as t.
+  :state    Evil state symbol or list of state symbols.  A
+            singular value is wrapped to a list at lookup.
+  :key      Key string (suitable for `kbd') or list of strings.
+
+Users customize via `evil-collection-theme-overrides'; do not
+modify this variable directly.")
+
+(defcustom evil-collection-theme-overrides nil
+  "User overrides merged onto `evil-collection-theme-defaults'.
+
+Same shape as `evil-collection-theme-defaults'.  Properties present
+here win per-property; properties omitted here fall through to the
+defaults.
+
+  (setq evil-collection-theme-overrides
+        \\='((term-toggle-escape :state normal :key \"C-c j\")))
+
+Use `:enabled nil' to disable a feature.  An explicit nil counts as
+\"set\", not \"absent\"."
+  :type '(alist :key-type symbol :value-type plist)
+  :group 'evil-collection)
+
+(defun evil-collection-theme--get (id prop)
+  "Resolve PROP for theme entry ID.
+
+Overrides win over defaults per-property.  Returns nil if neither
+side sets PROP."
+  (let ((over (cdr (assq id evil-collection-theme-overrides)))
+        (def  (cdr (assq id evil-collection-theme-defaults))))
+    (cond ((plist-member over prop) (plist-get over prop))
+          ((plist-member def prop)  (plist-get def prop)))))
+
+(defun evil-collection-theme--listify (v)
+  "Wrap V in a list unless it already is one.  Nil stays nil."
+  (cond ((null v) nil)
+        ((listp v) v)
+        (t (list v))))
+
+(defun evil-collection-theme-enabled-p (id)
+  "Return non-nil if theme entry ID is enabled.
+
+:enabled may be nil, t, or a function of no args.  Missing -> t."
+  (let* ((over (cdr (assq id evil-collection-theme-overrides)))
+         (def  (cdr (assq id evil-collection-theme-defaults)))
+         (v (cond ((plist-member over :enabled) (plist-get over :enabled))
+                  ((plist-member def :enabled)  (plist-get def :enabled))
+                  (t t))))
+    (if (functionp v) (funcall v) v)))
+
+(defun evil-collection-theme-states (id)
+  "Return list of evil states configured for theme entry ID."
+  (evil-collection-theme--listify (evil-collection-theme--get id :state)))
+
+(defun evil-collection-theme-keys (id)
+  "Return list of key strings configured for theme entry ID."
+  (evil-collection-theme--listify (evil-collection-theme--get id :key)))
+
+(defun evil-collection-theme-bind (id map-sym command)
+  "Bind theme entry ID in MAP-SYM to COMMAND.
+
+Does nothing when ID is disabled.  Each key in the entry's :key
+list is bound across every state in :state."
+  (when (evil-collection-theme-enabled-p id)
+    (let ((states (evil-collection-theme-states id)))
+      (dolist (key (evil-collection-theme-keys id))
+        (evil-collection-define-key states map-sym
+          (kbd key) command)))))
 
 (defvar evil-collection-setup-hook nil
   "Hook run by `evil-collection-init' for each mode that is evilified.

@@ -245,9 +245,9 @@ But don't allow the cursor to move bellow the last prompt line."
 
   (add-hook 'vterm-mode-hook #'evil-collection-vterm-escape-stay)
 
-  ;; Open to a better binding...
-  (evil-collection-define-key '(normal insert) 'vterm-mode-map
-    (kbd "C-c C-z") 'evil-collection-vterm-toggle-send-escape)
+  (evil-collection-theme-bind 'term-toggle-escape
+                              'vterm-mode-map
+                              'evil-collection-vterm-toggle-send-escape)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal
   ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).
