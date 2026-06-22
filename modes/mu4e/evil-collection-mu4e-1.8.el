@@ -131,7 +131,6 @@ with older release versions of `mu4e.'"
      "j" next-line
      "k" previous-line
      "u" mu4e-update-mail-and-index
-     "gr" revert-buffer
      "b" mu4e-search-bookmark
      "B" mu4e-search-bookmark-edit
      "N" mu4e-news
@@ -160,7 +159,6 @@ with older release versions of `mu4e.'"
      "o" mu4e-headers-change-sorting
      "j" mu4e-headers-next
      "k" mu4e-headers-prev
-     "gr" mu4e-search-rerun
      "b" mu4e-search-bookmark
      "B" mu4e-search-bookmark-edit
      ";" mu4e-context-switch
@@ -197,9 +195,7 @@ with older release versions of `mu4e.'"
      "gg" mu4e-compose-goto-top
      "G" mu4e-compose-goto-bottom
      "ZD" message-dont-send
-     "ZF" mml-attach-file
-     "ZQ" mu4e-message-kill-buffer
-     "ZZ" message-send-and-exit)
+     "ZF" mml-attach-file)
 
     (mu4e-view-mode-map
      " " mu4e-view-scroll-up-or-next
@@ -290,6 +286,12 @@ with older release versions of `mu4e.'"
                         'next-section-2 'mu4e-headers-next
                         'prev-section-2 'mu4e-headers-prev
                         'action 'mu4e-headers-view-message)
+
+  (evil-collection-bind 'mu4e-main-mode-map 'refresh 'revert-buffer)
+  (evil-collection-bind 'mu4e-headers-mode-map 'refresh 'mu4e-search-rerun)
+  (evil-collection-bind 'mu4e-compose-mode-map
+                        'quit-save 'message-send-and-exit
+                        'quit-cancel 'mu4e-message-kill-buffer)
 
   (evil-collection-bind 'mu4e-view-mode-map
                         'cycle-next 'shr-next-link

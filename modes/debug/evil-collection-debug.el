@@ -61,17 +61,15 @@
           'backtrace-toggle-locals)
 
     "zo" 'backtrace-multi-line
-    "zc" 'backtrace-single-line
-    
-    ;; quit
-    "ZQ" 'evil-quit
-    "ZZ" 'top-level)
+    "zc" 'backtrace-single-line)
   (evil-collection-bind 'debugger-mode-map          'action
                         (if (fboundp 'debug-help-follow)
                             'debug-help-follow
                           'backtrace-help-follow-symbol))
   (evil-collection-bind 'debugger-mode-map
                         'quit 'top-level
+                        'quit-save 'top-level
+                        'quit-cancel 'evil-quit
                         'debug-continue 'debugger-continue
                         'debug-eval 'debugger-eval-expression)
   (evil-collection-bind 'debugger-mode-map    'debug-locals

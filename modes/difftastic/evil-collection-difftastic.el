@@ -40,8 +40,7 @@
     "zc" 'difftastic-hide-chunk
     "zo" 'difftastic-show-chunk
     (kbd "TAB") 'difftastic-toggle-chunk
-    "o" 'difftastic-diff-visit-worktree-file
-    "ZQ" 'difftastic-quit)
+    "o" 'difftastic-diff-visit-worktree-file)
   (evil-collection-bind 'difftastic-mode-map
                         'action 'difftastic-diff-visit-file
                         'next-item 'difftastic-next-chunk
@@ -51,6 +50,8 @@
                         'next-section-2 'difftastic-next-chunk
                         'prev-section-2 'difftastic-previous-chunk
                         'quit 'difftastic-leave
+                        'quit-save 'difftastic-quit
+                        'quit-cancel 'difftastic-quit
                         'refresh 'difftastic-rerun))
 
 (provide 'evil-collection-difftastic)

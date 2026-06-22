@@ -129,8 +129,8 @@
                         'quit-cancel 'dape-info-watch-abort-changes)
 
   (evil-collection-define-key 'normal 'dape-memory-mode-map
-    [remap evil-write] 'save-buffer
-    "ZZ" 'save-buffer)
+    [remap evil-write] 'save-buffer)
+  (evil-collection-bind 'dape-memory-mode-map 'quit-save 'save-buffer)
 
   ;; Dape debug commands available in every info buffer (and memory).
   ;; In scope/watch, the original `b' (data-breakpoint) and watch's `i'

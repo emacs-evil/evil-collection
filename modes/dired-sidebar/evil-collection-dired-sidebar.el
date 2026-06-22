@@ -39,12 +39,13 @@
   (evil-collection-define-key 'normal 'dired-sidebar-mode-map
     "^" 'dired-sidebar-up-directory
     "-" 'dired-sidebar-up-directory
-    [mouse-2] 'dired-sidebar-mouse-subtree-cycle-or-find-file
-    "ZZ" 'quit-window)
+    [mouse-2] 'dired-sidebar-mouse-subtree-cycle-or-find-file)
   (evil-collection-bind 'dired-sidebar-mode-map
                         'section-toggle 'dired-sidebar-subtree-toggle
                         'action 'dired-sidebar-find-file
-                        'action-other 'dired-sidebar-find-file-alt))
+                        'action-other 'dired-sidebar-find-file-alt
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window))
 
 (provide 'evil-collection-dired-sidebar)
 ;;; evil-collection-dired-sidebar.el ends here

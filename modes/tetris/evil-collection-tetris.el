@@ -46,10 +46,11 @@
     "G" 'tetris-move-bottom
     "gr" 'tetris-start-game
     (kbd "TAB") 'tetris-move-bottom
-    "p" 'tetris-pause-game
-    "ZQ" 'quit-window
-    "ZZ" 'tetris-end-game)
-  (evil-collection-bind 'tetris-mode-map 'quit 'quit-window))
+    "p" 'tetris-pause-game)
+  (evil-collection-bind 'tetris-mode-map
+                        'quit 'quit-window
+                        'quit-save 'tetris-end-game
+                        'quit-cancel 'quit-window))
 
 (provide 'evil-collection-tetris)
 ;;; evil-collection-tetris.el ends here

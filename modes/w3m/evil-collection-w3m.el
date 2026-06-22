@@ -58,11 +58,7 @@
     ;; bookmarks
     "gb" 'w3m-bookmark-view
     "gB" 'w3m-bookmark-view-new-session
-    "a" 'w3m-bookmark-add-current-url
-
-    ;; quit
-    "ZQ" 'w3m-quit
-    "ZZ" 'quit-window)
+    "a" 'w3m-bookmark-add-current-url)
   (evil-collection-bind 'w3m-mode-map
                         'scroll-down 'w3m-scroll-up-or-next-url
                         'scroll-up 'w3m-scroll-down-or-previous-url
@@ -72,6 +68,8 @@
                         'next-section 'w3m-next-form
                         'prev-section 'w3m-previous-form
                         'quit 'w3m-close-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'w3m-quit
                         'refresh 'w3m-reload-this-page
                         'refresh-all 'w3m-reload-all-pages)
 

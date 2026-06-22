@@ -41,10 +41,11 @@
     "j" 'snake-move-down
     "k" 'snake-move-up
     "gr" 'snake-start-game
-    "p" 'snake-pause-game
-    "ZQ" 'quit-window
-    "ZZ" 'snake-end-game)
-  (evil-collection-bind 'snake-mode-map 'quit 'quit-window))
+    "p" 'snake-pause-game)
+  (evil-collection-bind 'snake-mode-map
+                        'quit 'quit-window
+                        'quit-save 'snake-end-game
+                        'quit-cancel 'quit-window))
 
 (provide 'evil-collection-snake)
 ;;; evil-collection-snake.el ends here

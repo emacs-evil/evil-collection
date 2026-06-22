@@ -50,11 +50,7 @@
     ;; filter
     "s" 'elfeed-search-live-filter
     "S" 'elfeed-search-set-filter
-    "c" 'elfeed-search-clear-filter
-
-    ;; quit -- `q'/`ZZ' default to `quit-window' via
-    ;; `evil-collection-set-readonly-bindings'.
-    "ZQ" 'quit-window)
+    "c" 'elfeed-search-clear-filter)
 
   (evil-collection-bind 'elfeed-search-mode-map
                         'scroll-down 'scroll-up-command
@@ -62,7 +58,9 @@
                         'action 'elfeed-search-show-entry
                         'action-other 'elfeed-search-browse-url
                         'refresh-all 'elfeed-search-fetch
-                        'refresh 'revert-buffer)
+                        'refresh 'revert-buffer
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window)
 
   ;; Refresh fallback for elfeed before commit 518e5bd3, where
   ;; `revert-buffer-function' is not wired up.

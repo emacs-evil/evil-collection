@@ -73,11 +73,13 @@ Note that there is no gnus-common-mode-map")
                         'action 'gnus-summary-scroll-up
                         'cycle-next 'gnus-summary-widget-forward
                         'cycle-previous 'gnus-summary-widget-backward)
+  (evil-collection-bind 'gnus-summary-mode-map
+                        'quit-save 'gnus-summary-exit
+                        'quit-cancel 'gnus-summary-exit-no-update)
+
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
-    "ZQ"        'gnus-summary-exit-no-update
-    "ZZ"        'gnus-summary-exit
 
     "g?"        'gnus-summary-help-map
 
@@ -245,12 +247,13 @@ Note that there is no gnus-common-mode-map")
     "F"         'gnus-article-followup-with-original
     "R"         'gnus-article-reply-with-original
     "W"         'gnus-article-wide-reply-with-original)
-  (evil-collection-bind 'gnus-article-mode-map 'quit 'evil-window-delete)
+  (evil-collection-bind 'gnus-article-mode-map
+                        'quit 'evil-window-delete
+                        'quit-save 'evil-window-delete
+                        'quit-cancel 'evil-window-delete)
   (evil-collection-define-key 'normal 'gnus-article-mode-map
     ;; quit
     "Q"         'evil-window-delete
-    "ZQ"        'evil-window-delete
-    "ZZ"        'evil-window-delete
 
     ;; Movement
     (kbd "SPC") 'gnus-article-goto-next-page
@@ -321,6 +324,8 @@ Note that there is no gnus-common-mode-map")
 
   (evil-collection-bind 'gnus-group-mode-map
                         'quit 'gnus-group-exit
+                        'quit-save 'gnus-group-exit
+                        'quit-cancel 'gnus-group-quit
                         'refresh 'gnus-group-get-new-news-this-group
                         'refresh-all 'gnus-group-get-new-news
                         'action 'gnus-group-select-group
@@ -328,8 +333,6 @@ Note that there is no gnus-common-mode-map")
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
     "Q"         'gnus-group-quit
-    "ZQ"        'gnus-group-quit
-    "ZZ"        'gnus-group-exit
 
     ;; Composing, like mu4e
     "C"         'gnus-group-mail
@@ -431,13 +434,13 @@ Note that there is no gnus-common-mode-map")
 
   (evil-collection-bind 'gnus-server-mode-map
                         'quit 'gnus-server-exit
+                        'quit-save 'gnus-server-exit
+                        'quit-cancel 'gnus-server-exit
                         'refresh 'gnus-server-regenerate-server
                         'action 'gnus-server-read-server)
   (evil-collection-define-key 'normal 'gnus-server-mode-map
     ;; quit
     "Q"         'gnus-server-exit
-    "ZQ"        'gnus-server-exit
-    "ZZ"        'gnus-server-exit
 
     (kbd "SPC") 'gnus-server-read-server-in-server-buffer
     "C"         'gnus-server-close-server
@@ -461,24 +464,24 @@ Note that there is no gnus-common-mode-map")
 
   (evil-collection-bind 'gnus-browse-mode-map
                         'quit 'gnus-browse-exit
+                        'quit-save 'gnus-browse-exit
+                        'quit-cancel 'gnus-browse-exit
                         'action 'gnus-browse-select-group)
   (evil-collection-define-key 'normal 'gnus-browse-mode-map
     ;; quit
     "Q"         'gnus-browse-exit
-    "ZQ"        'gnus-browse-exit
-    "ZZ"        'gnus-browse-exit
 
     "u" 'gnus-browse-unsubscribe-current-group
     (kbd "SPC") 'gnus-browse-read-group)
 
   (evil-collection-bind 'gnus-bookmark-bmenu-mode-map
                         'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window
                         'action 'gnus-bookmark-bmenu-select)
   (evil-collection-define-key 'normal 'gnus-bookmark-bmenu-mode-map
     ;; quit
     "Q"         'quit-window
-    "ZQ"        'quit-window
-    "ZZ"        'quit-window
 
     ;; mark and execution
     (kbd "DEL") 'gnus-bookmark-bmenu-backup-unmark

@@ -48,7 +48,6 @@
                    :dir-fn 'neo-open-dir)
     "z" (neotree-make-executor
          :dir-fn 'neo-open-dir)
-    "ZZ" 'quit-window
     "gd" (neotree-make-executor
           :dir-fn 'neo-open-dired)
     "gD" (neotree-make-executor
@@ -96,6 +95,8 @@
                         'next-section 'neotree-select-down-node
                         'prev-section 'neotree-select-up-node
                         'quit 'neotree-hide
+                        'quit-save 'quit-window
+                        'quit-cancel 'quit-window
                         'refresh 'neotree-refresh
                         'delete 'neotree-delete-node))
 

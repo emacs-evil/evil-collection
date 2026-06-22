@@ -48,11 +48,11 @@
     "f" 'crdt-follow-user)
   (evil-collection-bind 'crdt-user-menu-mode-map 'action 'crdt-goto-user)
 
-  (evil-collection-define-key 'normal 'crdt-read-settings-map
-    "ZZ" 'exit-recursive-edit)
   (evil-collection-bind 'crdt-read-settings-map
                         'action 'exit-recursive-edit
-                        'quit 'abort-recursive-edit))
+                        'quit 'exit-recursive-edit
+                        'quit-save 'exit-recursive-edit
+                        'quit-cancel 'abort-recursive-edit))
 
 (provide 'evil-collection-crdt)
 ;;; evil-collection-crdt.el ends here

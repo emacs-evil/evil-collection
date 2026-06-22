@@ -145,7 +145,6 @@ end of the buffer."
        "j" next-line
        "k" previous-line
        "u" mu4e-update-mail-and-index
-       "gr" revert-buffer
        "b" mu4e-search-bookmark
        "B" mu4e-search-bookmark-edit
        "N" mu4e-news
@@ -177,7 +176,6 @@ end of the buffer."
        "o" mu4e-headers-change-sorting
        "j" mu4e-headers-next
        "k" mu4e-headers-prev
-       "gr" mu4e-search-rerun
        "b" mu4e-search-bookmark
        "B" mu4e-search-bookmark-edit
        ";" mu4e-context-switch
@@ -216,9 +214,7 @@ end of the buffer."
        "gg" mu4e-compose-goto-top
        "G" mu4e-compose-goto-bottom
        "ZD" message-dont-send
-       "ZF" mml-attach-file
-       "ZQ" ,(function-get 'mu4e-user-agent 'abortfunc)
-       "ZZ" ,(function-get 'mu4e-user-agent 'sendfunc))
+       "ZF" mml-attach-file)
 
       (mu4e-search-minor-mode-map
        "J" mu4e-search-maildir)
@@ -316,6 +312,12 @@ end of the buffer."
                           'prev-section-2 'mu4e-headers-prev
                           'action 'mu4e-headers-view-message)
     (evil-collection-bind 'mu4e-thread-mode-map 'section-toggle 'mu4e-thread-fold-toggle)
+
+    (evil-collection-bind 'mu4e-main-mode-map 'refresh 'revert-buffer)
+    (evil-collection-bind 'mu4e-headers-mode-map 'refresh 'mu4e-search-rerun)
+    (evil-collection-bind 'mu4e-compose-mode-map
+                          'quit-save (function-get 'mu4e-user-agent 'sendfunc)
+                          'quit-cancel (function-get 'mu4e-user-agent 'abortfunc))
 
     (evil-collection-bind 'mu4e-view-mode-map
                           'next-button 'forward-button

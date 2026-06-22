@@ -91,8 +91,6 @@
     (kbd "SPC") 'org-agenda-show
 
     ;; Quit / refresh
-    "ZZ" 'org-agenda-quit
-    "ZQ" 'org-agenda-exit
     "x" 'org-agenda-exit
     "S" 'org-save-all-org-buffers
 
@@ -137,6 +135,8 @@
                         'next-section-2 'org-agenda-next-item
                         'prev-section-2 'org-agenda-previous-item
                         'quit 'org-agenda-quit
+                        'quit-save 'org-agenda-quit
+                        'quit-cancel 'org-agenda-exit
                         'delete 'org-agenda-kill
                         'refresh 'org-agenda-redo
                         'refresh-all 'org-agenda-redo-all
