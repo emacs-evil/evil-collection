@@ -142,6 +142,7 @@
     "B" nil
     "K" nil
     (kbd "DEL") nil
+    "i" nil
 
     "g?" 'telega-describe-user
     "m" 'telega-user-chat-with
@@ -161,6 +162,9 @@
     "^" nil
     (kbd "DEL") nil
     "*" nil
+    "B" nil
+    "L" nil
+    "T" nil
 
     "D" 'telega-msg-delete-dwim
     "dd" 'telega-msg-delete-dwim
@@ -177,7 +181,9 @@
     "Zl" 'telega-msg-copy-link
     "ds" 'telega-msg-ban-sender
     "ZL" 'telega-msg-redisplay
-    "P" 'telega-msg-pin-toggle
+    "P" (if (fboundp 'telega-transient-msg-pin-toggle)
+            'telega-transient-msg-pin-toggle
+          'telega-msg-pin-toggle)
     "ZR" 'telega-msg-resend
     "S" 'telega-msg-save
     "u" 'telega-msg-unmark
@@ -188,6 +194,7 @@
   (evil-collection-set-readonly-bindings 'telega-chat-button-map)
   (evil-collection-define-key nil 'telega-chat-button-map
     "i" nil
+    "h" nil
     "d" nil
     "^" nil
     (kbd "DEL") nil
