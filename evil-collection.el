@@ -792,6 +792,26 @@ Like `evil-collection-bind' but routes through
                  (cl-mapcan (lambda (key) (list (kbd key) command))
                             keys)))))))
 
+(defun evil-collection--keys-conflict (key-a key-b)
+  "Return t if KEY-A and KEY-B conflict.
+Keys conflict if they're equal or if one is a prefix of the other."
+  (setq key-a (vconcat key-a)
+        key-b (vconcat key-b))
+  (let ((len (min (length key-a) (length key-b))))
+    (equal (substring key-a 0 len) (substring key-b 0 len))))
+
+(defsubst evil-collection--can-bind-key (key whitelist blacklist)
+  "Return t if KEY can be bound.
+Return nil if KEY conflicts with a key in BLACKLIST and is not
+a member of WHITELIST.
+
+Both WHITELIST and BLACKLIST must be lists of keys in Emacs'
+internal key representation (i.e., after calling `kbd' on the key
+description."
+  (or (member key whitelist)
+      (not (cl-member key blacklist
+                      :test #'evil-collection--keys-conflict))))
+
 (defun evil-collection-bind-local (id command)
   "Bind theme entry ID to COMMAND in the current buffer.
 
@@ -893,26 +913,6 @@ means all states for `evil-define-key', return nil."
          (seq-intersection states evil-collection-state-passlist)
        states)
      evil-collection-state-denylist)))
-
-(defun evil-collection--keys-conflict (key-a key-b)
-  "Return t if KEY-A and KEY-B conflict.
-Keys conflict if they're equal or if one is a prefix of the other."
-  (setq key-a (vconcat key-a)
-        key-b (vconcat key-b))
-  (let ((len (min (length key-a) (length key-b))))
-    (equal (substring key-a 0 len) (substring key-b 0 len))))
-
-(defsubst evil-collection--can-bind-key (key whitelist blacklist)
-  "Return t if KEY can be bound.
-Return nil if KEY conflicts with a key in BLACKLIST and is not
-a member of WHITELIST.
-
-Both WHITELIST and BLACKLIST must be lists of keys in Emacs'
-internal key representation (i.e., after calling `kbd' on the key
-description."
-  (or (member key whitelist)
-      (not (cl-member key blacklist
-                      :test #'evil-collection--keys-conflict))))
 
 (defun evil-collection-define-key (state map-sym &rest bindings)
   "Wrapper for `evil-define-key*' with additional features.

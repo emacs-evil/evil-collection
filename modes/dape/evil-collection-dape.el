@@ -39,6 +39,8 @@
 (defvar dape-info-watch-edit-mode-map)
 (defvar dape-memory-mode-map)
 
+(declare-function dape-info-buffer-tab "dape")
+
 (defconst evil-collection-dape--info-mode-maps '(dape-info-scope-mode-map
                                                  dape-info-watch-mode-map
                                                  dape-info-stack-mode-map
