@@ -54,19 +54,18 @@
                         'action-stay 'xref-show-location-at-point
                         'next-item 'xref-next-line
                         'prev-item 'xref-prev-line
-                        'next-section 'xref-next-line
-                        'prev-section 'xref-prev-line)
+                        'next-section-2 'xref-next-line
+                        'prev-section-2 'xref-prev-line)
 
   (when (>= emacs-major-version 27)
     (evil-collection-bind 'xref--xref-buffer-mode-map 'refresh 'xref-revert-buffer))
 
   (when (>= emacs-major-version 28)
-    ;; Override `]]'/`[[' to navigate by group; keep `C-j'/`C-k' on lines.
-    (evil-collection-define-key 'normal 'xref--xref-buffer-mode-map
-      "[[" 'xref-prev-group
-      "]]" 'xref-next-group
-      (kbd "C-j") 'xref-next-line
-      (kbd "C-k") 'xref-prev-line))
+    ;; `]]'/`[[' navigate by group; line navigation lives on `gj'/`gk'
+    ;; and `C-j'/`C-k' via the `next-item' / `next-section-2' themes.
+    (evil-collection-bind 'xref--xref-buffer-mode-map
+                          'next-section 'xref-next-group
+                          'prev-section 'xref-prev-group))
 
   (when (>= emacs-major-version 27)
     (evil-set-initial-state 'xref--transient-buffer-mode 'normal)

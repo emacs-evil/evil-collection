@@ -49,9 +49,10 @@
     "F"   'bufler-list-group-make-frame
     "r"   'bufler-list-buffer-name-workspace
     "D"   'bufler-list-buffer-kill
-    "w"   'bufler-list-buffer-save
-    "J"   'bufler-list-buffer-peek)
-  (evil-collection-bind 'bufler-list-mode-map 'action 'bufler-list-buffer-switch))
+    "w"   'bufler-list-buffer-save)
+  (evil-collection-bind 'bufler-list-mode-map
+                        'action 'bufler-list-buffer-switch
+                        'jump 'bufler-list-buffer-peek))
 
 (provide 'evil-collection-bufler)
 ;;; evil-collection-bufler.el ends here

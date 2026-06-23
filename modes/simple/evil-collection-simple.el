@@ -40,10 +40,10 @@
   (evil-collection-set-readonly-bindings 'special-mode-map)
   (evil-collection-define-key nil 'special-mode-map
     "g" nil
-    "gr" 'revert-buffer
     "h" nil
     "?" nil
-    "0" nil))
+    "0" nil)
+  (evil-collection-bind 'special-mode-map 'refresh 'revert-buffer))
 
 (provide 'evil-collection-simple)
 ;;; evil-collection-simple.el ends here

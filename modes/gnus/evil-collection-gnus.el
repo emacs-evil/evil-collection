@@ -75,13 +75,12 @@ Note that there is no gnus-common-mode-map")
                         'cycle-previous 'gnus-summary-widget-backward)
   (evil-collection-bind 'gnus-summary-mode-map
                         'quit-save 'gnus-summary-exit
-                        'quit-cancel 'gnus-summary-exit-no-update)
+                        'quit-cancel 'gnus-summary-exit-no-update
+                        'describe-mode 'gnus-summary-help-map)
 
   (evil-collection-define-key 'normal 'gnus-summary-mode-map
     ;; quit
     "Q"         'gnus-summary-exit-no-update
-
-    "g?"        'gnus-summary-help-map
 
     ;; motion
     (kbd "<delete>") 'gnus-summary-prev-page
@@ -329,7 +328,8 @@ Note that there is no gnus-common-mode-map")
                         'refresh 'gnus-group-get-new-news-this-group
                         'refresh-all 'gnus-group-get-new-news
                         'action 'gnus-group-select-group
-                        'jump 'gnus-group-jump-to-group)
+                        'jump 'gnus-group-jump-to-group
+                        'describe-mode 'gnus-group-help-map)
   (evil-collection-define-key 'normal 'gnus-group-mode-map
     ;; quit
     "Q"         'gnus-group-quit
@@ -422,8 +422,7 @@ Note that there is no gnus-common-mode-map")
     "^"         'gnus-group-enter-server-mode
 
     (kbd "DEL") 'gnus-group-prev-unread-group
-    [mouse-2]   'gnus-mouse-pick-group
-    "g?"        'gnus-group-help-map)
+    [mouse-2]   'gnus-mouse-pick-group)
   (evil-collection-bind 'gnus-group-mode-map
                         'next-item 'gnus-group-next-unread-group
                         'prev-item 'gnus-group-prev-unread-group

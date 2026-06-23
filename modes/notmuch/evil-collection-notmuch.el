@@ -142,12 +142,12 @@ that moves trashed messages out of the inbox)."
     "S" 'notmuch-tree
     "C" 'notmuch-mua-new-mail           ; like mu4e
     "cc" 'notmuch-mua-new-mail          ; like mu4e
-    "gA" 'notmuch-refresh-all-buffers
-    "J" 'notmuch-jump-search)
+    "gA" 'notmuch-refresh-all-buffers)
   (evil-collection-bind 'notmuch-common-keymap
                         'quit 'notmuch-bury-or-kill-this-buffer
                         'refresh 'notmuch-refresh-this-buffer
-                        'refresh-all 'notmuch-poll-and-refresh-this-buffer)
+                        'refresh-all 'notmuch-poll-and-refresh-this-buffer
+                        'jump 'notmuch-jump-search)
   (evil-collection-bind 'notmuch-hello-mode-map
                         'describe-mode 'notmuch-version
                         'cycle-next 'widget-forward
@@ -189,13 +189,14 @@ that moves trashed messages out of the inbox)."
                         'prev-section 'notmuch-show-previous-message
                         'find-definition 'goto-address-at-point)
 
-  (evil-collection-bind 'notmuch-tree-mode-map 'describe-mode 'notmuch-help)
+  (evil-collection-bind 'notmuch-tree-mode-map
+                        'describe-mode 'notmuch-help
+                        'jump 'notmuch-jump-search)
 
   (evil-collection-define-key 'normal 'notmuch-tree-mode-map
     "S" 'notmuch-tree-to-search
     "C" 'notmuch-mua-new-mail ; like mu4e
     "cc" 'notmuch-mua-new-mail ; like mu4e
-    "J" 'notmuch-jump-search
     "zv" 'notmuch-search-from-tree-current-query ; like mu4e-conversation
     "cr" 'notmuch-show-reply-sender ; like mu4e
     "cR" 'notmuch-show-reply
@@ -222,10 +223,11 @@ that moves trashed messages out of the inbox)."
                         'prev-section-2 'notmuch-tree-prev-thread
                         'quit 'notmuch-tree-quit)
 
+  (evil-collection-bind 'notmuch-search-mode-map 'jump 'notmuch-jump-search)
+
   (dolist (state '(normal visual))
     (evil-collection-define-key state 'notmuch-search-mode-map
       "cC" 'compose-mail-other-frame
-      "J" 'notmuch-jump-search
       "S" 'notmuch-search-filter
       "K" 'notmuch-tag-jump
       "o" 'notmuch-search-toggle-order

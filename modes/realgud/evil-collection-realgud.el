@@ -72,7 +72,6 @@
     "7" 'realgud:goto-loc-hist-7
     "8" 'realgud:goto-loc-hist-8
     "9" 'realgud:goto-loc-hist-9
-    "J" 'realgud:cmd-jump
     "E" 'realgud:cmd-eval-at-point
     "U" 'realgud:cmd-until
     "H" 'realgud:cmd-until-here
@@ -96,7 +95,8 @@
                         'debug-eval 'realgud:cmd-eval-dwim
                         'debug-restart 'realgud:cmd-restart
                         'debug-frame-up 'realgud:cmd-older-frame
-                        'debug-frame-down 'realgud:cmd-newer-frame)
+                        'debug-frame-down 'realgud:cmd-newer-frame
+                        'jump 'realgud:cmd-jump)
 
   (add-hook 'realgud-short-key-mode-hook #'evil-normalize-keymaps))
 

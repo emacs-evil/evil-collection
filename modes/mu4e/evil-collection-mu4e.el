@@ -157,11 +157,9 @@ end of the buffer."
        "f" smtpmail-send-queued-mail
        "m" mu4e--main-toggle-mail-sending-mode
        "s" mu4e-search
-       "q" mu4e-quit
        "Q" mu4e-search-query)
 
       (mu4e-headers-mode-map
-       "q" mu4e~headers-quit-buffer
        "J" mu4e~headers-jump-to-maildir
        "C" mu4e-compose-new
        "E" mu4e-compose-edit
@@ -226,7 +224,6 @@ end of the buffer."
 
       (mu4e-view-mode-map
        " " mu4e-view-scroll-up-or-next
-       "q" mu4e-view-quit
        "gX" mu4e-view-fetch-url
        "C" mu4e-compose-new
        "H" mu4e-view-toggle-html
@@ -313,8 +310,12 @@ end of the buffer."
                           'action 'mu4e-headers-view-message)
     (evil-collection-bind 'mu4e-thread-mode-map 'section-toggle 'mu4e-thread-fold-toggle)
 
-    (evil-collection-bind 'mu4e-main-mode-map 'refresh 'revert-buffer)
-    (evil-collection-bind 'mu4e-headers-mode-map 'refresh 'mu4e-search-rerun)
+    (evil-collection-bind 'mu4e-main-mode-map
+                          'refresh 'revert-buffer
+                          'quit 'mu4e-quit)
+    (evil-collection-bind 'mu4e-headers-mode-map
+                          'refresh 'mu4e-search-rerun
+                          'quit 'mu4e~headers-quit-buffer)
     (evil-collection-bind 'mu4e-compose-mode-map
                           'quit-save (function-get 'mu4e-user-agent 'sendfunc)
                           'quit-cancel (function-get 'mu4e-user-agent 'abortfunc))
@@ -328,7 +329,8 @@ end of the buffer."
                           'prev-section 'mu4e-view-headers-prev-unread
                           'next-section-2 'mu4e-view-headers-next
                           'prev-section-2 'mu4e-view-headers-prev
-                          'browse-url 'mu4e-view-go-to-url)
+                          'browse-url 'mu4e-view-go-to-url
+                          'quit 'mu4e-view-quit)
 
     ;; yu
     (evil-collection-define-operator-key 'yank 'mu4e-view-mode-map

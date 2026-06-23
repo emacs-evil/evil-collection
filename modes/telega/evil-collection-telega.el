@@ -82,14 +82,15 @@
 
     "Q" 'telega-kill
 
-    "g?" telega-describe-map
     "gO" telega-folder-map
     "gC" telega-voip-map
     "gV" telega-root-view-map
     "J" telega-root-fastnav-map
 
     "gs" 'telega-view-search)
-  (evil-collection-bind 'telega-root-mode-map 'quit 'bury-buffer)
+  (evil-collection-bind 'telega-root-mode-map
+                        'quit 'bury-buffer
+                        'describe-mode telega-describe-map)
 
   (evil-collection-define-key 'normal 'telega-chat-mode-map
     "ga" telega-prefix-map
@@ -144,9 +145,10 @@
     (kbd "DEL") nil
     "i" nil
 
-    "g?" 'telega-describe-user
     "m" 'telega-user-chat-with
     "D" 'telega-user-block)
+  (evil-collection-bind 'telega-user-button-map
+                        'describe-mode 'telega-describe-user)
 
   (evil-collection-set-readonly-bindings 'telega-msg-button-map)
   (evil-collection-define-key nil 'telega-msg-button-map
@@ -169,13 +171,11 @@
     "D" 'telega-msg-delete-dwim
     "dd" 'telega-msg-delete-dwim
     "i" 'telega-msg-edit
-    "g?" 'telega-describe-message
     "a" 'telega-msg-mark-toggle
     (kbd "<tab>") 'telega-button-forward
     (kbd "<backtab>") 'telega-button-backward
     "R" 'telega-msg-forward-dwim
     "r" 'telega-msg-reply
-    "gr" 'telega-msg-open-thread-or-topic
 
     "Zy" 'telega-msg-copy-text
     "Zl" 'telega-msg-copy-link
@@ -190,6 +190,9 @@
     "U" 'telega-chatbuf-msg-marks-toggle
     "=" 'telega-msg-diff-edits
     "s" 'telega-msg-favorite-toggle)
+  (evil-collection-bind 'telega-msg-button-map
+                        'refresh 'telega-msg-open-thread-or-topic
+                        'describe-mode 'telega-describe-message)
 
   (evil-collection-set-readonly-bindings 'telega-chat-button-map)
   (evil-collection-define-key nil 'telega-chat-button-map
@@ -199,13 +202,14 @@
     "^" nil
     (kbd "DEL") nil
 
-    "g?" 'telega-describe-chat
     "a" 'telega-chat-add-member
     "o" 'telega-chat-set-custom-order
     "r" 'telega-chat-toggle-read
     "P" 'telega-chat-toggle-pin
     "C" 'telega-chat-call
     "D" 'telega-chat-delete)
+  (evil-collection-bind 'telega-chat-button-map
+                        'describe-mode 'telega-describe-chat)
 
   (evil-collection-set-readonly-bindings 'telega-sticker-button-map)
   (evil-collection-define-key nil 'telega-sticker-button-map
@@ -214,8 +218,9 @@
     "i" nil
     "h" nil
 
-    "t" 'telega-sticker-toggle-favorite
-    "g?" 'telega-sticker-help))
+    "t" 'telega-sticker-toggle-favorite)
+  (evil-collection-bind 'telega-sticker-button-map
+                        'describe-mode 'telega-sticker-help))
 
 (provide 'evil-collection-telega)
 ;;; evil-collection-telega.el ends here

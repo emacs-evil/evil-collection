@@ -117,7 +117,6 @@
     "a" 'dired-find-alternate-file
     "i" 'dired-toggle-read-only
     "I" 'dired-maybe-insert-subdir
-    "J" 'dired-goto-file
     "K" 'dired-do-kill-lines
     "r" 'dired-do-redisplay
     "t" 'dired-toggle-marks
@@ -167,6 +166,7 @@
                         'find-file 'dired-find-file
                         'describe-mode 'dired-summary
                         'refresh 'revert-buffer
+                        'jump 'dired-goto-file
                         'browse-url 'browse-url-of-dired-file)
 
   (evil-collection-define-key 'normal 'dired-mode-map

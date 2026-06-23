@@ -123,7 +123,6 @@
     "a" 'calendar-list-holidays
     "r" 'calendar-cursor-holidays
 
-    "g?" 'calendar-goto-info-node
     "?" 'calendar-goto-info-node ; Search is not very useful.
     (kbd "M-=") 'calendar-count-days-region)
   (evil-collection-bind 'calendar-mode-map
@@ -137,7 +136,8 @@
                         'quit-save 'calendar-exit
                         'quit-cancel 'evil-quit
                         'refresh 'calendar-redraw
-                        'find-definition 'calendar-goto-date))
+                        'find-definition 'calendar-goto-date
+                        'describe-mode 'calendar-goto-info-node))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here

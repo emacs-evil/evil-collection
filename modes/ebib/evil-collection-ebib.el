@@ -46,14 +46,14 @@
     "k" 'ebib-prev-entry
     "n" 'ebib-search-next
     "p" 'ebib-yank-entry
-    "gj" 'ebib-jump-to-entry
     (kbd "C-u") 'ebib-index-scroll-down
     (kbd "C-d") 'ebib-index-scroll-up
     (kbd "C-b") 'ebib-index-scroll-down
     (kbd "C-f") 'ebib-index-scroll-up)
   (evil-collection-bind 'ebib-index-mode-map
                         'quit-save 'ebib-lower
-                        'quit-cancel 'ebib-quit)
+                        'quit-cancel 'ebib-quit
+                        'jump 'ebib-jump-to-entry)
   (evil-set-initial-state 'ebib-entry-mode 'normal)
   (evil-make-overriding-map ebib-entry-mode-map 'normal)
   (evil-collection-inhibit-insert-state 'ebib-entry-mode-map)

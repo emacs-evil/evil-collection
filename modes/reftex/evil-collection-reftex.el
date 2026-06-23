@@ -103,7 +103,6 @@
     about this key" (interactive) (throw (quote myexit) 114)) ;reftex binds keys in a very arcane way using the number asigned by describe-char, in this case the value of "g" is 114
     "c" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 108))
-    "J" 'reftex-select-jump ;; weird binding, using default
     (kbd "<tab>") 'reftex-select-read-label
     "s" (lambda nil "Press `?' during selection to find out
     about this key." (interactive) (throw (quote myexit) 115))
@@ -134,7 +133,8 @@
                         'quit 'reftex-select-quit
                         'quit-save 'reftex-select-quit
                         'quit-cancel 'evil-quit
-                        'describe-mode 'reftex-select-help)
+                        'describe-mode 'reftex-select-help
+                        'jump 'reftex-select-jump)
 
   (evil-set-initial-state 'reftex-toc-mode 'normal)
 
@@ -157,7 +157,6 @@
     "zi" 'reftex-toc-display-index
     "x" 'reftex-toc-external
     "." 'reftex-toc-show-calling-point
-    "J" 'reftex-toc-jump
     (kbd ">") 'reftex-toc-promote
     (kbd "<") 'reftex-toc-demote
     "f" 'reftex-toc-toggle-follow)
@@ -172,7 +171,8 @@
                         'quit-cancel 'evil-quit
                         'describe-mode 'reftex-toc-show-help
                         'refresh 'reftex-toc-rescan
-                        'refresh-all 'reftex-toc-Rescan))
+                        'refresh-all 'reftex-toc-Rescan
+                        'jump 'reftex-toc-jump))
 
 (provide 'evil-collection-reftex)
 ;;; evil-collection-reftex.el ends here

@@ -76,9 +76,10 @@
   (evil-collection-bind 'alchemist-macroexpand-mode-map 'quit 'quit-window)
 
   (evil-collection-define-key 'normal 'alchemist-refcard-mode-map
-    "gd" 'alchemist-refcard--describe-funtion-at-point
-    "g?" 'alchemist-refcard--describe-funtion-at-point)
-  (evil-collection-bind 'alchemist-refcard-mode-map 'quit 'quit-window)
+    "gd" 'alchemist-refcard--describe-funtion-at-point)
+  (evil-collection-bind 'alchemist-refcard-mode-map
+                        'quit 'quit-window
+                        'describe-mode 'alchemist-refcard--describe-funtion-at-point)
 
   (evil-collection-define-key 'normal 'alchemist-mix-mode-map
     "i" 'alchemist-mix-send-input-to-mix-process)

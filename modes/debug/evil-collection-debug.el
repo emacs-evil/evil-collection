@@ -50,8 +50,6 @@
     "x" 'debugger-eval-expression
     "E" 'debugger-eval-expression
 
-    "J" 'debugger-jump
-
     "gl" 'debugger-list-functions
     "gb" 'debugger-frame
     "r" 'debugger-return-value
@@ -71,7 +69,8 @@
                         'quit-save 'top-level
                         'quit-cancel 'evil-quit
                         'debug-continue 'debugger-continue
-                        'debug-eval 'debugger-eval-expression)
+                        'debug-eval 'debugger-eval-expression
+                        'jump 'debugger-jump)
   (evil-collection-bind 'debugger-mode-map    'debug-locals
                         (if (fboundp 'debugger-toggle-locals)
                             'debugger-toggle-locals
