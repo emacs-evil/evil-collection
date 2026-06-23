@@ -7,7 +7,7 @@
 ;; Maintainer: James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
-;; Version: 1.0.0
+;; Version: 2.0.0
 ;; Package-Requires: ((emacs "26.3") (evil "1.2.13"))
 ;; Keywords: evil, tools
 
@@ -126,7 +126,7 @@ This variable is obsolete; new customization should use
 
 (make-obsolete-variable 'evil-collection-setup-debugger-keys
                         "use `evil-collection-binding-overrides': `debug-continue', `debug-step-over', `debug-step-into', `debug-step-out', `debug-breakpoint'."
-                        "evil-collection 0.0.3")
+                        "evil-collection 2.0.0")
 
 (defcustom evil-collection-want-unimpaired-p t
   "Whether to enable unimpaired style bindings globally."
@@ -148,7 +148,7 @@ should use `evil-collection-binding-overrides' instead:
 
 (make-obsolete-variable 'evil-collection-want-find-usages-bindings
                         "use `evil-collection-binding-overrides': `find-usages'."
-                        "evil-collection 0.0.3")
+                        "evil-collection 2.0.0")
 
 (defcustom evil-collection-want-g-bindings t
   "Whether to bind g* bindings."
@@ -525,7 +525,7 @@ New customization should use
 
 (make-obsolete-variable 'evil-collection-repl-submit-state
                         "use `evil-collection-binding-overrides': `repl-submit', `repl-newline'."
-                        "evil-collection 0.0.3")
+                        "evil-collection 2.0.0")
 
 (defvar evil-collection-binding-defaults
   `((term-toggle-escape :enabled t
