@@ -6,7 +6,7 @@
 ;; Maintainer: Arian Dehghani <arianxdehghani@gmail.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "27.1"))
+;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: evil, emacs, tools, blutooth
 
 ;; This program is free software; you can redistribute it and/or modify

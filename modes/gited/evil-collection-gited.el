@@ -6,7 +6,7 @@
 ;; Maintainer: Earl Hyatt <okamsn@protonmail.com>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "26.3") (evil "1.2") (gited "0.6"))
+;; Package-Requires: ((emacs "29.1") (evil "1.2") (gited "0.6"))
 ;; Keywords: evil, git, tools, vc
 
 ;; This program is free software; you can redistribute it and/or modify

@@ -1,7 +1,7 @@
 ;; -*- mode: eask; lexical-binding: t -*-
 
 (package "evil-collection"
-         "0.0.2"
+         "2.0.0"
          "A set of keybindings for Evil mode")
 
 (website-url "https://github.com/emacs-evil/evil-collection")
@@ -15,7 +15,7 @@
 (source 'gnu)
 (source 'melpa)
 
-(depends-on "emacs" "27.2")
+(depends-on "emacs" "29.1")
 (depends-on "evil")
 
 (development

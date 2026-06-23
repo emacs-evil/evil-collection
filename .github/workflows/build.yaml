@@ -20,7 +20,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         emacs-version:
-          - 28.2
           - 29.4
           - 30.1
         experimental: [false]

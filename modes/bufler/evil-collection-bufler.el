@@ -5,7 +5,7 @@
 ;; Author: Ruoyu Feng <mail@vonfry.name>
 ;; URL: https://github.com/emacs-evil/evil-collection
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "27.1"))
+;; Package-Requires: ((emacs "29.1"))
 ;; Keywords: evil, tools, bufler, buffer list
 
 ;; This file is free software; you can redistribute it and/or modify
