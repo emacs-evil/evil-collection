@@ -100,7 +100,6 @@
     ;; goto
     "." 'calendar-goto-today
     "o" 'calendar-other-month
-    "gd" 'calendar-goto-date ; "gd" in evil-org-agenda, "gd" in Emacs.
     "gD" 'calendar-other-month
 
     ;; diary
@@ -137,7 +136,8 @@
                         'quit 'calendar-exit
                         'quit-save 'calendar-exit
                         'quit-cancel 'evil-quit
-                        'refresh 'calendar-redraw))
+                        'refresh 'calendar-redraw
+                        'find-definition 'calendar-goto-date))
 
 (provide 'evil-collection-calendar)
 ;;; evil-collection-calendar.el ends here

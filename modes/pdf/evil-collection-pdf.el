@@ -244,7 +244,6 @@ instead, which is useless and counterintuitive."
   (evil-set-initial-state 'pdf-occur-buffer-mode 'normal)
   (evil-collection-define-key 'normal 'pdf-occur-buffer-mode-map
     (kbd "SPC") 'pdf-occur-view-occurrence
-    "gd" 'pdf-occur-goto-occurrence
     "gD" 'pdf-occur-view-occurrence
 
     "A" 'pdf-occur-tablist-gather-documents
@@ -307,7 +306,8 @@ instead, which is useless and counterintuitive."
                         'quit 'tablist-quit
                         'quit-save 'tablist-quit
                         'quit-cancel 'tablist-quit
-                        'delete 'pdf-occur-tablist-do-delete))
+                        'delete 'pdf-occur-tablist-do-delete
+                        'find-definition 'pdf-occur-goto-occurrence))
 
 (provide 'evil-collection-pdf)
 ;;; evil-collection-pdf.el ends here

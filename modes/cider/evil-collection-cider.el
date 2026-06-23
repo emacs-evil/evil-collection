@@ -168,9 +168,6 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (kbd "M-p") 'cider-test-previous-result
     (kbd "M-n") 'cider-test-next-result
 
-    ;; goto
-    "gd" 'cider-test-jump
-
     "t" 'cider-test-jump
     "d" 'cider-test-ediff
     "e" 'cider-test-stacktrace
@@ -183,7 +180,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                         'quit 'cider-popup-buffer-quit-function
                         'refresh 'cider-test-run-test
                         'cycle-next 'cider-test-next-result
-                        'cycle-previous 'cider-test-previous-result)
+                        'cycle-previous 'cider-test-previous-result
+                        'find-definition 'cider-test-jump)
 
   (evil-collection-bind 'cider-macroexpansion-mode-map 'lookup-doc 'cider-doc)
 
@@ -206,8 +204,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                         'describe-mode 'describe-mode)
 
   (evil-set-initial-state 'cider-stacktrace-mode 'normal)
+  (evil-collection-bind 'cider-stacktrace-mode-map 'find-definition 'cider-stacktrace-jump)
   (evil-collection-define-key 'normal 'cider-stacktrace-mode-map
-    "gd" 'cider-stacktrace-jump
     "J" 'cider-stacktrace-toggle-java
     "C" 'cider-stacktrace-toggle-clj
     "R" 'cider-stacktrace-toggle-repl

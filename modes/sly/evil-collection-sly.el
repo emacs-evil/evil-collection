@@ -228,7 +228,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "zv" 'sly-stickers-replay-toggle-pop-to-stickers
     "h" 'sly-stickers-replay-toggle-help
     "g?" 'sly-stickers-replay-toggle-help
-    "gd" 'sly-stickers-replay-jump
     "j" 'sly-stickers-replay-next
     "k" 'sly-stickers-replay-prev
     "n" 'sly-stickers-replay-next
@@ -239,7 +238,8 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     "zz" 'sly-stickers-replay-toggle-ignore-zombies)
   (evil-collection-bind 'sly-stickers--replay-mode-map
                         'quit 'quit-window
-                        'action-other 'sly-stickers-replay-pop-to-current-sticker)
+                        'action-other 'sly-stickers-replay-pop-to-current-sticker
+                        'find-definition 'sly-stickers-replay-jump)
 
   (evil-collection-bind 'sly-connection-list-mode-map
                         'next-button 'forward-button

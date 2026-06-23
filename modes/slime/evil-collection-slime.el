@@ -137,8 +137,7 @@
     "M-p" 'slime-inspector-history
     "gv" 'slime-inspector-toggle-verbose
     (kbd "C-i") 'slime-inspector-next-inspectable-object
-    "." 'slime-inspector-show-source
-    "gd" 'slime-inspector-show-source)
+    "." 'slime-inspector-show-source)
   (evil-collection-bind 'slime-inspector-mode-map
                         'cycle-next 'slime-inspector-next-inspectable-object
                         'cycle-previous 'slime-inspector-previous-inspectable-object
@@ -149,7 +148,8 @@
                         'quit 'slime-inspector-quit
                         'lookup-doc 'slime-inspector-describe
                         'refresh 'slime-inspector-reinspect
-                        'refresh-all 'slime-inspector-fetch-all)
+                        'refresh-all 'slime-inspector-fetch-all
+                        'find-definition 'slime-inspector-show-source)
 
   (evil-collection-bind 'slime-mode-map
                         'find-usages 'slime-edit-uses

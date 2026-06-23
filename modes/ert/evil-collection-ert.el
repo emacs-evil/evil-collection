@@ -51,7 +51,6 @@
     "r" 'ert-results-rerun-test-at-point
     "d" 'ert-results-rerun-test-at-point-debugging-errors
     "." 'ert-results-find-test-at-point-other-window
-    "gd" 'ert-results-find-test-at-point-other-window
     "B" 'ert-results-pop-to-backtrace-for-test-at-point
     "M" 'ert-results-pop-to-messages-for-test-at-point
     "s" 'ert-results-pop-to-should-forms-for-test-at-point
@@ -65,7 +64,8 @@
                         'prev-section 'ert-results-previous-test
                         'lookup-doc 'ert-results-describe-test-at-point
                         'describe-mode 'ert-results-describe-test-at-point
-                        'refresh 'ert-results-rerun-all-tests))
+                        'refresh 'ert-results-rerun-all-tests
+                        'find-definition 'ert-results-find-test-at-point-other-window))
 
 (provide 'evil-collection-ert)
 ;;; evil-collection-ert.el ends here

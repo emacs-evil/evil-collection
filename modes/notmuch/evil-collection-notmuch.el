@@ -155,7 +155,6 @@ that moves trashed messages out of the inbox)."
                         'action 'evil-collection-notmuch-hello-ret)
 
   (evil-collection-define-key 'normal 'notmuch-show-mode-map
-    "gd" 'goto-address-at-point
     "p" 'notmuch-show-save-attachments  ; like mu4e
     "A" 'notmuch-show-archive-thread-then-next
     "S" 'notmuch-show-filter-thread
@@ -187,7 +186,8 @@ that moves trashed messages out of the inbox)."
                         'next-item 'notmuch-show-next-open-message
                         'prev-item 'notmuch-show-previous-open-message
                         'next-section 'notmuch-show-next-message
-                        'prev-section 'notmuch-show-previous-message)
+                        'prev-section 'notmuch-show-previous-message
+                        'find-definition 'goto-address-at-point)
 
   (evil-collection-bind 'notmuch-tree-mode-map 'describe-mode 'notmuch-help)
 

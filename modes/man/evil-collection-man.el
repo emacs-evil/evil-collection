@@ -42,7 +42,6 @@
   (evil-collection-define-key 'normal 'Man-mode-map
     ;; goto
     "gm" 'man
-    "gd" 'Man-goto-section ; TODO: "gd" does not match the rationale of "go to definition". Change?
     "gR" 'Man-follow-manual-reference ; TODO: Make this match Info-follow-reference?
     "gs" 'Man-goto-see-also-section)
   (evil-collection-bind 'Man-mode-map
@@ -57,7 +56,8 @@
                         'quit 'quit-window
                         'quit-save 'quit-window
                         'quit-cancel 'quit-window
-                        'refresh 'Man-update-manpage))
+                        'refresh 'Man-update-manpage
+                        'find-definition 'Man-goto-section))
 
 (provide 'evil-collection-man)
 ;;; evil-collection-man.el ends here
