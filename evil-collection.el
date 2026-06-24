@@ -609,6 +609,7 @@ New customization should use
     (cycle-next :enabled t :state normal :key ("<tab>" "TAB"))
     (cycle-previous :enabled t :state normal :key ("<backtab>" "<S-tab>"))
     (section-toggle :enabled t :state normal :key ("<tab>" "TAB"))
+    (section-toggle-all :enabled t :state normal :key ("<backtab>" "<S-tab>"))
     (next-item :enabled t :state normal :key "gj")
     (prev-item :enabled t :state normal :key "gk")
     (next-section :enabled t :state normal :key ("]]"))
