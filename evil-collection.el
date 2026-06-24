@@ -633,6 +633,7 @@ New customization should use
     (mark-delete :enabled t :state normal :key "d")
     (execute-marks :enabled t :state normal :key "x")
     (delete :enabled t :state normal :key "d")
+    (delete-2 :enabled t :state normal :key "x")
     (search-or-filter :enabled t :state normal :key "s"))
   "Built-in entries for the evil-collection theme system.
 
