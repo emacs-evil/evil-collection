@@ -228,7 +228,7 @@
   ":state may be a function; it is funcalled at lookup time."
   (let* ((dynamic-state 'normal)
          (evil-collection-binding-defaults
-          `((demo :state ,(lambda () dynamic-state))))
+          `((demo :state ,(lambda (_map-sym _id _keys _command) dynamic-state))))
          (evil-collection-binding-overrides nil))
     (should (equal '(normal) (evil-collection-binding-states 'demo)))
     (setq dynamic-state 'insert)
@@ -240,11 +240,60 @@
   ":key may be a function; it is funcalled at lookup time."
   (let* ((dynamic-key "C-c j")
          (evil-collection-binding-defaults
-          `((demo :key ,(lambda () dynamic-key))))
+          `((demo :key ,(lambda (_map-sym _id _keys _command) dynamic-key))))
          (evil-collection-binding-overrides nil))
     (should (equal '("C-c j") (evil-collection-binding-keys 'demo)))
     (setq dynamic-key '("C-c j" "C-c k"))
     (should (equal '("C-c j" "C-c k") (evil-collection-binding-keys 'demo)))))
+
+(ert-deftest evil-collection-theme-state-function-receives-context ()
+  ":state gets the bind-site context (map-sym, id, keys, command)."
+  (let* ((calls nil)
+         (record (lambda (map-sym id keys command)
+                   (push (list map-sym id keys command) calls)
+                   'normal))
+         (evil-collection-binding-defaults
+          `((demo :enabled t :state ,record :key ("X" "Y"))))
+         (evil-collection-binding-overrides nil))
+    (defvar evil-collection-theme-test--state-ctx-map nil)
+    (setq evil-collection-theme-test--state-ctx-map (make-sparse-keymap))
+    (evil-collection-bind 'evil-collection-theme-test--state-ctx-map
+                          'demo #'ignore)
+    (should (equal (list 'evil-collection-theme-test--state-ctx-map
+                         'demo
+                         '("X" "Y")
+                         #'ignore)
+                   (car calls)))))
+
+(ert-deftest evil-collection-theme-key-override-receives-default-keys ()
+  "An override `:key' function receives the resolved default keys."
+  (let* ((calls nil)
+         (record (lambda (map-sym id keys command)
+                   (push (list map-sym id keys command) calls)
+                   keys))
+         (evil-collection-binding-defaults
+          '((demo :enabled t :state normal :key ("X" "Y"))))
+         (evil-collection-binding-overrides
+          `((demo :key ,record))))
+    (should (equal '("X" "Y") (evil-collection-binding-keys
+                               'demo 'some-map #'ignore)))
+    (should (equal (list 'some-map 'demo '("X" "Y") #'ignore)
+                   (car calls)))))
+
+(ert-deftest evil-collection-theme-key-default-function-receives-nil ()
+  "A default `:key' function gets KEYS=nil and is called exactly once."
+  (let* ((calls nil)
+         (record (lambda (map-sym id keys command)
+                   (push (list map-sym id keys command) calls)
+                   "X"))
+         (evil-collection-binding-defaults
+          `((demo :enabled t :state normal :key ,record)))
+         (evil-collection-binding-overrides nil))
+    (should (equal '("X") (evil-collection-binding-keys
+                           'demo 'some-map #'ignore)))
+    (should (= 1 (length calls)))
+    (should (equal (list 'some-map 'demo nil #'ignore)
+                   (car calls)))))
 
 (ert-deftest evil-collection-theme-symbol-is-data-not-callable ()
   "Symbols with function bindings (e.g. `insert') are data, not funcalled.

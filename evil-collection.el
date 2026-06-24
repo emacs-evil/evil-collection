@@ -532,10 +532,11 @@ New customization should use
                         :state (normal insert)
                         :key "C-c C-z")
     (repl-submit :enabled t
-                 :state ,(lambda () evil-collection-repl-submit-state)
+                 :state ,(lambda (_map-sym _id _keys _command)
+                           evil-collection-repl-submit-state)
                  :key ("RET" "<return>" "C-m"))
     (repl-newline :enabled t
-                  :state ,(lambda ()
+                  :state ,(lambda (_map-sym _id _keys _command)
                             (if (eq evil-collection-repl-submit-state 'normal)
                                 'insert
                               'normal))
@@ -660,10 +661,9 @@ Each entry has the form (ID . PLIST) and may use:
                    (not (member \"gr\" keys))))
 
   :state    Evil state symbol, list of state symbols, or a function
-            of no args returning either.  A singular value is wrapped
-            to a list at lookup.  Optional.
+            with the same signature as :enabled.
   :key      Key string (suitable for `kbd'), list of key strings, or
-            a function of no args returning either.  Optional.
+            with the same signature as :enabled.
 
 :state and :key are optional.  An entry with only :enabled acts as a
 pure feature toggle: the consumer-side code does the binding itself
@@ -671,10 +671,9 @@ and asks the resolver via `evil-collection-binding-enabled-p' whether
 the feature is on.
 
 Function values for :state and :key are funcalled at lookup time with
-no arguments, which is useful for delegating to legacy defcustoms
-while features migrate to the theme system.  Plain symbols are never
-funcalled even when they happen to have a function binding (e.g. the
-state symbol `insert' is also the `insert' function); that is why
+args mirroring `:enabled'.  Plain symbols are never funcalled even
+when they happen to have a function binding (e.g. the state symbol
+`insert' is also the `insert' function); that is why
 anonymous lambdas are required when a property's value should be
 computed dynamically.
 
@@ -706,13 +705,14 @@ side sets PROP."
     (cond ((plist-member over prop) (plist-get over prop))
           ((plist-member def prop)  (plist-get def prop)))))
 
-(defun evil-collection-binding--resolve (v)
-  "Funcall V if it is an anonymous function; otherwise return V.
+(defun evil-collection-binding--resolve (v &optional map-sym id keys command)
+  "Funcall V with (MAP-SYM ID KEYS COMMAND) if it is an anonymous
+function; otherwise return V.
 Plain symbols are returned as-is even when they have a function
 binding — they are data (state names, command names) in this
 context, never callables."
   (if (and (functionp v) (not (symbolp v)))
-      (funcall v)
+      (funcall v map-sym id keys command)
     v))
 
 (defun evil-collection-binding--listify (v)
@@ -740,15 +740,29 @@ in scope) keep their existing call shape."
         (funcall v map-sym id keys command)
       v)))
 
-(defun evil-collection-binding-states (id)
-  "Return list of evil states configured for theme entry ID."
-  (evil-collection-binding--listify
-   (evil-collection-binding--resolve (evil-collection-binding--get id :state))))
+(defun evil-collection-binding-states (id &optional map-sym keys command)
+  "Return list of evil states configured for theme entry ID.
 
-(defun evil-collection-binding-keys (id)
-  "Return list of key strings configured for theme entry ID."
+The optional MAP-SYM, KEYS, and COMMAND are forwarded to a
+function-valued `:state' — same shape as `:enabled'."
   (evil-collection-binding--listify
-   (evil-collection-binding--resolve (evil-collection-binding--get id :key))))
+   (evil-collection-binding--resolve
+    (evil-collection-binding--get id :state) map-sym id keys command)))
+
+(defun evil-collection-binding-keys (id &optional map-sym command)
+  "Return list of key strings configured for theme entry ID."
+  (let* ((over (cdr (assq id evil-collection-binding-overrides)))
+         (def  (cdr (assq id evil-collection-binding-defaults))))
+    (evil-collection-binding--listify
+     (if (plist-member over :key)
+         (let ((default-keys
+                (evil-collection-binding--listify
+                 (evil-collection-binding--resolve
+                  (plist-get def :key) map-sym id nil command))))
+           (evil-collection-binding--resolve
+            (plist-get over :key) map-sym id default-keys command))
+       (evil-collection-binding--resolve
+        (plist-get def :key) map-sym id nil command)))))
 
 (defun evil-collection-bind (map-sym &rest id-command-pairs)
   "Bind one or more theme entries in MAP-SYM.
@@ -769,9 +783,9 @@ state-group instead of one per pair."
     (while id-command-pairs
       (let* ((id (pop id-command-pairs))
              (cmd (pop id-command-pairs))
-             (keys (evil-collection-binding-keys id)))
+             (keys (evil-collection-binding-keys id map-sym cmd)))
         (when (evil-collection-binding-enabled-p id map-sym keys cmd)
-          (let ((states (evil-collection-binding-states id)))
+          (let ((states (evil-collection-binding-states id map-sym keys cmd)))
             (when keys
               (let ((pairs (cl-mapcan (lambda (k) (list (kbd k) cmd))
                                       keys))
@@ -788,9 +802,9 @@ state-group instead of one per pair."
 
 Like `evil-collection-bind' but routes through
 `evil-collection-define-minor-mode-key'."
-  (let ((keys (evil-collection-binding-keys id)))
+  (let ((keys (evil-collection-binding-keys id mode command)))
     (when (evil-collection-binding-enabled-p id mode keys command)
-      (let ((states (evil-collection-binding-states id)))
+      (let ((states (evil-collection-binding-states id mode keys command)))
         (when keys
           (apply #'evil-collection-define-minor-mode-key states mode
                  (cl-mapcan (lambda (key) (list (kbd key) command))
@@ -820,12 +834,12 @@ description."
   "Bind theme entry ID to COMMAND in the current buffer.
 
 Like `evil-collection-bind' but uses `evil-local-set-key'."
-  (let ((keys (evil-collection-binding-keys id)))
+  (let ((keys (evil-collection-binding-keys id nil command)))
     (when (evil-collection-binding-enabled-p id nil keys command)
       (let ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
             (blacklist (mapcar 'kbd evil-collection-key-blacklist))
             (states (evil-collection--filter-states
-                     (evil-collection-binding-states id))))
+                     (evil-collection-binding-states id nil keys command))))
         (when states
           (dolist (key keys)
             (let ((kbd-key (kbd key)))
