@@ -60,21 +60,19 @@
 
     "zo" 'backtrace-multi-line
     "zc" 'backtrace-single-line)
-  (evil-collection-bind 'debugger-mode-map          'action
-                        (if (fboundp 'debug-help-follow)
-                            'debug-help-follow
-                          'backtrace-help-follow-symbol))
   (evil-collection-bind 'debugger-mode-map
+                        'action (if (fboundp 'debug-help-follow)
+                                    'debug-help-follow
+                                  'backtrace-help-follow-symbol)
                         'quit 'top-level
                         'quit-save 'top-level
                         'quit-cancel 'evil-quit
                         'debug-continue 'debugger-continue
                         'debug-eval 'debugger-eval-expression
-                        'jump 'debugger-jump)
-  (evil-collection-bind 'debugger-mode-map    'debug-locals
-                        (if (fboundp 'debugger-toggle-locals)
-                            'debugger-toggle-locals
-                          'backtrace-toggle-locals)))
+                        'jump 'debugger-jump
+                        'debug-locals (if (fboundp 'debugger-toggle-locals)
+                                          'debugger-toggle-locals
+                                        'backtrace-toggle-locals)))
 
 (provide 'evil-collection-debug)
 ;;; evil-collection-debug.el ends here

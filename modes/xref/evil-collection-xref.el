@@ -47,9 +47,9 @@
     "Q" 'xref-query-replace-in-results
 
     "o" 'xref-show-location-at-point)
-  (evil-collection-bind 'xref--xref-buffer-mode-map       'action 'xref-goto-xref)
   ;; In Emacs mode map, TAB binds to `xref-quit-and-goto-xref'.
   (evil-collection-bind 'xref--xref-buffer-mode-map
+                        'action 'xref-goto-xref
                         'action-other 'xref-quit-and-goto-xref
                         'action-stay 'xref-show-location-at-point
                         'next-item 'xref-next-line

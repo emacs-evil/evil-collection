@@ -80,15 +80,13 @@
     (kbd "C-x 3") 'neotree-empty-fn
     (kbd "C-x C-f") 'find-file-other-window
     (kbd "C-c C-f") 'find-file-other-window)
-  (evil-collection-bind 'neotree-mode-map       'action
-                        (neotree-make-executor
-                         :file-fn 'neo-open-file
-                         :dir-fn 'neo-open-dir))
-  (evil-collection-bind 'neotree-mode-map 'action-other
-                        (neotree-make-executor
-                         :file-fn 'neo-open-file
-                         :dir-fn 'neo-open-dir))
   (evil-collection-bind 'neotree-mode-map
+                        'action (neotree-make-executor
+                                 :file-fn 'neo-open-file
+                                 :dir-fn 'neo-open-dir)
+                        'action-other (neotree-make-executor
+                                       :file-fn 'neo-open-file
+                                       :dir-fn 'neo-open-dir)
                         'action-stay 'neotree-quick-look
                         'next-item 'neotree-select-down-node
                         'prev-item 'neotree-select-up-node

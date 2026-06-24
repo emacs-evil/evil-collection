@@ -37,8 +37,8 @@
 (defun evil-collection-gited-setup ()
   "Set up `evil' bindings for `gited'."
   (evil-collection-set-readonly-bindings 'gited-mode-map)
-  (evil-collection-bind 'gited-mode-map 'rename 'gited-rename-branch)
   (evil-collection-bind 'gited-mode-map
+                        'rename 'gited-rename-branch
                         'next-item 'gited-next-marked-branch
                         'prev-item 'gited-prev-marked-branch
                         'next-section 'gited-next-marked-branch

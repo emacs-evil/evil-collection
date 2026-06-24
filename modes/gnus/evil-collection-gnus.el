@@ -72,8 +72,7 @@ Note that there is no gnus-common-mode-map")
                         'refresh 'gnus-summary-rescan-group
                         'action 'gnus-summary-scroll-up
                         'cycle-next 'gnus-summary-widget-forward
-                        'cycle-previous 'gnus-summary-widget-backward)
-  (evil-collection-bind 'gnus-summary-mode-map
+                        'cycle-previous 'gnus-summary-widget-backward
                         'quit-save 'gnus-summary-exit
                         'quit-cancel 'gnus-summary-exit-no-update
                         'describe-mode 'gnus-summary-help-map)

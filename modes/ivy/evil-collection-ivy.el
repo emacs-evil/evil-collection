@@ -95,12 +95,12 @@
       (kbd "C-m") 'ivy-done
       "j" 'ivy-next-line
       "k" 'ivy-previous-line)
-    (evil-collection-bind 'ivy-minibuffer-map 'action 'exit-minibuffer)
 
     (evil-collection-define-key 'insert 'ivy-minibuffer-map
       (kbd "DEL") 'ivy-backward-delete-char
       (kbd "C-r") 'ivy-reverse-i-search)
     (evil-collection-bind 'ivy-minibuffer-map
+                          'action 'exit-minibuffer
                           'completion-previous 'ivy-previous-line
                           'completion-next     'ivy-next-line)))
 

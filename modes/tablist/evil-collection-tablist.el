@@ -62,13 +62,12 @@
 
     (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
            common-bindings)
-    (evil-collection-bind 'tablist-minor-mode-map    'quit 'tablist-quit)
-    (evil-collection-bind 'tablist-mode-map 'refresh       'tablist-revert)
-    (evil-collection-bind 'tablist-minor-mode-map 'refresh 'tablist-revert)
+    (evil-collection-bind 'tablist-mode-map 'refresh 'tablist-revert)
     (evil-collection-bind 'tablist-minor-mode-map
+                          'quit 'tablist-quit
+                          'refresh 'tablist-revert
                           'toggle 'tablist-toggle-marks
-                          'toggle-all 'tablist-toggle-marks)
-    (evil-collection-bind 'tablist-minor-mode-map
+                          'toggle-all 'tablist-toggle-marks
                           'search-or-filter 'tablist-do-kill-lines)))
 
 (provide 'evil-collection-tablist)

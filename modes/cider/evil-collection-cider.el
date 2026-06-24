@@ -120,13 +120,12 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                         'debug-step-over 'evil-collection-cider-debug-next
                         'debug-step-into 'evil-collection-cider-debug-in
                         'debug-step-out 'evil-collection-cider-debug-out
-                        'debug-breakpoint 'cider-debug-defun-at-point)
-  (evil-collection-bind 'cider-mode-map 'debug-breakpoint 'cider-debug-defun-at-point)
-  (evil-collection-bind 'cider--debug-mode-map
+                        'debug-breakpoint 'cider-debug-defun-at-point
                         'debug-eval 'evil-collection-cider-debug-eval
                         'debug-locals 'evil-collection-cider-debug-locals)
 
   (evil-collection-bind 'cider-mode-map
+                        'debug-breakpoint 'cider-debug-defun-at-point
                         'lookup-doc 'cider-doc
                         'goto-repl 'cider-switch-to-repl-buffer
                         'find-file 'cider-find-resource)
@@ -136,11 +135,10 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                           'find-definition 'cider-find-var
                           'pop-definition 'cider-pop-back))
 
+  ;; FIXME: goto-repl seems to get overwritten by `cider-switch-to-repl-buffer'.
   (evil-collection-bind 'cider-repl-mode-map
                         'refresh 'cider-refresh
-                        'lookup-doc 'cider-doc)
-  ;; FIXME: This seems to get overwritten by `cider-switch-to-repl-buffer'.
-  (evil-collection-bind 'cider-repl-mode-map
+                        'lookup-doc 'cider-doc
                         'goto-repl 'cider-switch-to-last-clojure-buffer
                         'find-file 'cider-find-resource
                         'repl-submit 'cider-repl-return

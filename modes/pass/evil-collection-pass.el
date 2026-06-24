@@ -77,6 +77,11 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     "n" 'pass-copy-username
     "u" 'pass-copy-url)
 
+  (evil-collection-define-key 'normal 'pass-mode-map
+    "i" 'pass-insert
+    "I" 'pass-insert-generated
+    "Y" 'pass-copy
+    "o" 'pass-otp-options)
   (evil-collection-bind 'pass-mode-map
                         'next-item 'pass-next-entry
                         'prev-item 'pass-prev-entry
@@ -84,13 +89,7 @@ keybindings listed in `evil-collection-pass-command-to-label'."
                         'prev-section 'pass-prev-directory
                         'next-section-2 'pass-next-entry
                         'prev-section-2 'pass-prev-entry
-                        'jump 'pass-goto-entry)
-  (evil-collection-define-key 'normal 'pass-mode-map
-    "i" 'pass-insert
-    "I" 'pass-insert-generated
-    "Y" 'pass-copy
-    "o" 'pass-otp-options)
-  (evil-collection-bind 'pass-mode-map
+                        'jump 'pass-goto-entry
                         'action 'pass-view
                         'quit 'pass-quit
                         'describe-mode 'describe-mode

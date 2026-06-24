@@ -51,11 +51,10 @@
   (evil-collection-bind 'anaconda-mode-map
                         'find-usages 'anaconda-mode-find-references
                         'lookup-doc 'anaconda-mode-show-doc
-                        'find-definition 'anaconda-mode-find-definitions)
-  (evil-collection-bind 'anaconda-mode-map  'pop-definition
-                              (if (fboundp 'anaconda-mode-go-back)
-                                  'anaconda-mode-go-back
-                                'xref-pop-marker-stack))
+                        'find-definition 'anaconda-mode-find-definitions
+                        'pop-definition (if (fboundp 'anaconda-mode-go-back)
+                                            'anaconda-mode-go-back
+                                          'xref-pop-marker-stack))
   (when (evil-collection-binding-enabled-p 'find-usages)
     (evil-collection-define-key 'normal 'anaconda-mode-map
       "gA" 'anaconda-mode-find-assignments)))

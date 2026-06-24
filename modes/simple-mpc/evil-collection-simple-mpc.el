@@ -65,13 +65,12 @@ Other modes that are configured:
                         'delete 'simple-mpc-delete
                         'delete-2 'simple-mpc-delete)
 
-  (evil-collection-bind 'simple-mpc-query-mode-map
-                        'quit 'simple-mpc-query-quit
-                        'quit-save 'simple-mpc-query-quit
-                        'quit-cancel 'simple-mpc-query-quit)
   (evil-collection-define-key 'normal 'simple-mpc-query-mode-map
     "o" 'simple-mpc-query-sort)
   (evil-collection-bind 'simple-mpc-query-mode-map
+                        'quit 'simple-mpc-query-quit
+                        'quit-save 'simple-mpc-query-quit
+                        'quit-cancel 'simple-mpc-query-quit
                         'action-other 'simple-mpc-query-add
                         'action-stay 'simple-mpc-query-add
                         'action 'simple-mpc-query-add-and-play))

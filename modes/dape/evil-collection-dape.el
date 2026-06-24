@@ -144,12 +144,13 @@
                         dape-info-scope-mode-map
                         dape-info-watch-mode-map
                         dape-memory-mode-map))
-    (evil-collection-bind map-symbol   'debug-continue 'dape-continue)
-    (evil-collection-bind map-symbol  'debug-step-over 'dape-next)
-    (evil-collection-bind map-symbol  'debug-step-into 'dape-step-in)
-    (evil-collection-bind map-symbol   'debug-step-out 'dape-step-out)
-    (evil-collection-bind map-symbol 'debug-breakpoint 'dape-breakpoint-toggle)
-    (evil-collection-bind map-symbol    'debug-restart 'dape-restart)))
+    (evil-collection-bind map-symbol
+                          'debug-continue 'dape-continue
+                          'debug-step-over 'dape-next
+                          'debug-step-into 'dape-step-in
+                          'debug-step-out 'dape-step-out
+                          'debug-breakpoint 'dape-breakpoint-toggle
+                          'debug-restart 'dape-restart)))
 
 (provide 'evil-collection-dape)
 ;;; evil-collection-dape.el ends here

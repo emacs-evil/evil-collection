@@ -122,9 +122,9 @@
     ;; mark
     "m" 'reftex-select-mark             ; TODO: Need a mark toggle function.
     "u" 'reftex-select-unmark)
-  (evil-collection-bind 'reftex-select-shared-map        'action 'reftex-select-accept)
-  (evil-collection-bind 'reftex-select-shared-map  'action-other 'reftex-select-callback) ; shows point where label is
   (evil-collection-bind 'reftex-select-shared-map
+                        'action 'reftex-select-accept
+                        'action-other 'reftex-select-callback ; shows point where label is
                         'action-stay 'reftex-select-show-insertion-point
                         'next-item 'reftex-select-next-heading
                         'prev-item 'reftex-select-previous-heading

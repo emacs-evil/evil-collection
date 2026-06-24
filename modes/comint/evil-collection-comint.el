@@ -39,19 +39,15 @@
     (evil-collection-define-key 'normal 'comint-mode-map
       (kbd "C-d") #'evil-scroll-down))
 
+  ;; Match Eshell bindings for motion.
   (evil-collection-bind 'comint-mode-map
                         'repl-submit #'comint-send-input
                         'repl-newline #'newline
-                        'repl-force-newline #'newline)
-
-  ;; Match Eshell bindings.
-  (evil-collection-bind 'comint-mode-map
+                        'repl-force-newline #'newline
                         'next-item #'comint-next-prompt
                         'prev-item #'comint-previous-prompt
                         'next-section #'comint-next-prompt
-                        'prev-section #'comint-previous-prompt)
-
-  (evil-collection-bind 'comint-mode-map
+                        'prev-section #'comint-previous-prompt
                         'history-previous #'comint-previous-input
                         'history-next     #'comint-next-input)
 

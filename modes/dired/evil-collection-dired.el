@@ -40,8 +40,9 @@
 ;;;###autoload
 (defun evil-collection-dired-setup ()
   "Set up `evil' bindings for `dired'."
-  (evil-collection-bind 'dired-mode-map 'quit 'quit-window)
-  (evil-collection-bind 'dired-mode-map 'rename 'dired-do-rename)
+  (evil-collection-bind 'dired-mode-map
+                        'quit 'quit-window
+                        'rename 'dired-do-rename)
   (evil-collection-define-key 'normal 'dired-mode-map
     "j" 'dired-next-line
     "k" 'dired-previous-line

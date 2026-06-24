@@ -36,12 +36,12 @@
 (defun evil-collection-vc-git-setup ()
   "Set up `evil' bindings for `vc-git'."
   (evil-set-initial-state 'vc-git-log-view-mode 'normal)
-  (evil-collection-bind 'vc-git-log-view-mode-map 'quit 'quit-window)
   (evil-collection-define-key 'normal 'vc-git-log-view-mode-map
     "d" 'log-view-diff
     "D" 'log-view-diff-changeset
     (kbd "<tab>") 'log-view-toggle-entry-display)
   (evil-collection-bind 'vc-git-log-view-mode-map
+                        'quit 'quit-window
                         'next-item 'log-view-msg-next
                         'prev-item 'log-view-msg-prev
                         'next-section 'log-view-msg-next
