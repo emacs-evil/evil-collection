@@ -54,7 +54,6 @@
     "B" 'ert-results-pop-to-backtrace-for-test-at-point
     "M" 'ert-results-pop-to-messages-for-test-at-point
     "s" 'ert-results-pop-to-should-forms-for-test-at-point
-    "x" 'ert-delete-test
     "T" 'ert-results-pop-to-timings)
 
   (evil-collection-bind 'ert-results-mode-map
@@ -65,7 +64,8 @@
                         'lookup-doc 'ert-results-describe-test-at-point
                         'describe-mode 'ert-results-describe-test-at-point
                         'refresh 'ert-results-rerun-all-tests
-                        'find-definition 'ert-results-find-test-at-point-other-window))
+                        'find-definition 'ert-results-find-test-at-point-other-window
+                        'delete-2 'ert-delete-test))
 
 (provide 'evil-collection-ert)
 ;;; evil-collection-ert.el ends here

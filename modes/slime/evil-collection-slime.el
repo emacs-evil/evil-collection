@@ -166,9 +166,10 @@
   (evil-collection-inhibit-insert-state 'slime-thread-control-mode-map)
   (evil-collection-define-key 'normal 'slime-thread-control-mode-map
     "a" 'slime-thread-attach
-    "d" 'slime-thread-debug
-    "x" 'slime-thread-kill)
-  (evil-collection-bind 'slime-thread-control-mode-map 'refresh 'slime-update-threads-buffer)
+    "d" 'slime-thread-debug)
+  (evil-collection-bind 'slime-thread-control-mode-map
+                        'refresh 'slime-update-threads-buffer
+                        'delete-2 'slime-thread-kill)
 
   (evil-collection-define-key 'normal 'slime-xref-mode-map
     "r" 'slime-xref-retract)

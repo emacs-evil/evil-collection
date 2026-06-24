@@ -39,8 +39,7 @@
     (kbd "<tab>") 'forward-button
     (kbd "<backtab>") 'backward-button
 
-    "S" 'tabulated-list-sort
-    "d" 'process-menu-delete-process)
+    "S" 'tabulated-list-sort)
 
   ;; motion
   ;; TODO: Implement beginning-of-buffer / end-of-buffer.
@@ -48,7 +47,8 @@
                         'scroll-down 'evil-scroll-down
                         'scroll-up 'evil-scroll-up
                         'refresh 'revert-buffer
-                        'delete 'process-menu-delete-process))
+                        'delete 'process-menu-delete-process
+                        'delete-2 'process-menu-delete-process))
 
 (provide 'evil-collection-process-menu)
 ;;; evil-collection-process-menu.el ends here

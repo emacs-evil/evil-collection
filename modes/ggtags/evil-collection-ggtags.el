@@ -60,7 +60,6 @@
                         'find-file 'ggtags-find-file)
 
   (evil-collection-define-key 'normal 'ggtags-view-search-history-mode-map
-    "x" 'ggtags-view-search-history-kill
     "r" 'ggtags-save-to-register
     "R" 'ggtags-view-search-history-action)
   (evil-collection-bind 'ggtags-view-search-history-mode-map
@@ -69,7 +68,9 @@
                         'next-section 'ggtags-view-search-history-next
                         'prev-section 'ggtags-view-search-history-prev
                         'quit 'ggtags-kill-window
-                        'refresh 'ggtags-view-search-history-update)
+                        'refresh 'ggtags-view-search-history-update
+                        'delete 'ggtags-view-search-history-kill
+                        'delete-2 'ggtags-view-search-history-kill)
 
   (evil-collection-bind 'ggtags-view-tag-history-mode-map
                         'next-item 'next-error-no-select

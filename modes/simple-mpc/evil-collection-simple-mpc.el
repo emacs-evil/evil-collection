@@ -57,14 +57,13 @@ Other modes that are configured:
                         'quit-cancel 'simple-mpc-quit
                         'search-or-filter 'simple-mpc-query)
 
-  (evil-collection-define-key 'normal 'simple-mpc-current-playlist-mode-map
-    "x" 'simple-mpc-delete)
   (evil-collection-bind 'simple-mpc-current-playlist-mode-map
                         'quit 'simple-mpc-current-playlist-quit
                         'quit-save 'simple-mpc-current-playlist-quit
                         'quit-cancel 'simple-mpc-current-playlist-quit
                         'action 'simple-mpc-play-current-line
-                        'delete 'simple-mpc-delete)
+                        'delete 'simple-mpc-delete
+                        'delete-2 'simple-mpc-delete)
 
   (evil-collection-bind 'simple-mpc-query-mode-map
                         'quit 'simple-mpc-query-quit

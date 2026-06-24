@@ -174,9 +174,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
   (evil-collection-inhibit-insert-state 'sly-thread-control-mode-map)
   (evil-collection-define-key 'normal 'sly-thread-control-mode-map
     "a" 'sly-thread-attach
-    "d" 'sly-thread-debug
-    "x" 'sly-thread-kill)
-  (evil-collection-bind 'sly-thread-control-mode-map 'refresh 'sly-update-threads-buffer)
+    "d" 'sly-thread-debug)
+  (evil-collection-bind 'sly-thread-control-mode-map
+                        'refresh 'sly-update-threads-buffer
+                        'delete-2 'sly-thread-kill)
 
   (evil-collection-bind 'sly-xref-mode-map
                         'quit 'quit-window
@@ -248,12 +249,12 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "C-i") 'forward-button
     "R" 'sly-restart-connection-at-point
     "d" 'sly-connection-list-make-default
-    "x" 'sly-quit-connection-at-point
     "o" 'tabulated-list-sort)
   (evil-collection-bind 'sly-connection-list-mode-map
                         'quit 'quit-window
                         'refresh 'sly-update-connection-list
-                        'action 'sly-connection-list-default-action)
+                        'action 'sly-connection-list-default-action
+                        'delete-2 'sly-quit-connection-at-point)
 
   (add-hook 'sly-popup-buffer-mode-hook #'evil-normalize-keymaps))
 

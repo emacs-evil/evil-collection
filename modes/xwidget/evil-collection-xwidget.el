@@ -145,7 +145,6 @@ F is the name of function, N is the pixel height."
     ;;
     ;; Only `new-tab' and `close-tab' are supported.
     "t" 'evil-collection-xwidget-webkit-new-tab
-    "x" 'evil-collection-xwidget-webkit-close-tab
     "X" 'evil-collection-xwidget-webkit-restore-last-closed-tab
 
     ;; Miscellaneous
@@ -180,7 +179,8 @@ F is the name of function, N is the pixel height."
                         'refresh 'xwidget-webkit-reload
                         'browse-url 'xwidget-webkit-browse-url
                         'zoom-in  'xwidget-webkit-zoom-in
-                        'zoom-out 'xwidget-webkit-zoom-out))
+                        'zoom-out 'xwidget-webkit-zoom-out
+                        'delete-2 'evil-collection-xwidget-webkit-close-tab))
 
 (provide 'evil-collection-xwidget)
 ;;; evil-collection-xwidget.el ends here

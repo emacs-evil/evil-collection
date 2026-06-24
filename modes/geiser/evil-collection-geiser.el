@@ -67,7 +67,6 @@
   (evil-collection-define-key 'normal 'geiser-doc-mode-map
     ">" 'geiser-doc-next
     "<" 'geiser-doc-previous
-    "x" 'geiser-doc-kill-page
     "X" 'geiser-doc-clean-history)
   (evil-collection-bind 'geiser-doc-mode-map
                         'next-button 'forward-button
@@ -79,7 +78,9 @@
                         'next-section-2 'forward-button
                         'prev-section-2 'backward-button
                         'quit 'View-quit
-                        'refresh 'geiser-doc-refresh)
+                        'refresh 'geiser-doc-refresh
+                        'delete 'geiser-doc-kill-page
+                        'delete-2 'geiser-doc-kill-page)
 
   (evil-collection-bind 'geiser-repl-mode-map
                         'repl-submit 'geiser-repl-maybe-send

@@ -43,7 +43,6 @@
                         'prev-section 'ebuku-previous-bookmark)
   (evil-collection-define-key 'normal 'ebuku-mode-map
                               "a" 'ebuku-add-bookmark
-                              "x" 'ebuku-delete-bookmark
                               "j" 'ebuku-next-bookmark
                               "k" 'ebuku-previous-bookmark
                               "r" 'ebuku-search-on-recent
@@ -58,6 +57,7 @@
   (evil-collection-bind 'ebuku-mode-map
                         'action 'ebuku-open-url
                         'delete 'ebuku-delete-bookmark
+                        'delete-2 'ebuku-delete-bookmark
                         'search-or-filter 'ebuku-search))
 
 

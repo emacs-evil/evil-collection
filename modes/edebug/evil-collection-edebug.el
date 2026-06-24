@@ -119,11 +119,12 @@
                           'quit 'quit-window
                           'action 'edebug-x-find-function)
     (evil-collection-define-key 'normal 'edebug-x-breakpoint-list-mode-map
-      "x" 'edebug-x-kill-breakpoint
       "Q" 'edebug-x-clear-data)
     (evil-collection-bind 'edebug-x-breakpoint-list-mode-map
                           'quit 'quit-window
-                          'action 'edebug-x-visit-breakpoint)))
+                          'action 'edebug-x-visit-breakpoint
+                          'delete 'edebug-x-kill-breakpoint
+                          'delete-2 'edebug-x-kill-breakpoint)))
 
 (provide 'evil-collection-edebug)
 ;;; evil-collection-edebug.el ends here
