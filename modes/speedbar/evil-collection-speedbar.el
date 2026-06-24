@@ -72,7 +72,6 @@
 
     ;; Toggle
     "a" 'speedbar-toggle-show-all-files
-    "t" 'speedbar-toggle-updates
     "i" 'speedbar-toggle-images
     "o" 'speedbar-toggle-sorting
 
@@ -104,7 +103,8 @@
                         'prev-item 'speedbar-backward-list
                         'next-section 'speedbar-forward-list
                         'prev-section 'speedbar-backward-list
-                        'refresh         'speedbar-refresh)
+                        'refresh         'speedbar-refresh
+                        'toggle 'speedbar-toggle-updates)
   (evil-collection-bind 'speedbar-buffers-key-map
                         'refresh  'speedbar-buffer-revert-buffer
                         'delete 'speedbar-buffer-kill-buffer

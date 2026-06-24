@@ -100,7 +100,6 @@ Evil version of `sly-eval-print-last-expression' that accounts for
     (kbd "M-k") 'sly-db-details-up
     "gg" 'sly-db-beginning-of-backtrace
     "G" 'sly-db-end-of-backtrace
-    "t" 'sly-db-toggle-details
     "I" 'sly-db-invoke-restart-by-name
     "a" 'sly-db-abort
     "A" 'sly-db-break-with-system-debugger
@@ -124,6 +123,7 @@ Evil version of `sly-eval-print-last-expression' that accounts for
                         'quit 'sly-db-quit
                         'describe-mode 'describe-mode
                         'refresh 'sly-db-restart-frame
+                        'toggle 'sly-db-toggle-details
                         'debug-continue 'sly-db-continue
                         'debug-step-over 'sly-db-next
                         'debug-step-into 'sly-db-step

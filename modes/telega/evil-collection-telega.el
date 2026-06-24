@@ -216,11 +216,10 @@
     "f" nil
     "*" nil
     "i" nil
-    "h" nil
-
-    "t" 'telega-sticker-toggle-favorite)
+    "h" nil)
   (evil-collection-bind 'telega-sticker-button-map
-                        'describe-mode 'telega-sticker-help))
+                        'describe-mode 'telega-sticker-help
+                        'toggle 'telega-sticker-toggle-favorite))
 
 (provide 'evil-collection-telega)
 ;;; evil-collection-telega.el ends here

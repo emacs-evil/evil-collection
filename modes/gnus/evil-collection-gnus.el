@@ -477,7 +477,8 @@ Note that there is no gnus-common-mode-map")
                         'quit 'quit-window
                         'quit-save 'quit-window
                         'quit-cancel 'quit-window
-                        'action 'gnus-bookmark-bmenu-select)
+                        'action 'gnus-bookmark-bmenu-select
+                        'toggle 'gnus-bookmark-bmenu-toggle-infos)
   (evil-collection-define-key 'normal 'gnus-bookmark-bmenu-mode-map
     ;; quit
     "Q"         'quit-window
@@ -488,7 +489,6 @@ Note that there is no gnus-common-mode-map")
     [mouse-2]   'gnus-bookmark-bmenu-select-by-mouse
     "L"         'gnus-bookmark-bmenu-load
     "s"         'gnus-bookmark-bmenu-save
-    "t"         'gnus-bookmark-bmenu-toggle-infos
     "a"         'gnus-bookmark-bmenu-show-details
     ;; not implemented yet
     "A"         'gnus-bookmark-bmenu-show-all-annotations)

@@ -41,7 +41,6 @@
     "c" 'bluetooth-connect
     "d" 'bluetooth-disconnect
     "b" 'bluetooth-toggle-blocked
-    "t" 'bluetooth-toggle-trusted
     "a" 'bluetooth-set-alias
     "r" 'bluetooth-start-discovery
     "R" 'bluetooth-stop-discovery
@@ -54,7 +53,8 @@
     "<" 'bluetooth-beginning-of-list
     ">" 'bluetooth-end-of-list)
   (evil-collection-bind 'bluetooth-mode-map
-                        'delete-2 'bluetooth-remove-device))
+                        'delete-2 'bluetooth-remove-device
+                        'toggle 'bluetooth-toggle-trusted))
 
 (provide 'evil-collection-bluetooth)
 ;;; evil-collection-bluetooth.el ends here

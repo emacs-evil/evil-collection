@@ -52,7 +52,6 @@
                         'next-section 'evil-collection-mpc-move-down
                         'prev-section 'evil-collection-mpc-move-up)
   (evil-collection-define-key 'normal 'mpc-mode-map
-    "t"                'mpc-toggle-play
     "T"                'mpc-stop
     "r"                'mpc-toggle-repeat
     "s"                'mpc-toggle-shuffle
@@ -76,7 +75,8 @@
   (evil-collection-bind 'mpc-mode-map
                         'action 'mpc-select
                         'action-other 'mpc-select-toggle
-                        'action-stay 'mpc-select-extend)
+                        'action-stay 'mpc-select-extend
+                        'toggle 'mpc-toggle-play)
   (evil-collection-define-key 'normal 'mpc-mode-map
     (kbd "C-<return>") 'mpc-select-extend
     "go" 'mpc-goto-playing-song)

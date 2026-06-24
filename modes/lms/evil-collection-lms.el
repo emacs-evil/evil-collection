@@ -295,7 +295,6 @@ The actions triggered by pressing keys refer to the track under cursor.
     (evil-set-initial-state mode 'normal))
 
   (evil-collection-define-key 'normal 'lms-ui-playing-now-mode-map
-    "t"              'lms-ui-playing-now-change-player-power-state
     (kbd "C-p")      'lms-ui-playing-now-players-list
     "R"              'lms-ui-playing-now-change-rating
     (kbd  "C-=")     'lms-ui-playing-now-set-volume
@@ -325,7 +324,8 @@ The actions triggered by pressing keys refer to the track under cursor.
                         'quit 'lms-ui-playing-now-quit
                         'describe-mode 'lms-ui-playing-now-help
                         'refresh 'lms-ui-playing-now-refresh
-                        'action 'lms-ui-playing-now-play-pause)
+                        'action 'lms-ui-playing-now-play-pause
+                        'toggle 'lms-ui-playing-now-change-player-power-state)
 
   (evil-collection-define-key 'normal 'lms-ui-track-info-mode-map
     "R"             'lms-ui-track-info-change-rating
@@ -346,12 +346,12 @@ The actions triggered by pressing keys refer to the track under cursor.
     [remap evil-forward-paragraph] 'evil-collection-lms-goto-line
     [remap evil-next-line] 'evil-collection-lms-next-line
     "x" 'lms-ui-players-playpause
-    "t" 'lms-ui-players-toggle-power
     "gh" 'lms-ui-playing-now-help)
   (evil-collection-bind 'lms-ui-players-mode-map
                         'quit 'evil-collection-lms-ui-players-mode-quit
                         'describe-mode 'lms-ui-playing-now-help
-                        'action 'lms-ui-players-select)
+                        'action 'lms-ui-players-select
+                        'toggle 'lms-ui-players-toggle-power)
 
   (evil-collection-define-key 'normal 'lms-ui-playlist-mode-map
     [remap evil-goto-line] 'evil-collection-lms-goto-line

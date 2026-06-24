@@ -88,7 +88,6 @@
     (kbd "M-k") 'sldb-details-up
     "gg" 'sldb-beginning-of-backtrace
     "G" 'sldb-end-of-backtrace
-    "t" 'sldb-toggle-details
     "I" 'sldb-invoke-restart-by-name
     "a" 'sldb-abort
     "A" 'sldb-break-with-system-debugger
@@ -112,6 +111,7 @@
                         'quit 'sldb-quit
                         'describe-mode 'describe-mode
                         'refresh 'sldb-restart-frame
+                        'toggle 'sldb-toggle-details
                         'debug-continue 'sldb-continue
                         'debug-step-over 'sldb-next
                         'debug-step-into 'sldb-step

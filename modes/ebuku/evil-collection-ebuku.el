@@ -48,7 +48,6 @@
                               "r" 'ebuku-search-on-recent
                               "*" 'ebuku-show-all
                               "-" 'ebuku-toggle-results-limit
-                              "t" 'ebuku-toggle-results-limit
                               "C" 'ebuku-copy-url
                               "T" 'ebuku-copy-title
                               "I" 'ebuku-copy-index
@@ -58,7 +57,8 @@
                         'action 'ebuku-open-url
                         'delete 'ebuku-delete-bookmark
                         'delete-2 'ebuku-delete-bookmark
-                        'search-or-filter 'ebuku-search))
+                        'search-or-filter 'ebuku-search
+                        'toggle 'ebuku-toggle-results-limit))
 
 
 (provide 'evil-collection-ebuku)

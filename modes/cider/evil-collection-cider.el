@@ -110,9 +110,10 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
       "p" 'evil-collection-cider-debug-inspect
       "P" 'evil-collection-cider-debug-inspect-prompt
       "J" 'evil-collection-cider-debug-inject
-      "S" 'evil-collection-cider-debug-stacktrace
-      "t" 'evil-collection-cider-debug-trace)
-    (evil-collection-bind 'cider--debug-mode-map 'quit 'evil-collection-cider-debug-quit))
+      "S" 'evil-collection-cider-debug-stacktrace)
+    (evil-collection-bind 'cider--debug-mode-map
+                          'quit 'evil-collection-cider-debug-quit
+                          'toggle 'evil-collection-cider-debug-trace))
 
   (evil-collection-bind 'cider--debug-mode-map
                         'debug-continue 'evil-collection-cider-debug-continue

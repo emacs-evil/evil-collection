@@ -93,13 +93,13 @@
                         'next-section 'alchemist-test-next-stacktrace-file
                         'prev-section 'alchemist-test-previous-stacktrace-file)
   (evil-collection-define-key 'normal 'alchemist-test-report-mode-map
-    "t" 'toggle-truncate-lines
     (kbd "C-c C-k") 'alchemist-report-interrupt-current-process)
   (evil-collection-bind 'alchemist-test-report-mode-map
                         'next-section-2 'alchemist-test-next-result
                         'prev-section-2 'alchemist-test-previous-result
                         'quit 'quit-window
-                        'refresh 'alchemist-mix-rerun-last-test)
+                        'refresh 'alchemist-mix-rerun-last-test
+                        'toggle 'toggle-truncate-lines)
 
   (evil-collection-bind 'alchemist-mode-map
                         'next-section 'alchemist-goto-jump-to-next-def-symbol

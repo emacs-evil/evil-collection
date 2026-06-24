@@ -48,7 +48,6 @@
     "5" 'bookmark-bmenu-other-frame
     "r" 'bookmark-bmenu-relocate
     "L" 'bookmark-bmenu-load
-    "t" 'bookmark-bmenu-toggle-filenames
     "W" 'bookmark-bmenu-locate
     "D" 'bookmark-bmenu-delete-backwards
 
@@ -70,7 +69,8 @@
                         'action 'bookmark-bmenu-this-window
                         'action-other 'bookmark-bmenu-other-window
                         'action-stay 'bookmark-bmenu-switch-other-window
-                        'search-or-filter 'bookmark-bmenu-search))
+                        'search-or-filter 'bookmark-bmenu-search
+                        'toggle 'bookmark-bmenu-toggle-filenames))
 
 (provide 'evil-collection-bookmark)
 ;;; evil-collection-bookmark.el ends here
