@@ -103,8 +103,6 @@ The return value is the yanked text."
     "u" 'emms-playlist-mode-undo
 
     ;; motion
-    (kbd "<tab>") 'emms-browser-toggle-subitems-recursively
-    (kbd "<backtab>") 'emms-browser-toggle-subitems-recursively
     "^" 'emms-browser-move-up-level
     (kbd "SPC") 'emms-browser-toggle-subitems
     "g1" 'emms-browser-collapse-all
@@ -144,7 +142,9 @@ The return value is the yanked text."
                         'next-item 'emms-browser-next-non-track
                         'prev-item 'emms-browser-prev-non-track
                         'next-section 'emms-browser-next-non-track
-                        'prev-section 'emms-browser-prev-non-track)
+                        'prev-section 'emms-browser-prev-non-track
+                        'section-toggle 'emms-browser-toggle-subitems-recursively
+                        'section-toggle-all 'emms-browser-toggle-subitems-recursively)
 
   (unless evil-collection-always-run-setup-hook-after-load
     (run-hook-with-args 'evil-collection-setup-hook

@@ -227,12 +227,11 @@ instead, which is useless and counterintuitive."
 
     "zf" 'pdf-outline-follow-mode ; Helm has "C-c C-f" in Emacs state.
 
-    (kbd "<backtab>") 'pdf-outline-toggle-subtree
-
     ;; quit
     (kbd "C-w q") 'pdf-outline-quit-and-kill) ; TODO: Do we need to set this? I think not.
   (evil-collection-bind 'pdf-outline-buffer-mode-map
                         'section-toggle 'outline-toggle-children
+                        'section-toggle-all 'pdf-outline-toggle-subtree
                         'action 'pdf-outline-follow-link-and-quit
                         'action-other 'pdf-outline-follow-link
                         'action-stay 'pdf-outline-display-link

@@ -174,11 +174,6 @@
   (evil-collection-guix-set guix-hydra-build-info-mode-map)
 
   (evil-collection-set-readonly-bindings 'guix-build-log-mode-map)
-  (evil-collection-define-key 'normal 'guix-build-log-mode-map
-    ;; motion
-    (kbd "<tab>") 'guix-build-log-phase-toggle
-    (kbd "<backtab>") 'guix-build-log-phase-toggle-all)
-
   (evil-collection-bind 'guix-build-log-mode-map
                         'scroll-down 'scroll-up-command
                         'scroll-up 'scroll-down-command
@@ -187,7 +182,9 @@
                         'next-section 'guix-build-log-next-phase
                         'prev-section 'guix-build-log-previous-phase
                         'goto-repl 'guix-switch-to-repl
-                        'refresh 'revert-buffer)
+                        'refresh 'revert-buffer
+                        'section-toggle 'guix-build-log-phase-toggle
+                        'section-toggle-all 'guix-build-log-phase-toggle-all)
 
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-bind 'guix-service-list-mode-map 'action 'bui-list-describe)
