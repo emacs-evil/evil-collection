@@ -117,7 +117,6 @@
     "a" 'dired-find-alternate-file
     "i" 'dired-toggle-read-only
     "I" 'dired-maybe-insert-subdir
-    "K" 'dired-do-kill-lines
     "r" 'dired-do-redisplay
     "t" 'dired-toggle-marks
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
@@ -201,6 +200,10 @@
       "*(" 'dired-mark-sexp
       "*." 'dired-mark-extension
       "*O" 'dired-mark-omitted))
+
+  ;; dired-do-kill-lines hides matching rows from view; when dired-narrow
+  ;; is loaded, its richer regex narrowing takes over `s' below.
+  (evil-collection-bind 'dired-mode-map 'search-or-filter 'dired-do-kill-lines)
 
   ;; dired-narrow commands
   (with-eval-after-load 'dired-narrow

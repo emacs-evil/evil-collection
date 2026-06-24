@@ -41,7 +41,6 @@
           "g%" tablist-mode-regexp-map
           "g*" tablist-mode-mark-map
           "g/" tablist-mode-filter-map
-          "K"  'tablist-do-kill-lines
           "m"  'tablist-mark-forward
           "S"  'tablist-sort
           "t"  'tablist-toggle-marks
@@ -58,14 +57,17 @@
                           'unmark-all 'tablist-unmark-all-marks
                           'mark-delete 'tablist-flag-forward
                           'execute-marks 'tablist-do-flagged-delete
-                          'action 'tablist-find-entry)
+                          'action 'tablist-find-entry
+                          'search-or-filter 'tablist-do-kill-lines)
 
     (apply #'evil-collection-define-key 'normal 'tablist-minor-mode-map
            common-bindings)
     (evil-collection-bind 'tablist-minor-mode-map    'quit 'tablist-quit)
     (evil-collection-bind 'tablist-mode-map 'refresh       'tablist-revert)
     (evil-collection-bind 'tablist-minor-mode-map 'refresh 'tablist-revert)
-    (evil-collection-bind 'tablist-minor-mode-map 'mark-toggle-all 'tablist-toggle-marks)))
+    (evil-collection-bind 'tablist-minor-mode-map 'mark-toggle-all 'tablist-toggle-marks)
+    (evil-collection-bind 'tablist-minor-mode-map
+                          'search-or-filter 'tablist-do-kill-lines)))
 
 (provide 'evil-collection-tablist)
 ;;; evil-collection-tablist.el ends here

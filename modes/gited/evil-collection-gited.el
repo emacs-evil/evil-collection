@@ -109,7 +109,6 @@
 
     ;; Operations on Marked and Flagged Branches/Tags
     "D" 'gited-do-delete
-    "K" 'gited-do-kill-lines
     "T" 'gited-do-sync-with-trunk
 
     ;; Marks
@@ -153,7 +152,8 @@
                         'execute-marks 'gited-do-flagged-delete
                         'action 'gited-visit-branch-sources
                         'action-other 'gited-visit-branch-sources
-                        'action-stay 'gited-origin))
+                        'action-stay 'gited-origin
+                        'search-or-filter 'gited-do-kill-lines))
 
 (provide 'evil-collection-gited)
 ;;; evil-collection-gited.el ends here
