@@ -52,9 +52,7 @@
     "i" 'nov-goto-toc
     (kbd "<follow-link>") 'mouse-face
     (kbd "<mouse-2>") 'nov-browse-url
-    (kbd "TAB") 'shr-next-link
     (kbd "M-TAB") 'shr-previous-link
-    (kbd "<backtab>") 'shr-previous-link
     (kbd "DEL") 'nov-scroll-down)
 
   (evil-collection-bind 'nov-mode-map
@@ -62,7 +60,9 @@
                         'scroll-up 'nov-scroll-down
                         'action 'nov-browse-url
                         'describe-mode 'nov-display-metadata
-                        'refresh 'nov-render-document))
+                        'refresh 'nov-render-document
+                        'cycle-next 'shr-next-link
+                        'cycle-previous 'shr-previous-link))
 
 (provide 'evil-collection-nov)
 ;;; evil-collection-nov.el ends here

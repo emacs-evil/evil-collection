@@ -39,8 +39,6 @@
   (evil-collection-set-readonly-bindings 'Info-mode-map)
   (evil-set-initial-state 'Info-mode 'normal)
   (evil-collection-define-key 'normal 'Info-mode-map
-    (kbd "<tab>") 'Info-next-reference
-    (kbd "S-<tab>") 'Info-prev-reference
     ;; This exists because <tab> is recognized as C-i on terminals.
     (kbd "g TAB") 'Info-next-reference
     "g]" 'Info-next-reference
@@ -102,7 +100,9 @@
                         'prev-section 'Info-backward-node
                         'find-file 'Info-follow-reference
                         'describe-mode 'Info-summary
-                        'search-or-filter 'Info-search))
+                        'search-or-filter 'Info-search
+                        'cycle-next 'Info-next-reference
+                        'cycle-previous 'Info-prev-reference))
 
 (provide 'evil-collection-info)
 ;;; evil-collection-info.el ends here

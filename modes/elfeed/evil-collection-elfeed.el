@@ -86,8 +86,6 @@
   (evil-collection-set-readonly-bindings 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
   (evil-collection-define-key 'normal 'elfeed-show-mode-map
-    (kbd "<tab>") 'elfeed-show-next-link
-
     "+" 'elfeed-show-tag
     "-" 'elfeed-show-untag
 
@@ -106,7 +104,8 @@
                         'quit-save 'elfeed-kill-buffer
                         'quit-cancel 'elfeed-kill-buffer
                         'refresh 'elfeed-show-refresh
-                        'search-or-filter 'elfeed-show-new-live-search)
+                        'search-or-filter 'elfeed-show-new-live-search
+                        'cycle-next 'elfeed-show-next-link)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map

@@ -218,14 +218,14 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     "4" 'cider-stacktrace-cycle-cause-4
     "5" 'cider-stacktrace-cycle-cause-5
     "0" 'cider-stacktrace-cycle-all-causes
-    (kbd "TAB") 'cider-stacktrace-cycle-current-cause
     [backtab] 'cider-stacktrace-cycle-all-causes)
   (evil-collection-bind 'cider-stacktrace-mode-map
                         'next-item 'cider-stacktrace-next-cause
                         'prev-item 'cider-stacktrace-previous-cause
                         'next-section 'cider-stacktrace-next-cause
                         'prev-section 'cider-stacktrace-previous-cause
-                        'quit 'cider-popup-buffer-quit-function)
+                        'quit 'cider-popup-buffer-quit-function
+                        'cycle-next 'cider-stacktrace-cycle-current-cause)
 
   (add-hook 'cider-inspector-mode-hook #'evil-normalize-keymaps)
   (evil-collection-bind 'cider-inspector-mode-map

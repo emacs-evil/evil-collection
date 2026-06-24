@@ -44,10 +44,6 @@
     (evil-collection-define-key nil keymap
       "g" nil)
 
-    (evil-collection-define-key 'normal keymap
-      (kbd "TAB") 'compilation-next-error
-      (kbd "S-TAB") 'compilation-previous-error)
-
     (evil-collection-bind keymap
                           'action 'compile-goto-error
                           'action-other 'compilation-display-error
@@ -58,6 +54,8 @@
                           'prev-section 'compilation-previous-file
                           'next-section-2 'compilation-next-error
                           'prev-section-2 'compilation-previous-error
+                          'cycle-next 'compilation-next-error
+                          'cycle-previous 'compilation-previous-error
                           'refresh 'recompile)))
 
 (provide 'evil-collection-compile)
