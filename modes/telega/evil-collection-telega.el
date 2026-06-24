@@ -67,9 +67,6 @@
 
     "ga" telega-prefix-map
 
-    (kbd "<tab>") 'telega-button-forward
-    (kbd "<backtab>") 'telega-button-backward
-
     "S" telega-sort-map
     "s" telega-filter-map
     "_" 'telega-filter-undo
@@ -90,7 +87,9 @@
     "gs" 'telega-view-search)
   (evil-collection-bind 'telega-root-mode-map
                         'quit 'bury-buffer
-                        'describe-mode telega-describe-map)
+                        'describe-mode telega-describe-map
+                        'next-button 'telega-button-forward
+                        'previous-button 'telega-button-backward)
 
   (evil-collection-define-key 'normal 'telega-chat-mode-map
     "ga" telega-prefix-map
@@ -105,17 +104,16 @@
     "Zv" 'telega-chatbuf-attach-clipboard
 
     "_" 'telega-chatbuf-filter-cancel
-    "S" 'telega-chatbuf-filter-search
-
-    (kbd "<tab>") 'telega-chatbuf-complete-or-next-link
-    (kbd "<backtab>") 'telega-chatbuf-prev-link)
+    "S" 'telega-chatbuf-filter-search)
   (evil-collection-bind 'telega-chat-mode-map
                         'quit 'quit-window
                         'describe-mode 'telega-describe-chat
                         'repl-submit 'telega-chatbuf-newline-or-input-send
                         'repl-newline 'newline
                         'repl-force-newline 'newline
-                        'search-or-filter 'telega-chatbuf-filter)
+                        'search-or-filter 'telega-chatbuf-filter
+                        'next-button 'telega-chatbuf-complete-or-next-link
+                        'previous-button 'telega-chatbuf-prev-link)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
     "ga" telega-prefix-map
@@ -129,11 +127,11 @@
 
     "yy" 'telega-webpage-copy-url
     "(" 'telega-webpage-history-prev
-    ")" 'telega-webpage-history-next
-    (kbd "<tab>") 'telega-button-forward
-    (kbd "<backtab>") 'telega-button-backward)
+    ")" 'telega-webpage-history-next)
   (evil-collection-bind 'telega-webpage-mode-map
-                        'browse-url 'telega-webpage-browse-url)
+                        'browse-url 'telega-webpage-browse-url
+                        'next-button 'telega-button-forward
+                        'previous-button 'telega-button-backward)
 
   (evil-collection-set-readonly-bindings 'telega-user-button-map)
   ; We have to set keybinds for emacs instead of normal state because normal
@@ -172,8 +170,6 @@
     "dd" 'telega-msg-delete-dwim
     "i" 'telega-msg-edit
     "a" 'telega-msg-mark-toggle
-    (kbd "<tab>") 'telega-button-forward
-    (kbd "<backtab>") 'telega-button-backward
     "R" 'telega-msg-forward-dwim
     "r" 'telega-msg-reply
 
@@ -192,7 +188,9 @@
     "s" 'telega-msg-favorite-toggle)
   (evil-collection-bind 'telega-msg-button-map
                         'refresh 'telega-msg-open-thread-or-topic
-                        'describe-mode 'telega-describe-message)
+                        'describe-mode 'telega-describe-message
+                        'next-button 'telega-button-forward
+                        'previous-button 'telega-button-backward)
 
   (evil-collection-set-readonly-bindings 'telega-chat-button-map)
   (evil-collection-define-key nil 'telega-chat-button-map

@@ -36,14 +36,13 @@
   "Set up `evil' bindings for `list-processes'."
   (evil-collection-set-readonly-bindings 'process-menu-mode-map)
   (evil-collection-define-key 'normal 'process-menu-mode-map
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
-
     "S" 'tabulated-list-sort)
 
   ;; motion
   ;; TODO: Implement beginning-of-buffer / end-of-buffer.
   (evil-collection-bind 'process-menu-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button
                         'scroll-down 'evil-scroll-down
                         'scroll-up 'evil-scroll-up
                         'refresh 'revert-buffer

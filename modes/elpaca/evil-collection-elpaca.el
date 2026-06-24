@@ -77,12 +77,11 @@ When this is true, move the `elpaca-visit' to gv and gd."
     (kbd "b") 'evil-collection-elpaca-ui-visit-build-dir)
 
   (evil-collection-define-key 'normal 'elpaca-info-mode-map
-    (kbd "TAB") 'forward-button
-    (kbd "<tab>") 'forward-button
-    (kbd "S-TAB") 'backward-button
-    (kbd "<backtab>") 'backward-button
     (kbd "i") 'elpaca-info
     (kbd "s") 'elpaca-info)
+  (evil-collection-bind 'elpaca-info-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button)
 
   (evil-collection-define-key 'normal 'elpaca-ui-mode-map
     (kbd "!") 'elpaca-ui-send-input

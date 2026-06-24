@@ -40,8 +40,6 @@
 
   (evil-collection-define-key 'normal 'debugger-mode-map
     ;; motion
-    (kbd "<tab>") 'forward-button
-    (kbd "S-<tab>") 'backward-button
     (kbd "SPC") 'next-line
 
     "R" 'debugger-record-expression
@@ -61,6 +59,8 @@
     "zo" 'backtrace-multi-line
     "zc" 'backtrace-single-line)
   (evil-collection-bind 'debugger-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button
                         'action (if (fboundp 'debug-help-follow)
                                     'debug-help-follow
                                   'backtrace-help-follow-symbol)

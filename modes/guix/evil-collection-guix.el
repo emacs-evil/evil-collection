@@ -50,9 +50,6 @@
      (evil-collection-set-readonly-bindings ',map)
      (evil-collection-define-key 'normal ',map
         ;; motion
-        (kbd "<tab>") 'forward-button
-        (kbd "<backtab>") 'backward-button
-
         "gm" 'guix-apply-manifest
 
         ;; sort
@@ -71,6 +68,8 @@
         (kbd "C-o") 'bui-history-back
         (kbd "C-i") 'bui-history-forward)
      (evil-collection-bind ',map
+                           'next-button 'forward-button
+                           'previous-button 'backward-button
                            'scroll-down 'scroll-up-command
                            'scroll-up 'scroll-down-command
                            'goto-repl 'guix-switch-to-repl
@@ -145,7 +144,6 @@
   (evil-collection-guix-set guix-license-list-mode-map)
   (evil-collection-bind 'guix-license-list-mode-map 'action 'bui-list-describe)
   (evil-collection-define-key 'normal 'guix-license-list-mode-map
-    (kbd "<tab>") 'forward-button       ; Why isn't this binding inhibited?
     "p" 'guix-license-list-show-packages
     "gd" 'guix-license-list-edit)
 
@@ -194,7 +192,6 @@
   (evil-collection-guix-set guix-service-list-mode-map)
   (evil-collection-bind 'guix-service-list-mode-map 'action 'bui-list-describe)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map
-    (kbd "<tab>") 'forward-button
     "gd" 'guix-service-list-edit)
 
   (evil-collection-bind 'guix-devel-mode-map 'goto-repl 'guix-switch-to-repl))

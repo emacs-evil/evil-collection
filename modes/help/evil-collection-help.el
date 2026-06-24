@@ -41,8 +41,6 @@
     ;; motion
     (kbd "C-f") 'scroll-up-command
     (kbd "C-b") 'scroll-down-command
-    (kbd "<tab>") 'forward-button
-    (kbd "<backtab>") 'backward-button
     ;; This exists because <tab> is recognized as C-i on terminals.
     (kbd "g TAB") 'forward-button
     "g]" 'forward-button
@@ -64,6 +62,8 @@
   ;; The following bindings don't do what they are supposed to. "go" should open
   ;; in the same window and "gO" should open in a different one.
   (evil-collection-bind 'help-mode-map
+                        'next-button 'forward-button
+                        'previous-button 'backward-button
                         'scroll-down 'scroll-up-command
                         'scroll-up 'scroll-down-command
                         'action-other 'push-button
