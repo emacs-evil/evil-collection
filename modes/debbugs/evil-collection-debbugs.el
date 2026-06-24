@@ -45,7 +45,6 @@
     "d" 'debbugs-gnu-display-status
 
     ;; filter
-    "s" 'debbugs-gnu-narrow-to-status
     "S" 'debbugs-gnu-search
     ;; "S" 'debbugs-gnu-widen ; Useless if we can just press "s RET" (empty filter).
     "x" 'debbugs-gnu-toggle-suppress
@@ -71,7 +70,8 @@
                         'quit-save 'quit-window
                         'quit-cancel 'quit-window
                         'describe-mode 'debbugs-gnu-manual
-                        'refresh 'debbugs-gnu-rescan))
+                        'refresh 'debbugs-gnu-rescan
+                        'search-or-filter 'debbugs-gnu-narrow-to-status))
 
 (provide 'evil-collection-debbugs)
 ;;; evil-collection-debbugs.el ends here

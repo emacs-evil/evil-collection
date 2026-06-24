@@ -204,8 +204,7 @@
 
   ;; dired-narrow commands
   (with-eval-after-load 'dired-narrow
-    (evil-collection-define-key 'normal 'dired-mode-map
-      "s" 'dired-narrow-regexp))
+    (evil-collection-bind 'dired-mode-map 'search-or-filter 'dired-narrow-regexp))
 
   ;; dired-subtree commands
   (with-eval-after-load 'dired-subtree

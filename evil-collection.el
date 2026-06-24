@@ -632,7 +632,8 @@ New customization should use
     (unmark-all :enabled t :state normal :key "U")
     (mark-delete :enabled t :state normal :key "d")
     (execute-marks :enabled t :state normal :key "x")
-    (delete :enabled t :state normal :key "d"))
+    (delete :enabled t :state normal :key "d")
+    (search-or-filter :enabled t :state normal :key "s"))
   "Built-in entries for the evil-collection theme system.
 
 Each entry has the form (ID . PLIST) and may use:

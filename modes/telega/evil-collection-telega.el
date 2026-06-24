@@ -104,7 +104,6 @@
     "Zf" 'telega-chatbuf-attach-media
     "Zv" 'telega-chatbuf-attach-clipboard
 
-    "s" 'telega-chatbuf-filter
     "_" 'telega-chatbuf-filter-cancel
     "S" 'telega-chatbuf-filter-search
 
@@ -115,7 +114,8 @@
                         'describe-mode 'telega-describe-chat
                         'repl-submit 'telega-chatbuf-newline-or-input-send
                         'repl-newline 'newline
-                        'repl-force-newline 'newline)
+                        'repl-force-newline 'newline
+                        'search-or-filter 'telega-chatbuf-filter)
 
   (evil-collection-define-key 'normal 'telega-image-mode-map
     "ga" telega-prefix-map

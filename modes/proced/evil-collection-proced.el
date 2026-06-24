@@ -57,7 +57,6 @@
     "x" 'proced-send-signal ; Emacs has "k" and "x", "k" is mentioned in documentation
 
     ;; filter
-    "s" 'proced-filter-interactive ; Refers to "[s]elect", Emacs has "f" mentioned in documentation.
     "S" 'proced-format-interactive
 
     ;; sort
@@ -80,7 +79,8 @@
                         'mark-toggle-all 'proced-toggle-marks
                         'unmark-all 'proced-unmark-all
                         'action 'proced-refine
-                        'refresh 'revert-buffer))
+                        'refresh 'revert-buffer
+                        'search-or-filter 'proced-filter-interactive))
 
 (provide 'evil-collection-proced)
 ;;; evil-collection-proced.el ends here

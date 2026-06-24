@@ -48,7 +48,6 @@
     "y" 'elfeed-search-yank
 
     ;; filter
-    "s" 'elfeed-search-live-filter
     "S" 'elfeed-search-set-filter
     "c" 'elfeed-search-clear-filter)
 
@@ -60,7 +59,8 @@
                         'refresh-all 'elfeed-search-fetch
                         'refresh 'revert-buffer
                         'quit-save 'quit-window
-                        'quit-cancel 'quit-window)
+                        'quit-cancel 'quit-window
+                        'search-or-filter 'elfeed-search-live-filter)
 
   ;; Refresh fallback for elfeed before commit 518e5bd3, where
   ;; `revert-buffer-function' is not wired up.
@@ -88,9 +88,6 @@
   (evil-collection-define-key 'normal 'elfeed-show-mode-map
     (kbd "<tab>") 'elfeed-show-next-link
 
-    ;; filter
-    "s" 'elfeed-show-new-live-search
-
     "+" 'elfeed-show-tag
     "-" 'elfeed-show-untag
 
@@ -108,7 +105,8 @@
                         'quit 'elfeed-kill-buffer
                         'quit-save 'elfeed-kill-buffer
                         'quit-cancel 'elfeed-kill-buffer
-                        'refresh 'elfeed-show-refresh)
+                        'refresh 'elfeed-show-refresh
+                        'search-or-filter 'elfeed-show-new-live-search)
 
   ;; yu, like `eww'
   (evil-collection-define-operator-key 'yank 'elfeed-show-mode-map

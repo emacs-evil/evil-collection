@@ -39,7 +39,6 @@
   "Set up `evil' bindings for `flycheck'."
   (evil-set-initial-state 'flycheck-error-list-mode 'normal)
   (evil-collection-define-key 'normal 'flycheck-error-list-mode-map
-    "s" 'flycheck-error-list-set-filter
     "S" 'flycheck-error-list-reset-filter
     "x" 'flycheck-error-list-explain-error)
   (evil-collection-bind 'flycheck-error-list-mode-map
@@ -49,7 +48,8 @@
                         'next-section 'flycheck-error-list-next-error
                         'prev-section 'flycheck-error-list-previous-error
                         'quit 'quit-window
-                        'refresh 'flycheck-error-list-check-source))
+                        'refresh 'flycheck-error-list-check-source
+                        'search-or-filter 'flycheck-error-list-set-filter))
 
 (provide 'evil-collection-flycheck)
 ;;; evil-collection-flycheck.el ends here
