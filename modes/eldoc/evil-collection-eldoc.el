@@ -51,10 +51,10 @@
 ;;;###autoload
 (defun evil-collection-eldoc-setup ()
   "Set up `evil' bindings for `eldoc'."
-  (evil-collection-define-key 'normal 'evil-collection-eldoc-doc-buffer-mode-map
-    "q" #'quit-window
-    "ZZ" #'quit-window
-    "ZQ" #'evil-quit)
+  (evil-collection-bind 'evil-collection-eldoc-doc-buffer-mode-map
+                        'quit 'quit-window
+                        'quit-save 'quit-window
+                        'quit-cancel 'evil-quit)
 
   ;; 'special-mode' is used in eldoc since
   ;; https://github.com/emacs-mirror/emacs/commit/97abe8511a829861f6efb865209ac2dd0e7ae129
