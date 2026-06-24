@@ -32,6 +32,11 @@
 
 (defconst evil-collection-profiler-maps '(profiler-report-mode-map))
 
+(defun evil-collection-profiler-toggle-entry-all ()
+  "Toggle the entry at point with all of its subentries expanded."
+  (interactive)
+  (profiler-report-toggle-entry t))
+
 ;;;###autoload
 (defun evil-collection-profiler-setup ()
   "Set up `evil' bindings for `profiler'."
@@ -59,7 +64,9 @@
                         'quit-save 'quit-window
                         'quit-cancel 'evil-quit
                         'refresh 'revert-buffer
-                        'section-toggle 'profiler-report-toggle-entry))
+                        'section-toggle 'profiler-report-toggle-entry
+                        'section-toggle-all
+                        'evil-collection-profiler-toggle-entry-all))
 
 (provide 'evil-collection-profiler)
 ;;; evil-collection-profiler.el ends here
