@@ -38,8 +38,6 @@
   "Set up `evil' bindings for deadgrep.."
   (evil-collection-define-key 'normal 'deadgrep-edit-mode-map
     (kbd "<escape>") 'deadgrep-mode)
-  ;; FIXME: Maybe we should bind this to something?
-  ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
     "i" 'deadgrep-edit-mode)
   (evil-collection-bind 'deadgrep-mode-map
@@ -53,7 +51,10 @@
                         'quit 'quit-window
                         'quit-save 'quit-window
                         'quit-cancel 'evil-quit
-                        'refresh 'deadgrep-restart))
+                        'refresh 'deadgrep-restart
+                        'delete-2 'deadgrep-kill-process)
+  (evil-collection-bind 'deadgrep-edit-mode-map
+                        'action 'deadgrep-visit-result))
 
 (provide 'evil-collection-deadgrep)
 ;;; evil-collection-deadgrep.el ends here
