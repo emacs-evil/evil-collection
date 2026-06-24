@@ -627,6 +627,7 @@ New customization should use
     (jump :enabled t :state normal :key "J")
     (mark :enabled t :state normal :key "m")
     (mark-all :enabled t :state normal :key "M")
+    (toggle :enabled t :state normal :key "t")
     (toggle-all :enabled t :state normal :key "~")
     (unmark :enabled t :state normal :key "u")
     (unmark-all :enabled t :state normal :key "U")
