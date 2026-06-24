@@ -89,17 +89,15 @@
     ;; File based commands
     "B" 'speedbar-item-byte-compile
     "C" 'speedbar-item-copy
-    "D" 'speedbar-item-delete
     "I" 'speedbar-item-info
-    "K" 'speedbar-item-object-delete
     "L" 'speedbar-item-load
     "+" 'speedbar-create-directory
     "^" 'speedbar-up-directory
     "-" 'speedbar-up-directory)
+  (evil-collection-bind 'speedbar-file-key-map
+                        'delete 'speedbar-item-delete
+                        'delete-2 'speedbar-item-object-delete)
 
-  (evil-collection-define-key 'normal 'speedbar-buffers-key-map
-    ;; Buffer specific keybindings
-    "K" 'speedbar-buffer-kill-buffer)
   (evil-collection-bind 'speedbar-mode-map
                         'action 'speedbar-edit-line
                         'next-item 'speedbar-forward-list
@@ -107,7 +105,10 @@
                         'next-section 'speedbar-forward-list
                         'prev-section 'speedbar-backward-list
                         'refresh         'speedbar-refresh)
-  (evil-collection-bind 'speedbar-buffers-key-map 'refresh  'speedbar-buffer-revert-buffer))
+  (evil-collection-bind 'speedbar-buffers-key-map
+                        'refresh  'speedbar-buffer-revert-buffer
+                        'delete 'speedbar-buffer-kill-buffer
+                        'delete-2 'speedbar-buffer-kill-buffer))
 
 (provide 'evil-collection-speedbar)
 ;;; evil-collection-speedbar.el ends here

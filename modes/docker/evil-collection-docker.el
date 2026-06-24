@@ -41,7 +41,6 @@
     "C"  'docker-container-cp
     "D"  'docker-container-diff
     "I"  'docker-container-inspect
-    "K"  'docker-container-kill
     "L"  'docker-container-logs
     "O"  'docker-container-stop
     "P"  'docker-container-pause
@@ -50,7 +49,9 @@
     "b"  'docker-container-shells
     "f"  'docker-container-open
     "r"  'docker-container-restart)
-  (evil-collection-bind 'docker-container-mode-map 'delete 'docker-container-rm)
+  (evil-collection-bind 'docker-container-mode-map
+                        'delete 'docker-container-rm
+                        'delete-2 'docker-container-kill)
 
   (evil-collection-define-key 'normal 'docker-context-mode-map
     "?"  'docker-context-help
