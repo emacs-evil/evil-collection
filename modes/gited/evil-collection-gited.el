@@ -147,7 +147,7 @@
                         'mark 'gited-mark
                         'unmark 'gited-unmark
                         'unmark-all 'gited-unmark-all-marks
-                        'mark-toggle-all 'gited-toggle-marks
+                        'toggle-all 'gited-toggle-marks
                         'mark-delete 'gited-flag-branch-deletion
                         'execute-marks 'gited-do-flagged-delete
                         'action 'gited-visit-branch-sources

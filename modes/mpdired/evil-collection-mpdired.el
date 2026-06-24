@@ -79,7 +79,7 @@
     "%r"        'mpdired-reset-order-index)
 
   (evil-collection-bind 'mpdired-mode-map
-                        'mark-toggle-all 'mpdired-toggle-marks
+                        'toggle-all 'mpdired-toggle-marks
                         'action 'mpdired-enter
                         'refresh 'mpdired-update
                         'refresh-all 'mpdired-db-update))

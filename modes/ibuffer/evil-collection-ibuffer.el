@@ -175,7 +175,7 @@
                         'mark 'ibuffer-mark-forward
                         'unmark 'ibuffer-unmark-forward
                         'unmark-all 'ibuffer-unmark-all-marks
-                        'mark-toggle-all 'ibuffer-toggle-marks
+                        'toggle-all 'ibuffer-toggle-marks
                         'mark-delete 'ibuffer-mark-for-delete
                         'execute-marks 'ibuffer-do-kill-on-deletion-marks
                         'action 'ibuffer-visit-buffer

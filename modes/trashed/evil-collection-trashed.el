@@ -63,7 +63,7 @@
   (evil-collection-bind 'trashed-mode-map
                         'mark 'trashed-mark
                         'mark-all 'trashed-mark-all
-                        'mark-toggle-all 'trashed-toggle-marks
+                        'toggle-all 'trashed-toggle-marks
                         'unmark 'trashed-unmark
                         'unmark-all 'trashed-unmark-all
                         'mark-delete 'trashed-flag-delete

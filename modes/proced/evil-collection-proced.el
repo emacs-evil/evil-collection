@@ -76,7 +76,7 @@
                         'scroll-down 'evil-scroll-down
                         'scroll-up 'evil-scroll-up
                         'mark 'proced-mark
-                        'mark-toggle-all 'proced-toggle-marks
+                        'toggle-all 'proced-toggle-marks
                         'unmark-all 'proced-unmark-all
                         'action 'proced-refine
                         'refresh 'revert-buffer
