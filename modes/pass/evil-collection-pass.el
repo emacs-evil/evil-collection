@@ -88,7 +88,6 @@ keybindings listed in `evil-collection-pass-command-to-label'."
   (evil-collection-define-key 'normal 'pass-mode-map
     "d" 'pass-kill
     "x" 'pass-kill
-    "s" 'isearch-forward
     "i" 'pass-insert
     "I" 'pass-insert-generated
     "Y" 'pass-copy
@@ -97,7 +96,8 @@ keybindings listed in `evil-collection-pass-command-to-label'."
                         'action 'pass-view
                         'quit 'pass-quit
                         'describe-mode 'describe-mode
-                        'refresh 'pass-update-buffer))
+                        'refresh 'pass-update-buffer
+                        'search-or-filter 'isearch-forward))
 
 (provide 'evil-collection-pass)
 ;;; evil-collection-pass.el ends here

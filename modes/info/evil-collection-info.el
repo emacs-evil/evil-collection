@@ -58,7 +58,6 @@
     "d" 'Info-directory
     "u" 'Info-up
     "gL" 'Info-history ; "L"
-    "s" 'Info-search
     "S" 'Info-search-case-sensitively
     "i" 'Info-index
     "I" 'Info-virtual-index
@@ -102,7 +101,8 @@
                         'next-section 'Info-forward-node
                         'prev-section 'Info-backward-node
                         'find-file 'Info-follow-reference
-                        'describe-mode 'Info-summary))
+                        'describe-mode 'Info-summary
+                        'search-or-filter 'Info-search))
 
 (provide 'evil-collection-info)
 ;;; evil-collection-info.el ends here

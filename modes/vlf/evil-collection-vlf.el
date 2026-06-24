@@ -72,11 +72,12 @@
         "g:" 'vlf-goto-line
         "gF" 'vlf-toggle-follow)
     (evil-collection-define-key 'normal 'vlf-prefix-map
-      "s" 'vlf-re-search-forward
       "S" 'vlf-re-search-backward
       "E" 'vlf-ediff-buffers
       "L" 'vlf-goto-line
-      "F" 'vlf-toggle-follow)))
+      "F" 'vlf-toggle-follow)
+    (evil-collection-bind 'vlf-prefix-map
+                          'search-or-filter 'vlf-re-search-forward)))
 
 (provide 'evil-collection-vlf)
 ;;; evil-collection-vlf.el ends here

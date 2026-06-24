@@ -45,7 +45,6 @@ Other modes that are configured:
     "<" 'simple-mpc-prev
     "f" 'simple-mpc-seek-forward
     "b" 'simple-mpc-seek-backward
-    "s" 'simple-mpc-query
     "c" 'simple-mpc-view-current-playlist
     "l" 'simple-mpc-load-playlist
     "S" 'simple-mpc-shuffle-current-playlist
@@ -55,7 +54,8 @@ Other modes that are configured:
   (evil-collection-bind 'simple-mpc-mode-map
                         'quit 'simple-mpc-quit
                         'quit-save 'simple-mpc-quit
-                        'quit-cancel 'simple-mpc-quit)
+                        'quit-cancel 'simple-mpc-quit
+                        'search-or-filter 'simple-mpc-query)
 
   (evil-collection-define-key 'normal 'simple-mpc-current-playlist-mode-map
     "x" 'simple-mpc-delete)

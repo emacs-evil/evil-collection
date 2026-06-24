@@ -80,7 +80,6 @@
 
   (evil-collection-define-key 'normal 'ggtags-navigation-map
     ;; search
-    "s" 'ggtags-navigation-isearch-forward
     "S" 'ggtags-navigation-isearch-forward
 
     "go" 'ggtags-navigation-visible-mode ;; FIXME: This can be anything.
@@ -92,7 +91,8 @@
                         'next-section 'ggtags-navigation-next-file
                         'prev-section 'ggtags-navigation-previous-file
                         'next-section-2 'next-error
-                        'prev-section-2 'previous-error))
+                        'prev-section-2 'previous-error
+                        'search-or-filter 'ggtags-navigation-isearch-forward))
 
 (provide 'evil-collection-ggtags)
 ;;; evil-collection-ggtags.el ends here

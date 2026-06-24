@@ -38,10 +38,11 @@
   (evil-set-initial-state 'osx-dictionary-mode 'normal)
 
   (evil-collection-define-key 'normal 'osx-dictionary-mode-map
-    "s" 'osx-dictionary-search-input
     "o" 'osx-dictionary-open-dictionary.app
     "r" 'osx-dictionary-read-word)
-  (evil-collection-bind 'osx-dictionary-mode-map 'quit 'osx-dictionary-quit))
+  (evil-collection-bind 'osx-dictionary-mode-map
+                        'quit 'osx-dictionary-quit
+                        'search-or-filter 'osx-dictionary-search-input))
 
 (provide 'evil-collection-osx-dictionary)
 ;;; evil-collection-osx-dictionary.el ends here

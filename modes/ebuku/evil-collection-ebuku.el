@@ -47,7 +47,6 @@
                               "j" 'ebuku-next-bookmark
                               "k" 'ebuku-previous-bookmark
                               "r" 'ebuku-search-on-recent
-                              "s" 'ebuku-search
                               "*" 'ebuku-show-all
                               "-" 'ebuku-toggle-results-limit
                               "t" 'ebuku-toggle-results-limit
@@ -58,7 +57,8 @@
                               [mouse-2] 'ebuku-open-url)
   (evil-collection-bind 'ebuku-mode-map
                         'action 'ebuku-open-url
-                        'delete 'ebuku-delete-bookmark))
+                        'delete 'ebuku-delete-bookmark
+                        'search-or-filter 'ebuku-search))
 
 
 (provide 'evil-collection-ebuku)

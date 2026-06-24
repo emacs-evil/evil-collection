@@ -138,7 +138,6 @@ that moves trashed messages out of the inbox)."
   (evil-collection-bind 'notmuch-common-keymap 'describe-mode 'notmuch-help)
 
   (evil-collection-define-key 'normal 'notmuch-common-keymap
-    "s" 'notmuch-search
     "S" 'notmuch-tree
     "C" 'notmuch-mua-new-mail           ; like mu4e
     "cc" 'notmuch-mua-new-mail          ; like mu4e
@@ -147,7 +146,8 @@ that moves trashed messages out of the inbox)."
                         'quit 'notmuch-bury-or-kill-this-buffer
                         'refresh 'notmuch-refresh-this-buffer
                         'refresh-all 'notmuch-poll-and-refresh-this-buffer
-                        'jump 'notmuch-jump-search)
+                        'jump 'notmuch-jump-search
+                        'search-or-filter 'notmuch-search)
   (evil-collection-bind 'notmuch-hello-mode-map
                         'describe-mode 'notmuch-version
                         'cycle-next 'widget-forward
@@ -207,7 +207,6 @@ that moves trashed messages out of the inbox)."
     [mouse-1] 'notmuch-tree-show-message
     "A" 'notmuch-tree-archive-thread-then-next
     "a" 'notmuch-tree-archive-message-then-next
-    "s" 'notmuch-tree-to-tree
     "|" 'notmuch-show-pipe-message
     "-" 'notmuch-tree-remove-tag
     "+" 'notmuch-tree-add-tag
@@ -221,7 +220,8 @@ that moves trashed messages out of the inbox)."
                         'prev-section 'notmuch-tree-prev-message
                         'next-section-2 'notmuch-tree-next-thread
                         'prev-section-2 'notmuch-tree-prev-thread
-                        'quit 'notmuch-tree-quit)
+                        'quit 'notmuch-tree-quit
+                        'search-or-filter 'notmuch-tree-to-tree)
 
   (evil-collection-bind 'notmuch-search-mode-map 'jump 'notmuch-jump-search)
 
