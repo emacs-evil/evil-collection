@@ -71,7 +71,6 @@
     "M"         'mpdired-change-marks
     "u"         'mpdired-unmark-at-point
     "U"         'mpdired-unmark-all-marks
-    "t"         'mpdired-toggle-marks
     "T"         'mpdired-previous-unmark
     "%d"        'mpdired-flag-files-regexp
     "%m"        'mpdired-mark-files-regexp
@@ -79,6 +78,7 @@
     "%r"        'mpdired-reset-order-index)
 
   (evil-collection-bind 'mpdired-mode-map
+                        'toggle 'mpdired-toggle-marks
                         'toggle-all 'mpdired-toggle-marks
                         'action 'mpdired-enter
                         'refresh 'mpdired-update

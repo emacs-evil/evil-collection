@@ -67,7 +67,6 @@
     "\C-c\C-c" 'vc-dir-kill-dir-status-process
     [down-mouse-3] 'vc-dir-menu
     [mouse-2] 'vc-dir-find-file-other-window
-    "t" 'vc-dir-toggle-mark
     [follow-link] 'mouse-face
 
     "(" 'vc-dir-hide-up-to-date
@@ -88,6 +87,7 @@
   (evil-collection-bind 'vc-dir-mode-map
                         'mark 'vc-dir-mark
                         'mark-all 'vc-dir-mark-all-files
+                        'toggle 'vc-dir-toggle-mark
                         'unmark 'vc-dir-unmark
                         'unmark-all 'vc-dir-unmark-all-files
                         'next-item 'vc-dir-next-directory

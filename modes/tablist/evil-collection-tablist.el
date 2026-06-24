@@ -43,7 +43,6 @@
           "g/" tablist-mode-filter-map
           "m"  'tablist-mark-forward
           "S"  'tablist-sort
-          "t"  'tablist-toggle-marks
           "u"  'tablist-unmark-forward)))
 
     (apply #'evil-collection-define-key 'normal 'tablist-mode-map
@@ -52,6 +51,7 @@
            common-bindings)
     (evil-collection-bind 'tablist-mode-map
                           'mark 'tablist-mark-forward
+                          'toggle 'tablist-toggle-marks
                           'toggle-all 'tablist-toggle-marks
                           'unmark 'tablist-unmark-forward
                           'unmark-all 'tablist-unmark-all-marks
@@ -65,7 +65,9 @@
     (evil-collection-bind 'tablist-minor-mode-map    'quit 'tablist-quit)
     (evil-collection-bind 'tablist-mode-map 'refresh       'tablist-revert)
     (evil-collection-bind 'tablist-minor-mode-map 'refresh 'tablist-revert)
-    (evil-collection-bind 'tablist-minor-mode-map 'toggle-all 'tablist-toggle-marks)
+    (evil-collection-bind 'tablist-minor-mode-map
+                          'toggle 'tablist-toggle-marks
+                          'toggle-all 'tablist-toggle-marks)
     (evil-collection-bind 'tablist-minor-mode-map
                           'search-or-filter 'tablist-do-kill-lines)))
 

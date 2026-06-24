@@ -118,7 +118,6 @@
     "i" 'dired-toggle-read-only
     "I" 'dired-maybe-insert-subdir
     "r" 'dired-do-redisplay
-    "t" 'dired-toggle-marks
     "gy" 'dired-show-file-type ;; FIXME: This could probably go on a better key.
     "Y" 'dired-copy-filename-as-kill
     "+" 'dired-create-directory
@@ -152,6 +151,7 @@
                         'mark 'dired-mark
                         'unmark 'dired-unmark
                         'unmark-all 'dired-unmark-all-marks
+                        'toggle 'dired-toggle-marks
                         'toggle-all 'dired-toggle-marks
                         'mark-delete 'dired-flag-file-deletion
                         'execute-marks 'dired-do-flagged-delete
