@@ -39,7 +39,6 @@
   (evil-collection-define-key 'normal 'difftastic-mode-map
     "zc" 'difftastic-hide-chunk
     "zo" 'difftastic-show-chunk
-    (kbd "TAB") 'difftastic-toggle-chunk
     "o" 'difftastic-diff-visit-worktree-file)
   (evil-collection-bind 'difftastic-mode-map
                         'action 'difftastic-diff-visit-file
@@ -52,7 +51,8 @@
                         'quit 'difftastic-leave
                         'quit-save 'difftastic-quit
                         'quit-cancel 'difftastic-quit
-                        'refresh 'difftastic-rerun))
+                        'refresh 'difftastic-rerun
+                        'section-toggle 'difftastic-toggle-chunk))
 
 (provide 'evil-collection-difftastic)
 

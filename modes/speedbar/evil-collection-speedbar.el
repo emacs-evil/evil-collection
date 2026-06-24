@@ -61,9 +61,6 @@
     "gg" 'evil-goto-first-line
     "G"  'evil-goto-line
 
-    ;; Basic tree features
-    (kbd "TAB") 'speedbar-toggle-line-expansion
-
     ;; Fold
     "zo" 'speedbar-expand-line
     "zO" 'speedbar-expand-line-descendants
@@ -104,7 +101,8 @@
                         'next-section 'speedbar-forward-list
                         'prev-section 'speedbar-backward-list
                         'refresh         'speedbar-refresh
-                        'toggle 'speedbar-toggle-updates)
+                        'toggle 'speedbar-toggle-updates
+                        'section-toggle 'speedbar-toggle-line-expansion)
   (evil-collection-bind 'speedbar-buffers-key-map
                         'refresh  'speedbar-buffer-revert-buffer
                         'delete 'speedbar-buffer-kill-buffer

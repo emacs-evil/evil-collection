@@ -58,7 +58,6 @@
     "P" 'p-search-add-prior
     "+" 'p-search-increase-preview-size
     "-" 'p-search-decrease-preview-size
-    (kbd "<tab>") 'p-search-toggle-section
     "gv" 'p-search-view-document
     (kbd "C-o") 'p-search-display-document
     ;; (keymap-set map "C-o" #'p-search-display-file)
@@ -78,7 +77,8 @@
                         'prev-section 'p-search-prev-item
                         'quit 'p-search-quit
                         'refresh 'p-search-refresh-buffer
-                        'refresh-all 'p-search-hard-refresh-buffer))
+                        'refresh-all 'p-search-hard-refresh-buffer
+                        'section-toggle 'p-search-toggle-section))
 
 (provide 'evil-collection-p-search)
 ;;; evil-collection-p-search.el ends here

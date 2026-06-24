@@ -47,7 +47,6 @@
   (add-hook 'monky-status-mode-hook 'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'monky-mode-map
-    (kbd "TAB") 'monky-toggle-section
     (kbd "SPC") 'monky-show-item-or-scroll-up
     (kbd "DEL") 'monky-show-item-or-scroll-down
     "`" 'monky-display-process
@@ -65,7 +64,8 @@
                         'next-section 'monky-goto-next-section
                         'prev-section 'monky-goto-previous-section
                         'quit 'monky-quit-window
-                        'refresh 'monky-refresh)
+                        'refresh 'monky-refresh
+                        'section-toggle 'monky-toggle-section)
 
   (evil-collection-define-key 'normal 'monky-status-mode-map
     "s" 'monky-stage-item

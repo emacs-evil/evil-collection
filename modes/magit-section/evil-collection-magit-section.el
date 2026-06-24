@@ -70,11 +70,8 @@ When this option is enabled, the stash popup is available on \"Z\"."
       (kbd "M-4") 'magit-section-show-level-4-all))
 
   (evil-collection-define-key 'normal 'magit-section-mode-map
-    (kbd "TAB") 'magit-section-toggle
     [C-tab]     'magit-section-cycle
     [M-tab]     'magit-section-cycle
-    ;; [backtab] is the most portable binding for Shift+Tab.
-    [backtab]   'magit-section-cycle-global
     "gh" 'magit-section-up
     (kbd "1") 'magit-section-show-level-1
     (kbd "2") 'magit-section-show-level-2
@@ -92,7 +89,9 @@ When this option is enabled, the stash popup is available on \"Z\"."
                         'next-item 'magit-section-forward-sibling
                         'prev-item 'magit-section-backward-sibling
                         'next-section-2 'magit-section-forward
-                        'prev-section-2 'magit-section-backward))
+                        'prev-section-2 'magit-section-backward
+                        'section-toggle 'magit-section-toggle
+                        'section-toggle-all 'magit-section-cycle-global))
 
 (provide 'evil-collection-magit-section)
 ;;; evil-collection-magit-section.el ends here

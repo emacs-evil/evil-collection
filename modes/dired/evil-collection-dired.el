@@ -213,11 +213,12 @@
   ;; dired-subtree commands
   (with-eval-after-load 'dired-subtree
     (evil-collection-define-key 'normal 'dired-mode-map
-      (kbd "TAB") 'dired-subtree-toggle
       "gh" 'dired-subtree-up
       "gl" 'dired-subtree-down
       (kbd "M-j") 'dired-subtree-next-sibling
-      (kbd "M-k") 'dired-subtree-previous-sibling))
+      (kbd "M-k") 'dired-subtree-previous-sibling)
+    (evil-collection-bind 'dired-mode-map
+                          'section-toggle 'dired-subtree-toggle))
 
   (with-eval-after-load 'dired-filter
     (evil-collection-define-key 'normal 'dired-mode-map

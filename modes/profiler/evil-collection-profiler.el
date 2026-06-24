@@ -43,8 +43,6 @@
     "j" 'profiler-report-next-entry
     "k" 'profiler-report-previous-entry
 
-    (kbd "<tab>") 'profiler-report-toggle-entry
-
     ;; sort
     "o" 'profiler-report-ascending-sort
     "O" 'profiler-report-descending-sort
@@ -60,7 +58,8 @@
                         'quit 'quit-window
                         'quit-save 'quit-window
                         'quit-cancel 'evil-quit
-                        'refresh 'revert-buffer))
+                        'refresh 'revert-buffer
+                        'section-toggle 'profiler-report-toggle-entry))
 
 (provide 'evil-collection-profiler)
 ;;; evil-collection-profiler.el ends here

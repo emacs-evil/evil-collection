@@ -38,14 +38,14 @@
   (evil-set-initial-state 'vc-git-log-view-mode 'normal)
   (evil-collection-define-key 'normal 'vc-git-log-view-mode-map
     "d" 'log-view-diff
-    "D" 'log-view-diff-changeset
-    (kbd "<tab>") 'log-view-toggle-entry-display)
+    "D" 'log-view-diff-changeset)
   (evil-collection-bind 'vc-git-log-view-mode-map
                         'quit 'quit-window
                         'next-item 'log-view-msg-next
                         'prev-item 'log-view-msg-prev
                         'next-section 'log-view-msg-next
-                        'prev-section 'log-view-msg-prev))
+                        'prev-section 'log-view-msg-prev
+                        'section-toggle 'log-view-toggle-entry-display))
 
 (provide 'evil-collection-vc-git)
 ;;; evil-collection-vc-git.el ends here
