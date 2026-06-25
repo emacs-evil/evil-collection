@@ -187,6 +187,8 @@ that moves trashed messages out of the inbox)."
                         'prev-item 'notmuch-show-previous-open-message
                         'next-section 'notmuch-show-next-message
                         'prev-section 'notmuch-show-previous-message
+                        'next-section-2 'notmuch-show-next-message
+                        'prev-section-2 'notmuch-show-previous-message
                         'find-definition 'goto-address-at-point)
 
   (evil-collection-bind 'notmuch-tree-mode-map
