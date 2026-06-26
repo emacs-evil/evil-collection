@@ -101,7 +101,8 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
     (add-hook 'cider-mode-hook #'evil-normalize-keymaps)
     (add-hook 'cider--debug-mode-hook #'evil-normalize-keymaps)
     (evil-collection-define-key 'normal 'cider-mode-map
-      [f6] 'cider-browse-instrumented-defs)
+      [f6] 'cider-browse-instrumented-defs
+      [f9] 'cider-debug-defun-at-point)
 
     (evil-collection-define-key 'normal 'cider--debug-mode-map
       "C" 'evil-collection-cider-debug-continue-all
@@ -123,9 +124,7 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
                         'debug-breakpoint 'cider-debug-defun-at-point
                         'debug-eval 'evil-collection-cider-debug-eval
                         'debug-locals 'evil-collection-cider-debug-locals)
-
   (evil-collection-bind 'cider-mode-map
-                        'debug-breakpoint 'cider-debug-defun-at-point
                         'lookup-doc 'cider-doc
                         'goto-repl 'cider-switch-to-repl-buffer
                         'find-file 'cider-find-resource)
