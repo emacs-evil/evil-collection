@@ -42,9 +42,11 @@
   ;; (define-key map (kbd "C-c C-k") #'deadgrep-kill-process)
   (evil-collection-define-key 'normal 'deadgrep-mode-map
     "i" 'deadgrep-edit-mode)
+  (evil-collection-defaction evil-collection-deadgrep-action
+                             deadgrep-visit-result)
   (evil-collection-bind 'deadgrep-mode-map
                         'section-toggle 'deadgrep-toggle-file-results
-                        'action 'deadgrep-visit-result
+                        'action 'evil-collection-deadgrep-action
                         'action-other 'deadgrep-visit-result-other-window
                         'next-item 'deadgrep-forward
                         'prev-item 'deadgrep-backward

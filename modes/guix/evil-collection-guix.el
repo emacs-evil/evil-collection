@@ -81,9 +81,14 @@
 ;;;###autoload
 (defun evil-collection-guix-setup ()
   "Set up `evil' bindings for `guix'."
+  (evil-collection-defaction evil-collection-guix-bui-list-describe-action
+                             bui-list-describe)
+  (evil-collection-defaction evil-collection-guix-location-list-action
+                             guix-location-list-show-packages)
   (evil-collection-guix-set guix-ui-map) ; Covers output-list and generation-list.
 
-  (evil-collection-bind 'guix-output-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-output-list-mode-map
+                        'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-output-list-mode-map
     "gb" 'guix-package-list-latest-builds
     "gG" 'guix-output-list-graph
@@ -111,7 +116,7 @@
     "i" 'guix-package-info-install)
 
   (evil-collection-guix-set guix-profile-list-mode-map)
-  (evil-collection-bind 'guix-profile-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-profile-list-mode-map 'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-profile-list-mode-map
     "c" 'guix-profile-list-set-current ; TODO: Bind to "." as per the rationale?
     "p" 'guix-profile-list-show-packages
@@ -127,7 +132,7 @@
     "P" 'guix-profile-info-show-search-paths
     "c" 'guix-profile-info-set-current)
 
-  (evil-collection-bind 'guix-generation-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-generation-list-mode-map 'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-generation-list-mode-map
     "p" 'guix-generation-list-show-packages
     "D" 'guix-generation-list-mark-delete
@@ -143,7 +148,7 @@
     "x" 'guix-generation-list-execute)
 
   (evil-collection-guix-set guix-license-list-mode-map)
-  (evil-collection-bind 'guix-license-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-license-list-mode-map 'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-license-list-mode-map
     (kbd "<tab>") 'forward-button       ; Why isn't this binding inhibited?
     "p" 'guix-license-list-show-packages
@@ -152,14 +157,14 @@
   (evil-collection-guix-set guix-license-info-mode-map)
 
   (evil-collection-guix-set guix-location-list-mode-map)
-  (evil-collection-bind 'guix-location-list-mode-map 'action 'guix-location-list-show-packages)
+  (evil-collection-bind 'guix-location-list-mode-map
+                        'action 'evil-collection-guix-location-list-action)
   (evil-collection-define-key 'normal 'guix-location-list-mode-map
-    ;; In Emacs state, `push-button' overrides the theme action binding.
     "p" 'guix-location-list-show-packages
     "gd" 'guix-location-list-edit)
 
   (evil-collection-guix-set guix-store-item-list-mode-map)
-  (evil-collection-bind 'guix-store-item-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-store-item-list-mode-map 'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-store-item-list-mode-map
     "d" 'guix-store-item-list-mark-delete
     "gd" 'guix-store-item-list-edit
@@ -168,7 +173,7 @@
   (evil-collection-guix-set guix-store-item-info-mode-map)
 
   (evil-collection-guix-set guix-hydra-build-list-mode-map)
-  (evil-collection-bind 'guix-hydra-build-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-hydra-build-list-mode-map 'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-hydra-build-list-mode-map
     "gb" 'guix-hydra-build-list-latest-builds
     "gl" 'guix-hydra-build-list-view-log)
@@ -192,7 +197,7 @@
                         'refresh 'revert-buffer)
 
   (evil-collection-guix-set guix-service-list-mode-map)
-  (evil-collection-bind 'guix-service-list-mode-map 'action 'bui-list-describe)
+  (evil-collection-bind 'guix-service-list-mode-map 'action 'evil-collection-guix-bui-list-describe-action)
   (evil-collection-define-key 'normal 'guix-service-list-mode-map
     (kbd "<tab>") 'forward-button
     "gd" 'guix-service-list-edit)
