@@ -826,7 +826,7 @@ text-property dispatch under Evil normal state." fallback)
      (interactive)
      (if (button-at (point))
          (call-interactively #'push-button)
-       (call-interactively #',fallback))))
+       (call-interactively ',fallback))))
 
 (defun evil-collection--keys-conflict (key-a key-b)
   "Return t if KEY-A and KEY-B conflict.
