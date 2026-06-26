@@ -49,10 +49,12 @@
 
     "!" 'hackernews-button-mark-as-visited ; like mu4e
     "?" 'hackernews-button-mark-as-unvisited)
+  (evil-collection-define-push-action evil-collection-hackernews-action
+                                      hackernews-button-browse-internal)
   (evil-collection-bind 'hackernews-mode-map
                         'cycle-next 'hackernews-next-comment
                         'cycle-previous 'hackernews-previous-comment
-                        'action 'hackernews-button-browse-internal
+                        'action 'evil-collection-hackernews-action
                         'action-other 'push-button
                         'refresh 'hackernews-reload))
 
