@@ -1,0 +1,40 @@
+* agent-shell-manager
+
+  Evil bindings for
+  [[https://github.com/jethrokuan/agent-shell-manager][agent-shell-manager]] --
+  a =tabulated-list= buffer manager for
+  [[https://github.com/xenodium/agent-shell][agent-shell]].
+
+  =agent-shell-manager-mode= derives from =tabulated-list-mode=, so the usual
+  motions work; these bindings map its manager commands onto evil keys and,
+  crucially, make =RET= visit the entry at point in normal state.
+
+** agent-shell-manager-mode-map
+
+*** Navigation (normal state)
+
+    | Command                     | Default | Evil  |
+    |-----------------------------+---------+-------|
+    | =agent-shell-manager-goto=  | =RET=   | =RET= |
+
+*** Manager commands (normal state)
+
+    Placed behind the =g= prefix when =evil-collection-want-g-bindings= is
+    non-nil, otherwise bound to their default-ish single keys.
+
+    | Command                              | Default   | Evil (g) | Evil (no g) |
+    |--------------------------------------+-----------+----------+-------------|
+    | =agent-shell-manager-refresh=        | =g=       | =gr=     | =gr=        |
+    | =agent-shell-manager-kill=           | =k=       | =gk=     | =K=         |
+    | =agent-shell-manager-new=            | =c=       | =gc=     | =c=         |
+    | =agent-shell-manager-restart=        | =r=       | =gR=     | =R=         |
+    | =agent-shell-manager-delete-killed=  | =d=       | =gd=     | =d=         |
+    | =agent-shell-manager-set-mode=       | =m=       | =gm=     | =m=         |
+    | =agent-shell-manager-set-model=      | =M=       | =gv=     | =M=         |
+    | =agent-shell-manager-interrupt=      | =C-c C-c= | =gx=     | =x=         |
+    | =agent-shell-manager-view-traffic=   | =t=       | =gt=     | =t=         |
+    | =agent-shell-manager-toggle-logging= | =l=       | =gl=     | =l=         |
+    | =quit-window=                        | =q=       | =q=      | =q=         |
+
+    =C-c C-c= (interrupt) is bound in normal state regardless of the =g=
+    setting.
