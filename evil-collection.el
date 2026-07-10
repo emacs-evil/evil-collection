@@ -193,6 +193,7 @@ Used as a fallback when no explicit delay is specified for a mode in
   `(2048-game
     ag
     agent-shell
+    agent-shell-manager
     alchemist
     anaconda-mode
     apropos
