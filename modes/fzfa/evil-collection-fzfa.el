@@ -38,6 +38,9 @@
     fzfa-mark
     fzfa-outline
     fzfa-evil-marks
+    fzfa-regexp
+    fzfa-eglot-symbols
+    fzfa-ffap-menu
     ;; Cross-buffer / file jumps.
     fzfa-swiper-all
     fzfa-imenu-all
@@ -68,6 +71,10 @@
     fzfa-hg-modified-locally
     fzfa-hg-added-files
     fzfa-hg-modified-in-head
+    fzfa-vc-added-files
+    fzfa-vc-staged-for-commit
+    fzfa-vc-modified-in-head
+    fzfa-vc-any
     fzfa-project-find-file
     fzfa-project-find-dir
     fzfa-project-buffer
@@ -81,6 +88,10 @@
     fzfa-org-agenda
     fzfa-org-todo
     fzfa-org-tags-view
+    fzfa-org-files
+    fzfa-org-grep
+    fzfa-org-mdfind-grep
+    fzfa-org-any
     fzfa-info
     fzfa-info-emacs
     fzfa-info-elisp
