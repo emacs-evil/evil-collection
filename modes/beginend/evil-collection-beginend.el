@@ -31,6 +31,8 @@
 (require 'evil-collection)
 (require 'beginend nil t)
 
+(defconst evil-collection-beginend-maps nil)
+
 (eval-and-compile
   (defconst evil-collection-beginend-modes '(bs-mode
                                              rg-mode

@@ -30,6 +30,8 @@
 (require 'evil-collection)
 (require 'js2-mode nil t)
 
+(defconst evil-collection-js2-mode-maps nil)
+
 (defvar js-indent-level)
 
 (defun evil-collection-js2-set-evil-shift-width ()

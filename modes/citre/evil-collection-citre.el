@@ -29,6 +29,8 @@
 ;;; Code:
 (require 'evil-collection)
 
+(defconst evil-collection-citre-maps nil)
+
 (defun evil-collection-citre-set-bindings ()
   "Set jump point for citre commands."
   (dolist (cmd '(citre-jump

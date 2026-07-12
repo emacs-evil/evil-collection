@@ -30,6 +30,8 @@
 ;;; Code:
 (require 'evil-collection)
 
+(defconst evil-collection-fzfa-maps nil)
+
 (defvar evil-collection-fzfa-jump-commands
   '(;; Buffer-local jumps.
     fzfa-swiper

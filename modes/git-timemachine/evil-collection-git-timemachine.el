@@ -29,6 +29,8 @@
 (require 'evil-collection)
 (require 'git-timemachine nil t)
 
+(defconst evil-collection-git-timemachine-maps nil)
+
 (defvar git-timemachine-mode-map)
 (defconst evil-collection-git-timemachine-map '(git-timemachine-mode-map))
 

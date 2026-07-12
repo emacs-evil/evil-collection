@@ -41,6 +41,8 @@
 ;;; Code:
 (require 'evil-collection)
 
+(defconst evil-collection-consult-maps nil)
+
 (defvar consult-line-numbers-widen)
 (declare-function consult--forbid-minibuffer "consult")
 (declare-function consult--fontify-all "consult")

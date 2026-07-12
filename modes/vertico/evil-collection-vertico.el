@@ -28,6 +28,8 @@
 (require 'evil-collection)
 (require 'vertico nil t)
 
+(defconst evil-collection-vertico-maps nil)
+
 (defcustom evil-collection-vertico-want-want-C-u-in-insert nil
   "When non nil, C-u may be bound in insert state."
   :group 'evil-collection

@@ -33,6 +33,8 @@
 (require 'forge nil t)
 (require 'transient nil t)
 
+(defconst evil-collection-forge-maps nil)
+
 (defcustom evil-collection-forge-use-y-for-yank t
   "View `evil-collection-magit-state' for more information."
   :group 'magit

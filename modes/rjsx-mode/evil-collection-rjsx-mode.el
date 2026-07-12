@@ -30,9 +30,10 @@
 (require 'evil-collection)
 (require 'rjsx-mode nil t)
 
+(defconst evil-collection-rjsx-mode-maps '(rjsx-mode-map))
+
 (defvar rjsx-mode-map)
 
-(defconst evil-collection-rjsx-maps '(rjsx-mode-map))
 
 ;;;###autoload
 (defun evil-collection-rjsx-mode-setup ()

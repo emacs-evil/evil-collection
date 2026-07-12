@@ -31,6 +31,8 @@
 (require 'evil-collection)
 (require 'ebuku nil t)
 
+(defconst evil-collection-ebuku-maps nil)
+
 
 ;;;###autoload
 (defun evil-collection-ebuku-setup ()

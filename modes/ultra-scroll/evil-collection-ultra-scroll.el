@@ -31,6 +31,8 @@
 (require 'evil-collection)
 (require 'ultra-scroll nil t)
 
+(defconst evil-collection-ultra-scroll-maps nil)
+
 (defvar evil-collection-ultra-scroll-hide-cursor-states
   '(evil-motion-state-cursor evil-normal-state-cursor)
   "States in which to hide the cursor when scrolling.")

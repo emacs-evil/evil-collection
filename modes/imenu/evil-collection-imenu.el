@@ -29,6 +29,8 @@
 (require 'imenu)
 (require 'evil-collection)
 
+(defconst evil-collection-imenu-maps nil)
+
 ;;;###autoload
 (defun evil-collection-imenu-setup ()
   "Set up Evil integration for `imenu'."

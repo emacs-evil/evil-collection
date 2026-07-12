@@ -29,7 +29,7 @@
 (require 'mpc)
 (require 'evil-collection)
 
-(defconst evil-collection-mpc-mode-maps '(mpc-mode-map))
+(defconst evil-collection-mpc-maps '(mpc-mode-map))
 
 (defun evil-collection-mpc-move-down ()
   "Move the cursor down along with selecting the element."

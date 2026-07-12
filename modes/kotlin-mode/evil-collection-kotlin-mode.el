@@ -30,7 +30,8 @@
 (require 'evil-collection)
 (require 'kotlin-mode nil t)
 
-(defconst evil-collection-kotlin-maps '(kotlin-mode-map))
+(defconst evil-collection-kotlin-mode-maps '(kotlin-mode-map))
+
 
 ;;;###autoload
 (defun evil-collection-kotlin-mode-setup ()
