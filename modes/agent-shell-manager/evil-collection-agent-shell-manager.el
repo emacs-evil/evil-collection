@@ -70,7 +70,7 @@
       "M" 'agent-shell-manager-set-model
       "x" 'agent-shell-manager-interrupt
       "t" 'agent-shell-manager-view-traffic
-      "l" 'agent-shell-manager-toggle-logging)))
+      "L" 'agent-shell-manager-toggle-logging)))
 
 (provide 'evil-collection-agent-shell-manager)
 ;;; evil-collection-agent-shell-manager.el ends here
