@@ -60,11 +60,12 @@
         "gx" 'agent-shell-manager-interrupt
         "gt" 'agent-shell-manager-view-traffic
         "gl" 'agent-shell-manager-toggle-logging)
+    (evil-collection-bind 'agent-shell-manager-mode-map
+                          'delete 'agent-shell-manager-delete-killed)
     (evil-collection-define-key 'normal 'agent-shell-manager-mode-map
       "K" 'agent-shell-manager-kill
       "c" 'agent-shell-manager-new
       "R" 'agent-shell-manager-restart
-      "d" 'agent-shell-manager-delete-killed
       "m" 'agent-shell-manager-set-mode
       "M" 'agent-shell-manager-set-model
       "x" 'agent-shell-manager-interrupt
