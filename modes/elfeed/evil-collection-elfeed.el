@@ -100,9 +100,9 @@
                         'prev-item 'elfeed-show-prev
                         'next-section 'elfeed-show-next
                         'prev-section 'elfeed-show-prev
-                        'quit 'elfeed-kill-buffer
-                        'quit-save 'elfeed-kill-buffer
-                        'quit-cancel 'elfeed-kill-buffer
+                        'quit 'kill-current-buffer
+                        'quit-save 'kill-current-buffer
+                        'quit-cancel 'kill-current-buffer
                         'refresh 'elfeed-show-refresh
                         'search-or-filter 'elfeed-show-new-live-search
                         'cycle-next 'elfeed-show-next-link)
