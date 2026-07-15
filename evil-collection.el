@@ -255,6 +255,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     elisp-refs
     elisp-slime-nav
     embark
+    emcp
     emms
     ,@(when (>= emacs-major-version 29) '(emoji))
     epa

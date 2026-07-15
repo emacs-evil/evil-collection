@@ -1,0 +1,36 @@
+* emcp
+
+  Evil bindings for [[https://github.com/JimmyJamesJames/emcp][emcp]].
+
+  =emcp-session-manager-mode= derives from =magit-section-mode=, so the usual
+  section navigation works through =evil-collection-magit-section=. These
+  bindings add Evil entry states and bind EMCP-specific actions through
+  =evil-collection-bind= where there is a matching semantic action.
+
+** emcp-session-manager-mode-map
+
+*** Manager commands (normal state)
+
+    | Command                                     | Default | Evil |
+    |---------------------------------------------+---------+------|
+    | =emcp-session-manager-refresh=              | =g=     | =gr= |
+    | =emcp-session-manager-kill=                 | =k=     | =d=  |
+    | =emcp-session-manager-kill-server=          |         | =x=  |
+    | =emcp-session-manager-kill-session=         |         | =D=  |
+    | =emcp-session-manager-cycle-eval-mode=      | =e=     | =E=  |
+    | =emcp-session-manager-cycle-send-keys-mode= | =K=     | =S=  |
+    | =emcp-session-manager-show-log=             | =l=     | =g?= |
+    | =quit-window=                               | =q=     | =q=  |
+
+** emcp-confirm-mode-map
+
+*** Confirmation commands (normal state)
+
+    | Command               | Default | Evil |
+    |-----------------------+---------+------|
+    | =kill-current-buffer= | =q=     | =q=  |
+
+    Confirmation action keys are generated dynamically by =emcp=. Normal-state
+    bindings for =y=, =n=, =a=, =r=, and =w= dispatch through the current
+    buffer-local confirmation keymap so those generated actions keep their
+    original meaning.
