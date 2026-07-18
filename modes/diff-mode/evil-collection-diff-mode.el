@@ -116,7 +116,7 @@ current file instead."
       "#" 'diff-ignore-whitespace-hunk))
 
   ;; Enable a separate minor mode so that we can bind keys to it.
-  (add-hook 'diff-mode-hook 'evil-collection-diff-mode))
+  (add-hook 'diff-mode-hook #'evil-collection-diff-mode))
 
 ;;;###autoload
 (defun evil-collection-diff-mode-setup ()

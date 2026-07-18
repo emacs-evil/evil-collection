@@ -91,11 +91,11 @@ ex. \(cider-debug-mode-send-reply \":next\"\)"
 (defun evil-collection-cider-setup ()
   "Set up `evil' bindings for `cider'."
   (unless evil-move-beyond-eol
-    (advice-add 'cider-eval-last-sexp :around 'evil-collection-cider-last-sexp)
-    (advice-add 'cider-eval-last-sexp-and-replace :around 'evil-collection-cider-last-sexp)
-    (advice-add 'cider-eval-last-sexp-to-repl :around 'evil-collection-cider-last-sexp)
+    (advice-add 'cider-eval-last-sexp :around #'evil-collection-cider-last-sexp)
+    (advice-add 'cider-eval-last-sexp-and-replace :around #'evil-collection-cider-last-sexp)
+    (advice-add 'cider-eval-last-sexp-to-repl :around #'evil-collection-cider-last-sexp)
     (with-eval-after-load 'cider-eval-sexp-fu
-      (advice-add 'cider-esf--bounds-of-last-sexp :around 'evil-collection-cider-last-sexp)))
+      (advice-add 'cider-esf--bounds-of-last-sexp :around #'evil-collection-cider-last-sexp)))
 
   (when evil-collection-setup-debugger-keys
     (add-hook 'cider-mode-hook #'evil-normalize-keymaps)

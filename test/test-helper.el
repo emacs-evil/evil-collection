@@ -2,7 +2,7 @@
 (require 'ert)
 
 ;; FIXME: Adding `f' as a dependency just for this line.
-(require 'f)
+(require 'f nil t)
 (let ((evil-collection-dir (f-parent (f-dirname (f-this-file)))))
   (add-to-list 'load-path evil-collection-dir))
 (require 'evil-collection)

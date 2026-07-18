@@ -79,7 +79,7 @@ The return value is the yanked text."
   ;; TODO: Why doesn't evil-set-initial-state work with emms-browser-mode?
 
   (evil-collection-inhibit-insert-state 'emms-browser-mode-map)
-  (add-hook 'emms-browser-mode-hook 'evil-normal-state)
+  (add-hook 'emms-browser-mode-hook #'evil-normal-state)
   (evil-collection-define-key 'normal 'emms-browser-mode-map
     ;; The following overrides other "g-" and "s-" prefixed keys so we set it first.
     "g" nil

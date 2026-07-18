@@ -1,4 +1,4 @@
-;;; evil-collection-magit-tests.el --- evil-based key bindings for magit
+;;; evil-collection-magit-tests.el --- evil-based key bindings for magit  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015-2016 Justin Burkett
 
@@ -89,8 +89,7 @@ we can find."
 
 (ert-deftest evil-collection-magit-all-modes-accounted-for ()
   "Check that mode lists include all modes we can find."
-  (let ((modes (evil-collection-magit-collect-git-magit-modes))
-        res)
+  (let ((modes (evil-collection-magit-collect-git-magit-modes)))
     (dolist (mode modes)
       (when (boundp mode)
         (should (memq mode

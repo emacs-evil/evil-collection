@@ -53,9 +53,9 @@
     (evil-collection-define-key nil 'magit-todos-item-section-map key nil))
 
   ;; No need to tell me that jT isn't bound
-  (advice-add 'magit-todos-mode :around 'evil-collection-magit-todos-supress-warning)
+  (advice-add 'magit-todos-mode :around #'evil-collection-magit-todos-supress-warning)
 
-  (add-hook 'magit-todos-mode-hook 'evil-collection-magit-todos-setup-jump-key))
+  (add-hook 'magit-todos-mode-hook #'evil-collection-magit-todos-setup-jump-key))
 
 
 (provide 'evil-collection-magit-todos)

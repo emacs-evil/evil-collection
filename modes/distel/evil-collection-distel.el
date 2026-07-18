@@ -75,7 +75,7 @@
 
   (evil-collection-bind 'erlang-extended-mode-map 'find-usages 'erl-who-calls)
 
-  (add-hook 'erlang-extended-mode-hook 'evil-normalize-keymaps))
+  (add-hook 'erlang-extended-mode-hook #'evil-normalize-keymaps))
 
 (provide 'evil-collection-distel)
 ;;; evil-collection-distel.el ends here

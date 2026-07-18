@@ -51,8 +51,8 @@
 (defun evil-collection-geiser-setup ()
   "Set up bindings for `geiser'."
   (unless evil-move-beyond-eol
-    (advice-add 'geiser-eval-last-sexp :around 'evil-collection-geiser-last-sexp)
-    (advice-add 'geiser-eval-last-sexp-and-print :around 'evil-collection-geiser-last-sexp))
+    (advice-add 'geiser-eval-last-sexp :around #'evil-collection-geiser-last-sexp)
+    (advice-add 'geiser-eval-last-sexp-and-print :around #'evil-collection-geiser-last-sexp))
 
   (evil-set-initial-state 'geiser-debug-mode 'normal)
   (evil-set-initial-state 'geiser-doc-mode 'normal)

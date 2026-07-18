@@ -185,7 +185,7 @@ with older release versions of `mu4e.'"
      "zd" mu4e-headers-toggle-skip-duplicates
      "gl" mu4e-show-log
      "gv" mu4e-select-other-view
-     "T" (lambda ()
+     "T" ,(lambda ()
            (interactive)
            (mu4e-headers-mark-thread nil '(read))))
 
@@ -236,7 +236,7 @@ with older release versions of `mu4e.'"
      "." mu4e-view-raw-message
      ,(kbd "C--") mu4e-headers-split-view-shrink
      ,(kbd "C-+") mu4e-headers-split-view-grow
-     "T" (lambda ()
+     "T" ,(lambda ()
            (interactive)
            (mu4e-headers-mark-thread nil '(read)))
      ,@(when evil-want-C-u-scroll
@@ -436,7 +436,7 @@ is already done earlier."
     (evil-collection-mu4e-set-state)
     (evil-collection-mu4e-set-bindings)
     (evil-collection-bind 'mu4e-headers-mode-map 'jump 'mu4e~headers-jump-to-maildir)
-    (add-hook 'mu4e-main-mode-hook 'evil-collection-mu4e-update-main-view)
+    (add-hook 'mu4e-main-mode-hook #'evil-collection-mu4e-update-main-view)
     (add-hook 'org-mode-hook #'evil-collection-mu4e-org-set-header-to-normal-mode)
     (add-hook 'mu4e-compose-pre-hook #'evil-collection-mu4e-org-set-header-to-insert-mode))
 

@@ -59,11 +59,11 @@
 (defun evil-collection-slime-setup ()
   "Set up `evil' bindings for `slime'."
   (unless evil-move-beyond-eol
-    (advice-add 'slime-eval-last-expression :around 'evil-collection-slime-last-sexp)
-    (advice-add 'slime-pprint-eval-last-expression :around 'evil-collection-slime-last-sexp)
-    (advice-add 'slime-eval-print-last-expression :around 'evil-collection-slime-last-sexp)
+    (advice-add 'slime-eval-last-expression :around #'evil-collection-slime-last-sexp)
+    (advice-add 'slime-pprint-eval-last-expression :around #'evil-collection-slime-last-sexp)
+    (advice-add 'slime-eval-print-last-expression :around #'evil-collection-slime-last-sexp)
     (advice-add 'slime-eval-last-expression-in-repl
-                :around 'evil-collection-slime-last-sexp))
+                :around #'evil-collection-slime-last-sexp))
 
   (evil-set-initial-state 'sldb-mode 'normal)
   (evil-set-initial-state 'slime-inspector-mode 'normal)

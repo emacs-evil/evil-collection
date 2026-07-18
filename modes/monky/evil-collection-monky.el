@@ -43,8 +43,8 @@
 (defun evil-collection-monky-setup ()
   "Set up `evil' bindings for `monky'."
   (evil-set-initial-state 'monky-mode 'normal)
-  (add-hook 'monky-mode-hook 'evil-normalize-keymaps)
-  (add-hook 'monky-status-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'monky-mode-hook #'evil-normalize-keymaps)
+  (add-hook 'monky-status-mode-hook #'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'monky-mode-map
     (kbd "SPC") 'monky-show-item-or-scroll-up

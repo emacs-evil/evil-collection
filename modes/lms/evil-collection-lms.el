@@ -80,7 +80,7 @@
   (lms-ui-playing-now-refresh))
 
 (defalias 'evil-collection-lms-ui-year-album-artist-list-mode-quit
-  'evil-collection-lms-ui-tracks-list-mode-quit
+  #'evil-collection-lms-ui-tracks-list-mode-quit
   "Exit lms-ui-tracks-list-mode.")
 
 (defun evil-collection-lms-goto-line (count)
@@ -407,7 +407,7 @@ The actions triggered by pressing keys refer to the track under cursor.
                         'action 'lms-ui-yaal-by-album)
 
   ;; Reflect help keybinding changes in the lms.el UI.
-  (advice-add 'lms-ui-playing-now :after 'evil-collection-lms-ui-playing-now)
+  (advice-add 'lms-ui-playing-now :after #'evil-collection-lms-ui-playing-now)
   (setq lms-ui-docs evil-collection-lms-ui-docs))
 
 (provide 'evil-collection-lms)

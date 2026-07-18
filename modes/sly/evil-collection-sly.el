@@ -84,10 +84,10 @@ Evil version of `sly-eval-print-last-expression' that accounts for
 (defun evil-collection-sly-setup ()
   "Set up `evil' bindings for `sly'."
   (unless evil-move-beyond-eol
-    (advice-add 'sly-eval-last-expression :around 'evil-collection-sly-last-sexp)
-    (advice-add 'sly-pprint-eval-last-expression :around 'evil-collection-sly-last-sexp)
-    (advice-add 'sly-mrepl-return :around 'evil-collection-sly-last-sexp)
-    (advice-add 'sly-eval-print-last-expression :override 'evil-collection-sly-eval-print-last-expression))
+    (advice-add 'sly-eval-last-expression :around #'evil-collection-sly-last-sexp)
+    (advice-add 'sly-pprint-eval-last-expression :around #'evil-collection-sly-last-sexp)
+    (advice-add 'sly-mrepl-return :around #'evil-collection-sly-last-sexp)
+    (advice-add 'sly-eval-print-last-expression :override #'evil-collection-sly-eval-print-last-expression))
 
   (evil-collection-define-key 'normal 'sly-db-mode-map
     [follow-link] 'mouse-face

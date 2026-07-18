@@ -48,7 +48,7 @@
 ;;;###autoload
 (defun evil-collection-diff-hl-setup()
   "Set up `evil' bindings for `diff-hl'."
-  (add-hook 'diff-hl-show-hunk-inline-transient-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'diff-hl-show-hunk-inline-transient-mode-hook #'evil-normalize-keymaps)
 
   (evil-collection-define-key 'normal 'diff-hl-show-hunk-inline-transient-mode-map
     ;; quit
@@ -59,7 +59,7 @@
     "k" 'diff-hl-show-hunk-inline--popup-up
     (kbd "C-f") 'diff-hl-show-hunk-inline--popup-pagedown
     (kbd "C-b") 'diff-hl-show-hunk-inline--popup-pageup)
-  (evil-collection-bind 'diff-hl-show-hunk-inline-transient-mode-map 'quit 'diff-hl-show-hunk-inline-hide)
+  (evil-collection-bind 'diff-hl-show-hunk-inline-transient-mode-map 'quit #'diff-hl-show-hunk-inline-hide)
 
   ;; Actually `diff-hl-show-hunk-inline-transient-mode-map' will inherit it by
   ;; `set-keymap-parent'.

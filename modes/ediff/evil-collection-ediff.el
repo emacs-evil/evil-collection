@@ -171,8 +171,8 @@
     (define-key ediff-mode-map (car entry) (cdr entry)))
   (unless (or ediff-3way-comparison-job
               (eq ediff-split-window-function 'split-window-vertically))
-    (define-key ediff-mode-map "l" 'ediff-copy-A-to-B)
-    (define-key ediff-mode-map "h" 'ediff-copy-B-to-A))
+    (define-key ediff-mode-map "l" #'ediff-copy-A-to-B)
+    (define-key ediff-mode-map "h" #'ediff-copy-B-to-A))
   (evil-normalize-keymaps)
   nil)
 
@@ -181,7 +181,7 @@
   "Initialize evil-ediff."
   (interactive)
   (evil-set-initial-state 'ediff-mode 'normal)
-  (add-hook 'ediff-keymap-setup-hook 'evil-collection-ediff-startup-hook)
+  (add-hook 'ediff-keymap-setup-hook #'evil-collection-ediff-startup-hook)
   (evil-collection-ediff-adjust-help))
 
 (defun evil-collection-ediff-revert ()
@@ -199,7 +199,7 @@
                (ediff-long-help-message-tail . ediff-long-help-message-tail-backup)))
       (setf (symbol-value (car msg)) (symbol-value (cdr msg)))))
   (setq evil-collection-ediff-help-changed nil)
-  (remove-hook 'ediff-keymap-setup-hook 'evil-collection-ediff-startup-hook))
+  (remove-hook 'ediff-keymap-setup-hook #'evil-collection-ediff-startup-hook))
 
 (provide 'evil-collection-ediff)
 ;;; evil-collection-ediff.el ends here

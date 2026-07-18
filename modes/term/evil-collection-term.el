@@ -96,7 +96,7 @@ it is not appropriate in some cases like terminals."
   "Sync `term-char-mode' and `term-line-mode' with insert and normal state."
   (add-hook 'evil-insert-state-entry-hook
             evil-collection-term-sync-state-function nil t)
-  (add-hook 'evil-insert-state-exit-hook 'term-line-mode nil t))
+  (add-hook 'evil-insert-state-exit-hook #'term-line-mode nil t))
 
 (defun evil-collection-term-send-tab ()
   "Send tab in term mode."
@@ -108,10 +108,10 @@ it is not appropriate in some cases like terminals."
   "Set up `evil' bindings for `term'."
   (evil-set-initial-state 'term-mode 'insert)
   (if evil-collection-term-sync-state-and-mode-p
-      (add-hook 'term-mode-hook 'evil-collection-term-sync-state-and-mode)
-    (remove-hook 'term-mode-hook 'evil-collection-term-sync-state-and-mode))
+      (add-hook 'term-mode-hook #'evil-collection-term-sync-state-and-mode)
+    (remove-hook 'term-mode-hook #'evil-collection-term-sync-state-and-mode))
 
-  (add-hook 'term-mode-hook 'evil-collection-term-escape-stay)
+  (add-hook 'term-mode-hook #'evil-collection-term-escape-stay)
 
   ;; Evil has some "C-" bindings in insert state that shadow regular terminal
   ;; bindings. Don't raw-send "C-c" (prefix key) nor "C-h" (help prefix).

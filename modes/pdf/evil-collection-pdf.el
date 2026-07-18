@@ -106,7 +106,7 @@ instead, which is useless and counterintuitive."
   (add-hook 'evil-local-mode-hook
             (lambda () (remove-hook
                         'activate-mark-hook
-                        'evil-visual-activate-hook
+                        #'evil-visual-activate-hook
                         t))
             nil t))
 

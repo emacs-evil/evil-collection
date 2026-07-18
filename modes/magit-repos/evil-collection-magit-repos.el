@@ -44,7 +44,7 @@
                         'unmark 'magit-repolist-unmark
                         'action 'magit-repolist-status
                         'refresh 'magit-list-repositories)
-  (add-hook 'magit-repolist-mode-hook 'evil-normalize-keymaps))
+  (add-hook 'magit-repolist-mode-hook #'evil-normalize-keymaps))
 
 (provide 'evil-collection-magit-repos)
 ;;; evil-collection-magit-repos.el ends here

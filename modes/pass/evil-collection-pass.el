@@ -70,7 +70,7 @@ keybindings listed in `evil-collection-pass-command-to-label'."
     (evil-collection-bind 'pass-mode-map 'edit 'pass-edit))
 
   (advice-add 'pass--display-keybinding
-              :around 'evil-collection-pass-display-keybinding)
+              :around #'evil-collection-pass-display-keybinding)
 
   (evil-collection-define-operator-key 'yank 'pass-mode-map
     "f" 'pass-copy-field

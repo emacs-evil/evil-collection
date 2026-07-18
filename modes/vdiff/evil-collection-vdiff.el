@@ -36,8 +36,8 @@
 ;;;###autoload
 (defun evil-collection-vdiff-setup ()
   "Set up `evil' bindings for `vdiff-mode'."
-  (add-hook 'vdiff-mode-hook 'evil-normalize-keymaps)
-  (add-hook 'vdiff-3way-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'vdiff-mode-hook #'evil-normalize-keymaps)
+  (add-hook 'vdiff-3way-mode-hook #'evil-normalize-keymaps)
 
   (dolist (keymap evil-collection-vdiff-maps)
     (evil-collection-define-key 'normal keymap

@@ -51,7 +51,7 @@
 (defun evil-collection-mu4e-conversation--update-local-map ()
   (setq evil-collection-mu4e-conversation--local-map-p (get-text-property (point) 'local-map))
   (evil-normalize-keymaps)
-  (add-hook 'post-command-hook 'evil-collection-mu4e-conversation--switch nil t))
+  (add-hook 'post-command-hook #'evil-collection-mu4e-conversation--switch nil t))
 
 ;;;###autoload
 (defun evil-collection-mu4e-conversation-setup ()
@@ -61,7 +61,7 @@
   ;; https://github.com/emacs-evil/evil/issues/301.  Thus we force the update
   ;; with a technique similar to what `org~mu4e-mime-switch-headers-or-body'
   ;; does.
-  (add-hook 'mu4e-conversation-hook 'evil-collection-mu4e-conversation--update-local-map)
+  (add-hook 'mu4e-conversation-hook #'evil-collection-mu4e-conversation--update-local-map)
   (evil-collection-define-key 'normal 'mu4e-conversation-map
     " " 'evil-scroll-page-down
     (kbd "S-SPC") 'evil-scroll-page-up

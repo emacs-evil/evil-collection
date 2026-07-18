@@ -45,7 +45,7 @@
 
 (defun evil-collection-p-search-setup ()
   "Set up `evil' bindings for p-search."
-  (add-hook 'p-search-mode-hook 'evil-collection-p-search-mode)
+  (add-hook 'p-search-mode-hook #'evil-collection-p-search-mode)
 
   (evil-collection-define-key 'normal 'evil-collection-p-search-mode-map
     "a" 'p-search-add-dwim

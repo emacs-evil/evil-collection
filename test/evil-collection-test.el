@@ -299,7 +299,7 @@
   "Symbols with function bindings (e.g. `insert') are data, not funcalled.
 This guards against the trap where `:state insert' would otherwise be
 funcalled because `(functionp \\='insert)' returns t."
-  (cl-assert (functionp 'insert) nil
+  (cl-assert (fboundp 'insert) nil
              "Test premise: `insert' must be function-bound.")
   (let ((evil-collection-binding-defaults '((demo :state insert)))
         (evil-collection-binding-overrides nil))

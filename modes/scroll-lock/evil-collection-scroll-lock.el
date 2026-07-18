@@ -81,7 +81,7 @@
   (evil-add-command-properties
    #'evil-collection-scroll-lock-backward-paragraph :jump t)
 
-  (add-hook 'scroll-lock-mode-hook 'evil-normalize-keymaps))
+  (add-hook 'scroll-lock-mode-hook #'evil-normalize-keymaps))
 
 (provide 'evil-collection-scroll-lock)
 ;;; evil-collection-scroll-lock.el ends here

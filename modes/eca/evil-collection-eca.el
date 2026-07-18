@@ -36,7 +36,7 @@
 ;;;###autoload
 (defun evil-collection-eca-setup ()
   "Set up `evil' bindings for `eca'."
-  (add-hook 'eca-chat-mode-hook 'evil-normalize-keymaps)
+  (add-hook 'eca-chat-mode-hook #'evil-normalize-keymaps)
 
   (evil-collection-bind 'eca-chat-mode-map
                         'repl-submit 'eca-chat--key-pressed-return

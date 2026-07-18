@@ -605,7 +605,7 @@ This is an exact copy of `lispy-set-key-theme' except with the additions of
 ;;;###autoload
 (defun evil-collection-lispy-setup ()
   "Set up `evil' bindings for `lispy'."
-  (advice-add 'lispy-set-key-theme :override 'evil-collection-lispy-set-key-theme)
+  (advice-add 'lispy-set-key-theme :override #'evil-collection-lispy-set-key-theme)
   (lispy-set-key-theme '(special-evil evil))
   (evil-collection-define-key 'normal 'evil-collection-lispy-mode-map
     ;; Instead of inheriting, explicitly define keys from `lispy-mode-map-base'.

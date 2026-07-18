@@ -87,7 +87,7 @@
   ;; Despite the name, this function is what sets up the dashboard
   ;; buffer itself.
   (advice-add 'dashboard-insert-startupify-lists :after
-              'evil-collection-dashboard-setup-jump-commands))
+              #'evil-collection-dashboard-setup-jump-commands))
 
 (provide 'evil-collection-dashboard)
 

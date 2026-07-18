@@ -73,7 +73,7 @@ it does not have a mode."
     (evil-collection-define-key 'normal map (kbd "<escape>") 'abort-recursive-edit)
     (evil-collection-bind map 'action 'exit-minibuffer))
 
-  (add-hook 'minibuffer-setup-hook 'evil-collection-minibuffer-insert)
+  (add-hook 'minibuffer-setup-hook #'evil-collection-minibuffer-insert)
   ;; Because of the above minibuffer-setup-hook, some evil-ex bindings need be reset.
   (evil-collection-define-key 'normal 'evil-ex-completion-map (kbd "<escape>") 'abort-recursive-edit)
   (evil-collection-define-key 'insert 'evil-ex-completion-map (kbd "C-p") 'previous-complete-history-element)

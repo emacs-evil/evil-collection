@@ -97,13 +97,11 @@ See https://github.com/emacs-evil/evil-collection/issues/60 for more details.")
 
 (defcustom evil-collection-setup-minibuffer nil
   "Whether to setup Evil bindings in the minibuffer."
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (defcustom evil-collection-calendar-want-org-bindings nil
   "Whether to bind Org functions in calendar keymap."
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (defcustom evil-collection-setup-debugger-keys t
   "Whether to bind debugger keys when debugger is active.
@@ -121,8 +119,7 @@ This variable is obsolete; new customization should use
 
   (setq evil-collection-binding-overrides
         \\='((debug-breakpoint :enabled nil)))"
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (make-obsolete-variable 'evil-collection-setup-debugger-keys
                         "use `evil-collection-binding-overrides': `debug-continue', `debug-step-over', `debug-step-into', `debug-step-out', `debug-breakpoint'."
@@ -130,8 +127,7 @@ This variable is obsolete; new customization should use
 
 (defcustom evil-collection-want-unimpaired-p t
   "Whether to enable unimpaired style bindings globally."
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (defcustom evil-collection-want-find-usages-bindings t
   "Whether to bind `xref-find-references'-like bindings.
@@ -143,8 +139,7 @@ should use `evil-collection-binding-overrides' instead:
 
   (setq evil-collection-binding-overrides
         \\='((find-usages :enabled nil)))"
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (make-obsolete-variable 'evil-collection-want-find-usages-bindings
                         "use `evil-collection-binding-overrides': `find-usages'."
@@ -152,8 +147,7 @@ should use `evil-collection-binding-overrides' instead:
 
 (defcustom evil-collection-want-g-bindings t
   "Whether to bind g* bindings."
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (defvar evil-collection--modes-with-delayed-setup
   `(emms
@@ -178,16 +172,14 @@ read and `evil-collection-setup-hook' will be ran in the
   "Whether to always run `evil-collection-setup-hook' after mode is loaded.
 
 See `evil-collection-init' and `evil-collection--modes-with-delayed-setup'."
-  :type 'boolean
-  :group 'evil-collection)
+  :type 'boolean)
 
 (defcustom evil-collection-defer-delay 3
   "Default idle delay in seconds used when deferring mode initialization.
 
 Used as a fallback when no explicit delay is specified for a mode in
 `evil-collection-defer'."
-  :type 'number
-  :group 'evil-collection)
+  :type 'number)
 
 (defvar evil-collection--supported-modes
   `(2048-game
@@ -434,8 +426,7 @@ mode symbol and `cdr' the packages to register.
 By default, `minibuffer' is not included because many users find
 this confusing. It will be included if
 `evil-collection-setup-minibuffer' is set to t."
-  :type '(repeat (choice symbol sexp))
-  :group 'evil-collection)
+  :type '(repeat (choice symbol sexp)))
 
 (defcustom evil-collection-config
   '((buff-menu :defer t)
@@ -474,28 +465,24 @@ Currently supported keys:
 :hook HOOK-NAME to initialize the mode when a hook fires.  The hook
 name does not need the \"-hook\" suffix; it will be appended
 automatically.  When :hook is present, :defer is ignored."
-  :type '(repeat (choice symbol sexp))
-  :group 'evil-collection)
+  :type '(repeat (choice symbol sexp)))
 
 (defcustom evil-collection-key-whitelist '()
   "List of keys that may be used by Evil Collection.
 This is a list of strings that are suitable for input to
 `kbd'.  If there are no keys in the list, the whitelist will be ignored."
-  :type '(repeat string)
-  :group 'evil-collection)
+  :type '(repeat string))
 
 (defcustom evil-collection-key-blacklist '()
   "List of keys that may not be used by Evil Collection.
 This is a list of strings that are suitable for input to `kbd'."
-  :type '(repeat string)
-  :group 'evil-collection)
+  :type '(repeat string))
 
 (defcustom evil-collection-state-passlist '()
   "List of evil states that may be used by Evil Collection.
 This is a list of symbols that are suitable for input to
  `evil-define-key'. Ignore when there are no states in the list."
-  :type '(repeat symbol)
-  :group 'evil-collection)
+  :type '(repeat symbol))
 
 (defcustom evil-collection-state-denylist
   (if (bound-and-true-p evil-disable-insert-state-bindings)
@@ -504,8 +491,7 @@ This is a list of symbols that are suitable for input to
   "List of evil states that may not be used by Evil Collection.
 This is a list of symbols that are suitable for input to
  `evil-define-key'."
-  :type '(repeat symbol)
-  :group 'evil-collection)
+  :type '(repeat symbol))
 
 (defcustom evil-collection-repl-submit-state 'normal
   "Evil state in which RET submits the prompt in REPL-like buffers.
@@ -522,8 +508,7 @@ New customization should use
         \\='((repl-submit  :state insert)
           (repl-newline :state normal)))"
   :type '(choice (const :tag "Submit in normal state" normal)
-                 (const :tag "Submit in insert state" insert))
-  :group 'evil-collection)
+                 (const :tag "Submit in insert state" insert)))
 
 (make-obsolete-variable 'evil-collection-repl-submit-state
                         "use `evil-collection-binding-overrides': `repl-submit', `repl-newline'."
@@ -694,8 +679,7 @@ defaults.
 
 Use `:enabled nil' to disable a feature.  An explicit nil counts as
 \"set\", not \"absent\"."
-  :type '(alist :key-type symbol :value-type plist)
-  :group 'evil-collection)
+  :type '(alist :key-type symbol :value-type plist))
 
 (defun evil-collection-binding--get (id prop)
   "Resolve PROP for theme entry ID.
@@ -856,8 +840,8 @@ description."
 Like `evil-collection-bind' but uses `evil-local-set-key'."
   (let ((keys (evil-collection-binding-keys id nil command)))
     (when (evil-collection-binding-enabled-p id nil keys command)
-      (let ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
-            (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+      (let ((whitelist (mapcar #'kbd evil-collection-key-whitelist))
+            (blacklist (mapcar #'kbd evil-collection-key-blacklist))
             (states (evil-collection--filter-states
                      (evil-collection-binding-states id nil keys command))))
         (when states
@@ -904,8 +888,8 @@ binding in `annalist' as so."
                         'evil-collection-yank-operators
                       'evil-collection-delete-operators))
          (remap (if (eq operator 'yank) [remap evil-yank] [remap evil-delete]))
-         (whitelist (mapcar 'kbd evil-collection-key-whitelist))
-         (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+         (whitelist (mapcar #'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar #'kbd evil-collection-key-blacklist))
          filtered-bindings)
     (while bindings
       (let* ((key (pop bindings))
@@ -959,8 +943,8 @@ unquoted keymap required for `evil-define-key*'. This function adds the ability
 to filter keys on the basis of `evil-collection-key-whitelist' and
 `evil-collection-key-blacklist'. It also records bindings with annalist.el."
   (declare (indent defun))
-  (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
-         (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+  (let* ((whitelist (mapcar #'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar #'kbd evil-collection-key-blacklist))
          (states-to-bind (evil-collection--filter-states state))
          filtered-bindings)
     (when (or states-to-bind (null state))
@@ -987,8 +971,8 @@ enabled without relying on `evil-normalize-keymaps'.
 Filters keys via `evil-collection-key-whitelist' /
 `evil-collection-key-blacklist' and records bindings with annalist."
   (declare (indent defun))
-  (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
-         (blacklist (mapcar 'kbd evil-collection-key-blacklist))
+  (let* ((whitelist (mapcar #'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar #'kbd evil-collection-key-blacklist))
          (states-to-bind (evil-collection--filter-states state))
          filtered-bindings)
     (when (or states-to-bind (null state))
@@ -1008,8 +992,8 @@ Filters keys via `evil-collection-key-whitelist' /
 
 (defun evil-collection-can-bind-key (key)
   "Return whether or not we should bind KEY."
-  (let* ((whitelist (mapcar 'kbd evil-collection-key-whitelist))
-         (blacklist (mapcar 'kbd evil-collection-key-blacklist)))
+  (let* ((whitelist (mapcar #'kbd evil-collection-key-whitelist))
+         (blacklist (mapcar #'kbd evil-collection-key-blacklist)))
     (evil-collection--can-bind-key key whitelist blacklist)))
 
 (defun evil-collection--define-key (state map-sym bindings)
@@ -1231,7 +1215,7 @@ without creating/referencing a backup keymap."
          (lookup-keymap (if (and (not destructive)
                                  (boundp backup-keymap-symbol))
                             (symbol-value backup-keymap-symbol)
-                          (copy-keymap
+                          (copy-keymap  ;FIXME: Why copy?
                            (if state
                                (evil-get-minor-mode-keymap state mode-symbol)
                              keymap))))
@@ -1489,25 +1473,25 @@ instead of the modes in `evil-collection-mode-list'.
   (eq evil-search-module 'evil-search))
 
 (defvar evil-collection-evil-search-forward
-  '(menu-item "" nil :filter (lambda (&optional _)
+  `(menu-item "" nil :filter ,(lambda (&optional _)
                                (if (eq evil-search-module 'evil-search)
                                    #'evil-ex-search-forward
                                  #'evil-search-forward))))
 
 (defvar evil-collection-evil-search-backward
-  '(menu-item "" nil :filter (lambda (&optional _)
+  `(menu-item "" nil :filter ,(lambda (&optional _)
                                (if (eq evil-search-module 'evil-search)
                                    #'evil-ex-search-backward
                                  #'evil-search-backward))))
 
 (defvar evil-collection-evil-search-next
-  '(menu-item "" nil :filter (lambda (&optional _)
+  `(menu-item "" nil :filter ,(lambda (&optional _)
                                (if (eq evil-search-module 'evil-search)
                                    #'evil-ex-search-next
                                  #'evil-search-next))))
 
 (defvar evil-collection-evil-search-previous
-  '(menu-item "" nil :filter (lambda (&optional _)
+  `(menu-item "" nil :filter ,(lambda (&optional _)
                                (if (eq evil-search-module 'evil-search)
                                    #'evil-ex-search-previous
                                  #'evil-search-previous))))

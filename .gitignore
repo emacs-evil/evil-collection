@@ -2,3 +2,7 @@
 /.eask
 /dist
 *.elc
+
+# ELPA-generated files.
+/evil-collection-autoloads.el
+/evil-collection-pkg.el

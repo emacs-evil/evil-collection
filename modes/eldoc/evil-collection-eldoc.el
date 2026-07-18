@@ -61,7 +61,7 @@
   (when (< emacs-major-version 29)
     ;; Enable a separate minor mode so that we can bind keys to it.
     (advice-add 'eldoc-doc-buffer
-                :after 'evil-collection-eldoc-setup-doc-buffer-mode)))
+                :after #'evil-collection-eldoc-setup-doc-buffer-mode)))
 
 (provide 'evil-collection-eldoc)
 ;;; evil-collection-eldoc.el ends here

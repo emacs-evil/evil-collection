@@ -54,8 +54,7 @@
 
 ;;;###autoload
 (define-globalized-minor-mode global-evil-collection-unimpaired-mode
-  evil-collection-unimpaired-mode evil-collection-unimpaired-mode-on
-  :group 'evil-collection-unimpaired)
+  evil-collection-unimpaired-mode evil-collection-unimpaired-mode-on)
 
 (defun evil-collection-unimpaired-mode-on ()
   "Turn on `evil-collection-unimpaired-mode'."
@@ -82,7 +81,7 @@
 
 (defun evil-collection-unimpaired--flycheck-count-errors ()
   "Count the number of flycheck errors."
-  (length (delete-dups (mapcar 'flycheck-error-line flycheck-current-errors))))
+  (length (delete-dups (mapcar #'flycheck-error-line flycheck-current-errors))))
 
 (evil-define-motion evil-collection-unimpaired-first-error ()
   "Go to the first error."

@@ -43,7 +43,7 @@
 (defun evil-collection-eshell-next-prompt-on-insert ()
   "Go to next prompt on `evil' replace/insert enter."
   (dolist (hook '(evil-replace-state-entry-hook evil-insert-state-entry-hook))
-    (add-hook hook 'evil-collection-eshell-next-prompt nil t)))
+    (add-hook hook #'evil-collection-eshell-next-prompt nil t)))
 
 (defun evil-collection-eshell-interrupt-process ()
   "Interupt `eshell' process and enter insert state."
@@ -155,9 +155,9 @@ appropriate in some cases like terminals."
 ;;;###autoload
 (defun evil-collection-eshell-setup ()
   "Set up `evil' bindings for `eshell'."
-  (add-hook 'eshell-mode-hook 'evil-collection-eshell-escape-stay)
-  (add-hook 'eshell-mode-hook 'evil-collection-eshell-next-prompt-on-insert)
-  (add-hook 'eshell-first-time-mode-hook 'evil-collection-eshell-setup-keys))
+  (add-hook 'eshell-mode-hook #'evil-collection-eshell-escape-stay)
+  (add-hook 'eshell-mode-hook #'evil-collection-eshell-next-prompt-on-insert)
+  (add-hook 'eshell-first-time-mode-hook #'evil-collection-eshell-setup-keys))
 
 (provide 'evil-collection-eshell)
 ;;; evil-collection-eshell.el ends here
