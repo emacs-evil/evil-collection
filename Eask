@@ -19,7 +19,6 @@
 (depends-on "evil")
 
 (development
- (depends-on "f")
  (depends-on "ert-runner")
  (depends-on "package-lint")
  (depends-on "annalist")
