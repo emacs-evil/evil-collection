@@ -59,7 +59,7 @@
     "k" 'diff-hl-show-hunk-inline--popup-up
     (kbd "C-f") 'diff-hl-show-hunk-inline--popup-pagedown
     (kbd "C-b") 'diff-hl-show-hunk-inline--popup-pageup)
-  (evil-collection-bind 'diff-hl-show-hunk-inline-transient-mode-map 'quit #'diff-hl-show-hunk-inline-hide)
+  (evil-collection-bind 'diff-hl-show-hunk-inline-transient-mode-map 'quit 'diff-hl-show-hunk-inline-hide)
 
   ;; Actually `diff-hl-show-hunk-inline-transient-mode-map' will inherit it by
   ;; `set-keymap-parent'.

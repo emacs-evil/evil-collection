@@ -81,7 +81,7 @@
 
 (defun evil-collection-unimpaired--flycheck-count-errors ()
   "Count the number of flycheck errors."
-  (length (delete-dups (mapcar #'flycheck-error-line flycheck-current-errors))))
+  (length (delete-dups (mapcar 'flycheck-error-line flycheck-current-errors))))
 
 (evil-define-motion evil-collection-unimpaired-first-error ()
   "Go to the first error."
