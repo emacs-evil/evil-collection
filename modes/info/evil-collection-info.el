@@ -98,6 +98,8 @@
                         'prev-item 'Info-prev
                         'next-section 'Info-forward-node
                         'prev-section 'Info-backward-node
+                        'next-section-2 'Info-forward-node
+                        'prev-section-2 'Info-backward-node
                         'find-file 'Info-follow-reference
                         'describe-mode 'Info-summary
                         'search-or-filter 'Info-search
