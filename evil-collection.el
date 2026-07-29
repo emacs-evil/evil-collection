@@ -7,7 +7,7 @@
 ;; Maintainer: James Nguyen <james@jojojames.com>
 ;; Pierre Neidhardt <mail@ambrevar.xyz>
 ;; URL: https://github.com/emacs-evil/evil-collection
-;; Version: 3.0.0
+;; Version: 3.0.1
 ;; Package-Requires: ((emacs "29.1") (evil "1.2.13"))
 ;; Keywords: evil, tools
 
