@@ -78,10 +78,10 @@
                           'quit-cancel 'elfeed-search-quit-window))
 
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
-    "+" 'elfeed-search-tag-all
-    "-" 'elfeed-search-untag-all
-    "U" 'elfeed-search-tag-all-unread
-    "u" 'elfeed-search-untag-all-unread)
+    "+" 'elfeed-search-tag
+    "-" 'elfeed-search-untag
+    "U" 'elfeed-search-tag-unread
+    "u" 'elfeed-search-untag-unread)
 
   (evil-collection-set-readonly-bindings 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
