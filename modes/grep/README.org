@@ -2,7 +2,7 @@
 
   Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Grep-Searching.html][grep]].
 
-** Key bindings
+** grep-mode-map key bindings
 
    | Command                    | Original | Evil  |
    |----------------------------+----------+-------|
@@ -10,6 +10,12 @@
    | =next-error-no-select=     | =n=      | =C-j= |
    | =previous-error-no-select= | =p=      | =C-k= |
 
+** grep-edit-mode-map key bindings
+   | Command                  | Original  | Evil       |
+   |--------------------------+-----------+------------|
+   | =grep-edit-save-changes= | =C-c C-c= | =ZZ=, =:w= |
+
 ** Integrations
 
    - wgrep: =i= → =wgrep-change-to-wgrep-mode= when =wgrep= is available.
+   - grep-edit: =i= → =grep-change-to-grep-edit-mode= when =wgrep= is not available and Emacs is newer than 31

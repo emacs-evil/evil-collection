@@ -30,7 +30,24 @@
 (require 'evil-collection)
 (require 'grep)
 
-(defconst evil-collection-grep-maps '(grep-mode-map))
+(defvar grep-edit-mode-map) ;; might be missing if it's older Emacs
+
+(defconst evil-collection-grep-maps '(grep-mode-map
+                                      grep-edit-mode-map))
+
+(defcustom evil-collection-grep-edit-package nil
+  "Which package to use to edit grep buffers.
+
+The default is `nil', which uses `wgrep' when it's available, otherwise
+fallbacks to `grep-edit-mode' which is built-in since Emacs 31.  Other values
+force to use the corresponding packages.
+
+Valid values are `nil', `wgrep', and `builtin'."
+  :type '(choice (const :tag "Auto" nil)
+                 (const :tag "Force to use wgrep" wgrep)
+                 (const :tag "Force to use built-in grep-edit-mode" builtin))
+  :group 'evil-collection)
+
 
 ;;;###autoload
 (defun evil-collection-grep-setup ()
@@ -40,10 +57,22 @@
     "\C-j" 'next-error-no-select
     "\C-k" 'previous-error-no-select)
 
-  ;; `wgrep' integration
-  (when (fboundp 'wgrep-setup)
-    (evil-collection-define-key 'normal 'grep-mode-map
-      "i" 'wgrep-change-to-wgrep-mode)))
+  (let ((edit-pkg
+         (or evil-collection-grep-edit-package
+             (cond
+              ;; prefer `wgrep' integration
+              ((fboundp 'wgrep-setup) 'wgrep)
+              ;; fallback to built-in grep-edit
+              ((>= emacs-major-version 31) 'builtin)))))
+    (cond
+     ((eq edit-pkg 'wgrep)
+      (evil-collection-define-key 'normal 'grep-mode-map
+        "i" 'wgrep-change-to-wgrep-mode))
+     ((eq edit-pkg 'builtin)
+      (evil-collection-define-key 'normal 'grep-mode-map
+        "i" 'grep-change-to-grep-edit-mode)
+      (evil-collection-bind 'grep-edit-mode-map
+                            'quit-save 'grep-edit-save-changes)))))
 
 (provide 'evil-collection-grep)
 ;;; evil-collection-grep.el ends here
