@@ -41,10 +41,14 @@
     "\C-k" 'git-timemachine-show-previous-revision
     "\C-j" 'git-timemachine-show-next-revision
     "gtg"  'git-timemachine-show-nth-revision
+    "gth"  'git-timemachine-show-nearest-revision
     "gtt"  'git-timemachine-show-revision-fuzzy
+    "gti"  'git-timemachine-show-revision-introducing
     "gty"  'git-timemachine-kill-abbreviated-revision
     "gtY"  'git-timemachine-kill-revision
-    "gtb"  'git-timemachine-blame)
+    "gtb"  'git-timemachine-blame
+    "gtc"  'git-timemachine-show-commit
+    "gt?"  'git-timemachine-help)
 
   (evil-collection-bind-minor-mode 'quit 'git-timemachine-mode 'git-timemachine-quit))
 
