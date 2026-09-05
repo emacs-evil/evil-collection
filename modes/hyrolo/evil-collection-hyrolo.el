@@ -1,5 +1,7 @@
 ;;; evil-collection-hyrolo.el --- Bindings for `hyrolo' -*- lexical-binding: t -*-
 
+;; URL: https://github.com/emacs-evil/evil-collection
+
 ;;; Commentary:
 ;;; Bindings for hyrolo.
 

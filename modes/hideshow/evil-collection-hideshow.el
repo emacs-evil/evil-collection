@@ -1,4 +1,4 @@
-;;; evil-collection-hideshow --- Bindings for `hideshow'  -*- lexical-binding: t; -*-
+;;; evil-collection-hideshow.el --- Bindings for `hideshow'  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025 Julian Hoch
 
