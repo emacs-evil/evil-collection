@@ -58,7 +58,8 @@
 
 (defun evil-collection-unimpaired-mode-on ()
   "Turn on `evil-collection-unimpaired-mode'."
-  (evil-collection-unimpaired-mode 1))
+  (evil-collection-unimpaired-mode 1)
+  (evil-normalize-keymaps))
 
 (evil-define-motion evil-collection-unimpaired-next-error (count)
   "Go to next error."
