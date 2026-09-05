@@ -29,6 +29,9 @@
 (require 'evil-collection)
 (require 'agent-shell nil t)
 
+(declare-function text-property-search-backward "text-property-search")
+(declare-function prop-match-beginning "text-property-search")
+
 (defconst evil-collection-agent-shell-maps '(agent-shell-mode-map
                                              agent-shell-viewport-edit-mode-map
                                              agent-shell-viewport-view-mode-map
@@ -55,6 +58,7 @@ commands otherwise."
 Walks the buffer backward from `point-max' looking for text with the
 `agent-shell-permission-button' property -- the navigatable single-char
 marker that `agent-shell--make-permission-button' adds to each button."
+  (require 'text-property-search)
   (save-excursion
     (goto-char (point-max))
     (when-let* ((match (text-property-search-backward
