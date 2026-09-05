@@ -17,14 +17,22 @@ SETUP := --eval "(require 'package)" \
          --eval "(setq network-security-level 'low)" \
          --eval "(setq magit-credential-cache-daemon-socket nil)" \
          --eval "(setq package-user-dir (expand-file-name \".elpa\"))" \
-         --eval "(setq package-archives '((\"gnu\" . \"https://elpa.gnu.org/packages/\") (\"melpa\" . \"https://melpa.org/packages/\")))" \
+         --eval "(setq package-archives '((\"melpa\" . \"https://melpa.org/packages/\")))" \
          --eval "(package-initialize)"
 
 BATCH := $(EMACS) --batch -Q -L . $(SETUP)
 
+# `compat' lives on GNU ELPA only, and Emacs on Windows CI runners
+# often can't complete the TLS handshake against elpa.gnu.org. Install
+# it via `package-vc-install' from the `emacs-straight/compat' mirror
+# (updated daily from GNU ELPA) so we never touch elpa.gnu.org. Guard
+# on `package-alist' rather than `package-installed-p' - Emacs 30 ships
+# a built-in `compat' stub that makes `package-installed-p' return t
+# but doesn't satisfy magit's dependency check.
 install:
 	$(BATCH) \
 	  --eval "(unless package-archive-contents (package-refresh-contents))" \
+	  --eval "(unless (assq 'compat package-alist) (package-vc-install \"https://github.com/emacs-straight/compat\"))" \
 	  $(foreach dep,$(DEPS),--eval "(unless (package-installed-p '$(dep)) (package-install '$(dep)))")
 
 compile: install
