@@ -2,9 +2,15 @@ EMACS ?= emacs
 
 DEPS := evil package-lint annalist magit
 
-ALL_MODE_FILES := $(wildcard modes/*/*.el)
-COMPILE_FILES  := evil-collection.el \
-                  $(filter-out modes/magit/% modes/magit-repos/%,$(ALL_MODE_FILES))
+# Enumerate the package's .el files in elisp so we don't blow past
+# Windows' cmd.exe command-line length limit (~8191 chars) when
+# passing all mode files on the command line.
+FILES_EXPR := (cons \"evil-collection.el\" \
+                    (seq-remove \
+                     (lambda (f) \
+                       (or (string-prefix-p \"modes/magit/\" f) \
+                           (string-prefix-p \"modes/magit-repos/\" f))) \
+                     (directory-files-recursively \"modes\" \"\\\\.el\\\\'\")))
 
 LINT_IGNORES := package-lint--error-at-bol \
                 package-lint--check-eval-after-load \
@@ -41,13 +47,13 @@ compile: install
 	  --eval "(setq evil-want-keybinding nil)" \
 	  --eval "(setq byte-compile-docstring-max-column 200)" \
 	  --eval "(setq byte-compile-error-on-warn t)" \
-	  -f batch-byte-compile $(COMPILE_FILES)
+	  --eval "(let ((command-line-args-left $(FILES_EXPR))) (batch-byte-compile))"
 
 lint: install
 	-$(BATCH) \
 	  --eval "(require 'package-lint)" \
 	  $(foreach fn,$(LINT_IGNORES),--eval "(advice-add '$(fn) :around #'ignore)") \
-	  -f package-lint-batch-and-exit $(COMPILE_FILES)
+	  --eval "(kill-emacs (if (package-lint-batch-and-exit-1 $(FILES_EXPR)) 0 1))"
 
 test: install
 	$(BATCH) -l test/test-helper.el \
