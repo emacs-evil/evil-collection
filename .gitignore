@@ -1,5 +1,4 @@
-/.cask
-/.eask
+/.elpa
 /dist
 *.elc
 

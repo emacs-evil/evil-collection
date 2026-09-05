@@ -40,10 +40,6 @@ jobs:
     - name: Print emacs version
       run: emacs --version
 
-    - uses: emacs-eask/setup-eask@master
-      with:
-        version: snapshot
-
     - run: make install
     - run: make compile
     - run: make lint
