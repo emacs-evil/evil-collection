@@ -29,7 +29,7 @@
     | =term-next-prompt=                      | =C-c C-n= | =]]=, =C-j=, =gj=                              |
     | =term-bol=                              | =C-a=     | =^=                                            |
     | =term-show-maximum-output=              | =M-> =    | =$=                                            |
-    | =term-send-input=                       | =RET=     | =RET= (in =evil-collection-repl-submit-state=) |
+    | =term-send-input=                       | =RET=     | =RET= (in the =repl-submit= state)             |
 
 ** New commands
 

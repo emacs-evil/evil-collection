@@ -32,10 +32,9 @@
     | =geiser-repl-maybe-send=          | =RET=         | =RET= (submit state)                |
     | =geiser-repl--newline-and-indent= | =C-j=         | =S-<return>=, =RET= (newline state) |
 
-    Whether =RET= submits depends on =evil-collection-repl-submit-state=:
-    in =insert= (default) =RET= submits, =S-<return>= inserts a newline;
-    in =normal=, =RET= inserts a newline in insert state and submits in
-    normal state.
+    Whether =RET= submits depends on the =repl-submit= theme binding
+    (=normal= by default): =RET= submits in that state and inserts a newline
+    in the other; =S-<return>= (=repl-force-newline=) always inserts a newline.
 
 *** geiser-doc-mode-map
 

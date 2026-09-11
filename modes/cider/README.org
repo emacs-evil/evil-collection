@@ -31,11 +31,11 @@
    | =cider-doc=                           | =C-c C-d C-d= | =K=                                          |
    | =cider-find-var=                      | =M-.=         | =gd=  ([[#xref][†]])                                    |
    | =cider-pop-back=                      | =M-,=         | =C-t= ([[#xref][†]])                                    |
-   | =cider-repl-return=                   | =RET=         | =RET= in =evil-collection-repl-submit-state= |
+   | =cider-repl-return=                   | =RET=         | =RET= in the =repl-submit= state             |
    | =newline=                             | =C-j=         | =RET= in the opposite state                  |
 
-   See =evil-collection-repl-submit-state= (normal or insert) for which state
-   submits.
+   See the =repl-submit= theme binding (=normal= by default, or =insert=) for
+   which state submits.
 
 ** cider-repl-history-mode-map
 

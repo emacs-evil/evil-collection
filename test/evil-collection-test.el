@@ -305,15 +305,11 @@ funcalled because `(functionp \\='insert)' returns t."
         (evil-collection-binding-overrides nil))
     (should (equal '(insert) (evil-collection-binding-states 'demo)))))
 
-(ert-deftest evil-collection-theme-shipped-repl-submit-tracks-legacy-var ()
-  "Default `repl-submit' state follows `evil-collection-repl-submit-state'."
+(ert-deftest evil-collection-theme-shipped-repl-submit-states ()
+  "Shipped `repl-submit' submits in normal state; `repl-newline' inserts."
   (let ((evil-collection-binding-overrides nil))
-    (let ((evil-collection-repl-submit-state 'normal))
-      (should (equal '(normal) (evil-collection-binding-states 'repl-submit)))
-      (should (equal '(insert) (evil-collection-binding-states 'repl-newline))))
-    (let ((evil-collection-repl-submit-state 'insert))
-      (should (equal '(insert) (evil-collection-binding-states 'repl-submit)))
-      (should (equal '(normal) (evil-collection-binding-states 'repl-newline))))))
+    (should (equal '(normal) (evil-collection-binding-states 'repl-submit)))
+    (should (equal '(insert) (evil-collection-binding-states 'repl-newline)))))
 
 (ert-deftest evil-collection-theme-shipped-repl-key-set ()
   "Both `repl-submit' and `repl-newline' default to the unified key set."
@@ -332,14 +328,10 @@ funcalled because `(functionp \\='insert)' returns t."
     (should (null (evil-collection-binding-enabled-p 'repl-newline)))))
 
 (ert-deftest evil-collection-theme-shipped-repl-force-newline-always-both-states ()
-  "Default `repl-force-newline' is in both states regardless of `repl-submit'.
-The contract inherited from `evil-collection-repl-submit-state' documents
-\"S-RET always inserts a newline regardless of state\"."
+  "Default `repl-force-newline' is bound in both states."
   (let ((evil-collection-binding-overrides nil))
-    (dolist (legacy '(normal insert))
-      (let ((evil-collection-repl-submit-state legacy))
-        (should (equal '(normal insert)
-                       (evil-collection-binding-states 'repl-force-newline)))))))
+    (should (equal '(normal insert)
+                   (evil-collection-binding-states 'repl-force-newline)))))
 
 (ert-deftest evil-collection-theme-repl-force-newline-user-state-wins ()
   "Explicit `repl-force-newline' :state replaces the default."

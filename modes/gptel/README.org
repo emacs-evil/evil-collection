@@ -2,7 +2,7 @@
 
   Evil bindings for [[https://github.com/karthink/gptel][gptel]].
 
-  =RET= submission follows =evil-collection-repl-submit-state=: in the submit
+  =RET= submission follows the =repl-submit= theme binding: in the submit
   state, =RET= sends; in the other state (insert when submit is normal, normal
   when submit is insert), =RET= inserts a newline. =S-RET= behavior is
   controlled by two customs.

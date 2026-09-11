@@ -478,40 +478,15 @@ This is a list of symbols that are suitable for input to
  `evil-define-key'."
   :type '(repeat symbol))
 
-(defcustom evil-collection-repl-submit-state 'normal
-  "Evil state in which RET submits the prompt in REPL-like buffers.
-
-The other state gets RET bound to `newline'.  S-RET always inserts a
-newline regardless of state.
-
-New customization should use
-`evil-collection-binding-overrides' instead:
-
-  `repl-submit', `repl-newline', `repl-force-newline'
-
-  (setq evil-collection-binding-overrides
-        \\='((repl-submit  :state insert)
-          (repl-newline :state normal)))"
-  :type '(choice (const :tag "Submit in normal state" normal)
-                 (const :tag "Submit in insert state" insert)))
-
-(make-obsolete-variable 'evil-collection-repl-submit-state
-                        "use `evil-collection-binding-overrides': `repl-submit', `repl-newline'."
-                        "evil-collection 2.0.0")
-
 (defvar evil-collection-binding-defaults
   `((term-toggle-escape :enabled t
                         :state (normal insert)
                         :key "C-c C-z")
     (repl-submit :enabled t
-                 :state ,(lambda (_map-sym _id _keys _command)
-                           evil-collection-repl-submit-state)
+                 :state normal
                  :key ("RET" "<return>" "C-m"))
     (repl-newline :enabled t
-                  :state ,(lambda (_map-sym _id _keys _command)
-                            (if (eq evil-collection-repl-submit-state 'normal)
-                                'insert
-                              'normal))
+                  :state insert
                   :key ("RET" "<return>" "C-m"))
     (repl-force-newline :enabled t
                         :state (normal insert)

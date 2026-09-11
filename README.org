@@ -213,9 +213,21 @@ and ~command~).
 
 *** Configure the REPL
 
-~:state~ for ~repl-submit~/~repl-newline~ defaults to lambdas that read the
-(now-obsolete) ~evil-collection-repl-submit-state~ — flipping that var is
-equivalent to setting ~:state~ here.
+By default ~RET~ submits the input in ~normal~ state (~repl-submit~) and
+inserts a newline in ~insert~ state (~repl-newline~); ~S-RET~
+(~repl-force-newline~) always inserts a newline.  The states are plain
+theme values, so they can be overridden directly.
+
+To reverse the behavior — have ~RET~ submit while in ~insert~ state and
+insert a newline in ~normal~ state — swap the two ~:state~ values:
+
+#+begin_src emacs-lisp :tangle yes
+(setq evil-collection-binding-overrides
+      '((repl-submit  :state insert)
+        (repl-newline :state normal)))
+#+end_src
+
+The shipped defaults, in full:
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides

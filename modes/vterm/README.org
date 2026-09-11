@@ -21,7 +21,8 @@
    | =vterm-undo=                            | n/a       | =u=  |
    | =vterm-reset-cursor-point=              | =C-c C-r= | =G=  |
 
-   =RET= sends to the terminal in the state named by =evil-collection-repl-submit-state=.
+   =RET= sends to the terminal in the =repl-submit= state (=normal= by
+   default).
 
 ** Insert state
 

@@ -21,13 +21,13 @@
 
 *** eat-line-mode-map
 
-    =RET=, =C-m= and =[return]= send input to the terminal in the state
-    named by =evil-collection-repl-submit-state=, and insert a newline in
+    =RET=, =C-m= and =[return]= send input to the terminal in the
+    =repl-submit= state (=normal= by default), and insert a newline in
     the opposite state.
 
     | Command               | Original | State                               |
     |-----------------------+----------+-------------------------------------|
-    | =eat-line-send-input= | =RET=    | =evil-collection-repl-submit-state= |
+    | =eat-line-send-input= | =RET=    | =repl-submit= state                 |
     | =newline=             | n/a      | opposite of submit state            |
 
 ** New commands

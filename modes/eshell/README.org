@@ -17,8 +17,8 @@
    | =eshell-bol= (Emacs < 30)                         | =C-a=     | =0=, =^=          |
    | =eshell-kill-input= (when =evil-want-C-u-delete=) | =C-c C-u= | =C-u= (insert)    |
 
-   =RET= sends input in the state named by =evil-collection-repl-submit-state=,
-   and inserts a newline in the complementary state.
+   =RET= sends input in the =repl-submit= state (=normal= by default), and
+   inserts a newline in the complementary =repl-newline= state (=insert=).
 
 ** New commands
 

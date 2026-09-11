@@ -2,8 +2,8 @@
 
   Evil bindings for [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Interaction.html][IELM]] (Inferior Emacs Lisp Mode).
 
-  Initial state is =insert=. =RET= sends input in the state named by
-  =evil-collection-repl-submit-state=.
+  Initial state is =insert=. =RET= sends input in the =repl-submit= state
+  (=normal= by default).
 
 ** Key bindings
 
