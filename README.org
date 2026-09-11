@@ -202,11 +202,13 @@ To disable a key theme.
       '((term-toggle-escape :enabled nil)))
 #+end_src
 
-~:enabled~ can also take a predicate.
+~:enabled~ can also take a predicate (called with ~map-sym~, ~id~, ~keys~,
+and ~command~).
 
 #+begin_src emacs-lisp :tangle yes
 (setq evil-collection-binding-overrides
-      `((find-usages :enabled ,(lambda () evil-collection-want-find-usages-bindings))))
+      `((find-usages :enabled ,(lambda (_map-sym _id _keys _command)
+                                 (not (eq map-sym 'dired-mode-map))))))
 #+end_src
 
 *** Configure the REPL
@@ -694,7 +696,7 @@ Also note that Emacs inconsistently uses ~u~ and ~U~ to unmark.
   If there's a corresponding 'pop' action, use ~C-t~.
 
 *** Go to references, etc (~gr~, ~gA~)
-When ~evil-collection-want-find-usages-bindings~ is set to t:
+When the ~find-usages~ theme binding is enabled (the default):
 
 - ~gr~: [g] to [r]eferences. This binding is also used for refresh/reverting
   modes in non programming modes but is usually empty for programming modes.

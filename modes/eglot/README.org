@@ -13,7 +13,8 @@
    | =eldoc-doc-buffer=                   | n/a       | =K=   |
    | =xref-find-references=               | =M-?=     | =gr=  |
 
-   =gr= is only bound when =evil-collection-want-find-usages-bindings= is non-nil.
+   =gr= is only bound when the =find-usages= theme binding is enabled (the
+   default); disable it via =evil-collection-binding-overrides=.
 
    =eglot-managed-mode-hook= adds =evil-normalize-keymaps= so the bindings
    activate as soon as eglot manages a buffer.

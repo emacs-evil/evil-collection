@@ -129,22 +129,6 @@ This variable is obsolete; new customization should use
   "Whether to enable unimpaired style bindings globally."
   :type 'boolean)
 
-(defcustom evil-collection-want-find-usages-bindings t
-  "Whether to bind `xref-find-references'-like bindings.
-
-This will bind additional find-* type commands, e.g. usages, assignments, etc..
-
-This variable is obsolete; New customization
-should use `evil-collection-binding-overrides' instead:
-
-  (setq evil-collection-binding-overrides
-        \\='((find-usages :enabled nil)))"
-  :type 'boolean)
-
-(make-obsolete-variable 'evil-collection-want-find-usages-bindings
-                        "use `evil-collection-binding-overrides': `find-usages'."
-                        "evil-collection 2.0.0")
-
 (defcustom evil-collection-want-g-bindings t
   "Whether to bind g* bindings."
   :type 'boolean)
@@ -532,10 +516,7 @@ New customization should use
     (repl-force-newline :enabled t
                         :state (normal insert)
                         :key ("S-<return>" "S-RET"))
-    (find-usages :enabled ,(lambda (_map-sym _id _keys _command)
-                             evil-collection-want-find-usages-bindings)
-                 :state normal
-                 :key "gr")
+    (find-usages :enabled t :state normal :key "gr")
     (find-definition :enabled t :state normal :key "gd")
     (pop-definition :enabled t :state normal :key "C-t")
     (lookup-doc :enabled t :state normal :key "K")
