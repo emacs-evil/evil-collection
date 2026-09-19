@@ -81,7 +81,8 @@
     "+" 'elfeed-search-tag
     "-" 'elfeed-search-untag
     "U" 'elfeed-search-tag-unread
-    "u" 'elfeed-search-untag-unread)
+    "u" 'elfeed-search-untag-unread
+    "o" 'elfeed-search-cycle-order)
 
   (evil-collection-set-readonly-bindings 'elfeed-show-mode-map)
   (evil-set-initial-state 'elfeed-show-mode 'normal)
