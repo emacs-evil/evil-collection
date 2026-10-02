@@ -45,7 +45,7 @@
     | =agent-shell-fork=               | =gF= |
     | =agent-shell-copy-session-id=    | =gy= |
     | =agent-shell-prompt-compose=     | =gc= |
-    | =agent-shell-queue-request=      | =gq= |
+    | =agent-shell-prompt-queue=       | =gq= |
     | =agent-shell-open-transcript=    | =gt= |
 
 ** agent-shell-viewport-edit-mode-map
