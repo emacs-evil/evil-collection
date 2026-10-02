@@ -167,7 +167,7 @@ KEY is a string passed to `kbd'."
       "gF" 'agent-shell-fork
       "gy" 'agent-shell-copy-session-id
       "gc" 'agent-shell-prompt-compose
-      "gq" 'agent-shell-queue-request
+      "gq" 'agent-shell-prompt-queue
       "gt" 'agent-shell-open-transcript))
 
   (evil-collection-define-key 'normal 'agent-shell-viewport-edit-mode-map
