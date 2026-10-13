@@ -42,11 +42,13 @@
           "g*" tablist-mode-mark-map
           "g/" tablist-mode-filter-map
           "m"  'tablist-mark-forward
-          "S"  'tablist-sort
           "u"  'tablist-unmark-forward)))
 
+    ;; "S" is only bound in the major mode: `tablist-minor-mode-map' takes
+    ;; precedence over the major mode map of the buffers enabling it.
     (apply #'evil-collection-define-key 'normal 'tablist-mode-map
            "f" 'tablist-find-entry
+           "S" 'tablist-sort
            "X" 'tablist-do-delete
            common-bindings)
     (evil-collection-bind 'tablist-mode-map
