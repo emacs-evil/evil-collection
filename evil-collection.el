@@ -310,6 +310,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     magit-section
     magit-todos
     markdown-mode
+    markdown-ts-appear
     message
     minesweeper
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
