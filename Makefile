@@ -5,12 +5,15 @@ DEPS := evil package-lint annalist magit
 # Enumerate the package's .el files in elisp so we don't blow past
 # Windows' cmd.exe command-line length limit (~8191 chars) when
 # passing all mode files on the command line.
+# `directory-files-recursively' returns absolute file names since
+# Emacs 32, make them relative so the magit filter keeps matching.
 FILES_EXPR := (cons \"evil-collection.el\" \
                     (seq-remove \
                      (lambda (f) \
                        (or (string-prefix-p \"modes/magit/\" f) \
                            (string-prefix-p \"modes/magit-repos/\" f))) \
-                     (directory-files-recursively \"modes\" \"\\\\.el\\\\'\")))
+                     (mapcar 'file-relative-name \
+                             (directory-files-recursively \"modes\" \"\\\\.el\\\\'\"))))
 
 LINT_IGNORES := package-lint--error-at-bol \
                 package-lint--check-eval-after-load \
