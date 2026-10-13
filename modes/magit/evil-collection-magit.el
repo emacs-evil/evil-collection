@@ -221,6 +221,7 @@ evil-collection-magit was loaded."
     magit-hunk-section-map
     magit-module-commit-section-map
     magit-remote-section-map
+    magit-shelved-branch-section-map
     magit-staged-section-map
     magit-stash-section-map
     magit-stashes-section-map
