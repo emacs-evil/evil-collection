@@ -32,6 +32,56 @@
                                         docker-network-mode-map
                                         docker-volume-mode-map))
 
+(declare-function transient-suffix-put "transient")
+
+(defun evil-collection-docker--theme-key (id map-sym command)
+  "Return the first key of theme entry ID for COMMAND in MAP-SYM.
+Return nil when the theme entry is disabled."
+  (let ((keys (evil-collection-binding-keys id map-sym command)))
+    (when (evil-collection-binding-enabled-p id map-sym keys command)
+      (car keys))))
+
+(defun evil-collection-docker--set-transient-key (prefix loc key)
+  "Set the key of the suffix at LOC in the transient PREFIX to KEY.
+Do nothing when KEY is nil or when there is no suffix at LOC."
+  (when key
+    (ignore-errors
+      (transient-suffix-put prefix loc :key key))))
+
+(defun evil-collection-docker--adjust-transients ()
+  "Make the `docker' transients use the keys of the `docker' buffers.
+The suffix running the action of a transient gets the key that opens
+this transient, so that pressing the key twice runs the action."
+  (pcase-dolist (`(,map-sym ,help ,rm)
+                 '((docker-container-mode-map
+                    docker-container-help docker-container-rm)
+                   (docker-context-mode-map
+                    docker-context-help docker-context-rm)
+                   (docker-image-mode-map
+                    docker-image-help docker-image-rm)
+                   (docker-network-mode-map
+                    docker-network-help docker-network-rm)
+                   (docker-volume-mode-map
+                    docker-volume-help docker-volume-rm)))
+    (let ((key (evil-collection-docker--theme-key 'delete map-sym rm)))
+      (evil-collection-docker--set-transient-key rm "D" key)
+      (evil-collection-docker--set-transient-key help rm key)))
+  (let ((key (evil-collection-docker--theme-key
+              'delete-2 'docker-container-mode-map 'docker-container-kill)))
+    (evil-collection-docker--set-transient-key 'docker-container-kill "K" key)
+    (evil-collection-docker--set-transient-key
+     'docker-container-help 'docker-container-kill key))
+  (evil-collection-docker--set-transient-key 'docker-container-diff "d" "D")
+  (evil-collection-docker--set-transient-key 'docker-container-restart "R" "r")
+  (pcase-dolist (`(,help ,command ,key)
+                 '((docker-container-help docker-container-diff "D")
+                   (docker-container-help docker-container-restart "r")
+                   (docker-container-help docker-container-rename-selection "R")
+                   (docker-image-help docker-image-mark-dangling "D")
+                   (docker-network-help docker-network-mark-dangling "D")
+                   (docker-volume-help docker-volume-mark-dangling "D")))
+    (evil-collection-docker--set-transient-key help command key)))
+
 (defun evil-collection-docker-setup ()
   "Set up `evil' bindings for `docker'."
   (evil-collection-bind 'docker-container-mode-map 'rename 'docker-container-rename-selection)
@@ -83,7 +133,9 @@
     "D"  'docker-volume-mark-dangling
     "I"  'docker-volume-inspect
     "f"  'docker-volume-dired-selection)
-  (evil-collection-bind 'docker-volume-mode-map 'delete 'docker-volume-rm))
+  (evil-collection-bind 'docker-volume-mode-map 'delete 'docker-volume-rm)
+
+  (evil-collection-docker--adjust-transients))
 
 (provide 'evil-collection-docker)
 
