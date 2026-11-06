@@ -124,9 +124,30 @@ KEY is a string passed to `kbd'."
                  (when (evil-collection-agent-shell--pending-permission-p)
                    'evil-collection-agent-shell-permission-view-diff))))
 
+(defun evil-collection-agent-shell--submit-or-act ()
+  "Invoke the Return action at point, otherwise call `agent-shell-submit'.
+Agent-shell's links and custom buttons store their actions in text-property
+keymaps rather than standard Emacs buttons.  Prefer RET, then <return>,
+and exclude this helper and its DWIM wrapper to prevent recursion."
+  (interactive)
+  (let* ((map (get-char-property (point) 'keymap))
+         (action
+          (when (keymapp map)
+            (cl-find-if
+             (lambda (command)
+               (and (commandp command)
+                    (not (memq command
+                               '(evil-collection-agent-shell--submit-or-act
+                                 evil-collection-agent-shell-submit)))))
+             (list (lookup-key map (kbd "RET"))
+                   (lookup-key map (kbd "<return>")))))))
+    (call-interactively (or action #'agent-shell-submit))))
+
 ;;;###autoload
 (defun evil-collection-agent-shell-setup ()
   "Set up `evil' bindings for `agent-shell'."
+  (evil-collection-define-dwim-action evil-collection-agent-shell-submit
+    evil-collection-agent-shell--submit-or-act)
   ;; `agent-shell-mode-map' binds \"n\" and \"p\" at the map level, which causes
   ;; them to intercept keystrokes even in insert state.  Remove those bindings
   ;; entirely.
@@ -151,6 +172,7 @@ KEY is a string passed to `kbd'."
   (evil-collection-define-key 'normal 'agent-shell-mode-map
     (kbd "C-<tab>") 'agent-shell-cycle-session-mode)
   (evil-collection-bind 'agent-shell-mode-map
+                        'repl-submit #'evil-collection-agent-shell-submit
                         'cycle-next 'agent-shell-next-item
                         'cycle-previous 'agent-shell-previous-item)
 
