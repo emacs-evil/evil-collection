@@ -234,6 +234,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     emcp
     emms
     ,@(when (>= emacs-major-version 29) '(emoji))
+    emureader
     epa
     ert
     eshell
@@ -330,7 +331,6 @@ Used as a fallback when no explicit delay is specified for a mode in
     quickrun
     racer
     racket-describe
-    reader
     realgud
     reftex
     replace ;; For `occur'.
