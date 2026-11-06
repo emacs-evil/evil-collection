@@ -141,7 +141,7 @@ and exclude this helper and its DWIM wrapper to prevent recursion."
                                  evil-collection-agent-shell-submit)))))
              (list (lookup-key map (kbd "RET"))
                    (lookup-key map (kbd "<return>")))))))
-    (call-interactively (or action #'agent-shell-submit))))
+    (call-interactively (or action 'agent-shell-submit))))
 
 ;;;###autoload
 (defun evil-collection-agent-shell-setup ()
@@ -172,7 +172,7 @@ and exclude this helper and its DWIM wrapper to prevent recursion."
   (evil-collection-define-key 'normal 'agent-shell-mode-map
     (kbd "C-<tab>") 'agent-shell-cycle-session-mode)
   (evil-collection-bind 'agent-shell-mode-map
-                        'repl-submit #'evil-collection-agent-shell-submit
+                        'repl-submit 'evil-collection-agent-shell-submit
                         'cycle-next 'agent-shell-next-item
                         'cycle-previous 'agent-shell-previous-item)
 
