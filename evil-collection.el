@@ -299,6 +299,7 @@ Used as a fallback when no explicit delay is specified for a mode in
     message
     minesweeper
     ,@(when evil-collection-setup-minibuffer '(minibuffer))
+    minimail
     monky
     mpc
     mpdel
